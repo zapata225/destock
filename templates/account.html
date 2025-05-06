@@ -2,31 +2,43 @@
 
 {% block extra_css %}
 <style>
-    /* Variables modernes */
+    /* Variables modernes améliorées */
     :root {
-        --primary: #2a5bd7;
+        --primary: #4361ee;
         --primary-light: #e0e8ff;
-        --primary-dark: #1e4aba;
+        --primary-dark: #3a56e0;
+        --primary-gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
         --text-dark: #1e293b;
         --text-medium: #475569;
         --text-light: #64748b;
         --bg-light: #f8fafc;
+        --bg-lighter: #f1f5f9;
         --border: #e2e8f0;
+        --border-light: #f1f5f9;
         --success: #10b981;
         --warning: #f59e0b;
         --danger: #ef4444;
         --radius-lg: 16px;
         --radius-md: 12px;
         --radius-sm: 8px;
-        --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-        --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Structure moderne */
+    /* Base améliorée */
+    body {
+        background-color: var(--bg-lighter);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.5;
+        color: var(--text-medium);
+    }
+
+    /* Structure moderne améliorée */
     .account-container {
         display: grid;
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 280px 1fr;
         gap: 2rem;
         margin: 2rem auto;
         max-width: 1400px;
@@ -36,36 +48,43 @@
     @media (max-width: 1024px) {
         .account-container {
             grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
     }
 
-    /* Sidebar moderne */
+    /* Sidebar moderne amélioré */
     .account-sidebar {
         background: white;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
-        padding: 1.5rem;
+        padding: 1.25rem;
         height: fit-content;
         position: sticky;
-        top: 120px;
-        border: 1px solid var(--border);
+        top: 100px;
+        border: 1px solid var(--border-light);
     }
 
     .user-profile {
         text-align: center;
         padding: 1.5rem 0;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-light);
+        margin-bottom: 1rem;
     }
 
     .user-avatar {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         border-radius: 50%;
         object-fit: cover;
         margin: 0 auto 1rem;
         border: 4px solid var(--primary-light);
         box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+    }
+
+    .user-avatar:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
     }
 
     .user-name {
@@ -78,6 +97,10 @@
     .user-email {
         color: var(--text-light);
         font-size: 0.875rem;
+        display: inline-block;
+        background: var(--bg-light);
+        padding: 0.25rem 0.5rem;
+        border-radius: 50px;
     }
 
     .nav-menu {
@@ -87,7 +110,7 @@
     }
 
     .nav-item {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
     }
 
     .nav-link {
@@ -96,16 +119,27 @@
         padding: 0.75rem 1rem;
         border-radius: var(--radius-md);
         color: var(--text-medium);
-        transition: all 0.2s ease;
+        transition: var(--transition);
         font-weight: 500;
         text-decoration: none;
         gap: 0.75rem;
+        position: relative;
     }
 
-    .nav-link:hover, 
-    .nav-link.active {
+    .nav-link:hover {
         background: var(--primary-light);
         color: var(--primary);
+        transform: translateX(3px);
+    }
+
+    .nav-link.active {
+        background: var(--primary-gradient);
+        color: white;
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-link.active:hover {
+        transform: none;
     }
 
     .nav-link i {
@@ -114,13 +148,20 @@
         text-align: center;
     }
 
-    /* Contenu principal */
+    /* Contenu principal amélioré */
     .account-content {
         background: white;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
-        padding: 2rem;
-        border: 1px solid var(--border);
+        padding: 2.5rem;
+        border: 1px solid var(--border-light);
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .account-content {
+            padding: 1.5rem;
+        }
     }
 
     .account-header {
@@ -129,7 +170,7 @@
         align-items: center;
         margin-bottom: 2rem;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border-light);
     }
 
     .account-title {
@@ -139,25 +180,38 @@
         margin: 0;
     }
 
-    /* Cartes de statistiques */
+    /* Cartes de statistiques améliorées */
     .account-stats {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 1.5rem;
         margin-bottom: 2.5rem;
     }
 
     .stat-card {
-        background: var(--bg-light);
+        background: white;
         border-radius: var(--radius-md);
         padding: 1.5rem;
-        transition: all 0.3s ease;
-        border: 1px solid var(--border);
+        transition: var(--transition);
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
     }
 
     .stat-card:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-md);
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--primary-gradient);
     }
 
     .stat-title {
@@ -173,7 +227,7 @@
         color: var(--text-dark);
     }
 
-    /* Sections */
+    /* Sections améliorées */
     .account-section {
         margin-bottom: 3rem;
     }
@@ -184,16 +238,33 @@
         margin-bottom: 1.5rem;
         color: var(--text-dark);
         padding-bottom: 0.75rem;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border-light);
+        position: relative;
     }
 
-    /* Cartes d'information */
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: var(--primary);
+    }
+
+    /* Cartes d'information améliorées */
     .info-card {
-        background: var(--bg-light);
+        background: white;
         border-radius: var(--radius-md);
         padding: 1.5rem;
         margin-bottom: 1.5rem;
-        border: 1px solid var(--border);
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+    }
+
+    .info-card:hover {
+        box-shadow: var(--shadow-md);
     }
 
     .info-title {
@@ -216,9 +287,10 @@
 
     .info-content strong {
         color: var(--text-dark);
+        font-weight: 600;
     }
 
-    /* Boutons */
+    /* Boutons améliorés */
     .edit-btn {
         background: none;
         border: none;
@@ -231,18 +303,19 @@
         font-weight: 500;
         padding: 0.5rem 0.75rem;
         border-radius: var(--radius-sm);
-        transition: all 0.2s ease;
+        transition: var(--transition);
     }
 
     .edit-btn:hover {
         background: var(--primary-light);
+        transform: translateY(-1px);
     }
 
     .edit-btn i {
         font-size: 0.75rem;
     }
 
-    /* Formulaires */
+    /* Formulaires améliorés */
     .form-group {
         margin-bottom: 1.5rem;
     }
@@ -260,26 +333,28 @@
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
         font-size: 1rem;
-        transition: all 0.2s ease;
+        transition: var(--transition);
         background: white;
+        box-shadow: var(--shadow-sm);
     }
 
     .form-control:focus {
         border-color: var(--primary);
         outline: none;
-        box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.1);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
     }
 
     .btn-save {
-        background: var(--primary);
+        background: var(--primary-gradient);
         color: white;
         border: none;
         padding: 0.875rem 1.75rem;
         border-radius: var(--radius-md);
         font-weight: 500;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: var(--transition);
         font-size: 1rem;
+        box-shadow: var(--shadow-sm);
     }
 
     .btn-save:hover {
@@ -288,10 +363,11 @@
         box-shadow: var(--shadow-md);
     }
 
-    /* Tableau des commandes */
+    /* Tableau des commandes amélioré */
     .orders-table {
         width: 100%;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
         font-size: 0.9375rem;
     }
 
@@ -302,12 +378,19 @@
         color: var(--text-medium);
         font-weight: 600;
         border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
     }
 
     .orders-table td {
         padding: 1rem;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border-light);
         vertical-align: middle;
+        background: white;
+    }
+
+    .orders-table tr:hover td {
+        background: var(--bg-light);
     }
 
     .order-status {
@@ -336,7 +419,7 @@
         border: 1px solid #fca5a5;
     }
 
-    /* Moyens de paiement */
+    /* Moyens de paiement améliorés */
     .payment-methods {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -345,16 +428,18 @@
 
     .payment-card {
         background: white;
-        border: 1px solid var(--border);
+        border: 1px solid var(--border-light);
         border-radius: var(--radius-md);
         padding: 1.5rem;
-        transition: all 0.3s ease;
+        transition: var(--transition);
         position: relative;
+        box-shadow: var(--shadow-sm);
     }
 
     .payment-card:hover {
         border-color: var(--primary);
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
     }
 
     .card-header {
@@ -408,31 +493,32 @@
         border-radius: var(--radius-sm);
         font-size: 0.75rem;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: var(--transition);
         font-weight: 500;
+        border: 1px solid transparent;
     }
 
     .card-btn-default {
-        background: rgba(42, 91, 215, 0.1);
+        background: rgba(67, 97, 238, 0.1);
         color: var(--primary);
-        border: none;
+        border-color: rgba(67, 97, 238, 0.2);
     }
 
     .card-btn-default:hover {
-        background: rgba(42, 91, 215, 0.2);
+        background: rgba(67, 97, 238, 0.2);
     }
 
     .card-btn-delete {
         background: rgba(239, 68, 68, 0.1);
         color: var(--danger);
-        border: none;
+        border-color: rgba(239, 68, 68, 0.2);
     }
 
     .card-btn-delete:hover {
         background: rgba(239, 68, 68, 0.2);
     }
 
-    /* Bouton ajouter */
+    /* Bouton ajouter amélioré */
     .add-payment-btn {
         display: flex;
         align-items: center;
@@ -446,33 +532,34 @@
         color: var(--text-light);
         font-weight: 500;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: var(--transition);
     }
 
     .add-payment-btn:hover {
         border-color: var(--primary);
         color: var(--primary);
-        background: var(--primary-light);
+        background: rgba(67, 97, 238, 0.05);
+        transform: translateY(-2px);
     }
 
     .add-payment-btn i {
         font-size: 1.2rem;
     }
 
-    /* Animations */
+    /* Animations améliorées */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
     .fade-in {
-        animation: fadeIn 0.3s ease-out;
+        animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Responsive */
+    /* Responsive amélioré */
     @media (max-width: 768px) {
         .account-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
         }
 
         .account-stats {
@@ -482,44 +569,106 @@
         .orders-table {
             display: block;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .payment-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
         }
     }
 
-    /* État vide */
+    /* État vide amélioré */
     .empty-state {
         text-align: center;
         padding: 3rem 1rem;
         color: var(--text-light);
+        background: white;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-sm);
     }
 
     .empty-state i {
         font-size: 3rem;
         color: var(--border);
         margin-bottom: 1rem;
+        opacity: 0.7;
     }
 
     .empty-state p {
         margin-bottom: 1.5rem;
+        font-size: 1.1rem;
     }
 
-    /* Bouton primaire */
+    /* Bouton primaire amélioré */
     .btn-primary {
-        background: var(--primary);
+        background: var(--primary-gradient);
         color: white;
         border: none;
         padding: 0.75rem 1.5rem;
         border-radius: var(--radius-md);
         font-weight: 500;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: var(--transition);
         text-decoration: none;
         display: inline-block;
+        box-shadow: var(--shadow-sm);
     }
 
     .btn-primary:hover {
         background: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: var(--shadow-md);
+    }
+
+    /* Améliorations spécifiques pour mobile */
+    @media (max-width: 576px) {
+        .account-container {
+            padding: 0 1rem;
+        }
+
+        .account-sidebar {
+            position: static;
+            top: auto;
+        }
+
+        .account-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .card-actions {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .card-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-save, .btn-primary {
+            width: 100%;
+            padding: 1rem;
+        }
+    }
+
+    /* Correction spécifique pour les formulaires empilés */
+    @media (max-width: 768px) {
+        #address-form, #profile-form, #payment-form, #password-form {
+            display: block !important;
+            margin-top: 1.5rem;
+        }
+        
+        .edit-btn, #add-payment-btn, #change-password-btn {
+            display: none !important;
+        }
     }
 </style>
 {% endblock %}
@@ -596,7 +745,7 @@
                 </div>
             </div>
 
-            <!-- Edit Profile Form (Hidden by default) -->
+            <!-- Edit Profile Form -->
             <form id="profile-form" class="fade-in" style="display: none;" action="{{ url_for('save_profile') }}" method="POST">
                 <div class="form-group">
                     <label for="full_name">Nom complet</label>
@@ -680,7 +829,7 @@
                 </div>
             </div>
 
-            <!-- Edit Address Form (Hidden by default) -->
+            <!-- Edit Address Form -->
             <form id="address-form" class="fade-in" style="display: none;" action="{{ url_for('manage_address') }}" method="POST">
                 <input type="hidden" name="action" value="update">
                 <div class="form-group">
@@ -732,7 +881,7 @@
                 </button>
             </div>
 
-            <!-- Add Payment Form (Hidden by default) -->
+            <!-- Add Payment Form -->
             <form id="payment-form" class="fade-in" style="display: none;" action="{{ url_for('add_card') }}" method="POST">
                 <div class="form-group">
                     <label for="card_name">Nom sur la carte</label>
@@ -779,7 +928,7 @@
                 </div>
             </div>
 
-            <!-- Change Password Form (Hidden by default) -->
+            <!-- Change Password Form -->
             <form id="password-form" class="fade-in" style="display: none;" action="{{ url_for('change_password') }}" method="POST">
                 <div class="form-group">
                     <label for="current_password">Mot de passe actuel</label>
@@ -802,7 +951,7 @@
 
 {% block extra_js %}
 <script>
-    // Gestion des onglets
+    // Gestion des onglets améliorée
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -821,25 +970,34 @@
             document.getElementById(`${tab}-section`).style.display = 'block';
             
             // Faire défiler vers le haut de la section
-            document.getElementById(`${tab}-section`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.getElementById(`${tab}-section`).scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         });
     });
 
-    // Gestion du formulaire de profil
+    // Gestion du formulaire de profil améliorée
     const editProfileBtn = document.getElementById('edit-profile-btn');
     const profileForm = document.getElementById('profile-form');
     
     editProfileBtn?.addEventListener('click', function() {
         profileForm.style.display = profileForm.style.display === 'none' ? 'block' : 'none';
+        if (profileForm.style.display === 'block') {
+            profileForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 
-    // Gestion du formulaire d'adresse
+    // Gestion du formulaire d'adresse améliorée
     const editAddressBtn = document.getElementById('edit-address-btn');
     const addressForm = document.getElementById('address-form');
     const deleteAddressBtn = document.getElementById('delete-address-btn');
     
     editAddressBtn?.addEventListener('click', function() {
         addressForm.style.display = addressForm.style.display === 'none' ? 'block' : 'none';
+        if (addressForm.style.display === 'block') {
+            addressForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 
     if (deleteAddressBtn) {
@@ -860,7 +1018,7 @@
         });
     }
 
-    // Gestion des moyens de paiement
+    // Gestion des moyens de paiement améliorée
     const addPaymentBtn = document.getElementById('add-payment-btn');
     const paymentForm = document.getElementById('payment-form');
     
@@ -871,22 +1029,25 @@
         }
     });
 
-    // Gestion du changement de mot de passe
+    // Gestion du changement de mot de passe améliorée
     const changePasswordBtn = document.getElementById('change-password-btn');
     const passwordForm = document.getElementById('password-form');
     
     changePasswordBtn?.addEventListener('click', function() {
         passwordForm.style.display = passwordForm.style.display === 'none' ? 'block' : 'none';
+        if (passwordForm.style.display === 'block') {
+            passwordForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 
-    // Formatage du numéro de carte
+    // Formatage du numéro de carte amélioré
     document.getElementById('card_number')?.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         let formatted = value.replace(/(\d{4})/g, '$1 ').trim();
         e.target.value = formatted;
     });
 
-    // Formatage de la date d'expiration
+    // Formatage de la date d'expiration amélioré
     document.getElementById('card_expiry')?.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         if (value.length > 2) {
@@ -895,7 +1056,7 @@
         e.target.value = value;
     });
 
-    // Gestion des cartes de crédit
+    // Gestion des cartes de crédit améliorée
     document.querySelectorAll('.card-btn-default').forEach(btn => {
         btn.addEventListener('click', function() {
             const cardId = this.getAttribute('data-card-id');
@@ -932,7 +1093,7 @@
         });
     });
 
-    // Validation des formulaires
+    // Validation des formulaires améliorée
     document.querySelectorAll('form').forEach(form => {
         form.addEventListener('submit', function(e) {
             // Validation du formulaire de mot de passe
@@ -945,6 +1106,12 @@
                     alert('Les mots de passe ne correspondent pas');
                     return;
                 }
+                
+                if (newPassword.length < 8) {
+                    e.preventDefault();
+                    alert('Le mot de passe doit contenir au moins 8 caractères');
+                    return;
+                }
             }
             
             // Validation du formulaire de carte
@@ -955,11 +1122,38 @@
                     alert('Veuillez entrer un numéro de carte valide (16 chiffres)');
                     return;
                 }
+                
+                const expiry = document.getElementById('card_expiry').value;
+                if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+                    e.preventDefault();
+                    alert('Veuillez entrer une date d\'expiration valide (MM/AA)');
+                    return;
+                }
+                
+                const cvv = document.getElementById('card_cvv').value;
+                if (cvv.length < 3) {
+                    e.preventDefault();
+                    alert('Veuillez entrer un CVV valide (3 ou 4 chiffres)');
+                    return;
+                }
             }
         });
     });
 
     // Afficher la première section par défaut
     document.querySelector('.nav-link.active')?.click();
+
+    // Correction mobile pour les formulaires empilés
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.account-section').forEach(section => {
+            section.style.display = 'block';
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        document.querySelector('.nav-link[data-tab="profile"]').classList.add('active');
+    }
 </script>
 {% endblock %}
