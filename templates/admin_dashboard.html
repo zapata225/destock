@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .admin-container {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 20px;
+    }
+    
+    .admin-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2a5bd7;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        color: #64748b;
+        font-size: 0.9rem;
+    }
+    
+    .recent-orders {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .order-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .order-table th, .order-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .order-table th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .status-processing {
+        background: #fffbeb;
+        color: #b45309;
+    }
+    
+    .status-shipped {
+        background: #ecfdf5;
+        color: #065f46;
+    }
+    
+    .status-delivered {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+    
+    .admin-section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .view-all {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #2a5bd7;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .view-all:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <h1 class="admin-section-title">
+        <i class="fas fa-tachometer-alt"></i> Tableau de bord
+    </h1>
+    
+    <div class="admin-stats">
+        <div class="stat-card">
+            <div class="stat-value">{{ orders|length }}</div>
+            <div class="stat-label">Commandes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ users|length }}</div>
+            <div class="stat-label">Clients</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ products|length }}</div>
+            <div class="stat-label">Produits</div>
+        </div>
+    </div>
+    
+    <div class="recent-orders">
+        <h2 class="admin-section-title">
+            <i class="fas fa-shopping-bag"></i> Dernières commandes
+        </h2>
+        
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>N° Commande</th>
+                    <th>Client</th>
+                    <th>Date</th>
+                    <th>Montant</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders[:5] %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.user }}</td>
+                    <td>{{ order.date }}</td>
+                    <td>{{ order.payment.total }}€</td>
+                    <td>
+                        <span class="status-badge status-{{ order.status.lower().replace(' ', '-') }}">
+                            {{ order.status }}
+                        </span>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('admin_order_detail', order_id=order.id) }}" class="btn btn-sm">
+                            <i class="fas fa-eye"></i> Voir
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{{ url_for('admin_orders') }}" class="view-all">
+            Voir toutes les commandes <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+{% endblock %}

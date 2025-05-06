@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h2>Destockage Alimentaire à Prix Bas</h2>
+        <p>Découvrez nos produits alimentaires de qualité à des prix imbattables. Livraison rapide et sécurisée partout en France.</p>
+        <a href="{{ url_for('product_list') }}" class="btn">Voir les produits</a>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="container">
+    <h2 class="section-title">Nos Produits Phares</h2>
+    <div class="product-grid">
+        {% for product in featured_products %}
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/products/' + product.image) }}" alt="{{ product.name }}">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">{{ product.name }}</h3>
+                <p class="product-description">{{ product.description }}</p>
+                <div class="product-price">{{ "%.2f"|format(product.price) }}€</div>
+                <div class="product-actions">
+                    <form method="post" action="{{ url_for('add_to_cart') }}">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </form>
+                    <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-outline">Détails</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="container" style="margin-top: 60px;">
+    <h2 class="section-title">Pourquoi choisir nos produits ?</h2>
+    <div class="product-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h3 class="feature-title">Livraison Rapide</h3>
+            <p class="feature-description">Livraison en 24-48h partout en France avec des emballages isothermes pour préserver la qualité de vos produits.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-euro-sign"></i>
+            </div>
+            <h3 class="feature-title">Prix Bas Garantis</h3>
+            <p class="feature-description">Jusqu'à 70% de réduction sur les prix du marché grâce à notre système de destockage.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="feature-title">Qualité Premium</h3>
+            <p class="feature-description">Tous nos produits sont certifiés et proviennent de producteurs locaux et responsables.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

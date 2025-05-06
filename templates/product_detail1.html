@@ -1,0 +1,592 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.product-card .product-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card .product-info h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #2a2a2a;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff4757;
+    margin-bottom: 10px;
+}
+
+.btn-product {
+    background: #2a5bd7;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-product:hover {
+    background: #1e4aba;
+}
+
+    /* Styles de base conservés */
+    .product-detail-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    /* Galerie améliorée */
+    .product-gallery {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        background: #fff;
+    }
+
+    .main-image-container {
+        position: relative;
+        height: 450px;
+        background: #f9f9f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s;
+    }
+
+    .thumbnail-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 15px;
+        background: #fff;
+    }
+
+    .thumbnail {
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.03);
+        border-color: #2a5bd7;
+    }
+
+    .thumbnail.active {
+        border-color: #2a5bd7;
+        box-shadow: 0 3px 10px rgba(42, 91, 215, 0.2);
+    }
+
+    /* Badges modernes */
+    .product-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #ff4757;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 2;
+    }
+
+    /* Section info améliorée */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .product-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #2a2a2a;
+        line-height: 1.2;
+    }
+
+    .product-price-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .product-price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ff4757;
+    }
+
+    .original-price {
+        font-size: 1.3rem;
+        text-decoration: line-through;
+        color: #999;
+    }
+
+    .discount-badge {
+        background: #ff4757;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    /* Métas améliorées */
+    .product-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .meta-item {
+        background: #f0f5ff;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .meta-item i {
+        font-size: 0.9rem;
+        color: #2a5bd7;
+    }
+
+    /* Description améliorée */
+    .product-description {
+        line-height: 1.8;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .description-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2a2a2a;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Avis clients */
+    .reviews-section {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+    }
+
+    .reviews-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .review-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .review-author {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .review-stars {
+        color: #FFD700;
+        margin-bottom: 10px;
+    }
+
+    .review-date {
+        font-size: 0.8rem;
+        color: #999;
+        margin-bottom: 10px;
+    }
+
+    /* Bouton CTA amélioré */
+    .btn-add-to-cart {
+        background: #2a5bd7;
+        color: white;
+        border: none;
+        padding: 16px 30px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 100%;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .btn-add-to-cart:hover {
+        background: #1e4aba;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(30, 74, 186, 0.3);
+    }
+
+    /* Produits similaires améliorés */
+    .related-products {
+        margin-top: 80px;
+        grid-column: 1 / -1;
+    }
+
+    .related-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .related-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: #2a5bd7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .product-detail-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .main-image-container {
+            height: 350px;
+        }
+        
+        .thumbnail {
+            height: 80px;
+        }
+    }
+    /* Styles pour la section d'informations de livraison et garantie */
+.delivery-info {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f9fafc;
+    border-radius: 10px;
+    border-left: 4px solid #2a5bd7;
+}
+
+.delivery-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+.delivery-info i {
+    color: #2a5bd7;
+    width: 20px;
+    text-align: center;
+}
+
+/* Styles pour les métas (disponibilité, avis, etc.) */
+.product-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.meta-item {
+    background: #f0f5ff;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2a5bd7;
+    font-weight: 500;
+}
+
+.meta-item i {
+    font-size: 0.9rem;
+}
+
+/* Style pour la description produit */
+.product-description {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin: 25px 0;
+    border: 1px solid #eee;
+}
+
+.description-title {
+    font-size: 1.2rem;
+    color: #2a2a2a;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.description-title i {
+    color: #2a5bd7;
+}
+
+.product-description p {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Version responsive */
+@media (max-width: 768px) {
+    .delivery-info {
+        padding: 15px;
+    }
+    
+    .product-meta {
+        gap: 8px;
+    }
+    
+    .meta-item {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-gallery">
+        {% if product.featured %}
+        <div class="product-badge">MEILLEURE OFFRE</div>
+        {% endif %}
+        
+        <div class="main-image-container">
+            <img id="main-image" src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
+                 class="main-image" alt="{{ product.name }}">
+        </div>
+        
+        <div class="thumbnail-container">
+            {% for image in product.images[:3] %}
+            <img src="{{ url_for('static', filename='images/products/' + image) }}" 
+                 class="thumbnail {% if loop.first %}active{% endif %}" 
+                 alt="Miniature {{ loop.index }}"
+                 onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h1 class="product-title">{{ product.name }}</h1>
+        
+        <div class="product-price-container">
+            <div class="product-price">{{ "%.2f"|format(product.price) }}€</div>
+            {% if product.original_price %}
+            <div class="original-price">{{ "%.2f"|format(product.original_price) }}€</div>
+            <div class="discount-badge">
+                -{{ ((1 - product.price/product.original_price) * 100)|round }}%
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="product-meta">
+            <span class="meta-item">
+                <i class="fas fa-tag"></i> {{ product.category }}
+            </span>
+            <span class="meta-item">
+                <i class="fas fa-box-open"></i> {{ product.stock }} disponibles
+            </span>
+            {% if product.date_added %}
+            <span class="meta-item">
+                <i class="fas fa-calendar-alt"></i> Ajouté le {{ product.date_added }}
+            </span>
+            {% endif %}
+            <span class="meta-item">
+                <i class="fas fa-star"></i> 4.8/5 (24 avis)
+            </span>
+        </div>
+
+        <div class="product-description">
+            <h3 class="description-title">
+                <i class="fas fa-align-left"></i> Description
+            </h3>
+            <p>{{ product.description }}</p>
+        </div>
+
+        <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit" class="btn-add-to-cart">
+                <i class="fas fa-cart-plus"></i> Ajouter au panier
+            </button>
+        </form>
+        
+        <div class="delivery-info">
+            <p><i class="fas fa-truck"></i> Livraison gratuite sous 48h</p>
+            <p><i class="fas fa-shield-alt"></i> Garantie satisfait ou remboursé 30 jours</p>
+        </div>
+    </div>
+
+    <!-- Section avis clients -->
+    <section class="reviews-section">
+        <div class="reviews-header">
+            <h3><i class="fas fa-star"></i> Avis clients (24)</h3>
+            <a href="#" class="btn-review">Donner votre avis</a>
+        </div>
+        
+        <div class="review-card">
+            <div class="review-author">Jean D.</div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="review-date">Acheté le 15/06/2023</div>
+            <p>"Produit conforme à la description, livraison ultra rapide. Je recommande !"</p>
+        </div>
+        
+        <div class="review-card">
+            <div class="review-author">Marie L.</div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="review-date">Acheté le 10/06/2023</div>
+            <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous."</p>
+        </div>
+    </section>
+
+    <!-- Produits similaires -->
+    <section class="related-products">
+        <h2 class="related-title">Vous pourriez aussi aimer</h2>
+        <div class="related-grid">
+            {% for product in related_products %}
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
+                         alt="{{ product.name }}">
+                    {% if product.featured %}
+                    <div class="product-badge">PROMO</div>
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <div class="price">{{ "%.2f"|format(product.price) }}€</div>
+                    <a href="{{ url_for('product_detail', product_id=product.id) }}" 
+                       class="btn-product">
+                        <i class="fas fa-shopping-cart"></i> Voir
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Changement d'image principale
+function changeMainImage(thumbnail, newSrc) {
+    const mainImg = document.getElementById('main-image');
+    
+    // Effet de fondu
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+        mainImg.src = newSrc;
+        mainImg.style.opacity = '1';
+    }, 200);
+    
+    // Mise à jour des miniatures actives
+    document.querySelectorAll('.thumbnail').forEach(img => {
+        img.classList.remove('active');
+    });
+    thumbnail.classList.add('active');
+}
+
+// Animation au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.product-gallery, .product-info');
+    elements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
+        el.style.transition = 'all 0.6s ease-out';
+        
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100 + index * 100);
+    });
+});
+</script>
+{% endblock %}

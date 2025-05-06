@@ -1,0 +1,1161 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    /* ===== VARIABLES MODERNES ===== */
+    :root {
+        --primary: #4361ee;
+        --primary-dark: #3a56d4;
+        --secondary: #3f37c9;
+        --accent: #f72585;
+        --dark: #1a1a2e;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+        --success: #4cc9f0;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* ===== BASE STYLES ===== */
+    .product-detail-container {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    /* ===== GALLERIE MODERNE ===== */
+    .product-gallery {
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        background: white;
+        transition: var(--transition);
+    }
+
+    .product-gallery:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .main-image-container {
+        position: relative;
+        height: 500px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-in;
+    }
+
+    .main-image {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+        mix-blend-mode: multiply;
+    }
+
+    .thumbnail-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
+        padding: 1rem;
+        background: white;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .thumbnail {
+        height: 100px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        background: white;
+        padding: 0.25rem;
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.05);
+        border-color: var(--primary);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .thumbnail.active {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+
+    .product-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--accent);
+        color: white;
+        padding: 0.375rem 0.875rem;
+        border-radius: 2rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 2;
+        box-shadow: var(--shadow-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* ===== PRODUCT INFO ===== */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .product-title {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+    }
+
+    .product-price-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .product-price {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--accent);
+    }
+
+    .original-price {
+        font-size: 1.25rem;
+        text-decoration: line-through;
+        color: var(--gray);
+        opacity: 0.8;
+    }
+
+    .discount-badge {
+        background: var(--accent);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        font-weight: 700;
+    }
+
+    /* ===== META INFO ===== */
+    .product-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 1rem 0;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--gray);
+    }
+
+    .meta-item i {
+        color: var(--primary);
+    }
+
+    /* ===== DESCRIPTION SECTION ===== */
+    .product-description {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(0,0,0,0.05);
+        position: relative;
+    }
+
+    .description-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .description-title i {
+        color: var(--primary);
+        font-size: 1.1rem;
+    }
+
+    .product-description p {
+        color: #4a5568;
+        line-height: 1.8;
+        font-size: 0.98rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: var(--transition);
+        font-size: 0.95rem;
+    }
+
+    .read-more:hover {
+        color: var(--primary-dark);
+    }
+
+    .read-more i {
+        transition: transform 0.3s;
+    }
+
+    .read-more.active i {
+        transform: rotate(180deg);
+    }
+
+    /* ===== TECH SPECS ===== */
+    .tech-specs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+        background: #f8fafc;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+
+    .spec-item {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .spec-icon {
+        color: var(--primary);
+        font-size: 1rem;
+        margin-top: 0.1875rem;
+        min-width: 1.25rem;
+    }
+
+    .spec-content strong {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--gray);
+        margin-bottom: 0.1875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .spec-content span {
+        font-size: 0.9375rem;
+        color: var(--dark);
+        font-weight: 500;
+    }
+
+    /* ===== FULL DETAILS ===== */
+    .full-details {
+        margin-top: 2.5rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 1rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(0,0,0,0.05);
+        display: none;
+    }
+
+    .full-details.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .details-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .details-section h4 {
+        font-size: 1.1rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .details-section ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .details-section li {
+        margin-bottom: 0.75rem;
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .details-section li i {
+        color: var(--primary);
+        margin-top: 0.1875rem;
+    }
+
+    /* ===== DELIVERY INFO ===== */
+    .delivery-info {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f6f9ff 0%, #eef4ff 100%);
+        border-radius: 1rem;
+        border-left: 4px solid var(--primary);
+    }
+
+    .delivery-info p {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 1rem 0;
+        color: var(--dark);
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
+
+    .delivery-info i {
+        color: var(--primary);
+        width: 1.25rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    /* ===== GUARANTEE ===== */
+    .guarantee-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(67, 97, 238, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        margin-top: 1rem;
+        font-size: 0.875rem;
+        color: var(--primary);
+        font-weight: 500;
+        border: 1px solid rgba(67, 97, 238, 0.2);
+    }
+
+    /* ===== TRUST BADGES ===== */
+    .trust-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+    }
+
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(67, 97, 238, 0.05);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.8125rem;
+        color: var(--dark);
+        border: 1px solid rgba(67, 97, 238, 0.1);
+    }
+
+    .trust-badge i {
+        color: var(--primary);
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .reviews-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .reviews-header h3 {
+        font-size: 1.4rem;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .btn-review {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        text-decoration: none;
+        transition: var(--transition);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-review:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .review-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .review-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .review-author {
+        font-weight: 650;
+        color: var(--dark);
+    }
+
+    .review-date {
+        font-size: 0.75rem;
+        color: var(--gray);
+    }
+
+    .review-stars {
+        color: #FFD700;
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* ===== RELATED PRODUCTS ===== */
+    .related-products {
+        margin-top: 5rem;
+        grid-column: 1 / -1;
+    }
+
+    .related-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+        padding-bottom: 1rem;
+        color: var(--dark);
+    }
+
+    .related-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5rem;
+        height: 3px;
+        background: var(--primary);
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+        position: relative;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .product-card .product-image {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .product-card .product-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+    .product-card .product-info h3 {
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    .product-card .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--accent);
+        margin-bottom: 1rem;
+    }
+
+    .btn-product {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+    }
+
+    .btn-product:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* ===== CTA BUTTONS ===== */
+    .btn-add-to-cart {
+        background: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .btn-add-to-cart:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* ===== MOBILE CTA ===== */
+    .mobile-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        display: none;
+        z-index: 100;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+        .product-detail-container {
+            gap: 2rem;
+        }
+        
+        .main-image-container {
+            height: 400px;
+        }
+        
+        .product-title {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .product-detail-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .main-image-container {
+            height: 350px;
+        }
+        
+        .thumbnail {
+            height: 80px;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+        }
+        
+        .tech-specs {
+            grid-template-columns: 1fr;
+        }
+        
+        .mobile-cta {
+            display: block;
+        }
+        
+        .btn-add-to-cart.desktop {
+            display: none;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .mobile-cta {
+            display: none !important;
+        }
+        
+        .btn-add-to-cart.desktop {
+            display: flex !important;
+        }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4); }
+        70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-gallery">
+        {% if product.featured %}
+        <div class="product-badge">MEILLEURE OFFRE</div>
+        {% endif %}
+        
+        <div class="main-image-container">
+            <img id="main-image" src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
+                 class="main-image" alt="{{ product.name }}">
+        </div>
+        
+        <div class="thumbnail-container">
+            {% for image in product.images[:4] %}
+            <img src="{{ url_for('static', filename='images/products/' + image) }}" 
+                 class="thumbnail {% if loop.first %}active{% endif %}" 
+                 alt="Miniature {{ loop.index }}"
+                 onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h1 class="product-title">{{ product.name }}</h1>
+        
+        <div class="product-price-container">
+            <div class="product-price">{{ "%.2f"|format(product.price) }}€</div>
+            {% if product.original_price %}
+            <div class="original-price">{{ "%.2f"|format(product.original_price) }}€</div>
+            <div class="discount-badge">
+                -{{ ((1 - product.price/product.original_price) * 100)|round }}%
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Badges de confiance -->
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <i class="fas fa-check-circle"></i> Produit certifié
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i> Paiement sécurisé
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-undo"></i> Retours faciles
+            </div>
+        </div>
+        
+        <div class="product-meta">
+            <span class="meta-item">
+                <i class="fas fa-tag"></i> {{ product.category }}
+            </span>
+            <span class="meta-item">
+                <i class="fas fa-box-open"></i> {{ product.stock }} disponibles
+            </span>
+            {% if product.date_added %}
+            <span class="meta-item">
+                <i class="fas fa-calendar-alt"></i> Ajouté le {{ product.date_added }}
+            </span>
+            {% endif %}
+            <span class="meta-item">
+                <i class="fas fa-star"></i> 
+                {% if product.id == 1 %}4.8/5 (24 avis)
+                {% elif product.id == 4 %}4.9/5 (18 avis)
+                {% elif product.id == 100 %}4.7/5 (32 avis)
+                {% else %}4.5/5 (15 avis){% endif %}
+            </span>
+        </div>
+
+        <!-- Description avec bouton "Voir plus" -->
+        <div class="product-description">
+            <h3 class="description-title">
+                <i class="fas fa-align-left"></i> Description
+            </h3>
+            <p>{{ product.description }}</p>
+            
+            <div class="read-more" onclick="toggleDetails()">
+                Voir plus de détails <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <!-- Fiche technique -->
+            <div class="tech-specs">
+                {% if product.details.marque %}
+                <div class="spec-item">
+                    <i class="fas fa-tag spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Marque</strong>
+                        <span>{{ product.details.marque }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.volume %}
+                <div class="spec-item">
+                    <i class="fas fa-weight spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Volume</strong>
+                        <span>{{ product.details.volume }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.poids %}
+                <div class="spec-item">
+                    <i class="fas fa-weight-hanging spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Poids</strong>
+                        <span>{{ product.details.poids }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.quantité %}
+                <div class="spec-item">
+                    <i class="fas fa-boxes spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Quantité</strong>
+                        <span>{{ product.details.quantité }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.origine %}
+                <div class="spec-item">
+                    <i class="fas fa-globe-europe spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Origine</strong>
+                        <span>{{ product.details.origine }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.conservation %}
+                <div class="spec-item">
+                    <i class="fas fa-snowflake spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Conservation</strong>
+                        <span>{{ product.details.conservation }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.composition %}
+                <div class="spec-item">
+                    <i class="fas fa-list-ul spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Composition</strong>
+                        <span>{{ product.details.composition }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.alcool %}
+                <div class="spec-item">
+                    <i class="fas fa-wine-bottle spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>Degré d'alcool</strong>
+                        <span>{{ product.details.alcool }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if product.details.DLC %}
+                <div class="spec-item">
+                    <i class="fas fa-calendar-check spec-icon"></i>
+                    <div class="spec-content">
+                        <strong>DLC</strong>
+                        <span>{{ product.details.DLC }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Détails complets (cachés par défaut) -->
+        <div class="full-details" id="fullDetails">
+            <h3 class="description-title">
+                <i class="fas fa-info-circle"></i> Fiche technique complète
+            </h3>
+            
+            <div class="details-grid">
+                <div class="details-section">
+                    <h4>Caractéristiques</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>Produit de haute qualité</span></li>
+                        <li><i class="fas fa-check"></i> <span>Conditionnement professionnel</span></li>
+                        <li><i class="fas fa-check"></i> <span>Normes sanitaires respectées</span></li>
+                        {% if product.details.DLC %}
+                        <li><i class="fas fa-calendar-check"></i> <span>DLC: {{ product.details.DLC }}</span></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                
+                <div class="details-section">
+                    <h4>Livraison</h4>
+                    <ul>
+                        <li><i class="fas fa-box"></i> <span>Emballage sécurisé</span></li>
+                        <li><i class="fas fa-euro-sign"></i> <span>Livraison gratuite à partir de 1500€</span></li>
+                    </ul>
+                </div>
+                
+                <div class="details-section">
+                    <h4>Garantie</h4>
+                    <ul>
+                        <li><i class="fas fa-shield-alt"></i> <span>Satisfait ou remboursé 30 jours</span></li>
+                        <li><i class="fas fa-phone"></i> <span>Service client 7j/7</span></li>
+                        <li><i class="fas fa-exchange-alt"></i> <span>Retours faciles</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit" class="btn-add-to-cart desktop">
+                <i class="fas fa-cart-plus"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
+            </button>
+        </form>
+        
+        <div class="delivery-info">
+            <p><i class="fas fa-truck"></i> Livraison estimée entre 5 à 7 jours ouvrés</p>
+            <p><i class="fas fa-shield-alt"></i> Garantie satisfait ou remboursé 30 jours</p>
+            <p><i class="fas fa-phone"></i> Service client réactif 7j/7</p>
+            
+            <div class="guarantee-badge">
+                <i class="fas fa-lock"></i> Paiement 100% sécurisé
+            </div>
+        </div>
+    </div>
+
+    <!-- Section avis clients -->
+    <section class="reviews-section">
+        <div class="reviews-header">
+            <h3><i class="fas fa-star"></i> Avis clients 
+                {% if product.id == 1 %}(24)
+                {% elif product.id == 4 %}(18)
+                {% elif product.id == 100 %}(32)
+                {% else %}(15){% endif %}
+            </h3>
+            <a href="#" class="btn-review">Donner votre avis</a>
+        </div>
+        
+        <!-- Avis spécifiques selon le produit -->
+        {% if product.id == 1 %}
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Jean D.</div>
+                <div class="review-date">Acheté le 15/06/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé."</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Marie L.</div>
+                <div class="review-date">Acheté le 10/06/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous."</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Claude R.</div>
+                <div class="review-date">Acheté le 01/06/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Bon produit, mais j'aurais aimé plus de diversité dans les saveurs proposées. Livraison rapide et efficace."</p>
+        </div>
+
+        {% elif product.id == 4 %}
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Sophie M.</div>
+                <div class="review-date">Acheté le 12/12/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon."</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Élodie T.</div>
+                <div class="review-date">Acheté le 18/11/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Un champagne vraiment délicieux, j'ai été ravie de la qualité. Parfait pour célébrer avec des amis."</p>
+        </div>
+
+        {% elif product.id == 100 %}
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Thomas B.</div>
+                <div class="review-date">Acheté le 05/07/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison."</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Lucie F.</div>
+                <div class="review-date">Acheté le 01/05/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Très satisfait de ma commande. Livraison rapide et produits bien protégés, mais un peu plus de choix aurait été parfait."</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Clara D.</div>
+                <div class="review-date">Acheté le 22/04/2023</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Le produit est arrivé dans les temps et dans un état impeccable. Très bon rapport qualité/prix. Je recommande !"</p>
+        </div>
+
+        {% else %}
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-author">Client satisfait</div>
+                <div class="review-date">Acheté récemment</div>
+            </div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Produit conforme à la description, je recommande ce vendeur sérieux."</p>
+        </div>
+        {% endif %}
+
+    </section>
+
+    <!-- Produits similaires -->
+    <section class="related-products">
+        <h2 class="related-title">Vous pourriez aussi aimer</h2>
+        <div class="related-grid">
+            {% for product in related_products %}
+            <div class="product-card">
+                {% if product.featured %}
+                <div class="product-badge">PROMO</div>
+                {% endif %}
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
+                         alt="{{ product.name }}">
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <div class="price">{{ "%.2f"|format(product.price) }}€</div>
+                    <a href="{{ url_for('product_detail', product_id=product.id) }}" 
+                       class="btn-product">
+                        <i class="fas fa-eye"></i> Voir
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<!-- CTA Mobile -->
+<div class="mobile-cta">
+    <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <button type="submit" class="btn-add-to-cart">
+            <i class="fas fa-cart-plus"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
+        </button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Changement d'image principale
+function changeMainImage(thumbnail, newSrc) {
+    const mainImg = document.getElementById('main-image');
+    
+    // Effet de fondu
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+        mainImg.src = newSrc;
+        mainImg.style.opacity = '1';
+    }, 200);
+    
+    // Mise à jour des miniatures actives
+    document.querySelectorAll('.thumbnail').forEach(img => {
+        img.classList.remove('active');
+    });
+    thumbnail.classList.add('active');
+}
+
+// Affichage des détails complets
+function toggleDetails() {
+    const fullDetails = document.getElementById('fullDetails');
+    const readMoreBtn = document.querySelector('.read-more');
+    
+    fullDetails.classList.toggle('active');
+    readMoreBtn.classList.toggle('active');
+    
+    if (fullDetails.classList.contains('active')) {
+        // Scroll vers les détails si on ouvre
+        fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Animation au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation d'entrée
+    const elements = document.querySelectorAll('.product-gallery, .product-info');
+    elements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
+        el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100 + index * 100);
+    });
+    
+    // Effet de pulse sur le bouton d'ajout au panier
+    const addToCartBtn = document.querySelector('.btn-add-to-cart');
+    if (addToCartBtn) {
+        setTimeout(() => {
+            addToCartBtn.style.animation = 'pulse 2s infinite';
+        }, 1500);
+    }
+    
+    // Effet de zoom sur l'image principale au hover
+    const mainImageContainer = document.querySelector('.main-image-container');
+    const mainImage = document.getElementById('main-image');
+    
+    if (mainImageContainer && mainImage) {
+        mainImageContainer.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = mainImageContainer.getBoundingClientRect();
+            const x = (e.clientX - left) / width * 100;
+            const y = (e.clientY - top) / height * 100;
+            mainImage.style.transformOrigin = `${x}% ${y}%`;
+        });
+        
+        mainImageContainer.addEventListener('mouseenter', () => {
+            mainImage.style.transform = 'scale(1.05)';
+        });
+        
+        mainImageContainer.addEventListener('mouseleave', () => {
+            mainImage.style.transform = 'scale(1)';
+        });
+    }
+});
+
+// Animation de flottement pour les cartes de produits
+const productCards = document.querySelectorAll('.product-card');
+productCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+    card.style.animation = 'float 6s ease-in-out infinite';
+});
+</script>
+{% endblock %}

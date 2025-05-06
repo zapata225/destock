@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-container">
+    <h1>Gestion des utilisateurs</h1>
+    
+    <div class="admin-nav">
+        <a href="{{ url_for('admin_dashboard') }}">Produits</a>
+        <a href="{{ url_for('admin_view_users') }}" class="active">Utilisateurs</a>
+        <a href="{{ url_for('admin_logout') }}" class="btn btn-danger">Déconnexion</a>
+    </div>
+    
+    <div class="admin-users">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom d'utilisateur</th>
+                    <th>Email</th>
+                    <th>Nom complet</th>
+                    <th>Adresse</th>
+                    <th>Téléphone</th>
+                    <th>Mot de passe (en clair)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for username, user in users.items() %}
+                <tr>
+                    <td>{{ username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.full_name }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>
+                        {% if user.plain_password %}
+                            {{ user.plain_password }}
+                        {% else %}
+                            (hashé)
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <form action="{{ url_for('admin_delete_user', username=username) }}" method="POST" class="delete-form">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

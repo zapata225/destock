@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container">
+    <h1>Votre Panier</h1>
+    
+    {% if not cart_items %}
+    <div class="empty-cart">
+        <p>Votre panier est vide</p>
+        <a href="{{ url_for('product_list') }}" class="btn">Voir nos produits</a>
+    </div>
+    {% else %}
+    <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-item" data-id="{{ item.product.id }}">
+            <div class="cart-item-image">
+                <img src="{{ url_for('static', filename='images/products/' + item.product.image) }}" alt="{{ item.product.name }}">
+            </div>
+            <div class="cart-item-details">
+                <h4 class="cart-item-title">{{ item.product.name }}</h4>
+                <div class="cart-item-price">{{ "%.2f"|format(item.product.price) }}€</div>
+                <div class="cart-item-actions">
+                    <form method="post" action="{{ url_for('update_cart') }}">
+                        <button type="button" class="quantity-btn minus" data-id="{{ item.product.id }}">-</button>
+                        <input type="number" name="quantity_{{ item.product.id }}" class="quantity-input" value="{{ item.quantity }}" min="1">
+                        <button type="button" class="quantity-btn plus" data-id="{{ item.product.id }}">+</button>
+                    </form>
+                    <button class="remove-item" data-id="{{ item.product.id }}">Supprimer</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="cart-totals">
+        <div class="cart-total-row">
+            <span>Sous-total</span>
+            <span>{{ "%.2f"|format(total) }}€</span>
+        </div>
+        <div class="cart-total-row">
+            <span>Livraison</span>
+            <span>Calculé à l'étape suivante</span>
+        </div>
+        <div class="cart-total-row total">
+            <span>Total</span>
+            <span>{{ "%.2f"|format(total) }}€</span>
+        </div>
+    </div>
+    
+    <a href="{{ url_for('checkout') }}" class="btn btn-primary">Passer la commande</a>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Quantity buttons
+document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const input = this.nextElementSibling;
+        if (parseInt(input.value) > 1) {
+            input.value = parseInt(input.value) - 1;
+            input.dispatchEvent(new Event('change'));
+        }
+    });
+});
+
+document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.value = parseInt(input.value) + 1;
+        input.dispatchEvent(new Event('change'));
+    });
+});
+
+// Update cart when quantity changes
+document.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('change', function() {
+        this.closest('form').submit();
+    });
+});
+
+// Handle remove item
+document.querySelectorAll('.remove-item').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        if (!productId) return;
+        
+        fetch(`/supprimer-du-panier/${productId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Erreur réseau');
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Remove item visually
+                document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
+                
+                // Update totals
+                document.querySelectorAll('.cart-total-row span:last-child').forEach(el => {
+                    el.textContent = data.cart_total.toFixed(2) + '€';
+                });
+                
+                // If cart is empty, show empty message
+                if (data.cart_count === 0) {
+                    document.querySelector('.cart-items').innerHTML = `
+                        <div class="empty-cart">
+                            <p>Votre panier est vide</p>
+                            <a href="{{ url_for('product_list') }}" class="btn">Voir nos produits</a>
+                        </div>
+                    `;
+                    document.querySelector('.cart-totals').style.display = 'none';
+                }
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Erreur lors de la suppression');
+        });
+    });
+});
+</script>
+{% endblock %}

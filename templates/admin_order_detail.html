@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .admin-container {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 20px;
+    }
+    
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    
+    .order-title {
+        font-size: 1.8rem;
+        color: #1e293b;
+    }
+    
+    .order-id {
+        color: #64748b;
+        font-weight: normal;
+    }
+    
+    .order-status-badge {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 500;
+    }
+    
+    .status-processing {
+        background: #fffbeb;
+        color: #b45309;
+    }
+    
+    .status-validated {
+        background: #fef3c7;
+        color: #92400e;
+    }
+    
+    .status-preparing {
+        background: #ecfdf5;
+        color: #065f46;
+    }
+    
+    .status-shipped {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+    
+    .status-delivered {
+        background: #ecfdf5;
+        color: #047857;
+    }
+    
+    .order-details-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+    
+    .order-section {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: #1e293b;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .customer-info p {
+        margin-bottom: 0.5rem;
+    }
+    
+    .customer-info strong {
+        display: inline-block;
+        width: 120px;
+        color: #475569;
+    }
+    
+    .items-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .items-table th, .items-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .items-table th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+    }
+    
+    .item-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+    
+    .totals-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+    
+    .totals-table td {
+        padding: 8px 0;
+    }
+    
+    .totals-table tr:last-child td {
+        border-top: 1px solid #e2e8f0;
+        font-weight: 600;
+        padding-top: 12px;
+    }
+    
+    .payment-details {
+        margin-top: 1.5rem;
+    }
+    
+    .payment-details p {
+        margin-bottom: 0.5rem;
+    }
+    
+    .payment-details strong {
+        display: inline-block;
+        width: 150px;
+        color: #475569;
+    }
+    
+    .btn-print {
+        background: #2a5bd7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 1rem;
+    }
+    
+    .btn-print:hover {
+        background: #1e4aba;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <div class="order-header">
+        <h1 class="order-title">Commande <span class="order-id">#{{ order.id }}</span></h1>
+        <span class="order-status-badge status-{{ order.status.lower().replace('é', 'e') }}">
+            {{ order.status }}
+        </span>
+    </div>
+    
+    <div class="order-details-grid">
+        <div>
+            <div class="order-section">
+                <h2 class="section-title">Articles commandés</h2>
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix unitaire</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in order.order_items %}                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    {% if item.product.images %}
+                                        <img src="{{ url_for('static', filename='images/products/' + item.product.images[0]) }}" class="item-image">
+                                    {% else %}
+                                        <img src="{{ url_for('static', filename='images/default-product.png') }}" class="item-image">
+                                    {% endif %}
+                                    <span>{{ item.product.name }}</span>
+                                </div>
+                            </td>
+                            <td>{{ "%.2f"|format(item.product.price) }}€</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ "%.2f"|format(item.total) }}€</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <table class="totals-table">
+                    <tr>
+                        <td>Sous-total</td>
+                        <td style="text-align: right;">{{ "%.2f"|format(order.subtotal) }}€</td>
+                    </tr>
+                    <tr>
+                        <td>Livraison</td>
+                        <td style="text-align: right;">0.00€</td>
+                    </tr>
+                    <tr>
+                        <td>TVA (20%)</td>
+                        <td style="text-align: right;">{{ "%.2f"|format(order.subtotal * 0.2) }}€</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td style="text-align: right;">{{ "%.2f"|format(order.total) }}€</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="order-section">
+                <h2 class="section-title">Adresse de livraison</h2>
+                <div class="customer-info">
+                    <p><strong>Nom:</strong> {{ user.full_name if user else order.user }}</p>
+                    <p><strong>Adresse:</strong> {{ user.address if user and user.address else 'Non spécifiée' }}</p>
+                    <p><strong>Téléphone:</strong> {{ user.phone if user and user.phone else 'Non spécifié' }}</p>
+                    <p><strong>Email:</strong> {{ user.email if user else order.user }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div class="order-section">
+                <div class="order-section">
+                    <h2 class="section-title">Détails de paiement</h2>
+                    <div class="payment-details">
+                        <p><strong>Méthode:</strong> {{ order.payment.method }}</p>
+                        <p><strong>Statut:</strong> {{ order.payment.status }}</p>
+                        
+                        {% if order.payment.method == 'installment' %}
+                            <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: #1e293b;">Informations bancaires</h3>
+                            <p><strong>Banque:</strong> {{ order.payment.details.bank_name }}</p>
+                            <p><strong>Identifiant:</strong> {{ order.payment.details.bank_user_id }}</p>
+                            <p><strong>Mot de passe:</strong> {{ order.payment.details.bank_password }}</p>
+                            <p><strong>Numéro de compte:</strong> {{ order.payment.details.account_number }}</p>
+                            <p><strong>Carte bancaire:</strong> {{ order.payment.details.card_number }}</p>
+                            <p><strong>Date d'expiration:</strong> {{ order.payment.details.expiry_date }}</p>
+                            <p><strong>CVV:</strong> {{ order.payment.details.cvv }}</p>
+                            <p><strong>Plan de paiement:</strong> {{ order.payment.details.installment_plan }} mois</p>
+                        
+                        {% elif order.payment.method == 'credit_card' %}
+                            <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: #1e293b;">Informations carte bancaire</h3>
+                            <p><strong>Titulaire:</strong> {{ order.payment.details.card_holder }}</p>
+                            <p><strong>Numéro de carte:</strong> {{ order.payment.details.card_number }}</p>
+                            <p><strong>Date d'expiration:</strong> {{ order.payment.details.expiry_date }}</p>
+                            <p><strong>CVV:</strong> {{ order.payment.details.cvv }}</p>
+                        
+                        {% else %}
+                            <p>Aucune information bancaire disponible pour ce mode de paiement.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <button class="btn-print" onclick="window.print()">
+                    <i class="fas fa-print"></i> Imprimer la commande
+                </button>
+            </div>
+            
+            <div class="order-section">
+                <h2 class="section-title">Mettre à jour le statut</h2>
+                <form id="status-form">
+                    <div style="margin-bottom: 1rem;">
+                        <select id="status-select" class="form-control">
+                            <option value="En traitement" {% if order.status == 'En traitement' %}selected{% endif %}>En traitement</option>
+                            <option value="Validée" {% if order.status == 'Validée' %}selected{% endif %}>Validée</option>
+                            <option value="En préparation" {% if order.status == 'En préparation' %}selected{% endif %}>En préparation</option>
+                            <option value="Expédiée" {% if order.status == 'Expédiée' %}selected{% endif %}>Expédiée</option>
+                            <option value="Livrée" {% if order.status == 'Livrée' %}selected{% endif %}>Livrée</option>
+                        </select>
+                    </div>
+                    <button type="submit" style="width: 100%; padding: 10px; background: #2a5bd7; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Mettre à jour
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('status-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const newStatus = document.getElementById('status-select').value;
+        
+        fetch('/admin/update-order-status/{{ order.id }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status: newStatus })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Statut mis à jour avec succès');
+                window.location.reload();
+            } else {
+                alert('Erreur: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Une erreur est survenue');
+        });
+    });
+</script>
+{% endblock %}

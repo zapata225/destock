@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="auth-container">
+    <div class="auth-card">
+        <h1>Inscription</h1>
+        
+        <form method="post" action="{{ url_for('register') }}" class="auth-form">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="full_name">Nom complet</label>
+                <input type="text" id="full_name" name="full_name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Déjà un compte ? <a href="{{ url_for('login') }}">Se connecter</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

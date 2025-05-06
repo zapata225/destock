@@ -1,0 +1,382 @@
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #6c5ce7;
+        --primary-dark: #5649c0;
+        --secondary: #00cec9;
+        --dark: #2d3436;
+        --light: #f5f6fa;
+        --success: #00b894;
+        --danger: #d63031;
+        --warning: #fdcb6e;
+        --info: #0984e3;
+    }
+
+    .installment-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 3rem;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 24px;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.05),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .installment-progress {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .installment-progress:before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: -1;
+        border-radius: 2px;
+    }
+
+    .installment-progress .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .installment-progress .step span {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--light);
+        color: #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+        border: 4px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .installment-progress .step.active span {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .installment-progress .step p {
+        font-size: 0.85rem;
+        color: #666;
+        text-align: center;
+        max-width: 100px;
+        font-weight: 500;
+    }
+
+    .installment-progress .step.active p {
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    .installment-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .installment-header h1 {
+        font-size: 2.2rem;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    .installment-header p {
+        color: #666;
+        font-size: 1.1rem;
+        opacity: 0.8;
+    }
+
+    .form-section {
+        margin-bottom: 2.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        backdrop-filter: blur(5px);
+    }
+
+    .form-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+    }
+
+    .form-section h2 i {
+        color: var(--primary);
+        font-size: 1.2em;
+    }
+
+    .floating-label {
+        position: relative;
+        margin-bottom: 1.8rem;
+    }
+
+    .floating-label input {
+        width: 100%;
+        padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .floating-label input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+        outline: none;
+    }
+
+    .floating-label label {
+        position: absolute;
+        left: 3.5rem;
+        top: 1.2rem;
+        color: #999;
+        transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        pointer-events: none;
+        background: linear-gradient(transparent 50%, white 50%);
+        padding: 0 0.5rem;
+    }
+
+    .floating-label input:focus + label,
+    .floating-label input:not(:placeholder-shown) + label {
+        top: -0.6rem;
+        left: 3rem;
+        font-size: 0.8rem;
+        color: var(--primary);
+        font-weight: 500;
+    }
+
+    .input-icon {
+        position: absolute;
+        left: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+    }
+
+    .floating-label input:focus ~ .input-icon {
+        color: var(--primary);
+    }
+
+    .bank-logo-preview {
+        margin-top: 1.5rem;
+        text-align: center;
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .bank-logo-preview img {
+        height: 50px;
+        max-width: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+    }
+
+    .installment-options {
+        margin-bottom: 2.5rem;
+    }
+
+    .installment-options h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: #555;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .option-card {
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 16px;
+        padding: 1.8rem 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        overflow: hidden;
+    }
+
+    .option-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgba(108, 92, 231, 0.1);
+    }
+
+    .option-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        border-color: rgba(108, 92, 231, 0.2);
+    }
+
+    .option-card input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .option-card input[type="radio"]:checked + label {
+        color: var(--primary);
+    }
+
+    .option-card input[type="radio"]:checked + label .installment-title {
+        font-weight: 600;
+    }
+
+    .option-card input[type="radio"]:checked + label:after {
+        content: '\f00c';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+
+    .option-card label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        height: 100%;
+    }
+
+    .installment-title {
+        font-size: 1.1rem;
+        color: var(--dark);
+        margin-bottom: 0.8rem;
+        transition: all 0.3s;
+    }
+
+    .installment-amount {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary);
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .form-actions {
+        text-align: center;
+    }
+
+    .btn-next {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 1.2rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 
+            0 5px 15px rgba(108, 92, 231, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-next:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.5s ease;
+    }
+
+    .btn-next:hover {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 8px 20px rgba(108, 92, 231, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .btn-next:hover:before {
+        left: 100%;
+    }
+
+    .btn-next i {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-next:hover i {
+        transform: translateX(5px);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+        .installment-container {
+            padding: 2rem 1.5rem;
+            margin: 1rem;
+        }
+        
+        .options-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .installment-header h1 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+{% endblock %}

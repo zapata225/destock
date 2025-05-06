@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container">
+    <h1>Paiement</h1>
+    
+    <div class="checkout-grid">
+        <div class="checkout-summary">
+            <h2>Récapitulatif</h2>
+            <div class="checkout-products">
+                {% for item in cart_items %}
+                <div class="checkout-product">
+                    <span>{{ item.product.name }} x {{ item.quantity }}</span>
+                    <span>{{ "%.2f"|format(item.total) }}€</span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="checkout-totals">
+                <div class="cart-total-row">
+                    <span>Sous-total</span>
+                    <span>{{ "%.2f"|format(total) }}€</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Livraison</span>
+                    <span>Gratuite</span>
+                </div>
+                <div class="cart-total-row total">
+                    <span>Total</span>
+                    <span>{{ "%.2f"|format(total) }}€</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="checkout-form">
+            <h2>Méthode de paiement</h2>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <input type="radio" id="credit-card" name="payment_method" value="credit-card" checked>
+                    <div class="payment-method-icon">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                    <div class="payment-method-details">
+                        <label for="credit-card">Carte de crédit</label>
+                        <p>Paiement sécurisé par carte bancaire</p>
+                    </div>
+                </div>
+                
+                <div class="payment-method">
+                    <input type="radio" id="bank-transfer" name="payment_method" value="bank-transfer">
+                    <div class="payment-method-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-method-details">
+                        <label for="bank-transfer">Virement bancaire</label>
+                        <p>Paiement par virement (IBAN)</p>
+                    </div>
+                </div>
+                
+                <div class="payment-method">
+                    <input type="radio" id="installments" name="payment_method" value="installments">
+                    <div class="payment-method-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="payment-method-details">
+                        <label for="installments">Paiement en plusieurs fois</label>
+                        <p>3 ou 4 fois sans frais</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form method="post" action="{{ url_for('payment') }}" class="payment-form active" id="credit-card-form">
+                <div class="form-group">
+                    <label for="card-number">Numéro de carte</label>
+                    <input type="text" id="card-number" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry-date">Date d'expiration</label>
+                        <input type="text" id="expiry-date" name="expiry_date" class="form-control" placeholder="MM/AA" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" class="form-control" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="card-name">Nom sur la carte</label>
+                    <input type="text" id="card-name" name="card_name" class="form-control" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Payer {{ "%.2f"|format(total) }}€</button>
+            </form>
+            
+            <form method="post" action="{{ url_for('payment') }}" class="payment-form" id="bank-transfer-form">
+                <div class="form-group">
+                    <label for="iban">IBAN</label>
+                    <div class="input-group">
+                        <input type="text" id="iban" name="iban" class="form-control" placeholder="FR76 XXXX XXXX XXXX XXXX XXXX XXX" required>
+                        <button type="button" id="show-keyboard" class="btn btn-outline">Clavier</button>
+                    </div>
+                </div>
+                
+                <div id="virtual-keyboard" class="virtual-keyboard">
+                    <div class="keyboard-row">
+                        <button type="button" class="keyboard-key" data-key="1">1</button>
+                        <button type="button" class="keyboard-key" data-key="2">2</button>
+                        <button type="button" class="keyboard-key" data-key="3">3</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button type="button" class="keyboard-key" data-key="4">4</button>
+                        <button type="button" class="keyboard-key" data-key="5">5</button>
+                        <button type="button" class="keyboard-key" data-key="6">6</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button type="button" class="keyboard-key" data-key="7">7</button>
+                        <button type="button" class="keyboard-key" data-key="8">8</button>
+                        <button type="button" class="keyboard-key" data-key="9">9</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button type="button" class="keyboard-key" data-key="0">0</button>
+                        <button type="button" class="keyboard-key" data-key="A">A</button>
+                        <button type="button" class="keyboard-key" data-key="B">B</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button type="button" class="keyboard-key" data-key="C">C</button>
+                        <button type="button" class="keyboard-key" data-key="D">D</button>
+                        <button type="button" class="keyboard-key wide" data-key="backspace"><i class="fas fa-backspace"></i></button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Confirmer le virement</button>
+            </form>
+            
+            <form method="post" action="{{ url_for('payment') }}" class="payment-form" id="installments-form">
+                <div class="form-group">
+                    <label>Nombre de versements</label>
+                    <div class="installment-options">
+                        <input type="radio" id="3-installments" name="installments" value="3" checked>
+                        <label for="3-installments">3 x {{ "%.2f"|format(total/3) }}€</label>
+                        
+                        <input type="radio" id="4-installments" name="installments" value="4">
+                        <label for="4-installments">4 x {{ "%.2f"|format(total/4) }}€</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="card-number-installments">Numéro de carte</label>
+                    <input type="text" id="card-number-installments" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry-date-installments">Date d'expiration</label>
+                        <input type="text" id="expiry-date-installments" name="expiry_date" class="form-control" placeholder="MM/AA" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cvv-installments">CVV</label>
+                        <input type="text" id="cvv-installments" name="cvv" class="form-control" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="card-name-installments">Nom sur la carte</label>
+                    <input type="text" id="card-name-installments" name="card_name" class="form-control" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Confirmer le paiement</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

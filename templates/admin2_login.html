@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion Admin{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Connexion Administrateur</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST" action="{{ url_for('admin2_login') }}">
+            <div class="form-group">
+                <label for="admin_code">Code d'accès administrateur</label>
+                <input type="password" id="admin_code" name="admin_code" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

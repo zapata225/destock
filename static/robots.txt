@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.destockagealimentairestore.com/sitemap.xml

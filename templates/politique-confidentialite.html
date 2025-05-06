@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Politique de Confidentialité - Destockage Alimentaire Prénium{% endblock %}
+
+{% block meta_description %}
+Politique de confidentialité de Destockage Alimentaire Prénium. Découvrez comment nous collectons, utilisons et protégeons vos données personnelles lors de vos achats.
+{% endblock %}
+
+{% block content %}
+<section class="legal-section">
+    <div class="container">
+        <h1 class="legal-title">Politique de Confidentialité</h1>
+        
+        <div class="legal-content">
+            <h2>1. Introduction</h2>
+            <p>Destockage Alimentaire Prénium s'engage à protéger la vie privée de ses utilisateurs. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles.</p>
+            
+            <h2>2. Données collectées</h2>
+            <p>Nous pouvons collecter :</p>
+            <ul>
+                <li>Vos coordonnées (nom, prénom, adresse, email, téléphone)</li>
+                <li>Vos informations de paiement (traitée par notre partenaire bancaire)</li>
+                <li>Votre historique de commandes</li>
+                <li>Données de navigation (cookies)</li>
+            </ul>
+            
+            <h2>3. Utilisation des données</h2>
+            <p>Vos données sont utilisées pour :</p>
+            <ul>
+                <li>Traiter vos commandes</li>
+                <li>Vous envoyer des informations sur votre commande</li>
+                <li>Améliorer nos services</li>
+                <li>Vous proposer des offres personnalisées (si vous avez donné votre consentement)</li>
+            </ul>
+            
+            <h2>4. Partage des données</h2>
+            <p>Vos données ne sont jamais vendues à des tiers. Elles peuvent être partagées avec :</p>
+            <ul>
+                <li>Nos prestataires logistiques pour la livraison</li>
+                <li>Notre partenaire de paiement pour le traitement des transactions</li>
+                <li>Autorités légales si requis par la loi</li>
+            </ul>
+            
+            <h2>5. Sécurité</h2>
+            <p>Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données contre tout accès non autorisé.</p>
+            
+            <h2>6. Cookies</h2>
+            <p>Notre site utilise des cookies pour :</p>
+            <ul>
+                <li>Fonctionnement du panier</li>
+                <li>Analyse d'audience (Google Analytics)</li>
+                <li>Publicité ciblée (si vous acceptez)</li>
+            </ul>
+            <p>Vous pouvez configurer votre navigateur pour refuser les cookies.</p>
+            
+            <h2>7. Vos droits</h2>
+            <p>Conformément au RGPD, vous avez droit à :</p>
+            <ul>
+                <li>Accès à vos données</li>
+                <li>Rectification</li>
+                <li>Suppression</li>
+                <li>Portabilité</li>
+                <li>Limitation du traitement</li>
+                <li>Opposition</li>
+            </ul>
+            <p>Pour exercer ces droits, contactez-nous à contact@destockage-alimentaire.com.</p>
+            
+            <h2>8. Modifications</h2>
+            <p>Cette politique peut être mise à jour. Nous vous invitons à la consulter régulièrement.</p>
+            
+            <p class="update-date">Dernière mise à jour : 01/01/2024</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.legal-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    line-height: 1.8;
+}
+
+.legal-title {
+    font-size: 2.5rem;
+    color: #2a5bd7;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.legal-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #2a5bd7;
+    margin: 20px auto 0;
+}
+
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.legal-content h2 {
+    color: #2a5bd7;
+    margin: 30px 0 15px;
+    font-size: 1.5rem;
+}
+
+.legal-content p, .legal-content ul {
+    margin-bottom: 15px;
+}
+
+.legal-content ul {
+    padding-left: 20px;
+}
+
+.update-date {
+    font-style: italic;
+    margin-top: 30px;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .legal-content {
+        padding: 20px;
+    }
+    
+    .legal-title {
+        font-size: 2rem;
+    }
+}
+</style>
+{% endblock %}

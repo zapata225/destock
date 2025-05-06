@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - Questions Fréquentes - Destockage Alimentaire Prénium{% endblock %}
+
+{% block meta_description %}
+Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : commande, livraison, paiement, retours et produits alimentaires à prix discount.
+{% endblock %}
+
+{% block content %}
+<section class="faq-section">
+    <div class="container">
+        <h1 class="faq-title">Questions Fréquentes</h1>
+        
+        <div class="faq-intro">
+            <p>Vous trouverez ci-dessous les réponses aux questions les plus fréquemment posées. Si vous ne trouvez pas la réponse à votre question, n'hésitez pas à <a href="{{ url_for('contact') }}">nous contacter</a>.</p>
+        </div>
+        
+        <div class="faq-categories">
+            <div class="faq-category active" data-category="general">Général</div>
+            <div class="faq-category" data-category="commande">Commande</div>
+            <div class="faq-category" data-category="livraison">Livraison</div>
+            <div class="faq-category" data-category="paiement">Paiement</div>
+            <div class="faq-category" data-category="produits">Produits</div>
+        </div>
+        
+        <div class="faq-accordion">
+            <!-- Catégorie Général -->
+            <div class="faq-item" data-category="general">
+                <div class="faq-question">Qu'est-ce que Destockage Alimentaire Prénium ?</div>
+                <div class="faq-answer">
+                    <p>Destockage Alimentaire Prénium est un spécialiste de la vente de produits alimentaires à prix réduits. Nous proposons des produits de qualité provenant de destockages, avec des réductions allant jusqu'à -70%.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="general">
+                <div class="faq-question">Où sont situés vos entrepôts ?</div>
+                <div class="faq-answer">
+                    <p>Nos entrepôts sont situés dans toute la France pour assurer une livraison rapide. Notre siège social est à Paris.</p>
+                </div>
+            </div>
+            
+            <!-- Catégorie Commande -->
+            <div class="faq-item" data-category="commande">
+                <div class="faq-question">Comment passer commande ?</div>
+                <div class="faq-answer">
+                    <p>Pour commander :</p>
+                    <ol>
+                        <li>Ajoutez les produits à votre panier</li>
+                        <li>Cliquez sur "Valider le panier"</li>
+                        <li>Renseignez vos coordonnées</li>
+                        <li>Choisissez votre mode de paiement</li>
+                        <li>Confirmez votre commande</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="commande">
+                <div class="faq-question">Puis-je modifier ma commande ?</div>
+                <div class="faq-answer">
+                    <p>Vous pouvez modifier votre commande tant qu'elle n'a pas été expédiée. Contactez-nous rapidement par téléphone ou email.</p>
+                </div>
+            </div>
+            
+            <!-- Catégorie Livraison -->
+            <div class="faq-item" data-category="livraison">
+                <div class="faq-question">Quels sont les délais de livraison ?</div>
+                <div class="faq-answer">
+                    <p>Les délais varient selon les produits :</p>
+                    <ul>
+                        <li>Produits secs : 2-3 jours ouvrés</li>
+                        <li>Produits frais/surgelés : 24-48h</li>
+                        <li>Palettes : 3-5 jours ouvrés</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="livraison">
+                <div class="faq-question">Comment sont livrés les produits frais ?</div>
+                <div class="faq-answer">
+                    <p>Les produits frais et surgelés sont livrés dans des emballages isothermes avec des accumulateurs de froid pour garantir la chaîne du froid.</p>
+                </div>
+            </div>
+            
+            <!-- Catégorie Paiement -->
+            <div class="faq-item" data-category="paiement">
+                <div class="faq-question">Quels modes de paiement acceptez-vous ?</div>
+                <div class="faq-answer">
+                    <p>Nous acceptons :</p>
+                    <ul>
+                        <li>Cartes bancaires (Visa, Mastercard, CB)</li>
+                        <li>PayPal</li>
+                        <li>Virement bancaire (pour les professionnels)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Catégorie Produits -->
+            <div class="faq-item" data-category="produits">
+                <div class="faq-question">Pourquoi vos prix sont-ils si bas ?</div>
+                <div class="faq-answer">
+                    <p>Nos prix réduits s'expliquent par :</p>
+                    <ul>
+                        <li>Achats en gros volumes</li>
+                        <li>Produits en fin de série ou surplus</li>
+                        <li>Emballages légèrement abîmés</li>
+                        <li>Dates de consommation courtes mais encore valides</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="produits">
+                <div class="faq-question">Puis-je retourner un produit alimentaire ?</div>
+                <div class="faq-answer">
+                    <p>Pour des raisons d'hygiène, les produits alimentaires ne peuvent être retournés que s'ils sont non conformes à votre commande ou défectueux.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-contact">
+            <p>Vous n'avez pas trouvé de réponse à votre question ? <a href="{{ url_for('contact') }}" class="contact-link">Contactez-nous</a> et nous vous répondrons dans les plus brefs délais.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.faq-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.faq-title {
+    font-size: 2.5rem;
+    color: #2a5bd7;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.faq-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #2a5bd7;
+    margin: 20px auto 0;
+}
+
+.faq-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.faq-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.faq-category {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 2px solid #2a5bd7;
+    color: #2a5bd7;
+}
+
+.faq-category:hover, .faq-category.active {
+    background: #2a5bd7;
+    color: white;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    padding: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    color: #2a5bd7;
+}
+
+.faq-question:after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.faq-item.active .faq-question:after {
+    content: '-';
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 20px 20px;
+    max-height: 500px;
+}
+
+.faq-answer p, .faq-answer ul, .faq-answer ol {
+    margin-bottom: 15px;
+}
+
+.faq-answer ul, .faq-answer ol {
+    padding-left: 20px;
+}
+
+.faq-contact {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.1rem;
+}
+
+.contact-link {
+    color: #2a5bd7;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .faq-title {
+        font-size: 2rem;
+    }
+    
+    .faq-category {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestion des catégories FAQ
+    const categories = document.querySelectorAll('.faq-category');
+    categories.forEach(category => {
+        category.addEventListener('click', function() {
+            categories.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            
+            const categoryName = this.dataset.category;
+            const items = document.querySelectorAll('.faq-item');
+            
+            items.forEach(item => {
+                if(item.dataset.category === categoryName || categoryName === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Gestion de l'accordéon FAQ
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(question => {
+        question.addEventListener('click', function() {
+            const item = this.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('active');
+            });
+            
+            if(!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

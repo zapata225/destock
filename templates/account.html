@@ -1,0 +1,965 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    /* Variables modernes */
+    :root {
+        --primary: #2a5bd7;
+        --primary-light: #e0e8ff;
+        --primary-dark: #1e4aba;
+        --text-dark: #1e293b;
+        --text-medium: #475569;
+        --text-light: #64748b;
+        --bg-light: #f8fafc;
+        --border: #e2e8f0;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 8px;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Structure moderne */
+    .account-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 2rem;
+        margin: 2rem auto;
+        max-width: 1400px;
+        padding: 0 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+        .account-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Sidebar moderne */
+    .account-sidebar {
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: 1.5rem;
+        height: fit-content;
+        position: sticky;
+        top: 120px;
+        border: 1px solid var(--border);
+    }
+
+    .user-profile {
+        text-align: center;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 1.5rem;
+    }
+
+    .user-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1rem;
+        border: 4px solid var(--primary-light);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .user-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.25rem;
+    }
+
+    .user-email {
+        color: var(--text-light);
+        font-size: 0.875rem;
+    }
+
+    .nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md);
+        color: var(--text-medium);
+        transition: all 0.2s ease;
+        font-weight: 500;
+        text-decoration: none;
+        gap: 0.75rem;
+    }
+
+    .nav-link:hover, 
+    .nav-link.active {
+        background: var(--primary-light);
+        color: var(--primary);
+    }
+
+    .nav-link i {
+        font-size: 1.1rem;
+        width: 24px;
+        text-align: center;
+    }
+
+    /* Contenu principal */
+    .account-content {
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: 2rem;
+        border: 1px solid var(--border);
+    }
+
+    .account-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .account-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0;
+    }
+
+    /* Cartes de statistiques */
+    .account-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+        background: var(--bg-light);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .stat-title {
+        font-size: 0.875rem;
+        color: var(--text-light);
+        margin-bottom: 0.75rem;
+        font-weight: 500;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    /* Sections */
+    .account-section {
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border);
+    }
+
+    /* Cartes d'information */
+    .info-card {
+        background: var(--bg-light);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border);
+    }
+
+    .info-title {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .info-content {
+        color: var(--text-medium);
+        line-height: 1.6;
+    }
+
+    .info-content p {
+        margin-bottom: 0.5rem;
+    }
+
+    .info-content strong {
+        color: var(--text-dark);
+    }
+
+    /* Boutons */
+    .edit-btn {
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s ease;
+    }
+
+    .edit-btn:hover {
+        background: var(--primary-light);
+    }
+
+    .edit-btn i {
+        font-size: 0.75rem;
+    }
+
+    /* Formulaires */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-medium);
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        background: white;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.1);
+    }
+
+    .btn-save {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.875rem 1.75rem;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+    }
+
+    .btn-save:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Tableau des commandes */
+    .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9375rem;
+    }
+
+    .orders-table th {
+        text-align: left;
+        padding: 1rem;
+        background: var(--bg-light);
+        color: var(--text-medium);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .orders-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+    }
+
+    .order-status {
+        display: inline-block;
+        padding: 0.375rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .status-processing {
+        background: #fffbeb;
+        color: #b45309;
+        border: 1px solid #fcd34d;
+    }
+
+    .status-completed {
+        background: #ecfdf5;
+        color: #065f46;
+        border: 1px solid #6ee7b7;
+    }
+
+    .status-cancelled {
+        background: #fef2f2;
+        color: #991b1b;
+        border: 1px solid #fca5a5;
+    }
+
+    /* Moyens de paiement */
+    .payment-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .payment-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .payment-card:hover {
+        border-color: var(--primary);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .card-type {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 500;
+    }
+
+    .card-type i {
+        font-size: 1.5rem;
+        color: var(--primary);
+    }
+
+    .card-default {
+        background: var(--primary);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.6875rem;
+        font-weight: 500;
+    }
+
+    .card-number {
+        font-family: monospace;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+    }
+
+    .card-expiry {
+        color: var(--text-light);
+        font-size: 0.875rem;
+    }
+
+    .card-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .card-btn {
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-weight: 500;
+    }
+
+    .card-btn-default {
+        background: rgba(42, 91, 215, 0.1);
+        color: var(--primary);
+        border: none;
+    }
+
+    .card-btn-default:hover {
+        background: rgba(42, 91, 215, 0.2);
+    }
+
+    .card-btn-delete {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--danger);
+        border: none;
+    }
+
+    .card-btn-delete:hover {
+        background: rgba(239, 68, 68, 0.2);
+    }
+
+    /* Bouton ajouter */
+    .add-payment-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 1.5rem;
+        border: 2px dashed var(--border);
+        border-radius: var(--radius-md);
+        background: transparent;
+        color: var(--text-light);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .add-payment-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--primary-light);
+    }
+
+    .add-payment-btn i {
+        font-size: 1.2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .account-content {
+            padding: 1.5rem;
+        }
+
+        .account-stats {
+            grid-template-columns: 1fr;
+        }
+
+        .orders-table {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+
+    /* État vide */
+    .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--text-light);
+    }
+
+    .empty-state i {
+        font-size: 3rem;
+        color: var(--border);
+        margin-bottom: 1rem;
+    }
+
+    .empty-state p {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Bouton primaire */
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="account-container">
+    <!-- Sidebar -->
+    <div class="account-sidebar">
+        <div class="user-profile">
+            <img src="{{ url_for('static', filename='images/default-avatar.png') }}" alt="Avatar" class="user-avatar">
+            <h3 class="user-name">{{ user.full_name }}</h3>
+            <p class="user-email">{{ user.email }}</p>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#profile" class="nav-link active" data-tab="profile">
+                    <i class="fas fa-user"></i> Mon Profil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#orders" class="nav-link" data-tab="orders">
+                    <i class="fas fa-shopping-bag"></i> Mes Commandes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#address" class="nav-link" data-tab="address">
+                    <i class="fas fa-map-marker-alt"></i> Adresse
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#payments" class="nav-link" data-tab="payments">
+                    <i class="fas fa-credit-card"></i> Paiements
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#security" class="nav-link" data-tab="security">
+                    <i class="fas fa-lock"></i> Sécurité
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="account-content">
+        <!-- Profile Section -->
+        <div class="account-section" id="profile-section">
+            <div class="account-header">
+                <h1 class="account-title">Mon Profil</h1>
+            </div>
+
+            <div class="account-stats">
+                <div class="stat-card">
+                    <div class="stat-title">Commandes</div>
+                    <div class="stat-value">{{ orders|length }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Membre depuis</div>
+                    <div class="stat-value">{{ user.joined_date }}</div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-title">
+                    <span>Informations personnelles</span>
+                    <button class="edit-btn" id="edit-profile-btn">
+                        <i class="fas fa-pencil-alt"></i> Modifier
+                    </button>
+                </div>
+                <div class="info-content">
+                    <p><strong>Nom complet:</strong> {{ user.full_name }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Téléphone:</strong> {{ user.phone if user.phone else 'Non renseigné' }}</p>
+                </div>
+            </div>
+
+            <!-- Edit Profile Form (Hidden by default) -->
+            <form id="profile-form" class="fade-in" style="display: none;" action="{{ url_for('save_profile') }}" method="POST">
+                <div class="form-group">
+                    <label for="full_name">Nom complet</label>
+                    <input type="text" id="full_name" name="full_name" class="form-control" value="{{ user.full_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" value="{{ user.phone if user.phone else '' }}">
+                </div>
+                <button type="submit" class="btn-save">Enregistrer</button>
+            </form>
+        </div>
+
+        <!-- Orders Section -->
+        <div class="account-section" id="orders-section" style="display: none;">
+            <div class="account-header">
+                <h1 class="account-title">Mes Commandes</h1>
+            </div>
+
+            {% if orders %}
+            <div class="table-responsive">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>N° Commande</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>#{{ order.id }}</td>
+                            <td>{{ order.date }}</td>
+                            <td>{{ "%.2f"|format(order.total) }}€</td>
+                            <td>
+                                <span class="order-status status-{{ order.status|lower }}">{{ order.status }}</span>
+                            </td>
+                            <td>
+                                <a href="{{ url_for('confirmation', order_id=order.id) }}" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Détails</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Vous n'avez pas encore passé de commande.</p>
+                <a href="{{ url_for('product_list') }}" class="btn-primary">Voir nos produits</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Address Section -->
+        <div class="account-section" id="address-section" style="display: none;">
+            <div class="account-header">
+                <h1 class="account-title">Mon Adresse</h1>
+            </div>
+
+            <div class="info-card">
+                <div class="info-title">
+                    <span>Adresse de livraison</span>
+                    <button class="edit-btn" id="edit-address-btn">
+                        <i class="fas fa-pencil-alt"></i> Modifier
+                    </button>
+                </div>
+                <div class="info-content">
+                    {% if user.address %}
+                        <p>{{ user.address }}</p>
+                    {% else %}
+                        <p>Aucune adresse enregistrée</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Edit Address Form (Hidden by default) -->
+            <form id="address-form" class="fade-in" style="display: none;" action="{{ url_for('manage_address') }}" method="POST">
+                <input type="hidden" name="action" value="update">
+                <div class="form-group">
+                    <label for="address">Adresse</label>
+                    <textarea id="address" name="address" class="form-control" rows="3">{{ user.address if user.address else '' }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" value="{{ user.phone if user.phone else '' }}">
+                </div>
+                <button type="submit" class="btn-save">Enregistrer</button>
+                {% if user.address %}
+                <button type="button" id="delete-address-btn" class="card-btn card-btn-delete" style="margin-left: 0.5rem;">Supprimer l'adresse</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <!-- Payments Section -->
+        <div class="account-section" id="payments-section" style="display: none;">
+            <div class="account-header">
+                <h1 class="account-title">Moyens de Paiement</h1>
+            </div>
+
+            <div class="payment-methods">
+                {% for card in user.payment_methods %}
+                <div class="payment-card">
+                    <div class="card-header">
+                        <div class="card-type">
+                            <i class="fab fa-cc-{{ card.type|lower if card.type else 'credit-card' }}"></i>
+                            <span>{{ card.type if card.type else 'Carte de crédit' }}</span>
+                        </div>
+                        {% if card.default %}
+                        <span class="card-default">Par défaut</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-number">•••• •••• •••• {{ card.number[-4:] if card.number else '' }}</div>
+                    <div class="card-expiry">Expire le {{ card.expiry }}</div>
+                    <div class="card-actions">
+                        {% if not card.default %}
+                        <button class="card-btn card-btn-default" data-card-id="{{ card.id }}">Définir par défaut</button>
+                        {% endif %}
+                        <button class="card-btn card-btn-delete" data-card-id="{{ card.id }}">Supprimer</button>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <button class="add-payment-btn" id="add-payment-btn">
+                    <i class="fas fa-plus"></i> Ajouter un moyen de paiement
+                </button>
+            </div>
+
+            <!-- Add Payment Form (Hidden by default) -->
+            <form id="payment-form" class="fade-in" style="display: none;" action="{{ url_for('add_card') }}" method="POST">
+                <div class="form-group">
+                    <label for="card_name">Nom sur la carte</label>
+                    <input type="text" id="card_name" name="card_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="card_number">Numéro de carte</label>
+                    <input type="text" id="card_number" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="card_expiry">Date d'expiration</label>
+                        <input type="text" id="card_expiry" name="expiry_date" class="form-control" placeholder="MM/AA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card_cvv">CVV</label>
+                        <input type="text" id="card_cvv" name="cvv" class="form-control" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="default_card">
+                        <input type="checkbox" id="default_card" name="default_card"> Définir comme moyen de paiement par défaut
+                    </label>
+                </div>
+                <button type="submit" class="btn-save">Enregistrer la carte</button>
+            </form>
+        </div>
+
+        <!-- Security Section -->
+        <div class="account-section" id="security-section" style="display: none;">
+            <div class="account-header">
+                <h1 class="account-title">Sécurité</h1>
+            </div>
+
+            <div class="info-card">
+                <div class="info-title">
+                    <span>Mot de passe</span>
+                    <button class="edit-btn" id="change-password-btn">
+                        <i class="fas fa-pencil-alt"></i> Modifier
+                    </button>
+                </div>
+                <div class="info-content">
+                    <p>••••••••••••</p>
+                </div>
+            </div>
+
+            <!-- Change Password Form (Hidden by default) -->
+            <form id="password-form" class="fade-in" style="display: none;" action="{{ url_for('change_password') }}" method="POST">
+                <div class="form-group">
+                    <label for="current_password">Mot de passe actuel</label>
+                    <input type="password" id="current_password" name="current_password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="new_password">Nouveau mot de passe</label>
+                    <input type="password" id="new_password" name="new_password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirmer le nouveau mot de passe</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn-save">Changer le mot de passe</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Gestion des onglets
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Mettre à jour le menu actif
+            document.querySelectorAll('.nav-link').forEach(item => {
+                item.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Afficher la section correspondante
+            const tab = this.getAttribute('data-tab');
+            document.querySelectorAll('.account-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(`${tab}-section`).style.display = 'block';
+            
+            // Faire défiler vers le haut de la section
+            document.getElementById(`${tab}-section`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Gestion du formulaire de profil
+    const editProfileBtn = document.getElementById('edit-profile-btn');
+    const profileForm = document.getElementById('profile-form');
+    
+    editProfileBtn?.addEventListener('click', function() {
+        profileForm.style.display = profileForm.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Gestion du formulaire d'adresse
+    const editAddressBtn = document.getElementById('edit-address-btn');
+    const addressForm = document.getElementById('address-form');
+    const deleteAddressBtn = document.getElementById('delete-address-btn');
+    
+    editAddressBtn?.addEventListener('click', function() {
+        addressForm.style.display = addressForm.style.display === 'none' ? 'block' : 'none';
+    });
+
+    if (deleteAddressBtn) {
+        deleteAddressBtn.addEventListener('click', function() {
+            if (confirm('Êtes-vous sûr de vouloir supprimer votre adresse ?')) {
+                fetch("{{ url_for('manage_address') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'action=delete'
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    }
+
+    // Gestion des moyens de paiement
+    const addPaymentBtn = document.getElementById('add-payment-btn');
+    const paymentForm = document.getElementById('payment-form');
+    
+    addPaymentBtn?.addEventListener('click', function() {
+        paymentForm.style.display = paymentForm.style.display === 'none' ? 'block' : 'none';
+        if (paymentForm.style.display === 'block') {
+            paymentForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+
+    // Gestion du changement de mot de passe
+    const changePasswordBtn = document.getElementById('change-password-btn');
+    const passwordForm = document.getElementById('password-form');
+    
+    changePasswordBtn?.addEventListener('click', function() {
+        passwordForm.style.display = passwordForm.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Formatage du numéro de carte
+    document.getElementById('card_number')?.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        let formatted = value.replace(/(\d{4})/g, '$1 ').trim();
+        e.target.value = formatted;
+    });
+
+    // Formatage de la date d'expiration
+    document.getElementById('card_expiry')?.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        if (value.length > 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        e.target.value = value;
+    });
+
+    // Gestion des cartes de crédit
+    document.querySelectorAll('.card-btn-default').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const cardId = this.getAttribute('data-card-id');
+            fetch("{{ url_for('set_default_card') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `card_id=${cardId}`
+            }).then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('.card-btn-delete').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const cardId = this.getAttribute('data-card-id');
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette carte ?')) {
+                fetch("{{ url_for('delete_card') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `card_id=${cardId}`
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    });
+
+    // Validation des formulaires
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            // Validation du formulaire de mot de passe
+            if (this.id === 'password-form') {
+                const newPassword = document.getElementById('new_password').value;
+                const confirmPassword = document.getElementById('confirm_password').value;
+                
+                if (newPassword !== confirmPassword) {
+                    e.preventDefault();
+                    alert('Les mots de passe ne correspondent pas');
+                    return;
+                }
+            }
+            
+            // Validation du formulaire de carte
+            if (this.id === 'payment-form') {
+                const cardNumber = document.getElementById('card_number').value.replace(/\s/g, '');
+                if (cardNumber.length !== 16) {
+                    e.preventDefault();
+                    alert('Veuillez entrer un numéro de carte valide (16 chiffres)');
+                    return;
+                }
+            }
+        });
+    });
+
+    // Afficher la première section par défaut
+    document.querySelector('.nav-link.active')?.click();
+</script>
+{% endblock %}

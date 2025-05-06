@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Conditions Générales de Vente - Destockage Alimentaire Prénium{% endblock %}
+
+{% block meta_description %}
+Consultez nos Conditions Générales de Vente pour vos achats sur Destockage Alimentaire Prénium. Livraison, paiement, retours et garanties pour vos produits alimentaires à prix discount.
+{% endblock %}
+
+{% block content %}
+<section class="legal-section">
+    <div class="container">
+        <h1 class="legal-title">Conditions Générales de Vente</h1>
+        
+        <div class="legal-content">
+            <h2>1. Objet</h2>
+            <p>Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre la société Destockage Alimentaire Prénium et ses clients pour les ventes réalisées sur le site www.destockage-alimentaire.com.</p>
+            
+            <h2>2. Produits</h2>
+            <p>Nos produits sont des articles de déstockage alimentaire. Ils peuvent présenter des emballages légèrement abîmés ou des dates de consommation raccourcies, mais sont parfaitement consommables.</p>
+            
+            <h2>3. Prix</h2>
+            <p>Les prix sont indiqués en euros toutes taxes comprises (TVA incluse). Destockage Alimentaire Prénium se réserve le droit de modifier ses prix à tout moment.</p>
+            
+            <h2>4. Commande</h2>
+            <p>La validation de votre commande vaut acceptation des présentes CGV. Vous recevrez un email de confirmation.</p>
+            
+            <h2>5. Paiement</h2>
+            <p>Les paiements sont sécurisés par notre partenaire bancaire. Nous acceptons les cartes bancaires (Visa, Mastercard, CB) et PayPal.</p>
+            
+            <h2>6. Livraison</h2>
+            <p>Les délais de livraison sont indicatifs et varient selon les produits. Pour les produits frais et surgelés, des emballages isothermes sont utilisés.</p>
+            
+            <h2>7. Retours et remboursements</h2>
+            <p>Conformément à la loi, vous disposez d'un délai de 14 jours pour retourner les produits non alimentaires. Pour les produits alimentaires, les retours ne sont acceptés qu'en cas de non-conformité.</p>
+            
+            <h2>8. Garanties</h2>
+            <p>Tous nos produits bénéficient des garanties légales de conformité et des vices cachés.</p>
+            
+            <h2>9. Responsabilité</h2>
+            <p>Destockage Alimentaire Prénium ne peut être tenu responsable des dommages résultant d'une mauvaise utilisation des produits.</p>
+            
+            <h2>10. Litiges</h2>
+            <p>En cas de litige, le client peut recourir à un médiateur de la consommation ou aux tribunaux compétents.</p>
+            
+            <p class="update-date">Dernière mise à jour : 01/01/2024</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.legal-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    line-height: 1.8;
+}
+
+.legal-title {
+    font-size: 2.5rem;
+    color: #2a5bd7;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.legal-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #2a5bd7;
+    margin: 20px auto 0;
+}
+
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.legal-content h2 {
+    color: #2a5bd7;
+    margin: 30px 0 15px;
+    font-size: 1.5rem;
+}
+
+.legal-content p {
+    margin-bottom: 15px;
+}
+
+.update-date {
+    font-style: italic;
+    margin-top: 30px;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .legal-content {
+        padding: 20px;
+    }
+    
+    .legal-title {
+        font-size: 2rem;
+    }
+}
+</style>
+{% endblock %}

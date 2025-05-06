@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .auth-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .auth-header h2 {
+        color: #4361ee;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .auth-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .auth-option {
+        padding: 2rem;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .auth-option:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-color: #4361ee;
+    }
+
+    .auth-option i {
+        font-size: 2.5rem;
+        color: #4361ee;
+        margin-bottom: 1rem;
+    }
+
+    .auth-option h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #212529;
+    }
+
+    .auth-option p {
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+    }
+
+    .auth-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-login {
+        background: #4361ee;
+        color: white;
+    }
+
+    .btn-login:hover {
+        background: #3a56d4;
+    }
+
+    .btn-register {
+        background: #f8f9fa;
+        color: #4361ee;
+        border: 1px solid #4361ee;
+    }
+
+    .btn-register:hover {
+        background: #ebf1ff;
+    }
+
+    .btn-guest {
+        background: white;
+        color: #212529;
+        border: 1px solid #dee2e6;
+    }
+
+    .btn-guest:hover {
+        background: #f8f9fa;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-header">
+        <h2>Comment souhaitez-vous continuer ?</h2>
+        <p>Choisissez votre méthode de connexion pour passer commande</p>
+    </div>
+    
+    <div class="auth-options">
+        <div class="auth-option">
+            <i class="fas fa-sign-in-alt"></i>
+            <h3>Se connecter</h3>
+            <p>Accédez à votre compte pour une expérience personnalisée</p>
+            <form action="{{ url_for('checkout_auth') }}" method="POST">
+                <input type="hidden" name="action" value="login">
+                <button type="submit" class="auth-btn btn-login">Connexion</button>
+            </form>
+        </div>
+        
+        <div class="auth-option">
+            <i class="fas fa-user-plus"></i>
+            <h3>Créer un compte</h3>
+            <p>Enregistrez-vous pour suivre vos commandes</p>
+            <form action="{{ url_for('checkout_auth') }}" method="POST">
+                <input type="hidden" name="action" value="register">
+                <button type="submit" class="auth-btn btn-register">S'inscrire</button>
+            </form>
+        </div>
+        
+        <div class="auth-option">
+            <i class="fas fa-shopping-bag"></i>
+            <h3>Continuer sans compte</h3>
+            <p>Passez commande sans créer de compte</p>
+            <form action="{{ url_for('checkout_auth') }}" method="POST">
+                <input type="hidden" name="action" value="guest">
+                <button type="submit" class="auth-btn btn-guest">Invité</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

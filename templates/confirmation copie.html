@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="confirmation-container">
+    <div class="confirmation-icon">
+        <i class="fas fa-check-circle"></i>
+    </div>
+    
+    <h1>Merci pour votre commande !</h1>
+    <p>Votre commande a été passée avec succès. Vous recevrez bientôt un email de confirmation.</p>
+    
+    <div class="order-details">
+        <div class="order-detail-row">
+            <span>Numéro de commande</span>
+            <span>{{ order.id }}</span>
+        </div>
+        <div class="order-detail-row">
+            <span>Date</span>
+            <span>{{ order.date }}</span>
+        </div>
+        <div class="order-detail-row">
+            <span>Statut</span>
+            <span>{{ order.status }}</span>
+        </div>
+        <div class="order-detail-row total">
+            <span>Total</span>
+            <span>{{ "%.2f"|format(order.total) }}€</span>
+        </div>
+    </div>
+    
+    <div class="confirmation-actions">
+        <a href="{{ url_for('product_list') }}" class="btn btn-primary">
+            <i class="fas fa-shopping-bag"></i> Continuer vos achats
+        </a>
+        <a href="{{ url_for('account') }}" class="btn btn-outline">
+            <i class="fas fa-user"></i> Voir mon compte
+        </a>
+    </div>
+</section>
+{% endblock %}

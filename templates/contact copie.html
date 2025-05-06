@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/warehouse-team.jpg') }}" alt="Notre équipe dans l'entrepôt">
+        <div class="hero-overlay">
+            <p>Depuis {{ stats.years }} ans, nous transformons les surplus en opportunités</p>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="container">
+        <h2>Notre Mission</h2>
+        <div class="mission-grid">
+            <div class="mission-card">
+                <i class="fas fa-recycle"></i>
+                <h3>Lutte contre le gaspillage</h3>
+                <p>Chaque année, nous sauvons plus de {{ stats.products }} tonnes de produits alimentaires de la destruction.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Économies garanties</h3>
+                <p>Jusqu'à 70% de réduction sur les produits de grande marque, sans compromis sur la qualité.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-truck"></i>
+                <h3>Logistique performante</h3>
+                <p>Taux de livraison dans les temps de {{ stats.delivery_rate }}% sur les 12 derniers mois.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="team-section">
+    <div class="container">
+        <h2>Notre Équipe</h2>
+        <p class="subtitle">Des professionnels dédiés à votre satisfaction</p>
+        
+        <div class="team-grid">
+            {% for member in team_members %}
+            <div class="team-card">
+                <div class="team-photo">
+                    <img src="{{ url_for('static', filename='images/team/' + member.photo) }}" alt="{{ member.name }}">
+                </div>
+                <h3>{{ member.name }}</h3>
+                <p class="role">{{ member.role }}</p>
+                <p class="bio">{{ member.bio }}</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section">
+    <div class="container">
+        <h2>Ils nous font confiance</h2>
+        <div class="testimonials-slider">
+            {% for testimonial in testimonials %}
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">{{ testimonial.content }}</p>
+                <p class="testimonial-author">- {{ testimonial.author }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="contact-form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2>Contactez-nous</h2>
+            <form action="/submit-contact" method="POST">
+                <div class="form-group">
+                    <label for="name">Votre nom</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Société</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Sélectionnez...</option>
+                        <option value="demande">Demande commerciale</option>
+                        <option value="partenariat">Proposition de partenariat</option>
+                        <option value="livraison">Question sur une livraison</option>
+                        <option value="autre">Autre demande</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+        <div class="info-container">
+            <h3>Coordonnées</h3>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Parc Industriel des Hauts-de-France<br>Rue des Entrepreneurs, 59800 Lille</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>03 20 00 00 00</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>contact@destockalim.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Lun-Ven : 8h-19h<br>Samedi : 9h-12h</p>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10116.245873789352!2d3.058889576025011!3d50.63696326421707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d59118928ab7%3A0xd0f376c67c3f588e!2sLille!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+{% endblock %}

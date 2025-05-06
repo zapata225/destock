@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .admin-container {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 20px;
+    }
+    
+    .admin-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+    
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 8px;
+        padding: 8px 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        width: 300px;
+    }
+    
+    .search-box input {
+        border: none;
+        outline: none;
+        flex: 1;
+        padding: 5px;
+    }
+    
+    .filter-buttons {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+    
+    .filter-btn.active {
+        background: #2a5bd7;
+        color: white;
+        border-color: #2a5bd7;
+    }
+    
+    .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .orders-table th, .orders-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .orders-table th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .status-processing {
+        background: #fffbeb;
+        color: #b45309;
+    }
+    
+    .status-validated {
+        background: #fef3c7;
+        color: #92400e;
+    }
+    
+    .status-preparing {
+        background: #ecfdf5;
+        color: #065f46;
+    }
+    
+    .status-shipped {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+    
+    .status-delivered {
+        background: #ecfdf5;
+        color: #047857;
+    }
+    
+    .action-btn {
+        padding: 5px 10px;
+        border-radius: 5px;
+        background: #f1f5f9;
+        border: none;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    
+    .action-btn:hover {
+        background: #e2e8f0;
+    }
+    
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 5px;
+    }
+    
+    .page-btn {
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+        background: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .page-btn.active {
+        background: #2a5bd7;
+        color: white;
+        border-color: #2a5bd7;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <h1 class="admin-section-title">
+        <i class="fas fa-shopping-bag"></i> Gestion des commandes
+    </h1>
+    
+    <div class="admin-actions">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher une commande...">
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active">Toutes</button>
+            <button class="filter-btn">En traitement</button>
+            <button class="filter-btn">Validées</button>
+            <button class="filter-btn">En préparation</button>
+            <button class="filter-btn">Expédiées</button>
+            <button class="filter-btn">Livrées</button>
+        </div>
+    </div>
+    
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>N° Commande</th>
+                <th>Client</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Paiement</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>#{{ order.id }}</td>
+                <td>{{ order.user }}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.total }}€</td>
+                <td>{{ order.payment_method }}</td>
+                <td>
+                    {% if order.payment_method == 'installment' %}
+                        Paiement en plusieurs fois<br>
+                        ID: {{ order.bank_user_id }}
+                    {% elif order.payment_method == 'credit_card' %}
+                        Carte bancaire<br>
+                        ****{{ order.card_number[-4:] }}
+                    {% else %}
+                        {{ order.payment_method }}
+                    {% endif %}
+                </td>
+                <td>
+                    <span class="status-badge status-{{ order.status.lower().replace('é', 'e') }}">
+                        {{ order.status }}
+                    </span>
+                </td>
+                <td>
+                    <a href="{{ url_for('admin_order_detail', order_id=order.id) }}" class="action-btn" title="Voir">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <button class="action-btn update-status" data-order-id="{{ order.id }}" title="Modifier statut">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+    </div>
+</div>
+
+<!-- Modal pour modifier le statut -->
+<div id="status-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 2rem; border-radius: 10px; width: 400px;">
+        <h3>Modifier le statut de la commande</h3>
+        <form id="status-form">
+            <input type="hidden" id="order-id-input">
+            <div style="margin: 1rem 0;">
+                <select id="status-select" class="form-control">
+                    <option value="En traitement">En traitement</option>
+                    <option value="Validée">Validée</option>
+                    <option value="En préparation">En préparation</option>
+                    <option value="Expédiée">Expédiée</option>
+                    <option value="Livrée">Livrée</option>
+                </select>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button type="button" id="cancel-status" style="padding: 8px 15px; background: #f1f5f9; border: none; border-radius: 5px; cursor: pointer;">
+                    Annuler
+                </button>
+                <button type="submit" style="padding: 8px 15px; background: #2a5bd7; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Enregistrer
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('.update-status').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const orderId = this.getAttribute('data-order-id');
+            const modal = document.getElementById('status-modal');
+            const orderIdInput = document.getElementById('order-id-input');
+            
+            orderIdInput.value = orderId;
+            modal.style.display = 'flex';
+        });
+    });
+    
+    document.getElementById('cancel-status').addEventListener('click', function() {
+        document.getElementById('status-modal').style.display = 'none';
+    });
+    
+    document.getElementById('status-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const orderId = document.getElementById('order-id-input').value;
+        const newStatus = document.getElementById('status-select').value;
+        
+        fetch('/admin/update-order-status/' + orderId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status: newStatus })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Statut mis à jour avec succès');
+                window.location.reload();
+            } else {
+                alert('Erreur: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Une erreur est survenue');
+        });
+    });
+</script>
+{% endblock %}

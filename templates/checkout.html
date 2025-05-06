@@ -1,0 +1,1032 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary-color: #2a5bd7;
+        --secondary-color: #1e4aba;
+        --accent-color: #4CAF50;
+        --light-bg: #f8f9fa;
+        --white: #ffffff;
+        --gray: #6c757d;
+        --light-gray: #e9ecef;
+        --dark-gray: #343a40;
+        --shadow: 0 4px 15px rgba(39, 23, 23, 0.1);
+        --border-radius: 12px;
+        --transition: all 0.3s ease;
+    }
+
+    .checkout-container {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 20px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .checkout-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .checkout-nav .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .checkout-nav .logo img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .checkout-steps {
+        display: flex;
+        gap: 30px;
+    }
+
+    .step {
+        position: relative;
+        padding: 10px 20px;
+        color: var(--gray);
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+    .step.active {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .step.active:after {
+        content: '';
+        position: absolute;
+        bottom: -21px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--accent-color);
+        animation: grow 0.5s ease forwards;
+    }
+
+    @keyframes grow {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+
+    .checkout-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .checkout-form-section, .order-summary, .personal-info-form {
+        background: var(--white);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .checkout-form-section:hover, .order-summary:hover, .personal-info-form:hover {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .checkout-form-section h2, .personal-info-form h2 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .payment-options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .payment-option {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid var(--light-gray);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+        background: var(--white);
+    }
+
+    .payment-option:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .payment-option input[type="radio"] {
+        margin-right: 15px;
+        accent-color: var(--primary-color);
+    }
+
+    .payment-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        transition: var(--transition);
+    }
+
+    .payment-option:hover .payment-icon {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+
+    .payment-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+    }
+
+    .payment-details p {
+        color: var(--gray);
+        font-size: 0.9rem;
+    }
+
+    .payment-form {
+        display: none;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid var(--light-gray);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .payment-form.active {
+        display: block;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--light-gray);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    .form-group input:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.2);
+    }
+
+    .input-with-icon {
+        position: relative;
+    }
+
+    .input-with-icon i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+    }
+
+    .input-with-icon input {
+        padding-left: 45px !important;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .bank-info {
+        background: var(--light-bg);
+        padding: 20px;
+        border-radius: var(--border-radius);
+    }
+
+    .bank-info h3 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+
+    .bank-info p {
+        margin-bottom: 15px;
+        color: var(--gray);
+    }
+
+    .bank-details {
+        margin: 20px 0;
+    }
+
+    .detail-row {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .detail-row span:first-child {
+        flex: 1;
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+
+    .detail-row span:last-child {
+        flex: 2;
+        font-family: monospace;
+    }
+
+    .detail-row button {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        cursor: pointer;
+        margin-left: 10px;
+        transition: var(--transition);
+    }
+
+    .detail-row button:hover {
+        transform: scale(1.1);
+    }
+
+    .notice {
+        font-style: italic;
+        font-size: 0.9rem;
+    }
+
+    .btn-payment {
+        width: 100%;
+        padding: 15px;
+        background: var(--primary-color);
+        color: var(--white);
+        border: none;
+        border-radius: var(--border-radius);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: var(--transition);
+    }
+
+    .btn-payment:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(42, 91, 215, 0.2);
+    }
+
+    .btn-payment:active {
+        transform: translateY(0);
+    }
+
+    .order-summary {
+        position: sticky;
+        top: 20px;
+        align-self: flex-start;
+        height: fit-content;
+    }
+
+    .order-summary h2 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .order-items {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 30px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) var(--light-gray);
+    }
+
+    .order-items::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .order-items::-webkit-scrollbar-track {
+        background: var(--light-gray);
+        border-radius: 10px;
+    }
+
+    .order-items::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 10px;
+    }
+
+    .order-item {
+        display: flex;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .item-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .item-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .order-item:hover .item-image img {
+        transform: scale(1.05);
+    }
+
+    .item-details {
+        flex: 1;
+    }
+
+    .item-details h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+    }
+
+    .item-price {
+        color: var(--gray);
+        margin-bottom: 5px;
+    }
+
+    .item-quantity {
+        font-size: 0.9rem;
+        color: var(--gray);
+    }
+
+    .item-total {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .order-totals {
+        margin: 30px 0;
+        padding-top: 20px;
+        border-top: 1px solid var(--light-gray);
+    }
+
+    .total-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .grand-total {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid var(--light-gray);
+    }
+
+    .secure-payment {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid var(--light-gray);
+        color: var(--gray);
+    }
+
+    .payment-methods {
+        display: flex;
+        gap: 10px;
+        margin-left: auto;
+    }
+
+    .payment-methods img {
+        height: 25px;
+        filter: grayscale(100%);
+        transition: var(--transition);
+    }
+
+    .payment-methods img:hover {
+        filter: grayscale(0);
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        margin-right: 10px;
+        accent-color: var(--primary-color);
+        width: 18px;
+        height: 18px;
+    }
+
+    .checkbox-group label {
+        margin-bottom: 0;
+        font-weight: normal;
+        color: var(--dark-gray);
+    }
+
+    /* Animation pour le changement de méthode de paiement */
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+        .checkout-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .left-column {
+            order: 1;
+        }
+        
+        .order-summary {
+            order: 2;
+            position: static;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .checkout-nav {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .checkout-steps {
+            width: 100%;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .step {
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        
+        .step.active:after {
+            bottom: -11px;
+        }
+        
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .checkout-form-section, .order-summary, .personal-info-form {
+            padding: 20px;
+        }
+        
+        .payment-option {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .payment-icon {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="checkout-container">
+    <!-- Barre de navigation -->
+    <nav class="checkout-nav">
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <span>Destockage Alimentaire</span>
+        </a>
+        <div class="checkout-steps">
+            <div class="step active">1. Panier</div>
+            <div class="step active">2. Livraison</div>
+            <div class="step active">3. Paiement</div>
+            <div class="step">4. Confirmation</div>
+        </div>
+    </nav>
+    
+    <div class="checkout-content">
+        <!-- Colonne de gauche avec formulaire d'informations et paiement -->
+        <div class="left-column">
+            <!-- Formulaire d'informations personnelles -->
+            <div class="personal-info-form">
+                <h2><i class="fas fa-user-circle"></i> Informations personnelles</h2>
+                
+                <form id="personal-info-form">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" required 
+                                   value="{{ user.email if user else '' }}"
+                                   placeholder="votre@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname">Prénom *</label>
+                            <input type="text" id="firstname" name="firstname" required 
+                                   value="{{ user.full_name.split(' ')[0] if user and user.full_name else '' }}"
+                                   placeholder="Prénom">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Nom *</label>
+                            <input type="text" id="lastname" name="lastname" required
+                                   value="{{ user.full_name.split(' ')[1] if user and user.full_name else '' }}"
+                                   placeholder="Nom">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" required
+                                   value="{{ user.phone if user else '' }}"
+                                   placeholder="06 12 34 56 78">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Société (optionnel)</label>
+                        <input type="text" id="company" name="company" placeholder="Nom de votre société">
+                    </div>
+
+                    <h3 class="section-title"><i class="fas fa-truck"></i> Adresse de livraison</h3>
+
+                    <div class="form-group">
+                        <label for="delivery-address">Adresse *</label>
+                        <input type="text" id="delivery-address" name="delivery_address" required
+                               value="{{ user.address if user else '' }}"
+                               placeholder="123 Rue de l'exemple">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="delivery-zip">Code postal *</label>
+                            <input type="text" id="delivery-zip" name="delivery_zip" required
+                                   placeholder="75000">
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-city">Ville *</label>
+                            <input type="text" id="delivery-city" name="delivery_city" required
+                                   placeholder="Paris">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery-country">Pays *</label>
+                        <select id="delivery-country" name="delivery_country" required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="FR" selected>France</option>
+                            <option value="BE">Belgique</option>
+                            <option value="CH">Suisse</option>
+                            <option value="LU">Luxembourg</option>
+                        </select>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="same-billing" name="same_billing" checked>
+                        <label for="same-billing">Utiliser la même adresse pour la facturation</label>
+                    </div>
+
+                    <div id="billing-address-section" style="display:none;">
+                        <h3 class="section-title"><i class="fas fa-file-invoice"></i> Adresse de facturation</h3>
+                        
+                        <div class="form-group">
+                            <label for="billing-address">Adresse *</label>
+                            <input type="text" id="billing-address" name="billing_address"
+                                   placeholder="123 Rue de l'exemple">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billing-zip">Code postal *</label>
+                                <input type="text" id="billing-zip" name="billing_zip"
+                                       placeholder="75000">
+                            </div>
+                            <div class="form-group">
+                                <label for="billing-city">Ville *</label>
+                                <input type="text" id="billing-city" name="billing_city"
+                                       placeholder="Paris">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="billing-country">Pays *</label>
+                            <select id="billing-country" name="billing_country">
+                                <option value="">Sélectionnez...</option>
+                                <option value="FR" selected>France</option>
+                                <option value="BE">Belgique</option>
+                                <option value="CH">Suisse</option>
+                                <option value="LU">Luxembourg</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Section paiement -->
+            <div class="checkout-form-section">
+                <form method="POST" action="{{ url_for('payment') }}" id="payment-form">
+                    <input type="hidden" name="payment_method" id="payment-method-input">
+                    
+                    <h2><i class="fas fa-credit-card"></i> Méthode de paiement</h2>
+                    
+                    <div class="payment-options">
+                        <!-- Option Carte Bancaire -->
+                        <div class="payment-option" onclick="selectPayment('card')">
+                            <input type="radio" name="payment_type" id="card-payment" required>
+                            <div class="payment-icon">
+                                <i class="far fa-credit-card"></i>
+                            </div>
+                            <div class="payment-details">
+                                <h3>Carte Bancaire</h3>
+                                <p>Paiement sécurisé par carte Visa, Mastercard</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Option Virement -->
+                        <div class="payment-option" onclick="selectPayment('transfer')">
+                            <input type="radio" name="payment_type" id="transfer-payment">
+                            <div class="payment-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="payment-details">
+                                <h3>Virement Bancaire</h3>
+                                <p>Effectuez un virement depuis votre banque</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Option Paiement en plusieurs fois -->
+                        <div class="payment-option" onclick="window.location.href='{{ url_for('installment_step1') }}'">
+                            <input type="radio" name="payment_type" id="installment-payment">
+                            <div class="payment-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="payment-details">
+                                <h3>Paiement en plusieurs fois</h3>
+                                <p>3 ou 4 fois sans frais</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire Carte Bancaire -->
+                    <div id="card-form" class="payment-form">
+                        <div class="form-group">
+                            <label for="card-number">Numéro de carte</label>
+                            <div class="input-with-icon">
+                                <i class="far fa-credit-card"></i>
+                                <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Date d'expiration</label>
+                                <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">Code de sécurité</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-name">Nom sur la carte</label>
+                            <input type="text" id="card-name" name="card_name" placeholder="Nom comme affiché sur la carte">
+                        </div>
+                    </div>
+
+                    <!-- Formulaire Virement Bancaire -->
+                    <div id="transfer-form" class="payment-form">
+                        <div class="bank-info">
+                            <h3><i class="fas fa-info-circle"></i> Instructions pour le virement</h3>
+                            <p>Veuillez effectuer un virement aux coordonnées suivantes :</p>
+                            
+                            <div class="bank-details">
+                                <div class="detail-row">
+                                    <span>Bénéficiaire :</span>
+                                    <span>DESTOCKAGE ALIMENTAIRE</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>IBAN :</span>
+                                    <span id="iban-value">FR76 1234 5678 9012 3456 7890 123</span>
+                                    <button type="button" onclick="copyToClipboard('iban-value')"><i class="far fa-copy"></i></button>
+                                </div>
+                                <div class="detail-row">
+                                    <span>BIC :</span>
+                                    <span>ABCDEFGH123</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Montant :</span>
+                                    <span class="amount">{{ "%.2f"|format(total) }} €</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Référence :</span>
+                                    <span>{{ order_reference }}</span>
+                                </div>
+                            </div>
+                            
+                            <p class="notice">Votre commande sera expédiée dès réception du virement.</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-payment">
+                        <i class="fas fa-lock"></i> Payer {{ "%.2f"|format(total) }} €
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Récapitulatif de commande (colonne de droite) -->
+        <div class="order-summary">
+            <h2><i class="fas fa-shopping-bag"></i> Votre commande</h2>
+            
+            <div class="order-items">
+                {% for item in cart_items %}
+                <div class="order-item">
+                    <div class="item-image">
+                        <img src="{{ url_for('static', filename='images/products/' + item.product.images[0]) }}">
+                    </div>
+                    <div class="item-details">
+                        <h3>{{ item.product.name }}</h3>
+                        <p class="item-price">{{ "%.2f"|format(item.product.price) }} €</p>
+                        <div class="item-quantity">
+                            <span>Quantité : {{ item.quantity }}</span>
+                        </div>
+                    </div>
+                    <div class="item-total">
+                        {{ "%.2f"|format(item.product.price * item.quantity) }} €
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="order-totals">
+                <div class="total-row">
+                    <span>Sous-total</span>
+                    <span>{{ "%.2f"|format(subtotal) }} €</span>
+                </div>
+                <div class="total-row">
+                    <span>Livraison</span>
+                    <span>Gratuite</span>
+                </div>
+                <div class="total-row grand-total">
+                    <span>Total TTC</span>
+                    <span>{{ "%.2f"|format(total) }} €</span>
+                </div>
+            </div>
+            
+            <div class="secure-payment">
+                <i class="fas fa-lock"></i>
+                <span>Paiement sécurisé SSL</span>
+                <div class="payment-methods">
+                    <img src="{{ url_for('static', filename='images/visa.png') }}" alt="Visa">
+                    <img src="{{ url_for('static', filename='images/mastercard.png') }}" alt="Mastercard">
+                    <img src="{{ url_for('static', filename='images/paypal.png') }}" alt="PayPal">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Sélection du mode de paiement
+    function selectPayment(method) {
+        // Masquer tous les formulaires
+        document.querySelectorAll('.payment-form').forEach(form => {
+            form.classList.remove('active');
+        });
+        
+        // Afficher le formulaire sélectionné
+        if (method !== 'installment') {
+            const form = document.getElementById(method + '-form');
+            form.classList.add('active');
+            form.style.animation = 'fadeIn 0.5s ease';
+            
+            // Cocher la radio correspondante
+            document.getElementById(method + '-payment').checked = true;
+        }
+        
+        // Mettre à jour le champ caché
+        document.getElementById('payment-method-input').value = method;
+        
+        // Style visuel pour l'option sélectionnée
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.style.borderColor = '#e9ecef';
+            option.style.boxShadow = 'none';
+        });
+        
+        if (method !== 'installment') {
+            const selectedOption = event.currentTarget;
+            selectedOption.style.borderColor = '#2a5bd7';
+            selectedOption.style.boxShadow = '0 0 0 2px rgba(42, 91, 215, 0.2)';
+        }
+    }
+
+    // Copier l'IBAN
+    function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent.trim();
+        
+        navigator.clipboard.writeText(text).then(() => {
+            // Feedback visuel
+            const originalText = element.textContent;
+            element.textContent = 'Copié !';
+            element.style.color = '#4CAF50';
+            
+            setTimeout(() => {
+                element.textContent = originalText;
+                element.style.color = '';
+            }, 2000);
+        });
+    }
+
+    // Formatage du numéro de carte
+    document.getElementById('card-number').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s+/g, '');
+        if (value.length > 16) value = value.substr(0, 16);
+        
+        let formatted = '';
+        for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) formatted += ' ';
+            formatted += value[i];
+        }
+        
+        e.target.value = formatted;
+    });
+
+    // Formatage de la date d'expiration
+    document.getElementById('expiry-date').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 4) value = value.substr(0, 4);
+        
+        if (value.length > 2) {
+            value = value.substr(0, 2) + '/' + value.substr(2);
+        }
+        
+        e.target.value = value;
+    });
+
+    // Validation du formulaire
+    document.getElementById('payment-form').addEventListener('submit', function(e) {
+        const paymentMethod = document.getElementById('payment-method-input').value;
+        let isValid = true;
+        
+        if (!paymentMethod) {
+            alert('Veuillez sélectionner un mode de paiement');
+            isValid = false;
+        }
+        
+        if (paymentMethod === 'card') {
+            const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+            const cardName = document.getElementById('card-name').value;
+            
+            if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+                alert('Veuillez entrer un numéro de carte valide (16 chiffres)');
+                isValid = false;
+            }
+            
+            if (!expiryDate.match(/^\d{2}\/\d{2}$/)) {
+                alert('Veuillez entrer une date d\'expiration valide (MM/AA)');
+                isValid = false;
+            }
+            
+            if (!cvv.match(/^\d{3,4}$/)) {
+                alert('Veuillez entrer un code CVV valide (3 ou 4 chiffres)');
+                isValid = false;
+            }
+            
+            if (cardName.trim() === '') {
+                alert('Veuillez entrer le nom figurant sur la carte');
+                isValid = false;
+            }
+        }
+        
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+    // Gestion de l'affichage de l'adresse de facturation
+    document.getElementById('same-billing').addEventListener('change', function() {
+        const billingSection = document.getElementById('billing-address-section');
+        if (!this.checked) {
+            billingSection.style.display = 'block';
+        } else {
+            billingSection.style.display = 'none';
+        }
+    });
+
+    // Sélectionner le paiement par carte par défaut
+    window.addEventListener('DOMContentLoaded', () => {
+        selectPayment('card');
+        document.getElementById('card-payment').checked = true;
+    });
+    // Gestion de l'adresse de facturation
+document.getElementById('same-billing').addEventListener('change', function() {
+    const billingSection = document.getElementById('billing-address-section');
+    billingSection.style.display = this.checked ? 'none' : 'block';
+    
+    // Remplissage automatique si même adresse
+    if (this.checked) {
+        document.getElementById('billing-address').value = document.getElementById('delivery-address').value;
+        document.getElementById('billing-zip').value = document.getElementById('delivery-zip').value;
+        document.getElementById('billing-city').value = document.getElementById('delivery-city').value;
+        document.getElementById('billing-country').value = document.getElementById('delivery-country').value;
+    }
+});
+
+// Pré-remplissage pour les utilisateurs connectés
+document.addEventListener('DOMContentLoaded', function() {
+    if ({{ 'true' if session.logged_in else 'false' }} && {{ 'true' if user and user.address else 'false' }}) {
+        const addressParts = "{{ user.address if user else '' }}".split(', ');
+        if (addressParts.length >= 3) {
+            document.getElementById('delivery-address').value = addressParts[0];
+            document.getElementById('delivery-zip').value = addressParts[1];
+            document.getElementById('delivery-city').value = addressParts[2];
+        }
+    }
+});
+</script>
+{% endblock %}
