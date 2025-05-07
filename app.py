@@ -27,6 +27,7 @@ from sqlalchemy import or_
 from data import products  # Importez vos produits depuis data.py
 from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
+from flask import Flask, send_from_directory
 
 def last4(s):
     return str(s)[-4:] if s else ''
