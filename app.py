@@ -1832,6 +1832,10 @@ def sitemap():
 @app.route('/robots.txt')
 def robots():
     return send_from_directory(app.static_folder, 'robots.txt')
+@app.before_request
+def enforce_www():
+    if request.host.startswith('www.'):
+        return redirect(request.url.replace('www.', '', 1), code=301)
 
 @app.route('/admin/dashboard')
 def admin_dashboard():
