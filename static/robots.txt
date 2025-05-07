@@ -1,3 +1,5 @@
 User-agent: *
+Disallow: /admin/
+Disallow: /panier/
 Allow: /
 Sitemap: https://www.destockagealimentairestore.com/sitemap.xml
