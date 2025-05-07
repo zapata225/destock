@@ -1880,36 +1880,59 @@ document.querySelectorAll('.btn-checkout').forEach(btn => {
     });
 });
 
-    </script>
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Store",
-          "name": "Destockage Alimentaire France",
-          "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
-          "url": "https://www.destockage-alimentaire.com",
-          "logo": "https://www.destockage-alimentaire.com/logo.png",
-          "telephone": "+33123456789",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "123 Rue du Commerce",
-            "addressLocality": "Paris",
-            "postalCode": "75000",
-            "addressCountry": "FR"
-          },
-          "openingHours": "Mo-Fr 09:00-18:00",
-          "priceRange": "€€",
-          "image": "https://www.destockage-alimentaire.com/entrepot.jpg",
-          "sameAs": [
-            "https://facebook.com/destockagealimentaire",
-            "https://instagram.com/destockagealimentaire"
-          ],
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.destockage-alimentaire.com/recherche?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        }
+type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Destockage Alimentaire Store",
+    "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
+    "url": "https://www.destockagealimentairestore.com",
+    "logo": "https://www.destockagealimentairestore.com/logo.png",
+    "telephone": "+33123456789",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Rue du Commerce",
+      "addressLocality": "Paris",
+      "postalCode": "75000",
+      "addressCountry": "FR"
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "€€",
+    "image": "https://www.destockagealimentairestore.com/entrepot.jpg",
+    "sameAs": [
+      "https://facebook.com/destockagealimentairestore",
+      "https://instagram.com/destockagealimentairestore"
+    ],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.destockagealimentairestore.com/recherche?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Boisson énergisante",
+    "image": "https://www.destockagealimentairestore.com/static/boisson_energisante.jpg",
+    "description": "Boisson énergisante au goût tropical. 500ml.",
+    "sku": "12345",
+    "brand": {
+      "@type": "Brand",
+      "name": "Destock Alimentaire"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://www.destockagealimentairestore.com/produit/100",
+      "priceCurrency": "EUR",
+      "price": "2.99",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+]
+</script>
+
         </script>
     {% block extra_js %}{% endblock %}
 </body>
