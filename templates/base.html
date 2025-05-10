@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://www.destockagealimentairestore.com/static/entrepot.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Destockage Alimentaire Store">
-    <meta property="og:description" content="Jusqu’à -70% sur vos produits alimentaires.">
-
-    <title>Destockage Alimentaire | {% block title %}{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
-
-    {% block extra_css %}{% endblock %}
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Destockage Alimentaire | Grossiste Produits Alimentaires en Ligne</title>
+        <meta name="description" content="Destockage alimentaire en gros au meilleur prix. Découvrez notre large sélection de produits alimentaires pour professionnels et particuliers. Grossiste alimentaire N°1 en ligne.">
+        <meta name="keywords" content="destockage alimentaire, grossiste alimentaire, produits alimentaires pas chers, vente en gros alimentaire, alimentaire en ligne, destockage, produits en déstockage">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://www.destockagealimentairestore.com/">
+    
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Destockage Alimentaire | Grossiste Produits Alimentaires">
+        <meta property="og:description" content="Achetez vos produits alimentaires en gros avec notre destockage exclusif. Qualité pro à prix cassés.">
+        <meta property="og:url" content="https://www.destockagealimentairestore.com/">
+        <meta property="og:image" content="https://www.destockagealimentairestore.com/static/img/og-image.jpg"> <!-- change if needed -->
+    
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Destockage Alimentaire | Grossiste en Ligne">
+        <meta name="twitter:description" content="Destockage alimentaire à prix imbattables pour professionnels et particuliers.">
+        <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/img/og-image.jpg">
+    
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    
+        {% block extra_css %}{% endblock %}
+    </head>
+    
 <style>/* Variables */
     :root {
         --primary-blue: #2563eb;
@@ -613,6 +628,27 @@
         grid-template-columns: 1fr;
     }
 }
+.whatsapp-style {
+    background-color: #25D366;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(37, 211, 102, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.whatsapp-style a {
+    color: white;
+    text-decoration: none;
+}
+
+.whatsapp-style:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.9);
+}
 
     </style>
 <body>
@@ -744,9 +780,13 @@
                         <i class="fas fa-phone icon-scale"></i>
                         <span>01 23 45 67 89</span>
                     </div>
+                    <div class="contact-item floating-effect whatsapp-style">
+                        <i class="fab fa-whatsapp icon-scale"></i>
+                        <span><a href="https://wa.me/33642332122" target="_blank">06 42 33 21 22</a></span>
+                    </div>                    
                     <div class="contact-item floating-effect">
                         <i class="fas fa-envelope icon-scale"></i>
-                        <span>contact@destockage-alimentaire.com</span>
+                        <span>contact@destockagealimentaire.fr</span>
                     </div>
                 </div>
                 
@@ -1887,60 +1927,38 @@ document.querySelectorAll('.btn-checkout').forEach(btn => {
     });
 });
 
-type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "Destockage Alimentaire Store",
-    "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
-    "url": "https://www.destockagealimentairestore.com",
-    "logo": "https://www.destockagealimentairestore.com/logo.png",
-    "telephone": "+33123456789",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Rue du Commerce",
-      "addressLocality": "Paris",
-      "postalCode": "75000",
-      "addressCountry": "FR"
-    },
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "priceRange": "€€",
-    "image": "https://www.destockagealimentairestore.com/entrepot.jpg",
-    "sameAs": [
-      "https://facebook.com/destockagealimentairestore",
-      "https://instagram.com/destockagealimentairestore"
-    ],
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.destockagealimentairestore.com/recherche?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+ type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Destockage Alimentaire Store",
+  "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
+  "url": "https://www.destockagealimentairestore.com",
+  "logo": "https://www.destockagealimentairestore.com/logo.png",
+  "telephone": "+33123456789",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Rue du Commerce",
+    "addressLocality": "Paris",
+    "postalCode": "75000",
+    "addressCountry": "FR"
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Boisson énergisante",
-    "image": "https://www.destockagealimentairestore.com/static/boisson_energisante.jpg",
-    "description": "Boisson énergisante au goût tropical. 500ml.",
-    "sku": "12345",
-    "brand": {
-      "@type": "Brand",
-      "name": "Destock Alimentaire"
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://www.destockagealimentairestore.com/produit/100",
-      "priceCurrency": "EUR",
-      "price": "2.99",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
-    }
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "priceRange": "€€",
+  "image": "https://www.destockagealimentairestore.com/entrepot.jpg",
+  "sameAs": [
+    "https://facebook.com/destockagealimentairestore",
+    "https://instagram.com/destockagealimentairestore"
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.destockagealimentairestore.com/recherche?q={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
-]
-</script>
+}
 
-        </script>
+ </script>
+ 
     {% block extra_js %}{% endblock %}
 </body>
 </html>
