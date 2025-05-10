@@ -28,6 +28,7 @@ from data import products  # Importez vos produits depuis data.py
 from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
 from flask import Flask, send_from_directory
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 def last4(s):
     return str(s)[-4:] if s else ''
@@ -61,6 +62,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
 
 # Configuration
 app.config['UPLOAD_FOLDER'] = 'static/images/products'
@@ -1353,6 +1355,14 @@ def track_conversion():
 @app.route('/destockage-urgence')
 def landing():
     return render_template('landing.html')
+
+@app.after_request
+def add_header(response):
+    if request.path.startswith('/static/'):
+        response.cache_control.max_age = 31536000
+    else:
+        response.cache_control.max_age = 3600
+    return response
 
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
