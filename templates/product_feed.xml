@@ -1,0 +1,15 @@
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+    {% for p in products %}
+    <item>
+      <g:id>{{ p.id }}</g:id>
+      <g:title>{{ p.name }}</g:title>
+      <g:description>{{ p.description }}</g:description>
+      <g:link>https://www.destockagealimentairestore.com/product/{{ p.id }}</g:link>
+      <g:image_link>{{ p.image_url }}</g:image_link>
+      <g:price>{{ p.price }} EUR</g:price>
+      <g:availability>in stock</g:availability>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

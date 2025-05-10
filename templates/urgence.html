@@ -1,0 +1,19 @@
+<div itemscope itemtype="http://schema.org/Product">
+  <h1 itemprop="name">Derniers stocks à -70%</h1>
+  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <meta itemprop="priceValidUntil" content="{{ (datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d') }}">
+    <span itemprop="price" content="29.99">Seulement <strong>29€99</strong></span>
+    <span itemprop="priceCurrency" content="EUR">au lieu de <s>100€</s></span>
+  </div>
+  
+  <!-- Urgence réelle -->
+  <div class="compteur">
+    <p>Il reste <span id="stock">12</span> produits à ce prix</p>
+    <script>
+      setInterval(() => {
+        let stock = parseInt(document.getElementById('stock').textContent);
+        if(stock > 0) document.getElementById('stock').textContent = stock - 1;
+      }, 120000); // Diminue toutes les 2 min
+    </script>
+  </div>
+</div>
