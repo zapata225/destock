@@ -1336,6 +1336,24 @@ def payment():
 
 from datetime import datetime
 
+@app.route('/pourquoi-destockage-alimentaire')
+def why_us():
+    return render_template('why_us.html', title="Pourquoi choisir notre destockage alimentaire ?")
+@app.route('/destockage-professionnel')
+def pro():
+    return render_template('pro.html', title="Destockage alimentaire pour professionnels")
+@app.route('/guide-destockage-alimentaire')
+def guide():
+    return render_template('guide.html', title="Guide complet du destockage alimentaire")
+# Route Flask pour tracking des conversions
+@app.route('/track-conversion')
+def track_conversion():
+    session['conversion'] = True  # Pour le pixel de conversion
+    return redirect(url_for('merci'))
+@app.route('/destockage-urgence')
+def landing():
+    return render_template('landing.html')
+
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
     # Autoriser l'accès sans connexion pour les invités
