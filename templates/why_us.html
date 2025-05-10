@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="animated-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ url_for('static', filename='images/entrepot-destockage.jpg') }}');">
+    <div class="hero-content animate-pop-in">
+        <h1 class="hero-title">Destockage alimentaire jusqu'à -70%</h1>
+        <p class="hero-subtitle">Leader français du destockage alimentaire depuis 2015</p>
+    </div>
+</section>
+
+<section class="modern-about">
+    <div class="container">
+        <h2>Pourquoi acheter chez nous ?</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fas fa-tags about-icon"></i>
+                <h3>Prix imbattables</h3>
+                <p>Économisez jusqu'à 70% grâce à nos partenariats directs avec les producteurs et industriels.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-check-circle about-icon"></i>
+                <h3>Qualité garantie</h3>
+                <p>Tous nos produits sont contrôlés et respectent les normes sanitaires françaises.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-truck about-icon"></i>
+                <h3>Livraison rapide</h3>
+                <p>Expédition sous 24h pour toute commande passée avant 12h.</p>
+            </div>
+        </div>
+
+        <!-- Section SEO : Liste de villes cibles -->
+        <div class="seo-cities">
+            <h3>Destockage alimentaire partout en France :</h3>
+            <ul>
+                <li><a href="/destockage-alimentaire-paris">Paris</a></li>
+                <li><a href="/destockage-alimentaire-lyon">Lyon</a></li>
+                <li><a href="/destockage-alimentaire-marseille">Marseille</a></li>
+                <!-- Ajoutez 10-15 villes principales -->
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Schema.org FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Pourquoi vos prix sont-ils si bas ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nous achetons directement aux producteurs et industriels des surplus de stock, ce qui nous permet d'offrir des prix jusqu'à 70% moins chers."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Les produits sont-ils périmés ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Non, tous nos produits ont des DLC (Date Limite de Consommation) conformes à la réglementation française."
+    }
+  }]
+}
+</script>
+{% endblock %}

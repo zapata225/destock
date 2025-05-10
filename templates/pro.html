@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="animated-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ url_for('static', filename='images/restaurant-supplies.jpg') }}');">
+    <div class="hero-content animate-pop-in">
+        <h1 class="hero-title">Destockage alimentaire pour professionnels</h1>
+        <p class="hero-subtitle">Économisez jusqu'à 60% sur vos achats de matières premières</p>
+    </div>
+</section>
+
+<section class="modern-about">
+    <div class="container">
+        <h2>Solution pour restaurants, traiteurs, cantines</h2>
+        
+        <div class="testimonials">
+            <blockquote>
+                "Grâce à Destockage Alimentaire, j'ai réduit mes coûts d'approvisionnement de 45% cette année." 
+                <cite>- Chef Éric, restaurant étoilé à Lyon</cite>
+            </blockquote>
+        </div>
+
+        <!-- CTA avec mot-clé -->
+        <div class="cta-box">
+            <h3>Demandez votre accès professionnel</h3>
+            <p>Bénéficiez de tarifs négociés et de volumes importants.</p>
+            <a href="/contact-pro" class="btn-checkout">Contactez notre service pro</a>
+        </div>
+
+        <!-- Backlinks internes -->
+        <div class="related-links">
+            <h4>Ressources utiles :</h4>
+            <ul>
+                <li><a href="/blog/optimiser-couts-restaurant">Comment réduire ses coûts en restauration ?</a></li>
+                <li><a href="/guide-destockage-professionnel">Télécharger notre guide PDF gratuit</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "B2BService",
+  "name": "Destockage Alimentaire Pro",
+  "description": "Solution de destockage alimentaire pour professionnels de la restauration",
+  "url": "https://www.destockagealimentairestore.com/destockage-professionnel",
+  "serviceArea": {
+    "@type": "Country",
+    "name": "France"
+  }
+}
+</script>
+{% endblock %}

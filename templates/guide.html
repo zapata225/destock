@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="seo-guide">
+    <h1>Guide complet du destockage alimentaire en 2024</h1>
+    
+    <section>
+        <h2>Qu'est-ce que le destockage alimentaire ?</h2>
+        <p>Le destockage alimentaire consiste à vendre des produits...</p>
+    </section>
+
+    <section>
+        <h2>Où trouver les meilleurs deals ?</h2>
+        <p>Notre plateforme référence chaque semaine plus de 500 produits...</p>
+        <!-- Liste à puces avec mots-clés -->
+        <ul>
+            <li>Destockage <strong>boissons</strong></li>
+            <li>Destockage <strong>surgelés</strong></li>
+            <li>Destockage <strong>épicerie fine</strong></li>
+        </ul>
+    </section>
+
+    <!-- Section virale -->
+    <div class="share-box">
+        <p>Partagez ce guide à vos amis :</p>
+        <div class="social-share">
+            <a href="#facebook" class="social-icon-3d"><i class="fab fa-facebook-f"></i></a>
+            <a href="#twitter" class="social-icon-3d"><i class="fab fa-twitter"></i></a>
+            <a href="#linkedin" class="social-icon-3d"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</article>
+
+<!-- Schema.org Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guide complet du destockage alimentaire en 2024",
+  "description": "Tout savoir pour acheter des produits alimentaires à prix réduits",
+  "author": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire"
+  },
+  "datePublished": "2024-01-15"
+}
+</script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Offre Destockage - Jusqu’à -70%{% endblock %}
+
+{% block description %}Stock alimentaire en urgence à prix cassés – valable jusqu’au 12 mai 2025.{% endblock %}
+
+{% block content %}
+<section class="landing-hero">
+  <h1>Destockage Alimentaire - Jusqu’à -70%</h1>
+  <p>Profitez de notre offre limitée sur les stocks alimentaires invendus. Vente ouverte aux particuliers et professionnels.</p>
+
+  <!-- Schema.org Offer -->
+  <div itemscope itemtype="https://schema.org/Offer" class="promo-offer">
+    <meta itemprop="priceCurrency" content="EUR" />
+    <meta itemprop="price" content="9.99" />
+    <meta itemprop="priceValidUntil" content="2025-05-12" />
+    <link itemprop="availability" href="https://schema.org/InStock" />
+    <span itemprop="description">Colis alimentaire spécial - offre à durée limitée</span>
+  </div>
+
+  <a href="/track-conversion" class="cta-button">J’en profite maintenant</a>
+</section>
+<style>.landing-hero {
+    padding: 2rem;
+    text-align: center;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background-color: #e63946;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  .promo-offer {
+    margin-top: 1rem;
+    font-style: italic;
+  }
+  </style>
+{% endblock %}
