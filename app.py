@@ -1364,6 +1364,19 @@ def add_header(response):
         response.cache_control.max_age = 3600
     return response
 
+@app.route('/promo-urgence')
+def promo_urgence():
+    return render_template('urgence.html', 
+                         title="Offre limitée à -70%")
+
+@app.route('/product-feed.xml')
+def product_feed():
+    products = Product.query.all()  # Adaptez à votre BDD
+    feed = render_template('product_feed.xml', products=products)
+    response = make_response(feed)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
+
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
     # Autoriser l'accès sans connexion pour les invités
