@@ -1,12 +1,147 @@
 {% extends "base.html" %}
+<style>/* Structure générale */
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  h1, h2 {
+    color: #2c3e50;
+    font-weight: 700;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* Section */
+  section {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  section:last-child {
+    border-bottom: none;
+  }
+  
+  /* Mots-clés SEO */
+  section p strong {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Responsive design */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    main {
+      padding: 1rem;
+    }
+  }
+  </style>
 {% block head %}
-  <title>Conditions générales de vente | Destockage Alimentaire</title>
-  <meta name="description" content="Consultez nos conditions générales de vente : commandes, livraisons, retours, remboursements et politique de confidentialité.">
+  <title>Conditions Générales de Vente | Destockage Alimentaire</title>
+  <meta name="description" content="Consultez nos conditions générales de vente : modalités de paiement, livraison, retours et responsabilité. Achetez en toute confiance.">
+  <link rel="canonical" href="https://www.destockagealimentairestore.com/conditions">
 {% endblock %}
 
 {% block content %}
 <main>
-  <h1>Conditions générales de vente</h1>
-  <p>Vous trouverez ici toutes les informations concernant vos droits et obligations lors de vos achats sur notre site.</p>
+  <section>
+    <h1>Conditions Générales de Vente</h1>
+    <p>Bienvenue sur <strong>destockagealimentairestore.com</strong>. Veuillez lire attentivement nos conditions générales de vente avant toute commande.</p>
+  </section>
+
+  <section>
+    <h2>1. Objet</h2>
+    <p>Les présentes conditions régissent les ventes de produits alimentaires en déstockage entre le site et ses clients.</p>
+  </section>
+
+  <section>
+    <h2>2. Prix</h2>
+    <p>Les prix sont indiqués en euros TTC. Le site se réserve le droit de modifier les prix à tout moment, mais les produits seront facturés sur la base des tarifs en vigueur au moment de la validation de la commande.</p>
+  </section>
+
+  <section>
+    <h2>3. Commandes</h2>
+    <p>Les commandes se font exclusivement via le site web. Toute validation de commande implique l’acceptation des présentes conditions.</p>
+  </section>
+
+  <section>
+    <h2>4. Paiement</h2>
+    <p>Le paiement s’effectue en ligne par carte bancaire ou tout autre moyen sécurisé proposé sur le site.</p>
+  </section>
+
+  <section>
+    <h2>5. Livraison</h2>
+    <p>La livraison est assurée en France métropolitaine dans un délai moyen de 3 à 5 jours ouvrés.</p>
+  </section>
+
+  <section>
+    <h2>6. Rétractation</h2>
+    <p>Conformément à la loi, le client dispose d’un délai de 14 jours pour exercer son droit de rétractation, sauf pour les produits périssables.</p>
+  </section>
+
+  <section>
+    <h2>7. Garantie et retours</h2>
+    <p>Les produits bénéficient de la garantie légale de conformité. En cas de produit défectueux, veuillez contacter notre service client.</p>
+  </section>
+
+  <section>
+    <h2>8. Responsabilité</h2>
+    <p>La responsabilité du vendeur ne saurait être engagée en cas de force majeure ou de fait imprévisible d’un tiers.</p>
+  </section>
+
+  <section>
+    <h2>9. Données personnelles</h2>
+    <p>Les données personnelles sont collectées uniquement pour le traitement des commandes. Conformément à la loi, vous disposez d’un droit d’accès, de rectification et de suppression de vos données.</p>
+  </section>
+
+  <section>
+    <h2>10. Droit applicable</h2>
+    <p>Les présentes conditions sont soumises au droit français. En cas de litige, le tribunal compétent sera celui du domicile du défendeur.</p>
+  </section>
+
+  <section>
+    <h2>Mots-clés associés</h2>
+    <p>
+      <strong>destockage alimentaire, liquidation alimentaire, surplus alimentaire, promo épicerie pas cher, grossiste alimentaire, déstockage boissons, déstockage nourriture pas cher</strong>
+    </p>
+  </section>
 </main>
 {% endblock %}
