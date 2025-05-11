@@ -1369,6 +1369,35 @@ def promo_urgence():
     return render_template('urgence.html', 
                          title="Offre limitée à -70%")
 
+
+@app.route('/presse')
+def presse():
+    return render_template('presse.html')
+
+@app.route('/destockage-professionnel')
+def destockageprofessionnel():
+    return render_template('destockage-professionnel.html')
+
+@app.route('/nos-fournisseurs')
+def nosfournisseurs():
+    return render_template('nos-fournisseurs.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/conditions')
+def conditions():
+    return render_template('conditions.html')
+
+@app.route('/destockage-professionnel')
+def destockage_professionnel():
+    return render_template('destockage_professionnel.html')
+
+
 @app.route('/product-feed.xml')
 def product_feed():
     products = Product.query.all()  # Adaptez à votre BDD
