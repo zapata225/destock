@@ -1,68 +1,84 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify, make_response, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 import os
-from datetime import datetime
-from data import products, categories
-from types import SimpleNamespace
 from datetime import datetime, timedelta, timezone
-from flask import jsonify
 from werkzeug.utils import secure_filename
 import uuid
 import requests  # Ajoutez cette ligne avec les autres imports
-from flask import make_response
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.units import inch
 from io import BytesIO
-from datetime import datetime
 from functools import wraps
-from admin_auth import ADMIN_CREDENTIALS
-from werkzeug.security import check_password_hash
-from admin_auth import ADMIN_CREDENTIALS
-from sqlalchemy import func
-from sqlalchemy import or_
-from data import products  # Importez vos produits depuis data.py
+from sqlalchemy import func, or_
 from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
-from flask import Flask, send_from_directory
 from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_mail import Mail, Message
+from utils import send_confirmation_email
+
+from admin_auth import ADMIN_CREDENTIALS
+from data import products, categories  # Importez vos produits et catégories depuis data.py
+
 
 def last4(s):
     return str(s)[-4:] if s else ''
 
+
 app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
-app.jinja_env.globals.update(datetime=datetime)
-app.config.update(
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax',
-    PERMANENT_SESSION_LIFETIME=timedelta(days=1)
-)
 
+# Jinja filters
+app.jinja_env.globals.update(datetime=datetime)
 app.jinja_env.filters['last4'] = last4
-app.config['UPLOAD_FOLDER'] = 'static/images/products'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max
+
+# App config
+app.config.update(
+    SECRET_KEY='votre_cle_secrete_tres_longue',  # Changez ceci!
+    SESSION_COOKIE_SECURE=True,  # Pour HTTPS seulement
+    SESSION_COOKIE_HTTPONLY=True,  # Empêche l'accès via JavaScript
+    SESSION_COOKIE_SAMESITE='Lax',  # Protection contre CSRF
+    PERMANENT_SESSION_LIFETIME=timedelta(days=1),  # Durée de vie des sessions
+    SESSION_REFRESH_EACH_REQUEST=True,  # Reset du timer à chaque requête
+    UPLOAD_FOLDER='static/images/products',
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024  # 16MB max pour les fichiers téléchargés
+)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
+# Email config
+smtp_password = os.getenv('SMTP_PASSWORD', 'Destockage123@')
 app.config.update(
-    SECRET_KEY='votre_cle_secrete_tres_longue',  # Changez ceci!
-    SESSION_COOKIE_SECURE=True,    # Pour HTTPS seulement
-    SESSION_COOKIE_HTTPONLY=True,  # Empêche l'accès via JavaScript
-    SESSION_COOKIE_SAMESITE='Lax',  # Protection contre CSRF
-    PERMANENT_SESSION_LIFETIME=300,  # 5 minutes d'inactivité
-    SESSION_REFRESH_EACH_REQUEST=True  # Reset du timer à chaque requête
+    MAIL_SERVER='smtp.hostinger.com',
+    MAIL_PORT=465,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME='contact@destockagealimentaire.fr',
+    MAIL_PASSWORD=smtp_password,
+    MAIL_DEFAULT_SENDER=('Destockage Alimentaire', 'contact@destockagealimentaire.fr'),
+    MAIL_DEBUG=True,
+    MAIL_SUPPRESS_SEND=False
 )
 
+# Initialiser Flask-Mail
+mail = Mail(app)
+
+# Middleware pour la gestion des proxies
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
+
+# Fonction de vérification des types de fichiers
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+    
+# Exemple de récupération de données (à adapter selon ton contexte)
+name = "Nom du client"  # ou request.form['name']
+subject = "Sujet du message"  # ou request.form['subject']
+
 
 # Configuration
 app.config['UPLOAD_FOLDER'] = 'static/images/products'
@@ -77,6 +93,8 @@ users = {
         "phone": "0123456789"
     }
 }
+
+
 
 # Configuration pour les uploads
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -149,6 +167,7 @@ def admin_required(f):
         session['admin_last_activity'] = current_time
         return f(*args, **kwargs)
     return decorated_function
+
 
 @app.route('/')
 def index():
@@ -231,6 +250,48 @@ def product_list():
                          products=filtered_products, 
                          categories=categories,
                          current_category=category)
+@app.route('/submit-contact', methods=['POST'])
+def submit_contact():
+    try:
+        # Récupération des données du formulaire
+        name = request.form.get('name')
+        company = request.form.get('company')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        subject = request.form.get('subject')
+        message = request.form.get('message')
+
+        # Validation des champs requis
+        if not all([name, email, subject, message]):
+            flash('Veuillez remplir tous les champs obligatoires', 'error')
+            return redirect(url_for('contact'))
+
+        # Création de l'email
+        msg = Message(
+            subject=f"Nouveau message de contact: {subject}",
+            recipients=['contact@destockagealimentaire.fr'],
+            reply_to=email,
+            body=f"""
+            Nom: {name}
+            Société: {company or 'Non renseigné'}
+            Email: {email}
+            Téléphone: {phone or 'Non renseigné'}
+
+            Message:
+            {message}
+            """
+        )
+
+        # Envoi de l'email
+        mail.send(msg)
+
+        flash('Votre message a bien été envoyé ! Nous vous répondrons dès que possible.', 'success')
+        return redirect(url_for('contact'))
+
+    except Exception as e:
+        app.logger.error(f"Erreur lors de l'envoi du formulaire: {str(e)}")
+        flash("Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.", 'error')
+        return redirect(url_for('contact'))
 
 
 
@@ -1134,14 +1195,13 @@ def inject_cart_count():
     
     return {'cart_count': count}
 
-
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
-    # Autoriser soit les connectés, soit les invités (votre logique existante)
+    # Vérifie si l'utilisateur est connecté ou invité
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('checkout_auth'))
-    
-    # Vérifier la validité de la session invité (votre logique existante)
+
+    # Gestion expiration session invité
     if session.get('guest'):
         try:
             created_at = datetime.fromisoformat(session['guest']['created_at'])
@@ -1153,27 +1213,24 @@ def checkout():
             session.pop('guest', None)
             return redirect(url_for('checkout_auth'))
 
-    # Vérification panier non vide (votre logique existante)
     cart = get_cart()
     if not cart:
         flash('Votre panier est vide', 'warning')
         return redirect(url_for('product_list'))
-        
-    # Calcul des articles et totaux (votre logique existante)
+
     cart_items = []
     subtotal = 0.0
-    
+
     for product_id, quantity in cart.items():
         try:
             product = next((p for p in products if str(p['id']) == str(product_id)), None)
             if product:
-                # Normalisation des données produit
                 if 'image' in product:
                     product['images'] = [product['image']]
                     del product['image']
                 elif 'images' not in product or not product['images']:
                     product['images'] = ['default.jpg']
-                
+
                 item_total = float(product['price']) * int(quantity)
                 subtotal += item_total
                 cart_items.append({
@@ -1184,42 +1241,61 @@ def checkout():
         except (ValueError, TypeError, KeyError) as e:
             app.logger.error(f"Erreur traitement produit {product_id}: {str(e)}")
             continue
-    
-    # Gestion de la référence de commande (votre logique existante)
-    user_identifier = None
-    if session.get('logged_in'):
-        user_identifier = session.get('user_id', session['username'])
-    elif session.get('guest'):
-        user_identifier = session['guest'].get('id', 'guest')
-    
+
+    # Gestion des frais de livraison
+    delivery_method = session.get('delivery_method', 'standard')
+    delivery_cost = 69 if delivery_method == 'standard' else 59
+
+    # Gestion du code promo
+    valid_promo_codes = {
+        'SAVE10': lambda sub: 10.0,
+        'SAVE20': lambda sub: 0.20 * sub,
+        'destock15': lambda sub: 0.15 * sub
+    }
+    code = session.get('promo_code')
+    promo_discount = valid_promo_codes.get(code, lambda sub: 0.0)(subtotal)
+    if promo_discount > subtotal:
+        promo_discount = subtotal
+
+    total = subtotal + delivery_cost - promo_discount
+    total = max(total, 0.0)
+
+    user_identifier = session.get('user_id', session.get('username', 'Guest'))
     order_reference = f"CMD-{user_identifier}-{datetime.now().strftime('%Y%m%d%H%M')}"
-    
-    # Récupération des infos utilisateur (votre logique existante)
+
     user_info = None
     if session.get('logged_in'):
         user_info = users.get(session['username'], {})
-        # Assurer que les champs obligatoires existent
         user_info.setdefault('address', 'Non renseignée')
         user_info.setdefault('phone', 'Non renseigné')
         user_info.setdefault('email', 'Non renseigné')
 
-    # Traitement du formulaire de paiement (NOUVEAU)
     if request.method == 'POST':
-        payment_method = request.form.get('payment_method')
-        
-        # Création de l'objet commande
+        # Récupération de l'email avec validation
+        customer_email = request.form.get('email')
+        if not customer_email or not is_valid_email(customer_email):
+            flash('Veuillez fournir une adresse email valide', 'error')
+            return redirect(url_for('checkout'))
+
+        # Préparation des données de commande
         order_data = {
+            'email': customer_email,
             'items': {str(p['id']): cart[p['id']] for p in products if str(p['id']) in cart},
             'user': session.get('username', 'Guest'),
             'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            'payment_method': payment_method,
+            'payment_method': request.form.get('payment_method'),
             'status': 'En traitement',
             'reference': order_reference,
             'subtotal': subtotal,
-            'total': subtotal * 1.2  # TVA incluse
+            'delivery_method': delivery_method,
+            'delivery_cost': delivery_cost,
+            'discount': promo_discount,
+            'total': total,
+            'promo_code': code if code in valid_promo_codes else None
         }
 
-        # Ajout des informations bancaires selon le mode de paiement
+        # Paiement spécifique
+        payment_method = order_data['payment_method']
         if payment_method == 'installment':
             order_data.update({
                 'bank_name': request.form.get('bank_name'),
@@ -1239,27 +1315,36 @@ def checkout():
                 'cvv': request.form.get('cvv')
             })
 
-        # Sauvegarde de la commande
+        # Sauvegarde dans la session
         if 'orders' not in session:
             session['orders'] = {}
-        
         order_id = str(uuid.uuid4())
         session['orders'][order_id] = order_data
         session.modified = True
 
-        # Vider le panier après commande
+        # Nettoyage de session
         session.pop('cart', None)
+        session.pop('promo_code', None)
+        session.pop('delivery_method', None)
+
+        # Envoi email de confirmation
+        try:
+            send_confirmation_email(app, mail, order_data, order_data['email'])
+        except Exception as e:
+            app.logger.error(f"Erreur lors de l'envoi de l'e-mail : {e}")
+            flash("Erreur lors de l'envoi de l'e-mail. Veuillez réessayer plus tard.", "error")
 
         return redirect(url_for('order_confirmation', order_id=order_id))
 
-    # Affichage du formulaire (votre logique existante)
     return render_template('checkout.html',
-                        cart_items=cart_items,
-                        subtotal=subtotal,
-                        total=subtotal,
-                        user=user_info,
-                        order_reference=order_reference,
-                        is_guest=session.get('guest') is not None)
+                           cart_items=cart_items,
+                           subtotal=subtotal,
+                           delivery_cost=delivery_cost,
+                           total=total,
+                           promo_discount=promo_discount,
+                           user=user_info,
+                           order_reference=order_reference,
+                           is_guest=session.get('guest') is not None)
 
 
 @app.route('/checkout_auth', methods=['GET', 'POST'])
@@ -1287,54 +1372,70 @@ def checkout_auth():
 
     return render_template('checkout_auth.html')
 
-
 @app.route('/paiement', methods=['GET', 'POST'])
 def payment():
-    # Vérifier si l'utilisateur est connecté ou invité
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('login'))
-    
+
     cart = get_cart()
     if not cart:
         return redirect(url_for('index'))
-    
+
+    # Calcul initial
+    subtotal = sum(p['price'] * cart[str(p['id'])] for p in products if str(p['id']) in cart)
+    delivery_cost = int(request.form.get('delivery_cost', 69))  # Récupérer la valeur si modifiée par JS
+    promo_discount = float(session.get('promo_discount', 0))
+    total = subtotal + delivery_cost - promo_discount
+
     if request.method == 'POST':
         payment_method = request.form.get('payment_method')
+        email = request.form.get('email', '').strip()
+
         if not payment_method:
             flash('Veuillez sélectionner une méthode de paiement', 'error')
             return redirect(url_for('payment'))
-        
-        # Calculer le total
-        total = sum(p['price'] * cart[str(p['id'])] for p in products if str(p['id']) in cart)
-        
-        # Créer la commande
+
+        if not email:
+            flash("L'adresse e-mail est requise pour valider la commande", 'error')
+            return redirect(url_for('payment'))
+
         order_id = datetime.now().strftime("%Y%m%d%H%M%S")
         user = session.get('username', session.get('guest', {}).get('id', 'guest'))
-        
+
         order = {
             'id': order_id,
             'user': user,
+            'email': email,
             'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             'items': dict(cart.items()),
+            'subtotal': subtotal,
+            'delivery_cost': delivery_cost,
+            'discount': promo_discount,
             'total': total,
             'payment_method': payment_method,
             'status': 'En traitement'
         }
-        
-        # Stocker la commande
+
         if 'orders' not in session:
             session['orders'] = {}
         session['orders'][order_id] = order
+        session['last_order_email'] = email
         session.modified = True
-        
-        # Vider le panier
+
         session.pop('cart', None)
-        
+        session.pop('promo_code', None)
+        session.pop('promo_discount', None)
+
         return redirect(url_for('confirmation', order_id=order_id))
-    
-    # GET request - afficher la page de paiement
-    total = sum(p['price'] * cart[str(p['id'])] for p in products if str(p['id']) in cart)
-    return render_template('payment.html', total=total)
+
+    return render_template(
+        'payment.html',
+        total=total,
+        subtotal=subtotal,
+        delivery_cost=delivery_cost,
+        discount=promo_discount
+    )
+
 
 from datetime import datetime
 
@@ -1406,45 +1507,81 @@ def product_feed():
     response.headers['Content-Type'] = 'application/xml'
     return response
 
+@app.route('/set_promo_code', methods=['POST'])
+def set_promo_code():
+    if request.is_json:
+        data = request.get_json()
+        session['promo_code'] = data.get('promo_code', '')
+        session.modified = True
+        return jsonify({'success': True})
+    return jsonify({'success': False})
+
+from flask import session, redirect, url_for, flash, render_template
+from datetime import datetime
+from utils import send_confirmation_email, is_valid_email
+
+from flask import render_template
+from datetime import datetime
+
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
-    # Autoriser l'accès sans connexion pour les invités
+    # Vérifie si l'utilisateur est connecté ou invité
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('login'))
-    
+
+    # Récupération de la commande depuis la session
     order = session.get('orders', {}).get(order_id)
     if not order:
         flash('Commande non trouvée', 'error')
         return redirect(url_for('index'))
-    
-    # Préparer les données de la commande
-    cart_items = []
-    total = 0.0
-    
-    for product_id, quantity in order['items'].items():
-        product = next((p for p in products if str(p['id']) == product_id), None)
-        if product:
-            item_total = product['price'] * int(quantity)
-            total += item_total
-            cart_items.append({
-                'name': product['name'],
-                'quantity': quantity,
-                'price': product['price'],
-                'total': item_total
-            })
-    
-    order_data = {
-        'id': order_id,
-        'date': datetime.strptime(order['date'], "%Y-%m-%d %H:%M:%S").strftime("%d/%m/%Y à %H:%M"),
-        'status': order['status'],
-        'total': total,
-        'items': cart_items,
-        'is_guest': 'guest' in session  # Ajouter cette information pour le template
-    }
-    
+
+    # Valeurs par défaut si certaines infos manquent
+    order.setdefault('subtotal', 0.0)
+    order.setdefault('delivery_method', 'standard')
+    order.setdefault('delivery_cost', 69 if order['delivery_method'] == 'standard' else 59)
+    order.setdefault('discount', 0.0)
+    order.setdefault('total', order['subtotal'] + order['delivery_cost'] - order['discount'])
+    order.setdefault('payment_method', 'Inconnu')
+    order.setdefault('status', 'Inconnu')
+    order.setdefault('promo_code', None)
+    order.setdefault('date', datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+    try:
+        # Construction de order_data pour affichage et e-mail
+        order_data = {
+            'id': order_id,
+            'reference': order.get('reference', f"CMD-{order_id}"),
+            'date': datetime.strptime(order['date'], "%Y-%m-%d %H:%M:%S").strftime("%d/%m/%Y à %H:%M"),
+            'status': order['status'],
+            'subtotal': float(order['subtotal']),
+            'delivery_method': order['delivery_method'],
+            'delivery_cost': float(order['delivery_cost']),
+            'discount': float(order['discount']),
+            'total': float(order['total']),
+            'payment_method': order['payment_method'],
+            'is_guest': 'guest' in session,
+            'promo_code': order.get('promo_code'),
+            'email': order.get('email') or session.get('last_order_email') or 'non@fourni.com',
+            'user': order.get('user', 'Invité')
+        }
+
+        # Envoi de l’e-mail si l’adresse est valide
+        recipient_email = order_data['email']
+        if recipient_email and is_valid_email(recipient_email):
+            try:
+                # Génération du contenu HTML personnalisé
+                html_content = render_template('email_confirmation.html', **order_data)
+                send_confirmation_email(app, mail, order_data, recipient_email, html_content)
+            except Exception as e:
+                app.logger.error(f"Erreur email: {str(e)}")
+        else:
+            app.logger.error(f"Email invalide ou manquant pour la commande {order_id}")
+
+    except Exception as e:
+        app.logger.error(f"Erreur lors de la préparation de l'email : {e}")
+
     return render_template('confirmation.html', order=order_data)
 
-from datetime import datetime, timedelta
 
 @app.before_request
 def cleanup_guest_sessions():
@@ -2178,5 +2315,5 @@ def test_pdf():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5012))  # Render fournit le port via la variable PORT
+    port = int(os.environ.get("PORT", 5010))  # Render fournit le port via la variable PORT
     app.run(host='0.0.0.0', port=port, debug=True)
