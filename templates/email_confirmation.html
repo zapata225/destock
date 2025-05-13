@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Confirmation de commande</title>
+  <style>
+    body {
+      background-color: #f6f8fa;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(to right, #2a5bd7, #00c6ff);
+      padding: 24px;
+      text-align: center;
+      color: white;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .content {
+      padding: 30px;
+    }
+    .content h2 {
+      font-size: 20px;
+      color: #2a5bd7;
+      margin-bottom: 12px;
+    }
+    .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+    .details-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .details-list li strong {
+      display: inline-block;
+      width: 150px;
+      color: #555;
+    }
+    .note {
+      background: #fffbe6;
+      padding: 12px 16px;
+      border-left: 4px solid #ffc107;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #856404;
+    }
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+      color: #aaa;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 600px) {
+      .content, .header, .footer {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Confirmation de commande</h1>
+    </div>
+    <div class="content">
+      <p>Bonjour,</p>
+      <p>Merci pour votre commande <strong>{{ reference }}</strong> ! Voici un récapitulatif :</p>
+
+      <h2>Détails de la commande</h2>
+      <ul class="details-list">
+        <li><strong>Date :</strong> {{ date }}</li>
+        <li><strong>Total :</strong> {{ total }} €</li>
+        <li><strong>Méthode de paiement :</strong> {{ payment_method }}</li>
+      </ul>
+
+      {% if payment_method == "virement bancaire" %}
+        <div class="note">
+          Veuillez envoyer votre justificatif de virement bancaire par retour de mail afin de valider votre commande.
+        </div>
+      {% else %}
+        <div class="note">
+          Merci de nous faire parvenir une preuve du virement dès que possible. Votre commande sera validée dès réception du paiement ou de son justificatif.
+        </div>
+      {% endif %}
+
+      <p style="margin-top: 30px;">Nous restons à votre disposition pour toute question.</p>
+      <p>À très bientôt,</p>
+      <p>L'équipe <strong>Destockage Alimentaire</strong></p>
+    </div>
+    <div class="footer">
+      Cet e-mail est généré automatiquement – merci de ne pas y répondre directement.
+    </div>
+  </div>
+</body>
+</html>
