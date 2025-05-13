@@ -9,3 +9,4 @@ setuptools==80.1.0
 requests==2.31.0
 reportlab==4.0.8
 sqlalchemy==2.0.29
+Flask-Mail==0.9.1
