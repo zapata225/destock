@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 14px; }
+    h1 { color: #2a5bd7; }
+    .section { margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    td, th { border: 1px solid #ccc; padding: 8px; }
+    th { background-color: #f0f0f0; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Facture - Commande {{ reference }}</h1>
+
+  <div class="section">
+    <strong>Date :</strong> {{ date }}<br>
+    <strong>Total :</strong> {{ total }} €<br>
+    <strong>Paiement :</strong> {{ payment_method }}
+  </div>
+
+  <div class="section">
+    <strong>Client :</strong><br>
+    Email : {{ email }}<br>
+    Téléphone : {{ phone }}<br>
+  </div>
+
+  <div class="section">
+    <strong>Adresse de livraison :</strong><br>
+    {{ address }}
+  </div>
+
+  <div class="section">
+    <strong>Adresse de facturation :</strong><br>
+    {{ billing_address }}
+  </div>
+
+  {% if products %}
+  <div class="section">
+    <strong>Produits commandés :</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in products %}
+        <tr>
+          <td>{{ p.name }}</td>
+          <td>{{ p.quantity }}</td>
+          <td>{{ "%.2f"|format(p.unit_price) }} €</td>
+          <td>{{ "%.2f"|format(p.unit_price * p.quantity) }} €</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+  <p style="margin-top: 40px;">Merci pour votre confiance.</p>
+</body>
+</html>
