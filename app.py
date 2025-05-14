@@ -5,7 +5,7 @@ import os
 from datetime import datetime, timedelta, timezone
 from werkzeug.utils import secure_filename
 import uuid
-import requests  # Ajoutez cette ligne avec les autres imports
+import requests
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -19,35 +19,33 @@ from reportlab.graphics.shapes import Drawing
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_mail import Mail, Message
 from utils import send_confirmation_email
-
 from admin_auth import ADMIN_CREDENTIALS
-from data import products, categories  # Importez vos produits et catégories depuis data.py
+from data import products, categories
+from db import db  # Importation de db depuis db.py
+from models import User, Order, OrderItem
 
-
+# Définition de la fonction `last4` avant de l'utiliser
 def last4(s):
     return str(s)[-4:] if s else ''
 
+# Importer db depuis db.py
+from db import db  # Importer db depuis db.py
 
+# Créer et configurer l'application Flask
 app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
 
-# Jinja filters
-app.jinja_env.globals.update(datetime=datetime)
-app.jinja_env.filters['last4'] = last4
-
-# App config
+# Configuration de l'application
 app.config.update(
-    SECRET_KEY='votre_cle_secrete_tres_longue',  # Changez ceci!
-    SESSION_COOKIE_SECURE=True,  # Pour HTTPS seulement
-    SESSION_COOKIE_HTTPONLY=True,  # Empêche l'accès via JavaScript
-    SESSION_COOKIE_SAMESITE='Lax',  # Protection contre CSRF
-    PERMANENT_SESSION_LIFETIME=timedelta(days=1),  # Durée de vie des sessions
-    SESSION_REFRESH_EACH_REQUEST=True,  # Reset du timer à chaque requête
+    SECRET_KEY='votre_cle_secrete_tres_longue',
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PERMANENT_SESSION_LIFETIME=timedelta(days=1),
+    SESSION_REFRESH_EACH_REQUEST=True,
     UPLOAD_FOLDER='static/images/products',
-    MAX_CONTENT_LENGTH=16 * 1024 * 1024  # 16MB max pour les fichiers téléchargés
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024
 )
-
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 # Email config
 smtp_password = os.getenv('SMTP_PASSWORD', 'Destockage123@')
@@ -65,8 +63,49 @@ app.config.update(
 # Initialiser Flask-Mail
 mail = Mail(app)
 
+# Initialisation de la base de données avec Flask-SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///monapp.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
+
 # Middleware pour la gestion des proxies
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
+# Créer les tables une seule fois au lancement de l'application
+with app.app_context():
+    db.create_all()
+
+
+    
+# Fonction pour enregistrer une commande
+def save_order(user_data, cart_data, payment_data):
+    user = User.query.filter_by(email=user_data['email']).first()
+    if not user:
+        user = User(**user_data)
+        db.session.add(user)
+        db.session.commit()
+
+    order = Order(
+        user_id=user.id,
+        date=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        status='En traitement',
+        payment_method=payment_data['method'],
+        total=payment_data['total']
+    )
+    db.session.add(order)
+    db.session.commit()
+
+    for item in cart_data:
+        order_item = OrderItem(
+            order_id=order.id,
+            product_name=item['name'],
+            price=item['price'],
+            quantity=item['quantity']
+        )
+        db.session.add(order_item)
+    
+    db.session.commit()
+
 
 
 # Fonction de vérification des types de fichiers
@@ -1561,6 +1600,7 @@ def confirmation(order_id):
             'payment_method': order['payment_method'],
             'is_guest': 'guest' in session,
             'promo_code': order.get('promo_code'),
+            'phone': order.get('phone', 'Non fourni'),
             'email': order.get('email') or session.get('last_order_email') or 'non@fourni.com',
             'user': order.get('user', 'Invité')
         }
@@ -2054,7 +2094,7 @@ def admin_dashboard():
         return redirect(url_for('admin'))
     
     # Récupérer toutes les commandes avec leurs détails
-    orders = session.get('orders', {})
+    orders = Order.query.order_by(Order.date.desc()).all()
     
     # Préparer les données pour l'affichage
     processed_orders = []
