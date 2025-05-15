@@ -22,6 +22,7 @@ from utils import send_confirmation_email
 
 from admin_auth import ADMIN_CREDENTIALS
 from data import products, categories  # Importez vos produits et catégories depuis data.py
+from flask_compress import Compress  # ← IMPORT MANQUANT
 
 
 def last4(s):
