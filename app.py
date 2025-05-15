@@ -30,6 +30,7 @@ def last4(s):
 
 app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
+compress = Compress(app)
 
 # Jinja filters
 app.jinja_env.globals.update(datetime=datetime)
@@ -1515,7 +1516,35 @@ def set_promo_code():
         session.modified = True
         return jsonify({'success': True})
     return jsonify({'success': False})
+# Exemple d'optimisation de cache
+@app.after_request
+def add_header(response):
+    if request.path.startswith('/static/'):
+        response.cache_control.max_age = 31536000  # 1 an pour les assets statiques
+    else:
+        response.cache_control.max_age = 3600  # 1 heure pour les pages dynamiques
+    return response
 
+@app.context_processor
+def inject_schema():
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Destockage Alimentaire",
+        "url": "https://destockagealimentairestore.com"
+    }
+    return {'schema': json.dumps(schema, indent=2)}
+
+def get_meta_tags(page):
+    meta = {
+        'home': {
+            'title': 'Destockage Alimentaire - Grossiste en produits alimentaires',
+            'description': 'Grossiste en destockage alimentaire. Produits de qualité à prix discount pour professionnels et particuliers.',
+            'keywords': 'destockage, alimentaire, grossiste, produits alimentaires'
+        },
+        # Ajoutez d'autres pages...
+    }
+    return meta.get(page, meta['home'])
 from flask import session, redirect, url_for, flash, render_template
 from datetime import datetime
 from utils import send_confirmation_email, is_valid_email
