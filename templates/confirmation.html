@@ -2,29 +2,29 @@
 {% block extra_css %}
 <style>
     :root {
-        --primary: #6e45e2;
-        --secondary: #88d3ce;
-        --accent: #ff7e5f;
-        --dark: #1a1a2e;
-        --light: #f9f9ff;
+        --primary: #4f46e5;
+        --secondary: #10b981;
+        --accent: #f59e0b;
+        --light: #f8fafc;
+        --lighter: #ffffff;
+        --muted: #64748b;
     }
 
     .confirmation-container {
         max-width: 900px;
         margin: 3rem auto;
         padding: 4rem;
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.95);
         border-radius: 32px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
         text-align: center;
         position: relative;
         overflow: hidden;
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.5);
         background: linear-gradient(
             135deg, 
-            rgba(255, 255, 255, 0.1) 0%, 
-            rgba(255, 255, 255, 0.05) 100%
+            rgba(255, 255, 255, 0.98) 0%, 
+            rgba(248, 250, 252, 0.95) 100%
         );
         animation: fadeIn 1s ease-out;
     }
@@ -35,47 +35,23 @@
         inset: 0;
         background: radial-gradient(
             circle at 75% 30%, 
-            rgba(110, 69, 226, 0.15) 0%, 
+            rgba(79, 70, 229, 0.05) 0%, 
             transparent 50%
         );
         z-index: -1;
     }
 
-    .confirmation-container::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: conic-gradient(
-            from 230deg at 50% 50%,
-            transparent 0deg,
-            rgba(136, 211, 206, 0.1) 60deg,
-            transparent 120deg,
-            rgba(255, 126, 95, 0.1) 180deg,
-            transparent 240deg,
-            rgba(110, 69, 226, 0.1) 300deg,
-            transparent 360deg
-        );
-        z-index: -1;
-        opacity: 0.7;
-        animation: rotate 60s linear infinite;
-    }
-
-    @keyframes rotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
     .confirmation-icon {
         font-size: 7rem;
         margin-bottom: 2.5rem;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        background: linear-gradient(135deg, var(--primary), var(--accent));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: 
             bounce 1s ease,
             pulse 3s ease-in-out infinite 1s;
-        filter: drop-shadow(0 10px 20px rgba(110, 69, 226, 0.3));
+        filter: drop-shadow(0 10px 20px rgba(79, 70, 229, 0.1));
     }
 
     @keyframes bounce {
@@ -100,12 +76,11 @@
         font-weight: 800;
         letter-spacing: -0.5px;
         line-height: 1.2;
-        text-shadow: 0 5px 15px rgba(110, 69, 226, 0.2);
     }
 
     .confirmation-container p {
         font-size: 1.3rem;
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--muted);
         margin-bottom: 3.5rem;
         line-height: 1.6;
         max-width: 700px;
@@ -123,24 +98,23 @@
 
     .order-detail-row {
         padding: 2rem;
-        background: rgba(26, 26, 46, 0.5);
+        background: var(--lighter);
         border-radius: 16px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
     }
 
     .order-detail-row:hover {
         transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.1);
     }
 
     .order-detail-row span:first-child {
         display: block;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--muted);
         margin-bottom: 0.8rem;
         font-size: 1rem;
         letter-spacing: 0.5px;
@@ -148,48 +122,32 @@
 
     .order-detail-row span:last-child {
         font-size: 1.3rem;
-        color: white;
+        color: #1e293b;
         font-weight: 500;
     }
 
     .order-detail-row.total span:last-child {
-        color: var(--secondary);
+        color: var(--primary);
         font-weight: 700;
         font-size: 1.5rem;
     }
 
     .order-summary {
-        background: rgba(26, 26, 46, 0.6);
+        background: var(--lighter);
         border-radius: 20px;
         padding: 3rem;
         margin: 4rem auto;
         max-width: 600px;
         text-align: left;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
         position: relative;
         overflow: hidden;
     }
 
-    .order-summary::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-            circle, 
-            rgba(255, 126, 95, 0.1) 0%, 
-            transparent 70%
-        );
-        z-index: -1;
-    }
-
     .order-summary h3 {
         font-size: 1.8rem;
-        color: white;
+        color: #1e293b;
         margin-bottom: 2.5rem;
         text-align: center;
         position: relative;
@@ -213,7 +171,7 @@
         justify-content: space-between;
         margin-bottom: 1.2rem;
         padding-bottom: 1.2rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
     }
 
@@ -222,20 +180,20 @@
     }
 
     .summary-row span {
-        color: rgba(255, 255, 255, 0.9);
+        color: #334155;
     }
 
     .summary-row.total {
         font-weight: 700;
         font-size: 1.4rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding-top: 1.5rem;
         margin-top: 1.5rem;
         border-bottom: none;
     }
 
     .summary-row.total span {
-        color: var(--secondary);
+        color: var(--primary);
     }
 
     .confirmation-actions {
@@ -290,42 +248,41 @@
         background: linear-gradient(
             135deg, 
             var(--primary) 0%, 
-            #8a64eb 100%
+            #6366f1 100%
         );
         color: white;
-        box-shadow: 0 15px 30px rgba(110, 69, 226, 0.3);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
     }
 
     .btn-primary:hover {
         background: linear-gradient(
             135deg, 
-            #5d35c9 0%, 
-            #7a4ce8 100%
+            #4338ca 0%, 
+            var(--primary) 100%
         );
         transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 25px 50px rgba(110, 69, 226, 0.4);
+        box-shadow: 0 25px 50px rgba(79, 70, 229, 0.3);
     }
 
     .btn-outline {
         background: transparent;
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
 
     .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(79, 70, 229, 0.05);
+        border-color: var(--primary);
         transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
     .pdf-download-btn {
         background: linear-gradient(
             135deg, 
             var(--accent) 0%, 
-            #ff9a8b 100%
+            #fbbf24 100%
         );
         color: white;
         padding: 1.2rem 2.5rem;
@@ -336,7 +293,7 @@
         display: inline-flex;
         align-items: center;
         gap: 1rem;
-        box-shadow: 0 15px 30px rgba(255, 126, 95, 0.3);
+        box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
         border: none;
         min-width: 220px;
         font-size: 1.1rem;
@@ -345,35 +302,14 @@
         z-index: 1;
     }
 
-    .pdf-download-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            135deg, 
-            rgba(255, 255, 255, 0.2) 0%, 
-            rgba(255, 255, 255, 0) 100%
-        );
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
     .pdf-download-btn:hover {
         background: linear-gradient(
             135deg, 
-            #e6684e 0%, 
+            #d97706 0%, 
             var(--accent) 100%
         );
         transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 25px 50px rgba(255, 126, 95, 0.4);
-    }
-
-    .pdf-download-btn:hover::before {
-        opacity: 1;
+        box-shadow: 0 25px 50px rgba(245, 158, 11, 0.3);
     }
 
     /* Style spécial pour le badge de code promo */
@@ -383,8 +319,8 @@
         gap: 0.8rem;
         background: linear-gradient(
             135deg, 
-            #ff7e5f 0%, 
-            #feb47b 100%
+            var(--accent) 0%, 
+            #fbbf24 100%
         );
         color: white;
         padding: 0.8rem 1.5rem;
@@ -394,10 +330,9 @@
         animation: 
             pulse 2s infinite,
             float 4s ease-in-out infinite;
-        box-shadow: 0 10px 20px rgba(255, 126, 95, 0.3);
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
         font-weight: 600;
         border: 1px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(5px);
     }
 
     @keyframes float {
@@ -419,48 +354,6 @@
         to { 
             opacity: 1;
             transform: translateY(0);
-        }
-    }
-
-    /* Effet de particules futuristes */
-    .particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-        overflow: hidden;
-    }
-
-    .particle {
-        position: absolute;
-        border-radius: 50%;
-        background: linear-gradient(
-            135deg, 
-            rgba(110, 69, 226, 0.8) 0%, 
-            rgba(136, 211, 206, 0.8) 100%
-        );
-        filter: blur(2px);
-        animation: floatParticle 15s infinite linear;
-        opacity: 0;
-    }
-
-    @keyframes floatParticle {
-        0% {
-            transform: translateY(100vh) translateX(0) rotate(0deg);
-            opacity: 0;
-        }
-        10% {
-            opacity: 0.6;
-        }
-        90% {
-            opacity: 0.6;
-        }
-        100% {
-            transform: translateY(-100px) translateX(100px) rotate(360deg);
-            opacity: 0;
         }
     }
 
@@ -494,19 +387,7 @@
             var(--accent)
         );
         animation: rotate 6s linear infinite;
-    }
-
-    .border-effect::after {
-        content: '';
-        position: absolute;
-        inset: 2px;
-        border-radius: 30px;
-        background: linear-gradient(
-            135deg, 
-            rgba(26, 26, 46, 0.8) 0%, 
-            rgba(26, 26, 46, 0.9) 100%
-        );
-        backdrop-filter: blur(16px);
+        opacity: 0.2;
     }
 
     /* Responsive */
@@ -542,6 +423,229 @@
             width: 100%;
         }
     }
+    :root {
+        --primary: #6366f1;  /* Indigo moderne */
+        --secondary: #22d3ee;  /* Cyan électrique */
+        --accent: #f472b6;  /* Rose vif */
+        --light: #f8fafc;  /* Fond très clair */
+        --lighter: #ffffff;  /* Blanc pur */
+        --muted: #64748b;  /* Texte secondaire */
+    }
+
+    .confirmation-container {
+        max-width: 900px;
+        margin: 3rem auto;
+        padding: 4rem;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 32px;
+        box-shadow: 
+            0 25px 50px -12px rgba(0, 0, 0, 0.05),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        animation: fadeIn 1s ease-out;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .confirmation-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 75% 30%, 
+            rgba(99, 102, 241, 0.08) 0%, 
+            transparent 50%
+        );
+        z-index: -1;
+    }
+
+    .confirmation-icon {
+        font-size: 7rem;
+        margin-bottom: 2.5rem;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: 
+            bounce 1s ease,
+            pulse 3s ease-in-out infinite 1s;
+        filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.15));
+    }
+
+    /* (Conserver toutes les animations existantes comme bounce, pulse, fadeIn) */
+
+    .confirmation-container h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+
+    .confirmation-container p {
+        font-size: 1.3rem;
+        color: var(--muted);
+        margin-bottom: 3.5rem;
+        line-height: 1.6;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .order-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.8rem;
+        margin-bottom: 4rem;
+        text-align: left;
+    }
+
+    .order-detail-row {
+        padding: 2rem;
+        background: var(--lighter);
+        border-radius: 16px;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.03),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .order-detail-row:hover {
+        transform: translateY(-8px);
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.05),
+            0 0 0 1px rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .order-detail-row span:first-child {
+        display: block;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .order-detail-row span:last-child {
+        font-size: 1.3rem;
+        color: #1e293b;
+        font-weight: 500;
+    }
+
+    .order-detail-row.total span:last-child {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .order-summary {
+        background: var(--lighter);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 4rem auto;
+        max-width: 600px;
+        text-align: left;
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.03),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    /* (Conserver tous les styles existants pour .summary-row, .btn, etc.) */
+
+    .btn-primary {
+        background: linear-gradient(
+            135deg, 
+            var(--primary) 0%, 
+            #818cf8 100%
+        );
+        color: white;
+        box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(
+            135deg, 
+            #4f46e5 0%, 
+            var(--primary) 100%
+        );
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .pdf-download-btn {
+        background: linear-gradient(
+            135deg, 
+            var(--accent) 0%, 
+            #f9a8d4 100%
+        );
+        box-shadow: 0 15px 30px rgba(244, 114, 182, 0.2);
+    }
+
+    .pdf-download-btn:hover {
+        background: linear-gradient(
+            135deg, 
+            #db2777 0%, 
+            var(--accent) 100%
+        );
+    }
+
+    .promo-badge {
+        background: linear-gradient(
+            135deg, 
+            var(--accent) 0%, 
+            #f9a8d4 100%
+        );
+        box-shadow: 0 10px 20px rgba(244, 114, 182, 0.2);
+    }
+
+    /* Effet de bordure néon moderne */
+    .border-effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .border-effect::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+            transparent,
+            transparent,
+            transparent,
+            var(--secondary),
+            transparent,
+            transparent,
+            transparent,
+            var(--accent)
+        );
+        animation: rotate 6s linear infinite;
+        opacity: 0.15;
+    }
 </style>
 {% endblock %}
 
@@ -550,9 +654,6 @@
     <!-- Effet de bordure animée -->
     <div class="border-effect"></div>
     
-    <!-- Effet de particules futuristes -->
-    <div class="particles" id="particles"></div>
-
     <div class="confirmation-icon">
         <i class="fas fa-check-circle"></i>
     </div>
@@ -667,42 +768,5 @@ function downloadInvoice(orderId) {
             btn.disabled = false;
         });
 }
-
-// Création des particules futuristes
-document.addEventListener('DOMContentLoaded', function() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 20;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Position aléatoire
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100 + 100;
-        
-        // Taille aléatoire
-        const size = Math.random() * 15 + 5;
-        
-        // Délai d'animation aléatoire
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 10;
-        
-        // Couleur aléatoire
-        const hue = Math.random() * 60 + 200; // Bleus et violets
-        const color = `hsla(${hue}, 80%, 70%, 0.7)`;
-        
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.background = color;
-        particle.style.opacity = '0';
-        
-        particlesContainer.appendChild(particle);
-    }
-});
 </script>
 {% endblock %}
