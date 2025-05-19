@@ -2,75 +2,334 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confirmation de commande</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #f6f8fa;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-    }
-    .header {
-      background: linear-gradient(to right, #2a5bd7, #00c6ff);
-      padding: 24px;
-      text-align: center;
-      color: white;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    .content {
-      padding: 30px;
-    }
-    .content h2 {
-      font-size: 20px;
-      color: #2a5bd7;
-      margin-bottom: 12px;
-    }
-    .details-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px 0;
-    }
-    .details-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    .details-list li strong {
-      display: inline-block;
-      width: 150px;
-      color: #555;
-    }
-    .note {
-      background: #fffbe6;
-      padding: 12px 16px;
-      border-left: 4px solid #ffc107;
-      margin-top: 15px;
-      border-radius: 8px;
-      font-size: 14px;
-      color: #856404;
-    }
-    .footer {
-      text-align: center;
-      font-size: 13px;
-      padding: 20px;
-      color: #aaa;
-      border-top: 1px solid #eee;
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --accent: #a5b4fc;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --radius: 28px;
+      --glass: rgba(255, 255, 255, 0.96);
+      --shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.08);
+      --border-light: rgba(255, 255, 255, 0.4);
+      --border-dark: rgba(0, 0, 0, 0.06);
+      --neon-glow: 0 0 10px rgba(99, 102, 241, 0.3);
     }
 
-    @media (max-width: 600px) {
-      .content, .header, .footer {
-        padding: 20px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 40px 16px;
+      background-image: 
+        radial-gradient(at 90% 10%, hsla(234, 89%, 85%, 0.15) 0px, transparent 50%),
+        radial-gradient(at 10% 90%, hsla(234, 89%, 85%, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--glass);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow), var(--neon-glow);
+      overflow: hidden;
+      animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1), float 8s ease-in-out infinite alternate;
+      border: 1px solid var(--border-light);
+      position: relative;
+      z-index: 1;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95) rotateX(5deg); }
+      to { opacity: 1; transform: translateY(0) scale(1) rotateX(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0));
+      z-index: -1;
+    }
+
+    .container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 1.5px;
+      background: linear-gradient(135deg, rgba(165,180,252,0.4), rgba(255,255,255,0.2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      padding: 56px 24px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2) 0%, transparent 40%),
+        linear-gradient(to bottom right, transparent, rgba(0,0,0,0.05));
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+      filter: blur(1px);
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      position: relative;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transform: perspective(100px) translateZ(5px);
+    }
+
+    .content {
+      padding: 48px 36px;
+    }
+
+    .content h2 {
+      font-size: 20px;
+      color: var(--primary);
+      margin: 36px 0 20px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .content h2::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      border-radius: 3px;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .details-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .details-list li {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .details-list li:hover {
+      transform: translateX(8px);
+    }
+
+    .details-list li::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      height: 100%;
+      width: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .details-list li:hover::before {
+      opacity: 1;
+      left: -6px;
+    }
+
+    .details-list li:last-child {
+      border-bottom: none;
+    }
+
+    .details-list li strong {
+      color: var(--muted);
+      font-weight: 500;
+      font-family: 'Geist Mono', monospace;
+      letter-spacing: -0.5px;
+      font-size: 14px;
+    }
+
+    .section {
+      margin: 36px 0;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .note {
+      background: linear-gradient(to right, #fef3c7, #fde68a);
+      padding: 24px;
+      border-radius: 18px;
+      color: #92400e;
+      margin-top: 32px;
+      font-size: 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .note::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, #f59e0b, #fbbf24);
+    }
+
+    .note::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: rotate(30deg);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 18px 36px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 18px;
+      font-weight: 600;
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+      border: none;
+      cursor: pointer;
+      letter-spacing: -0.5px;
+      position: relative;
+      overflow: hidden;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: rotate(30deg);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .cta:hover {
+      background: var(--primary-hover);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+    }
+
+    .cta:hover::before {
+      transform: rotate(30deg) translate(20%, 20%);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 28px;
+      color: var(--muted);
+      border-top: 1px solid var(--border-dark);
+      background: var(--glass);
+      font-family: 'Geist Mono', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 480px) {
+      .content, .header {
+        padding: 32px 24px;
+      }
+      
+      .header h1 {
+        font-size: 28px;
+      }
+      
+      .cta {
+        width: 100%;
+        padding: 20px 24px;
       }
     }
   </style>
@@ -81,17 +340,41 @@
       <h1>Confirmation de commande</h1>
     </div>
     <div class="content">
-      <p>Bonjour,</p>
-      <p>Merci pour votre commande <strong>{{ reference }}</strong> ! Voici un récapitulatif :</p>
+      <p>Bonjour {{ order.firstname }} {{ order.lastname }},</p>
+      <p>Merci pour votre commande <strong>{{ order.reference }}</strong> ! Voici un récapitulatif :</p>
 
       <h2>Détails de la commande</h2>
       <ul class="details-list">
-        <li><strong>Date :</strong> {{ date }}</li>
-        <li><strong>Total :</strong> {{ total }} €</li>
-        <li><strong>Méthode de paiement :</strong> {{ payment_method }}</li>
+        <li><strong>Date</strong><span>{{ order.date }}</span></li>
+        <li><strong>Total</strong><span>{{ "%.2f"|format(order.total) }} €</span></li>
+        <li><strong>Paiement</strong><span>{{ order.payment_method }}</span></li>
       </ul>
 
-      {% if payment_method == "virement bancaire" %}
+      <div class="section">
+        <h2>Informations client</h2>
+        <p><strong>Email :</strong> {{ order.email }}<br>
+        <strong>Téléphone :</strong> {{ order.phone or 'Non fourni' }}</p>
+      </div>
+
+      <div class="section">
+        <h2>Adresse de livraison</h2>
+        {% if order.delivery_address %}
+          <p style="white-space: pre-line;">{{ order.delivery_address | safe }}</p>
+        {% else %}
+          <p>Adresse non disponible.</p>
+        {% endif %}
+      </div>
+
+      <div class="section">
+        <h2>Adresse de facturation</h2>
+        {% if order.billing_address %}
+          <p style="white-space: pre-line;">{{ order.billing_address | safe }}</p>
+        {% else %}
+          <p>Adresse non disponible.</p>
+        {% endif %}
+      </div>
+
+      {% if order.payment_method == "virement bancaire" %}
         <div class="note">
           Veuillez envoyer votre justificatif de virement bancaire par retour de mail afin de valider votre commande.
         </div>
@@ -101,10 +384,12 @@
         </div>
       {% endif %}
 
-      <p style="margin-top: 30px;">Nous restons à votre disposition pour toute question.</p>
-      <p>À très bientôt,</p>
-      <p>L'équipe <strong>Destockage Alimentaire</strong></p>
+      <a href="#" class="cta">Voir ma commande</a>
+
+      <p style="margin-top: 32px;">Nous restons à votre disposition pour toute question.</p>
+      <p>À très bientôt,<br><strong>{{ order.company.name }}</strong></p>
     </div>
+
     <div class="footer">
       Cet e-mail est généré automatiquement – merci de ne pas y répondre directement.
     </div>
