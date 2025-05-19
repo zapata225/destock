@@ -2,66 +2,325 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; font-size: 14px; }
-    h1 { color: #2a5bd7; }
-    .section { margin-bottom: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    td, th { border: 1px solid #ccc; padding: 8px; }
-    th { background-color: #f0f0f0; text-align: left; }
+    :root {
+      --primary: #6366F1;
+      --primary-dark: #4F46E5;
+      --secondary: #8B5CF6;
+      --accent: #10B981;
+      --dark: #1F2937;
+      --light: #F9FAFB;
+      --lighter: #F3F4F6;
+      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --border-radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      background-color: #f5f7fa;
+      display: flex;
+      justify-content: center;
+    }
+
+    .pdf-container {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      background: var(--gradient);
+      padding: 2.5cm 2cm 1.5cm;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: white;
+      transform: skewY(-3deg);
+      z-index: 1;
+    }
+
+    .invoice-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 36pt;
+      font-weight: 700;
+      margin: 0 0 10pt 0;
+      letter-spacing: -0.5pt;
+    }
+
+    .invoice-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20pt;
+      margin-top: 15pt;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 8pt 20pt;
+      border-radius: 20pt;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .content {
+      padding: 0 2cm 2cm;
+      position: relative;
+      z-index: 2;
+      margin-top: -30px;
+    }
+
+    .section {
+      margin-bottom: 1.2cm;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16pt;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 16pt;
+      position: relative;
+      padding-bottom: 8pt;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50pt;
+      height: 4pt;
+      background: var(--accent);
+      border-radius: 2pt;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1cm;
+      margin-bottom: 1cm;
+    }
+
+    .client-card {
+      background: var(--light);
+      padding: 16pt;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16pt 0;
+      box-shadow: var(--shadow);
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      padding: 14pt;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 14pt;
+      border-bottom: 1px solid var(--lighter);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .totals {
+      background: var(--light);
+      padding: 20pt;
+      border-radius: var(--border-radius);
+      margin-top: 1cm;
+      box-shadow: var(--shadow);
+      text-align: right;
+    }
+
+    .total-row {
+      display: inline-flex;
+      justify-content: space-between;
+      min-width: 250pt;
+      margin-bottom: 10pt;
+      font-size: 11pt;
+    }
+
+    .total-row:last-child {
+      font-weight: 700;
+      font-size: 14pt;
+      padding-top: 10pt;
+      border-top: 1px dashed var(--primary);
+      margin-top: 10pt;
+    }
+
+    .payment-method {
+      display: inline-flex;
+      align-items: center;
+      gap: 10pt;
+      background: var(--light);
+      padding: 12pt 20pt;
+      border-radius: 20pt;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      border: 1px solid #E5E7EB;
+    }
+
+    .payment-method::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 14pt;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5cm 2cm;
+      background: var(--light);
+      text-align: center;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    .company-info {
+      margin-bottom: 12pt;
+      font-size: 10pt;
+      line-height: 1.6;
+    }
+
+    .company-info strong {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .thank-you {
+      font-size: 9pt;
+      color: #6B7280;
+      margin-top: 8pt;
+    }
+
+    @media print {
+      body {
+        background: none;
+      }
+      .pdf-container {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Facture - Commande {{ reference }}</h1>
+  <div class="pdf-container">
+    <div class="header">
+      <h1 class="invoice-title">FACTURE</h1>
+      <div class="invoice-meta">
+        <div class="badge">Commande {{ reference }}</div>
+        <div class="badge">Date : {{ date }}</div>
+      </div>
+    </div>
 
-  <div class="section">
-    <strong>Date :</strong> {{ date }}<br>
-    <strong>Total :</strong> {{ total }} €<br>
-    <strong>Paiement :</strong> {{ payment_method }}
+    <div class="content">
+      <div class="section">
+        <h2 class="section-title">INFORMATIONS CLIENT</h2>
+        <div class="client-grid">
+          <div class="client-card">
+            <strong>Email :</strong> {{ email }}<br><br>
+            <strong>Téléphone :</strong> {{ phone }}<br><br>
+            <strong>Adresse de livraison :</strong><br>
+            {{ address | replace('<br>', ', ') }}
+          </div>
+          <div class="client-card">
+            <strong>Adresse de facturation :</strong><br><br>
+            {{ billing_address | replace('<br>', ', ') }}
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">DÉTAILS DE LA COMMANDE</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Produit</th>
+              <th>Quantité</th>
+              <th>Prix unitaire</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>{{ product.quantity }}</td>
+              <td>{{ "%.2f"|format(product.unit_price) }} €</td>
+              <td>{{ "%.2f"|format(product.unit_price * product.quantity) }} €</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+        <div class="totals">
+          <div class="total-row">
+            <span>Total HT :</span>
+            <span>{{ "%.2f"|format(order.total / 1.2) }} €</span>
+          </div>
+          <div class="total-row">
+            <span>TVA (20%) :</span>
+            <span>{{ "%.2f"|format(order.total - (order.total / 1.2)) }} €</span>
+          </div>
+          <div class="total-row">
+            <span>Total TTC :</span>
+            <span>{{ "%.2f"|format(order.total) }} €</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">MÉTHODE DE PAIEMENT</h2>
+        <div class="payment-method">{{ payment_method }}</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="company-info">
+        <strong>DESTOCKAGE ALIMENTAIRE FRANCE</strong><br>
+        123 Rue du Commerce, 75000 Paris<br>
+        <strong>Téléphone :</strong> +33 1 23 45 67 89 - <strong>Email :</strong> contact@destockagealimentaire.fr<br>
+        <strong>SIRET :</strong> 123 456 789 00010 - <strong>TVA :</strong> FR12345678901
+      </div>
+      <div class="thank-you">
+        Merci pour votre confiance ! Pour toute question concernant cette facture, veuillez nous contacter à contact@destockagealimentaire.fr
+      </div>
+    </div>
   </div>
-
-  <div class="section">
-    <strong>Client :</strong><br>
-    Email : {{ email }}<br>
-    Téléphone : {{ phone }}<br>
-  </div>
-
-  <div class="section">
-    <strong>Adresse de livraison :</strong><br>
-    {{ address }}
-  </div>
-
-  <div class="section">
-    <strong>Adresse de facturation :</strong><br>
-    {{ billing_address }}
-  </div>
-
-  {% if products %}
-  <div class="section">
-    <strong>Produits commandés :</strong>
-    <table>
-      <thead>
-        <tr>
-          <th>Produit</th>
-          <th>Quantité</th>
-          <th>Prix unitaire</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for p in products %}
-        <tr>
-          <td>{{ p.name }}</td>
-          <td>{{ p.quantity }}</td>
-          <td>{{ "%.2f"|format(p.unit_price) }} €</td>
-          <td>{{ "%.2f"|format(p.unit_price * p.quantity) }} €</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  {% endif %}
-
-  <p style="margin-top: 40px;">Merci pour votre confiance.</p>
 </body>
 </html>
