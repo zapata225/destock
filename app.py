@@ -1589,6 +1589,30 @@ def promo_urgence():
 def presse():
     return render_template('presse.html')
 
+import requests
+from datetime import datetime
+
+def submit_to_google(url):
+    """Soumet l'URL à l'index Google"""
+    api_url = "https://indexing.googleapis.com/v3/urlNotifications:publish"
+    
+    payload = {
+        "url": url,
+        "type": "URL_UPDATED"
+    }
+    
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer [VOTRE_TOKEN_OAUTH]"
+    }
+    
+    response = requests.post(api_url, json=payload, headers=headers)
+    return response.json()
+
+# Exemple pour chaque nouvel article
+new_post_url = "https://destockagealimentairestore.com/blog/destockage-alimentaire-avantages"
+submit_to_google(new_post_url)
+
 @app.route('/destockage-professionnel')
 def destockageprofessionnel():
     return render_template('destockage-professionnel.html')
