@@ -853,12 +853,33 @@
             <!-- Section paiement -->
             <div class="checkout-form-section">
                 <form method="POST" action="{{ url_for('payment') }}" id="payment-form">
+                    <!-- Méthodes -->
                     <input type="hidden" name="payment_method" id="payment-method-input">
                     <input type="hidden" name="delivery_method" id="delivery-method-input" value="standard">
                     <input type="hidden" name="delivery_cost" id="delivery-cost-input" value="69">
+            
+                    <!-- Promo -->
                     <input type="hidden" name="promo_code" id="promo-code-input" value="">
                     <input type="hidden" name="discount_amount" id="discount-amount-input" value="0">
-                    <input type="hidden" name="email" id="checkout-email" value="">
+            
+                    <!-- Infos utilisateur -->
+                    <input type="hidden" name="email" id="checkout-email" value="{{ user.email if user else '' }}">
+                    <input type="hidden" name="firstname" id="checkout-firstname" value="{{ user.full_name.split(' ')[0] if user and user.full_name else '' }}">
+                    <input type="hidden" name="lastname" id="checkout-lastname" value="{{ user.full_name.split(' ')[1] if user and user.full_name and ' ' in user.full_name else '' }}">
+                    <input type="hidden" name="phone" id="checkout-phone" value="{{ user.phone if user else '' }}">
+            
+                    <!-- Adresse de livraison -->
+                    <input type="hidden" name="delivery_address" id="checkout-delivery-address" value="{{ user.address if user else '' }}">
+                    <input type="hidden" name="delivery_zip" id="checkout-delivery-zip" value="{{ user.zip if user else '' }}">
+                    <input type="hidden" name="delivery_city" id="checkout-delivery-city" value="{{ user.city if user else '' }}">
+                    <input type="hidden" name="delivery_country" id="checkout-delivery-country" value="{{ user.country if user else 'FR' }}">
+                    
+                    <!-- Adresse de facturation -->
+                    <input type="hidden" name="billing_address" id="checkout-billing-address" value="{{ user.address if user else '' }}">
+                    <input type="hidden" name="billing_zip" id="checkout-billing-zip" value="{{ user.zip if user else '' }}">
+                    <input type="hidden" name="billing_city" id="checkout-billing-city" value="{{ user.city if user else '' }}">
+                    <input type="hidden" name="billing_country" id="checkout-billing-country" value="{{ user.country if user else 'FR' }}">
+                    <input type="hidden" name="same_billing" value="on">
 
                     <h2><i class="fas fa-credit-card"></i> Méthode de paiement</h2>
                     
@@ -1345,20 +1366,6 @@
         });
     }
 
-    // Gestion de l'affichage de l'adresse de facturation
-    document.getElementById('same-billing').addEventListener('change', function() {
-        const billingSection = document.getElementById('billing-address-section');
-        billingSection.style.display = this.checked ? 'none' : 'block';
-        
-        // Remplissage automatique si même adresse
-        if (this.checked) {
-            document.getElementById('billing-address').value = document.getElementById('delivery-address').value;
-            document.getElementById('billing-zip').value = document.getElementById('delivery-zip').value;
-            document.getElementById('billing-city').value = document.getElementById('delivery-city').value;
-            document.getElementById('billing-country').value = document.getElementById('delivery-country').value;
-        }
-    });
-
     // Pré-remplissage pour les utilisateurs connectés
     document.addEventListener('DOMContentLoaded', function() {
         if ({{ 'true' if session.logged_in else 'false' }} && {{ 'true' if user and user.address else 'false' }}) {
@@ -1377,11 +1384,52 @@
         // Sélectionner la livraison standard par défaut
         document.getElementById('standard-delivery').checked = true;
     });
-    // Capture l'email avant soumission>
-    document.getElementById('payment-form').addEventListener('submit', function (e) {
-        // Copier la valeur du champ email visible vers le champ hidden utilisé pour la confirmation
-        const visibleEmail = document.getElementById('email').value;
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('payment-form');
+
+    // Fonction pour mettre à jour les champs hidden depuis les visibles
+    const updateHiddenFields = () => {
+        const visibleEmail = document.getElementById('email')?.value || '';
+        const visiblePhone = document.getElementById('phone')?.value || '';
+        const visibleFirstname = document.getElementById('firstname')?.value || '';
+        const visibleLastname = document.getElementById('lastname')?.value || '';
+        const deliveryAddress = document.getElementById('delivery-address')?.value || '';
+        const deliveryZip = document.getElementById('delivery-zip')?.value || '';
+        const deliveryCity = document.getElementById('delivery-city')?.value || '';
+        const deliveryCountry = document.getElementById('delivery-country')?.value || '';
+
+        // Champs infos utilisateur
         document.getElementById('checkout-email').value = visibleEmail;
+        document.getElementById('checkout-phone').value = visiblePhone;
+        document.getElementById('checkout-firstname').value = visibleFirstname;
+        document.getElementById('checkout-lastname').value = visibleLastname;
+
+        // Adresse livraison
+        document.getElementById('checkout-delivery-address').value = deliveryAddress;
+        document.getElementById('checkout-delivery-zip').value = deliveryZip;
+        document.getElementById('checkout-delivery-city').value = deliveryCity;
+        document.getElementById('checkout-delivery-country').value = deliveryCountry;
+
+        // Adresse facturation = identique
+        document.getElementById('checkout-billing-address').value = deliveryAddress;
+        document.getElementById('checkout-billing-zip').value = deliveryZip;
+        document.getElementById('checkout-billing-city').value = deliveryCity;
+        document.getElementById('checkout-billing-country').value = deliveryCountry;
+    };
+
+    // Mettre à jour les champs cachés au moment du submit
+    form.addEventListener('submit', function (e) {
+        updateHiddenFields();
     });
+
+    // Mise à jour en temps réel
+    ['email', 'phone', 'firstname', 'lastname', 'delivery-address', 'delivery-zip', 'delivery-city', 'delivery-country'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('change', updateHiddenFields);
+        }
+    });
+});
+
 </script>
 {% endblock %}
