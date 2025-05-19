@@ -1621,6 +1621,27 @@ def product_feed():
     response.headers['Content-Type'] = 'application/xml'
     return response
 
+@app.route('/blog/<slug>')
+def blog_post(slug):
+    """Route pour les articles de blog"""
+    posts = {
+        'destockage-alimentaire-avantages': {
+            'title': "Destockage Alimentaire : 7 Avantages Insoupçonnés pour Votre Business",
+            'content': """[Votre contenu de 1500 mots ici...]""",
+            'meta': {
+                'description': "Découvrez les 7 bénéfices méconnus du destockage alimentaire pour les professionnels. Réduisez vos coûts jusqu'à 70%.",
+                'keywords': "destockage alimentaire avantages, économie restauration, réduire coûts alimentaires"
+            }
+        }
+    }
+    
+    if slug not in posts:
+        abort(404)
+        
+    return render_template('blog_post.html', 
+                         post=posts[slug],
+                         schema=generate_article_schema(posts[slug]))
+
 @app.route('/set_promo_code', methods=['POST'])
 def set_promo_code():
     if request.is_json:
