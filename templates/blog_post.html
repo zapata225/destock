@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="blog-post">
+    <h1>{{ post.title }}</h1>
+    
+    <div class="meta">
+        <span>Publié le {{ now|date }}</span> | 
+        <span>Temps de lecture : 8 min</span>
+    </div>
+    
+    <div class="content">
+        {{ post.content|safe }}
+    </div>
+    
+    <!-- FAQ Schema -->
+    <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>FAQ Destockage Alimentaire</h2>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Comment trouver des bons plans de destockage ?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">[Réponse détaillée...]</p>
+            </div>
+        </div>
+        <!-- Ajoutez 4-5 questions -->
+    </div>
+</article>
+{% endblock %}
