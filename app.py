@@ -19,10 +19,10 @@ from reportlab.graphics.shapes import Drawing
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_mail import Mail, Message
 from utils import send_confirmation_email
+from data import products as all_products
 
 from admin_auth import ADMIN_CREDENTIALS
 from data import products, categories  # Importez vos produits et catégories depuis data.py
-from flask_compress import Compress  # ← IMPORT MANQUANT
 
 
 def last4(s):
@@ -31,7 +31,6 @@ def last4(s):
 
 app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
-compress = Compress(app)
 
 # Jinja filters
 app.jinja_env.globals.update(datetime=datetime)
@@ -113,6 +112,36 @@ def get_cart():
         session.modified = True  # Important
 
     return session['cart']
+
+def get_meta_tags(page):
+    meta = {
+        'home': {
+            'title': 'Destockage Alimentaire - Grossiste en produits alimentaires',
+            'description': 'Grossiste en destockage alimentaire. Produits de qualité à prix discount pour professionnels et particuliers.',
+            'keywords': 'destockage, alimentaire, grossiste, produits alimentaires'
+        },
+        # Ajoutez d'autres pages...
+    }
+    return meta.get(page, meta['home'])
+
+@app.context_processor
+def inject_schema():
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Destockage Alimentaire",
+        "url": "https://destockagealimentairestore.com"
+    }
+    return {'schema': json.dumps(schema, indent=2)}
+
+# Exemple d'optimisation de cache
+@app.after_request
+def add_header(response):
+    if request.path.startswith('/static/'):
+        response.cache_control.max_age = 31536000  # 1 an pour les assets statiques
+    else:
+        response.cache_control.max_age = 3600  # 1 heure pour les pages dynamiques
+    return response
 
 @app.before_request
 def before_request():
@@ -1196,14 +1225,11 @@ def inject_cart_count():
             count += quantity
     
     return {'cart_count': count}
-
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
-    # Vérifie si l'utilisateur est connecté ou invité
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('checkout_auth'))
 
-    # Gestion expiration session invité
     if session.get('guest'):
         try:
             created_at = datetime.fromisoformat(session['guest']['created_at'])
@@ -1244,11 +1270,9 @@ def checkout():
             app.logger.error(f"Erreur traitement produit {product_id}: {str(e)}")
             continue
 
-    # Gestion des frais de livraison
     delivery_method = session.get('delivery_method', 'standard')
     delivery_cost = 69 if delivery_method == 'standard' else 59
 
-    # Gestion du code promo
     valid_promo_codes = {
         'SAVE10': lambda sub: 10.0,
         'SAVE20': lambda sub: 0.20 * sub,
@@ -1273,30 +1297,37 @@ def checkout():
         user_info.setdefault('email', 'Non renseigné')
 
     if request.method == 'POST':
-        # Récupération de l'email avec validation
-        customer_email = request.form.get('email')
+        customer_email = request.form.get('email', '').strip()
+        phone = request.form.get('phone', '').strip()
+        delivery_address = request.form.get('delivery_address', '').strip()
+        billing_address = request.form.get('billing_address', '').strip() or delivery_address
+
         if not customer_email or not is_valid_email(customer_email):
             flash('Veuillez fournir une adresse email valide', 'error')
             return redirect(url_for('checkout'))
 
-        # Préparation des données de commande
+        order_id = str(uuid.uuid4())
         order_data = {
-            'email': customer_email,
-            'items': {str(p['id']): cart[p['id']] for p in products if str(p['id']) in cart},
-            'user': session.get('username', 'Guest'),
-            'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            'payment_method': request.form.get('payment_method'),
-            'status': 'En traitement',
+            'id': order_id,
             'reference': order_reference,
+            'user': session.get('username', 'Guest'),
+            'email': customer_email,
+            'phone': phone,
+            'delivery_address': delivery_address,
+            'billing_address': billing_address,
+            'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            'items': dict(cart.items()),
             'subtotal': subtotal,
             'delivery_method': delivery_method,
             'delivery_cost': delivery_cost,
             'discount': promo_discount,
             'total': total,
-            'promo_code': code if code in valid_promo_codes else None
+            'promo_code': code if code in valid_promo_codes else None,
+            'payment_method': request.form.get('payment_method'),
+            'status': 'En traitement'
         }
 
-        # Paiement spécifique
+        # Ajout des informations selon le mode de paiement
         payment_method = order_data['payment_method']
         if payment_method == 'installment':
             order_data.update({
@@ -1317,21 +1348,17 @@ def checkout():
                 'cvv': request.form.get('cvv')
             })
 
-        # Sauvegarde dans la session
         if 'orders' not in session:
             session['orders'] = {}
-        order_id = str(uuid.uuid4())
         session['orders'][order_id] = order_data
         session.modified = True
 
-        # Nettoyage de session
         session.pop('cart', None)
         session.pop('promo_code', None)
         session.pop('delivery_method', None)
 
-        # Envoi email de confirmation
         try:
-            send_confirmation_email(app, mail, order_data, order_data['email'])
+            send_confirmation_email(app, mail, order_data, customer_email)
         except Exception as e:
             app.logger.error(f"Erreur lors de l'envoi de l'e-mail : {e}")
             flash("Erreur lors de l'envoi de l'e-mail. Veuillez réessayer plus tard.", "error")
@@ -1347,7 +1374,6 @@ def checkout():
                            user=user_info,
                            order_reference=order_reference,
                            is_guest=session.get('guest') is not None)
-
 
 @app.route('/checkout_auth', methods=['GET', 'POST'])
 def checkout_auth():
@@ -1383,15 +1409,42 @@ def payment():
     if not cart:
         return redirect(url_for('index'))
 
-    # Calcul initial
     subtotal = sum(p['price'] * cart[str(p['id'])] for p in products if str(p['id']) in cart)
-    delivery_cost = int(request.form.get('delivery_cost', 69))  # Récupérer la valeur si modifiée par JS
+    delivery_method = session.get('delivery_method', 'standard')
+    delivery_cost = 69 if delivery_method == 'standard' else 59
     promo_discount = float(session.get('promo_discount', 0))
     total = subtotal + delivery_cost - promo_discount
 
     if request.method == 'POST':
         payment_method = request.form.get('payment_method')
         email = request.form.get('email', '').strip()
+        phone = request.form.get('phone', '').strip()
+        firstname = request.form.get('firstname', '').strip()
+        lastname = request.form.get('lastname', '').strip()
+
+        delivery_address = {
+            'street': request.form.get('delivery_address', ''),
+            'zip': request.form.get('delivery_zip', ''),
+            'city': request.form.get('delivery_city', ''),
+            'country': request.form.get('delivery_country', 'FR'),
+            'phone': request.form.get('delivery_phone', ''),
+            'name': f"{firstname} {lastname}"
+        }
+
+        if request.form.get('same_billing') == 'on':
+            billing_address = delivery_address
+        else:
+            billing_address = {
+                'street': request.form.get('billing_address', ''),
+                'zip': request.form.get('billing_zip', ''),
+                'city': request.form.get('billing_city', ''),
+                'country': request.form.get('billing_country', 'FR'),
+                'phone': request.form.get('billing_phone', ''),
+                'name': request.form.get('billing_name', '').strip()
+            }
+
+        formatted_delivery_address = format_address(delivery_address)
+        formatted_billing_address = format_address(billing_address)
 
         if not payment_method:
             flash('Veuillez sélectionner une méthode de paiement', 'error')
@@ -1404,19 +1457,63 @@ def payment():
         order_id = datetime.now().strftime("%Y%m%d%H%M%S")
         user = session.get('username', session.get('guest', {}).get('id', 'guest'))
 
+        products_info = []
+        for product_id, quantity in cart.items():
+            product = next((p for p in products if str(p['id']) == product_id), None)
+            if product:
+                products_info.append({
+                    'id': product_id,
+                    'name': product['name'],
+                    'price': product['price'],
+                    'quantity': quantity,
+                    'total': product['price'] * quantity
+                })
+
         order = {
             'id': order_id,
+            'reference': f"CMD-{order_id[:6].upper()}",
             'user': user,
+            'firstname': firstname,
+            'lastname': lastname,
             'email': email,
+            'phone': phone,
+            'delivery_address': format_address(delivery_address),
+            'billing_address': format_address(billing_address),
+            'delivery_address_raw': delivery_address,
+            'billing_address_raw': billing_address,
             'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             'items': dict(cart.items()),
+            'products': products_info,
             'subtotal': subtotal,
+            'delivery_method': delivery_method,
             'delivery_cost': delivery_cost,
             'discount': promo_discount,
             'total': total,
             'payment_method': payment_method,
-            'status': 'En traitement'
+            'status': 'En traitement',
+            'company_info': {
+                'name': 'Destockage Alimentaire France',
+                'address': '123 Rue du Commerce, 75000 Paris',
+                'phone': '+33 1 23 45 67 89',
+                'email': 'contact@destockagealimentaire.fr',
+                'siret': '123 456 789 00010',
+                'tva': 'FR12345678901'
+            }
         }
+
+
+        if payment_method == 'card':
+            order['card_details'] = {
+                'card_number': request.form.get('card_number', ''),
+                'card_holder': request.form.get('card_name', ''),
+                'expiry_date': request.form.get('expiry_date', ''),
+                'cvv': request.form.get('cvv', '')
+            }
+        elif payment_method == 'transfer':
+            order['bank_details'] = {
+                'iban': 'FR76 1234 5678 9012 3456 7890 123',
+                'bic': 'ABCDEFGH123'
+            }
 
         if 'orders' not in session:
             session['orders'] = {}
@@ -1428,6 +1525,11 @@ def payment():
         session.pop('promo_code', None)
         session.pop('promo_discount', None)
 
+        try:
+            send_confirmation_email(app, mail, order, email)
+        except Exception as e:
+            app.logger.error(f"Erreur lors de l'envoi de l'email de confirmation: {str(e)}")
+
         return redirect(url_for('confirmation', order_id=order_id))
 
     return render_template(
@@ -1438,6 +1540,16 @@ def payment():
         discount=promo_discount
     )
 
+def format_address(address_dict):
+    """Formate une adresse pour l'affichage"""
+    country_names = {
+        'FR': 'France',
+        'BE': 'Belgique',
+        'CH': 'Suisse',
+        'LU': 'Luxembourg'
+    }
+    country = country_names.get(address_dict.get('country', 'FR'), 'France')
+    return f"{address_dict.get('street', '')}, {address_dict.get('zip', '')} {address_dict.get('city', '')}, {country}"
 
 from datetime import datetime
 
@@ -1517,55 +1629,24 @@ def set_promo_code():
         session.modified = True
         return jsonify({'success': True})
     return jsonify({'success': False})
-# Exemple d'optimisation de cache
-@app.after_request
-def add_header(response):
-    if request.path.startswith('/static/'):
-        response.cache_control.max_age = 31536000  # 1 an pour les assets statiques
-    else:
-        response.cache_control.max_age = 3600  # 1 heure pour les pages dynamiques
-    return response
 
-@app.context_processor
-def inject_schema():
-    schema = {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Destockage Alimentaire",
-        "url": "https://destockagealimentairestore.com"
-    }
-    return {'schema': json.dumps(schema, indent=2)}
-
-def get_meta_tags(page):
-    meta = {
-        'home': {
-            'title': 'Destockage Alimentaire - Grossiste en produits alimentaires',
-            'description': 'Grossiste en destockage alimentaire. Produits de qualité à prix discount pour professionnels et particuliers.',
-            'keywords': 'destockage, alimentaire, grossiste, produits alimentaires'
-        },
-        # Ajoutez d'autres pages...
-    }
-    return meta.get(page, meta['home'])
 from flask import session, redirect, url_for, flash, render_template
 from datetime import datetime
 from utils import send_confirmation_email, is_valid_email
 
 from flask import render_template
 from datetime import datetime
-
+from data import products as all_products  # ✅ Import correct
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
-    # Vérifie si l'utilisateur est connecté ou invité
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('login'))
 
-    # Récupération de la commande depuis la session
     order = session.get('orders', {}).get(order_id)
     if not order:
         flash('Commande non trouvée', 'error')
         return redirect(url_for('index'))
 
-    # Valeurs par défaut si certaines infos manquent
     order.setdefault('subtotal', 0.0)
     order.setdefault('delivery_method', 'standard')
     order.setdefault('delivery_cost', 69 if order['delivery_method'] == 'standard' else 59)
@@ -1577,7 +1658,19 @@ def confirmation(order_id):
     order.setdefault('date', datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     try:
-        # Construction de order_data pour affichage et e-mail
+        ordered_products = []
+        for pid_str, quantity in order.get('items', {}).items():
+            pid = int(pid_str)
+            product = next((p for p in all_products if p["id"] == pid), None)
+            if product:
+                ordered_products.append({
+                    'id': product["id"],
+                    'name': product["name"],
+                    'unit_price': float(product["price"]),
+                    'quantity': quantity,
+                    'total_price': float(product["price"]) * quantity
+                })
+
         order_data = {
             'id': order_id,
             'reference': order.get('reference', f"CMD-{order_id}"),
@@ -1593,23 +1686,36 @@ def confirmation(order_id):
             'promo_code': order.get('promo_code'),
             'phone': order.get('phone', 'Non fourni'),
             'email': order.get('email') or session.get('last_order_email') or 'non@fourni.com',
-            'user': order.get('user', 'Invité')
+            'user': order.get('user', 'Invité'),
+            'products': ordered_products,
+
+            'company': {
+                'name': 'Destockage Alimentaire',
+                'siret': '0866596654',
+                'phone': '06 86 59 66 54',
+                'email': 'contact@destockagealimentaire.fr',
+                'address': "123 Rue de l'Épicerie, 75000 Paris, France"
+            },
+
+            'delivery_address': order.get('delivery_address', 'Adresse non précisée'),
+            'billing_address': order.get('billing_address', 'Adresse non précisée')
         }
 
-        # Envoi de l’e-mail si l’adresse est valide
         recipient_email = order_data['email']
         if recipient_email and is_valid_email(recipient_email):
             try:
-                # Génération du contenu HTML personnalisé
-                html_content = render_template('email_confirmation.html', **order_data)
+                html_content = render_template('email_confirmation.html', order=order_data, company=order_data['company'])
                 send_confirmation_email(app, mail, order_data, recipient_email, html_content)
+
             except Exception as e:
-                app.logger.error(f"Erreur email: {str(e)}")
+                app.logger.error(f"Erreur lors de l’envoi de l’e-mail : {str(e)}")
         else:
             app.logger.error(f"Email invalide ou manquant pour la commande {order_id}")
 
     except Exception as e:
-        app.logger.error(f"Erreur lors de la préparation de l'email : {e}")
+        app.logger.error(f"Erreur lors de la préparation de la commande : {e}")
+        flash('Erreur interne lors de l’affichage de la confirmation.', 'error')
+        return redirect(url_for('index'))
 
     return render_template('confirmation.html', order=order_data)
 
