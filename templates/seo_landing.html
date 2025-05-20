@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ meta.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <meta name="keywords" content="{{ meta.keywords }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request.url }}">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "{{ meta.title }}",
+        "description": "{{ meta.description }}",
+        "url": "{{ request.url }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Destockage Alimentaire Pro",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://destockagealimentairestore.com/static/images/logo.png"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>{{ content.h1 }}</h1>
+        <p>{{ content.intro }}</p>
+    </header>
+    
+    <main>
+        {% for section in content.sections %}
+        <section>
+            <h2>{{ section.title }}</h2>
+            <p>{{ section.content }}</p>
+        </section>
+        {% endfor %}
+        
+        <!-- Produits mis en avant -->
+        <section class="featured-products">
+            <h2>Nos produits en destockage</h2>
+            <div class="products-grid">
+                {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }}€</p>
+                    <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn">Voir le produit</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section class="cta">
+            <h3>{{ content.cta }}</h3>
+            <a href="{{ url_for('contact') }}" class="btn-primary">Contactez-nous</a>
+        </section>
+    </main>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que le destockage alimentaire ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le destockage alimentaire consiste à vendre des produits alimentaires à prix réduit provenant de surplus de production, fins de série ou surstocks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qui peut acheter sur votre site ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Notre site est réservé aux professionnels : restaurateurs, traiteurs, revendeurs et collectivités."
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
