@@ -176,6 +176,97 @@ def ensure_timezone(dt):
         return None
     return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
 
+@app.route('/destockage-alimentaire-professionnel')
+def seo_landing_1():
+    """Page ultra-optimisée pour le mot-clé principal"""
+    meta = {
+        'title': 'Destockage Alimentaire Professionnel | Grossiste -70% sur Stocks',
+        'description': 'Grossiste en destockage alimentaire pour professionnels. Livraison rapide, produits à -70%, qualité garantie. Commandez en ligne dès maintenant!',
+        'keywords': 'destockage alimentaire, grossiste alimentaire, destockage professionnel, produits alimentaires pas chers'
+    }
+    
+    # Contenu optimisé avec variantes sémantiques
+    content = {
+        'h1': 'Destockage Alimentaire Professionnel - Jusqu\'à -70% sur Stocks',
+        'intro': 'Votre grossiste spécialisé dans le destockage alimentaire pour professionnels. Produits de qualité à prix cassés, livraison sous 48h.',
+        'sections': [
+            {
+                'title': 'Pourquoi choisir notre destockage alimentaire ?',
+                'content': 'Nous sommes le leader français du destockage alimentaire professionnel avec plus de 1500 références en stock permanent. Nos produits proviennent directement des usines et centrales d\'achat.'
+            },
+            {
+                'title': 'Nos catégories phares',
+                'content': 'Découvrez nos gammes de produits alimentaires en destockage : épicerie, surgelés, boissons, produits frais. Tous nos produits sont garantis d\'origine UE.'
+            }
+        ],
+        'cta': 'Commandez dès maintenant et bénéficiez de nos tarifs grossiste exceptionnels!'
+    }
+    
+    return render_template('seo_landing.html', 
+                         meta=meta, 
+                         content=content,
+                         products=random.sample(products, 8))  # Affiche 8 produits aléatoires
+
+@app.route('/grossiste-alimentaire-pas-cher')
+def seo_landing_2():
+    """Page optimisée pour une variante de mot-clé"""
+    meta = {
+        'title': 'Grossiste Alimentaire Pas Cher | Destockage Pro -50% Mini',
+        'description': 'Grossiste alimentaire pas cher pour professionnels de la restauration. Destockage permanent avec des remises jusqu\'à -50% minimum. Service pro dédié.',
+        'keywords': 'grossiste alimentaire pas cher, destockage pro, alimentation discount, achat en gros nourriture'
+    }
+    
+    content = {
+        'h1': 'Grossiste Alimentaire Pas Cher - Destockage Permanent',
+        'intro': 'Découvrez notre sélection de produits alimentaires en destockage à prix grossiste. Réservé aux professionnels avec des remises exceptionnelles.',
+        'sections': [
+            {
+                'title': 'Notre engagement qualité',
+                'content': 'Même en destockage, nous maintenons des standards qualité exigeants. Tous nos produits sont contrôlés et conformes aux normes françaises.'
+            },
+            {
+                'title': 'Service client dédié',
+                'content': 'Un conseiller spécialisé vous accompagne pour trouver les meilleures affaires dans notre catalogue de destockage alimentaire.'
+            }
+        ],
+        'cta': 'Demandez votre accès privilégié dès maintenant!'
+    }
+    
+    return render_template('seo_landing.html',
+                         meta=meta,
+                         content=content,
+                         products=random.sample([p for p in products if p['price'] < 20], 8))
+
+@app.route('/achat-nourriture-en-gros')
+def seo_landing_3():
+    """Autre variante sémantique"""
+    meta = {
+        'title': 'Achat Nourriture en Gros | Destockage Alimentaire Grossiste',
+        'description': 'Achetez votre nourriture en gros à prix destockage. Grossiste alimentaire pour professionnels avec des quantités adaptées à votre activité.',
+        'keywords': 'achat nourriture en gros, destockage alimentaire grossiste, achat alimentaire volume, restauration pas cher'
+    }
+    
+    content = {
+        'h1': 'Achat Nourriture en Gros - Prix Destockage Exceptionnels',
+        'intro': 'Solution clé en main pour vos achats de nourriture en gros. Destockage permanent sur toutes nos gammes professionnelles.',
+        'sections': [
+            {
+                'title': 'Avantages pour les professionnels',
+                'content': 'Conditions spéciales pour les restaurateurs, traiteurs et revendeurs. Tarifs dégressifs selon volumes.'
+            },
+            {
+                'title': 'Livraison rapide',
+                'content': 'Stock disponible en France avec livraison sous 48h. Service logistique dédié pour les gros volumes.'
+            }
+        ],
+        'cta': 'Contactez-nous pour un devis personnalisé!'
+    }
+    
+    return render_template('seo_landing.html',
+                         meta=meta,
+                         content=content,
+                         products=random.sample(products, 6))
+
 # 2. Ensuite définir le décorateur
 def admin_required(f):
     @wraps(f)
