@@ -46,18 +46,24 @@ def generate_slug(title):
 @blog_bp.route('/blog')
 def blog_home():
     """Page d'accueil du blog avec tous les articles"""
+    # Convertir la date en datetime dans chaque post
+    for post in blog_posts.values():
+        if isinstance(post['date'], str):
+            post['date'] = datetime.strptime(post['date'], "%Y-%m-%d")
+    
     # Trier les articles par date (du plus récent au plus ancien)
     sorted_posts = sorted(blog_posts.values(), 
-                         key=lambda x: datetime.strptime(x['date'], "%Y-%m-%d"), 
-                         reverse=True)
+                          key=lambda x: x['date'], 
+                          reverse=True)
     
     return render_template('blog_home.html',
-                         posts=sorted_posts,
-                         meta={
-                             'title': 'Blog Destockage Alimentaire - Conseils pour professionnels',
-                             'description': 'Tous nos articles sur le destockage alimentaire pour les professionnels de la restauration et de la grande distribution',
-                             'keywords': 'blog destockage, conseils professionnels, actualité alimentaire'
-                         })
+                           posts=sorted_posts,
+                           meta={
+                               'title': 'Blog Destockage Alimentaire - Conseils pour professionnels',
+                               'description': 'Tous nos articles sur le destockage alimentaire pour les professionnels de la restauration et de la grande distribution',
+                               'keywords': 'blog destockage, conseils professionnels, actualité alimentaire'
+                           })
+
 
 @blog_bp.route('/blog/<slug>')
 def blog_post1(slug):
