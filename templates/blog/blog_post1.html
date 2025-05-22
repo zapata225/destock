@@ -1,46 +1,94 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <title>{{ post.title }} | Destockage Alimentaire Store</title>
+    <meta name="description" content="{{ post.description or 'Offres de déstockage alimentaire pas chères à saisir. Produits en fin de date à prix cassé.' }}">
+    <meta name="keywords" content="{% for cat in post.categories %}{{ cat }}, {% endfor %}déstockage, produits alimentaires, fins de date, promo alimentaire">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:description" content="{{ post.description }}">
+    <meta property="og:image" content="{{ url_for('static', filename='blog/uploads/' + post.image) }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{ post.title }}",
+      "image": ["{{ url_for('static', filename='blog/uploads/' + post.image) }}"],
+      "author": {
+        "@type": "Person",
+        "name": "{{ post.author }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Destockage Alimentaire Store",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ url_for('static', filename='logo.png') }}"
+        }
+      },
+      "datePublished": "{{ post.date.isoformat() }}",
+      "mainEntityOfPage": "{{ request.url }}"
+    }
+    </script>
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
-    <article class="blog-post">
+    <article class="blog-post" itemscope itemtype="https://schema.org/Article">
         <header class="mb-5">
-            <h1>{{ post.title }}</h1>
+            <h1 itemprop="headline">{{ post.title }}</h1>
             <div class="text-muted mb-3">
-                Publié le {{ post.date }} par {{ post.author }}
+                Publié le <time itemprop="datePublished" datetime="{{ post.date.isoformat() }}">{{ post.date }}</time>
+                par <span itemprop="author">{{ post.author }}</span>
             </div>
             {% if post.image %}
-            <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="img-fluid rounded mb-4" alt="{{ post.title }}">
+            <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}"
+                 class="img-fluid rounded mb-4"
+                 alt="{{ post.title }}"
+                 itemprop="image">
             {% endif %}
         </header>
         
-        <div class="post-content mb-5">
+        <div class="post-content mb-5" itemprop="articleBody">
             {{ content|safe }}
         </div>
         
         <footer>
             <div class="tags mb-4">
                 {% for cat in post.categories %}
-                <a href="{{ url_for('blog.blog_category', category=cat) }}" class="badge bg-secondary text-decoration-none me-1">
+                <a href="{{ url_for('blog.blog_category', category=cat) }}"
+                   class="badge bg-secondary text-decoration-none me-1"
+                   title="Voir les articles dans {{ cat }}">
                     {{ cat }}
                 </a>
                 {% endfor %}
             </div>
         </footer>
     </article>
-    
+
     {% if related_posts %}
     <section class="related-posts mt-5 pt-5 border-top">
         <h2 class="h4 mb-4">Articles similaires</h2>
         <div class="row">
-            {% for post in related_posts %}
-            <div class="col-md-4 mb-4">
+            {% for post in related_posts[:200] %}
+            <div class="col-md-4 mb-4" itemscope itemtype="https://schema.org/Product">
                 <div class="card h-100">
                     {% if post.image %}
-                    <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="card-img-top" alt="{{ post.title }}">
+                    <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}"
+                         class="card-img-top"
+                         loading="lazy"
+                         alt="{{ post.title }}"
+                         title="{{ post.title }}"
+                         itemprop="image">
                     {% endif %}
                     <div class="card-body">
-                        <h3 class="h6 card-title">{{ post.title }}</h3>
-                        <a href="{{ url_for('blog.blog_post', slug=post.slug) }}" class="stretched-link"></a>
+                        <h3 class="h6 card-title" itemprop="name">{{ post.title }}</h3>
+                        <p class="small text-muted" itemprop="description">{{ post.description }}</p>
+                        <a href="{{ url_for('blog.blog_post', slug=post.slug) }}"
+                           class="stretched-link"
+                           itemprop="url"
+                           title="Lire : {{ post.title }}"></a>
                     </div>
                 </div>
             </div>
