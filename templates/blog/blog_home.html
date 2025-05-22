@@ -1,23 +1,67 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <title>Blog Destockage Alimentaire | Produits fins de date, promos, astuces</title>
+    <meta name="description" content="Découvrez nos articles de blog sur les promotions, produits en déstockage alimentaire, astuces d’économie et bons plans.">
+    <meta name="keywords" content="déstockage alimentaire, blog, promotions, fins de date, bons plans, alimentaire pas cher">
+    <meta property="og:title" content="Blog Destockage Alimentaire">
+    <meta property="og:description" content="Le blog pour tout savoir sur le déstockage alimentaire : astuces, promos, nouveautés.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/blog-cover.jpg') }}">
+    <meta name="robots" content="index, follow">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Blog Destockage Alimentaire",
+        "description": "Conseils, bons plans et articles sur les produits alimentaires en déstockage.",
+        "url": "{{ request.url }}",
+        "blogPost": [
+            {% for post in posts[:20] %}
+            {
+                "@type": "BlogPosting",
+                "headline": "{{ post.title }}",
+                "author": {
+                    "@type": "Person",
+                    "name": "{{ post.author }}"
+                },
+                "datePublished": "{{ post.date.isoformat() }}",
+                "image": "{{ url_for('static', filename='blog/uploads/' + post.image) if post.image else '' }}",
+                "url": "{{ url_for('blog.blog_post', slug=post.slug, _external=True) }}"
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ]
+    }
+    </script>
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
     <h1 class="mb-4">Blog Destockage Alimentaire</h1>
     
     <div class="row">
         {% for post in posts %}
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" itemscope itemtype="https://schema.org/BlogPosting">
             <div class="card h-100">
                 {% if post.image %}
-                <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="card-img-top" alt="{{ post.title }}">
+                <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}"
+                     class="card-img-top"
+                     loading="lazy"
+                     alt="{{ post.title }}"
+                     title="{{ post.title }}"
+                     itemprop="image">
                 {% endif %}
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{ post.title }}</h2>
+                    <h2 class="h5 card-title" itemprop="headline">{{ post.title }}</h2>
                     <p class="card-text text-muted small">
-                        Par {{ post.author }} • {{ post.date }}
+                        Par <span itemprop="author">{{ post.author }}</span> •
+                        <time itemprop="datePublished" datetime="{{ post.date.isoformat() }}">{{ post.date }}</time>
                     </p>
-                    <p class="card-text">{{ post.excerpt }}</p>
-                    <a href="{{ url_for('blog.blog_post', slug=post.slug) }}" class="btn btn-primary btn-sm">
+                    <p class="card-text" itemprop="description">{{ post.excerpt }}</p>
+                    <a href="{{ url_for('blog.blog_post', slug=post.slug) }}"
+                       class="btn btn-primary btn-sm"
+                       title="Lire l'article {{ post.title }}"
+                       itemprop="url">
                         Lire la suite
                     </a>
                 </div>
