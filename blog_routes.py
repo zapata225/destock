@@ -65,8 +65,8 @@ def blog_home():
                            })
 
 
-@blog_bp.route('/blog/<slug>'), endpoint='blog_post')
-def blog_post1(slug):
+@blog_bp.route('/blog/<slug>', endpoint='blog_post')
+def blog_post(slug):
     """Page d'un article individuel"""
     post = blog_posts.get(slug)
     if not post:
