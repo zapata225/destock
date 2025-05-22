@@ -3,70 +3,81 @@
 {% block content %}
 <div class="container py-4">
     <h1>{{ 'Éditer' if post else 'Nouvel' }} article</h1>
-    
-    <form method="post" enctype="multipart/form-data">
+
+    <form method="post" enctype="multipart/form-data" novalidate>
         <div class="row">
+            <!-- === Zone principale === -->
             <div class="col-md-8">
+                <!-- Titre -->
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titre</label>
-                    <input type="text" class="form-control" id="title" name="title" 
-                           value="{{ post.title if post }}" required>
+                    <label for="title" class="form-label">Titre de l’article</label>
+                    <input type="text" class="form-control" id="title" name="title"
+                           value="{{ post.title if post else '' }}" required maxlength="150"
+                           placeholder="Ex : Promo sur les conserves de thon">
                 </div>
-                
+
+                <!-- Contenu Markdown -->
                 <div class="mb-3">
-                    <label for="content" class="form-label">Contenu (Markdown)</label>
-                    <textarea class="form-control" id="content" name="content" 
-                              rows="15" required>{{ post.content if post }}</textarea>
+                    <label for="content" class="form-label">Contenu de l’article (Markdown)</label>
+                    <textarea class="form-control" id="content" name="content"
+                              rows="15" required
+                              placeholder="Saisissez le contenu principal en Markdown">{{ post.content if post else '' }}</textarea>
                 </div>
-                
+
+                <!-- Extrait -->
                 <div class="mb-3">
-                    <label for="excerpt" class="form-label">Résumé</label>
-                    <textarea class="form-control" id="excerpt" name="excerpt" 
-                              rows="3" required>{{ post.excerpt if post }}</textarea>
+                    <label for="excerpt" class="form-label">Résumé (Extrait pour affichage en liste)</label>
+                    <textarea class="form-control" id="excerpt" name="excerpt"
+                              rows="3" required maxlength="300"
+                              placeholder="Un résumé court et engageant pour les lecteurs et Google.">{{ post.excerpt if post else '' }}</textarea>
                 </div>
             </div>
-            
+
+            <!-- === Zone latérale === -->
             <div class="col-md-4">
+
+                <!-- Publication -->
                 <div class="card mb-3">
                     <div class="card-body">
                         <h2 class="h6 card-title">Publication</h2>
-                        
+
                         <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" 
+                            <label for="date" class="form-label">Date de publication</label>
+                            <input type="date" class="form-control" id="date" name="date"
                                    value="{{ post.date if post else datetime.now().strftime('%Y-%m-%d') }}">
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="author" class="form-label">Auteur</label>
-                            <input type="text" class="form-control" id="author" name="author" 
+                            <input type="text" class="form-control" id="author" name="author"
                                    value="{{ post.author if post else 'Équipe DestockPro' }}" required>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="image" class="form-label">Image mise en avant</label>
-                            <input class="form-control" type="file" id="image" name="image">
+                            <input class="form-control" type="file" id="image" name="image" accept="image/*">
                             {% if post and post.image %}
                             <div class="mt-2">
-                                <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" 
-                                     class="img-thumbnail" style="max-height: 100px;">
+                                <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}"
+                                     class="img-thumbnail" alt="Image actuelle" style="max-height: 100px;">
                             </div>
                             {% endif %}
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary w-100">
                             {{ 'Mettre à jour' if post else 'Publier' }}
                         </button>
                     </div>
                 </div>
-                
+
+                <!-- Catégories -->
                 <div class="card mb-3">
                     <div class="card-body">
                         <h2 class="h6 card-title">Catégories</h2>
                         {% for cat in categories %}
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" 
-                                   id="cat-{{ loop.index }}" name="categories" 
+                            <input class="form-check-input" type="checkbox"
+                                   id="cat-{{ loop.index }}" name="categories"
                                    value="{{ cat }}"
                                    {% if post and cat in post.categories %}checked{% endif %}>
                             <label class="form-check-label" for="cat-{{ loop.index }}">
@@ -76,30 +87,36 @@
                         {% endfor %}
                     </div>
                 </div>
-                
+
+                <!-- SEO -->
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="h6 card-title">SEO</h2>
-                        
+                        <h2 class="h6 card-title">Paramètres SEO</h2>
+
                         <div class="mb-3">
-                            <label for="seo_title" class="form-label">Titre SEO</label>
-                            <input type="text" class="form-control" id="seo_title" name="seo_title" 
-                                   value="{{ post.seo.title if post else '' }}">
+                            <label for="seo_title" class="form-label">Titre SEO (meta title)</label>
+                            <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                   value="{{ post.seo.title if post and post.seo else '' }}"
+                                   maxlength="60"
+                                   placeholder="Titre optimisé pour les moteurs de recherche">
                         </div>
-                        
+
                         <div class="mb-3">
-                            <label for="seo_description" class="form-label">Description SEO</label>
-                            <textarea class="form-control" id="seo_description" name="seo_description" 
-                                      rows="3">{{ post.seo.description if post else '' }}</textarea>
+                            <label for="seo_description" class="form-label">Description SEO (meta description)</label>
+                            <textarea class="form-control" id="seo_description" name="seo_description"
+                                      rows="3" maxlength="160"
+                                      placeholder="Résumé destiné aux moteurs de recherche.">{{ post.seo.description if post and post.seo else '' }}</textarea>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="seo_keywords" class="form-label">Mots-clés SEO</label>
-                            <input type="text" class="form-control" id="seo_keywords" name="seo_keywords" 
-                                   value="{{ post.seo.keywords if post else '' }}">
+                            <input type="text" class="form-control" id="seo_keywords" name="seo_keywords"
+                                   value="{{ post.seo.keywords if post and post.seo else '' }}"
+                                   placeholder="alimentaire, promo, déstockage, ...">
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </form>
