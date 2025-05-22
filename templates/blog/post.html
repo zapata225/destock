@@ -1,45 +1,137 @@
-{% extends "base_blog.html" %}
+{% extends "blog/base.html" %}
+
+{% block extra_head %}
+{% if post.seo_keywords %}
+<meta name="keywords" content="{{ post.seo_keywords }}">
+{% endif %}
+
+<!-- Schema.org markup for Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.title }}",
+  "description": "{{ post.excerpt }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ post.author }}"
+  },
+  "datePublished": "{{ post.date }}",
+  "image": "{% if post.image %}{{ url_for('static', filename='blog/uploads/' + post.image, _external=True) }}{% endif %}"
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<article class="blog-article">
-    <header>
-        <h1>{{ meta.title }}</h1>
-        <div class="meta">
-            <span>Mis à jour le {{ now.strftime('%d/%m/%Y') }}</span> • 
-            <span>{{ content|wordcount//200 }} min de lecture</span>
+<article class="blog-post">
+    <header class="mb-5">
+        <div class="mb-3">
+            {% for cat in post.categories %}
+            <a href="{{ url_for('blog.category', slug=cat.slug) }}" 
+               class="badge bg-primary text-decoration-none me-1">
+                {{ cat.name }}
+            </a>
+            {% endfor %}
         </div>
+        <h1 class="display-5 mb-3">{{ post.title }}</h1>
+        <div class="text-muted mb-4">
+            Publié le {{ post.date|format_date }} par {{ post.author }}
+            <span class="mx-2">•</span>
+            {{ post.views }} vues
+        </div>
+        {% if post.image %}
+        <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" 
+             class="img-fluid rounded mb-4" 
+             alt="{{ post.title }}"
+             loading="lazy">
+        {% endif %}
     </header>
-
-    <section class="content">
+    
+    <div class="post-content mb-5">
         {{ content|safe }}
+    </div>
+    
+    <div class="share-buttons mb-5 py-4 border-top border-bottom">
+        <h3 class="h5 mb-3">Partager cet article</h3>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url|urlencode }}" 
+           target="_blank" class="btn btn-sm btn-outline-primary me-2">
+            <i class="bi bi-facebook"></i> Facebook
+        </a>
+        <a href="https://twitter.com/intent/tweet?text={{ post.title|urlencode }}&url={{ request.url|urlencode }}" 
+           target="_blank" class="btn btn-sm btn-outline-info me-2">
+            <i class="bi bi-twitter"></i> Twitter
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.url|urlencode }}&title={{ post.title|urlencode }}" 
+           target="_blank" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-linkedin"></i> LinkedIn
+        </a>
+    </div>
+    
+    {% if related_posts %}
+    <section class="related-posts mb-5">
+        <h2 class="h4 mb-4">Articles similaires</h2>
+        <div class="row">
+            {% for post in related_posts %}
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" 
+                         class="card-img-top" 
+                         alt="{{ post.title }}"
+                         loading="lazy">
+                    {% endif %}
+                    <div class="card-body">
+                        <h3 class="h6 card-title">
+                            <a href="{{ url_for('blog.post', slug=post.slug) }}" class="stretched-link text-decoration-none">
+                                {{ post.title }}
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </section>
-
-    <footer class="post-footer">
-        <div class="cta-box">
-            <h3>Prêt à faire des économies ?</h3>
-            <a href="/contact-pro" class="btn">Demander le catalogue</a>
-        </div>
+    {% endif %}
+    
+    <section class="comments mb-5">
+        <h2 class="h4 mb-4">{{ comment_count }} commentaire{{ 's' if comment_count > 1 }}</h2>
         
-        <div itemscope itemtype="https://schema.org/FAQPage">
-            <h2>Questions fréquentes</h2>
-            <!-- FAQ dynamique -->
+        {% if comments %}
+        <div class="comment-list mb-4">
+            {% for comment in comments %}
+            <div class="comment mb-3 pb-3 border-bottom">
+                <div class="d-flex justify-content-between mb-2">
+                    <strong>{{ comment.author }}</strong>
+                    <small class="text-muted">{{ comment.created_at|format_date }}</small>
+                </div>
+                <div class="comment-content">
+                    {{ comment.content|markdown }}
+                </div>
+            </div>
+            {% endfor %}
         </div>
-    </footer>
+        {% endif %}
+        
+        <div class="comment-form">
+            <h3 class="h5 mb-3">Laisser un commentaire</h3>
+            <form method="post" action="{{ url_for('blog.add_comment', post_id=post.id) }}">
+                <div class="mb-3">
+                    <label for="author" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="author" name="author" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email (ne sera pas publié)</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Commentaire</label>
+                    <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+                    <div class="form-text">Le format Markdown est accepté.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+    </section>
 </article>
 {% endblock %}
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "{{ meta.title }}",
-      "description": "{{ meta.description }}",
-      "author": {
-        "@type": "Organization",
-        "name": "Destockage Alimentaire Pro"
-      },
-      "datePublished": "{% if post_date %}{{ post_date }}{% else %}{{ now.isoformat() }}{% endif %}",
-      "image": [
-        "https://votresite.com/static/blog/images/header-destockage.jpg"
-       ]
-    }
-    </script>
