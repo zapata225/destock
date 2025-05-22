@@ -1,0 +1,45 @@
+{% extends "base_blog.html" %}
+
+{% block content %}
+<article class="blog-article">
+    <header>
+        <h1>{{ meta.title }}</h1>
+        <div class="meta">
+            <span>Mis à jour le {{ now.strftime('%d/%m/%Y') }}</span> • 
+            <span>{{ content|wordcount//200 }} min de lecture</span>
+        </div>
+    </header>
+
+    <section class="content">
+        {{ content|safe }}
+    </section>
+
+    <footer class="post-footer">
+        <div class="cta-box">
+            <h3>Prêt à faire des économies ?</h3>
+            <a href="/contact-pro" class="btn">Demander le catalogue</a>
+        </div>
+        
+        <div itemscope itemtype="https://schema.org/FAQPage">
+            <h2>Questions fréquentes</h2>
+            <!-- FAQ dynamique -->
+        </div>
+    </footer>
+</article>
+{% endblock %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ meta.title }}",
+      "description": "{{ meta.description }}",
+      "author": {
+        "@type": "Organization",
+        "name": "Destockage Alimentaire Pro"
+      },
+      "datePublished": "{% if post_date %}{{ post_date }}{% else %}{{ now.isoformat() }}{% endif %}",
+      "image": [
+        "https://votresite.com/static/blog/images/header-destockage.jpg"
+       ]
+    }
+    </script>

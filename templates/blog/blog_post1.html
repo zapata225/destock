@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <article class="blog-post">
+        <header class="mb-5">
+            <h1>{{ post.title }}</h1>
+            <div class="text-muted mb-3">
+                Publié le {{ post.date }} par {{ post.author }}
+            </div>
+            {% if post.image %}
+            <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="img-fluid rounded mb-4" alt="{{ post.title }}">
+            {% endif %}
+        </header>
+        
+        <div class="post-content mb-5">
+            {{ content|safe }}
+        </div>
+        
+        <footer>
+            <div class="tags mb-4">
+                {% for cat in post.categories %}
+                <a href="{{ url_for('blog.blog_category', category=cat) }}" class="badge bg-secondary text-decoration-none me-1">
+                    {{ cat }}
+                </a>
+                {% endfor %}
+            </div>
+        </footer>
+    </article>
+    
+    {% if related_posts %}
+    <section class="related-posts mt-5 pt-5 border-top">
+        <h2 class="h4 mb-4">Articles similaires</h2>
+        <div class="row">
+            {% for post in related_posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="card-img-top" alt="{{ post.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h3 class="h6 card-title">{{ post.title }}</h3>
+                        <a href="{{ url_for('blog.blog_post', slug=post.slug) }}" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}
