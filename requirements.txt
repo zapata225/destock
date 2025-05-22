@@ -15,4 +15,5 @@ pdfkit==1.0.0
 WeasyPrint==65.1
 CFFI==1.17.1
 flask-compress
+markdown==3.4.1
 
