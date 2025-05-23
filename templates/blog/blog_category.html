@@ -1,29 +1,48 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <title>Articles - {{ category }} | Blog Professionnel</title>
+    <meta name="description" content="Découvrez nos meilleurs articles dans la catégorie {{ category }}. Rédigés par des experts, optimisés pour le SEO, informatifs et mis à jour.">
+    <link rel="canonical" href="{{ request.url }}" />
+    <meta property="og:title" content="Articles - {{ category }} | Blog Pro">
+    <meta property="og:description" content="Sélection des meilleurs articles dans la catégorie {{ category }}.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo-site.jpg') }}">
+    <meta name="robots" content="index, follow">
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
     <h1 class="mb-4">Articles : {{ category }}</h1>
-    
+
+    {% if posts %}
     <div class="row">
         {% for post in posts %}
-        <div class="col-md-4 mb-4">
+        <article class="col-md-4 mb-4" itemscope itemtype="https://schema.org/BlogPosting">
             <div class="card h-100">
                 {% if post.image %}
-                <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="card-img-top" alt="{{ post.title }}">
+                <img src="{{ url_for('static', filename='blog/uploads/' + post.image) }}" class="card-img-top" alt="{{ post.title }}" itemprop="image">
+                {% else %}
+                <img src="{{ url_for('static', filename='images/default.jpg') }}" class="card-img-top" alt="Image par défaut" itemprop="image">
                 {% endif %}
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{ post.title }}</h2>
+                    <h2 class="h5 card-title" itemprop="headline">{{ post.title }}</h2>
                     <p class="card-text text-muted small">
-                        Par {{ post.author }} • {{ post.date }}
+                        Par <span itemprop="author">{{ post.author }}</span> • 
+                        <time itemprop="datePublished" datetime="{{ post.date }}">{{ post.date }}</time>
                     </p>
-                    <p class="card-text">{{ post.excerpt }}</p>
-                    <a href="{{ url_for('blog.blog_post', slug=post.slug) }}" class="btn btn-primary btn-sm">
+                    <p class="card-text" itemprop="description">{{ post.excerpt }}</p>
+                    <a href="{{ url_for('blog.blog_post', slug=post.slug) }}" class="btn btn-primary btn-sm" itemprop="url">
                         Lire la suite
                     </a>
                 </div>
             </div>
-        </div>
+        </article>
         {% endfor %}
     </div>
+    {% else %}
+    <p>Aucun article trouvé pour cette catégorie.</p>
+    {% endif %}
 </div>
 {% endblock %}
