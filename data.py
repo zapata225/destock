@@ -1341,7 +1341,7 @@ products = [
         "price": 480.00,
         "category": "Destockage",
         "stock": 3,
-        "featured": False,
+        "featured": True,
         "published": False,
         "images": ["absolut-passion.jpg"],
         "details": {
