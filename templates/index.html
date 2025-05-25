@@ -2474,7 +2474,7 @@ body {
                     <h3 class="product-title">{{ product.name }}</h3>
                     <div class="price-tag">{{ "%.2f"|format(product.price) }}€</div>
                     <div class="product-actions">
-                        <a href="{{ url_for('product_detail', product_id=product.id) }}" class="modern-product-link">
+                        <a href="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify) }}" class="modern-product-link">
                             <span>Découvrir</span>
                             <svg viewBox="0 0 24 24" width="20" height="20">
                                 <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
