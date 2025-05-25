@@ -1713,6 +1713,20 @@ def promo_urgence():
 def destockage_alimentaire():
     return render_template("destockage.html")
 
+@app.route("/destockage-alimentaire-urgence-23mai2025")
+def article_urgence():
+    # Balises dynamiques pour Google
+    contenu = render_template(
+        "urgence_23mai2025.html",
+        meta_title="🚨 DESTOCKAGE ALIMENTAIRE URGENCE 23 MAI 2025 : -80% SUR LES STOCKS 🇫🇷 | destockagealimentairestore.com",
+        meta_description="➡️ ALERTE : Les distributeurs liquident leurs stocks alimentaires à -80% ce 23 mai 2025. Découvrez COMMENT en profiter AVANT tout le monde. ✅ Livraison 24h.",
+        current_date=datetime.now().strftime("%Y-%m-%d")
+    )
+    # Force le cache client + compression
+    reponse = make_response(contenu)
+    reponse.headers['Cache-Control'] = 'public, max-age=3600'  # 1h de cache
+    return reponse
+    
 @app.route('/presse')
 def presse():
     return render_template('presse.html')
