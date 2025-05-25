@@ -1764,7 +1764,39 @@ def conditions():
 def destockage_professionnel():
     return render_template('destockage_professionnel.html')
 
+@app.after_request
+def add_header(response):
+    response.cache_control.max_age = 86400  # 1 jour
+    return response
 
+@app.route("/destockage-alimentaire-2025")
+def destockage_2025():
+    return render_template(
+        "destockage_2025.html",
+        meta_title="Destockage Alimentaire 2025 : Nouveaux Stocks à -70% | destockagealimentairestore.com",
+        meta_description="🚨 Nouveaux stocks alimentaires à -70% en mai 2025 ! Découvrez les offres exclusives sur les surplus de grandes marques. Livraison express France/Europe.",
+        current_year=datetime.now().year
+    )
+
+# Route 2 : Émeutes Agricoles 2025
+@app.route("/emeutes-agricoles-prix-alimentaires")
+def emeutes_agricoles():
+    return render_template(
+        "emeutes_agricoles.html",
+        meta_title="Émeutes Agricoles 2025 : Quel Impact sur les Prix Alimentaires ? | destockagealimentairestore.com",
+        meta_description="🔥 Crise agricole en 2025 : les prix des denrées alimentaires vont-ils exploser ? Décryptage et solutions pour acheter malin.",
+        current_year=datetime.now().year
+    )
+
+# Route 3 : Loi Anti-Gaspillage 2025
+@app.route("/loi-anti-gaspillage-2025")
+def loi_anti_gaspillage():
+    return render_template(
+        "loi_anti_gaspillage.html",
+        meta_title="Nouvelle Loi Anti-Gaspillage 2025 : Quels Changements ? | destockagealimentairestore.com",
+        meta_description="📢 La loi anti-gaspillage 2025 oblige les supermarchés à revendre leurs invendus. Comment en profiter pour acheter à -80% ?",
+        current_year=datetime.now().year
+    )
 @app.route('/product-feed.xml')
 def product_feed():
     products = Product.query.all()  # Adaptez à votre BDD
