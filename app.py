@@ -885,7 +885,17 @@ def admin_view_users():
     
     return render_template('admin_view_users.html', users=users)
 
+@app.route('/produit/<int:product_id>')
+def product_detail_old(product_id):
+    product = next((p for p in products if p['id'] == product_id), None)
+    if not product:
+        flash('Produit non trouvé', 'error')
+        return redirect(url_for('product_list'))
 
+    # Génère le slug du produit
+    slug = slugify_filter(product['name'])
+    # Redirection 301 vers la nouvelle URL avec slug
+    return redirect(url_for('product_detail', product_id=product_id, slug=slug), code=301)
 
 
 @app.route('/produit/<int:product_id>-<slug>')
@@ -898,7 +908,7 @@ def product_detail(product_id, slug):
     # Redirection si le slug ne correspond pas exactement
     correct_slug = slugify(product['name'])
     if slug != correct_slug:
-        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug))
+        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug), code=301)
 
     # Créez un dictionnaire details si il n'existe pas
     if 'details' not in product:
