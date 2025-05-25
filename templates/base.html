@@ -672,11 +672,11 @@
                     {% endif %}
                 </span>
             </div>
-                        
+            
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars" style="color: white;" aria-hidden="true"></i>
             </button>
-
+            
         </div>
     </nav>
 
@@ -765,9 +765,15 @@
                 <h3 class="footer-title">Contact</h3>
                 <div class="contact-info">
                     <div class="contact-item floating-effect">
-                        <i class="fas fa-phone icon-scale"></i>
-                        <span>01 23 45 67 89</span>
+                        <div class="contact-item floating-effect whatsapp-contact">
+                            <a href="https://wa.me/33612345678" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp icon-scale"></i>
+                                <span class="whatsapp-number">+33 6 12 34 56 78</span>
+                            </a>
+                        </div>
+                        
                     </div>
+                    
                     <div class="contact-item floating-effect">
                         <i class="fas fa-envelope icon-scale"></i>
                         <span>contact@destockage-alimentaire.com</span>
@@ -794,14 +800,15 @@
             <div class="footer-col">
                 <h3 class="footer-title">Newsletter</h3>
                 <p class="footer-text">Abonnez-vous pour recevoir nos offres exclusives</p>
+                
                 <form class="newsletter-form">
                     <input type="email" placeholder="Votre email" required class="input-glow">
-                    <button type="submit" class="submit-btn-3d">
-                        <button type="submit" class="submit-btn-3d" aria-label="S'inscrire à la newsletter">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                            <span class="visually-hidden">S'inscrire à la newsletter</span>
-                        </button>
+                    <button type="submit" class="submit-btn-3d" aria-label="S'inscrire à la newsletter">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        <span class="visually-hidden">S'inscrire à la newsletter</span>
+                    </button>
                 </form>
+
                 <div class="newsletter-confetti hidden" id="newsletter-confetti"></div>
             </div>
         </div>
@@ -1196,6 +1203,94 @@
             grid-template-columns: 1fr;
         }
     }
+    .whatsapp-contact {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-contact:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-contact a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+}
+
+.whatsapp-contact i {
+  font-size: 1.5em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.whatsapp-number {
+  white-space: nowrap;
+}
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.input-glow {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 200px;
+  transition: box-shadow 0.3s ease;
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 8px rgba(100, 100, 255, 0.4);
+}
+
+.submit-btn-3d {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #0056b3;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn-3d:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
 </style>
 
 <script>
