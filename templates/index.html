@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
+{% block head_extra %}
+    <title>Destockage Alimentaire Store - Produits Alimentaires Pas Cher en Gros</title>
+    <meta name="description" content="Achetez en gros sur Destockage Alimentaire Store : produits alimentaires déstockés, promos exclusives, livraison rapide. Qualité garantie au meilleur prix." />
+    <meta name="keywords" content="destockage alimentaire, alimentation pas cher, gros alimentaire, promo alimentaire, déstockage, fruits, légumes, surgelés, produits laitiers" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph pour réseaux sociaux -->
+    <meta property="og:title" content="Destockage Alimentaire Store - Meilleurs Prix en Gros" />
+    <meta property="og:description" content="Découvrez nos produits alimentaires à prix déstockés et profitez d'offres exclusives !" />
+    <meta property="og:url" content="https://www.destockagealimentairestore.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.destockagealimentairestore.com/static/images/og-image.jpg" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Destockage Alimentaire Store - Produits en Gros" />
+    <meta name="twitter:description" content="Profitez de promos sur des produits alimentaires déstockés de qualité." />
+    <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-card.jpg" />
+{% endblock %}
+
 {% block extra_css %}
 <style>
     /* Nouveaux styles - Page d'accueil uniquement */
@@ -3162,6 +3182,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
 // Ajout du CSS dynamiquement
 const style = document.createElement('style');
 style.textContent = `
@@ -3295,5 +3317,29 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+   
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Destockage Alimentaire Store",
+  "image": "https://www.destockagealimentairestore.com/static/images/logo.png",
+  "description": "Boutique en ligne de produits alimentaires déstockés et promos en gros.",
+  "url": "https://www.destockagealimentairestore.com",
+  "telephone": "+33123456789",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "12 rue Exemple",
+    "addressLocality": "Paris",
+    "postalCode": "75000",
+    "addressCountry": "FR"
+  },
+  "sameAs": [
+    "https://www.facebook.com/destockagealimentairestore",
+    "https://www.instagram.com/destockagealimentairestore",
+    "https://twitter.com/destockagestore"
+  ]
+}
 </script>
+
 {% endblock %}
