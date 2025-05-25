@@ -2394,60 +2394,63 @@ body {
 
 <!-- Catégories modernes -->
 <section class="colorful-categories">
-    <div class="container">
-        <h2 class="section-title">Nos Rayons</h2>
-        <div class="categories-grid">
-            <!-- Ligne 1 -->
-            <a href="{{ url_for('product_list') }}?category=Boissons" class="category-card" style="background-color: #4fc3f7;">
-                <div class="category-icon">🥤</div>
-                <h3>Boissons</h3>
-                <p>Vins, sodas, jus de fruits</p>
-            </a>
-            
-            <a href="{{ url_for('product_list') }}?category=Épicerie" class="category-card" style="background-color: #66bb6a;">
-                <div class="category-icon">🍎</div>
-                <h3>Aliments</h3>
-                <p>Fruits, légumes, produits frais</p>
-            </a>
-            
-            <a href="{{ url_for('product_list') }}?category=Surgeles" class="category-card" style="background-color: #42a5f5;">
-                <div class="category-icon">❄️</div>
-                <h3>Surgelés</h3>
-                <p>Qualité préservée</p>
-            </a>
-            
-            <a href="{{ url_for('product_list') }}?category=Produits+laitiers" class="category-card" style="background-color: #ffca28;">
-                <div class="category-icon">🧀</div>
-                <h3>Laitiers</h3>
-                <p>Fromages et yaourts</p>
-            </a>
-            
-            <!-- Ligne 2 -->
-            <a href="{{ url_for('product_list') }}?category=Promotions" class="category-card" style="background-color: #ef5350;">
-                <div class="category-icon">🔥</div>
-                <h3>Promotions</h3>
-                <p>Nos meilleures offres</p>
-            </a>
-            
-            <a href="{{ url_for('product_list') }}?category=Electromenager" class="category-card" style="background-color: #ab47bc;">
-                <div class="category-icon">🔌</div>
-                <h3>Electro-ménager</h3>
-                <p>Appareils de cuisine</p>
-            </a>
-            
-            <a href="{{ url_for('product_list') }}?category=Games" class="category-card" style="background-color: #26c6da;">
-                <div class="category-icon">🎮</div>
-                <h3>Jeux & Loisirs</h3>
-                <p>Divertissement</p>
-            </a>
-            
-            <a href="{{ url_for('product_list') }}?category=Extras" class="category-card" style="background-color: #d4e157;">
-                <div class="category-icon">🌟</div>
-                <h3>Extras</h3>
-                <p>Produits divers</p>
-            </a>
-        </div>
-    </div>
+    <div class="categories-grid" role="navigation" aria-label="Catégories de produits">
+        <!-- Catégorie : Boissons -->
+        <a href="{{ url_for('product_list') }}?category=Boissons" class="category-card" style="background-color: #4fc3f7;" aria-label="Voir les produits de la catégorie Boissons : Vins, sodas, jus de fruits">
+            <div class="category-icon" aria-hidden="true">🥤</div>
+            <h3>Boissons</h3>
+            <p>Vins, sodas, jus de fruits</p>
+        </a>
+    
+        <!-- Catégorie : Aliments -->
+        <a href="{{ url_for('product_list') }}?category=Épicerie" class="category-card" style="background-color: #66bb6a;" aria-label="Voir les produits de la catégorie Aliments : Fruits, légumes, produits frais">
+            <div class="category-icon" aria-hidden="true">🍎</div>
+            <h3>Aliments</h3>
+            <p>Fruits, légumes, produits frais</p>
+        </a>
+    
+        <!-- Catégorie : Surgelés -->
+        <a href="{{ url_for('product_list') }}?category=Surgeles" class="category-card" style="background-color: #42a5f5;" aria-label="Voir les produits de la catégorie Surgelés : Qualité préservée">
+            <div class="category-icon" aria-hidden="true">❄️</div>
+            <h3>Surgelés</h3>
+            <p>Qualité préservée</p>
+        </a>
+    
+        <!-- Catégorie : Laitiers -->
+        <a href="{{ url_for('product_list') }}?category=Produits+laitiers" class="category-card" style="background-color: #ffca28;" aria-label="Voir les produits de la catégorie Laitiers : Fromages et yaourts">
+            <div class="category-icon" aria-hidden="true">🧀</div>
+            <h3>Laitiers</h3>
+            <p>Fromages et yaourts</p>
+        </a>
+    
+        <!-- Catégorie : Promotions -->
+        <a href="{{ url_for('product_list') }}?category=Promotions" class="category-card" style="background-color: #ef5350;" aria-label="Voir les promotions en cours">
+            <div class="category-icon" aria-hidden="true">🔥</div>
+            <h3>Promotions</h3>
+            <p>Nos meilleures offres</p>
+        </a>
+    
+        <!-- Catégorie : Électroménager -->
+        <a href="{{ url_for('product_list') }}?category=Electromenager" class="category-card" style="background-color: #ab47bc;" aria-label="Voir les produits de la catégorie Électroménager : Appareils de cuisine">
+            <div class="category-icon" aria-hidden="true">🔌</div>
+            <h3>Électroménager</h3>
+            <p>Appareils de cuisine</p>
+        </a>
+    
+        <!-- Catégorie : Jeux & Loisirs -->
+        <a href="{{ url_for('product_list') }}?category=Games" class="category-card" style="background-color: #26c6da;" aria-label="Voir les produits de la catégorie Jeux et Loisirs : Divertissement">
+            <div class="category-icon" aria-hidden="true">🎮</div>
+            <h3>Jeux & Loisirs</h3>
+            <p>Divertissement</p>
+        </a>
+    
+        <!-- Catégorie : Extras -->
+        <a href="{{ url_for('product_list') }}?category=Extras" class="category-card" style="background-color: #d4e157;" aria-label="Voir les produits divers de la catégorie Extras">
+            <div class="category-icon" aria-hidden="true">🌟</div>
+            <h3>Extras</h3>
+            <p>Produits divers</p>
+        </a>
+    </div> 
 </section>
 
 <!-- Produits phares - Version Ultra Moderne -->
