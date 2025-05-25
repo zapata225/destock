@@ -1709,6 +1709,9 @@ def promo_urgence():
     return render_template('urgence.html', 
                          title="Offre limitée à -70%")
 
+@app.route("/meilleur-destockage-alimentaire")
+def destockage_alimentaire():
+    return render_template("destockage.html")
 
 @app.route('/presse')
 def presse():
