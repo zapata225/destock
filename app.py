@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 import os
+import re
 from datetime import datetime, timedelta, timezone
 from werkzeug.utils import secure_filename
 import uuid
@@ -99,7 +100,20 @@ users = {
     }
 }
 
+def slugify(text):
+    text = text.lower()
+    text = re.sub(r'[àâä]', 'a', text)
+    text = re.sub(r'[éèêë]', 'e', text)
+    text = re.sub(r'[îï]', 'i', text)
+    text = re.sub(r'[ôö]', 'o', text)
+    text = re.sub(r'[ùûü]', 'u', text)
+    text = re.sub(r'[ç]', 'c', text)
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    return text.strip('-')
 
+@app.template_filter('slugify')
+def slugify_filter(text):
+    return slugify(text)
 
 # Configuration pour les uploads
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -874,13 +888,18 @@ def admin_view_users():
 
 
 
-@app.route('/produit/<int:product_id>')
-def product_detail(product_id):
+@app.route('/produit/<int:product_id>-<slug>')
+def product_detail(product_id, slug):
     product = next((p for p in products if p['id'] == product_id), None)
     if not product:
         flash('Produit non trouvé', 'error')
         return redirect(url_for('product_list'))
-    
+
+    # Redirection si le slug ne correspond pas exactement
+    correct_slug = slugify(product['name'])
+    if slug != correct_slug:
+        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug))
+
     # Créez un dictionnaire details si il n'existe pas
     if 'details' not in product:
         product['details'] = {
@@ -888,15 +907,16 @@ def product_detail(product_id):
             'catégorie': product.get('category', ''),
             'date_ajout': product.get('date_added', '')
         }
-    
+
     # Produits similaires (même catégorie)
-    related_products = [p for p in products 
-                       if p['category'] == product['category'] 
-                       and p['id'] != product_id][:4]
-    
-    return render_template('product_detail.html', 
-                         product=product, 
-                         related_products=related_products)
+    related_products = [p for p in products
+                        if p['category'] == product['category']
+                        and p['id'] != product_id][:4]
+
+    return render_template('product_detail.html',
+                           product=product,
+                           related_products=related_products)
+
 
 # Gestion du panier
 @app.route('/ajouter-au-panier', methods=['POST'])
