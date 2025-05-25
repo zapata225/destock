@@ -1713,6 +1713,24 @@ def promo_urgence():
 def destockage_alimentaire():
     return render_template("destockage.html")
 
+# Page Principale
+@app.route('/liquidation-alimentaire-25mai2025')
+def liquidation():
+    return render_template('liquidation_25mai.html',
+                         current_date=datetime.now().strftime("%d/%m/%Y"))
+
+# Formulaire de Contact
+@app.route('/contact-urgence-25mai')
+def contact_urgence():
+    return render_template('contact_urgence.html')
+
+# Traitement du Formulaire
+@app.route('/confirmation1', methods=['POST'])
+def confirmation1():
+    # Ici vous pourriez traiter les données du formulaire
+    return render_template('confirmation1.html')
+
+
 @app.route("/destockage-alimentaire-urgence-23mai2025")
 def article_urgence():
     # Balises dynamiques pour Google
