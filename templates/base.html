@@ -39,8 +39,7 @@
 
         {% block extra_css %}{% endblock %}
     </head>
-    
-<style>/* Variables */
+  <style>/* Variables */
     :root {
         --primary-blue: #2563eb;
         --dark-blue: #1e40af;
@@ -637,27 +636,6 @@
         grid-template-columns: 1fr;
     }
 }
-.whatsapp-style {
-    background-color: #25D366;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(37, 211, 102, 0.7);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.whatsapp-style a {
-    color: white;
-    text-decoration: none;
-}
-
-.whatsapp-style:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.9);
-}
 
     </style>
 <body>
@@ -704,7 +682,7 @@
     <!-- Mobile Menu bleu -->
     <div class="mobile-menu" id="mobile-menu" style="background-color: #2a5bd7;">
         <div class="mobile-menu-header">
-            <button class="close-mobile-menu" id="close-mobile-menu">
+            <button class="close-mobile-menu" id="close-mobile-menu" aria-label="Fermer le menu mobile">
                 <i class="fas fa-times" style="color: white;"></i>
             </button>
         </div>
@@ -789,22 +767,26 @@
                         <i class="fas fa-phone icon-scale"></i>
                         <span>01 23 45 67 89</span>
                     </div>
-                    <div class="contact-item floating-effect whatsapp-style">
-                        <i class="fab fa-whatsapp icon-scale"></i>
-                        <span><a href="https://wa.me/33748662835" target="_blank">+33 7 48 66 28 35</a></span>
-                    </div>                    
                     <div class="contact-item floating-effect">
                         <i class="fas fa-envelope icon-scale"></i>
-                        <span>contact@destockagealimentaire.fr</span>
+                        <span>contact@destockage-alimentaire.com</span>
                     </div>
                 </div>
                 
                 <div class="social-links">
-                    <a href="#" class="social-icon-3d"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon-3d"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon-3d"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon-3d"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                    <a href="#" class="social-icon-3d" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon-3d" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon-3d" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon-3d" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>                
             </div>
 
             <!-- Colonne Newsletter -->
@@ -814,8 +796,9 @@
                 <form class="newsletter-form">
                     <input type="email" placeholder="Votre email" required class="input-glow">
                     <button type="submit" class="submit-btn-3d">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+                        <button type="submit" class="submit-btn-3d" aria-label="S'inscrire à la newsletter">
+                            <i class="fas fa-paper-plane"></i> <!-- si icône -->
+                        </button>
                 </form>
                 <div class="newsletter-confetti hidden" id="newsletter-confetti"></div>
             </div>
@@ -1567,7 +1550,9 @@
     <div class="cart-popup" id="cart-popup">
         <div class="cart-header">
             <h3>Votre Panier</h3>
-            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+            <button class="close-cart" id="close-cart" aria-label="Fermer le panier">
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
         </div>
         
         <div class="cart-items" id="cart-items">
@@ -1636,13 +1621,14 @@
 
     <!-- Chatbot -->
     <div class="chatbot">
-        <button class="chatbot-btn" id="chatbot-btn">
+        <button class="chatbot-btn" id="chatbot-btn" aria-label="Ouvrir le chatbot">           
             <i class="fas fa-comment-dots"></i>
         </button>
         <div class="chatbot-container" id="chatbot-container">
             <div class="chatbot-header">
                 <h3>Assistant Virtuel</h3>
-                <button class="close-chatbot" id="close-chatbot"><i class="fas fa-times"></i></button>
+                <button class="close-chatbot" id="close-chatbot" aria-label="Fermer le chatbot">
+                    <i class="fas fa-times"></i></button>
             </div>
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="message bot-message">
@@ -1651,7 +1637,7 @@
             </div>
             <div class="chatbot-input">
                 <input type="text" id="chatbot-input" placeholder="Tapez votre message...">
-                <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+                <button id="send-message" aria-label="Envoyer le message"> <i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
@@ -1936,37 +1922,36 @@ document.querySelectorAll('.btn-checkout').forEach(btn => {
     });
 });
 
- type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Store",
-  "name": "Destockage Alimentaire Store",
-  "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
-  "url": "https://www.destockagealimentairestore.com",
-  "logo": "https://www.destockagealimentairestore.com/logo.png",
-  "telephone": "+33123456789",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "123 Rue du Commerce",
-    "addressLocality": "Paris",
-    "postalCode": "75000",
-    "addressCountry": "FR"
-  },
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "priceRange": "€€",
-  "image": "https://www.destockagealimentairestore.com/entrepot.jpg",
-  "sameAs": [
-    "https://facebook.com/destockagealimentairestore",
-    "https://instagram.com/destockagealimentairestore"
-  ],
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.destockagealimentairestore.com/recherche?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-
- </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Destockage Alimentaire France",
+      "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
+      "url": "https://www.destockage-alimentaire.com",
+      "logo": "https://www.destockage-alimentaire.com/logo.png",
+      "telephone": "+33123456789",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Rue du Commerce",
+        "addressLocality": "Paris",
+        "postalCode": "75000",
+        "addressCountry": "FR"
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "priceRange": "€€",
+      "image": "https://www.destockage-alimentaire.com/entrepot.jpg",
+      "sameAs": [
+        "https://facebook.com/destockagealimentaire",
+        "https://instagram.com/destockagealimentaire"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.destockage-alimentaire.com/recherche?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
  
     {% block extra_js %}{% endblock %}
 </body>
