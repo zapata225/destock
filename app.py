@@ -1792,6 +1792,15 @@ def blog():
 def conditions():
     return render_template('conditions.html')
 
+@app.route('/revolution-surplus-alimentaires-2025')
+def revolution_surplus():
+    return render_template('revolution_surplus.html',
+                         current_date=datetime.now().strftime("%d/%m/%Y"))
+
+@app.route('/metamorphose-distribution-2025')
+def metamorphose_distribution():
+    return render_template('metamorphose_distribution.html')
+
 @app.route('/destockage-professionnel')
 def destockage_professionnel():
     return render_template('destockage_professionnel.html')
