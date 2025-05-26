@@ -39,7 +39,8 @@
 
         {% block extra_css %}{% endblock %}
     </head>
-  <style>/* Variables */
+  
+<style>/* Variables */
     :root {
         --primary-blue: #2563eb;
         --dark-blue: #1e40af;
@@ -2019,41 +2020,37 @@ document.querySelectorAll('.btn-checkout').forEach(btn => {
     });
 });
 
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Store",
-      "name": "Destockage Alimentaire France",
-      "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
-      "url": "https://www.destockage-alimentaire.com",
-      "logo": "https://www.destockage-alimentaire.com/logo.png",
-      "telephone": "+33123456789",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Rue du Commerce",
-        "addressLocality": "Paris",
-        "postalCode": "75000",
-        "addressCountry": "FR"
-      },
-      "openingHours": "Mo-Fr 09:00-18:00",
-      "priceRange": "€€",
-      "image": "https://www.destockage-alimentaire.com/entrepot.jpg",
-      "sameAs": [
-        "https://facebook.com/destockagealimentaire",
-        "https://instagram.com/destockagealimentaire"
-      ],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.destockage-alimentaire.com/recherche?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
     </script>
- 
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Store",
+          "name": "Destockage Alimentaire France",
+          "description": "Leader du destockage alimentaire en France. Produits jusqu'à -70% : boissons, surgelés, épicerie.",
+          "url": "https://www.destockage-alimentaire.com",
+          "logo": "https://www.destockage-alimentaire.com/logo.png",
+          "telephone": "+33123456789",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Rue du Commerce",
+            "addressLocality": "Paris",
+            "postalCode": "75000",
+            "addressCountry": "FR"
+          },
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "priceRange": "€€",
+          "image": "https://www.destockage-alimentaire.com/entrepot.jpg",
+          "sameAs": [
+            "https://facebook.com/destockagealimentaire",
+            "https://instagram.com/destockagealimentaire"
+          ],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.destockage-alimentaire.com/recherche?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+        </script>
     {% block extra_js %}{% endblock %}
 </body>
- <!-- Après <body> -->
-        <script>
-        !function(){let e=document.createElement("link");e.rel="preload",e.as="script",e.href="{{ url_for('static', filename='js/lazysizes.min.js') }}",document.head.appendChild(e)}();
-        </script>
 </html>
