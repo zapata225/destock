@@ -2402,7 +2402,7 @@ def sitemap():
     pages = [
         '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',  # Ajout des nouvelles pages
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
-        '/blog', '/presse'  # Correction du problème de la virgule
+        '/blog', '/presse', '/revolution-surplus-alimentaires-2025',  '/metamorphose-distribution-2025', '/destockage-professionnel', "/destockage-alimentaire-2025", "/emeutes-agricoles-prix-alimentaires", "/loi-anti-gaspillage-2025",  # Correction du problème de la virgule
     ]
     
     # Génération dynamique des URLs produits
@@ -2417,7 +2417,6 @@ def sitemap():
     response.headers['Content-Type'] = 'application/xml'
     
     return response
-
 
 @app.route('/robots.txt')
 def robots():
