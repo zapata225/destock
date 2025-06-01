@@ -1810,6 +1810,26 @@ def add_header(response):
     response.cache_control.max_age = 86400  # 1 jour
     return response
 
+@app.route('/blog/france-degockage-alimentaire')
+def blog_france():
+    return render_template('blog_france.html')
+
+@app.route('/blog/espana-descuentos-alimentarios')
+def blog_espagne():
+    return render_template('blog_espagne.html')
+
+@app.route('/blog/belgique-bon-marche-nourriture')
+def blog_belgique():
+    return render_template('blog_belgique.html')
+
+@app.route('/blog/suisse-pas-cher-nourriture')
+def blog_suisse():
+    return render_template('blog_suisse.html')
+
+@app.route('/blog/psg-champion-europe-2025')
+def blog_psg():
+    return render_template('blog_psg.html')
+
 @app.route("/destockage-alimentaire-2025")
 def destockage_2025():
     return render_template(
