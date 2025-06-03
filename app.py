@@ -1730,7 +1730,7 @@ def liquidation():
                          current_date=datetime.now().strftime("%d/%m/%Y"))
 
 @app.route('/destockage-alimentaire-espagne')
-def destockage_alimentaire():
+def destockage_alimentaire_espagne():
     return render_template('destockage_alimentaire_espagne.html')
 
 # Formulaire de Contact
