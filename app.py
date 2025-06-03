@@ -1709,6 +1709,12 @@ def promo_urgence():
     return render_template('urgence.html', 
                          title="Offre limitée à -70%")
 
+@app.route('/destockage-tf1-france24-actualites')
+def destockage_medias():
+    return render_template('destockage_medias.html', 
+                         title="Destockage Alimentaire : TF1 et France 24 En Parlent",
+                         meta_description="Analyse complète du traitement médiatique du destockage alimentaire sur TF1 et France 24. Actualités Belgique et Espagne. Conseils pro pour acheter malin.")
+
 @app.route('/psg-champion-europe')
 def psg_champions():
     return render_template('psg_champions.html')
