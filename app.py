@@ -1729,6 +1729,10 @@ def liquidation():
     return render_template('liquidation_25mai.html',
                          current_date=datetime.now().strftime("%d/%m/%Y"))
 
+@app.route('/destockage-alimentaire-espagne')
+def destockage_alimentaire():
+    return render_template('destockage_alimentaire_espagne.html')
+
 # Formulaire de Contact
 @app.route('/contact-urgence-25mai')
 def contact_urgence():
