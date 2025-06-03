@@ -1709,6 +1709,10 @@ def promo_urgence():
     return render_template('urgence.html', 
                          title="Offre limitée à -70%")
 
+@app.route('/psg-champion-europe')
+def psg_champions():
+    return render_template('psg_champions.html')
+
 @app.route("/meilleur-destockage-alimentaire")
 def destockage_alimentaire():
     return render_template("destockage.html")
