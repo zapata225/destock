@@ -2430,14 +2430,9 @@ def admin_users():
 from flask import render_template, make_response
 from datetime import datetime
 
+
 @app.route('/sitemap.xml')
 def sitemap():
-    # Exemple de données produit statique pour test
-    products = [
-        {'id': 101, 'nom': 'Palette de Nutella'},
-        {'id': 102, 'nom': 'Lot de Coca-Cola Zéro'},
-    ]
-
     pages = [
         '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
