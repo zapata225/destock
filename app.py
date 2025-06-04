@@ -2432,25 +2432,30 @@ from datetime import datetime
 
 @app.route('/sitemap.xml')
 def sitemap():
+    # Exemple de données produit statique pour test
+    products = [
+        {'id': 101, 'nom': 'Palette de Nutella'},
+        {'id': 102, 'nom': 'Lot de Coca-Cola Zéro'},
+    ]
+
     pages = [
         '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
         '/blog', '/presse', '/revolution-surplus-alimentaires-2025',
         '/metamorphose-distribution-2025', '/destockage-alimentaire-2025',
         '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
-        '/emeutes-agricoles-prix-alimentaires', '/psg-champion-europe', '/loi-anti-gaspillage-2025'
+        '/emeutes-agricoles-prix-alimentaires', '/psg-champion-europe',
+        '/loi-anti-gaspillage-2025'
     ]
 
-    # Produits dynamiques
     for product in products:
         try:
             product_id = product['id']
             product_name = product['nom']
             slug = slugify(product_name)
             pages.append(f"/produit/{product_id}-{slug}")
-        except KeyError as e:
-            print(f"[SITEMAP] Clé manquante dans un produit : {e} - Produit : {product}")
-            continue  # Ignore ce produit s'il manque une clé essentielle
+        except KeyError:
+            continue
 
     sitemap_xml = render_template('sitemap.xml', pages=pages, now=datetime.utcnow())
 
