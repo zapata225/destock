@@ -2436,17 +2436,24 @@ def sitemap():
         '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
         '/blog', '/presse', '/revolution-surplus-alimentaires-2025',
-        '/metamorphose-distribution-2025', '/destockage-alimentaire-2025','/destockage-alimentaire-espagne','https://www.destockagealimentairestore.com/destockage-tf1-france24-actualites',
-        '/emeutes-agricoles-prix-alimentaires','/psg-champion-europe', '/loi-anti-gaspillage-2025'
+        '/metamorphose-distribution-2025', '/destockage-alimentaire-2025',
+        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
+        '/emeutes-agricoles-prix-alimentaires', '/psg-champion-europe', '/loi-anti-gaspillage-2025'
     ]
-    
+
     # Produits dynamiques
     for product in products:
-        slug = slugify(product['nom'])  # Crée un slug SEO à partir du nom du produit
-        pages.append(f"/produit/{product['id']}-{slug}")
-    
+        try:
+            product_id = product['id']
+            product_name = product['nom']
+            slug = slugify(product_name)
+            pages.append(f"/produit/{product_id}-{slug}")
+        except KeyError as e:
+            print(f"[SITEMAP] Clé manquante dans un produit : {e} - Produit : {product}")
+            continue  # Ignore ce produit s'il manque une clé essentielle
+
     sitemap_xml = render_template('sitemap.xml', pages=pages, now=datetime.utcnow())
-    
+
     response = make_response(sitemap_xml)
     response.headers['Content-Type'] = 'application/xml'
     return response
