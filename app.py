@@ -2432,24 +2432,23 @@ from datetime import datetime
 
 @app.route('/sitemap.xml')
 def sitemap():
-    # Liste des pages principales, avec les pages supplémentaires
     pages = [
-        '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',  # Ajout des nouvelles pages
+        '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
-        '/blog', '/presse', '/revolution-surplus-alimentaires-2025',  '/metamorphose-distribution-2025', '/destockage-professionnel', "/destockage-alimentaire-2025", "/emeutes-agricoles-prix-alimentaires", "/loi-anti-gaspillage-2025",  # Correction du problème de la virgule
+        '/blog', '/presse', '/revolution-surplus-alimentaires-2025',
+        '/metamorphose-distribution-2025', '/destockage-alimentaire-2025','/destockage-alimentaire-espagne','https://www.destockagealimentairestore.com/destockage-tf1-france24-actualites',
+        '/emeutes-agricoles-prix-alimentaires','/psg-champion-europe', '/loi-anti-gaspillage-2025'
     ]
     
-    # Génération dynamique des URLs produits
+    # Produits dynamiques
     for product in products:
-        pages.append(f"/produit/{product['id']}")
+        slug = slugify(product['nom'])  # Crée un slug SEO à partir du nom du produit
+        pages.append(f"/produit/{product['id']}-{slug}")
     
-    # Génération du sitemap XML avec la date actuelle
     sitemap_xml = render_template('sitemap.xml', pages=pages, now=datetime.utcnow())
     
-    # Création de la réponse HTTP avec le bon type de contenu
     response = make_response(sitemap_xml)
     response.headers['Content-Type'] = 'application/xml'
-    
     return response
 
 @app.route('/robots.txt')
