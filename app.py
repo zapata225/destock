@@ -2432,6 +2432,8 @@ from datetime import datetime
 
 from slugify import slugify  # Assure-toi que c’est bien importé
 
+from slugify import slugify  # Assure-toi que c’est bien importé
+
 @app.route('/sitemap.xml')
 def sitemap():
     pages = [
@@ -2455,6 +2457,7 @@ def sitemap():
     response = make_response(sitemap_xml)
     response.headers['Content-Type'] = 'application/xml'
     return response
+
 
 
 @app.route('/robots.txt')
