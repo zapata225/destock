@@ -2430,6 +2430,7 @@ def admin_users():
 from flask import render_template, make_response
 from datetime import datetime
 
+from slugify import slugify  # Assure-toi que c’est bien importé
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -2444,19 +2445,17 @@ def sitemap():
     ]
 
     for product in products:
-        try:
-            product_id = product['id']
-            product_name = product['nom']
+        product_id = product.get('id')
+        product_name = product.get('name')  # <-- ici name et pas nom
+        if product_id and product_name:
             slug = slugify(product_name)
             pages.append(f"/produit/{product_id}-{slug}")
-        except KeyError:
-            continue
 
     sitemap_xml = render_template('sitemap.xml', pages=pages, now=datetime.utcnow())
-
     response = make_response(sitemap_xml)
     response.headers['Content-Type'] = 'application/xml'
     return response
+
 
 @app.route('/robots.txt')
 def robots():
