@@ -2427,15 +2427,9 @@ def admin_users():
     
     return render_template('admin_users.html', users=users)
 
-from flask import render_template, make_response
-from datetime import datetime
-
-from slugify import slugify  # Assure-toi que c’est bien importé
-
-from slugify import slugify  # Assure-toi que c’est bien importé
-
 @app.route('/sitemap.xml')
 def sitemap():
+    # URLs statiques
     pages = [
         '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
@@ -2446,12 +2440,19 @@ def sitemap():
         '/loi-anti-gaspillage-2025'
     ]
 
+    # Ajoutez les URLs des produits
     for product in products:
         product_id = product.get('id')
-        product_name = product.get('name')  # <-- ici name et pas nom
+        product_name = product.get('name')
         if product_id and product_name:
             slug = slugify(product_name)
             pages.append(f"/produit/{product_id}-{slug}")
+
+    # Ajoutez les URLs des catégories
+    from data import categories
+    for category in categories:
+        slug = slugify(category)
+        pages.append(f"/categorie/{slug}")
 
     sitemap_xml = render_template('sitemap.xml', pages=pages, now=datetime.utcnow())
     response = make_response(sitemap_xml)
