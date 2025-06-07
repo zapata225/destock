@@ -1719,6 +1719,10 @@ def destockage_medias():
 def psg_champions():
     return render_template('psg_champions.html')
 
+@app.route('/fr/destockage-espagne')
+def destockage_espagne_fr():
+    return render_template('fr/destockage_espagne.html') 
+
 @app.route("/meilleur-destockage-alimentaire")
 def destockage_alimentaire():
     return render_template("destockage.html")
@@ -1827,6 +1831,22 @@ def add_header(response):
 @app.route('/blog/france-degockage-alimentaire')
 def blog_france():
     return render_template('blog_france.html')
+
+@app.route('/article-ultra')
+def article_ultra():
+    return render_template('article_ultra.html')
+
+@app.route('/homex')
+def accueil():
+    return render_template('accueil.html')
+
+@app.route('/destockage-alimentaire-belgique')
+def destockage_belgique():
+    return render_template('destockage_belgique.html') 
+
+@app.route('/destockage-alimentario-espana')
+def destockage_espana():
+    return render_template('destockage_espana.html') 
 
 @app.route('/blog/espana-descuentos-alimentarios')
 def blog_espagne():
@@ -2434,10 +2454,10 @@ def sitemap():
         '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
         '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
         '/blog', '/presse', '/revolution-surplus-alimentaires-2025',
-        '/metamorphose-distribution-2025', '/destockage-alimentaire-2025',
-        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
-        '/emeutes-agricoles-prix-alimentaires', '/psg-champion-europe',
-        '/loi-anti-gaspillage-2025'
+        '/metamorphose-distribution-2025', '/destockage-alimentaire-2025','/homex','/destockage-alimentaire-belgique',
+        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites','/article-ultra','/fr/destockage-espagne',
+        '/emeutes-agricoles-prix-alimentaires','/blog/france-degockage-alimentaire', '/psg-champion-europe',
+        '/loi-anti-gaspillage-2025',
     ]
 
     # Ajoutez les URLs des produits
