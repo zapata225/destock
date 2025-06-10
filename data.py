@@ -222,7 +222,7 @@ products = [
         "id": 103,
         "name": "⚡Palette Monster Energy 500ml (2 592 canettes)",
         "description": "Boisson énergisante Monster Energy en format 500ml - Palette complète de 2592 canettes. Goût intense avec mélange unique de taurine, ginseng et vitamines B.",
-        "price": 3456.00,
+        "price": 1456.00,
         "category": "Boissons",
         "stock": 95,
         "featured": True,
