@@ -1795,6 +1795,25 @@ submit_to_google(new_post_url)
 def destockageprofessionnel():
     return render_template('destockage-professionnel.html')
 
+@app.route('/destockage-en-gros')
+def destockage_gros_fr():
+    return render_template('destockage_gros_fr.html',
+                         title=_("Destockage Alimentaire en Gros | Professionnels"),
+                         meta_description=_("Destockage alimentaire en gros pour professionnels : restaurants, associations, commerces. Economisez jusqu'à 70% sur vos achats."))
+
+@app.route('/palette-alimentaire-destockage')
+def palette_destockage():
+    return render_template('palette_destockage.html',
+                         title=_("Palettes Alimentaires en Destockage - Jusqu'à -70%"),
+                         meta_description=_("Palettes alimentaires complètes en destockage : lots de produits à prix wholesale. Idéal pour professionnels et associations."))
+
+# Routes Belgique
+@app.route('/be/destockage-alimentaire-belgique')
+def destockage_be_fr():
+    return render_template('destockage_be_fr.html',
+                         title=_("Destockage Alimentaire en Belgique | Prix Discount"),
+                         meta_description=_("Destockage alimentaire en Belgique pour particuliers et professionnels. Livraison rapide dans toute la Belgique."))
+
 @app.route('/nos-fournisseurs')
 def nosfournisseurs():
     return render_template('nos-fournisseurs.html')
@@ -2451,13 +2470,23 @@ def admin_users():
 def sitemap():
     # URLs statiques
     pages = [
-        '/', '/contact', '/about', '/produits', '/conditions', '/mentions-legales',
-        '/destockage-professionnel', '/guide-destockage-alimentaire', '/nos-fournisseurs',
-        '/blog', '/presse', '/revolution-surplus-alimentaires-2025',
-        '/metamorphose-distribution-2025', '/destockage-alimentaire-2025','/homex','/destockage-alimentaire-belgique',
-        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites','/article-ultra','/fr/destockage-espagne',
-        '/emeutes-agricoles-prix-alimentaires','/blog/france-degockage-alimentaire', '/psg-champion-europe',
-        '/loi-anti-gaspillage-2025',
+        '/', '/contact', '/about', '/produits', '/mentions-legales', '/destockage-professionnel',
+        '/guide-destockage-alimentaire', '/nos-fournisseurs', '/blog', '/presse',
+        '/revolution-surplus-alimentaires-2025', '/metamorphose-distribution-2025',
+        '/destockage-alimentaire-2025', '/homex', '/destockage-alimentaire-belgique',
+        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
+        '/article-ultra', '/fr/destockage-espagne', '/emeutes-agricoles-prix-alimentaires',
+        '/blog/france-degockage-alimentaire', '/destockage-en-gros',
+        '/palette-alimentaire-destockage', '/be/destockage-alimentaire-belgique',
+        '/psg-champion-europe', '/loi-anti-gaspillage-2025', '/blog/espana-descuentos-alimentarios',
+        '/blog/belgique-bon-marche-nourriture', '/blog/suisse-pas-cher-nourriture',
+        '/landing.html', '/urgence.html', '/fr/destockage_espagne.html',
+        '/liquidation-alimentaire-25mai2025', '/confirmation1',
+        '/destockage-alimentaire-urgence-23mai2025', '/pourquoi-destockage-alimentaire',
+        '/track-conversion', '/destockage-urgence', '/promo-urgence',
+        '/psg-champion-europe', '/meilleur-destockage-alimentaire', '/contact-urgence-25mai',
+        '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025',
+        '/product-feed.xml'
     ]
 
     # Ajoutez les URLs des produits
