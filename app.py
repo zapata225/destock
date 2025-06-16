@@ -21,7 +21,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_mail import Mail, Message
 from utils import send_confirmation_email
 from data import products as all_products
-from flask_babel import Babel, gettext as _
+
 from admin_auth import ADMIN_CREDENTIALS
 from data import products, categories  # Importez vos produits et catégories depuis data.py
 from blog_routes import blog_bp
@@ -36,7 +36,6 @@ app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
 app.register_blueprint(blog_bp)
 compress = Compress(app)  # Activation globale
-babel = Babel(app)
 
 # Jinja filters
 app.jinja_env.globals.update(datetime=datetime)
