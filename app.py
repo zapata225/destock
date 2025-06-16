@@ -1912,7 +1912,7 @@ def loi_anti_gaspillage():
         current_year=datetime.now().year
     )
 
-@app.route('/destockage-alimentaire-professionnel')
+@app.route('/destockage-alimentaire-professionnel1')
 def seo_landing_pro1():
     """Page ultra-optimisée pour le mot-clé principal avec cache et compression"""
     # Données dynamiques pour le template
