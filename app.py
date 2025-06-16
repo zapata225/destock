@@ -1911,6 +1911,159 @@ def loi_anti_gaspillage():
         meta_description="📢 La loi anti-gaspillage 2025 oblige les supermarchés à revendre leurs invendus. Comment en profiter pour acheter à -80% ?",
         current_year=datetime.now().year
     )
+
+@app.route('/destockage-alimentaire-professionnel')
+def seo_landing_pro1():
+    """Page ultra-optimisée pour le mot-clé principal avec cache et compression"""
+    # Données dynamiques pour le template
+    featured_products = [p for p in products if p.get('featured', False)][:8]
+    
+    # Meta tags dynamiques
+    meta = {
+        'title': 'Destockage Alimentaire Professionnel | Grossiste -70% sur Stocks',
+        'description': 'Grossiste en destockage alimentaire pour professionnels. Livraison rapide, produits à -70%, qualité garantie. Commandez en ligne dès maintenant!',
+        'keywords': 'destockage alimentaire, grossiste alimentaire, destockage professionnel, produits alimentaires pas chers',
+        'canonical': 'https://destockagealimentairestore.com/destockage-alimentaire-professionnel',
+        'og': {
+            'title': 'Destockage Alimentaire Professionnel | Grossiste -70% sur Stocks',
+            'description': 'Grossiste en destockage alimentaire pour professionnels. Livraison rapide, produits à -70%, qualité garantie.',
+            'type': 'website',
+            'url': 'https://destockagealimentairestore.com/destockage-alimentaire-professionnel',
+            'image': 'https://destockagealimentairestore.com/static/images/logo-social.jpg'
+        },
+        'twitter': {
+            'card': 'summary_large_image',
+            'title': 'Destockage Alimentaire Professionnel | Grossiste -70% sur Stocks',
+            'description': 'Grossiste en destockage alimentaire pour professionnels. Livraison rapide, produits à -70%, qualité garantie.',
+            'image': 'https://destockagealimentairestore.com/static/images/logo-social.jpg'
+        }
+    }
+    
+    # Données structurées Schema.org
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": meta['title'],
+        "description": meta['description'],
+        "url": meta['canonical'],
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://destockagealimentairestore.com/"},
+                {"@type": "ListItem", "position": 2, "name": "Professionnels", "item": "https://destockagealimentairestore.com/professionnels"},
+                {"@type": "ListItem", "position": 3, "name": "Destockage Alimentaire"}
+            ]
+        },
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Destockage Alimentaire",
+            "url": "https://destockagealimentairestore.com",
+            "logo": "https://destockagealimentairestore.com/static/images/logo.png",
+            "description": "Grossiste spécialisé dans le destockage alimentaire pour professionnels",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Rue du Commerce",
+                "addressLocality": "Paris",
+                "postalCode": "75000",
+                "addressCountry": "FR"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33 1 23 45 67 89",
+                "contactType": "customer service",
+                "email": "contact@destockagealimentairestore.com",
+                "areaServed": "FR"
+            }
+        }
+    }
+    
+    # Contenu optimisé avec variantes sémantiques
+    content = {
+        'h1': 'Destockage Alimentaire Professionnel - Jusqu\'à -70% sur Stocks',
+        'intro': 'Votre grossiste spécialisé dans le destockage alimentaire pour professionnels. Produits de qualité à prix cassés, livraison sous 48h.',
+        'sections': [
+            {
+                'title': 'Pourquoi choisir notre destockage alimentaire ?',
+                'content': 'Nous sommes le leader français du destockage alimentaire professionnel avec plus de 1500 références en stock permanent. Nos produits proviennent directement des usines et centrales d\'achat.'
+            },
+            {
+                'title': 'Nos catégories phares',
+                'content': 'Découvrez nos gammes de produits alimentaires en destockage : épicerie, surgelés, boissons, produits frais. Tous nos produits sont garantis d\'origine UE.'
+            }
+        ],
+        'cta': 'Commandez dès maintenant et bénéficiez de nos tarifs grossiste exceptionnels!'
+    }
+    
+    # Marques partenaires
+    brands = [
+        {'name': 'Carrefour', 'image': 'carrefour.png'},
+        {'name': 'Casino', 'image': 'casino.png'},
+        {'name': 'Auchan', 'image': 'auchan.png'},
+        {'name': 'Leclerc', 'image': 'leclerc.png'},
+        {'name': 'Metro', 'image': 'metro.png'}
+    ]
+    
+    # Témoignages
+    testimonials = [
+        {
+            'name': 'Jean D.',
+            'role': 'Restaurateur à Paris',
+            'text': '"Grâce à Destockage Alimentaire, j\'ai réduit mes coûts d\'approvisionnement de près de 40%. La qualité des produits est au rendez-vous et le service client est réactif."',
+            'image': '1.jpg',
+            'rating': 5
+        },
+        {
+            'name': 'Marie L.',
+            'role': 'Gérante d\'épicerie à Lyon',
+            'text': '"Je commande régulièrement depuis 2 ans. Les prix sont imbattables et la livraison toujours à l\'heure. Un partenaire indispensable pour mon commerce."',
+            'image': '2.jpg',
+            'rating': 4.5
+        },
+        {
+            'name': 'Thomas M.',
+            'role': 'Traiteur à Marseille',
+            'text': '"Le conseiller qui me suit connaît parfaitement mes besoins et me propose régulièrement des produits adaptés à mon activité. Un service pro de qualité."',
+            'image': '3.jpg',
+            'rating': 4
+        }
+    ]
+    
+    # FAQ
+    faqs = [
+        {
+            'question': 'Qui peut acheter sur votre plateforme ?',
+            'answer': 'Notre service est réservé aux professionnels : restaurateurs, traiteurs, épiceries, associations, collectivités et tout autre acteur du secteur alimentaire.'
+        },
+        {
+            'question': 'Quelle est l\'origine de vos produits ?',
+            'answer': 'Tous nos produits proviennent de fournisseurs européens et sont conformes aux normes sanitaires en vigueur.'
+        },
+        {
+            'question': 'Quels sont les délais de livraison ?',
+            'answer': 'Les commandes passées avant 12h sont expédiées le jour même (hors week-end). Le délai de livraison est de 24 à 48h en France métropolitaine.'
+        }
+    ]
+    
+    # Préparation de la réponse avec cache
+    response = make_response(render_template(
+        'seo_landing1.html',
+        meta=meta,
+        schema=json.dumps(schema, indent=2),
+        content=content,
+        products=featured_products,
+        brands=brands,
+        testimonials=testimonials,
+        faqs=faqs,
+        current_year=datetime.now().year
+    ))
+    
+    # Headers de cache et performance
+    response.headers['Cache-Control'] = 'public, max-age=3600'  # 1 heure de cache
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    
+    return response
 @app.route('/product-feed.xml')
 def product_feed():
     products = Product.query.all()  # Adaptez à votre BDD
