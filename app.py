@@ -2638,7 +2638,7 @@ def sitemap():
         '/destockage-alimentaire-urgence-23mai2025', '/pourquoi-destockage-alimentaire',
         '/track-conversion', '/destockage-urgence', '/promo-urgence',
         '/psg-champion-europe', '/meilleur-destockage-alimentaire', '/contact-urgence-25mai',
-        '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025',
+        '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025','/destockage-alimentaire-professionnel1',
         '/product-feed.xml'
     ]
 
