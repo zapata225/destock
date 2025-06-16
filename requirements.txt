@@ -16,3 +16,4 @@ WeasyPrint==65.1
 CFFI==1.17.1
 markdown==3.4.1
 flask-compress==1.17
+Flask-Babel==3.1.0
