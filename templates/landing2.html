@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destockage Alimentaire Grossiste | Boissons, Surgelés et Palettes à Prix Discount</title>
+    <meta name="description" content="Grossiste en destockage alimentaire : palettes de boissons, surgelés et produits alimentaires jusqu'à -70%. Livraison partout en France pour professionnels et particuliers.">
+    <meta name="keywords" content="destockage alimentaire, grossiste alimentaire, palette destockage, boissons pas chères, déstockage alimentaire en gros, magasin destockage, grossiste livraison, produits surgelés discount">
+    
+    <!-- Open Graph / Réseaux Sociaux -->
+    <meta property="og:title" content="Destockage Alimentaire Grossiste | Jusqu'à -70% sur Stocks">
+    <meta property="og:description" content="Palettes complètes de produits alimentaires en destockage. Livraison rapide pour professionnels et particuliers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.destockalimpro.com">
+    <meta property="og:image" content="https://www.destockalimpro.com/images/destockage-alimentaire-palette.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Destockage Alimentaire en Gros | Professionnels & Particuliers">
+    <meta name="twitter:description" content="Économisez jusqu'à 70% sur nos palettes de destockage alimentaire. Livraison partout en France.">
+    <meta name="twitter:image" content="https://www.destockalimpro.com/images/destockage-twitter-card.jpg">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Destockage Alimentaire Grossiste",
+      "description": "Vente en gros de produits alimentaires en destockage : boissons, surgelés, épicerie sèche.",
+      "url": "https://www.destockalimpro.com",
+      "image": "https://www.destockalimpro.com/images/logo.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "DestockAlimPro"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DestockAlimPro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.destockalimpro.com/logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Moderno -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e7d32; /* Vert */
+            --secondary: #d84315; /* Orange */
+            --dark: #263238;
+            --light: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #388e3c);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-top: 0;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #bf360c;
+        }
+        
+        .hero {
+            background: url('https://via.placeholder.com/1920x800') center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #bf360c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .product-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-card-content {
+            padding: 1.5rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #757575;
+            margin-right: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .testimonials {
+            background: var(--light);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-card i {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Destockage Alimentaire Grossiste</h1>
+            <p>Boissons, surgelés et produits alimentaires jusqu'à -70% | Livraison France entière</p>
+        </div>
+    </header>
+    
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Grossiste en Destockage Alimentaire</h2>
+            <p>Palettes complètes de produits à prix discount pour professionnels et particuliers</p>
+            <a href="#produits" class="cta-button">Voir les offres →</a>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section>
+            <p><strong>DestockAlimPro</strong> est le <strong>leader français du destockage alimentaire en gros</strong>. Nous proposons des <strong>palettes complètes de produits alimentaires</strong> à des prix imbattables, avec des remises allant jusqu'à <strong>-70%</strong> sur les prix du marché. Que vous soyez <strong>restaurateur, épicier, association ou particulier</strong>, profitez de nos offres exceptionnelles sur les <strong>boissons, surgelés, épicerie sèche et produits frais</strong>.</p>
+        </section>
+        
+        <!-- Produits Phares -->
+        <section id="produits">
+            <h2>🏆 Nos Catégories de Destockage Alimentaire</h2>
+            <div class="product-grid">
+                <!-- Boissons -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/600x400" alt="Destockage boissons">
+                    <div class="product-card-content">
+                        <span class="badge">-60%</span>
+                        <h3>Boissons en Destockage</h3>
+                        <p>Eaux, sodas, jus, bières et vins à prix grossiste</p>
+                        <div class="price">
+                            <span class="old-price">15€</span>
+                            <span>6€ / carton</span>
+                        </div>
+                        <a href="#" class="cta-button">Voir les palettes</a>
+                    </div>
+                </article>
+                
+                <!-- Surgelés -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/600x400" alt="Destockage surgelés">
+                    <div class="product-card-content">
+                        <span class="badge">-70%</span>
+                        <h3>Surgelés Professionnels</h3>
+                        <p>Viandes, poissons, légumes et plats préparés</p>
+                        <div class="price">
+                            <span class="old-price">25€</span>
+                            <span>7.50€ / kg</span>
+                        </div>
+                        <a href="#" class="cta-button">Voir les lots</a>
+                    </div>
+                </article>
+                
+                <!-- Epicerie -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/600x400" alt="Destockage épicerie">
+                    <div class="product-card-content">
+                        <span class="badge">-50%</span>
+                        <h3>Épicerie Sèche</h3>
+                        <p>Pâtes, riz, conserves, biscuits et produits de base</p>
+                        <div class="price">
+                            <span class="old-price">12€</span>
+                            <span>6€ / carton</span>
+                        </div>
+                        <a href="#" class="cta-button">Voir les promotions</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Pourquoi Nous Choisir -->
+        <section>
+            <h2>⭐ Pourquoi Acheter en Destockage Alimentaire ?</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <i class="fas fa-truck" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Livraison Rapide</h3>
+                    <p>Expédition sous 48h partout en France métropolitaine</p>
+                </div>
+                
+                <div class="product-card">
+                    <i class="fas fa-euro-sign" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Économies Garanties</h3>
+                    <p>Jusqu'à 70% d'économie sur vos achats alimentaires</p>
+                </div>
+                
+                <div class="product-card">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Qualité Contrôlée</h3>
+                    <p>Tous nos produits sont conformes aux normes européennes</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Témoignages -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>📢 Ils Nous Ont Fait Confiance</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Grâce à DestockAlimPro, j'ai réduit mes coûts d'approvisionnement de 40%. La qualité est au rendez-vous et la livraison toujours ponctuelle."</p>
+                        <p><strong>Jean D.</strong>, Restaurateur à Lyon</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Nous commandons régulièrement des palettes de boissons. Les prix sont imbattables et le service client réactif."</p>
+                        <p><strong>Marie L.</strong>, Gérante d'épicerie</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"En tant qu'association, les prix de destockage nous permettent de distribuer plus de repas. Partenaire indispensable !"</p>
+                        <p><strong>Association Solidarité 64</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ -->
+        <section>
+            <h2>❓ Questions Fréquentes sur le Destockage Alimentaire</h2>
+            
+            <h3>Qui peut acheter en destockage alimentaire ?</h3>
+            <p>Nos produits sont accessibles à tous : <strong>professionnels (restaurants, épiceries, traiteurs)</strong> comme <strong>particuliers</strong>. Certaines palettes sont réservées aux pros en raison des quantités.</p>
+            
+            <h3>Quelle est l'origine des produits en destockage ?</h3>
+            <p>Nos produits proviennent de :</p>
+            <ul>
+                <li>Surstocks de grandes surfaces</li>
+                <li>Changements d'emballages</li>
+                <li>Fin de série</li>
+                <li>Produits en parfait état mais non commercialisés</li>
+            </ul>
+            
+            <h3>Quels sont les délais de livraison ?</h3>
+            <p>Nous livrons sous <strong>48h</strong> en France métropolitaine. Pour les palettes complètes, comptez <strong>3 à 5 jours ouvrés</strong>.</p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>DestockAlimPro</h3>
+                    <p>Le spécialiste du destockage alimentaire grossiste en France depuis 2010.</p>
+                </div>
+                
+                <div>
+                    <h3>Catégories</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#" style="color: #aaa;">Boissons</a></li>
+                        <li><a href="#" style="color: #aaa;">Surgelés</a></li>
+                        <li><a href="#" style="color: #aaa;">Épicerie</a></li>
+                        <li><a href="#" style="color: #aaa;">Produits Frais</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Informations</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#" style="color: #aaa;">Conditions de vente</a></li>
+                        <li><a href="#" style="color: #aaa;">Livraison</a></li>
+                        <li><a href="#" style="color: #aaa;">Mentions légales</a></li>
+                        <li><a href="#" style="color: #aaa;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 05 00 00 00 00</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> contact@destockalimpro.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Rue du Commerce, 75000 Paris</p>
+                </div>
+            </div>
+            
+            <hr style="border-color: #444; margin: 2rem 0;">
+            
+            <div style="text-align: center; color: #777;">
+                <p>© 2024 DestockAlimPro - Tous droits réservés</p>
+                <p><small>SIRET : 123 456 789 00010</small></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
