@@ -39,14 +39,18 @@ app.register_blueprint(blog_bp)
 compress = Compress(app)  # Activation globale
 
 
+app.secret_key = '...'
+
 app.config['BABEL_DEFAULT_LOCALE'] = 'fr'
 app.config['BABEL_SUPPORTED_LOCALES'] = ['fr', 'en', 'es', 'de']
 
 babel = Babel()
 
+# fonction normale, PAS de décorateur !
 def get_locale():
     return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
 
+# initialisation avec la fonction de sélection de langue
 babel.init_app(app, locale_selector=get_locale)
 
 
@@ -155,11 +159,6 @@ def get_meta_tags(page):
         # Ajoutez d'autres pages...
     }
     return meta.get(page, meta['home'])
-
-# 🔁 Détection automatique de la langue du navigateur
-@babel.localeselector
-def get_locale():
-    return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
 
 
 @app.context_processor
