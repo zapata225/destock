@@ -1712,11 +1712,11 @@ def track_conversion():
     session['conversion'] = True  # Pour le pixel de conversion
     return redirect(url_for('merci'))
 @app.route('/conflit-iran-israel-2025') 
-def landing():
+def landing3():
     return render_template('landing1.html')
 
 @app.route('/destockage-urgence3')
-def landing():
+def landing2():
     return render_template('landing2.html')
 
 @app.after_request
