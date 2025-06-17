@@ -1711,7 +1711,7 @@ def guide():
 def track_conversion():
     session['conversion'] = True  # Pour le pixel de conversion
     return redirect(url_for('merci'))
-@app.route('/Destockage-Alimentaire-Grossiste')
+@app.route('/Destockage-Alimentaire-Grossiste') 
 def landing():
     return render_template('landing1.html')
 
@@ -2660,7 +2660,7 @@ def sitemap():
         '/liquidation-alimentaire-25mai2025', '/confirmation1',
         '/destockage-alimentaire-urgence-23mai2025', '/pourquoi-destockage-alimentaire',
         '/track-conversion', '/destockage-urgence', '/promo-urgence',
-        '/psg-champion-europe', '/meilleur-destockage-alimentaire', '/contact-urgence-25mai',
+        '/psg-champion-europe', '/meilleur-destockage-alimentaire', '/contact-urgence-25mai','/Destockage-Alimentaire-Grossiste','/destockage-urgence3',
         '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025','/destockage-alimentaire-professionnel1',
         '/product-feed.xml'
     ]
