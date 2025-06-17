@@ -26,6 +26,7 @@ from admin_auth import ADMIN_CREDENTIALS
 from data import products, categories  # Importez vos produits et catégories depuis data.py
 from blog_routes import blog_bp
 from flask_compress import Compress
+from flask_babel import Babel, _
 
 
 def last4(s):
@@ -1811,8 +1812,8 @@ def palette_destockage():
 @app.route('/be/destockage-alimentaire-belgique')
 def destockage_be_fr():
     return render_template('destockage_be_fr.html',
-                         title=_"Destockage Alimentaire en Belgique | Prix Discount"),
-                         meta_description=_("Destockage alimentaire en Belgique pour particuliers et professionnels. Livraison rapide dans toute la Belgique.")
+                         title=_("Destockage Alimentaire en Belgique | Prix Discount"),
+                         meta_description=_("Destockage alimentaire en Belgique pour particuliers et professionnels. Livraison rapide dans toute la Belgique."))
 
 @app.route('/nos-fournisseurs')
 def nosfournisseurs():
