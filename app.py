@@ -1711,9 +1711,13 @@ def guide():
 def track_conversion():
     session['conversion'] = True  # Pour le pixel de conversion
     return redirect(url_for('merci'))
-@app.route('/destockage-urgence')
+@app.route('/Destockage-Alimentaire-Grossiste')
 def landing():
-    return render_template('landing.html')
+    return render_template('landing1.html')
+
+@app.route('/destockage-urgence3')
+def landing():
+    return render_template('landing2.html')
 
 @app.after_request
 def add_header(response):
