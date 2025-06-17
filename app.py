@@ -2732,7 +2732,7 @@ def admin_dashboard():
 
 @app.route("/mentions-legales")
 def mentions_legales():
-    return render_template("mentions-legales1.html")
+    return render_template("mentions-legales.html")
 
 @app.route("/cgv")
 def cgv():
