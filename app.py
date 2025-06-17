@@ -38,17 +38,15 @@ app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bb
 app.register_blueprint(blog_bp)
 compress = Compress(app)  # Activation globale
 
-def get_locale():
-    return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
-
-babel = Babel()
-
-app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'fr'
 app.config['BABEL_SUPPORTED_LOCALES'] = ['fr', 'en', 'es', 'de']
 
-babel.init_app(app, locale_selector=get_locale)
+babel = Babel()
 
+def get_locale():
+    return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
+
+babel.init_app(app, locale_selector=get_locale)
 
 
 # Jinja filters
