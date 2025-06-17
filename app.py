@@ -37,6 +37,19 @@ app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
 app.register_blueprint(blog_bp)
 compress = Compress(app)  # Activation globale
+# 🌍 Langue par défaut
+app.config['BABEL_DEFAULT_LOCALE'] = 'fr'
+
+# 🌐 Liste étendue des langues supportées (ISO 639-1 codes)
+app.config['BABEL_SUPPORTED_LOCALES'] = [
+    'fr', 'en', 'es', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'ro',
+    'tr', 'zh', 'ja', 'ko', 'ar', 'cs', 'sv', 'fi', 'el', 'hu',
+    'he', 'da', 'no', 'uk', 'bg', 'hr', 'sk', 'lt', 'lv', 'th',
+    'vi', 'id', 'ms', 'hi', 'ur', 'fa'
+]
+
+babel = Babel(app)
+
 
 # Jinja filters
 app.jinja_env.globals.update(datetime=datetime)
@@ -142,6 +155,12 @@ def get_meta_tags(page):
         # Ajoutez d'autres pages...
     }
     return meta.get(page, meta['home'])
+
+# 🔁 Détection automatique de la langue du navigateur
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
+
 
 @app.context_processor
 def inject_schema():
