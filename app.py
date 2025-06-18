@@ -1760,6 +1760,17 @@ def liquidation():
 def destockage_alimentaire_espagne():
     return render_template('destockage_alimentaire_espagne.html')
 
+@app.route('/produits-belgique')
+def produits_belgique():
+    return render_template('produits_belgique.html')  # À créer séparément
+
+@app.route('/article-canicule-destockage')
+def article_canicule():
+    return render_template('article_canicule.html', 
+                         current_date=datetime.now().strftime("%d/%m/%Y"),
+                         temperature_max=38,
+                         departments_alert=27)
+
 # Formulaire de Contact
 @app.route('/contact-urgence-25mai')
 def contact_urgence():
