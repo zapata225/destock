@@ -1760,7 +1760,7 @@ def liquidation():
 def destockage_alimentaire_espagne():
     return render_template('destockage_alimentaire_espagne.html')
 
-@app.route('/produits-belgique')
+@app.route('/produits-belgique') 
 def produits_belgique():
     return render_template('produits_belgique.html')  # À créer séparément
 
@@ -1770,6 +1770,33 @@ def article_canicule():
                          current_date=datetime.now().strftime("%d/%m/%Y"),
                          temperature_max=38,
                          departments_alert=27)
+@app.route('/article-vague-chaleur-promotions')
+def article_canicule():
+    return render_template('articles/canicule_promotions.html')
+
+@app.route('/espagne')
+def espagne():
+    return render_template('espagne.html')
+
+@app.route('/article-destockage-belgique')
+def article_destockage():
+    return render_template('article_destockage.html')
+
+@app.route('/destockage-belgique-espagne')
+def destockage_be_es():
+    # Données dynamiques pour le template
+    context = {
+        'current_date': datetime.now().strftime("%d/%m/%Y"),
+        'promo_end': "30/06/2024",
+        'countries': ["Belgique", "Espagne"],
+        'cities_be': ["Bruxelles", "Liège", "Charleroi", "Namur", "Mons", "Louvain", "Anvers", "Gand", "Bruges"],
+        'cities_es': ["Madrid", "Barcelone", "Valence", "Séville", "Saragosse", "Malaga", "Bilbao"],
+        'phone_be': "+32 800 000 00",
+        'phone_es': "+34 900 000 000",
+        'discount': "70%"
+    }
+    return render_template('destockage_be_es.html', **context)
+
 
 # Formulaire de Contact
 @app.route('/contact-urgence-25mai')
@@ -2668,7 +2695,7 @@ def sitemap():
         '/psg-champion-europe', '/loi-anti-gaspillage-2025', '/blog/espana-descuentos-alimentarios',
         '/blog/belgique-bon-marche-nourriture', '/blog/suisse-pas-cher-nourriture',
         '/landing.html', '/urgence.html', '/fr/destockage_espagne.html',
-        '/liquidation-alimentaire-25mai2025', '/confirmation1',
+        '/liquidation-alimentaire-25mai2025', '/confirmation1','/produits-belgique','/article-canicule-destockage','/article-vague-chaleur-promotions','/destockage-belgique-espagne','/article-destockage-belgique','/espagne',
         '/destockage-alimentaire-urgence-23mai2025', '/pourquoi-destockage-alimentaire','/conflit-iran-israel-2025',
         '/track-conversion', '/destockage-urgence', '/promo-urgence',
         '/psg-champion-europe', '/meilleur-destockage-alimentaire', '/contact-urgence-25mai','/Destockage-Alimentaire-Grossiste','/destockage-urgence3',
