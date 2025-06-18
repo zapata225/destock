@@ -1782,21 +1782,6 @@ def espagne():
 def article_destockage():
     return render_template('article_destockage.html')
 
-@app.route('/destockage-belgique-espagne')
-def destockage_be_es():
-    # Données dynamiques pour le template
-    context = {
-        'current_date': datetime.now().strftime("%d/%m/%Y"),
-        'promo_end': "30/06/2024",
-        'countries': ["Belgique", "Espagne"],
-        'cities_be': ["Bruxelles", "Liège", "Charleroi", "Namur", "Mons", "Louvain", "Anvers", "Gand", "Bruges"],
-        'cities_es': ["Madrid", "Barcelone", "Valence", "Séville", "Saragosse", "Malaga", "Bilbao"],
-        'phone_be': "+32 800 000 00",
-        'phone_es': "+34 900 000 000",
-        'discount': "70%"
-    }
-    return render_template('destockage_be_es.html', **context)
-
 
 # Formulaire de Contact
 @app.route('/contact-urgence-25mai')
@@ -2679,6 +2664,13 @@ def admin_users():
         return redirect(url_for('admin_login'))
     
     return render_template('admin_users.html', users=users)
+
+@app.route('/destockage-belgique-espagne')
+def destockage_be_es():
+    return render_template('destockage_be_es.html', 
+                         current_year=datetime.now().year,
+                         promo_end="30/06/2024",
+                         countries=["Belgique", "Espagne"])
 
 @app.route('/sitemap.xml')
 def sitemap():
