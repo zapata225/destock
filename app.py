@@ -1770,9 +1770,7 @@ def article_canicule():
                          current_date=datetime.now().strftime("%d/%m/%Y"),
                          temperature_max=38,
                          departments_alert=27)
-@app.route('/article-vague-chaleur-promotions')
-def article_canicule():
-    return render_template('articles/canicule_promotions.html')
+
 
 @app.route('/espagne')
 def espagne():
