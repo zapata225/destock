@@ -898,28 +898,49 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 </style>
 
 
-    <!-- Mobile Menu bleu -->
-    <div class="mobile-menu" id="mobile-menu" style="background-color: #2a5bd7;">
-        <div class="mobile-menu-header">
-            <button class="close-mobile-menu" id="close-mobile-menu" aria-label="Fermer le menu mobile">
-                <i class="fas fa-times" style="color: white;"></i>
-            </button>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="{{ url_for('index') }}" style="color: white;">Accueil</a>
-            <a href="{{ url_for('product_list') }}" style="color: white;">Produits</a>
-            <a href="{{ url_for('view_cart') }}" style="color: white;">Panier</a>
-            <a href="{{ url_for('contact') }}" style="color: white;">Contact</a>
+    <!-- 📱 Menu Mobile Bleu Élégant -->
+        <div class="mobile-menu" id="mobile-menu" style="background: linear-gradient(135deg, #2a5bd7 0%, #1a3db0 100%); backdrop-filter: blur(10px);">
+            <div class="mobile-menu-header">
+                <button class="close-mobile-menu" id="close-mobile-menu" aria-label="Fermer le menu mobile" style="background: rgba(255,255,255,0.2); border-radius: 50%; padding: 10px;">
+                    <i class="fas fa-times" style="color: white; font-size: 1.5em;"></i>
+                </button>
+            </div>
             
-            {% if session.logged_in %}
-                <a href="{{ url_for('account') }}" style="color: white;">Mon Compte</a>
-                <a href="{{ url_for('logout') }}" style="color: white;">Déconnexion</a>
-            {% else %}
-                <a href="{{ url_for('login') }}" style="color: white;">Connexion</a>
-                <a href="{{ url_for('register') }}" style="color: white;">Inscription</a>
-            {% endif %}
+            <div class="mobile-menu-links" style="padding: 20px;">
+                <a href="{{ url_for('index') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    🏠 Accueil
+                </a>
+                <a href="{{ url_for('product_list') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    🛍️ Produits
+                </a>
+                <a href="{{ url_for('view_cart') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    🛒 Panier <span class="cart-count" style="background: #ff4757; border-radius: 50%; padding: 2px 8px; font-size: 0.8em;">0</span>
+                </a>
+                <a href="{{ url_for('contact') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    📩 Contact
+                </a>
+                
+                {% if session.logged_in %}
+                    <a href="{{ url_for('account') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        👤 Mon Compte
+                    </a>
+                    <a href="{{ url_for('logout') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em;">
+                        🔒 Déconnexion
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        🔑 Connexion
+                    </a>
+                    <a href="{{ url_for('register') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em;">
+                        ✨ Inscription
+                    </a>
+                {% endif %}
+            </div>
+            
+            <div style="padding: 20px; text-align: center; margin-top: 20px;">
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9em;">🌟 Découvrez notre collection exclusive</p>
+            </div>
         </div>
-    </div>
 
     <!-- Contenu principal -->
     <main>
