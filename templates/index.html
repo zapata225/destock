@@ -2952,6 +2952,461 @@ body {
         padding: 5px 12px;
     }
 }
+<style>
+/* Variables CSS modernes */
+:root {
+  --slider-height: 90vh;
+  --slide-padding: 6vw;
+  --glass-effect: rgba(255, 255, 255, 0.15);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+  --text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset moderne */
+.mega-slider-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Conteneur principal avec effet de lumière dynamique */
+.mega-slider-container {
+  position: relative;
+  height: var(--slider-height);
+  min-height: 800px;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+}
+
+/* Effet de lumière animé */
+.mega-slider-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotateLight 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Slider principal avec effet de perspective */
+.mega-slider {
+  display: flex;
+  height: 100%;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transition: var(--transition-smooth);
+}
+
+/* Slide individuelle avec effet 3D */
+.mega-slide {
+  min-width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Arrière-plan avec effet glassmorphisme */
+.slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: var(--glass-effect);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Contenu texte avec effet néon */
+.slide-content {
+  padding: 8% var(--slide-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #2d3748;
+  position: relative;
+  z-index: 2;
+  background: var(--glass-effect);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-right: var(--glass-border);
+}
+
+/* Typographie moderne avec variable font */
+.slide-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: var(--text-shadow);
+  letter-spacing: -0.05em;
+}
+
+/* Badge avec effet floating */
+.promo-badge {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  align-self: flex-start;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Mise en avant promo avec effet glow */
+.promo-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.discount {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(0, 172, 255, 0.3);
+  position: relative;
+}
+
+.discount::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--primary-color);
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Prix avec effet de soulignement animé */
+.price-container {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.price-group {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.current-price {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.current-price::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--secondary-color);
+  transition: width 0.6s ease-out;
+}
+
+.mega-slide:hover .current-price::after {
+  width: 100%;
+}
+
+/* Boutons avec effet holographique */
+.cta-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.primary-cta {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 10rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: var(--transition-smooth);
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.primary-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+
+.primary-cta:hover::before {
+  left: 100%;
+}
+
+/* Image produit avec effet parallax */
+.slide-image {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.1);
+}
+
+.mega-slide:hover .slide-image img {
+  transform: scale(1);
+}
+
+/* Tag flottant avec effet 3D */
+.floating-tag {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateZ(20px);
+  z-index: 10;
+}
+
+/* Contrôles du slider futuristes */
+.slider-controls {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.slider-prev, .slider-next {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--glass-effect);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: var(--glass-border);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.slider-prev:hover, .slider-next:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Pagination avec effet lumineux */
+.slider-pagination {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--primary-color);
+  transition: var(--transition-smooth);
+  opacity: 0;
+}
+
+.dot.active {
+  background: transparent;
+}
+
+.dot.active::after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+/* Miniatures holographiques */
+.slider-thumbnails {
+  position: absolute;
+  bottom: 3rem;
+  right: var(--slide-padding);
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.thumbnail {
+  width: 6rem;
+  height: 4rem;
+  background: var(--glass-effect);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: var(--glass-border);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+.thumbnail.active {
+  transform: translateY(-1rem);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail.active::before {
+  opacity: 0.8;
+}
+
+/* Responsive avec transitions fluides */
+@media (max-width: 1024px) {
+  .mega-slide {
+    grid-template-columns: 1fr;
+  }
+  
+  .slide-image {
+    order: -1;
+    height: 40vh;
+  }
+  
+  .slide-content {
+    border-right: none;
+    border-top: var(--glass-border);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --slider-height: auto;
+    --slide-padding: 1.5rem;
+  }
+  
+  .slide-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+  
+  .current-price {
+    font-size: 2.5rem;
+  }
+  
+  .discount {
+    font-size: 2rem;
+  }
+  
+  .cta-group {
+    flex-direction: column;
+  }
+  
+  .slider-thumbnails {
+    display: none;
+  }
+}
+</style>
 </style>
 
 <script>
