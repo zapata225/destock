@@ -1560,10 +1560,9 @@
     </form>
 </div>
 {% endblock %}
-
 {% block extra_js %}
 <script>
-    // Changement d'image principale
+    // --- Changement d'image principale ---
     function changeMainImage(thumbnail, newSrc) {
         const mainImg = document.getElementById('main-image');
         mainImg.style.opacity = '0';
@@ -1575,7 +1574,7 @@
         thumbnail.classList.add('active');
     }
 
-    // Affichage des détails complets
+    // --- Affichage des détails complets ---
     function toggleDetails() {
         const fullDetails = document.getElementById('fullDetails');
         const readMoreBtn = document.querySelector('.read-more');
@@ -1586,7 +1585,7 @@
         }
     }
 
-    // Gestion du formulaire d'avis
+    // --- Formulaire d'avis ---
     document.getElementById('btn-open-review-form').addEventListener('click', function(e) {
         e.preventDefault();
         const reviewForm = document.getElementById('reviewForm');
@@ -1624,7 +1623,7 @@
             <h4>${title}</h4>
             <p>"${text}"</p>
         `;
-        
+
         document.getElementById('reviewsList').prepend(newReview);
         this.reset();
         document.getElementById('reviewForm').classList.remove('active');
@@ -1632,7 +1631,7 @@
         updatePagination();
     });
 
-    // Gestion du modal pour les preuves clients
+    // --- Modal pour preuves clients ---
     document.querySelectorAll('.proof-image-container').forEach(container => {
         container.addEventListener('click', function() {
             const modal = document.createElement('div');
@@ -1649,7 +1648,7 @@
         });
     });
 
-    // Pagination des avis
+    // --- Pagination des avis ---
     const reviewsPerPage = 5;
     function updatePagination() {
         const reviewsList = document.getElementById('reviewsList');
@@ -1686,7 +1685,7 @@
         showPage(1);
     }
 
-    // Animation au chargement
+    // --- Animation au chargement + Ajout à panier JS ---
     document.addEventListener('DOMContentLoaded', function() {
         const elements = document.querySelectorAll('.product-gallery, .product-info');
         elements.forEach((el, index) => {
@@ -1699,13 +1698,14 @@
             }, 100 + index * 100);
         });
 
-        const addToCartBtn = document.querySelector('.btn-add-to-cart');
-        if (addToCartBtn) {
+        // Corrigé : animation pour tous les boutons "ajouter au panier"
+        document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
             setTimeout(() => {
-                addToCartBtn.style.animation = 'pulse 2s infinite';
+                btn.style.animation = 'pulse 2s infinite';
             }, 1500);
-        }
+        });
 
+        // Zoom image (déjà bien)
         const mainImageContainer = document.querySelector('.main-image-container');
         const mainImage = document.getElementById('main-image');
         if (mainImageContainer && mainImage) {
@@ -1723,6 +1723,7 @@
             });
         }
 
+        // Animation produit similaire
         const productCards = document.querySelectorAll('.product-card');
         productCards.forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
@@ -1730,6 +1731,15 @@
         });
 
         updatePagination();
+
+        // Debug mobile (optionnel) : tester si le bouton mobile fonctionne
+        const mobileForm = document.querySelector('.mobile-cta form');
+        if (mobileForm) {
+            mobileForm.addEventListener('submit', function () {
+                console.log("Formulaire mobile soumis !");
+            });
+        }
     });
 </script>
 {% endblock %}
+
