@@ -2952,8 +2952,9 @@ body {
         padding: 5px 12px;
     }
 }
+</style>
 <style>
-/* Variables CSS modernes */
+/* Variables modernes */
 :root {
   --slider-height: 90vh;
   --slide-padding: 6vw;
@@ -2970,44 +2971,28 @@ body {
   box-sizing: border-box;
 }
 
-/* Conteneur principal avec effet de lumière dynamique */
+/* Conteneur principal - Style Glassmorphism */
 .mega-slider-container {
   position: relative;
   height: var(--slider-height);
-  min-height: 800px;
+  min-height: 600px;
   overflow: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }
 
-/* Effet de lumière animé */
-.mega-slider-container::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: rotateLight 20s linear infinite;
-  z-index: 0;
-}
-
-@keyframes rotateLight {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Slider principal avec effet de perspective */
+/* Slider principal - Effet 3D */
 .mega-slider {
   display: flex;
   height: 100%;
-  perspective: 1200px;
-  transform-style: preserve-3d;
   transition: var(--transition-smooth);
+  perspective: 1000px;
 }
 
-/* Slide individuelle avec effet 3D */
+/* Slide individuelle - Style Neumorphism */
 .mega-slide {
   min-width: 100%;
   height: 100%;
@@ -3015,25 +3000,9 @@ body {
   grid-template-columns: 1fr 1fr;
   position: relative;
   transform-style: preserve-3d;
-  will-change: transform;
 }
 
-/* Arrière-plan avec effet glassmorphisme */
-.slide-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background: var(--glass-effect);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: var(--glass-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* Contenu texte avec effet néon */
+/* Contenu texte - Style Glassmorphism */
 .slide-content {
   padding: 8% var(--slide-padding);
   display: flex;
@@ -3043,162 +3012,12 @@ body {
   position: relative;
   z-index: 2;
   background: var(--glass-effect);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-right: var(--glass-border);
 }
 
-/* Typographie moderne avec variable font */
-.slide-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: var(--text-shadow);
-  letter-spacing: -0.05em;
-}
-
-/* Badge avec effet floating */
-.promo-badge {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 10rem;
-  font-weight: 700;
-  display: inline-block;
-  margin-bottom: 2rem;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  align-self: flex-start;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(0);
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Mise en avant promo avec effet glow */
-.promo-highlight {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.discount {
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--primary-color);
-  text-shadow: 0 0 10px rgba(0, 172, 255, 0.3);
-  position: relative;
-}
-
-.discount::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: var(--primary-color);
-  filter: blur(15px);
-  z-index: -1;
-  opacity: 0.3;
-}
-
-/* Prix avec effet de soulignement animé */
-.price-container {
-  margin: 2rem 0;
-  position: relative;
-}
-
-.price-group {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.current-price {
-  font-size: 4rem;
-  font-weight: 800;
-  color: var(--primary-color);
-  position: relative;
-}
-
-.current-price::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--secondary-color);
-  transition: width 0.6s ease-out;
-}
-
-.mega-slide:hover .current-price::after {
-  width: 100%;
-}
-
-/* Boutons avec effet holographique */
-.cta-group {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-}
-
-.primary-cta {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 10rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  transition: var(--transition-smooth);
-  font-size: 1rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: none;
-}
-
-.primary-cta::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0) 45%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 55%
-  );
-  transform: rotate(30deg);
-  transition: all 0.3s;
-}
-
-.primary-cta:hover::before {
-  left: 100%;
-}
-
-/* Image produit avec effet parallax */
+/* Image produit - Effet Parallax */
 .slide-image {
   position: relative;
   overflow: hidden;
@@ -3210,36 +3029,127 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: scale(1.1);
+  transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
-.mega-slide:hover .slide-image img {
-  transform: scale(1);
+/* Typographie moderne */
+.slide-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #2d3748, #4a5568);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.05em;
 }
 
-/* Tag flottant avec effet 3D */
-.floating-tag {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+.promo-badge {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 10rem;
+  padding: 8px 20px;
+  border-radius: 9999px;
   font-weight: 700;
-  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transform: translateZ(20px);
-  z-index: 10;
+  letter-spacing: 1.5px;
+  align-self: flex-start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contrôles du slider futuristes */
+/* Mise en avant prix - Style moderne */
+.price-container {
+  margin: 1.5rem 0;
+  background: var(--glass-effect);
+  backdrop-filter: blur(5px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: var(--glass-border);
+}
+
+.current-price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.old-price {
+  font-size: 1.25rem;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* Boutons - Style floating */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primary-cta {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition-smooth);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: none;
+  font-size: 0.9rem;
+}
+
+.secondary-cta {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--primary-color);
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px);
+}
+
+/* Hover effects */
+.primary-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Floating tag - Style moderne */
+.floating-tag {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 3;
+  backdrop-filter: blur(5px);
+}
+
+/* Contrôles - Style minimaliste */
 .slider-controls {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -3249,129 +3159,79 @@ body {
 }
 
 .slider-prev, .slider-next {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  background: var(--glass-effect);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: var(--glass-border);
-  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--transition-smooth);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.slider-prev:hover, .slider-next:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* Pagination avec effet lumineux */
 .slider-pagination {
   display: flex;
-  gap: 0.8rem;
+  gap: 0.5rem;
 }
 
 .dot {
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
   transition: var(--transition-smooth);
-  position: relative;
-}
-
-.dot::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: var(--primary-color);
-  transition: var(--transition-smooth);
-  opacity: 0;
 }
 
 .dot.active {
-  background: transparent;
+  background: white;
+  width: 1.25rem;
+  border-radius: 9999px;
 }
 
-.dot.active::after {
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-}
-
-/* Miniatures holographiques */
+/* Miniatures - Style carte */
 .slider-thumbnails {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   right: var(--slide-padding);
   display: flex;
-  gap: 0.8rem;
+  gap: 0.75rem;
   z-index: 10;
 }
 
 .thumbnail {
-  width: 6rem;
+  width: 4rem;
   height: 4rem;
-  background: var(--glass-effect);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: var(--glass-border);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: white;
+  border-radius: 12px;
+  overflow: hidden;
   cursor: pointer;
   transition: var(--transition-smooth);
-  overflow: hidden;
-  position: relative;
-}
-
-.thumbnail::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  opacity: 0;
-  transition: var(--transition-smooth);
-  z-index: -1;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .thumbnail.active {
-  transform: translateY(-1rem);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: white;
+  transform: scale(1.1);
 }
 
-.thumbnail.active::before {
-  opacity: 0.8;
+/* Animations modernes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Responsive avec transitions fluides */
+/* Responsive Mobile First */
 @media (max-width: 1024px) {
   .mega-slide {
     grid-template-columns: 1fr;
+    grid-template-rows: 40vh auto;
   }
   
   .slide-image {
     order: -1;
-    height: 40vh;
   }
   
   .slide-content {
@@ -3386,16 +3246,21 @@ body {
     --slide-padding: 1.5rem;
   }
   
+  .mega-slider-container {
+    margin: 10px;
+    border-radius: 16px;
+  }
+  
   .slide-title {
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-size: 1.75rem;
   }
   
   .current-price {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
-  .discount {
-    font-size: 2rem;
+  .price-container {
+    padding: 1rem;
   }
   
   .cta-group {
@@ -3405,10 +3270,31 @@ body {
   .slider-thumbnails {
     display: none;
   }
+  
+  .slider-controls {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-title {
+    font-size: 1.5rem;
+  }
+  
+  .current-price {
+    font-size: 1.75rem;
+  }
+  
+  .primary-cta, .secondary-cta {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .mega-slide {
+    grid-template-rows: 30vh auto;
+  }
 }
 </style>
-</style>
-
 <script>
 // Script pour le fonctionnement du slider (identique à la version précédente)
 document.addEventListener('DOMContentLoaded', function() {
