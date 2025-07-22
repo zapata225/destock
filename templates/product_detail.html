@@ -990,6 +990,36 @@
   padding: 0;
   width: 100%;
 }
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 10px 16px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+
+.mobile-cta form {
+  margin: 0;
+}
+
+.mobile-cta .btn-add-to-cart {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+body {
+  padding-bottom: 80px; /* évite que le bouton cache le contenu */
+}
 
 </style>
 {% endblock %}
