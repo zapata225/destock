@@ -2877,6 +2877,81 @@ body {
         font-size: 2.5rem;
     }
 }
+/* Modifications pour améliorer le responsive mobile */
+@media (max-width: 768px) {
+    :root {
+        --slider-height: auto;
+        --slide-padding: 20px; /* Plus d'espace sur les côtés */
+    }
+    
+    /* Ajustements des tailles de texte */
+    .slide-title {
+        font-size: clamp(1.5rem, 6vw, 2rem); /* Taille réduite pour mobile */
+        line-height: 1.2;
+    }
+    
+    .discount {
+        font-size: 1.8rem; /* Réduction de la taille */
+    }
+    
+    .current-price {
+        font-size: 2rem; /* Taille plus raisonnable pour mobile */
+    }
+    
+    .old-price {
+        font-size: 1.2rem;
+    }
+    
+    .offer-features li {
+        font-size: 0.9rem; /* Légère réduction */
+    }
+    
+    .promo-text, .economy {
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustement des boutons */
+    .cta-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .primary-cta, .secondary-cta {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        justify-content: center;
+    }
+    
+    /* Réduction de la hauteur de l'image */
+    .slide-image {
+        height: 30vh;
+    }
+    
+    /* Ajustement des miniatures */
+    .slider-thumbnails {
+        display: none; /* Optionnel - cacher sur mobile si trop encombrant */
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+    .slide-title {
+        font-size: 1.3rem;
+    }
+    
+    .current-price {
+        font-size: 1.8rem;
+    }
+    
+    .discount {
+        font-size: 1.5rem;
+    }
+    
+    .promo-badge {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+}
 </style>
 
 <script>
