@@ -109,7 +109,7 @@
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="cOIYSP/i6TuKGeCyBL8rgA" async></script>
 
         {% block extra_css %}{% endblock %}
-    </head>
+</head>
 <style>/* Variables */
     :root {
         --primary-blue: #2563eb;
@@ -710,46 +710,193 @@
 
     </style>
 <body>
-    <!-- Navbar bleue -->
-    <nav class="navbar" style="background-color: #2a5bd7; color: white;">
-        <div class="container">
-            <a href="{{ url_for('index') }}" class="logo">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Destockage Alimentaire">
-                <h1 style="color: white;">Destockage Alimentaire</h1>
+   <!-- 🔵 NAVBAR ULTRA PREMIUM - DESTOCKAGE ALIMENTAIRE 🛒 -->
+<nav class="navbar" style="
+background: linear-gradient(135deg, #2a5bd7 0%, #1a3fa8 100%);
+color: white;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+backdrop-filter: blur(8px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+">
+<div class="container" style="padding: 0 2rem;">
+    <!-- 🏷️ Logo + Nom décalé à gauche -->
+    <a href="{{ url_for('index') }}" class="logo" style="margin-right: auto; transform: translateX(-15px);">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" 
+             alt="🛍️ Logo Destockage Alimentaire" 
+             style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); height: 40px;">
+        <h1 style="
+            color: white; 
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            margin-left: 10px;
+        ">🍏 DÉSTOCK'FOOD</h1>
+    </a>
+    
+    <!-- 🔗 Menu Principal -->
+    <div class="nav-links" style="gap: 1.5rem;">
+        <a href="{{ url_for('index') }}" class="nav-link">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">Accueil</span>
+        </a>
+        <a href="{{ url_for('product_list') }}" class="nav-link">
+            <span class="nav-icon">📦</span>
+            <span class="nav-text">Produits</span>
+        </a>
+        <a href="{{ url_for('view_cart') }}" class="nav-link">
+            <span class="nav-icon">🛒</span>
+            <span class="nav-text">Panier</span>
+        </a>
+        <a href="{{ url_for('contact') }}" class="nav-link">
+            <span class="nav-icon">📞</span>
+            <span class="nav-text">Contact</span>
+        </a>
+        
+        {% if session.logged_in %}
+            <div class="user-dropdown">
+                <a href="{{ url_for('account') }}" class="nav-link premium">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Mon Espace</span>
+                </a>
+                <a href="{{ url_for('logout') }}" class="nav-link logout">
+                    <span class="nav-icon">🔒</span>
+                    <span class="nav-text">Déconnexion</span>
+                </a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-link">
+                <span class="nav-icon">🔑</span>
+                <span class="nav-text">Connexion</span>
             </a>
-            
-            <div class="nav-links">
-                <a href="{{ url_for('index') }}" style="color: white;">Accueil</a>
-                <a href="{{ url_for('product_list') }}" style="color: white;">Produits</a>
-                <a href="{{ url_for('view_cart') }}" style="color: white;">Panier</a>
-                <a href="{{ url_for('contact') }}" style="color: white;">Contact</a>
-                
-                {% if session.logged_in %}
-                    <a href="{{ url_for('account') }}" style="color: white;">Mon Compte</a>
-                    <a href="{{ url_for('logout') }}" style="color: white;">Déconnexion</a>
+            <a href="{{ url_for('register') }}" class="nav-btn" style="
+                background: linear-gradient(90deg, #FF6B00 0%, #FF8E00 100%);
+                padding: 0.6rem 1.8rem;
+                border-radius: 50px;
+                font-weight: 600;
+                box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            ">
+                ✨ S'inscrire
+            </a>
+        {% endif %}
+    </div>
+    
+    <!-- 🛍️ Panier avec micro-interaction -->
+    <div class="cart-icon" id="cart-icon" style="margin-left: 2rem;">
+        <div class="cart-container" style="position: relative;">
+            <i class="fas fa-shopping-cart" style="font-size: 1.4rem; color: white;"></i>
+            <span class="cart-count" id="cart-count" style="
+                position: absolute;
+                top: -8px;
+                right: -12px;
+                background: #FF4757;
+                color: white;
+                border-radius: 50%;
+                width: 22px;
+                height: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.75rem;
+                font-weight: bold;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            ">
+                {% if 'cart' in session %}
+                    {{ session.cart.values()|sum }}
                 {% else %}
-                    <a href="{{ url_for('login') }}" style="color: white;">Connexion</a>
-                    <a href="{{ url_for('register') }}" style="color: white; background-color: #1e4aba; padding: 8px 20px; border-radius: 50px;">Inscription</a>
+                    0
                 {% endif %}
-            </div>
-            
-            <div class="cart-icon" id="cart-icon" style="color: white;">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cart-count">
-                    {% if 'cart' in session %}
-                        {{ session.cart.values()|sum }}
-                    {% else %}
-                        0
-                    {% endif %}
-                </span>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fas fa-bars" style="color: white;" aria-hidden="true"></i>
-            </button>
-            
+            </span>
         </div>
-    </nav>
+    </div>
+    
+    <!-- 📱 Menu Burger Animé -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" style="
+        background: transparent;
+        border: none;
+        margin-left: 1.5rem;
+    ">
+        <div class="hamburger" style="
+            width: 25px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        ">
+            <span style="
+                display: block;
+                height: 3px;
+                width: 100%;
+                background: white;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            "></span>
+            <span style="
+                display: block;
+                height: 3px;
+                width: 80%;
+                background: white;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            "></span>
+            <span style="
+                display: block;
+                height: 3px;
+                width: 60%;
+                background: white;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            "></span>
+        </div>
+    </button>
+</div>
+</nav>
+
+<!-- ✅ STYLES NAVBAR -->
+<style>
+.nav-link {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none;
+}
+
+.nav-link .nav-text,
+.nav-link .nav-icon {
+    color: white;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4) !important;
+}
+</style>
+
 
     <!-- Mobile Menu bleu -->
     <div class="mobile-menu" id="mobile-menu" style="background-color: #2a5bd7;">
@@ -839,7 +986,7 @@
                         <div class="contact-item floating-effect whatsapp-contact">
                             <a href="https://wa.me/33612345678" target="_blank" rel="noopener">
                                 <i class="fab fa-whatsapp icon-scale"></i>
-                                <span class="whatsapp-number">+33 7 57 82 66 06</span>
+                                <span class="whatsapp-number">+33 6 12 34 56 78</span>
                             </a>
                         </div>
                         
@@ -847,7 +994,7 @@
                     
                     <div class="contact-item floating-effect">
                         <i class="fas fa-envelope icon-scale"></i>
-                        <span>contact@destockagealimentaire.fr</span>
+                        <span>contact@destockage-alimentaire.com</span>
                     </div>
                 </div>
                 
@@ -887,7 +1034,7 @@
         <!-- Deuxième ligne : Copyright -->
         <div class="footer-bottom">
             <div class="copyright">
-                © 2025 Destockage Alimentaire. Tous droits réservés.
+                © 2024 Destockage Alimentaire. Tous droits réservés.
             </div>
             <div class="legal-links">
                 <a href="/mentions-legales" class="link-hover-effect">Mentions légales</a>                <span class="separator-dot">•</span>
@@ -1809,7 +1956,568 @@
             </div>
         </div>
     </div>
+    <!-- Ajoutez ceci dans votre base.html avant la fermeture du body -->
+<div class="purchase-notification" id="purchase-notification">
+    <div class="notification-header">
+        <span>🛒 Achat récent</span>
+        <button class="close-notification" id="close-notification">&times;</button>
+    </div>
+    <div class="notification-content">
+        <div class="notification-avatar">
+            <img src="{{ url_for('static', filename='images/avatars/avatar1.jpg') }}" alt="Client">
+        </div>
+        <div class="notification-text">
+            <p><strong>Un client</strong> vient d'acheter <a href="#" class="product-link">Produit XYZ</a></p>
+            <small class="notification-time">Il y a 2 minutes</small>
+        </div>
+    </div>
+</div>
 
+<style>
+    /* Style du popup de notification */
+    .purchase-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 320px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        z-index: 1000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .purchase-notification.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .notification-header {
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        color: white;
+        padding: 12px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+    }
+    
+    .close-notification {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+    }
+    
+    .notification-content {
+        display: flex;
+        padding: 16px;
+        align-items: center;
+    }
+    
+    .notification-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+    
+    .notification-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .notification-text {
+        flex-grow: 1;
+    }
+    
+    .notification-text p {
+        margin: 0;
+        color: #374151;
+        line-height: 1.4;
+    }
+    
+    .notification-text .product-link {
+        color: #4f46e5;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    
+    .notification-text .product-link:hover {
+        color: #7c3aed;
+        text-decoration: underline;
+    }
+    
+    .notification-time {
+        color: #9ca3af;
+        font-size: 12px;
+        display: block;
+        margin-top: 4px;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .pulse {
+        animation: pulse 1.5s infinite;
+    }
+</style>
+<!-- Cookie Consent Popup -->
+<div class="cookie-consent" id="cookie-consent">
+    <div class="cookie-container">
+      <div class="cookie-header">
+        <h3>🍪 Préférences de confidentialité</h3>
+        <p>Nous utilisons des cookies pour améliorer votre expérience</p>
+      </div>
+      
+      <div class="cookie-content">
+        <div class="cookie-toggle">
+          <div class="toggle-item">
+            <div class="toggle-header">
+              <span class="toggle-title">Cookies essentiels</span>
+              <label class="switch">
+                <input type="checkbox" checked disabled>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <p class="toggle-desc">Nécessaires au fonctionnement du site (toujours activés)</p>
+          </div>
+          
+          <div class="toggle-item">
+            <div class="toggle-header">
+              <span class="toggle-title">Cookies de performance</span>
+              <label class="switch">
+                <input type="checkbox" id="perf-cookies" checked>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <p class="toggle-desc">Analytique anonyme pour améliorer notre site</p>
+          </div>
+          
+          <div class="toggle-item">
+            <div class="toggle-header">
+              <span class="toggle-title">Cookies marketing</span>
+              <label class="switch">
+                <input type="checkbox" id="marketing-cookies">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <p class="toggle-desc">Personnalisation des publicités et contenus</p>
+          </div>
+        </div>
+        
+        <div class="cookie-buttons">
+          <button class="cookie-btn secondary" id="reject-cookies">Refuser</button>
+          <button class="cookie-btn" id="accept-cookies">Tout accepter</button>
+          <button class="cookie-btn primary" id="save-cookies">Enregistrer mes préférences</button>
+        </div>
+        
+        <div class="cookie-links">
+          <a href="/politique-confidentialite" target="_blank">Politique de confidentialité</a>
+          <a href="/mentions-legales" target="_blank">Mentions légales</a>
+          <a href="/conditions-generales" target="_blank">CGU</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    /* Style du popup cookies */
+    .cookie-consent {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      max-width: 420px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      z-index: 9999;
+      transform: translateY(120%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+      opacity: 0;
+    }
+    
+    .cookie-consent.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .cookie-container {
+      padding: 20px;
+    }
+    
+    .cookie-header {
+      margin-bottom: 20px;
+    }
+    
+    .cookie-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cookie-header p {
+      margin: 8px 0 0;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+    
+    .cookie-toggle {
+      margin: 20px 0;
+    }
+    
+    .toggle-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    
+    .toggle-item:last-child {
+      border-bottom: none;
+    }
+    
+    .toggle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    
+    .toggle-title {
+      font-weight: 500;
+      color: #1f2937;
+      font-size: 0.95rem;
+    }
+    
+    .toggle-desc {
+      margin: 0;
+      color: #6b7280;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    
+    /* Switch toggle style */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 42px;
+      height: 22px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e5e7eb;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+    }
+    
+    input:checked + .slider {
+      background-color: #4f46e5;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    
+    input:disabled + .slider {
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    }
+    
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    
+    /* Boutons */
+    .cookie-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .cookie-btn {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      flex-grow: 1;
+    }
+    
+    .cookie-btn.secondary {
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+    
+    .cookie-btn.secondary:hover {
+      background: #e5e7eb;
+    }
+    
+    .cookie-btn.primary {
+      background: #4f46e5;
+      color: white;
+    }
+    
+    .cookie-btn.primary:hover {
+      background: #4338ca;
+    }
+    
+    /* Liens */
+    .cookie-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    
+    .cookie-links a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    
+    .cookie-links a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 480px) {
+      .cookie-consent {
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        bottom: 10px;
+      }
+      
+      .cookie-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+  
+  <script>
+    // Gestion des cookies
+    document.addEventListener('DOMContentLoaded', function() {
+      const cookieConsent = document.getElementById('cookie-consent');
+      const perfCookies = document.getElementById('perf-cookies');
+      const marketingCookies = document.getElementById('marketing-cookies');
+      const acceptBtn = document.getElementById('accept-cookies');
+      const rejectBtn = document.getElementById('reject-cookies');
+      const saveBtn = document.getElementById('save-cookies');
+      
+      // Vérifie si les préférences existent déjà
+      if (!getCookie('cookie_consent')) {
+        setTimeout(() => {
+          cookieConsent.classList.add('show');
+        }, 1500);
+      }
+      
+      // Tout accepter
+      acceptBtn.addEventListener('click', function() {
+        setCookie('cookie_consent', 'all', 365);
+        setCookie('perf_cookies', 'true', 365);
+        setCookie('marketing_cookies', 'true', 365);
+        cookieConsent.classList.remove('show');
+        loadCookies();
+      });
+      
+      // Tout refuser
+      rejectBtn.addEventListener('click', function() {
+        setCookie('cookie_consent', 'necessary', 365);
+        setCookie('perf_cookies', 'false', 365);
+        setCookie('marketing_cookies', 'false', 365);
+        cookieConsent.classList.remove('show');
+        loadCookies();
+      });
+      
+      // Enregistrer les préférences
+      saveBtn.addEventListener('click', function() {
+        setCookie('cookie_consent', 'custom', 365);
+        setCookie('perf_cookies', perfCookies.checked ? 'true' : 'false', 365);
+        setCookie('marketing_cookies', marketingCookies.checked ? 'true' : 'false', 365);
+        cookieConsent.classList.remove('show');
+        loadCookies();
+      });
+      
+      // Fonctions utilitaires
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+      }
+      
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      
+      function loadCookies() {
+        // Charger les scripts en fonction des préférences
+        const perfAllowed = getCookie('perf_cookies') === 'true';
+        const marketingAllowed = getCookie('marketing_cookies') === 'true';
+        
+        if (perfAllowed) {
+          // Charger Google Analytics par exemple
+          console.log('Performance cookies loaded');
+        }
+        
+        if (marketingAllowed) {
+          // Charger Facebook Pixel par exemple
+          console.log('Marketing cookies loaded');
+        }
+      }
+      
+      // Charger les cookies au démarrage si consentement donné
+      if (getCookie('cookie_consent')) {
+        loadCookies();
+      }
+    });
+  </script>
+<script>
+    // Liste de produits et messages de notification
+    const notifications = [
+        { 
+            productId: 1, 
+            productName: "Pack de 24 bouteilles d'eau minérale", 
+            time: "1 minute", 
+            avatar: "avatar1.jpg" 
+        },
+        { 
+            productId: 2, 
+            productName: "Café en grains premium 1kg", 
+            time: "3 minutes", 
+            avatar: "avatar2.jpg" 
+        },
+        { 
+            productId: 3, 
+            productName: "Pâtes italiennes bio", 
+            time: "5 minutes", 
+            avatar: "avatar3.jpg" 
+        },
+        { 
+            productId: 4, 
+            productName: "Huile d'olive extra vierge", 
+            time: "10 minutes", 
+            avatar: "avatar4.jpg" 
+        },
+        { 
+            productId: 5, 
+            productName: "Chocolat noir 70% cacao", 
+            time: "15 minutes", 
+            avatar: "avatar5.jpg" 
+        }
+    ];
+    
+    // Clients aléatoires
+    const clients = [
+        "Jean D.", "Marie L.", "Thomas P.", "Sophie M.", "Pierre G.", 
+        "Amélie R.", "Nicolas B.", "Laura T.", "David C.", "Élodie F."
+    ];
+    
+    // Fonction pour afficher une notification
+    function showRandomNotification() {
+        const notification = document.getElementById('purchase-notification');
+        const randomNotif = notifications[Math.floor(Math.random() * notifications.length)];
+        const randomClient = clients[Math.floor(Math.random() * clients.length)];
+        
+        // Mise à jour du contenu
+        notification.querySelector('.notification-avatar img').src = 
+            `{{ url_for('static', filename='images/avatars/') }}${randomNotif.avatar}`;
+        
+        notification.querySelector('.notification-text p').innerHTML = 
+            `<strong>${randomClient}</strong> vient d'acheter <a href="/produit/${randomNotif.productId}-${slugify(randomNotif.productName)}" class="product-link">${randomNotif.productName}</a>`;
+        
+        notification.querySelector('.notification-time').textContent = 
+            `Il y a ${randomNotif.time}`;
+        
+        // Afficher la notification
+        notification.classList.add('show');
+        
+        // Masquer après 8 secondes
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 8000);
+    }
+    
+    // Fonction pour slugifier (identique à celle de votre backend)
+    function slugify(text) {
+        text = text.toLowerCase();
+        text = text.replace(/[àâä]/g, 'a');
+        text = text.replace(/[éèêë]/g, 'e');
+        text = text.replace(/[îï]/g, 'i');
+        text = text.replace(/[ôö]/g, 'o');
+        text = text.replace(/[ùûü]/g, 'u');
+        text = text.replace(/ç/g, 'c');
+        text = text.replace(/[^a-z0-9]+/g, '-');
+        return text.trim('-');
+    }
+    
+    // Fermer la notification
+    document.getElementById('close-notification')?.addEventListener('click', function() {
+        document.getElementById('purchase-notification').classList.remove('show');
+    });
+    
+    // Afficher une première notification après 5 secondes
+    setTimeout(showRandomNotification, 5000);
+    
+    // Afficher des notifications aléatoires toutes les 30-60 secondes
+    setInterval(() => {
+        // 70% de chance d'afficher une notification
+        if (Math.random() > 0.3) {
+            showRandomNotification();
+        }
+    }, 30000 + Math.random() * 30000);
+</script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script>
         // Variables globales pour gérer l'état du panier
