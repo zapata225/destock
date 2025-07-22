@@ -394,11 +394,295 @@
         color: var(--primary);
     }
 
+    /* ===== FORMULAIRE D'AVIS ===== */
+    .review-form {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(0,0,0,0.05);
+        display: none;
+    }
+
+    .review-form.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .review-form h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .review-form h3 i {
+        color: var(--primary);
+    }
+
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--dark);
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        transition: var(--transition);
+    }
+
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        outline: none;
+    }
+
+    .star-rating {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 1.5rem;
+        color: #ddd;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: #FFD700;
+    }
+
+    .star-rating input:checked + label {
+        color: #FFD700;
+    }
+
+    .btn-submit-review {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-submit-review:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Pagination des avis */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 0.5rem;
+    }
+
+    .page-link {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 0.25rem;
+        color: var(--dark);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .page-link:hover,
+    .page-link.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+
+    /* Avis vérifiés */
+    .verified-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        background: rgba(76, 201, 240, 0.1);
+        color: var(--success);
+        padding: 0.25rem 0.5rem;
+        border-radius: 2rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-left: 0.5rem;
+    }
+
+    /* ===== PREUVES CLIENTS ===== */
+    .customer-proof-section {
+        margin: 3rem 0;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .proof-title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    .proof-card {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+    }
+
+    .proof-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .proof-image-container {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .proof-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .proof-card:hover .proof-image {
+        transform: scale(1.05);
+    }
+
+    .proof-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .proof-card:hover .proof-overlay {
+        opacity: 1;
+    }
+
+    .proof-overlay i {
+        color: white;
+        font-size: 2rem;
+        transform: scale(0.8);
+        transition: var(--transition);
+    }
+
+    .proof-card:hover .proof-overlay i {
+        transform: scale(1);
+    }
+
+    .proof-content {
+        padding: 1.5rem;
+    }
+
+    .proof-stars {
+        color: #FFD700;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .proof-content p {
+        font-style: italic;
+        color: var(--dark);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .proof-author {
+        font-weight: 600;
+        color: var(--primary);
+        font-size: 0.9rem;
+    }
+
+    .proof-date {
+        font-size: 0.75rem;
+        color: var(--gray);
+        margin-top: 0.25rem;
+    }
+
+    /* Modal pour agrandir les images */
+    .proof-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .proof-modal img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 0.5rem;
+    }
+
+    .proof-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
     /* ===== REVIEWS SECTION ===== */
     .reviews-section {
         margin-top: 3rem;
         padding-top: 2rem;
         border-top: 1px solid rgba(0,0,0,0.05);
+        grid-column: 1 / -1;
     }
 
     .reviews-header {
@@ -658,6 +942,10 @@
         .btn-add-to-cart.desktop {
             display: none;
         }
+
+        .proof-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     @media (min-width: 769px) {
@@ -687,6 +975,7 @@
 
 {% block content %}
 <div class="product-detail-container">
+    <!-- Galerie produit -->
     <div class="product-gallery">
         {% if product.featured %}
         <div class="product-badge">MEILLEURE OFFRE</div>
@@ -707,6 +996,7 @@
         </div>
     </div>
 
+    <!-- Informations produit -->
     <div class="product-info">
         <h1 class="product-title">{{ product.name }}</h1>
         
@@ -754,7 +1044,7 @@
             </span>
         </div>
 
-        <!-- Description avec bouton "Voir plus" -->
+        <!-- Description -->
         <div class="product-description">
             <h3 class="description-title">
                 <i class="fas fa-align-left"></i> Description
@@ -859,7 +1149,7 @@
             </div>
         </div>
 
-        <!-- Détails complets (cachés par défaut) -->
+        <!-- Détails complets -->
         <div class="full-details" id="fullDetails">
             <h3 class="description-title">
                 <i class="fas fa-info-circle"></i> Fiche technique complète
@@ -915,6 +1205,72 @@
         </div>
     </div>
 
+    <!-- Section preuves clients -->
+    <div class="customer-proof-section">
+        <h3 class="proof-title">
+            <i class="fas fa-camera-retro"></i> Nos clients témoignent
+        </h3>
+        
+        <div class="proof-grid">
+            <!-- Preuve client 1 -->
+            <div class="proof-card">
+                <div class="proof-image-container">
+                    <img src="{{ url_for('static', filename='images/customers/client1.jpg') }}" 
+                         alt="Client satisfait" class="proof-image">
+                    <div class="proof-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="proof-content">
+                    <div class="proof-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Commande reçue en parfait état, emballage professionnel !"</p>
+                    <div class="proof-author">- Sophie, Paris</div>
+                    <div class="proof-date">15/06/2023</div>
+                </div>
+            </div>
+            
+            <!-- Preuve client 2 -->
+            <div class="proof-card">
+                <div class="proof-image-container">
+                    <img src="{{ url_for('static', filename='images/customers/client2.jpg') }}" 
+                         alt="Commande reçue" class="proof-image">
+                    <div class="proof-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="proof-content">
+                    <div class="proof-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Livraison rapide et produits frais, je recommande !"</p>
+                    <div class="proof-author">- Thomas, Lyon</div>
+                    <div class="proof-date">22/05/2023</div>
+                </div>
+            </div>
+            
+            <!-- Preuve client 3 -->
+            <div class="proof-card">
+                <div class="proof-image-container">
+                    <img src="{{ url_for('static', filename='images/customers/client3.jpg') }}" 
+                         alt="Produit reçu" class="proof-image">
+                    <div class="proof-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="proof-content">
+                    <div class="proof-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Qualité exceptionnelle, je suis bluffé par le service."</p>
+                    <div class="proof-author">- Marie, Bordeaux</div>
+                    <div class="proof-date">10/04/2023</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Section avis clients -->
     <section class="reviews-section">
         <div class="reviews-header">
@@ -924,114 +1280,247 @@
                 {% elif product.id == 100 %}(32)
                 {% else %}(15){% endif %}
             </h3>
-            <a href="#" class="btn-review">Donner votre avis</a>
-        </div>
-        
-        <!-- Avis spécifiques selon le produit -->
-        {% if product.id == 1 %}
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Jean D.</div>
-                <div class="review-date">Acheté le 15/06/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé."</p>
+            <button id="btn-open-review-form" class="btn-review">
+                <i class="fas fa-pen"></i> Donner votre avis
+            </button>
         </div>
 
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Marie L.</div>
-                <div class="review-date">Acheté le 10/06/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            </div>
-            <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous."</p>
+        <!-- Formulaire d'avis -->
+        <div class="review-form" id="reviewForm">
+            <h3><i class="fas fa-pen"></i> Rédiger un avis</h3>
+            <form id="submitReviewForm">
+                <div class="form-group">
+                    <label for="reviewName">Votre nom</label>
+                    <input type="text" id="reviewName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Votre note</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewTitle">Titre de l'avis</label>
+                    <input type="text" id="reviewTitle" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewText">Votre avis</label>
+                    <textarea id="reviewText" class="form-control" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit-review">
+                    <i class="fas fa-paper-plane"></i> Envoyer l'avis
+                </button>
+            </form>
         </div>
 
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Claude R.</div>
-                <div class="review-date">Acheté le 01/06/2023</div>
+        <!-- Liste des avis -->
+        <div class="reviews-list" id="reviewsList">
+            {% if product.id == 1 %}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        Jean D.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 15/06/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Produit exceptionnel</h4>
+                <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé. Je recommande vivement ce produit et ce vendeur."</p>
             </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="fas fa-star-half-alt"></i>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Marie L.</div>
+                    <div class="review-date">Acheté le 10/06/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <h4>Très satisfaite</h4>
+                <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous. Le goût est excellent, je rachèterai sans hésiter."</p>
             </div>
-            <p>"Bon produit, mais j'aurais aimé plus de diversité dans les saveurs proposées. Livraison rapide et efficace."</p>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Claude R.</div>
+                    <div class="review-date">Acheté le 01/06/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                </div>
+                <h4>Bon produit</h4>
+                <p>"Bon produit, mais j'aurais aimé plus de diversité dans les saveurs proposées. Livraison rapide et efficace. Emballage soigné."</p>
+            </div>
+
+            {% elif product.id == 4 %}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        Sophie M.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 12/12/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Parfait pour les fêtes</h4>
+                <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon. Tous nos invités ont été impressionnés par la qualité."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Élodie T.</div>
+                    <div class="review-date">Acheté le 18/11/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Délicieux</h4>
+                <p>"Un champagne vraiment délicieux, j'ai été ravie de la qualité. Parfait pour célébrer avec des amis. Le rapport qualité/prix est excellent."</p>
+            </div>
+
+            {% elif product.id == 100 %}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Thomas B.</div>
+                    <div class="review-date">Acheté le 05/07/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Excellent rapport qualité/prix</h4>
+                <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison. Emballage très professionnel et sécurisé."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        Lucie F.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 01/05/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <h4>Très satisfaite</h4>
+                <p>"Très satisfait de ma commande. Livraison rapide et produits bien protégés, mais un peu plus de choix aurait été parfait. Je recommande."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Clara D.</div>
+                    <div class="review-date">Acheté le 22/04/ Client satisfait</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Parfait</h4>
+                <p>"Le produit est arrivé dans les temps et dans un état impeccable. Très bon rapport qualité/prix. Je recommande ! Service client réactif."</p>
+            </div>
+
+            {% else %}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Pierre G.</div>
+                    <div class="review-date">Acheté le 15/04/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+                <h4>Très bonne qualité</h4>
+                <p>"Très bonne qualité pour le prix. L'emballage était solide et le produit frais à la réception. Livraison un peu longue mais acceptable."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        Anne S.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 10/04/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Exceptionnel</h4>
+                <p>"Qualité exceptionnelle, je suis bluffé par le service. Emballage luxueux, livraison express. Parfait pour offrir à des amis ou clients."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Marc V.</div>
+                    <div class="review-date">Acheté le 05/04/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <h4>Très bon</h4>
+                <p>"Produit très bon, correspond à la description. Livraison dans les temps. Je recommande ce vendeur sérieux. Prix un peu élevé mais justifié."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">Julie M.</div>
+                    <div class="review-date">Acheté le 01/04/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4>Parfaitement emballé</h4>
+                <p>"Commande reçue en parfait état, emballage professionnel ! Produit frais et de grande qualité. Service client très réactif à mes questions."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        Paul T.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 28/03/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                </div>
+                <h4>Correct</h4>
+                <p>"Produit correct pour le prix. Rien d'exceptionnel mais satisfait globalement. Livraison un peu longue mais bien emballé."</p>
+            </div>
+            {% endif %}
         </div>
 
-        {% elif product.id == 4 %}
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Sophie M.</div>
-                <div class="review-date">Acheté le 12/12/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            </div>
-            <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon."</p>
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <a href="#" class="page-link active" data-page="1">1</a>
+            <a href="#" class="page-link" data-page="2">2</a>
+            <a href="#" class "page-link" data-page="3">3</a>
         </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Élodie T.</div>
-                <div class="review-date">Acheté le 18/11/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Un champagne vraiment délicieux, j'ai été ravie de la qualité. Parfait pour célébrer avec des amis."</p>
-        </div>
-
-        {% elif product.id == 100 %}
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Thomas B.</div>
-                <div class="review-date">Acheté le 05/07/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison."</p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Lucie F.</div>
-                <div class="review-date">Acheté le 01/05/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            </div>
-            <p>"Très satisfait de ma commande. Livraison rapide et produits bien protégés, mais un peu plus de choix aurait été parfait."</p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Clara D.</div>
-                <div class="review-date">Acheté le 22/04/2023</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Le produit est arrivé dans les temps et dans un état impeccable. Très bon rapport qualité/prix. Je recommande !"</p>
-        </div>
-
-        {% else %}
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-author">Client satisfait</div>
-                <div class="review-date">Acheté récemment</div>
-            </div>
-            <div class="review-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Produit conforme à la description, je recommande ce vendeur sérieux."</p>
-        </div>
-        {% endif %}
-
     </section>
 
     <!-- Produits similaires -->
@@ -1074,88 +1563,173 @@
 
 {% block extra_js %}
 <script>
-// Changement d'image principale
-function changeMainImage(thumbnail, newSrc) {
-    const mainImg = document.getElementById('main-image');
-    
-    // Effet de fondu
-    mainImg.style.opacity = '0';
-    setTimeout(() => {
-        mainImg.src = newSrc;
-        mainImg.style.opacity = '1';
-    }, 200);
-    
-    // Mise à jour des miniatures actives
-    document.querySelectorAll('.thumbnail').forEach(img => {
-        img.classList.remove('active');
-    });
-    thumbnail.classList.add('active');
-}
-
-// Affichage des détails complets
-function toggleDetails() {
-    const fullDetails = document.getElementById('fullDetails');
-    const readMoreBtn = document.querySelector('.read-more');
-    
-    fullDetails.classList.toggle('active');
-    readMoreBtn.classList.toggle('active');
-    
-    if (fullDetails.classList.contains('active')) {
-        // Scroll vers les détails si on ouvre
-        fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-// Animation au chargement
-document.addEventListener('DOMContentLoaded', function() {
-    // Animation d'entrée
-    const elements = document.querySelectorAll('.product-gallery, .product-info');
-    elements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
-        el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-        
+    // Changement d'image principale
+    function changeMainImage(thumbnail, newSrc) {
+        const mainImg = document.getElementById('main-image');
+        mainImg.style.opacity = '0';
         setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }, 100 + index * 100);
-    });
-    
-    // Effet de pulse sur le bouton d'ajout au panier
-    const addToCartBtn = document.querySelector('.btn-add-to-cart');
-    if (addToCartBtn) {
-        setTimeout(() => {
-            addToCartBtn.style.animation = 'pulse 2s infinite';
-        }, 1500);
+            mainImg.src = newSrc;
+            mainImg.style.opacity = '1';
+        }, 200);
+        document.querySelectorAll('.thumbnail').forEach(img => img.classList.remove('active'));
+        thumbnail.classList.add('active');
     }
-    
-    // Effet de zoom sur l'image principale au hover
-    const mainImageContainer = document.querySelector('.main-image-container');
-    const mainImage = document.getElementById('main-image');
-    
-    if (mainImageContainer && mainImage) {
-        mainImageContainer.addEventListener('mousemove', (e) => {
-            const { left, top, width, height } = mainImageContainer.getBoundingClientRect();
-            const x = (e.clientX - left) / width * 100;
-            const y = (e.clientY - top) / height * 100;
-            mainImage.style.transformOrigin = `${x}% ${y}%`;
-        });
-        
-        mainImageContainer.addEventListener('mouseenter', () => {
-            mainImage.style.transform = 'scale(1.05)';
-        });
-        
-        mainImageContainer.addEventListener('mouseleave', () => {
-            mainImage.style.transform = 'scale(1)';
-        });
-    }
-});
 
-// Animation de flottement pour les cartes de produits
-const productCards = document.querySelectorAll('.product-card');
-productCards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.1}s`;
-    card.style.animation = 'float 6s ease-in-out infinite';
-});
+    // Affichage des détails complets
+    function toggleDetails() {
+        const fullDetails = document.getElementById('fullDetails');
+        const readMoreBtn = document.querySelector('.read-more');
+        fullDetails.classList.toggle('active');
+        readMoreBtn.classList.toggle('active');
+        if (fullDetails.classList.contains('active')) {
+            fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Gestion du formulaire d'avis
+    document.getElementById('btn-open-review-form').addEventListener('click', function(e) {
+        e.preventDefault();
+        const reviewForm = document.getElementById('reviewForm');
+        reviewForm.classList.toggle('active');
+        if (reviewForm.classList.contains('active')) {
+            reviewForm.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    document.getElementById('submitReviewForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('reviewName').value;
+        const rating = document.querySelector('input[name="rating"]:checked')?.value;
+        const title = document.getElementById('reviewTitle').value;
+        const text = document.getElementById('reviewText').value;
+        const date = new Date().toLocaleDateString('fr-FR');
+
+        if (!rating) {
+            alert('Veuillez sélectionner une note.');
+            return;
+        }
+
+        const newReview = document.createElement('div');
+        newReview.className = 'review-card';
+        newReview.innerHTML = `
+            <div class="review-header">
+                <div class="review-author">${name}</div>
+                <div class="review-date">Acheté le ${date}</div>
+            </div>
+            <div class="review-stars">
+                ${'<i class="fas fa-star"></i>'.repeat(parseInt(rating))}
+                ${rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                ${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(rating))}
+            </div>
+            <h4>${title}</h4>
+            <p>"${text}"</p>
+        `;
+        
+        document.getElementById('reviewsList').prepend(newReview);
+        this.reset();
+        document.getElementById('reviewForm').classList.remove('active');
+        alert('Merci pour votre avis ! Il a été ajouté avec succès.');
+        updatePagination();
+    });
+
+    // Gestion du modal pour les preuves clients
+    document.querySelectorAll('.proof-image-container').forEach(container => {
+        container.addEventListener('click', function() {
+            const modal = document.createElement('div');
+            modal.className = 'proof-modal';
+            modal.innerHTML = `
+                <span class="proof-modal-close">×</span>
+                <img src="${this.querySelector('img').src}" alt="Preuve client">
+            `;
+            modal.querySelector('.proof-modal-close').addEventListener('click', () => document.body.removeChild(modal));
+            modal.addEventListener('click', e => {
+                if (e.target === modal) document.body.removeChild(modal);
+            });
+            document.body.appendChild(modal);
+        });
+    });
+
+    // Pagination des avis
+    const reviewsPerPage = 5;
+    function updatePagination() {
+        const reviewsList = document.getElementById('reviewsList');
+        const reviews = reviewsList.querySelectorAll('.review-card');
+        const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.className = 'page-link';
+            pageLink.dataset.page = i;
+            pageLink.textContent = i;
+            if (i === 1) pageLink.classList.add('active');
+            pagination.appendChild(pageLink);
+        }
+
+        function showPage(page) {
+            reviews.forEach((review, index) => {
+                review.style.display = (index >= (page - 1) * reviewsPerPage && index < page * reviewsPerPage) ? 'block' : 'none';
+            });
+            document.querySelectorAll('.page-link').forEach(link => link.classList.remove('active'));
+            document.querySelector(`.page-link[data-page="${page}"]`).classList.add('active');
+        }
+
+        document.querySelectorAll('.page-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                showPage(parseInt(link.dataset.page));
+            });
+        });
+
+        showPage(1);
+    }
+
+    // Animation au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('.product-gallery, .product-info');
+        elements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
+            el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 + index * 100);
+        });
+
+        const addToCartBtn = document.querySelector('.btn-add-to-cart');
+        if (addToCartBtn) {
+            setTimeout(() => {
+                addToCartBtn.style.animation = 'pulse 2s infinite';
+            }, 1500);
+        }
+
+        const mainImageContainer = document.querySelector('.main-image-container');
+        const mainImage = document.getElementById('main-image');
+        if (mainImageContainer && mainImage) {
+            mainImageContainer.addEventListener('mousemove', e => {
+                const { left, top, width, height } = mainImageContainer.getBoundingClientRect();
+                const x = (e.clientX - left) / width * 100;
+                const y = (e.clientY - top) / height * 100;
+                mainImage.style.transformOrigin = `${x}% ${y}%`;
+            });
+            mainImageContainer.addEventListener('mouseenter', () => {
+                mainImage.style.transform = 'scale(1.05)';
+            });
+            mainImageContainer.addEventListener('mouseleave', () => {
+                mainImage.style.transform = 'scale(1)';
+            });
+        }
+
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.animation = 'float 6s ease-in-out infinite';
+        });
+
+        updatePagination();
+    });
 </script>
 {% endblock %}
