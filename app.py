@@ -1985,12 +1985,12 @@ def destockage_particulier():
                             title="Déstockage Alimentaire en Ligne pour Particulier | Économies & Anti-Gaspillage",
                             description="Profitez du déstockage alimentaire en ligne pour particulier : produits à prix réduits (surplus, fins de série) avec livraison. Économisez jusqu'à 70% tout en luttant contre le gaspillage.")
 
-@app.route('/destockage-alimentaire-particulier')
+@app.route('/destockage-alimentaire-particulier99')
 def destockage():
     return render_template('destockage9.html')
 
 # Route pour la version espagnole
-@app.route('/es/destockage-alimentaire-particulier')
+@app.route('/es/destockage-alimentaire-particulier99')
 def destockage_es():
     return render_template('destockage_es9.html')
     
