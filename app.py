@@ -1956,6 +1956,43 @@ def loi_anti_gaspillage():
         current_year=datetime.now().year
     )
 
+@app.route('/france-boissons')
+def france_boissons():
+    return render_template('france_boissons.html')
+
+
+@app.route('/fournisseur-alcool')
+def fournisseur_alcool():
+    return render_template('fournisseur_alcool.html')
+
+
+@app.route('/grossiste-alimentaire-en-ligne')
+def grossiste_article():
+    return render_template('grossisteboisson.html', 
+                        title="Grossiste Alimentaire en Ligne | Économies pour Particuliers et Pros",
+                        description="Découvrez les avantages d'un grossiste alimentaire en ligne...")
+                        
+                        
+@app.route('/bebidas-alcoholicas-guia')
+def guia_bebidas():
+    return render_template('bebidas_alcoholicas.html',
+                            title="Bebidas Alcohólicas: Guía Completa",
+                            description="Guía definitiva sobre tipos de bebidas alcohólicas, dónde comprar y consumo responsable")
+
+@app.route('/destockage-alimentaire-particulier')
+def destockage_particulier():
+    return render_template('destockage_particulier.html',
+                            title="Déstockage Alimentaire en Ligne pour Particulier | Économies & Anti-Gaspillage",
+                            description="Profitez du déstockage alimentaire en ligne pour particulier : produits à prix réduits (surplus, fins de série) avec livraison. Économisez jusqu'à 70% tout en luttant contre le gaspillage.")
+
+
+                            @app.route('/grossiste-boisson')
+def grossiste_boisson():
+    return render_template('grossiste_boisson.html',
+                         title="Grossiste Boisson | Guía para Elegir un Distribuidor de Bebidas",
+                         description="Elige al grossiste boisson adecuado para optimizar tu negocio...",
+                         keywords="grossiste boisson, mayorista bebidas, distribuidor bebidas")
+
 @app.route('/destockage-alimentaire-professionnel1')
 def seo_landing_pro1():
     """Page ultra-optimisée pour le mot-clé principal avec cache et compression"""
