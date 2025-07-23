@@ -1986,7 +1986,7 @@ def destockage_particulier():
                             description="Profitez du déstockage alimentaire en ligne pour particulier : produits à prix réduits (surplus, fins de série) avec livraison. Économisez jusqu'à 70% tout en luttant contre le gaspillage.")
 
 
-                            @app.route('/grossiste-boisson')
+@app.route('/grossiste-boisson')
 def grossiste_boisson():
     return render_template('grossiste_boisson.html',
                          title="Grossiste Boisson | Guía para Elegir un Distribuidor de Bebidas",
