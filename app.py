@@ -1977,15 +1977,15 @@ def destockage_boisson():
     return render_template('destockage_boissonbelge.html')
 
 @app.route('/article-grossiste-sitefrance')
-def article_grossiste_site():
+def article_grossiste_site23():
     return render_template('article_grossistefrance.html')
 
 @app.route('/article-grossiste-sitefrancelo')
-def article_grossiste_site():
+def article_grossiste_site24():
     return render_template('article_grossistefrancelo.html')
 
 @app.route('/article-espagne')
-def article_grossiste_site():
+def article_grossiste_site2025():
     return render_template('article_grossisteespagne.html')
 
 @app.route('/destockage-alimentaire-particuliers-français')
