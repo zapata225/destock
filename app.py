@@ -2765,7 +2765,9 @@ def sitemap():
         '/track-conversion', '/destockage-urgence', '/promo-urgence',
         '/psg-champion-europe', '/meilleur-destockage-alimentaire', '/contact-urgence-25mai','/Destockage-Alimentaire-Grossiste','/destockage-urgence3',
         '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025','/destockage-alimentaire-professionnel1',
-        '/product-feed.xml', '/france-boissons', '/fournisseur-alcool', '/grossiste-alimentaire-en-ligne', '/bebidas-alcoholicas-guia', '/destockage-alimentaire-particulier', '/grossiste-boisson'
+        '/product-feed.xml', '/france-boissons', '/fournisseur-alcool', '/grossiste-alimentaire-en-ligne', '/bebidas-alcoholicas-guia', '/destockage-alimentaire-particulier', '/grossiste-boisson', '/destockage-boisson-belgique',
+        '/article-grossiste-sitefrance','/article-grossiste-sitefrancelo','/article-espagne','/destockage-alimentaire-particuliers-français', '/descuentos-alimentarios-espana',
+        '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge'
     ]
 
     # Ajoutez les URLs des produits
