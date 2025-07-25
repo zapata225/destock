@@ -1972,7 +1972,37 @@ def grossiste_article():
                         title="Grossiste Alimentaire en Ligne | Économies pour Particuliers et Pros",
                         description="Découvrez les avantages d'un grossiste alimentaire en ligne...")
                         
-                        
+@app.route('/destockage-boisson-belgique')
+def destockage_boisson():
+    return render_template('destockage_boissonbelge.html')
+
+@app.route('/article-grossiste-sitefrance')
+def article_grossiste_site():
+    return render_template('article_grossistefrance.html')
+
+@app.route('/article-grossiste-sitefrancelo')
+def article_grossiste_site():
+    return render_template('article_grossistefrancelo.html')
+
+@app.route('/article-espagne')
+def article_grossiste_site():
+    return render_template('article_grossisteespagne.html')
+
+@app.route('/destockage-alimentaire-particuliers-français')
+def destockage_particuliers():
+    return render_template('destockage_particuliersfrancais.html')
+
+@app.route('/descuentos-alimentarios-espana')
+def descuentos_espana():
+    return render_template('descuentos_espana.html')
+
+@app.route('/destockage-alimentaire-particuliers-belge')
+def destockage_particuliers():
+    return render_template('destockage_particuliersbelge.html')
+
+@app.route('/destockage-belgiquebbelge')
+def destockage_belgique():
+    return render_template('destockage_belgique_belge.html')
 @app.route('/bebidas-alcoholicas-guia')
 def guia_bebidas():
     return render_template('bebidas_alcoholicas.html',
