@@ -1989,7 +1989,7 @@ def article_grossiste_site2025():
     return render_template('article_grossisteespagne.html')
 
 @app.route('/destockage-alimentaire-particuliers-français')
-def destockage_particuliers():
+def destockage_particuliers2025():
     return render_template('destockage_particuliersfrancais.html')
 
 @app.route('/descuentos-alimentarios-espana')
