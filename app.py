@@ -2001,7 +2001,7 @@ def destockage_particuliers():
     return render_template('destockage_particuliersbelge.html')
 
 @app.route('/destockage-belgiquebbelge')
-def destockage_belgique():
+def destockage_belgique25():
     return render_template('destockage_belgique_belge.html')
 @app.route('/bebidas-alcoholicas-guia')
 def guia_bebidas():
