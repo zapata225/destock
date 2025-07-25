@@ -1972,7 +1972,7 @@ def grossiste_article():
                         title="Grossiste Alimentaire en Ligne | Économies pour Particuliers et Pros",
                         description="Découvrez les avantages d'un grossiste alimentaire en ligne...")
                         
-@app.route('/destockage-boisson-belgique')
+@app.route('/destockage-boisson')
 def destockage_boisson():
     return render_template('destockage_boissonbelge.html')
 
