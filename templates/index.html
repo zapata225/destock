@@ -41,62 +41,100 @@
     <!-- Rich Snippet COMPLET -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "WholesaleStore",
-        "name": "Destockage Alimentaire Store",
-        "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
-        "url": "https://www.destockagealimentairestore.com",
-        "image": "https://www.destockagealimentairestore.com/static/images/logo-destockage.jpg",
-        "telephone": "+33644694515",
-        "email": "contact@destockagealimentaire.fr",
-        "priceRange": "€€",
-        "openingHours": "Mo-Fr 08:00-19:00",
-        "areaServed": "FR",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "152",
-            "bestRating": "5"
-        },
-        "hasOfferCatalog": {
+      "@context": "https://schema.org",
+      "@type": "WholesaleStore",
+      "name": "Destockage Alimentaire Store",
+      "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
+      "url": "https://www.destockagealimentairestore.com",
+      "image": "https://www.destockagealimentairestore.com/static/images/logo-destockage.jpg",
+      "telephone": "+33644694515",
+      "email": "contact@destockagealimentaire.fr",
+      "priceRange": "€€",
+      "openingHours": "Mo-Fr 08:00-19:00",
+      "areaServed": "FR",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Rue de l'Entrepôt",
+        "addressLocality": "Lille",
+        "postalCode": "59000",
+        "addressCountry": "FR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "152",
+        "bestRating": "5"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catégories Destockage",
+        "itemListElement": [
+          {
             "@type": "OfferCatalog",
-            "name": "Catégories Destockage",
+            "name": "Boissons",
             "itemListElement": [
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Boissons",
-                    "itemListElement": [
-                        {"@type": "Offer", "name": "Vins en gros", "priceSpecification": {"price": "5.99", "priceCurrency": "EUR"}},
-                        {"@type": "Offer", "name": "Sodas discount", "priceSpecification": {"price": "0.39", "priceCurrency": "EUR"}}
-                    ]
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Surgelés",
-                    "itemListElement": [
-                        {"@type": "Offer", "name": "Viandes professionnelles", "priceSpecification": {"price": "3.99", "priceCurrency": "EUR"}}
-                    ]
+              {
+                "@type": "Offer",
+                "name": "Vins en gros",
+                "priceSpecification": {
+                  "price": "5.99",
+                  "priceCurrency": "EUR"
                 }
+              },
+              {
+                "@type": "Offer",
+                "name": "Sodas discount",
+                "priceSpecification": {
+                  "price": "0.39",
+                  "priceCurrency": "EUR"
+                }
+              }
             ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Surgelés",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Viandes professionnelles",
+                "priceSpecification": {
+                  "price": "3.99",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "9.90",
+          "currency": "EUR"
         },
-        "shippingDetails": {
-            "@type": "OfferShippingDetails",
-            "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "9.90",
-                "currency": "EUR"
-            },
-            "shippingDestination": {
-                "@type": "DefinedRegion",
-                "addressCountry": "FR"
-            },
-            "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {"@type": "QuantitativeValue", "minValue": "1", "maxValue": "2"},
-                "transitTime": {"@type": "QuantitativeValue", "minValue": "1", "maxValue": "3"}
-            }
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "FR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "2"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "3"
+          }
         }
+      }
     }
+    </script>
+
     </script>
 {% endblock %}
 {% block extra_css %}
