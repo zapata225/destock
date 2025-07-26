@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block page_title %}
+  {{ product.nom }} | -70% | Livraison rapide
+{% endblock %}
+
+{% block meta_description %}
+  {{ product.short_description or product.description[:160] }}
+{% endblock %}
+
 {% block extra_css %}
 <style>
     /* ===== VARIABLES MODERNES ===== */
