@@ -511,13 +511,13 @@
     <meta name="keywords" content="Destockage alimentaire, produits alimentaires pas chers, produits de qualité à prix réduits, déstockage France, fruits et légumes, produits surgelés, boissons pas chères, déstockage en France">
     <meta name="robots" content="index, follow">
 
-    <title>Destockage Alimentaire France</title>
+    <title>{% block title %}Destockage Alimentaire France{% endblock %}</title>
 
 {% block content %}
 <section class="products-page">
     <!-- Titre de la page produit avec recherche -->
 <div class="products-header">
-    <h1 class="animated-title">Destockage Alimentaire <span>France</span></h1>
+    <h1 class="animated-title">Destockage Alimentaire <span>Store</span></h1>
 
     <!-- Barre de recherche -->
     <div class="search-container">
@@ -653,32 +653,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Palette de Boissons -50%",
-      "image": "https://www.destockage-alimentaire.com/palette-boissons.jpg",
-      "description": "Lot de 50 bouteilles de soda et jus de fruits en destockage.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Destockage Alimentaire Prénium"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://www.destockage-alimentaire.com/palette-boissons",
-        "priceCurrency": "EUR",
-        "price": "149.99",
-        "priceValidUntil": "2024-12-31",
-        "availability": "https://schema.org/InStock",
-        "itemCondition": "https://schema.org/NewCondition"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "125"
-      }
-    }
-    </script>
+
 {% endblock %}
