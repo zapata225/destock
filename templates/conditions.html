@@ -1,5 +1,16 @@
 {% extends "base.html" %}
-<style>/* Structure générale */
+
+{% block page_title %}
+  Conditions Générales de Vente | Destockage Alimentaire
+{% endblock %}
+
+{% block meta_description %}
+  Consultez nos conditions générales de vente : modalités de paiement, livraison, retours et responsabilité. Achetez en toute confiance.
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  /* Structure générale */
   body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #f9f9f9;
@@ -7,77 +18,70 @@
     margin: 0;
     padding: 0;
   }
-  
+
   main {
     max-width: 960px;
     margin: 0 auto;
     padding: 2rem;
     background-color: #fff;
   }
-  
+
   h1, h2 {
     color: #2c3e50;
     font-weight: 700;
   }
-  
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
-  
+
   h2 {
     font-size: 1.8rem;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
   }
-  
+
   p {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
   }
-  
-  /* Section */
+
   section {
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
   }
-  
+
   section:last-child {
     border-bottom: none;
   }
-  
-  /* Mots-clés SEO */
+
   section p strong {
     display: block;
     margin-top: 0.5rem;
     font-weight: bold;
     color: #555;
   }
-  
-  /* Responsive design */
+
   @media screen and (max-width: 768px) {
     body {
       font-size: 16px;
     }
-  
+
     h1 {
       font-size: 2rem;
     }
-  
+
     h2 {
       font-size: 1.5rem;
     }
-  
+
     main {
       padding: 1rem;
     }
   }
-  </style>
-{% block head %}
-  <title>Conditions Générales de Vente | Destockage Alimentaire</title>
-  <meta name="description" content="Consultez nos conditions générales de vente : modalités de paiement, livraison, retours et responsabilité. Achetez en toute confiance.">
-  <link rel="canonical" href="https://www.destockagealimentairestore.com/conditions">
+</style>
 {% endblock %}
 
 {% block content %}
