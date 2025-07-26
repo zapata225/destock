@@ -49,46 +49,50 @@
         <!-- Rich Snippet COMPLET -->
         <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@type": "WholesaleStore",
-            "name": "Destockage Alimentaire Store",
-            "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
-            "url": "https://www.destockagealimentairestore.com",
-            "image": "https://www.destockagealimentairestore.com/static/img/logo-destockage.jpg",
-            "telephone": "+33644694515",
-            "email": "contact@destockagealimentaire.fr",
-            "priceRange": "€€",
-            "openingHours": "Mo-Fr 08:00-19:00",
-            "areaServed": "FR",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "152",
-                "bestRating": "5"
+          "@context": "https://schema.org",
+          "@type": "WholesaleStore",
+          "name": "Destockage Alimentaire Store",
+          "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
+          "url": "https://www.destockagealimentairestore.com",
+          "image": "https://www.destockagealimentairestore.com/static/img/logo-destockage.jpg",
+          "telephone": "+33644694515",
+          "email": "contact@destockagealimentaire.fr",
+          "priceRange": "€€",
+          "openingHours": "Mo-Fr 08:00-19:00",
+          "areaServed": "FR",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Rue de l'Entrepôt",
+            "addressLocality": "Lille",
+            "postalCode": "59000",
+            "addressCountry": "FR"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "152"
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "name": "Vins en gros",
+              "price": "5.99",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://www.destockagealimentairestore.com/vins-en-gros"
             },
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Catégories Destockage",
-                "itemListElement": [
-                    {
-                        "@type": "OfferCatalog",
-                        "name": "Boissons",
-                        "itemListElement": [
-                            {"@type": "Offer", "name": "Vins en gros", "price": "5.99"},
-                            {"@type": "Offer", "name": "Sodas discount", "price": "0.39"}
-                        ]
-                    },
-                    {
-                        "@type": "OfferCatalog",
-                        "name": "Surgelés",
-                        "itemListElement": [
-                            {"@type": "Offer", "name": "Viandes professionnelles", "price": "3.99"}
-                        ]
-                    }
-                ]
+            {
+              "@type": "Offer",
+              "name": "Sodas discount",
+              "price": "0.39",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://www.destockagealimentairestore.com/sodas"
             }
+          ]
         }
         </script>
+        
 
         <!-- Favicon pour tous navigateurs -->
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}?v=1">
