@@ -1886,6 +1886,62 @@ def metamorphose_distribution():
 def destockage_professionnel():
     return render_template('destockage_professionnel.html')
 
+@app.route('/trouver-magasins-pres-de-chez-vous')
+def trouver_magasins():
+    return render_template('trouver_magasins.html')
+
+@app.route('/blog/supermarche-proximite')
+def supermarche_proximite():
+    return render_template('supermarche_proximite.html')
+
+@app.route('/supermarche-ouvert-24-7')
+def supermarche_24_7():
+    return render_template('supermarche_24_7.html')
+
+@app.route('/recettes-nutella')
+def recettes_nutella():
+    return render_template('recettes_nutella.html')
+
+@app.route('/magasin-bio-local')
+def magasin_bio_local():
+    return render_template('magasin_bio_local.html')
+
+@app.route('/grossiste-alimentaire-bruxellees')
+def grossiste_alimentaire():
+    return render_template('grossiste_alimentairebruxellee.html')
+
+@app.route('/grossiste-alimentaire-belgique')
+def grossiste_alimentaire():
+    return render_template('grossiste_alimentaire_belgique.html')
+
+@app.route('/meilleurs-fournisseurs-aubervilliers-2025')
+def fournisseurs_aubervilliers():
+    return render_template('fournisseurs_aubervilliers.html')
+
+@app.route('/distributeurs-automatiques-rentabilite-innovations')
+def distributeurs_automatiques():
+    return render_template('distributeurs_automatiques.html')
+
+@app.route('/champagne-destockage')
+def champagne_destockage():
+    return render_template('champagne_destockage.html')
+
+@app.route('/canette-coca-histoire-innovation')
+def canette_coca():
+    return render_template('canette_coca.html')
+
+@app.route('/blog/astuces-achats-produits-destockes')
+def astuces_destockage():
+    return render_template('astuces_achats_produits_destockes.html')
+
+@app.route('/blog/anti-gaspi-creatif')
+def anti_gaspi():
+    return render_template('anti_gaspi_creatif.html')
+
+@app.route('/comprar-alimentos-por-mayor-espana')
+def alimentos_por_mayor():
+    return render_template('alimentos_por_mayor.html')
+
 @app.after_request
 def add_header(response):
     response.cache_control.max_age = 86400  # 1 jour
