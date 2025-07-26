@@ -1907,11 +1907,11 @@ def magasin_bio_local():
     return render_template('magasin_bio_local.html')
 
 @app.route('/grossiste-alimentaire-bruxellees')
-def grossiste_alimentaire():
+def grossiste_alimentaire_belgique():
     return render_template('grossiste_alimentairebruxellee.html')
 
 @app.route('/grossiste-alimentaire-belgique')
-def grossiste_alimentaire():
+def grossiste_alimentaire_bruxelles():
     return render_template('grossiste_alimentaire_belgique.html')
 
 @app.route('/meilleurs-fournisseurs-aubervilliers-2025')
