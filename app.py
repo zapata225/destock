@@ -2823,7 +2823,7 @@ def sitemap():
         '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025','/destockage-alimentaire-professionnel1',
         '/product-feed.xml', '/france-boissons', '/fournisseur-alcool', '/grossiste-alimentaire-en-ligne', '/bebidas-alcoholicas-guia', '/destockage-alimentaire-particulier', '/grossiste-boisson', '/destockage-boisson-belgique',
         '/article-grossiste-sitefrance','/article-grossiste-sitefrancelo','/article-espagne','/destockage-alimentaire-particuliers-français', '/descuentos-alimentarios-espana',
-        '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge', 'trouver_magasins',
+        '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge', '/trouver_magasins',
         '/supermarche_proximite',
         '/supermarche_24_7',
         '/recettes_nutella',
