@@ -2823,7 +2823,19 @@ def sitemap():
         '/destockage-alimentario-espana', '/blog/psg-champion-europe-2025','/destockage-alimentaire-professionnel1',
         '/product-feed.xml', '/france-boissons', '/fournisseur-alcool', '/grossiste-alimentaire-en-ligne', '/bebidas-alcoholicas-guia', '/destockage-alimentaire-particulier', '/grossiste-boisson', '/destockage-boisson-belgique',
         '/article-grossiste-sitefrance','/article-grossiste-sitefrancelo','/article-espagne','/destockage-alimentaire-particuliers-français', '/descuentos-alimentarios-espana',
-        '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge'
+        '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge', 'trouver_magasins',
+        '/supermarche_proximite',
+        '/supermarche_24_7',
+        '/recettes_nutella',
+        '/magasin_bio_local',
+        '/grossiste_alimentaire',  # Ce nom est dupliqué (voir remarque plus bas)
+        '/fournisseurs_aubervilliers',
+        '/distributeurs_automatiques',
+        '/champagne_destockage',
+        '/canette_coca',
+        '/astuces_destockage',
+        '/anti_gaspi',
+        '/alimentos_por_mayor'
     ]
 
     # Ajoutez les URLs des produits
