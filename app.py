@@ -1869,7 +1869,7 @@ def about():
 def blog():
     return render_template('blog.html')
 
-@app.route('/conditions')
+@app.route('/conditions-generales')
 def conditions():
     return render_template('conditions.html')
 
