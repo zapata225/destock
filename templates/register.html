@@ -1,39 +1,174 @@
 {% extends "base.html" %}
-{% block page_title %}Créer un compte | Destockage Alimentaire{% endblock %}
-{% block meta_description %}Créez votre compte et accédez à des offres exclusives de déstockage alimentaire à -70%.{% endblock %}
+
+{% block page_title %}
+  Créer un compte | Destockage Alimentaire
+{% endblock %}
+
+{% block meta_description %}
+  Créez votre compte Destockage Alimentaire pour accéder à nos meilleures offres à -70%, suivre vos commandes et recevoir des promotions exclusives.
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 2rem;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+
+  .auth-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #212529;
+  }
+
+  .auth-form .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #212529;
+  }
+
+  .auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .auth-form input:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+  }
+
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 24px;
+    background: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #3a56d4;
+    transform: translateY(-2px);
+  }
+
+  .auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+  }
+
+  .auth-footer a {
+    color: #4361ee;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  @media (max-width: 576px) {
+    .auth-container {
+      padding: 1rem;
+    }
+
+    .auth-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-<section class="auth-container">
-    <div class="auth-card">
-        <h1>Inscription</h1>
-        
-        <form method="post" action="{{ url_for('register') }}" class="auth-form">
-            <div class="form-group">
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="full_name">Nom complet</label>
-                <input type="text" id="full_name" name="full_name" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">S'inscrire</button>
-        </form>
-        
-        <div class="auth-footer">
-            <p>Déjà un compte ? <a href="{{ url_for('login') }}">Se connecter</a></p>
+<main class="auth-container" role="main">
+  <article class="auth-card">
+    <header>
+      <h1>Créer un compte</h1>
+    </header>
+
+    <section aria-labelledby="register-heading">
+      <h2 id="register-heading" class="sr-only">Formulaire d'inscription</h2>
+
+      <form method="post" action="{{ url_for('register') }}" class="auth-form">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur</label>
+          <input type="text" id="username" name="username" required aria-required="true">
         </div>
-    </div>
-</section>
+
+        <div class="form-group">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" required aria-required="true">
+        </div>
+
+        <div class="form-group">
+          <label for="full_name">Nom complet</label>
+          <input type="text" id="full_name" name="full_name" required aria-required="true">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" required aria-required="true">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn">S'inscrire</button>
+        </div>
+      </form>
+    </section>
+
+    <footer class="auth-footer">
+      <p>Déjà un compte ? <a href="{{ url_for('login') }}">Se connecter</a></p>
+    </footer>
+  </article>
+</main>
 {% endblock %}
