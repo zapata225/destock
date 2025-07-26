@@ -1098,7 +1098,7 @@ body {
         <!-- Description -->
         <div class="product-description">
             <h3 class="description-title">
-                <i class="fas fa-align-left"></i> Description
+                <i class="fas fa-align-left"></i> Description du {{ product.name }}
             </h3>
             <p>{{ product.description }}</p>
             
@@ -1338,7 +1338,7 @@ body {
 
         <!-- Formulaire d'avis -->
         <div class="review-form" id="reviewForm">
-            <h3><i class="fas fa-pen"></i> Rédiger un avis</h3>
+            <h3><i class="fas fa-pen"></i> Rédiger un avis sur {{ product.name }}</h3>
             <form id="submitReviewForm">
                 <div class="form-group">
                     <label for="reviewName">Votre nom</label>
