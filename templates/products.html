@@ -78,6 +78,7 @@
         transform: translateY(-50%);
         color: var(--primary-color);
         font-size: 1.1rem;
+        cursor: pointer;
     }
     
     /* Filtres de catégorie modernes */
@@ -363,178 +364,163 @@
             padding: 20px;
         }
     }
-    /* Titre principal animé */
-.products-header h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #1e3c72; /* Bleu profond */
-    text-align: center;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease-out forwards; /* Animation du titre */
-}
-
-.products-header h1 span {
-    color: #ff6b81; /* Couleur accentuation dynamiq */
-    font-weight: 800;
-    text-shadow: 2px 2px 6px rgba(255, 107, 129, 0.5);
-}
-
-/* Animation du titre */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Sous-titre d'indexation sous le titre */
-.products-subtitle {
-    font-size: 1.2rem;
-    text-align: center;
-    color: #ff6b81;
-    margin-bottom: 30px;
-    animation: fadeInUp 1s ease-out 0.5s forwards; /* Animation du sous-titre */
-    font-style: italic;
-}
-
-/* Barre de recherche dynamique */
-.search-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #0072ff, #00c6ff);
-    border-radius: 50px;
-    padding: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre subtile */
-    animation: gradient-animation 5s ease infinite; /* Animation de dégradé */
-}
-
-/* Dégradé animé pour la barre de recherche */
-@keyframes gradient-animation {
-    0% {
-        background: linear-gradient(45deg, #0072ff, #00c6ff);
-    }
-    50% {
-        background: linear-gradient(45deg, #1e3c72, #00bfff);
-    }
-    100% {
-        background: linear-gradient(45deg, #0072ff, #00c6ff);
-    }
-}
-
-/* Style du champ de recherche */
-.search-input {
-    width: 100%;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 50px;
-    outline: none;
-    background: transparent;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    position: relative;
-    z-index: 10;
-    transition: all 0.3s ease;
-}
-
-/* Animation du placeholder */
-.search-input::placeholder {
-    color: #fff;
-    opacity: 0.8;
-    animation: placeholder-blink 2s ease infinite;
-}
-
-/* Animation du texte du placeholder */
-@keyframes placeholder-blink {
-    0% {
-        opacity: 0.8;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.8;
-    }
-}
-
-/* Effet de focus sur le champ de recherche */
-.search-input:focus {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7);
-}
-
-/* Icône de recherche */
-.search-icon {
-    position: absolute;
-    right: 20px;
-    color: #fff;
-    font-size: 1.5rem;
-    pointer-events: none;
-}
-
-/* Animation mobile pour la recherche */
-@media (max-width: 768px) {
-    .products-header h1 {
-        font-size: 2.5rem;
-    }
-
-    .products-subtitle {
-        font-size: 1rem;
-    }
-
-    .search-container {
-        width: 90%;
-    }
-}
-
     
+    /* Titre principal animé */
+    .products-header h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #1e3c72;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .products-header h1 span {
+        color: #ff6b81;
+        font-weight: 800;
+        text-shadow: 2px 2px 6px rgba(255, 107, 129, 0.5);
+    }
+
+    /* Animation du titre */
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Sous-titre d'indexation sous le titre */
+    .products-subtitle {
+        font-size: 1.2rem;
+        text-align: center;
+        color: #ff6b81;
+        margin-bottom: 30px;
+        animation: fadeInUp 1s ease-out 0.5s forwards;
+        font-style: italic;
+    }
+
+    /* Barre de recherche dynamique */
+    .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #0072ff, #00c6ff);
+        border-radius: 50px;
+        padding: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        animation: gradient-animation 5s ease infinite;
+    }
+
+    /* Dégradé animé pour la barre de recherche */
+    @keyframes gradient-animation {
+        0% {
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        }
+        50% {
+            background: linear-gradient(45deg, #1e3c72, #00bfff);
+        }
+        100% {
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        }
+    }
+
+    /* Style du champ de recherche */
+    .search-input {
+        width: 100%;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 50px;
+        outline: none;
+        background: transparent;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        position: relative;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    /* Animation du placeholder */
+    .search-input::placeholder {
+        color: #fff;
+        opacity: 0.8;
+        animation: placeholder-blink 2s ease infinite;
+    }
+
+    /* Animation du texte du placeholder */
+    @keyframes placeholder-blink {
+        0% {
+            opacity: 0.8;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.8;
+        }
+    }
+
+    /* Effet de focus sur le champ de recherche */
+    .search-input:focus {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Icône de recherche */
+    .search-icon {
+        position: absolute;
+        right: 20px;
+        color: #fff;
+        font-size: 1.5rem;
+        pointer-events: none;
+    }
+
+    /* Animation mobile pour la recherche */
+    @media (max-width: 768px) {
+        .products-header h1 {
+            font-size: 2.5rem;
+        }
+
+        .products-subtitle {
+            font-size: 1rem;
+        }
+
+        .search-container {
+            width: 90%;
+        }
+    }
 </style>
 {% endblock %}
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Meta tags pour le SEO -->
-    <meta name="title" content="Destockage Alimentaire France - Produits de qualité à prix réduits">
-    <meta name="description" content="Découvrez notre large choix de produits de déstockage alimentaire à prix réduits en France. Fruits, légumes, surgelés, boissons et plus encore. Achetez malin !">
-    <meta name="keywords" content="Destockage alimentaire, produits alimentaires pas chers, produits de qualité à prix réduits, déstockage France, fruits et légumes, produits surgelés, boissons pas chères, déstockage en France">
-    <meta name="robots" content="index, follow">
-
-    <title>{% block title %}Destockage Alimentaire France{% endblock %}</title>
 
 {% block content %}
 <section class="products-page">
-    <!-- Titre de la page produit avec recherche -->
-<div class="products-header">
-    <h1 class="animated-title">Destockage Alimentaire <span>Store</span></h1>
-
-    <!-- Barre de recherche -->
-    <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="🔍 Rechercher un produit..." 
-               value="{{ request.args.get('search', '') }}">
-        <i class="fas fa-search search-icon"></i>
+    <div class="products-header">
+        <h1 class="animated-title">Destockage Alimentaire <span>Store</span></h1>
+        
+        <div class="search-container">
+            <form id="search-form" action="{{ url_for('product_list') }}" method="get">
+                <input type="text" id="search-input" name="search" class="search-input" 
+                       placeholder="🔍 Rechercher un produit..." 
+                       value="{{ request.args.get('search', '') }}">
+                <button type="submit" class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
     </div>
-</div>
 
-<!-- Balise Meta pour le SEO -->
-<meta name="description" content="Découvrez nos produits de destockage alimentaire à prix réduits. Recherchez des produits frais, surgelés, boissons, et plus encore avec Destockage Alimentaire France." />
-<meta name="keywords" content="destockage alimentaire, produits pas chers, déstockage produits, produits frais, produits surgelés, acheter produits à prix réduits, promotion produits alimentaire" />
-<meta name="robots" content="index, follow" />
-
-    
     <div class="category-filters">
-        <a href="{{ url_for('product_list') }}" class="category-filter {% if current_category == 'all' %}active{% endif %}">Tous les produits</a>
+        <a href="{{ url_for('product_list') }}" class="category-filter {% if not current_category or current_category == 'all' %}active{% endif %}">Tous les produits</a>
         {% for category in categories %}
         <a href="{{ url_for('product_list', category=category) }}" class="category-filter {% if current_category == category %}active{% endif %}">{{ category }}</a>
         {% endfor %}
@@ -597,30 +583,32 @@
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Recherche en temps réel améliorée
+    // Recherche en temps réel avec debounce
     const searchInput = document.getElementById('search-input');
-    const searchIcon = document.querySelector('.search-icon');
+    const searchForm = document.getElementById('search-form');
+    let searchTimeout;
     
-    const performSearch = () => {
-        const searchTerm = searchInput.value.trim();
-        const currentUrl = new URL(window.location.href);
-        
-        if (searchTerm) {
-            currentUrl.searchParams.set('search', searchTerm);
-        } else {
-            currentUrl.searchParams.delete('search');
-        }
-        
-        window.location.href = currentUrl.toString();
+    // Fonction pour soumettre le formulaire
+    const submitSearch = () => {
+        searchForm.submit();
     };
     
-    searchInput.addEventListener('keyup', function(e) {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
+    // Recherche lors de la saisie avec debounce
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(submitSearch, 500);
     });
     
-    searchIcon.addEventListener('click', performSearch);
+    // Recherche lors du clic sur l'icône
+    document.querySelector('.search-icon').addEventListener('click', submitSearch);
+    
+    // Recherche avec la touche Entrée
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            submitSearch();
+        }
+    });
     
     // Animation des cartes au scroll
     const animateOnScroll = () => {
@@ -653,5 +641,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
+</script>
 {% endblock %}
