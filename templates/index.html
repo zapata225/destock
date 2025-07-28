@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block head_extra %}
     <!-- Title MEGA-ATTRACTIF avec emojis et promos -->
-    <title>🚨 DESTOCKAGE ALIMENTAIRE | Grossiste N°1 France | 🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | ★★★★☆ (4.9/5)</title>
+    <title>🚨 DESTOCKAGE ALIMENTAIRE -70% | Grossiste N°1 France | 🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | ★★★★☆ (4.9/5)</title>
     
     <!-- Description ULTRA-VENDEUSE -->
-    <meta name="description" content="🔥 GROSSISTE BOISSON : -70% sur 🥤 Boissons, 🧀 Laitiers, 🍎 Produits frais ! Livraison 48h France ★★★★☆ (4.9/5) ☎ +33644694515| Stocks limités !"/>
+    <meta name="description" content="🔥 GROSSISTE DESTOCKAGE ALIMENTAIRE : -70% sur 🥤 Boissons, ❄️ Surgelés pro, 🧀 Laitiers, 🍎 Produits frais ! Livraison 48h France ★★★★☆ (4.9/5) ☎ +33644694515| Stocks limités !"/>
     
     <!-- Keywords STRATÉGIQUES -->
     <meta name="keywords" content="
-        grossiste boisson, destockage alimentaire Lille, grossiste boissons Nord, 
+        destockage alimentaire Lille, grossiste boissons Nord, 
         palette soda pas cher, vin en gros France,
         destockage surgelés pro, fromage gros volume,
         entrepôt alimentaire Lille, destockage laitage,
@@ -41,100 +41,62 @@
     <!-- Rich Snippet COMPLET -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WholesaleStore",
-      "name": "Destockage Alimentaire Store",
-      "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
-      "url": "https://www.destockagealimentairestore.com",
-      "image": "https://www.destockagealimentairestore.com/static/images/logo-destockage.jpg",
-      "telephone": "+33644694515",
-      "email": "contact@destockagealimentaire.fr",
-      "priceRange": "€€",
-      "openingHours": "Mo-Fr 08:00-19:00",
-      "areaServed": "FR",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Rue de l'Entrepôt",
-        "addressLocality": "Lille",
-        "postalCode": "59000",
-        "addressCountry": "FR"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "152",
-        "bestRating": "5"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Catégories Destockage",
-        "itemListElement": [
-          {
-            "@type": "OfferCatalog",
-            "name": "Boissons",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "Vins en gros",
-                "priceSpecification": {
-                  "price": "5.99",
-                  "priceCurrency": "EUR"
-                }
-              },
-              {
-                "@type": "Offer",
-                "name": "Sodas discount",
-                "priceSpecification": {
-                  "price": "0.39",
-                  "priceCurrency": "EUR"
-                }
-              }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            "name": "Surgelés",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "Viandes professionnelles",
-                "priceSpecification": {
-                  "price": "3.99",
-                  "priceCurrency": "EUR"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": {
-          "@type": "MonetaryAmount",
-          "value": "9.90",
-          "currency": "EUR"
+        "@context": "https://schema.org",
+        "@type": "WholesaleStore",
+        "name": "Destockage Alimentaire Store",
+        "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
+        "url": "https://www.destockagealimentairestore.com",
+        "image": "https://www.destockagealimentairestore.com/static/images/logo-destockage.jpg",
+        "telephone": "+33644694515",
+        "email": "contact@destockagealimentaire.fr",
+        "priceRange": "€€",
+        "openingHours": "Mo-Fr 08:00-19:00",
+        "areaServed": "FR",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "152",
+            "bestRating": "5"
         },
-        "shippingDestination": {
-          "@type": "DefinedRegion",
-          "addressCountry": "FR"
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Catégories Destockage",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Boissons",
+                    "itemListElement": [
+                        {"@type": "Offer", "name": "Vins en gros", "priceSpecification": {"price": "5.99", "priceCurrency": "EUR"}},
+                        {"@type": "Offer", "name": "Sodas discount", "priceSpecification": {"price": "0.39", "priceCurrency": "EUR"}}
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Surgelés",
+                    "itemListElement": [
+                        {"@type": "Offer", "name": "Viandes professionnelles", "priceSpecification": {"price": "3.99", "priceCurrency": "EUR"}}
+                    ]
+                }
+            ]
         },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": {
-            "@type": "QuantitativeValue",
-            "minValue": "1",
-            "maxValue": "2"
-          },
-          "transitTime": {
-            "@type": "QuantitativeValue",
-            "minValue": "1",
-            "maxValue": "3"
-          }
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "9.90",
+                "currency": "EUR"
+            },
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "FR"
+            },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {"@type": "QuantitativeValue", "minValue": "1", "maxValue": "2"},
+                "transitTime": {"@type": "QuantitativeValue", "minValue": "1", "maxValue": "3"}
+            }
         }
-      }
     }
-    </script>
-
     </script>
 {% endblock %}
 {% block extra_css %}
@@ -4086,462 +4048,81 @@ document.addEventListener('DOMContentLoaded', function() {
     40% { transform: scale(1); }
 }
 </style>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destockage Alimentaire - Design Moderne</title>
-    
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --accent: #4895ef;
-            --dark: #2b2d42;
-            --light: #f8f9fa;
-            --success: #4cc9f0;
-            --warning: #f72585;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-            color: var(--dark);
-            background: var(--light);
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        section {
-            padding: 6rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h2 {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #4a5568;
-        }
-        
-        strong {
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        /* Layout moderne */
-        .section-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .section-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform-style: preserve-3d;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 500px;
-        }
-        
-        .section-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s ease;
-        }
-        
-        .section-image:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.3) 0%, rgba(72, 149, 239, 0.2) 100%);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .section-image:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .section-image:hover:before {
-            opacity: 1;
-        }
-        
-        .section-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Boutons modernes */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 2rem;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, currentColor 0%, rgba(255,255,255,0.2) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover:before {
-            opacity: 0.2;
-        }
-        
-        .btn:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: currentColor;
-            z-index: -2;
-        }
-        
-        .btn i {
-            margin-left: 10px;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        .btn-primary {
-            color: white;
-            background: var(--primary);
-        }
-        
-        .btn-primary:hover {
-            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        .btn-secondary {
-            color: white;
-            background: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            box-shadow: 0 10px 25px rgba(63, 55, 201, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        .btn-accent {
-            color: white;
-            background: var(--accent);
-        }
-        
-        .btn-accent:hover {
-            box-shadow: 0 10px 25px rgba(72, 149, 239, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        /* Background sections */
-        .palette-section {
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-        }
-        
-        .fresh-products-section {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-        }
-        
-        .fruits-section {
-            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
-        }
-        
-        /* Effets de scroll personnalisés */
-        [data-aos="modern-fade"] {
-            opacity: 0;
-            filter: blur(5px);
-            transform: translateY(50px);
-            transition-property: transform, opacity, filter;
-        }
-        
-        [data-aos="modern-fade"].aos-animate {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0);
-        }
-        
-        [data-aos="modern-slide-left"] {
-            opacity: 0;
-            transform: translateX(-100px) skewX(-10deg);
-            transition-property: transform, opacity;
-        }
-        
-        [data-aos="modern-slide-left"].aos-animate {
-            opacity: 1;
-            transform: translateX(0) skewX(0);
-        }
-        
-        [data-aos="modern-slide-right"] {
-            opacity: 0;
-            transform: translateX(100px) skewX(10deg);
-            transition-property: transform, opacity;
-        }
-        
-        [data-aos="modern-slide-right"].aos-animate {
-            opacity: 1;
-            transform: translateX(0) skewX(0);
-        }
-        
-        [data-aos="modern-zoom"] {
-            opacity: 0;
-            transform: scale(0.8) rotate(-5deg);
-            transition-property: transform, opacity;
-        }
-        
-        [data-aos="modern-zoom"].aos-animate {
-            opacity: 1;
-            transform: scale(1) rotate(0);
-        }
-        
-        /* Bulles décoratives */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            z-index: 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .section-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .section-image {
-                height: 400px;
-                order: -1;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 4rem 0;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .container {
-                padding: 0 1.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Section Boissons en Palette -->
-    <section class="palette-section">
-        <div class="bubble" style="width: 300px; height: 300px; top: -100px; right: -100px;"></div>
-        <div class="bubble" style="width: 200px; height: 200px; bottom: -50px; left: -50px;"></div>
-        
-        <div class="container">
-            <div class="section-content">
-                <div class="section-text" data-aos="modern-fade" data-aos-delay="100">
-                    <h2 data-aos="modern-slide-right" data-aos-delay="150">Grossiste Boissons – Palettes Complètes à Prix Déstockés</h2>
-                    <p data-aos="modern-fade" data-aos-delay="200"><strong>Destockage Alimentaire France</strong> vous propose des <strong>palettes entières de boissons</strong> à prix ultra compétitifs, idéales pour les professionnels de la restauration, les associations, les événements ou les particuliers souhaitant acheter en grande quantité.</p>
-                    <p data-aos="modern-fade" data-aos-delay="250">Profitez d'arrivages réguliers en <strong>boissons gazeuses, eaux, jus de fruits, boissons énergétiques, sodas, thés glacés, sirops</strong> et autres rafraîchissements. Nos lots sont issus du <strong>déstockage alimentaire en gros</strong>, vous garantissant des tarifs avantageux tout en conservant une excellente qualité de produit.</p>
-                    <p data-aos="modern-fade" data-aos-delay="300">Que vous cherchiez à <strong>acheter une palette de boissons pas chère</strong> ou à alimenter un point de vente ou un événement, nos offres s'adaptent à vos besoins. Conditionnement en gros, logistique rapide et service fiable : tout est pensé pour faciliter vos achats.</p>
-                    
-                    <a href="{{ url_for('product_list') }}?category=Boissons" class="btn btn-primary" data-aos="modern-zoom" data-aos-delay="400">
-                        Voir les offres boissons <i class="fas fa-arrow-right"></i>
-                    </a>
+
+<!-- Section Boissons en Palette -->
+<section class="palette-section" style="background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);">
+    <div class="container">
+        <div class="palette-content">
+            <div class="palette-image" data-aos="fade-right">
+                <img src="{{ url_for('static', filename='images/boisson.jpg') }}" alt="Boissons en palette">
+            </div>
+            <div class="palette-text" data-aos="fade-left">
+                <div class="fruits-text" data-aos="fade-left">
+                    <h2>Grossiste Boissons – Palettes Complètes à Prix Déstockés</h2>
+                    <p><strong>Destockage Alimentaire France</strong> vous propose des <strong>palettes entières de boissons</strong> à prix ultra compétitifs, idéales pour les professionnels de la restauration, les associations, les événements ou les particuliers souhaitant acheter en grande quantité.</p>
+                    <p>Profitez d’arrivages réguliers en <strong>boissons gazeuses, eaux, jus de fruits, boissons énergétiques, sodas, thés glacés, sirops</strong> et autres rafraîchissements. Nos lots sont issus du <strong>déstockage alimentaire en gros</strong>, vous garantissant des tarifs avantageux tout en conservant une excellente qualité de produit.</p>
+                    <p>Que vous cherchiez à <strong>acheter une palette de boissons pas chère</strong> ou à alimenter un point de vente ou un événement, nos offres s’adaptent à vos besoins. Conditionnement en gros, logistique rapide et service fiable : tout est pensé pour faciliter vos achats.</p>
+                    <p>Nos <strong>boissons en déstockage</strong> proviennent de grandes marques, souvent en fin de série, surstock ou changement de packaging. Elles sont parfaitement consommables et disponibles à prix cassés.</p>
+                    <p>Choisir <strong>Destockage Alimentaire France</strong> comme <strong>grossiste boissons</strong>, c’est faire le choix de l’économie, de la praticité, mais aussi d’une consommation plus responsable, en réduisant le gaspillage lié aux invendus.</p>
+                    <p>Commandez dès maintenant vos <strong>palettes de boissons</strong> et bénéficiez d’offres exclusives réservées aux acheteurs en volume.</p>
                 </div>
                 
-                <div class="section-image" data-aos="modern-slide-left" data-aos-delay="100">
-                    <img src="{{ url_for('static', filename='images/boisson.jpg') }}" alt="Boissons en palette">
-                </div>
+                <a href="{{ url_for('product_list') }}?category=Boissons" class="btn btn-palette">Voir les offres boissons</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Section Produits Frais -->
-    <section class="fresh-products-section">
-        <div class="bubble" style="width: 250px; height: 250px; top: 50px; left: -100px;"></div>
-        <div class="bubble" style="width: 150px; height: 150px; bottom: 100px; right: -50px;"></div>
-        
-        <div class="container">
-            <div class="section-content">
-                <div class="section-image" data-aos="modern-slide-right" data-aos-delay="100">
-                    <img src="{{ url_for('static', filename='images/frais.jpg') }}" alt="Rayon frais">
+<!-- Section Produits Frais -->
+<section class="fresh-products-section">
+    <div class="container">
+        <div class="fresh-products-content">
+            <div class="fresh-products-text" data-aos="fade-right">
+                <div class="fruits-text" data-aos="fade-left">
+                    <h2>Rayon Frais & Surgelés – Produits de Marques à Prix Déstockés</h2>
+                    <p>Yaourts, fromages, beurres, légumes surgelés, viandes, desserts glacés… Le <strong>rayon frais et surgelés</strong> de <strong>Destockage Alimentaire France</strong> vous propose un large choix de produits de marques à petits prix.</p>
+                    <p>Grâce à des arrivages réguliers, nous assurons une grande variété de références, incluant des produits laitiers, plats cuisinés, légumes préparés, pizzas, glaces ou encore produits vegan surgelés.</p>
+                    <p>Nos sélections sont issues du <strong>déstockage alimentaire</strong> : il s’agit de produits parfaitement consommables, souvent invendus ou en fin de série, proposés à des tarifs imbattables tout en préservant la qualité.</p>
+                    <p>Chaque semaine, de nouvelles opportunités s’offrent à vous pour acheter des <strong>produits frais et surgelés pas chers</strong>, issus des plus grandes marques, tout en réduisant le gaspillage alimentaire.</p>
+                    <p>Ce modèle permet de valoriser les excédents de production et les produits proches de la date de durabilité minimale (DDM), dans une logique d’<strong>anti-gaspillage alimentaire</strong> et de consommation durable.</p>
+                    <p>Faire le choix du <strong>déstockage frais et surgelé</strong>, c’est consommer malin : vous profitez de produits de qualité, tout en participant à une démarche responsable et écoresponsable.</p>
+                    <p><strong>Destockage Alimentaire France</strong> s'engage chaque jour pour rendre l’alimentation de qualité plus accessible, en alliant économies, variété et impact environnemental réduit.</p>
                 </div>
                 
-                <div class="section-text" data-aos="modern-fade" data-aos-delay="200">
-                    <h2 data-aos="modern-slide-left" data-aos-delay="150">Rayon Frais & Surgelés – Produits de Marques à Prix Déstockés</h2>
-                    <p data-aos="modern-fade" data-aos-delay="200">Yaourts, fromages, beurres, légumes surgelés, viandes, desserts glacés… Le <strong>rayon frais et surgelés</strong> de <strong>Destockage Alimentaire France</strong> vous propose un large choix de produits de marques à petits prix.</p>
-                    <p data-aos="modern-fade" data-aos-delay="250">Grâce à des arrivages réguliers, nous assurons une grande variété de références, incluant des produits laitiers, plats cuisinés, légumes préparés, pizzas, glaces ou encore produits vegan surgelés.</p>
-                    <p data-aos="modern-fade" data-aos-delay="300">Nos sélections sont issues du <strong>déstockage alimentaire</strong> : il s'agit de produits parfaitement consommables, souvent invendus ou en fin de série, proposés à des tarifs imbattables tout en préservant la qualité.</p>
-                    
-                    <a href="{{ url_for('product_list', category='Produits frais') }}" class="btn btn-secondary" data-aos="modern-zoom" data-aos-delay="350">
-                        Découvrir le rayon frais <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <a href="{{ url_for('product_list', category='Produits frais') }}" class="btn btn-fresh">
+                    Découvrir le rayon frais
+                </a>
+            </div>
+            <div class="fresh-products-image" data-aos="fade-left">
+                <img src="{{ url_for('static', filename='images/frais.jpg') }}" alt="Rayon frais">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Section Fruits & Légumes -->
-    <section class="fruits-section">
-        <div class="bubble" style="width: 180px; height: 180px; top: 100px; right: -80px;"></div>
-        <div class="bubble" style="width: 220px; height: 220px; bottom: -100px; left: -100px;"></div>
-        
-        <div class="container">
-            <div class="section-content">
-                <div class="section-text" data-aos="modern-fade" data-aos-delay="100">
-                    <h2 data-aos="modern-slide-right" data-aos-delay="150">Donnez une seconde chance aux fruits et légumes</h2>
-                    <p data-aos="modern-fade" data-aos-delay="200">Chez <strong>Destockage Alimentaire France</strong>, nous croyons en une alimentation responsable et accessible à tous. C'est pourquoi nous proposons régulièrement des fruits et légumes issus du <strong>déstockage alimentaire</strong>, sélectionnés avec soin pour leur qualité.</p>
-                    <p data-aos="modern-fade" data-aos-delay="250">Nous privilégions les circuits courts et l'approvisionnement local, en collaboration étroite avec des agriculteurs et maraîchers du Nord-Pas-de-Calais. Cette démarche nous permet de soutenir l'économie locale tout en réduisant l'empreinte carbone.</p>
-                    <p data-aos="modern-fade" data-aos-delay="300">Nos arrivages varient au rythme des saisons : pommes de terre, oignons, tomates, carottes… Des produits frais et savoureux, disponibles à prix réduits, dans une logique d'<strong>anti-gaspillage alimentaire</strong>.</p>
-                    
-                    <a href="{{ url_for('product_list', category='Fruits et légumes') }}" class="btn btn-accent" data-aos="modern-zoom" data-aos-delay="350">
-                        Découvrir nos produits <i class="fas fa-leaf"></i>
-                    </a>
-                </div>
-                
-                <div class="section-image" data-aos="modern-slide-left" data-aos-delay="100">
-                    <img src="{{ url_for('static', filename='images/fruits.jpg') }}" alt="Fruits et légumes">
-                </div>
+
+
+<!-- Section Fruits & Légumes -->
+<section class="fruits-section">
+    <div class="container">
+        <div class="fruits-content">
+            <div class="fruits-image" data-aos="fade-right">
+                <img src="{{ url_for('static', filename='images/fruits.jpg') }}" alt="Fruits et légumes">
             </div>
+            <div class="fruits-text" data-aos="fade-left">
+                <h2>Donnez une seconde chance aux fruits et légumes – Déstockage Alimentaire Local et Responsable</h2>
+                <p>Chez <strong>Destockage Alimentaire France</strong>, nous croyons en une alimentation responsable et accessible à tous. C’est pourquoi nous proposons régulièrement des fruits et légumes issus du <strong>déstockage alimentaire</strong>, sélectionnés avec soin pour leur qualité, même s’ils ne répondent pas aux standards esthétiques classiques.</p>
+                <p>Nous privilégions les circuits courts et l’approvisionnement local, en collaboration étroite avec des agriculteurs et maraîchers du Nord-Pas-de-Calais. Cette démarche nous permet de soutenir l’économie locale tout en réduisant l’empreinte carbone liée au transport.</p>
+                <p>Nos arrivages varient au rythme des saisons : pommes de terre, oignons, tomates, carottes… Des produits frais et savoureux, disponibles à prix réduits, dans une logique d’<strong>anti-gaspillage alimentaire</strong> et de valorisation des surplus agricoles.</p>
+                <p>Donner une deuxième vie aux invendus permet non seulement de lutter contre le gaspillage, mais aussi de consommer de manière plus éthique. Ces fruits et légumes, parfois moins "parfaits", sont tout aussi bons et riches en goût.</p>
+                <p>Depuis plus de 30 ans, l’<strong>anti-gaspillage</strong> est au cœur de notre mission. Chaque produit sauvé est une victoire pour la planète et pour votre portefeuille. Avec <strong>Destockage Alimentaire France</strong>, consommer malin devient un geste simple et engagé.</p>
+                <p>Faites le choix d’une alimentation durable, locale et économique grâce au <strong>déstockage alimentaire</strong>. Ensemble, réduisons le gaspillage et valorisons chaque produit à sa juste valeur.</p>
+            </div>
+            
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- GSAP pour animations fluides -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    
-    <script>
-        // Initialisation AOS avec paramètres modernes
-        AOS.init({
-            offset: 150,
-            duration: 800,
-            easing: 'ease-out-quart',
-            delay: 100,
-            once: false,
-            mirror: true,
-            anchorPlacement: 'top-bottom',
-            disable: 'mobile'
-        });
-        
-        // Animation des bulles avec GSAP
-        document.addEventListener('DOMContentLoaded', () => {
-            const bubbles = document.querySelectorAll('.bubble');
-            
-            bubbles.forEach(bubble => {
-                gsap.from(bubble, {
-                    duration: 2,
-                    scale: 0,
-                    opacity: 0,
-                    ease: 'back.out(1.7)',
-                    scrollTrigger: {
-                        trigger: bubble,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-            
-            // Animation au hover des images
-            const images = document.querySelectorAll('.section-image');
-            
-            images.forEach(img => {
-                img.addEventListener('mousemove', (e) => {
-                    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-                    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-                    img.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                });
-                
-                img.addEventListener('mouseenter', () => {
-                    img.style.transition = 'none';
-                });
-                
-                img.addEventListener('mouseleave', () => {
-                    img.style.transition = 'all 0.5s ease';
-                    img.style.transform = 'translateY(-10px) rotateX(5deg) rotateY(5deg)';
-                });
-            });
-        });
-    </script>
 <!-- Features Section - Version Premium -->
 <section class="features-section" style="margin-top: 80px; padding: 60px 0; background: linear-gradient(to bottom, #f9fbfd 0%, #ffffff 100%);">
     <div class="container">
