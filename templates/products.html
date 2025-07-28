@@ -503,33 +503,53 @@
 {% endblock %}
 
 {% block content %}
-<section class="products-page">
+<!-- Schema.org BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil",
+    "item": "https://destockagealimentairestore.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Produits",
+    "item": "https://destockagealimentairestore.com/produits"
+  }]
+}
+</script>
+
+<section class="products-page" itemscope itemtype="https://schema.org/ItemList">
     <div class="products-header">
-        <h1 class="animated-title">Destockage Alimentaire <span>Store</span></h1>
+        <h1 class="animated-title" itemprop="name">Destockage Alimentaire <span>Store</span></h1>
         
         <div class="search-container">
-            <form id="search-form" action="{{ url_for('product_list') }}" method="get">
+            <form id="search-form" action="{{ url_for('product_list') }}" method="get" role="search">
                 <input type="text" id="search-input" name="search" class="search-input" 
                        placeholder="🔍 Rechercher un produit..." 
-                       value="{{ request.args.get('search', '') }}">
-                <button type="submit" class="search-icon">
+                       value="{{ request.args.get('search', '') }}"
+                       aria-label="Rechercher des produits de destockage alimentaire">
+                <button type="submit" class="search-icon" aria-label="Lancer la recherche">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
     </div>
 
-    <div class="category-filters">
-        <a href="{{ url_for('product_list') }}" class="category-filter {% if not current_category or current_category == 'all' %}active{% endif %}">Tous les produits</a>
+    <div class="category-filters" role="tablist" aria-label="Filtres de catégories">
+        <a href="{{ url_for('product_list') }}" class="category-filter {% if not current_category or current_category == 'all' %}active{% endif %}" role="tab" aria-selected="{% if not current_category or current_category == 'all' %}true{% else %}false{% endif %}">Tous les produits</a>
         {% for category in categories %}
-        <a href="{{ url_for('product_list', category=category) }}" class="category-filter {% if current_category == category %}active{% endif %}">{{ category }}</a>
+        <a href="{{ url_for('product_list', category=category) }}" class="category-filter {% if current_category == category %}active{% endif %}" role="tab" aria-selected="{% if current_category == category %}true{% else %}false{% endif %}">{{ category }}</a>
         {% endfor %}
     </div>
     
     <div class="product-grid">
         {% if products %}
             {% for product in products %}
-            <div class="product-card" style="animation-delay: {{ loop.index * 0.05 }}s">
+            <div class="product-card" style="animation-delay: {{ loop.index * 0.05 }}s" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                 {% if product.featured %}
                 <div class="product-badge">Promo</div>
                 {% endif %}
@@ -537,7 +557,7 @@
                 <div class="product-image-container">
                     {% if product.images %}
                     <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
-                         alt="{{ product.name }}" class="product-image">
+                         alt="{{ product.name }}" class="product-image" itemprop="image">
                     {% else %}
                     <div class="product-image-placeholder">
                         <i class="fas fa-image" style="font-size: 3rem; color: #e0e7ff;"></i>
@@ -546,22 +566,31 @@
                 </div>
                 
                 <div class="product-info">
-                    <h3 class="product-title">{{ product.name }}</h3>
-                    <p class="product-description">{{ product.description }}</p>
-                    <div class="product-price">{{ "%.2f"|format(product.price) }}€</div>
+                    <h3 class="product-title" itemprop="name">{{ product.name }}</h3>
+                    <p class="product-description" itemprop="description">{{ product.description }}</p>
+                    <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <meta itemprop="priceCurrency" content="EUR" />
+                        <meta itemprop="price" content="{{ "%.2f"|format(product.price) }}" />
+                        <span itemprop="price">{{ "%.2f"|format(product.price) }}€</span>
+                    </div>
                     <div class="product-actions">
                         <form method="post" action="{{ url_for('add_to_cart') }}">
                             <input type="hidden" name="product_id" value="{{ product.id }}">
-                            <button type="submit" class="btn-product btn-primary">
+                            <button type="submit" class="btn-product btn-primary" aria-label="Ajouter {{ product.name }} au panier">
                                 <i class="fas fa-cart-plus"></i> Ajouter
                             </button>
                         </form>
                         <a href="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify) }}" 
-                           class="btn-product btn-outline">
+                           class="btn-product btn-outline" aria-label="Voir les détails de {{ product.name }}">
                             <i class="fas fa-info-circle"></i> Détails
                         </a>
                     </div>
                 </div>
+                
+                <!-- Microdata pour le produit -->
+                <meta itemprop="brand" content="Destockage Alimentaire Store" />
+                <meta itemprop="sku" content="{{ product.id }}" />
+                <meta itemprop="url" content="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify, _external=True) }}" />
             </div>
             {% endfor %}
         {% else %}
@@ -577,12 +606,70 @@
             </div>
         {% endif %}
     </div>
+    
+    <!-- BBling Tracking Pixel -->
+    <img src="https://tracking.bbling.com/pixel?type=pageview&source=destockagealimentairestore&page=product_list" 
+         alt="" style="display:none;" width="1" height="1">
 </section>
+
+<!-- SEO: Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Destockage Alimentaire Store",
+  "description": "Grossiste alimentaire spécialisé dans le destockage de produits alimentaires à prix anti-gasti. Découvrez nos offres exceptionnelles sur les denrées alimentaires en destockage.",
+  "url": "https://destockagealimentairestore.com",
+  "priceRange": "€€",
+  "image": "https://destockagealimentairestore.com/static/images/logo.jpg",
+  "telephone": "+33XXXXXXXXX",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Adresse de votre entreprise",
+    "addressLocality": "Ville",
+    "postalCode": "Code postal",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "URL de vos réseaux sociaux"
+  ]
+}
+</script>
 {% endblock %}
 
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // SEO: Track page view for BBling
+    function trackPageView() {
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon('https://tracking.bbling.com/pixel', 
+                new URLSearchParams({
+                    type: 'pageview',
+                    source: 'destockagealimentairestore',
+                    page: 'product_list',
+                    referrer: document.referrer
+                })
+            );
+        }
+    }
+    
+    // Track initial page view
+    trackPageView();
+    
     // Recherche en temps réel avec debounce
     const searchInput = document.getElementById('search-input');
     const searchForm = document.getElementById('search-form');
@@ -590,6 +677,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour soumettre le formulaire
     const submitSearch = () => {
+        // Track search event
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon('https://tracking.bbling.com/pixel', 
+                new URLSearchParams({
+                    type: 'search',
+                    source: 'destockagealimentairestore',
+                    query: searchInput.value,
+                    results_count: document.querySelectorAll('.product-card').length
+                })
+            );
+        }
         searchForm.submit();
     };
     
@@ -639,7 +737,110 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
         });
+        
+        // Track product hover for BBling
+        card.addEventListener('mouseenter', function() {
+            const productName = this.querySelector('.product-title').textContent;
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon('https://tracking.bbling.com/pixel', 
+                    new URLSearchParams({
+                        type: 'product_hover',
+                        source: 'destockagealimentairestore',
+                        product: productName
+                    })
+                );
+            }
+        });
     });
+    
+    // Track add to cart events
+    document.querySelectorAll('.btn-primary').forEach(button => {
+        button.addEventListener('click', function() {
+            const productCard = this.closest('.product-card');
+            const productName = productCard.querySelector('.product-title').textContent;
+            const productPrice = productCard.querySelector('.product-price').textContent;
+            
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon('https://tracking.bbling.com/pixel', 
+                    new URLSearchParams({
+                        type: 'add_to_cart',
+                        source: 'destockagealimentairestore',
+                        product: productName,
+                        price: productPrice
+                    })
+                );
+            }
+            
+            // SEO: Track conversion
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'add_to_cart',
+                    'ecommerce': {
+                        'currencyCode': 'EUR',
+                        'add': {
+                            'products': [{
+                                'name': productName,
+                                'price': productPrice.replace('€', ''),
+                                'quantity': 1
+                            }]
+                        }
+                    }
+                });
+            }
+        });
+    });
+    
+    // SEO: Lazy loading for images
+    if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    if (lazyImage.dataset.src) {
+                        lazyImage.src = lazyImage.dataset.src;
+                    }
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.product-image').forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+});
+</script>
+
+<!-- SEO: Google Analytics Enhanced Ecommerce -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GA_MEASUREMENT_ID', {
+    'send_page_view': false,
+    'transport_type': 'beacon'
+});
+
+// Track product impressions
+document.addEventListener('DOMContentLoaded', function() {
+    const products = [];
+    document.querySelectorAll('.product-card').forEach(function(card, index) {
+        const product = {
+            'name': card.querySelector('.product-title').textContent,
+            'id': card.querySelector('input[name="product_id"]')?.value || '',
+            'price': card.querySelector('.product-price').textContent.replace('€', ''),
+            'brand': 'Destockage Alimentaire Store',
+            'category': document.querySelector('.category-filter.active')?.textContent || 'Tous les produits',
+            'position': index + 1
+        };
+        products.push(product);
+    });
+    
+    if (products.length > 0) {
+        gtag('event', 'view_item_list', {
+            'items': products
+        });
+    }
 });
 </script>
 {% endblock %}
