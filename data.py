@@ -1723,7 +1723,7 @@ products = [
         "stock": 4,
         "featured": True,
         "published": True,
-        "images": ["jura-giga10-diamond.jpg"],
+        "images": ["jura-giga10-diamond.jpg","jura-giga10-diamond1.jpg","jura-giga10-diamond2.jpg"],
         "details": {
             "marque": "JURA",
             "référence": "15478",
