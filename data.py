@@ -1989,28 +1989,230 @@ products = [
         "seo_description": "Palette Ariel Pro Actilift - 80 seaux (12 000 lavages). Lessive concentrée professionnelle. Livraison pro offerte. Destockage limité à 520€/lot de 10 seaux."
     },
     {
-        "id": 440,
-        "name": "Destockage Pro - Palette Ariel Actilift (10 seaux x 9.75kg)",
-        "description": "Lot professionnel de 10 seaux Ariel Actilift 9.75kg (150 lavages/seau). Technologie concentrée anti-taches. Prix déstockage 520€. Livraison palette sur demande.",
-        "price": 520.00,
+        "id": 441,
+        "name": "Destockage Pro - Palette Finish Quantum Ultimate (1200 tablettes)",
+        "description": "Lot de 50 cartons (24 tablettes/carton). Détartrant intégré, efficacité certifiée lave-vaisselle. Prix déstockage.",
+        "price": 480.00,
         "category": "Entretien",
-        "images": [
-            "ariel-palette.jpg",  # Image palette stretchée
-        ],
+        "images": ["finish-palette.jpg"],
         "bulk_specs": {
-            "seaux_palette": 80,
-            "lavages_totaux": "12 000",
-            "poids": "780 kg",
-            "dimensions": "1.2m x 1m x 2.2m"
+            "cartons_palette": 50,
+            "tablettes_totales": 1200,
+            "poids": "650 kg",
+            "dimensions": "1.1m x 0.8m x 1.8m"
         },
         "features": [
-            "🔴 Technologie Actilift (élimine 100% des taches*)",
-            "🟢 2× plus concentrée que le marché",
-            "🔵 Seau hermétique recyclable"
+            "🔴 Élimine 100% des résidus graisseux",
+            "🟢 Protection anti-corrosion",
+            "🔵 Compatible tous lave-vaisselle"
+        ],
+        "urgency": {
+            "sold_today": 12,
+            "stock_left": 3
+        }
+    },
+    {
+        "id": 442,
+        "name": "【PALETTE】Savon Liquide Dove - 800 flacons 5L",
+        "description": "Lot professionnel pour collectivités. Hypoallergénique avec 1/4 de crème hydratante. Prix choc.",
+        "price": 720.00,
+        "category": "Hygiène",
+        "images": ["dove-palette.jpg"],
+        "bulk_specs": {
+            "flacons_palette": 800,
+            "volume_total": "4000L",
+            "poids": "820 kg",
+            "dimensions": "1.2m x 1m x 2m"
+        },
+        "features": [
+            "🔴 pH neutre dermatologiquement testé",
+            "🟢 Format économique (0.18€/L)",
+            "🔵 Bouchon sécurité enfant"
+        ],
+        "urgency": {
+            "sold_today": 23,
+            "stock_left": 5
+        }
+    },
+    {
+        "id": 443,
+        "name": "Destockage Express - Nettoyant Sol Mir (200 bidons 5L)",
+        "description": "Nettoyant multi-surfaces parfum citron. Palette sécurisée. Prix flash 380€ (-30% RRP).",
+        "price": 380.00,
+        "category": "Entretien",
+        "images": ["mir-palette.jpg"],
+        "bulk_specs": {
+            "bidons_palette": 200,
+            "volume_total": "1000L",
+            "poids": "1.2T",
+            "dimensions": "1.15m x 0.9m x 1.7m"
+        },
+        "features": [
+            "🔴 Désinfection sans rinçage",
+            "🟢 200 lavages par bidon",
+            "🔵 Certifié ECOLAB"
+        ],
+        "urgency": {
+            "sold_today": 7,
+            "stock_left": 2
+        }
+    },
+    {
+        "id": 444,
+        "name": "PALETTE PRO - Café Julius Meinl Classico (400 paquets 1kg)",
+        "description": "Café grains 100% Arabica pour machines professionnelles. Origine Brésil/Colombie.",
+        "price": 1800.00,
+        "category": "Alimentaire",
+        "images": ["meinl-palette.jpg"],
+        "bulk_specs": {
+            "paquets_palette": 400,
+            "poids_total": "400 kg",
+            "dimensions": "1m x 1m x 1.5m"
+        },
+        "features": [
+            "🔴 Torréfaction viennoise",
+            "🟢 Score clients 4.9/5",
+            "🔵 Emballage biodégradable"
         ],
         "urgency": {
             "sold_today": 9,
-            "stock_left": 6
+            "stock_left": 4
         }
-    }  
+    },
+    {
+        "id": 445,
+        "name": "🔥 URGENT - Palette Coca-Cola Zero 33cl (2592 canettes)",
+        "description": "Lot destockage pour distributeurs. DLC > 8 mois. Prix cassé 890€ (0.34€/canette).",
+        "price": 890.00,
+        "category": "Boissons",
+        "images": ["coke-palette.jpg","coke-palette2.jpg"],
+        "bulk_specs": {
+            "canettes_palette": 2592,
+            "volume_total": "855L",
+            "poids": "780 kg",
+            "dimensions": "1.2m x 0.8m x 2m"
+        },
+        "features": [
+            "🔴 Format distributeur automatique",
+            "🟢 Sans sucre, même goût",
+            "🔵 Emballage aluminium recyclable"
+        ],
+        "urgency": {
+            "sold_today": 15,
+            "stock_left": 1
+        }
+    },
+    {
+        "id": 446,
+        "name": "Palette Pro - Huile de Friture Frial (60 bidons 5L)",
+        "description": "Huile haute stabilité (180°C), filtration intégrée. Prix dégriffé 650€ (1.63€/L).",
+        "price": 650.00,
+        "category": "Alimentaire",
+        "images": ["frial-palette.jpg"],
+        "bulk_specs": {
+            "bidons_palette": 20,
+            "volume_total": "400L",
+            "poids": "380 kg",
+            "dimensions": "1m x 1m x 1.2m"
+        },
+        "features": [
+            "🔴 50 fritures par bidon",
+            "🟢 Indice TPM < 0.5%",
+            "🔵 Livrée avec pompe"
+        ],
+        "urgency": {
+            "sold_today": 6,
+            "stock_left": 2
+        }
+    },
+    {
+        "id": 447,
+        "name": "【BIO】Palette Lait UHT Candia 1L (1200 bouteilles)",
+        "description": "Lait demi-écrémé bio en promo écologique. Emballage carton recyclé.",
+        "price": 680.00,
+        "category": "Alimentaire",
+        "images": ["candia-palette.jpg"],
+        "bulk_specs": {
+            "bouteilles_palette": 1200,
+            "volume_total": "1200L",
+            "poids": "660 kg",
+            "dimensions": "1.1m x 1m x 1.8m"
+        },
+        "features": [
+            "🔴 87% empreinte carbone en moins",
+            "🟢 Certifié AB/EU",
+            "🔵 DLC > 3 mois"
+        ],
+        "urgency": {
+            "sold_today": 11,
+            "stock_left": 3
+        }
+    },
+    {
+        "id": 448,
+        "name": "🚨 Dernière Palette - Pâtes Barilla Penne (600 cartons 5kg)",
+        "description": "Pâtes premium italiennes en format pro. Prix destockage 1500€ (0.50€/kg).",
+        "price": 1500.00,
+        "category": "Alimentaire",
+        "images": ["barilla-palette.jpg"],
+        "bulk_specs": {
+            "cartons_palette": 600,
+            "poids_total": "3000 kg",
+            "dimensions": "1.2m x 1m x 2.2m"
+        },
+        "features": [
+            "🔴 Semoule de blé dur premium",
+            "🟢 Cuisson al dente garantie",
+            "🔵 Conditionnement sous vide"
+        ],
+        "urgency": {
+            "sold_today": 8,
+            "stock_left": 1
+        }
+    },
+    {
+        "id": 449,
+        "name": "Palette Destock - Éponges Scotch-Brite (5000 unités)",
+        "description": "Lot mixte (pro + grand public). Résistance 3× normale. Prix sortie 320€ (0.064€/unité).",
+        "price": 320.00,
+        "category": "Entretien",
+        "images": ["scotchbrite-palette.jpg"],
+        "bulk_specs": {
+            "unités_palette": 5000,
+            "poids": "220 kg",
+            "dimensions": "0.8m x 0.8m x 1.5m"
+        },
+        "features": [
+            "🔴 Face grattoir inox",
+            "🟢 98% vendus en 2 jours",
+            "🔵 Marge revendeur >40%"
+        ],
+        "urgency": {
+            "sold_today": 18,
+            "stock_left": 4
+        }
+    },
+    {
+        "id": 450,
+        "name": "⚡ FLASH - Gel Douche Palmolive (360 flacons)",
+        "description": "Parfums variés (12 options). Prix urgent 290€ (0.40€/L). Convient spas/hôtels.",
+        "price": 290.00,
+        "category": "Hygiène",
+        "images": ["palmolive-palette.jpg"],
+        "bulk_specs": {
+            "flacons_palette": 360,
+            "volume_total": "720L",
+            "poids": "580 kg",
+            "dimensions": "1m x 1m x 1.5m"
+        },
+        "features": [
+            "🔴 pH équilibré 5.5",
+            "🟢 DLC 2025",
+            "🔵 3 palettes partent à l'heure"
+        ],
+        "urgency": {
+            "sold_today": 22,
+            "stock_left": 5
+        }
+    }
 ]
