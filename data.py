@@ -1989,7 +1989,6 @@ products = [
         "seo_description": "Palette Ariel Pro Actilift - 80 seaux (12 000 lavages). Lessive concentrée professionnelle. Livraison pro offerte. Destockage limité à 520€/lot de 10 seaux."
     },
     {
-        {
         "id": 440,
         "name": "Destockage Pro - Palette Ariel Actilift (10 seaux x 9.75kg)",
         "description": "Lot professionnel de 10 seaux Ariel Actilift 9.75kg (150 lavages/seau). Technologie concentrée anti-taches. Prix déstockage 520€. Livraison palette sur demande.",
