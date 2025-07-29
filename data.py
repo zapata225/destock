@@ -951,7 +951,7 @@ products = [
         "id": 308,
         "name": "🍫 Palette Nutella 750 g",
         "description": "Pâte à tartiner Nutella 750g  de 768 Pots de Nutella – Produit iconique au cacao et noisettes. Conditionnement professionnel pour cafés, boulangeries et revendeurs.",
-        "price": 1548.00,
+        "price": 1445.00,
         "category": "Épicerie",
         "stock": 6,
         "featured": False,
