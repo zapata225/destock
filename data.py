@@ -1489,7 +1489,7 @@ products = [
         "name": "Distributeur Automatique VA-6K avec Réfrigération & Vérification d'Âge - TecMaschin",
         "description": "Distributeur automatique professionnel avec réfrigération (2-10°C) et vérification d'âge intégrée pour produits sensibles (alcool, tabac). Idéal snacks, boissons, plats cuisinés. Économie d'énergie programmable.",
         "price": 3389.90,
-        "category": "Distributeurs Professionnels",
+        "category": "Électroménager",
         "stock": 3,
         "featured": True,
         "published": True,
@@ -1519,7 +1519,7 @@ products = [
         "name": "Robot Serveur Robi4-HD - 4 Plateaux (40kg) - Navigation Autonome - TecMaschin",
         "description": "Robot serveur professionnel avec 4 plateaux (10kg/plateau), navigation intelligente (LiDAR/caméras) et écran tactile 10.1\". Idéal restaurants, salons, hôtels. Autonomie 10h, recharge 4h.",
         "price": 6789.90,
-        "category": "Robots Professionnels",
+        "category": "Électroménager",
         "stock": 2,
         "featured": True,
         "published": True,
@@ -1551,7 +1551,7 @@ products = [
         "name": "Robot de Cuisine Mambo CooKing Total Gourmet - Multifonction + Distributeur",
         "description": "Robot culinaire 12-en-1 avec distributeur automatique d'ingrédients. Hachage, pétrissage, cuisson vapeur et mixage intelligent. Ecran tactile et connectivité Bluetooth.",
         "price": 499.00,
-        "category": "Électroménager Culinaire",
+        "category": "Électroménager",
         "stock": 15,
         "featured": True,
         "published": True,
@@ -1586,7 +1586,7 @@ products = [
         "name": "Lave-linge Haut de Gamme Connecté (9kg) - Miele/Bosch/Siemens",
         "description": "Lave-linge premium 9kg avec Wi-Fi, dosage automatique et silence exceptionnel (48dB). Classe énergétique A, programmes intelligents (Eco 40-60) et sécurité Aquastop. Modèles Miele, Bosch Série 8 ou Siemens iQ800.",
         "price": 999.00,  # Prix moyen pour la catégorie
-        "category": "Électroménager Connecté",
+        "category": "Électroménager",
         "stock": 8,
         "featured": True,
         "published": True,
@@ -1621,7 +1621,7 @@ products = [
         "name": "Réfrigérateur Américain Connecté 628L - LG/Samsung/Haier",
         "description": "Réfrigérateur américain premium 628L (407L frigo + 221L congélo) avec distributeur de glaçons, écran tactile et Wi-Fi. Technologie No Frost, ultra-silencieux (35dB) et classe énergétique D. Modèles LG, Samsung ou Haier.",
         "price": 1599.00,  # Prix moyen pour la catégorie
-        "category": "Électroménager Connecté",
+        "category": "Électroménager",
         "stock": 5,
         "featured": True,
         "published": True,
@@ -1672,7 +1672,7 @@ products = [
         "name": "Machine Expresso Automatique DELONGHI Primadonna Soul ECAM610.55.SB - Broyeur Intégré",
         "description": "Machine expresso haut de gamme avec broyeur 13 réglages, mousseur lait automatique et écran tactile couleur. Technologie Active Temperature Control pour un café parfait à chaque utilisation. Note clients 5/5.",
         "price": 699.00,
-        "category": "Café & Expresso",
+        "category": "Électroménager",
         "stock": 7,
         "featured": True,
         "published": True,
@@ -1719,7 +1719,7 @@ products = [
         "name": "Machine à Café JURA GIGA 10 Diamond Black - Garantie 3 Ans",
         "description": "Machine expresso professionnelle avec 2 broyeurs céramiques, écran tactile 6.7\" et technologie Cold Extraction. 35 boissons programmables, connexion Wi-Fi et système lait HP3 automatique. Le summum de l'innovation JURA.",
         "price": 2799.00,  # Prix typique pour ce modèle haut de gamme
-        "category": "Café Professionnel",
+        "category": "Électroménager",
         "stock": 4,
         "featured": True,
         "published": True,
@@ -1780,7 +1780,7 @@ products = [
         "price": 1450.00,
         "price_per_liter": 1.45,
         "bulk_discount": "Prix spécial cuve complète : 1180€ (1.18€/L) à partir de 5 cuves",
-        "category": "Combustibles",
+        "category": "Extras",
         "stock": 8,
         "featured": True,
         "published": True,
@@ -1815,7 +1815,7 @@ products = [
         "price": 606.00,
         "discounted_price": 564.00,
         "discount_rate": "7%",
-        "category": "Destockage Alimentaire",
+        "category": "Bio",
         "stock": 3,  # À adapter selon le stock réel
         "urgency_data": {
             "sold_last_24h": 18,
@@ -1854,7 +1854,7 @@ products = [
         "discounted_price": 535.68,
         "discount_rate": "7%",
         "unit_price": "0.23€/L",  # Calculé automatiquement : 535.68/2304
-        "category": "Destockage Bio",
+        "category": "Bio",
         "stock": 4,  # À actualiser selon stock réel
         "urgency_metrics": {
             "sold_recently": 17,
@@ -1910,7 +1910,7 @@ products = [
             "weight": "150 kg",
             "dimensions": "120×80×200 cm"
         },
-        "category": "Destockage Pro",
+        "category": "Entretien",
         "stock": 8,  # Palettes disponibles
         "urgency_data": {
             "sold_today": 19,
@@ -1956,7 +1956,7 @@ products = [
             "poids_palette": "780 kg",
             "dimensions": "120×100×220 cm"
         },
-        "category": "Destockage Pro",
+        "category": "Entretien",
         "stock": 6,
         "urgency_data": {
             "sold_5h": 9,
@@ -1993,7 +1993,7 @@ products = [
         "name": "Destockage Pro - Palette Ariel Actilift (10 seaux x 9.75kg)",
         "description": "Lot professionnel de 10 seaux Ariel Actilift 9.75kg (150 lavages/seau). Technologie concentrée anti-taches. Prix déstockage 520€. Livraison palette sur demande.",
         "price": 520.00,
-        "category": "Destockage Pro",
+        "category": "Entretien",
         "images": [
             "ariel-palette.jpg",  # Image palette stretchée
         ],
