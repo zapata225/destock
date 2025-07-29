@@ -1483,5 +1483,534 @@ products = [
             "utilisation": "Café, pâtisserie, cuisine"
         },
         "seo_description": "Sucre Cristal Beghin Say - Offre destockage - Prix bas - Pour distributeurs automatiques - Livraison rapide"
-    }
+    },
+    {
+        "id": 427,
+        "name": "Distributeur Automatique VA-6K avec Réfrigération & Vérification d'Âge - TecMaschin",
+        "description": "Distributeur automatique professionnel avec réfrigération (2-10°C) et vérification d'âge intégrée pour produits sensibles (alcool, tabac). Idéal snacks, boissons, plats cuisinés. Économie d'énergie programmable.",
+        "price": 3389.90,
+        "category": "Distributeurs Professionnels",
+        "stock": 3,
+        "featured": True,
+        "published": True,
+        "images": ["distributeur-va6k.jpg","distributeur-va6k1.jpg","distributeur-va6k2.jpg","distributeur-va6k3.jpg","distributeur-va6k4.jpg","distributeur-va6k5.jpg"],
+        "details": {
+            "marque": "TecMaschin",
+            "référence": "228743",
+            "dimensions": "1030 x 790 x 1945 mm",
+            "poids": "245 kg",
+            "classe_énergie": "E",
+            "température": "4°C à 25°C (réglable 2-10°C)",
+            "capacité": "3 tailles de compartiments",
+            "paiement": "Argent liquide (euros uniquement)",
+            "garantie": "12 mois",
+            "utilisation": "Intérieur uniquement",
+            "fonctions": [
+                "Refroidissement intelligent",
+                "Verification d'âge par carte à puce",
+                "Interface utilisateur statistiques",
+                "Verre de sécurité anti-vandalisme"
+            ]
+        },
+        "seo_description": "Distributeur automatique VA-6K TecMaschin - Réfrigération programmable et contrôle d'âge pour produits réglementés. Livraison rapide, garantie 12 mois. Idéal entreprises."
+    },
+    {
+        "id": 428,
+        "name": "Robot Serveur Robi4-HD - 4 Plateaux (40kg) - Navigation Autonome - TecMaschin",
+        "description": "Robot serveur professionnel avec 4 plateaux (10kg/plateau), navigation intelligente (LiDAR/caméras) et écran tactile 10.1\". Idéal restaurants, salons, hôtels. Autonomie 10h, recharge 4h.",
+        "price": 6789.90,
+        "category": "Robots Professionnels",
+        "stock": 2,
+        "featured": True,
+        "published": True,
+        "images": ["robot-robi4hd.jpg","robot-robi4hd1.jpg","robot-robi4hd2.jpg","robot-robi4hd3.jpg","robot-robi4hd4.jpg","robot-robi4hd5.jpg"],
+        "details": {
+            "marque": "TecMaschin",
+            "référence": "241163",
+            "dimensions": "490 x 580 x 1290 mm",
+            "poids": "66 kg",
+            "charge_max": "40 kg (4x10 kg)",
+            "autonomie": "10 heures",
+            "recharge": "4 heures (Li-Ion 18Ah)",
+            "écrans": ["Tactile 10.1\"", "Publicitaire 15.6\""],
+            "navigation": "LiDAR, ultrasons, caméras RGBD",
+            "garantie": "12 mois",
+            "utilisation": "Intérieur (IP43)",
+            "température": "-10°C à 65°C",
+            "fonctions": [
+                "Modes: Livraison/Visite/Guide",
+                "Capteurs de plateau LED (4 couleurs)",
+                "Carte de navigation offline",
+                "Station de recharge incluse"
+            ]
+        },
+        "seo_description": "Robot serveur Robi4-HD TecMaschin - Assistant autonome pour restauration et événements. Livraison 72h, garantie 12 mois. Écrans tactiles + publicitaires."
+    },
+    {
+        "id": 429,
+        "name": "Robot de Cuisine Mambo CooKing Total Gourmet - Multifonction + Distributeur",
+        "description": "Robot culinaire 12-en-1 avec distributeur automatique d'ingrédients. Hachage, pétrissage, cuisson vapeur et mixage intelligent. Ecran tactile et connectivité Bluetooth.",
+        "price": 499.00,
+        "category": "Électroménager Culinaire",
+        "stock": 15,
+        "featured": True,
+        "published": True,
+        "images": ["mambo-cooking.jpg","mambo-cooking5.jpg","mambo-cooking1.jpg","mambo-cooking2.jpg"],
+        "details": {
+            "marque": "Mambo",
+            "modèle": "CooKing Total Gourmet",
+            "capacité": "Bol de 4.5L (acier inoxydable)",
+            "puissance": "1200W",
+            "fonctions": [
+                "Distributeur automatique d'ingrédients",
+                "Pétrissage intelligent",
+                "Cuisson vapeur intégrée",
+                "Hachage 3 vitesses",
+                "Programmes pré-enregistrés (12 recettes)"
+            ],
+            "écran": "Tactile 5\"",
+            "connectivité": "Bluetooth (app dédiée)",
+            "accessoires": [
+                "Couteau pétrin",
+                "Disque râpe",
+                "Batteur",
+                "Panier vapeur"
+            ],
+            "garantie": "24 mois",
+            "couleur": "Noir/Inox"
+        },
+        "seo_description": "Robot de cuisine Mambo CooKing - Multifonctions avec distributeur automatique. 12 programmes, cuisson vapeur et contrôle tactile. Livraison rapide."
+    },
+    {
+        "id": 430,
+        "name": "Lave-linge Haut de Gamme Connecté (9kg) - Miele/Bosch/Siemens",
+        "description": "Lave-linge premium 9kg avec Wi-Fi, dosage automatique et silence exceptionnel (48dB). Classe énergétique A, programmes intelligents (Eco 40-60) et sécurité Aquastop. Modèles Miele, Bosch Série 8 ou Siemens iQ800.",
+        "price": 999.00,  # Prix moyen pour la catégorie
+        "category": "Électroménager Connecté",
+        "stock": 8,
+        "featured": True,
+        "published": True,
+        "images": ["lave-linge-premium.jpg","lave-linge-premium1.jpg","lave-linge-premium2.jpg","lave-linge-premium3.jpg","lave-linge-premium4.jpg"],
+        "details": {
+            "marques": ["Miele", "Bosch Série 8", "Siemens iQ800"],
+            "capacité": "9 kg",
+            "niveau_sonore": {
+                "lavage": "48 dB(A)",
+                "essorage": "69 dB(A)"
+            },
+            "classe_energie": "A",
+            "consommation": "0.484 kWh/cycle (Eco 40-60)",
+            "efficacité": {
+                "lavage": "1.040 (A)",
+                "essorage": "B"
+            },
+            "vitesse_essorage": "1400 tr/min",
+            "connectivité": "Wi-Fi (contrôle mobile)",
+            "programmes": {
+                "base": ["Délicat", "Blanc/Couleurs", "Synthétiques", "Laine"],
+                "spéciaux": ["Express 15min", "Outdoor", "Couette", "Auto 30°C/40°C"]
+            },
+            "sécurité": "Aquastop anti-fuites",
+            "design": "Blanc (pose libre)",
+            "garantie": "24 mois"
+        },
+        "seo_description": "Lave-linge silencieux 48dB avec Wi-Fi - Grand choix de marques premium (Miele, Bosch, Siemens). Livraison offerte, installation possible."
+    },
+    {
+        "id": 431,
+        "name": "Réfrigérateur Américain Connecté 628L - LG/Samsung/Haier",
+        "description": "Réfrigérateur américain premium 628L (407L frigo + 221L congélo) avec distributeur de glaçons, écran tactile et Wi-Fi. Technologie No Frost, ultra-silencieux (35dB) et classe énergétique D. Modèles LG, Samsung ou Haier.",
+        "price": 1599.00,  # Prix moyen pour la catégorie
+        "category": "Électroménager Connecté",
+        "stock": 5,
+        "featured": True,
+        "published": True,
+        "images": ["frigo-americain-premium.jpg","frigo-americain-premium1.jpg","frigo-americain-premium2.jpg","frigo-americain-premium3.jpg"],
+        "details": {
+            "marques": ["LG", "Samsung", "Haier"],
+            "capacité": {
+                "total": "628 L",
+                "réfrigérateur": "407 L",
+                "congélateur": "221 L"
+            },
+            "technologies": [
+                "No Frost",
+                "Distributeur eau/glaçons/pilée",
+                "InstaView (écran sans ouverture)",
+                "Compresseur Inverter"
+            ],
+            "performance": {
+                "niveau_sonore": "35 dB (ultra-silencieux)",
+                "congélation": "12kg/24h",
+                "autonomie": "2h sans courant"
+            },
+            "zones_spéciales": [
+                "Fruits/légumes (contrôle humidité)",
+                "Viandes/poissons (0°C)"
+            ],
+            "connectivité": {
+                "wi-fi": "Contrôle température à distance",
+                "écran": "Tactile intérieur"
+            },
+            "sécurité": [
+                "Alarme porte ouverte",
+                "Filtre antibactérien (6 mois)"
+            ],
+            "consommation": {
+                "énergie": "276 kWh/an (Classe D)",
+                "coût_annuel": "~56€"
+            },
+            "dimensions": "91.3 x 179 x 73.5 cm",
+            "poids": "143 kg",
+            "garantie": "2 ans (pièces 10 ans)",
+            "installation": "Pose libre, arrivée d'eau requise"
+        },
+        "seo_description": "Réfrigérateur américain 628L connecté - Distributeur de glaçons et écran tactile. Livraison offerte + reprise ancien appareil. Technologie No Frost et Wi-Fi."
+    },
+    {
+        "id": 432,
+        "name": "Machine Expresso Automatique DELONGHI Primadonna Soul ECAM610.55.SB - Broyeur Intégré",
+        "description": "Machine expresso haut de gamme avec broyeur 13 réglages, mousseur lait automatique et écran tactile couleur. Technologie Active Temperature Control pour un café parfait à chaque utilisation. Note clients 5/5.",
+        "price": 699.00,
+        "category": "Café & Expresso",
+        "stock": 7,
+        "featured": True,
+        "published": True,
+        "images": ["delonghi-primadonna.jpg","delonghi-primadonna1.jpg","delonghi-primadonna2.jpg","delonghi-primadonna3.jpg","delonghi-primadonna4.jpg","delonghi-primadonna.jpg5"],
+        "financing": {  # Nouvelle section financement
+            "mensualite": 58.57,
+            "duree": "20x",
+            "TAEG": "20.5%",
+            "total_credit": 1171.40,
+            "mention": "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager."
+        },
+        "details": {
+            "marque": "De'Longhi",
+            "référence": "ECAM610.55.SB",
+            "type": "Expresso automatique avec broyeur",
+            "broyeur": "Céramique (13 réglages)",
+            "réservoir": "Eau 1.8L / Grains 300g",
+            "pression": "15 bars",
+            "technologies": [
+                "Active Temperature Control",
+                "LatteCrema System (mousseur auto)",
+                "Ecran tactile couleur 3.5\"",
+                "Nettoyage automatique"
+            ],
+            "programmes": {
+                "café": ["Espresso", "Lungo", "Ristretto", "Cappuccino", "Latte Macchiato"],
+                "personnalisation": "Intensité/température/taille"
+            },
+            "entretien": [
+                "Détartrage guidé",
+                "Rinçage auto",
+                "Buse lait amovible"
+            ],
+            "dimensions": "23.8 x 43.5 x 36.6 cm",
+            "poids": "9.8 kg",
+            "couleur": "Noir (finition métal brossé)",
+            "garantie": "2 ans",
+            "classe_energie": "A"
+        },
+        "seo_description": "Machine expresso De'Longhi Primadonna Soul - Broyeur céramique et mousseur lait automatique. Livraison offerte, note clients 5/5. Paiement en 20x possible."
+    },
+    {
+        "id": 433,
+        "name": "Machine à Café JURA GIGA 10 Diamond Black - Garantie 3 Ans",
+        "description": "Machine expresso professionnelle avec 2 broyeurs céramiques, écran tactile 6.7\" et technologie Cold Extraction. 35 boissons programmables, connexion Wi-Fi et système lait HP3 automatique. Le summum de l'innovation JURA.",
+        "price": 2799.00,  # Prix typique pour ce modèle haut de gamme
+        "category": "Café Professionnel",
+        "stock": 4,
+        "featured": True,
+        "published": True,
+        "images": ["jura-giga10-diamond.jpg"],
+        "details": {
+            "marque": "JURA",
+            "référence": "15478",
+            "garantie": "36 mois",
+            "technologies_phares": [
+                "Cold Extraction Process",
+                "Dual Ceramic Grinders (2x280g)",
+                "Percolation 3D (15 bars)",
+                "HP3 Milk System (One-Touch)"
+            ],
+            "performance": {
+                "capacité": "15-20 tasses/jour",
+                "chauffe": "Thermoblock + Système chauffage",
+                "pression": "15 bars (double pompe)"
+            },
+            "personnalisation": {
+                "intensité": "10 niveaux",
+                "température": [
+                    "3 niveaux (café)",
+                    "3 niveaux (lait)",
+                    "3 niveaux (eau chaude)"
+                ],
+                "mémoires": "35 boissons personnalisables"
+            },
+            "écran": {
+                "type": "Tactile panoramique",
+                "taille": "6.7 pouces",
+                "fonctions": "Statuts entretien en temps réel"
+            },
+            "connectivité": {
+                "wi-fi": "J.O.E.® app compatible",
+                "smart": "Programmation horaire"
+            },
+            "entretien": [
+                "Nettoyage automatique lait",
+                "Détartrage guidé",
+                "Filtre Claris Smart+"
+            ],
+            "certifications": [
+                "Hygiène TÜV",
+                "Energy Save Mode (<0.5W veille)"
+            ],
+            "dimensions": "32 x 41.5 x 49.6 cm",
+            "poids": "18 kg",
+            "couleur": "Noir diamant (2C)",
+            "alimentation": "2300W - 230V"
+        },
+        "seo_description": "Machine à café JURA GIGA 10 - 2 broyeurs céramiques et écran tactile 6.7\". Technologie Cold Extraction et 35 boissons programmables. Livraison offerte + garantie 3 ans."
+    },
+    {
+        "id": 434,
+        "name": "Pétrole de Chauffage CLAMC - Cuve IBC 1000L (Non Consignée)",
+        "description": "Pétrole de chauffage haute qualité sans odeur pour poêles mobiles. Cuve IBC 1000L livrée (non consignée). Prix dégressif à 1.45€/L - Chauffage d'appoint économique et efficace.",
+        "price": 1450.00,
+        "price_per_liter": 1.45,
+        "bulk_discount": "Prix spécial cuve complète : 1180€ (1.18€/L) à partir de 5 cuves",
+        "category": "Combustibles",
+        "stock": 8,
+        "featured": True,
+        "published": True,
+        "images": ["cuve-petrole-ibc.jpg"],
+        "details": {
+            "type": "CLAMC (Combustible Liquide pour Appareil Mobile de Chauffage)",
+            "usage": "Poêles à pétrole mobiles",
+            "qualité": "Sans odeur - Norme EN 1660",
+            "rendement": "≈ 10 kWh/L",
+            "cuve": {
+                "capacité": "1000 litres",
+                "type": "IBC (Intermediate Bulk Container)",
+                "consigne": "Non consignée",
+                "dimensions": "120 x 100 x 115 cm",
+                "poids_vide": "60 kg"
+            },
+            "livraison": {
+                "zone": "France métropolitaine",
+                "condition": "Terrain accessible aux camions grues"
+            },
+            "conservation": {
+                "durée": "5 ans en cuve fermée",
+                "conditions": "À l'abri du soleil et de l'humidité"
+            }
+        },
+        "seo_description": "Pétrole de chauffage CLAMC en cuve IBC 1000L - 1.45€/L. Livraison cuve incluse. Idéal chauffage d'appoint économique sans odeur."
+    },
+    {
+        "id": 435,
+        "name": "DESTOCKAGE - Palette BJORG Boisson Soja Bio 1L (2 304L)",
+        "description": "Lot palette de 16 cartons (2 304L) de boisson soja bio BJORG sans sucres ajoutés. Score Planète A. Remise immédiate 7% - Prix destockage 564€ TTC la palette.",
+        "price": 606.00,
+        "discounted_price": 564.00,
+        "discount_rate": "7%",
+        "category": "Destockage Alimentaire",
+        "stock": 3,  # À adapter selon le stock réel
+        "urgency_data": {
+            "sold_last_24h": 18,
+            "cart_activity": 16
+        },
+        "featured": True,
+        "published": True,
+        "images": ["bjorg-soja-palette.jpg","bjorg-soja-palette1.jpg"],
+        "details": {
+            "marque": "BJORG",
+            "type": "Boisson végétale au soja",
+            "labels": ["Bio", "Sans sucres ajoutés"],
+            "score_planète": "A",
+            "conditionnement": {
+                "palette": "16 cartons",
+                "carton": "24 packs de 6 briques",
+                "brique": "1L",
+                "total_volume": "2304 litres"
+            },
+            "caractéristiques": [
+                "Sans OGM",
+                "Riche en protéines végétales",
+                "Convient aux régimes végétaliens"
+            ],
+            "dlc": "Minimum 6 mois à réception",
+            "poids_palette": "≈ 600 kg",
+            "dimensions_palette": "120 x 80 x 200 cm"
+        },
+        "seo_description": "Destockage palette BJORG Soja Bio - 2304L à 564€ (7% de remise). Livraison palette complète. Produit bio score Planète A, sans sucres ajoutés."
+    },
+    {
+        "id": 436,
+        "name": "【DESTOCKAGE】 Palette BJORG Boisson Amande Bio 1L (2 304L) - Score Planète B",
+        "description": "Lot palette complète de 16 cartons (2 304L) de boisson amande bio BJORG sans sucres ajoutés. Prix destockage 535.68€ TTC (-7%). Livraison palette entière. Vente rapide - 17 vendus aujourd'hui.",
+        "price": 576.00,
+        "discounted_price": 535.68,
+        "discount_rate": "7%",
+        "unit_price": "0.23€/L",  # Calculé automatiquement : 535.68/2304
+        "category": "Destockage Bio",
+        "stock": 4,  # À actualiser selon stock réel
+        "urgency_metrics": {
+            "sold_recently": 17,
+            "timeframe": "11 heures",
+            "active_carts": 9
+        },
+        "featured": True,
+        "published": True,
+        "images": [
+            "bjorg-amande-palette.jpg",
+            "amande-bio-score-b.jpg"
+        ],
+        "details": {
+            "marque": "BJORG",
+            "certifications": ["AB Bio", "Vegan"],
+            "composition": "Eau, amandes* 4%, maltodextrine*, épaississant : gomme gellane (*ingrédients bio)",
+            "nutriments": {
+                "énergie": "24 kcal/100ml",
+                "sucres": "0.1g/100ml",
+                "calcium": "120mg/100ml"
+            },
+            "emballage": {
+                "palette": "16 cartons (120x80x200cm)",
+                "carton": "24 packs de 6 briques",
+                "poids_total": "≈580 kg",
+                "dlc_minimum": "8 mois"
+            },
+            "avantages": [
+                "Sans lactose",
+                "Sans gluten",
+                "Convient aux végétaliens"
+            ],
+            "score_eco": {
+                "planète": "B",
+                "emballage": "92% recyclable"
+            },
+        },
+        "logistics": {
+            "livraison": "Palette complète uniquement",
+            "transport": "Camion hayon (accès nécessaire)"
+        },
+        "seo_description": "Boisson amande bio BJORG en palette - 2304L à 0.23€/L. Destockage limité -7%. Score Planète B, sans sucres ajoutés. 17 vendus aujourd'hui."
+    },
+    {
+        "id": 438,
+        "name": "【DESTOCKAGE PALETTE】 Déboucheur Gel Destop Express 950ml - 1200 unités",
+        "description": "Palette complète de 1200 flacons (120 lots de 10) Déboucheur Gel Destop Express 950ml. Prix déstockage exceptionnel - Livraison gratuite. 19 palettes vendues aujourd'hui.",
+        "price": 1200.00,  # 120 lots × 45€
+        "unit_price": "0.85€/unité",
+        "palette_details": {
+            "lots_per_palette": 120,
+            "units_per_palette": 1200,
+            "weight": "150 kg",
+            "dimensions": "120×80×200 cm"
+        },
+        "category": "Destockage Pro",
+        "stock": 8,  # Palettes disponibles
+        "urgency_data": {
+            "sold_today": 19,
+            "active_quotes": 14
+        },
+        "logistics": {
+            "free_shipping_threshold": 3,  # Palettes
+            "delivery": "Camion hayon (3-7 jours)",
+            "handling": "Livraison en quai ou RDV"
+        },
+        "featured": True,
+        "published": True,
+        "images": [
+            "destop-palette.jpg",
+            "destop-palette-stretch.jpg"
+        ],
+        "details": {
+            "marque": "Destop",
+            "type": "Gel déboucheur professionnel",
+            "composition": "Hydroxyde de sodium 15%, agents gélifiants",
+            "rendement": "≈ 50 utilisations/flacon",
+            "dlc": "24+ mois",
+            "certifications": [
+                "NF Environnement",
+                "FDS disponible"
+            ],
+            "avantages": [
+                "Action rapide (20-30 min)",
+                "Passeur de siphon",
+                "Usage professionnel sécurisé"
+            ]
+        },
+        "seo_description": "Palette Destop Express 1200 flacons - 4.50€/unité en destockage. Livraison pro gratuite dès 3 palettes. Pour professionnels de l'entretien et grossistes."
+    },
+    {
+        "id": 439,
+        "name": "【PRO】 Palette Ariel Actilift - 150 Lavages/Seau (Lot de 10 x 9.75kg)",
+        "description": "Palette complète de lessive professionnelle Ariel Actilift. 10 seaux de 9.75kg (150 lavages/seau). Technologie concentrée anti-taches. Prix déstockage 520€/lot - Livraison gratuite dès 2 palettes.",
+        "price": 520.00,  # Prix pour 10 seaux
+        "bulk_config": {
+            "seaux_palette": 80,  # 8 lots/palette
+            "lavages_palette": 12000,  # 80 seaux × 150
+            "poids_palette": "780 kg",
+            "dimensions": "120×100×220 cm"
+        },
+        "category": "Destockage Pro",
+        "stock": 6,
+        "urgency_data": {
+            "sold_5h": 9,
+            "active_carts": 4,
+            "viewers_now": 12
+        },
+        "features": {
+            "technologie": "Actilift (élimine 100% des taches*)",  # *selon tests internes
+            "concentration": "Formule 2× plus concentrée vs standard",
+            "rendement": "1 dose = 62.5g (9.75kg = 156 doses)",
+            "compatibilité": [
+                "Lave-linge professionnels",
+                "Eau froide/chaude",
+                "Textiles délicats"
+            ]
+        },
+        "logistics": {
+            "livraison": "Camion plateau équipé",
+            "frais": "Gratuit ≥2 palettes",
+            "dlc_min": "36 mois"
+        },
+        "eco_data": {
+            "emballage": "Seau recyclable HDPE",
+            "economie": "Réduction 40% déchets vs bidons",
+            "certifications": [
+                "EU Ecolabel",
+                "NF Environnement"
+            ]
+        },
+        "seo_description": "Palette Ariel Pro Actilift - 80 seaux (12 000 lavages). Lessive concentrée professionnelle. Livraison pro offerte. Destockage limité à 520€/lot de 10 seaux."
+    },
+    {
+        {
+        "id": 440,
+        "name": "Destockage Pro - Palette Ariel Actilift (10 seaux x 9.75kg)",
+        "description": "Lot professionnel de 10 seaux Ariel Actilift 9.75kg (150 lavages/seau). Technologie concentrée anti-taches. Prix déstockage 520€. Livraison palette sur demande.",
+        "price": 520.00,
+        "images": [
+            "ariel-palette.jpg",  # Image palette stretchée
+        ],
+        "bulk_specs": {
+            "seaux_palette": 80,
+            "lavages_totaux": "12 000",
+            "poids": "780 kg",
+            "dimensions": "1.2m x 1m x 2.2m"
+        },
+        "features": [
+            "🔴 Technologie Actilift (élimine 100% des taches*)",
+            "🟢 2× plus concentrée que le marché",
+            "🔵 Seau hermétique recyclable"
+        ],
+        "urgency": {
+            "sold_today": 9,
+            "stock_left": 6
+        }
+    }  
 ]
