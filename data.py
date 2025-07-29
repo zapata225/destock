@@ -1957,6 +1957,9 @@ products = [
             "dimensions": "120×100×220 cm"
         },
         "category": "Entretien",
+        "images": [
+            "destop-ariel.jpg"
+        ],
         "stock": 6,
         "urgency_data": {
             "sold_5h": 9,
@@ -2036,7 +2039,7 @@ products = [
     },
     {
         "id": 443,
-        "name": "Destockage Express - Nettoyant Sol Mir (200 bidons 5L)",
+        "name": "Destockage Express - Nettoyant Sol Mir (500 bidons 2L)",
         "description": "Nettoyant multi-surfaces parfum citron. Palette sécurisée. Prix flash 380€ (-30% RRP).",
         "price": 380.00,
         "category": "Entretien",
