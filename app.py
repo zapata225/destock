@@ -1970,7 +1970,34 @@ def destockage_espana():
 @app.route('/blog/espana-descuentos-alimentarios')
 def blog_espagne():
     return render_template('blog_espagne.html')
+    
+@app.route('/fr/destockage')
+def destockage_fr():
+    return render_template('destockage_fr.html',
+                         title="Destockage Alimentaire Belgique -80%",
+                         video_id="ABC123xyz",
+                         cities=["Bruxelles", "Liège", "Charleroi"])
 
+@app.route('/destockageb')
+def destockage_bb():
+    return render_template('destockage_b.html',
+                         title="Destockage Alimentaire Belgique -80%",
+                         video_id="ABC123xyz",
+                         cities=["Bruxelles", "Liège", "Charleroi"])
+
+@app.route('/nl/destockage')
+def destockage_nl():
+    return render_template('destockage_nl.html',
+                         title="Voedingsdestockage België -80%",
+                         video_id="DEF456uvw",
+                         cities=["Antwerpen", "Gent", "Brugge"])
+
+@app.route('/en/surplus')
+def surplus_en():
+    return render_template('surplus_en.html',
+                         title="Food Surplus Belgium -80%",
+                         video_id="GHI789rst",
+                         cities=["Brussels", "Antwerp", "Liège"])
 @app.route('/blog/belgique-bon-marche-nourriture')
 def blog_belgique():
     return render_template('blog_belgique.html')
