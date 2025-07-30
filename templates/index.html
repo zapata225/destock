@@ -32,12 +32,14 @@
     <meta property="og:image:alt" content="Destockage alimentaire -70% toute la France" />
     <meta property="og:locale" content="fr_FR" />
 
+
     <!-- Twitter Card ULTRA-ATTRACTIVE -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="🥇 Destockage Alimentaire | 4.9/5 ★ | Livraison France" />
     <meta name="twitter:description" content="🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur les invendus de qualité professionnelle" />
     <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-destockage-france.jpg" />
-    
+    <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
+    <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
     <!-- Rich Snippet COMPLET -->
     <script type="application/ld+json">
     {
