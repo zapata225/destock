@@ -2862,7 +2862,7 @@ def sitemap():
         '/canette_coca',
         '/astuces_destockage',
         '/anti_gaspi',
-        '/alimentos_por_mayor'
+        '/alimentos_por_mayor, /fr/destockage,destockage_nl.html,surplus_en.html'
     ]
 
     # Ajoutez les URLs des produits
