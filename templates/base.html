@@ -100,20 +100,27 @@
         <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon.png') }}?v=1">
 
         
-        <!-- Préchargement des ressources -->
+            <!-- 1. Préconnexion DNS (très tôt dans le <head>) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" media="print" onload="this.media='all'">
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+        
+        <!-- 2. CSS CRITIQUE (inline ou préchargé) -->
+        <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/critical.css') }}"></noscript>
+        
+        <!-- 3. Polices Google (avec preload + swap pour éviter le blocage) -->
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap&subset=latin,latin-ext">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap&subset=latin,latin-ext" media="print" onload="this.media='all'">
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap"></noscript>
         
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
-        <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
-        <!-- Analytics -->
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="cOIYSP/i6TuKGeCyBL8rgA" async></script>
+        <!-- 4. Font Awesome (avec preload si utilisée au-dessus du fold) -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+        
+        <!-- 5. CSS secondaire (chargé après le contenu visible) -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></noscript>
 
         {% block extra_css %}{% endblock %}
 </head>
