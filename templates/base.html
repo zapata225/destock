@@ -103,10 +103,26 @@
             <!-- 1. Préconnexion DNS (très tôt dans le <head>) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
         
         <!-- 2. CSS CRITIQUE (inline ou préchargé) -->
-        <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <style>
+          /* CSS Critique Inline */
+          body {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+          }
+          .navbar {
+            position: relative;
+            min-height: 60px;
+            background: linear-gradient(135deg, #2a5bd7 0%, #1a3fa8 100%);
+          }
+          main {
+            min-height: 80vh;
+          }
+        </style>
         <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/critical.css') }}"></noscript>
         
         <!-- 3. Polices Google (avec preload + swap pour éviter le blocage) -->
@@ -119,11 +135,11 @@
         <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
         
         <!-- 5. CSS secondaire (chargé après le contenu visible) -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" media="print" onload="this.media='all'">
+        <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></noscript>
 
         {% block extra_css %}{% endblock %}
-</head>
+
 <style>/* Variables */
     :root {
         --primary-blue: #2563eb;
@@ -723,7 +739,16 @@
 }
 
     </style>
+<script>
+document.body.style.opacity = '0';
+window.addEventListener('DOMContentLoaded', function() {
+  document.body.style.opacity = '1';
+});
+</script>
+</head>
+    
 <body>
+
    <!-- 🔵 NAVBAR ULTRA PREMIUM - DESTOCKAGE ALIMENTAIRE 🛒 -->
 <nav class="navbar" style="
 background: linear-gradient(135deg, #2a5bd7 0%, #1a3fa8 100%);
@@ -2863,7 +2888,9 @@ document.querySelectorAll('.btn-checkout').forEach(btn => {
             "query-input": "required name=search_term_string"
           }
         }
+        
         </script>
+    
     {% block extra_js %}{% endblock %}
 </body>
 </html>
