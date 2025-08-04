@@ -1731,8 +1731,11 @@ def add_header(response):
 
 @app.route('/promo-urgence')
 def promo_urgence():
-    return render_template('urgence.html', 
-                         title="Offre limitée à -70%")
+    return render_template(
+        'urgence.html',
+        datetime=datetime,
+        timedelta=timedelta
+    )
 
 @app.route('/destockage-tf1-france24-actualites')
 def destockage_medias():
