@@ -161,6 +161,38 @@ def get_meta_tags(page):
     return meta.get(page, meta['home'])
 
 
+def generer_jsonld(produit):
+    base_url = "https://destockagealimentairestore.com"
+    images_full_url = [
+        f"{base_url}/static/images/products/{img}" for img in produit.get("images", ["default.jpg"])
+    ]
+    jsonld = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": produit["name"],
+        "image": images_full_url,
+        "description": produit["description"],
+        "sku": str(produit["id"]),
+        "brand": {
+            "@type": "Brand",
+            "name": produit.get("details", {}).get("marque", "Marque non spécifiée")
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": float(produit.get("aggregateRating", {}).get("ratingValue", 0)),
+            "reviewCount": int(produit.get("aggregateRating", {}).get("reviewCount", 0))
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": f"{base_url}/produit/{produit['id']}-{slugify(produit['name'])}",
+            "priceCurrency": produit.get("offers", {}).get("priceCurrency", "EUR"),
+            "price": produit.get("offers", {}).get("price", 0),
+            "priceValidUntil": produit.get("offers", {}).get("priceValidUntil", ""),
+            "availability": produit.get("offers", {}).get("availability", "https://schema.org/OutOfStock")
+        }
+    }
+    return jsonld
+    
 @app.context_processor
 def inject_schema():
     schema = {
@@ -926,12 +958,10 @@ def product_detail(product_id, slug):
         flash('Produit non trouvé', 'error')
         return redirect(url_for('product_list'))
 
-    # Redirection si le slug ne correspond pas exactement
     correct_slug = slugify(product['name'])
     if slug != correct_slug:
         return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug), code=301)
 
-    # Créez un dictionnaire details si il n'existe pas
     if 'details' not in product:
         product['details'] = {
             'description': product.get('description', ''),
@@ -939,14 +969,17 @@ def product_detail(product_id, slug):
             'date_ajout': product.get('date_added', '')
         }
 
-    # Produits similaires (même catégorie)
-    related_products = [p for p in products
-                        if p['category'] == product['category']
-                        and p['id'] != product_id][:4]
+    category = product.get('category')
+    related_products = [p for p in products if p.get('category') == category and p.get('id') != product_id][:4] if category else []
+
+    # Génération du JSON-LD
+    jsonld_data = generer_jsonld(product)
+    jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
 
     return render_template('product_detail.html',
                            product=product,
-                           related_products=related_products)
+                           related_products=related_products,
+                           jsonld_str=jsonld_str)
 
 
 # Gestion du panier
