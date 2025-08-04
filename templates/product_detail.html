@@ -1075,8 +1075,12 @@
     <div class="product-info">
         <h1 class="product-title">{{ product.name }}</h1>
         
-        <div class="product-price-container">
-            <div class="product-price" aria-label="Prix actuel">{{ "%.2f"|format(product.price) }}€</div>
+        <div class="product-price-container" itemscope itemtype="https://schema.org/Offer" aria-label="Prix actuel">
+            <meta itemprop="priceCurrency" content="EUR" />
+            <meta itemprop="price" content="{{ '%.2f'|format(product.price) }}" />
+            <div class="product-price">
+                {{ '%.2f'|format(product.price) }}€
+            </div>
             {% if product.original_price %}
             <div class="original-price" aria-label="Prix original">{{ "%.2f"|format(product.original_price) }}€</div>
             <div class="discount-badge" aria-label="Réduction">
@@ -1084,6 +1088,7 @@
             </div>
             {% endif %}
         </div>
+
         
         <!-- Badges de confiance -->
         <div class="trust-badges" role="list">
