@@ -1,12 +1,18 @@
-<div itemscope itemtype="http://schema.org/Product">
+<div itemscope itemtype="https://schema.org/Product">
   <h1 itemprop="name">Derniers stocks à -70%</h1>
-  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+  <meta itemprop="sku" content="DESTOCK-70">
+  <meta itemprop="brand" content="DestockageAlimentaireStore">
+  <meta itemprop="description" content="Offre exceptionnelle sur des produits alimentaires en gros à -70%. Quantité limitée, livraison rapide.">
+
+  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
     <meta itemprop="priceValidUntil" content="{{ (datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d') }}">
+    <meta itemprop="availability" content="https://schema.org/InStock">
+    <meta itemprop="itemCondition" content="https://schema.org/NewCondition">
+    <meta itemprop="url" content="https://www.destockagealimentairestore.com/promo-urgence">
     <span itemprop="price" content="29.99">Seulement <strong>29€99</strong></span>
     <span itemprop="priceCurrency" content="EUR">au lieu de <s>100€</s></span>
   </div>
-  
-  <!-- Urgence réelle -->
+
   <div class="compteur">
     <p>Il reste <span id="stock">12</span> produits à ce prix</p>
     <script>
@@ -16,4 +22,29 @@
       }, 120000); // Diminue toutes les 2 min
     </script>
   </div>
+
+  <!-- SEO JSON-LD (Google et Bing) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Derniers stocks à -70%",
+    "image": "https://www.destockagealimentairestore.com/static/images/promo.jpg",
+    "description": "Offre exceptionnelle sur des produits alimentaires en gros à -70%. Quantité limitée, livraison rapide.",
+    "sku": "DESTOCK-70",
+    "brand": {
+      "@type": "Brand",
+      "name": "DestockageAlimentaireStore"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "price": "29.99",
+      "priceValidUntil": "{{ (datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d') }}",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.destockagealimentairestore.com/promo-urgence",
+      "itemCondition": "https://schema.org/NewCondition"
+    }
+  }
+  </script>
 </div>
