@@ -8,15 +8,15 @@
     <meta name="keywords" content="{{ meta.keywords }}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ request.url }}">
-    
-    <!-- Schema.org markup -->
+
+    <!-- Schema.org WebPage -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "{{ meta.title }}",
-        "description": "{{ meta.description }}",
-        "url": "{{ request.url }}",
+        "name": {{ meta.title | tojson }},
+        "description": {{ meta.description | tojson }},
+        "url": {{ request.url | tojson }},
         "publisher": {
             "@type": "Organization",
             "name": "Destockage Alimentaire Pro",
@@ -53,6 +53,25 @@
                     <p class="price">{{ product.price }}€</p>
                     <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn">Voir le produit</a>
                 </div>
+
+                <!-- Product Schema -->
+                <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": {{ product.name | tojson }},
+                    "image": {{ url_for('static', filename='images/products/' + product.images[0], _external=True) | tojson }},
+                    "description": {{ product.description | default(product.name) | tojson }},
+                    "sku": "{{ product.id }}",
+                    "offers": {
+                        "@type": "Offer",
+                        "priceCurrency": "EUR",
+                        "price": "{{ "%.2f"|format(product.price) }}",
+                        "availability": "https://schema.org/InStock",
+                        "url": {{ url_for('product_detail', product_id=product.id, _external=True) | tojson }}
+                    }
+                }
+                </script>
                 {% endfor %}
             </div>
         </section>
