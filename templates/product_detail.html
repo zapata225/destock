@@ -1,11 +1,31 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-  {{ product.nom }} | -70% | Livraison rapide
+  {{ product.name }} | Jusqu'à -70% | Livraison Express
 {% endblock %}
 
 {% block meta_description %}
-  {{ product.short_description or product.description[:160] }}
+  {{ product.short_description or product.description[:160] | safe }}
+{% endblock %}
+
+{% block meta_tags %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ product.short_description or product.description[:160] | safe }}">
+  <meta name="keywords" content="{{ product.category }}, {{ product.name }}, achat en ligne, livraison rapide">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="{{ product.name }} | -70% | Livraison rapide">
+  <meta property="og:description" content="{{ product.short_description or product.description[:160] | safe }}">
+  <meta property="og:image" content="{{ url_for('static', filename='images/products/' + product.images[0])}}">
+  <meta property="og:url" content="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify)}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {{ jsonld_str | safe }}
+  </script>
 {% endblock %}
 
 {% block extra_css %}
@@ -20,13 +40,27 @@
         --light: #f8f9fa;
         --gray: #6c757d;
         --success: #4cc9f0;
-        --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+        --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+        --shadow-lg: 0 12px 24px rgba(0,0,0,0.12);
+        --transition: all 0.3s ease-in-out;
     }
 
     /* ===== BASE STYLES ===== */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        padding-bottom: 80px;
+        background-color: var(--light);
+    }
+
     .product-detail-container {
         max-width: 1400px;
         margin: 2rem auto;
@@ -48,7 +82,7 @@
 
     .product-gallery:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        box-shadow: var(--shadow-lg);
     }
 
     .main-image-container {
@@ -66,7 +100,7 @@
         max-height: 90%;
         object-fit: contain;
         transition: transform 0.5s ease;
-        mix-blend-mode: multiply;
+        will-change: transform;
     }
 
     .thumbnail-container {
@@ -90,7 +124,8 @@
         padding: 0.25rem;
     }
 
-    .thumbnail:hover {
+    .thumbnail:hover,
+    .thumbnail:focus {
         transform: scale(1.05);
         border-color: var(--primary);
         box-shadow: var(--shadow-sm);
@@ -126,11 +161,10 @@
 
     .product-title {
         font-size: 2.25rem;
-        font-weight: 800;
+        font-weight: 700;
         margin-bottom: 0.5rem;
         color: var(--dark);
         line-height: 1.2;
-        letter-spacing: -0.5px;
     }
 
     .product-price-container {
@@ -142,7 +176,7 @@
 
     .product-price {
         font-size: 2rem;
-        font-weight: 800;
+        font-weight: 700;
         color: var(--accent);
     }
 
@@ -193,7 +227,6 @@
         margin: 2rem 0;
         box-shadow: var(--shadow-md);
         border: 1px solid rgba(0,0,0,0.05);
-        position: relative;
     }
 
     .description-title {
@@ -231,7 +264,8 @@
         font-size: 0.95rem;
     }
 
-    .read-more:hover {
+    .read-more:hover,
+    .read-more:focus {
         color: var(--primary-dark);
     }
 
@@ -498,7 +532,8 @@
         gap: 0.5rem;
     }
 
-    .btn-submit-review:hover {
+    .btn-submit-review:hover,
+    .btn-submit-review:focus {
         background: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: var(--shadow-md);
@@ -522,6 +557,7 @@
     }
 
     .page-link:hover,
+    .page-link:focus,
     .page-link.active {
         background: var(--primary);
         color: white;
@@ -576,7 +612,8 @@
         transition: var(--transition);
     }
 
-    .proof-card:hover {
+    .proof-card:hover,
+    .proof-card:focus-within {
         transform: translateY(-5px);
         box-shadow: var(--shadow-lg);
     }
@@ -592,6 +629,7 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
+        will-change: transform;
     }
 
     .proof-card:hover .proof-image {
@@ -612,7 +650,8 @@
         transition: var(--transition);
     }
 
-    .proof-card:hover .proof-overlay {
+    .proof-card:hover .proof-overlay,
+    .proof-card:focus-within .proof-overlay {
         opacity: 1;
     }
 
@@ -623,7 +662,8 @@
         transition: var(--transition);
     }
 
-    .proof-card:hover .proof-overlay i {
+    .proof-card:hover .proof-overlay i,
+    .proof-card:focus-within .proof-overlay i {
         transform: scale(1);
     }
 
@@ -722,7 +762,8 @@
         gap: 0.5rem;
     }
 
-    .btn-review:hover {
+    .btn-review:hover,
+    .btn-review:focus {
         background: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: var(--shadow-md);
@@ -738,7 +779,8 @@
         border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .review-card:hover {
+    .review-card:hover,
+    .review-card:focus-within {
         transform: translateY(-3px);
         box-shadow: var(--shadow-md);
     }
@@ -813,9 +855,10 @@
         border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .product-card:hover {
+    .product-card:hover,
+    .product-card:focus-within {
         transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow-lg);
     }
 
     .product-card .product-image {
@@ -831,7 +874,7 @@
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        mix-blend-mode: multiply;
+        will-change: transform;
     }
 
     .product-card .product-info h3 {
@@ -862,7 +905,8 @@
         font-weight: 500;
     }
 
-    .btn-product:hover {
+    .btn-product:hover,
+    .btn-product:focus {
         background: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: var(--shadow-md);
@@ -887,7 +931,8 @@
         margin-top: 1rem;
     }
 
-    .btn-add-to-cart:hover {
+    .btn-add-to-cart:hover,
+    .btn-add-to-cart:focus {
         background: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: var(--shadow-md);
@@ -903,7 +948,25 @@
         padding: 1rem;
         box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         display: none;
-        z-index: 100;
+        z-index: 9999;
+    }
+
+    .mobile-cta form {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .mobile-cta .btn-add-to-cart {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -978,79 +1041,32 @@
         70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
         100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
     }
-    .mobile-cta form button {
-  display: inline-block;
-  width: 100%;        /* pour que le bouton prenne toute la largeur disponible */
-  padding: 15px 20px; /* augmente un peu le padding */
-  box-sizing: border-box;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-}
-
-.mobile-cta {
-  position: relative;
-  z-index: 5;
-}
-
-.mobile-cta form {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-.mobile-cta {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  padding: 10px 16px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-  z-index: 9999;
-}
-
-.mobile-cta form {
-  margin: 0;
-}
-
-.mobile-cta .btn-add-to-cart {
-  width: 100%;
-  padding: 16px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #222;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-body {
-  padding-bottom: 80px; /* évite que le bouton cache le contenu */
-}
-
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="product-detail-container">
     <!-- Galerie produit -->
-    <div class="product-gallery">
+    <div class="product-gallery" role="region" aria-label="Galerie produit">
         {% if product.featured %}
-        <div class="product-badge">MEILLEURE OFFRE</div>
+        <div class="product-badge" aria-label="Meilleure offre">MEILLEURE OFFRE</div>
         {% endif %}
         
-        <div class="main-image-container">
+        <div class="main-image-container" tabindex="0">
             <img id="main-image" src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
-                 class="main-image" alt="{{ product.name }}">
+                 class="main-image" alt="{{ product.name }}" loading="lazy">
         </div>
         
-        <div class="thumbnail-container">
+        <div class="thumbnail-container" role="tablist">
             {% for image in product.images[:4] %}
             <img src="{{ url_for('static', filename='images/products/' + image) }}" 
                  class="thumbnail {% if loop.first %}active{% endif %}" 
                  alt="Miniature {{ loop.index }}"
-                 onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
+                 role="tab"
+                 tabindex="0"
+                 aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+                 onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')"
+                 onkeydown="if(event.key === 'Enter') changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
             {% endfor %}
         </div>
     </div>
@@ -1060,42 +1076,42 @@ body {
         <h1 class="product-title">{{ product.name }}</h1>
         
         <div class="product-price-container">
-            <div class="product-price">{{ "%.2f"|format(product.price) }}€</div>
+            <div class="product-price" aria-label="Prix actuel">{{ "%.2f"|format(product.price) }}€</div>
             {% if product.original_price %}
-            <div class="original-price">{{ "%.2f"|format(product.original_price) }}€</div>
-            <div class="discount-badge">
+            <div class="original-price" aria-label="Prix original">{{ "%.2f"|format(product.original_price) }}€</div>
+            <div class="discount-badge" aria-label="Réduction">
                 -{{ ((1 - product.price/product.original_price) * 100)|round }}%
             </div>
             {% endif %}
         </div>
         
         <!-- Badges de confiance -->
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <i class="fas fa-check-circle"></i> Produit certifié
+        <div class="trust-badges" role="list">
+            <div class="trust-badge" role="listitem">
+                <i class="fas fa-check-circle" aria-hidden="true"></i> Produit certifié
             </div>
-            <div class="trust-badge">
-                <i class="fas fa-shield-alt"></i> Paiement sécurisé
+            <div class="trust-badge" role="listitem">
+                <i class="fas fa-shield-alt" aria-hidden="true"></i> Paiement sécurisé
             </div>
-            <div class="trust-badge">
-                <i class="fas fa-undo"></i> Retours faciles
+            <div class="trust-badge" role="listitem">
+                <i class="fas fa-undo" aria-hidden="true"></i> Retours faciles
             </div>
         </div>
         
-        <div class="product-meta">
-            <span class="meta-item">
-                <i class="fas fa-tag"></i> {{ product.category }}
+        <div class="product-meta" role="list">
+            <span class="meta-item" role="listitem">
+                <i class="fas fa-tag" aria-hidden="true"></i> {{ product.category }}
             </span>
-            <span class="meta-item">
-                <i class="fas fa-box-open"></i> {{ product.stock }} disponibles
+            <span class="meta-item" role="listitem">
+                <i class="fas fa-box-open" aria-hidden="true"></i> {{ product.stock }} disponibles
             </span>
             {% if product.date_added %}
-            <span class="meta-item">
-                <i class="fas fa-calendar-alt"></i> Ajouté le {{ product.date_added }}
+            <span class="meta-item" role="listitem">
+                <i class="fas fa-calendar-alt" aria-hidden="true"></i> Ajouté le {{ product.date_added }}
             </span>
             {% endif %}
-            <span class="meta-item">
-                <i class="fas fa-star"></i> 
+            <span class="meta-item" role="listitem">
+                <i class="fas fa-star" aria-hidden="true"></i> 
                 {% if product.id == 1 %}4.8/5 (24 avis)
                 {% elif product.id == 4 %}4.9/5 (18 avis)
                 {% elif product.id == 100 %}4.7/5 (32 avis)
@@ -1104,21 +1120,21 @@ body {
         </div>
 
         <!-- Description -->
-        <div class="product-description">
-            <h3 class="description-title">
-                <i class="fas fa-align-left"></i> Description du {{ product.name }}
-            </h3>
+        <div class="product-description" role="region" aria-label="Description du produit">
+            <h2 class="description-title">
+                <i class="fas fa-align-left" aria-hidden="true"></i> Description du {{ product.name }}
+            </h2>
             <p>{{ product.description }}</p>
             
-            <div class="read-more" onclick="toggleDetails()">
-                Voir plus de détails <i class="fas fa-chevron-down"></i>
-            </div>
+            <button class="read-more" onclick="toggleDetails()" aria-expanded="false" aria-controls="fullDetails">
+                Voir plus de détails <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
             
             <!-- Fiche technique -->
-            <div class="tech-specs">
+            <div class="tech-specs" role="list">
                 {% if product.details.marque %}
-                <div class="spec-item">
-                    <i class="fas fa-tag spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-tag spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Marque</strong>
                         <span>{{ product.details.marque }}</span>
@@ -1127,8 +1143,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.volume %}
-                <div class="spec-item">
-                    <i class="fas fa-weight spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-weight spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Volume</strong>
                         <span>{{ product.details.volume }}</span>
@@ -1137,8 +1153,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.poids %}
-                <div class="spec-item">
-                    <i class="fas fa-weight-hanging spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-weight-hanging spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Poids</strong>
                         <span>{{ product.details.poids }}</span>
@@ -1147,8 +1163,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.quantité %}
-                <div class="spec-item">
-                    <i class="fas fa-boxes spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-boxes spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Quantité</strong>
                         <span>{{ product.details.quantité }}</span>
@@ -1157,8 +1173,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.origine %}
-                <div class="spec-item">
-                    <i class="fas fa-globe-europe spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-globe-europe spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Origine</strong>
                         <span>{{ product.details.origine }}</span>
@@ -1167,8 +1183,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.conservation %}
-                <div class="spec-item">
-                    <i class="fas fa-snowflake spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-snowflake spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Conservation</strong>
                         <span>{{ product.details.conservation }}</span>
@@ -1177,8 +1193,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.composition %}
-                <div class="spec-item">
-                    <i class="fas fa-list-ul spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-list-ul spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Composition</strong>
                         <span>{{ product.details.composition }}</span>
@@ -1187,8 +1203,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.alcool %}
-                <div class="spec-item">
-                    <i class="fas fa-wine-bottle spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-wine-bottle spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>Degré d'alcool</strong>
                         <span>{{ product.details.alcool }}</span>
@@ -1197,8 +1213,8 @@ body {
                 {% endif %}
                 
                 {% if product.details.DLC %}
-                <div class="spec-item">
-                    <i class="fas fa-calendar-check spec-icon"></i>
+                <div class="spec-item" role="listitem">
+                    <i class="fas fa-calendar-check spec-icon" aria-hidden="true"></i>
                     <div class="spec-content">
                         <strong>DLC</strong>
                         <span>{{ product.details.DLC }}</span>
@@ -1209,38 +1225,38 @@ body {
         </div>
 
         <!-- Détails complets -->
-        <div class="full-details" id="fullDetails">
-            <h3 class="description-title">
-                <i class="fas fa-info-circle"></i> Fiche technique complète
-            </h3>
+        <div class="full-details" id="fullDetails" role="region" aria-label="Fiche technique complète">
+            <h2 class="description-title">
+                <i class="fas fa-info-circle" aria-hidden="true"></i> Fiche technique complète
+            </h2>
             
             <div class="details-grid">
                 <div class="details-section">
-                    <h4>Caractéristiques</h4>
+                    <h3>Caractéristiques</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> <span>Produit de haute qualité</span></li>
-                        <li><i class="fas fa-check"></i> <span>Conditionnement professionnel</span></li>
-                        <li><i class="fas fa-check"></i> <span>Normes sanitaires respectées</span></li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> <span>Produit de haute qualité</span></li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> <span>Conditionnement professionnel</span></li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> <span>Normes sanitaires respectées</span></li>
                         {% if product.details.DLC %}
-                        <li><i class="fas fa-calendar-check"></i> <span>DLC: {{ product.details.DLC }}</span></li>
+                        <li><i class="fas fa-calendar-check" aria-hidden="true"></i> <span>DLC: {{ product.details.DLC }}</span></li>
                         {% endif %}
                     </ul>
                 </div>
                 
                 <div class="details-section">
-                    <h4>Livraison</h4>
+                    <h3>Livraison</h3>
                     <ul>
-                        <li><i class="fas fa-box"></i> <span>Emballage sécurisé</span></li>
-                        <li><i class="fas fa-euro-sign"></i> <span>Livraison gratuite à partir de 1500€</span></li>
+                        <li><i class="fas fa-box" aria-hidden="true"></i> <span>Emballage sécurisé</span></li>
+                        <li><i class="fas fa-euro-sign" aria-hidden="true"></i> <span>Livraison gratuite à partir de 1500€</span></li>
                     </ul>
                 </div>
                 
                 <div class="details-section">
-                    <h4>Garantie</h4>
+                    <h3>Garantie</h3>
                     <ul>
-                        <li><i class="fas fa-shield-alt"></i> <span>Satisfait ou remboursé 30 jours</span></li>
-                        <li><i class="fas fa-phone"></i> <span>Service client 7j/7</span></li>
-                        <li><i class="fas fa-exchange-alt"></i> <span>Retours faciles</span></li>
+                        <li><i class="fas fa-shield-alt" aria-hidden="true"></i> <span>Satisfait ou remboursé 30 jours</span></li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> <span>Service client 7j/7</span></li>
+                        <li><i class="fas fa-exchange-alt" aria-hidden="true"></i> <span>Retours faciles</span></li>
                     </ul>
                 </div>
             </div>
@@ -1248,41 +1264,41 @@ body {
 
         <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
             <input type="hidden" name="product_id" value="{{ product.id }}">
-            <button type="submit" class="btn-add-to-cart desktop">
-                <i class="fas fa-cart-plus"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
+            <button type="submit" class="btn-add-to-cart desktop" aria-label="Ajouter {{ product.name }} au panier">
+                <i class="fas fa-cart-plus" aria-hidden="true"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
             </button>
         </form>
         
-        <div class="delivery-info">
-            <p><i class="fas fa-truck"></i> Livraison estimée entre 5 à 7 jours ouvrés</p>
-            <p><i class="fas fa-shield-alt"></i> Garantie satisfait ou remboursé 30 jours</p>
-            <p><i class="fas fa-phone"></i> Service client réactif 7j/7</p>
+        <div class="delivery-info" role="region" aria-label="Informations de livraison">
+            <p><i class="fas fa-truck" aria-hidden="true"></i> Livraison estimée entre 5 à 7 jours ouvrés</p>
+            <p><i class="fas fa-shield-alt" aria-hidden="true"></i> Garantie satisfait ou remboursé 30 jours</p>
+            <p><i class="fas fa-phone" aria-hidden="true"></i> Service client réactif 7j/7</p>
             
             <div class="guarantee-badge">
-                <i class="fas fa-lock"></i> Paiement 100% sécurisé
+                <i class="fas fa-lock" aria-hidden="true"></i> Paiement 100% sécurisé
             </div>
         </div>
     </div>
 
     <!-- Section preuves clients -->
-    <div class="customer-proof-section">
-        <h3 class="proof-title">
-            <i class="fas fa-camera-retro"></i> Nos clients témoignent
-        </h3>
+    <div class="customer-proof-section" role="region" aria-label="Témoignages clients">
+        <h2 class="proof-title">
+            <i class="fas fa-camera-retro" aria-hidden="true"></i> Nos clients témoignent
+        </h2>
         
         <div class="proof-grid">
             <!-- Preuve client 1 -->
-            <div class="proof-card">
+            <div class="proof-card" tabindex="0">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client1.jpg') }}" 
-                         alt="Client satisfait" class="proof-image">
+                         alt="Témoignage client Sophie" class="proof-image" loading="lazy">
                     <div class="proof-overlay">
-                        <i class="fas fa-search-plus"></i>
+                        <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="proof-content">
                     <div class="proof-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                     </div>
                     <p>"Commande reçue en parfait état, emballage professionnel !"</p>
                     <div class="proof-author">- Sophie, Paris</div>
@@ -1291,17 +1307,17 @@ body {
             </div>
             
             <!-- Preuve client 2 -->
-            <div class="proof-card">
+            <div class="proof-card" tabindex="0">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client2.jpg') }}" 
-                         alt="Commande reçue" class="proof-image">
+                         alt="Témoignage client Thomas" class="proof-image" loading="lazy">
                     <div class="proof-overlay">
-                        <i class="fas fa-search-plus"></i>
+                        <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="proof-content">
                     <div class="proof-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
                     </div>
                     <p>"Livraison rapide et produits frais, je recommande !"</p>
                     <div class="proof-author">- Thomas, Lyon</div>
@@ -1310,17 +1326,17 @@ body {
             </div>
             
             <!-- Preuve client 3 -->
-            <div class="proof-card">
+            <div class="proof-card" tabindex="0">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client3.jpg') }}" 
-                         alt="Produit reçu" class="proof-image">
+                         alt="Témoignage client Marie" class="proof-image" loading="lazy">
                     <div class="proof-overlay">
-                        <i class="fas fa-search-plus"></i>
+                        <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="proof-content">
                     <div class="proof-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                     </div>
                     <p>"Qualité exceptionnelle, je suis bluffé par le service."</p>
                     <div class="proof-author">- Marie, Bordeaux</div>
@@ -1331,276 +1347,276 @@ body {
     </div>
 
     <!-- Section avis clients -->
-    <section class="reviews-section">
+    <section class="reviews-section" role="region" aria-label="Avis clients">
         <div class="reviews-header">
-            <h3><i class="fas fa-star"></i> Avis clients 
+            <h2><i class="fas fa-star" aria-hidden="true"></i> Avis clients 
                 {% if product.id == 1 %}(24)
                 {% elif product.id == 4 %}(18)
                 {% elif product.id == 100 %}(32)
                 {% else %}(15){% endif %}
-            </h3>
-            <button id="btn-open-review-form" class="btn-review">
-                <i class="fas fa-pen"></i> Donner votre avis
+            </h2>
+            <button id="btn-open-review-form" class="btn-review" aria-label="Ouvrir le formulaire d'avis" aria-expanded="false" aria-controls="reviewForm">
+                <i class="fas fa-pen" aria-hidden="true"></i> Donner votre avis
             </button>
         </div>
 
         <!-- Formulaire d'avis -->
-        <div class="review-form" id="reviewForm">
-            <h3><i class="fas fa-pen"></i> Rédiger un avis sur {{ product.name }}</h3>
+        <div class="review-form" id="reviewForm" role="form" aria-label="Formulaire pour rédiger un avis">
+            <h2><i class="fas fa-pen" aria-hidden="true"></i> Rédiger un avis sur {{ product.name }}</h2>
             <form id="submitReviewForm">
                 <div class="form-group">
                     <label for="reviewName">Votre nom</label>
-                    <input type="text" id="reviewName" class="form-control" required>
+                    <input type="text" id="reviewName" class="form-control" required aria-required="true">
                 </div>
                 
                 <div class="form-group">
                     <label>Votre note</label>
-                    <div class="star-rating">
-                        <input type="radio" id="star5" name="rating" value="5">
-                        <label for="star5"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star4" name="rating" value="4">
-                        <label for="star4"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star3" name="rating" value="3">
-                        <label for="star3"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star2" name="rating" value="2">
-                        <label for="star2"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star1" name="rating" value="1">
-                        <label for="star1"><i class="fas fa-star"></i></label>
+                    <div class="star-rating" role="radiogroup" aria-label="Évaluation">
+                        <input type="radio" id="star5" name="rating" value="5" aria-label="5 étoiles">
+                        <label for="star5"><i class="fas fa-star" aria-hidden="true"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4" aria-label="4 étoiles">
+                        <label for="star4"><i class="fas fa-star" aria-hidden="true"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3" aria-label="3 étoiles">
+                        <label for="star3"><i class="fas fa-star" aria-hidden="true"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2" aria-label="2 étoiles">
+                        <label for="star2"><i class="fas fa-star" aria-hidden="true"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1" aria-label="1 étoile">
+                        <label for="star1"><i class="fas fa-star" aria-hidden="true"></i></label>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="reviewTitle">Titre de l'avis</label>
-                    <input type="text" id="reviewTitle" class="form-control" required>
+                    <input type="text" id="reviewTitle" class="form-control" required aria-required="true">
                 </div>
                 
                 <div class="form-group">
                     <label for="reviewText">Votre avis</label>
-                    <textarea id="reviewText" class="form-control" rows="5" required></textarea>
+                    <textarea id="reviewText" class="form-control" rows="5" required aria-required="true"></textarea>
                 </div>
                 
-                <button type="submit" class="btn-submit-review">
-                    <i class="fas fa-paper-plane"></i> Envoyer l'avis
+                <button type="submit" class="btn-submit-review" aria-label="Envoyer l'avis">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer l'avis
                 </button>
             </form>
         </div>
 
         <!-- Liste des avis -->
-        <div class="reviews-list" id="reviewsList">
+        <div class="reviews-list" id="reviewsList" role="list">
             {% if product.id == 1 %}
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Jean D.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Vérifié
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 15/06/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Produit exceptionnel</h4>
+                <h3>Produit exceptionnel</h3>
                 <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé. Je recommande vivement ce produit et ce vendeur."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Marie L.</div>
                     <div class="review-date">Acheté le 10/06/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
                 </div>
-                <h4>Très satisfaite</h4>
+                <h3>Très satisfaite</h3>
                 <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous. Le goût est excellent, je rachèterai sans hésiter."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Claude R.</div>
                     <div class="review-date">Acheté le 01/06/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Bon produit</h4>
+                <h3>Bon produit</h3>
                 <p>"Bon produit, mais j'aurais aimé plus de diversité dans les saveurs proposées. Livraison rapide et efficace. Emballage soigné."</p>
             </div>
 
             {% elif product.id == 4 %}
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Sophie M.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Vérifié
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 12/12/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Parfait pour les fêtes</h4>
+                <h3>Parfait pour les fêtes</h3>
                 <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon. Tous nos invités ont été impressionnés par la qualité."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Élodie T.</div>
                     <div class="review-date">Acheté le 18/11/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Délicieux</h4>
+                <h3>Délicieux</h3>
                 <p>"Un champagne vraiment délicieux, j'ai été ravie de la qualité. Parfait pour célébrer avec des amis. Le rapport qualité/prix est excellent."</p>
             </div>
 
             {% elif product.id == 100 %}
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Thomas B.</div>
                     <div class="review-date">Acheté le 05/07/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Excellent rapport qualité/prix</h4>
+                <h3>Excellent rapport qualité/prix</h3>
                 <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison. Emballage très professionnel et sécurisé."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Lucie F.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Vérifié
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 01/05/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
                 </div>
-                <h4>Très satisfaite</h4>
+                <h3>Très satisfaite</h3>
                 <p>"Très satisfait de ma commande. Livraison rapide et produits bien protégés, mais un peu plus de choix aurait été parfait. Je recommande."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Clara D.</div>
-                    <div class="review-date">Acheté le 22/04/ Client satisfait</div>
+                    <div class="review-date">Acheté le 22/04/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Parfait</h4>
+                <h3>Parfait</h3>
                 <p>"Le produit est arrivé dans les temps et dans un état impeccable. Très bon rapport qualité/prix. Je recommande ! Service client réactif."</p>
             </div>
 
             {% else %}
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Pierre G.</div>
                     <div class="review-date">Acheté le 15/04/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Très bonne qualité</h4>
+                <h3>Très bonne qualité</h3>
                 <p>"Très bonne qualité pour le prix. L'emballage était solide et le produit frais à la réception. Livraison un peu longue mais acceptable."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Anne S.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Vérifié
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 10/04/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Exceptionnel</h4>
+                <h3>Exceptionnel</h3>
                 <p>"Qualité exceptionnelle, je suis bluffé par le service. Emballage luxueux, livraison express. Parfait pour offrir à des amis ou clients."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Marc V.</div>
                     <div class="review-date">Acheté le 05/04/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
                 </div>
-                <h4>Très bon</h4>
+                <h3>Très bon</h3>
                 <p>"Produit très bon, correspond à la description. Livraison dans les temps. Je recommande ce vendeur sérieux. Prix un peu élevé mais justifié."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Julie M.</div>
                     <div class="review-date">Acheté le 01/04/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Parfaitement emballé</h4>
+                <h3>Parfaitement emballé</h3>
                 <p>"Commande reçue en parfait état, emballage professionnel ! Produit frais et de grande qualité. Service client très réactif à mes questions."</p>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Paul T.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Vérifié
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 28/03/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
                 </div>
-                <h4>Correct</h4>
+                <h3>Correct</h3>
                 <p>"Produit correct pour le prix. Rien d'exceptionnel mais satisfait globalement. Livraison un peu longue mais bien emballé."</p>
             </div>
             {% endif %}
         </div>
 
         <!-- Pagination -->
-        <div class="pagination" id="pagination">
-            <a href="#" class="page-link active" data-page="1">1</a>
+        <div class="pagination" id="pagination" role="navigation" aria-label="Pagination des avis">
+            <a href="#" class="page-link active" data-page="1" aria-current="page">1</a>
             <a href="#" class="page-link" data-page="2">2</a>
-            <a href="#" class "page-link" data-page="3">3</a>
+            <a href="#" class="page-link" data-page="3">3</a>
         </div>
     </section>
 
     <!-- Produits similaires -->
-    <section class="related-products">
+    <section class="related-products" role="region" aria-label="Produits similaires">
         <h2 class="related-title">Vous pourriez aussi aimer</h2>
         <div class="related-grid">
             {% for product in related_products %}
-            <div class="product-card">
+            <div class="product-card" tabindex="0">
                 {% if product.featured %}
-                <div class="product-badge">PROMO</div>
+                <div class="product-badge" aria-label="Promotion">PROMO</div>
                 {% endif %}
                 <div class="product-image">
                     <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
-                         alt="{{ product.name }}">
+                         alt="{{ product.name }}" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3>{{ product.name }}</h3>
                     <div class="price">{{ "%.2f"|format(product.price) }}€</div>
                     <a href="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify) }}" 
-                       class="btn-product">
-                        <i class="fas fa-eye"></i> Voir
+                       class="btn-product" aria-label="Voir les détails de {{ product.name }}">
+                        <i class="fas fa-eye" aria-hidden="true"></i> Voir
                     </a>
                 </div>
             </div>
@@ -1610,159 +1626,231 @@ body {
 </div>
 
 <!-- CTA Mobile -->
-<div class="mobile-cta">
+<div class="mobile-cta" role="region" aria-label="Bouton d'ajout au panier mobile">
     <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
         <input type="hidden" name="product_id" value="{{ product.id }}">
-        <button type="submit" class="btn-add-to-cart">
-            <i class="fas fa-cart-plus"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
+        <button type="submit" class="btn-add-to-cart" aria-label="Ajouter {{ product.name }} au panier">
+            <i class="fas fa-cart-plus" aria-hidden="true"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
         </button>
     </form>
 </div>
 {% endblock %}
+
 {% block extra_js %}
-<script>
+<script defer>
     // --- Changement d'image principale ---
     function changeMainImage(thumbnail, newSrc) {
-        const mainImg = document.getElementById('main-image');
-        mainImg.style.opacity = '0';
-        setTimeout(() => {
-            mainImg.src = newSrc;
-            mainImg.style.opacity = '1';
-        }, 200);
-        document.querySelectorAll('.thumbnail').forEach(img => img.classList.remove('active'));
-        thumbnail.classList.add('active');
+        try {
+            const mainImg = document.getElementById('main-image');
+            if (!mainImg) throw new Error('Main image not found');
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = newSrc;
+                mainImg.style.opacity = '1';
+            }, 200);
+            document.querySelectorAll('.thumbnail').forEach(img => {
+                img.classList.remove('active');
+                img.setAttribute('aria-selected', 'false');
+            });
+            thumbnail.classList.add('active');
+            thumbnail.setAttribute('aria-selected', 'true');
+        } catch (error) {
+            console.error('Error changing main image:', error);
+        }
     }
 
     // --- Affichage des détails complets ---
     function toggleDetails() {
-        const fullDetails = document.getElementById('fullDetails');
-        const readMoreBtn = document.querySelector('.read-more');
-        fullDetails.classList.toggle('active');
-        readMoreBtn.classList.toggle('active');
-        if (fullDetails.classList.contains('active')) {
-            fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        try {
+            const fullDetails = document.getElementById('fullDetails');
+            const readMoreBtn = document.querySelector('.read-more');
+            if (!fullDetails || !readMoreBtn) throw new Error('Details or button not found');
+            const isActive = fullDetails.classList.toggle('active');
+            readMoreBtn.classList.toggle('active');
+            readMoreBtn.setAttribute('aria-expanded', isActive);
+            if (isActive) {
+                fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } catch (error) {
+            console.error('Error toggling details:', error);
         }
     }
 
     // --- Formulaire d'avis ---
-    document.getElementById('btn-open-review-form').addEventListener('click', function(e) {
-        e.preventDefault();
+    function initializeReviewForm() {
+        const btnOpenReviewForm = document.getElementById('btn-open-review-form');
         const reviewForm = document.getElementById('reviewForm');
-        reviewForm.classList.toggle('active');
-        if (reviewForm.classList.contains('active')) {
-            reviewForm.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+        if (!btnOpenReviewForm || !reviewForm) return;
 
-    document.getElementById('submitReviewForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('reviewName').value;
-        const rating = document.querySelector('input[name="rating"]:checked')?.value;
-        const title = document.getElementById('reviewTitle').value;
-        const text = document.getElementById('reviewText').value;
-        const date = new Date().toLocaleDateString('fr-FR');
-
-        if (!rating) {
-            alert('Veuillez sélectionner une note.');
-            return;
-        }
-
-        const newReview = document.createElement('div');
-        newReview.className = 'review-card';
-        newReview.innerHTML = `
-            <div class="review-header">
-                <div class="review-author">${name}</div>
-                <div class="review-date">Acheté le ${date}</div>
-            </div>
-            <div class="review-stars">
-                ${'<i class="fas fa-star"></i>'.repeat(parseInt(rating))}
-                ${rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
-                ${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(rating))}
-            </div>
-            <h4>${title}</h4>
-            <p>"${text}"</p>
-        `;
-
-        document.getElementById('reviewsList').prepend(newReview);
-        this.reset();
-        document.getElementById('reviewForm').classList.remove('active');
-        alert('Merci pour votre avis ! Il a été ajouté avec succès.');
-        updatePagination();
-    });
-
-    // --- Modal pour preuves clients ---
-    document.querySelectorAll('.proof-image-container').forEach(container => {
-        container.addEventListener('click', function() {
-            const modal = document.createElement('div');
-            modal.className = 'proof-modal';
-            modal.innerHTML = `
-                <span class="proof-modal-close">×</span>
-                <img src="${this.querySelector('img').src}" alt="Preuve client">
-            `;
-            modal.querySelector('.proof-modal-close').addEventListener('click', () => document.body.removeChild(modal));
-            modal.addEventListener('click', e => {
-                if (e.target === modal) document.body.removeChild(modal);
-            });
-            document.body.appendChild(modal);
+        btnOpenReviewForm.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isActive = reviewForm.classList.toggle('active');
+            btnOpenReviewForm.setAttribute('aria-expanded', isActive);
+            if (isActive) {
+                reviewForm.scrollIntoView({ behavior: 'smooth' });
+            }
         });
-    });
 
-    // --- Pagination des avis ---
-    const reviewsPerPage = 5;
-    function updatePagination() {
-        const reviewsList = document.getElementById('reviewsList');
-        const reviews = reviewsList.querySelectorAll('.review-card');
-        const totalPages = Math.ceil(reviews.length / reviewsPerPage);
-        const pagination = document.getElementById('pagination');
-        pagination.innerHTML = '';
-
-        for (let i = 1; i <= totalPages; i++) {
-            const pageLink = document.createElement('a');
-            pageLink.href = '#';
-            pageLink.className = 'page-link';
-            pageLink.dataset.page = i;
-            pageLink.textContent = i;
-            if (i === 1) pageLink.classList.add('active');
-            pagination.appendChild(pageLink);
-        }
-
-        function showPage(page) {
-            reviews.forEach((review, index) => {
-                review.style.display = (index >= (page - 1) * reviewsPerPage && index < page * reviewsPerPage) ? 'block' : 'none';
-            });
-            document.querySelectorAll('.page-link').forEach(link => link.classList.remove('active'));
-            document.querySelector(`.page-link[data-page="${page}"]`).classList.add('active');
-        }
-
-        document.querySelectorAll('.page-link').forEach(link => {
-            link.addEventListener('click', e => {
+        const submitReviewForm = document.getElementById('submitReviewForm');
+        if (submitReviewForm) {
+            submitReviewForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                showPage(parseInt(link.dataset.page));
-            });
-        });
+                try {
+                    const name = document.getElementById('reviewName')?.value.trim();
+                    const rating = document.querySelector('input[name="rating"]:checked')?.value;
+                    const title = document.getElementById('reviewTitle')?.value.trim();
+                    const text = document.getElementById('reviewText')?.value.trim();
+                    const date = new Date().toLocaleDateString('fr-FR');
 
-        showPage(1);
+                    if (!name || !rating || !title || !text) {
+                        alert('Veuillez remplir tous les champs requis.');
+                        return;
+                    }
+
+                    const newReview = document.createElement('div');
+                    newReview.className = 'review-card';
+                    newReview.setAttribute('role', 'listitem');
+                    newReview.innerHTML = `
+                        <div class="review-header">
+                            <div class="review-author">${name}</div>
+                            <div class="review-date">Acheté le ${date}</div>
+                        </div>
+                        <div class="review-stars">
+                            ${'<i class="fas fa-star" aria-hidden="true"></i>'.repeat(parseInt(rating))}
+                            ${rating % 1 !== 0 ? '<i class="fas fa-star-half-alt" aria-hidden="true"></i>' : ''}
+                            ${'<i class="far fa-star" aria-hidden="true"></i>'.repeat(5 - Math.ceil(rating))}
+                        </div>
+                        <h3>${title}</h3>
+                        <p>"${text}"</p>
+                    `;
+
+                    const reviewsList = document.getElementById('reviewsList');
+                    reviewsList.prepend(newReview);
+                    this.reset();
+                    reviewForm.classList.remove('active');
+                    btnOpenReviewForm.setAttribute('aria-expanded', 'false');
+                    alert('Merci pour votre avis ! Il a été ajouté avec succès.');
+                    updatePagination();
+                } catch (error) {
+                    console.error('Error submitting review:', error);
+                    alert('Une erreur s\'est produite lors de l\'envoi de l\'avis.');
+                }
+            });
+        }
     }
 
-    // --- Animation au chargement + Ajout à panier JS ---
-    document.addEventListener('DOMContentLoaded', function() {
-        const elements = document.querySelectorAll('.product-gallery, .product-info');
-        elements.forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
-            el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-            setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }, 100 + index * 100);
+    // --- Modal pour preuves clients ---
+    function initializeProofModals() {
+        document.querySelectorAll('.proof-card').forEach(container => {
+            container.addEventListener('click', function(e) {
+                if (e.target.closest('.proof-overlay')) {
+                    try {
+                        const imgSrc = this.querySelector('.proof-image').src;
+                        const modal = document.createElement('div');
+                        modal.className = 'proof-modal';
+                        modal.innerHTML = `
+                            <span class="proof-modal-close" role="button" aria-label="Fermer la modale">×</span>
+                            <img src="${imgSrc}" alt="Image agrandie du témoignage client">
+                        `;
+                        modal.querySelector('.proof-modal-close').addEventListener('click', () => {
+                            document.body.removeChild(modal);
+                        });
+                        modal.addEventListener('click', e => {
+                            if (e.target === modal) document.body.removeChild(modal);
+                        });
+                        document.body.appendChild(modal);
+                    } catch (error) {
+                        console.error('Error opening proof modal:', error);
+                    }
+                }
+            });
+            container.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    this.click();
+                }
+            });
         });
+    }
 
-        // Corrigé : animation pour tous les boutons "ajouter au panier"
-        document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
-            setTimeout(() => {
-                btn.style.animation = 'pulse 2s infinite';
-            }, 1500);
-        });
+    // --- Pagination des avis ---
+    function updatePagination() {
+        try {
+            const reviewsList = document.getElementById('reviewsList');
+            const reviews = reviewsList.querySelectorAll('.review-card');
+            const reviewsPerPage = 5;
+            const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLink = document.createElement('a');
+                pageLink.href = '#';
+                pageLink.className = 'page-link';
+                pageLink.dataset.page = i;
+                pageLink.textContent = i;
+                pageLink.setAttribute('aria-label', `Page ${i}`);
+                if (i === 1) {
+                    pageLink.classList.add('active');
+                    pageLink.setAttribute('aria-current', 'page');
+                }
+                pagination.appendChild(pageLink);
+            }
+
+            function showPage(page) {
+                reviews.forEach((review, index) => {
+                    review.style.display = (index >= (page - 1) * reviewsPerPage && index < page * reviewsPerPage) ? 'block' : 'none';
+                });
+                document.querySelectorAll('.page-link').forEach(link => {
+                    link.classList.remove('active');
+                    link.removeAttribute('aria-current');
+                });
+                const activeLink = document.querySelector(`.page-link[data-page="${page}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    activeLink.setAttribute('aria-current', 'page');
+                }
+            }
+
+            document.querySelectorAll('.page-link').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    showPage(parseInt(link.dataset.page));
+                });
+                link.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        showPage(parseInt(link.dataset.page));
+                    }
+                });
+            });
+
+            showPage(1);
+        } catch (error) {
+            console.error('Error updating pagination:', error);
+        }
+    }
+
+    // --- Initialisation au chargement ---
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            // Animation au chargement
+            const elements = document.querySelectorAll('.product-gallery, .product-info');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
+                el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 + index * 100);
+            });
+
+            // Animation des boutons
+            document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
+                setTimeout(() => {
+                    btn.style.animation = 'pulse 2s infinite';
+                }, 1500);
+            });
 
         // Zoom image (déjà bien)
         const mainImageContainer = document.querySelector('.main-image-container');
@@ -1801,4 +1889,3 @@ body {
     });
 </script>
 {% endblock %}
-
