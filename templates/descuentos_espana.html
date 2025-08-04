@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 ¡DESCUENTOS DEL 70% EN PRODUCTOS GOURMET! | ¡Solo para profesionales! 🔥</title>
+    <meta name="description" content="¡LIQUIDACIÓN de stocks premium! Foie gras, salmón noruego y más. ¡Precios de fábrica directos! Envío GRATIS en 48h.">
+    <style>
+        .urgente { color: #ff0000; font-weight: bold; text-transform: uppercase; }
+        .btn-comprar { background: #ff0000; color: white; font-weight: bold; padding: 15px 30px; border-radius: 5px; text-decoration: none; display: inline-block; margin: 10px 0; }
+        .contador { font-size: 24px; color: #ff0000; font-weight: bold; }
+        .strike { text-decoration: line-through; color: #999; }
+        .producto-card { border: 1px solid #ddd; padding: 15px; text-align: center; margin: 10px; }
+        .grid-productos { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    </style>
+</head>
+<body>
+    <!-- BANNER DE URGENCIA -->
+    <div style="background: #ff0000; color: white; text-align: center; padding: 10px;">
+        ⚠️ <strong>¡OFERTA RELÁMPAGO PARA PROFESIONALES!</strong> TERMINA EN: <span class="contador" id="contador">30:00</span> ⚠️
+    </div>
+
+    <header style="text-align: center; padding: 20px; background: #f8f8f8;">
+        <h1>🚨 ¡LIQUIDACIÓN DE STOCKS <span class="urgente">-70%</span>! 🚨</h1>
+        <p><strong>¡SOLO PARA RESTAURANTES Y MAYORISTAS!</strong> Precios <span class="urgente">INSUPERABLES</span> en productos gourmet.</p>
+    </header>
+
+    <main style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <!-- SECCIÓN DE PRODUCTOS -->
+        <section>
+            <h2 style="color: #ff0000;">📦 <span class="urgente">STOCKS LIMITADOS</span> (¡RESERVA AHORA!)</h2>
+            <div class="grid-productos">
+                {% for product in products %}
+                {% set descuento = 70 if product.stock < 10 else 50 %}  <!-- Descuento más alto si quedan pocas unidades -->
+                {% set precio_original = product.price %}
+                {% set precio_con_descuento = (precio_original * (1 - descuento/100)) | round(2) %}
+                
+                <div class="producto-card">
+                    <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" alt="{{ product.name }}" style="max-width: 100%; height: 200px; object-fit: cover;">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description | truncate(100) }}</p>
+                    <p style="font-size: 1.2em;">
+                        <span class="strike">{{ "%.2f"|format(precio_original) }}€</span> → 
+                        <span class="urgente">{{ "%.2f"|format(precio_con_descuento) }}€</span>
+                    </p>
+                    <p style="color: #ff0000; font-weight: bold;">¡SOLO {{ product.stock }} CAJAS DISPONIBLES!</p>
+                    <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn-comprar">¡RESERVAR AHORA!</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- GARANTÍAS -->
+        <section style="background: #f8f8f8; padding: 20px; text-align: center; margin: 30px 0;">
+            <h2>✅ <span class="urgente">GARANTÍA PROFESIONAL</span></h2>
+            <p>✔️ <strong>Calidad gourmet verificada</strong> (Origen UE/Noruega)</p>
+            <p>✔️ <strong>Envío en 48h</strong> (España peninsular)</p>
+            <p>✔️ <strong>Factura con IVA</strong> para empresas</p>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section style="text-align: center; margin: 40px 0;">
+            <h2 class="urgente">⚠️ ¡ÚLTIMA OPORTUNIDAD! ⚠️</h2>
+            <p>Estos stocks <strong>NO se repondrán</strong>. ¡Compra ahora antes de que se agoten!</p>
+            <a href="#contacto" class="btn-comprar" style="font-size: 1.3em;">📞 ¡CONTACTA PARA PRECIOS MAYORISTA!</a>
+        </section>
+    </main>
+
+    <!-- SCRIPTS PARA URGENCIA -->
+    <script>
+        // Contador regresivo (30 minutos)
+        let tiempo = 1800;
+        const contador = document.getElementById('contador');
+        const intervalo = setInterval(() => {
+            tiempo--;
+            const minutos = Math.floor(tiempo / 60);
+            const segundos = tiempo % 60;
+            contador.textContent = `${minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
+            if (tiempo <= 0) {
+                clearInterval(intervalo);
+                contador.textContent = "¡OFERTA TERMINADA!";
+                document.querySelectorAll('.btn-comprar').forEach(b => b.style.backgroundColor = '#999');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
