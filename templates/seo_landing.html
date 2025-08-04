@@ -51,7 +51,7 @@
                     <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" alt="{{ product.name }}">
                     <h3>{{ product.name }}</h3>
                     <p class="price">{{ product.price }}€</p>
-                    <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn">Voir le produit</a>
+                <a href="{{ url_for('product_detail', product_id=product.id, slug=product.slug) }}" class="btn">Voir le produit</a>              
                 </div>
 
                 <!-- Product Schema -->
@@ -68,7 +68,7 @@
                         "priceCurrency": "EUR",
                         "price": "{{ "%.2f"|format(product.price) }}",
                         "availability": "https://schema.org/InStock",
-                        "url": {{ url_for('product_detail', product_id=product.id, _external=True) | tojson }}
+                        "url": {{ url_for('product_detail', product_id=product.id, slug=product.slug, _external=True) | tojson }}              
                     }
                 }
                 </script>
