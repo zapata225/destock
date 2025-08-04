@@ -1712,7 +1712,7 @@ def guide():
 @app.route('/track-conversion')
 def track_conversion():
     session['conversion'] = True  # Pour le pixel de conversion
-    return redirect(url_for('merci'))
+    return redirect(url_for('index'))
 @app.route('/conflit-iran-israel-2025') 
 def landing3():
     return render_template('landing1.html')
