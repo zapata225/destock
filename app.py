@@ -213,6 +213,8 @@ def ensure_timezone(dt):
         return None
     return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
 
+import random
+
 @app.route('/destockage-alimentaire-professionnel')
 def seo_landing_1():
     """Page ultra-optimisée pour le mot-clé principal"""
