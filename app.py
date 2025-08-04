@@ -2272,57 +2272,11 @@ def seo_landing_pro1():
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
     
     return response
+    
+from data import products  # importe la liste de produits depuis data.py
+
 @app.route('/product-feed.xml')
 def product_feed():
-    products = [
-        {
-            "id": 100,
-            "name": "🥤 Palette de Coca-Cola Original – Bouteilles 1L",
-            "description": "Palette complète de 144 bouteilles de Coca-Cola Original 1L. Boisson gazeuse au goût unique et rafraîchissant. Conditionnement professionnel pour cafés, restaurants et distributeurs.",
-            "price": 129.00,
-            "category": "Boissons",
-            "stock": 105,
-            "featured": False,
-            "images": ["palette-coca.jpg", "palette-coca1.jpg", "palette-coca2.jpg"],
-            "details": {
-                "marque": "Coca-Cola",
-                "volume": "144 litres (144x1L)",
-                "quantité": "144 bouteilles",
-                "origine": "Usine de Clamart, France",
-                "ingrédients": "Eau gazéifiée, sucre, colorant E150d, acidifiant E338, arômes naturels",
-                "emballage": "Palette filmée - 6 couches de 24 bouteilles",
-                "conservation": "À l'abri du soleil à température ambiante",
-                "DLC": "12 mois après production",
-                "nutriscore": "E",
-                "allergenes": "Aucun"
-            },
-            "seo_description": "Palette Coca-Cola Original 1L - 144 bouteilles - Boisson gazeuse rafraîchissante - Meilleur prix - Livraison rapide France entière - Professionnels et particuliers"
-        },
-        {
-            "id": 101,
-            "name": "🥤 Palette de RedBull (250ml)",
-            "description": "Lot complet de 2592 canettes RedBull 250ml. Boisson énergisante originale avec taurine, caféine et vitamines B. Parfaite pour distributeurs automatiques et événements sportifs.",
-            "price": 1432.80,
-            "category": ["Boissons", "Promotions"],
-            "stock": 8,
-            "featured": True,
-            "images": ["palette-redbull.jpg", "palette-redbull1.jpg", "palette-redbull2.jpg"],
-            "details": {
-                "marque": "RedBull",
-                "volume": "648 litres (2592x250ml)",
-                "quantité": "2592 canettes",
-                "origine": "Autriche",
-                "ingrédients": "Eau, sucre, acidifiant E330, bicarbonate de sodium, caféine (32mg/100ml), taurine",
-                "emballage": "108 cartons de 24 canettes",
-                "conservation": "Température ambiante",
-                "DLC": "18 mois après production",
-                "apport": "80kcal/canette - Vitamines B6, B12",
-                "avertissement": "Déconseillé aux enfants et femmes enceintes"
-            },
-            "seo_description": "Palette RedBull 250ml - 2592 canettes - Boisson énergisante originale - Meilleur prix de gros - Livraison sous 48h - Pour professionnels HORECA"
-        }
-    ]
-
     feed = render_template('product_feed.xml', products=products)
     response = make_response(feed)
     response.headers['Content-Type'] = 'application/xml'
