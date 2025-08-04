@@ -1746,7 +1746,8 @@ def psg_champions():
 
 @app.route('/fr/destockage-espagne')
 def destockage_espagne_fr():
-    return render_template('fr/destockage_espagne.html') 
+    return render_template('destockage_espagne.html')
+
 
 @app.route("/meilleur-destockage-alimentaire")
 def destockage_alimentaire():
