@@ -162,36 +162,73 @@ def get_meta_tags(page):
 
 
 def generer_jsonld(produit):
+    import datetime
     base_url = "https://destockagealimentairestore.com"
+
     images_full_url = [
         f"{base_url}/static/images/products/{img}" for img in produit.get("images", ["default.jpg"])
     ]
+
+    url_produit = f"{base_url}/produit/{produit['id']}-{slugify(produit['name'])}"
+
+    # Extraction du prix en float
+    try:
+        prix = float(produit.get("offers", {}).get("price", 0))
+    except ValueError:
+        prix = 0.0
+
     jsonld = {
         "@context": "https://schema.org/",
         "@type": "Product",
         "name": produit["name"],
         "image": images_full_url,
-        "description": produit["description"],
+        "description": produit.get("description", ""),
         "sku": str(produit["id"]),
         "brand": {
             "@type": "Brand",
             "name": produit.get("details", {}).get("marque", "Marque non spécifiée")
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": float(produit.get("aggregateRating", {}).get("ratingValue", 0)),
-            "reviewCount": int(produit.get("aggregateRating", {}).get("reviewCount", 0))
-        },
         "offers": {
             "@type": "Offer",
-            "url": f"{base_url}/produit/{produit['id']}-{slugify(produit['name'])}",
+            "url": url_produit,
             "priceCurrency": produit.get("offers", {}).get("priceCurrency", "EUR"),
-            "price": produit.get("offers", {}).get("price", 0),
-            "priceValidUntil": produit.get("offers", {}).get("priceValidUntil", ""),
-            "availability": produit.get("offers", {}).get("availability", "https://schema.org/OutOfStock")
+            "price": prix,
+            "priceValidUntil": produit.get("offers", {}).get("priceValidUntil", "2025-12-31"),
+            "availability": produit.get("offers", {}).get("availability", "https://schema.org/InStock"),
+            "itemCondition": "https://schema.org/NewCondition",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0.00",
+                    "currency": "EUR"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "FR"
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": 14,
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn",
+                "applicableCountry": "FR"
+            }
         }
     }
+
+    # Ajouter les avis si présents
+    if "aggregateRating" in produit:
+        jsonld["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": float(produit["aggregateRating"].get("ratingValue", 0)),
+            "reviewCount": int(produit["aggregateRating"].get("reviewCount", 0))
+        }
+
     return jsonld
+
     
 @app.context_processor
 def inject_schema():
