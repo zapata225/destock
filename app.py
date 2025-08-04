@@ -33,10 +33,6 @@ import json
 def last4(s):
     return str(s)[-4:] if s else ''
 
-jsonld_data = generer_jsonld(product)
-jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
-jsonld_str = jsonld_str.replace("</", "<\\/")  # échappement nécessaire
-
 app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
 app.register_blueprint(blog_bp)
@@ -924,6 +920,45 @@ def product_detail_old(product_id):
     return redirect(url_for('product_detail', product_id=product_id, slug=slug), code=301)
 
 
+@app.route('/produit/<int:product_id>-<slug>')
+def product_detail(product_id, slug):
+    # Recherche du produit par ID
+    product = next((p for p in products if p['id'] == product_id), None)
+    if not product:
+        flash('Produit non trouvé', 'error')
+        return redirect(url_for('product_list'))
+
+    # Slugification correcte de l'URL
+    correct_slug = slugify(product['name'])
+    if slug != correct_slug:
+        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug), code=301)
+
+    # Assurer que les détails sont présents
+    if 'details' not in product:
+        product['details'] = {
+            'description': product.get('description', ''),
+            'catégorie': product.get('category', ''),
+            'date_ajout': product.get('date_added', '')
+        }
+
+    # Produits liés (même catégorie, sauf le produit courant)
+    category = product.get('category')
+    related_products = [p for p in products if p.get('category') == category and p.get('id') != product_id][:4] if category else []
+
+    # Génération du JSON-LD structuré pour SEO (Google)
+    jsonld_data = generer_jsonld(product)
+    jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
+    jsonld_str = jsonld_str.replace("</", "<\\/")  # échappement nécessaire
+
+    # Rendu du template HTML
+    return render_template(
+        'product_detail.html',
+        product=product,
+        related_products=related_products,
+        jsonld_str=jsonld_str
+    )
+
+
 def generer_jsonld(produit):
     import datetime
     base_url = "https://destockagealimentairestore.com"
@@ -991,44 +1026,6 @@ def generer_jsonld(produit):
         }
 
     return jsonld
-
-@app.route('/produit/<int:product_id>-<slug>')
-def product_detail(product_id, slug):
-    # Recherche du produit par ID
-    product = next((p for p in products if p['id'] == product_id), None)
-    if not product:
-        flash('Produit non trouvé', 'error')
-        return redirect(url_for('product_list'))
-
-    # Slugification correcte de l'URL
-    correct_slug = slugify(product['name'])
-    if slug != correct_slug:
-        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug), code=301)
-
-    # Assurer que les détails sont présents
-    if 'details' not in product:
-        product['details'] = {
-            'description': product.get('description', ''),
-            'catégorie': product.get('category', ''),
-            'date_ajout': product.get('date_added', '')
-        }
-
-    # Produits liés (même catégorie, sauf le produit courant)
-    category = product.get('category')
-    related_products = [p for p in products if p.get('category') == category and p.get('id') != product_id][:4] if category else []
-
-    # Génération du JSON-LD structuré pour SEO (Google)
-    jsonld_data = generer_jsonld(product)
-    jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
-
-    # Rendu du template HTML
-    return render_template(
-        'product_detail.html',
-        product=product,
-        related_products=related_products,
-        jsonld_str=jsonld_str
-    )
-
 
 
 # Gestion du panier
