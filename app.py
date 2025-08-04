@@ -160,6 +160,11 @@ def get_meta_tags(page):
     }
     return meta.get(page, meta['home'])
 
+import json
+
+jsonld_data = generer_jsonld(product)
+jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
+jsonld_str = jsonld_str.replace("</", "<\\/")  # échappement nécessaire
 
 def generer_jsonld(produit):
     import datetime
