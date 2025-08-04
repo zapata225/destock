@@ -27,11 +27,15 @@ from data import products, categories  # Importez vos produits et catégories de
 from blog_routes import blog_bp
 from flask_compress import Compress
 from flask_babel import Babel, _
+import json
 
 
 def last4(s):
     return str(s)[-4:] if s else ''
 
+jsonld_data = generer_jsonld(product)
+jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
+jsonld_str = jsonld_str.replace("</", "<\\/")  # échappement nécessaire
 
 app = Flask(__name__)
 app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
@@ -160,79 +164,6 @@ def get_meta_tags(page):
     }
     return meta.get(page, meta['home'])
 
-import json
-
-jsonld_data = generer_jsonld(product)
-jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
-jsonld_str = jsonld_str.replace("</", "<\\/")  # échappement nécessaire
-
-def generer_jsonld(produit):
-    import datetime
-    base_url = "https://destockagealimentairestore.com"
-
-    images_full_url = [
-        f"{base_url}/static/images/products/{img}" for img in produit.get("images", ["default.jpg"])
-    ]
-
-    url_produit = f"{base_url}/produit/{produit['id']}-{slugify(produit['name'])}"
-
-    # Extraction du prix en float
-    try:
-        prix = float(produit.get("offers", {}).get("price", 0))
-    except ValueError:
-        prix = 0.0
-
-    jsonld = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": produit["name"],
-        "image": images_full_url,
-        "description": produit.get("description", ""),
-        "sku": str(produit["id"]),
-        "brand": {
-            "@type": "Brand",
-            "name": produit.get("details", {}).get("marque", "Marque non spécifiée")
-        },
-        "offers": {
-            "@type": "Offer",
-            "url": url_produit,
-            "priceCurrency": produit.get("offers", {}).get("priceCurrency", "EUR"),
-            "price": prix,
-            "priceValidUntil": produit.get("offers", {}).get("priceValidUntil", "2025-12-31"),
-            "availability": produit.get("offers", {}).get("availability", "https://schema.org/InStock"),
-            "itemCondition": "https://schema.org/NewCondition",
-            "shippingDetails": {
-                "@type": "OfferShippingDetails",
-                "shippingRate": {
-                    "@type": "MonetaryAmount",
-                    "value": "0.00",
-                    "currency": "EUR"
-                },
-                "shippingDestination": {
-                    "@type": "DefinedRegion",
-                    "addressCountry": "FR"
-                }
-            },
-            "hasMerchantReturnPolicy": {
-                "@type": "MerchantReturnPolicy",
-                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                "merchantReturnDays": 14,
-                "returnMethod": "https://schema.org/ReturnByMail",
-                "returnFees": "https://schema.org/FreeReturn",
-                "applicableCountry": "FR"
-            }
-        }
-    }
-
-    # Ajouter les avis si présents
-    if "aggregateRating" in produit:
-        jsonld["aggregateRating"] = {
-            "@type": "AggregateRating",
-            "ratingValue": float(produit["aggregateRating"].get("ratingValue", 0)),
-            "reviewCount": int(produit["aggregateRating"].get("reviewCount", 0))
-        }
-
-    return jsonld
 
     
 @app.context_processor
@@ -992,6 +923,74 @@ def product_detail_old(product_id):
     # Redirection 301 vers la nouvelle URL avec slug
     return redirect(url_for('product_detail', product_id=product_id, slug=slug), code=301)
 
+
+def generer_jsonld(produit):
+    import datetime
+    base_url = "https://destockagealimentairestore.com"
+
+    images_full_url = [
+        f"{base_url}/static/images/products/{img}" for img in produit.get("images", ["default.jpg"])
+    ]
+
+    url_produit = f"{base_url}/produit/{produit['id']}-{slugify(produit['name'])}"
+
+    # Extraction du prix en float
+    try:
+        prix = float(produit.get("offers", {}).get("price", 0))
+    except ValueError:
+        prix = 0.0
+
+    jsonld = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": produit["name"],
+        "image": images_full_url,
+        "description": produit.get("description", ""),
+        "sku": str(produit["id"]),
+        "brand": {
+            "@type": "Brand",
+            "name": produit.get("details", {}).get("marque", "Marque non spécifiée")
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": url_produit,
+            "priceCurrency": produit.get("offers", {}).get("priceCurrency", "EUR"),
+            "price": prix,
+            "priceValidUntil": produit.get("offers", {}).get("priceValidUntil", "2025-12-31"),
+            "availability": produit.get("offers", {}).get("availability", "https://schema.org/InStock"),
+            "itemCondition": "https://schema.org/NewCondition",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0.00",
+                    "currency": "EUR"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "FR"
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": 14,
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn",
+                "applicableCountry": "FR"
+            }
+        }
+    }
+
+    # Ajouter les avis si présents
+    if "aggregateRating" in produit:
+        jsonld["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": float(produit["aggregateRating"].get("ratingValue", 0)),
+            "reviewCount": int(produit["aggregateRating"].get("reviewCount", 0))
+        }
+
+    return jsonld
 
 @app.route('/produit/<int:product_id>-<slug>')
 def product_detail(product_id, slug):
