@@ -10,9 +10,16 @@
       <g:title>{{ p.name }}</g:title>
       <g:description>{{ p.seo_description or p.description }}</g:description>
       <g:link>https://www.destockagealimentairestore.com/product/{{ p.id }}</g:link>
-      <g:image_link>https://www.destockagealimentairestore.com/static/images/{{ p.images[0] if p.images else 'default.jpg' }}</g:image_link>
+      <g:image_link>https://www.destockagealimentairestore.com/static/images/{{ p.images[0] if p.images is defined and p.images|length > 0 else 'default.jpg' }}</g:image_link>
       <g:price>{{ "%.2f"|format(p.price) }} EUR</g:price>
-      <g:availability>{% if p.stock > 0 %}in stock{% else %}out of stock{% endif %}</g:availability>
+
+      <g:availability>
+        {% if p.stock is defined and p.stock > 0 %}
+          in stock
+        {% else %}
+          out of stock
+        {% endif %}
+      </g:availability>
 
       <g:brand>
         {% if p.details is defined and p.details.marque is defined %}
