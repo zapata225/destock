@@ -1,15 +1,24 @@
+{% autoescape false %}
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
+    <title>Destockage Alimentaire Store</title>
+    <link>https://www.destockagealimentairestore.com</link>
+    <description>Grossiste en produits alimentaires déstockés</description>
+
     {% for p in products %}
     <item>
       <g:id>{{ p.id }}</g:id>
       <g:title>{{ p.name }}</g:title>
-      <g:description>{{ p.description }}</g:description>
+      <g:description>{{ p.seo_description or p.description }}</g:description>
       <g:link>https://www.destockagealimentairestore.com/product/{{ p.id }}</g:link>
-      <g:image_link>{{ p.image_url }}</g:image_link>
-      <g:price>{{ p.price }} EUR</g:price>
-      <g:availability>in stock</g:availability>
+      <g:image_link>https://www.destockagealimentairestore.com/static/images/{{ p.images[0] }}</g:image_link>
+      <g:price>{{ "%.2f"|format(p.price) }} EUR</g:price>
+      <g:availability>{% if p.stock > 0 %}in stock{% else %}out of stock{% endif %}</g:availability>
+      <g:brand>{{ p.details.marque }}</g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type>{{ p.category if p.category is string else ", ".join(p.category) }}</g:product_type>
     </item>
     {% endfor %}
   </channel>
 </rss>
+{% endautoescape %}
