@@ -3083,7 +3083,7 @@ products = [
     },
     {
         "id": 442,
-        "name": "【PALETTE】Savon Liquide Dove - 800 flacons 5L",
+        "name": "【PALETTE】Savon Liquide Dove - 800 flacons 750mL",
         "description": "Lot professionnel pour collectivités. Hypoallergénique avec 1/4 de crème hydratante. Prix choc.",
         "price": 720.00,
         "priceCurrency": "EUR",
