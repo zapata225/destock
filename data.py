@@ -1412,7 +1412,7 @@ products = [
         "id": 305,
         "name": "⚡ MONSTER ULTRA PEACHY KEEN - Canettes 50cl (108 cartons de 24)",
         "description": "Boisson énergisante Monster Ultra saveur pêche en canettes 50cl. Palette complète de 2592 canettes. Sans sucre, avec seulement 10kcal par canette. Design moderne et attrayant.",
-        "price": 377.00,
+        "price": 1577.00,
         "priceCurrency": "EUR",
         "category": "Boissons",
         "stock": 5,
