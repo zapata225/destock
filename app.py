@@ -2067,6 +2067,107 @@ def horarios():
 @app.route('/guide-boissons-en-gros25')
 def guide_boissons25():
     return render_template('guide_boissons25.html')
+
+from flask import Flask, render_template, redirect
+
+app = Flask(__name__)
+
+@app.route("/groothandel-horeca")
+def groothandel_horeca():
+    return render_template("destockagealimentairestore_index.html")
+
+
+
+@app.route("/destockbelge")
+def destockbelge():
+    return render_template("destockbelge.html")
+
+@app.route('/distributeur-automatique-alimentaire25')
+def distributeur_automatique25():
+    return render_template('distributeur_automatique25.html')
+
+@app.route('/promotion-lait')
+def promotion_lait():
+    title = "PROMOTION LAIT: Offres Imbattables Cette Semaine"
+    supermarkets = [
+        {
+            'name': 'Carrefour',
+            'description': 'Diversité et Accessibilité - Offres attractives sur les packs de lait entier, laits bio ou sans lactose.'
+        },
+        {
+            'name': 'Intermarché',
+            'description': 'Remises et Offres Spéciales - Promotions "un acheté, un offert" et réductions avec cartes de fidélité.'
+        },
+        {
+            'name': 'Leclerc',
+            'description': 'Prix Compétitifs - Remises sur grandes marques et marques distributeur avec programmes de fidélité.'
+        }
+    ]
+
+    tips = [
+        "Comparaison active des prix avec applications mobiles",
+        "Achat en gros lors des promotions exceptionnelles",
+        "Utilisation maximale des coupons de réduction",
+        "Suivi des réseaux sociaux pour offres en temps réel"
+    ]
+
+    market_trends = [
+        "Hausse des coûts de production (énergie, alimentation animale)",
+        "Influence croissante des laits végétaux sur le marché",
+        "Variabilité saisonnière des prix (pics en période estivale)"
+    ]
+
+    return render_template(
+        'promotion_lait.html',
+        title=title,
+        supermarkets=supermarkets,
+        tips=tips,
+        market_trends=market_trends
+    )
+
+@app.route('/destockagefranceparis')
+def destockagefranceparis():
+    return render_template('destockagemagic.html')
+
+@app.route('/avantages-hard-discount')
+def avantages():
+    return render_template('avantages.html')
+
+
+
+@app.route('/grossistes-aubervilliers25')
+def grossistes25():
+    return render_template('grossistes25.html')
+
+@app.route('/grossiste-halal')
+def halal_guide():
+    return render_template('halal_guide.html')
+
+@app.route('/grossiste-halal25')
+def halal_guide25():
+    return render_template('halal_guide25.html')
+
+@app.route('/choosing-the-right-ecommerce-supplier')
+def supplier_guide():
+    return render_template('supplier_guide.html')
+
+@app.route('/beneficios-aceite-oliva')
+def aceite_oliva():
+    return render_template('aceite_oliva.html')
+
+@app.route('/beneficios-aceite-oliva25')
+def aceite_oliva25():
+    return render_template('aceiteoliva.html')
+
+
+
+@app.route('/explorando-bebidas-alcoholicas')
+def bebidas_alcoholicas():
+    return render_template('bebidasalcoholicas.html')  # Vous aviez mis un `redirect` par erreur
+
+
+
+
     
 @app.route('/fr/destockage')
 def destockage_fr():
