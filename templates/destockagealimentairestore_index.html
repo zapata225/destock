@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DestockageAlimentaireStore - Guide Groothandel pour Horeca</title>
+  <style>
+    :root{--accent:#ff3b30;--bg:#0f1720;--card:#0b1220;--muted:#9aa4b2}
+    body{font-family:Inter,Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(180deg,#071021 0%, #0f1720 100%);color:#e6eef6}
+    header{padding:28px 24px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:0.4px}
+    nav a{color:var(--muted);margin-left:16px;text-decoration:none}
+    main{padding:28px 24px;max-width:1000px;margin:0 auto}
+    .card{background:rgba(255,255,255,0.02);padding:22px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    h1,h2{color:#fff}
+    p{line-height:1.6;color:#d8e6f2}
+    .cta{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+    footer{padding:20px;text-align:center;color:var(--muted);font-size:14px}
+    .aggressive{color:#fff;background:#ff3b30;padding:6px 8px;border-radius:6px;display:inline-block;font-weight:800}
+    small{color:var(--muted)}
+    .muted{color:var(--muted)}
+    pre{white-space:pre-wrap;font-family:inherit;background:rgba(255,255,255,0.02);padding:12px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">DestockageAlimentaireStore.com</div>
+    <nav>
+      <a href="#/">Accueil</a>
+      <a href="#/guide">Guide Groothandel Horeca</a>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Contenu chargé par le routeur JS -->
+  </main>
+
+  <footer>
+    © <span id="year"></span> DestockageAlimentaireStore — Tous droits réservés
+  </footer>
+
+  <script>
+    // Simple routeur hash (deux routes : / et /guide)
+    const routes = {
+      '/': Home,
+      '/guide': Guide
+    };
+
+    function setYear(){document.getElementById('year').textContent = new Date().getFullYear();}
+
+    function render(component){
+      const app = document.getElementById('app');
+      app.innerHTML = component();
+      setYear();
+      attachRedirect();
+    }
+
+    function router(){
+      const path = location.hash.replace('#','') || '/';
+      const route = routes[path] ? path : '/';
+      render(routes[route]);
+    }
+
+    window.addEventListener('hashchange', router);
+    window.addEventListener('load', router);
+
+    function attachRedirect(){
+      const link = document.getElementById('redirect-link');
+      if(link) link.addEventListener('click', (e)=>{
+        e.preventDefault();
+        // redirection vers le site demandé
+        location.href = 'https://destockagealimentairestore.com';
+      });
+    }
+
+    // Composants
+    function Home(){
+      return `
+      <section class="card">
+        <h1>Bienvenue sur <span class="muted">DestockageAlimentaireStore</span></h1>
+        <p class="muted">Votre partenaire implacable pour l'approvisionnement horeca — des économies MASSIVES, un stock massif, une qualité béton. Nous n'acceptons pas la médiocrité.</p>
+        <p>Vous cherchez un <strong>groothandel voor horeca</strong> fiable pour propulser votre établissement ? Découvrez comment réduire vos coûts, obtenir des produits premium et rationaliser votre chaîne d'approvisionnement. <span class="aggressive">C'EST PUISSANT. C'EST AGRESSIF. C'EST INCONTOURNABLE.</span></p>
+        <a id="redirect-link" class="cta" href="#">Explore the benefits of partnering with a reliable "groothandel voor horeca" to boost your hospitality business.</a>
+        <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+        <p class="muted">Cliquez sur le bouton ci-dessus pour être redirigé vers notre page principale et commencer à dominer votre marché local.</p>
+      </section>
+      `;
+    }
+
+    function Guide(){
+      // Contenu traduit en Français intégralement (d'après le texte fourni)
+      return `
+      <article class="card">
+        <h1>Groothandel pour Horeca : Guide essentiel</h1>
+
+        <h2>Qu'est-ce que "horeca" ?</h2>
+        <p>Le terme « horeca » est une abréviation couramment utilisée dans l'industrie de l'hôtellerie et de la restauration, désignant <em>hôtels, restaurants et cafés</em>. En Belgique, trouver un "horeca winkel" (magasin horeca) ou une groothandel fiable peut avoir un impact majeur sur l'efficacité et la rentabilité de votre entreprise.</p>
+
+        <h2>L'importance du commerce de gros pour le secteur Horeca</h2>
+        <p>Les fournisseurs en gros jouent un rôle crucial en fournissant des produits essentiels à des prix compétitifs : des denrées alimentaires aux équipements de cuisine et mobilier. Une <strong>belgie groothandel</strong> fiable peut rationaliser vos opérations et garantir que vous avez tout ce dont vous avez besoin pour satisfaire vos clients.</p>
+
+        <h2>Rôle dans la gestion des coûts</h2>
+        <p>Les grossistes aident les entreprises horeca à maîtriser leurs coûts en proposant des produits en vrac à prix réduits. L'achat en volume baisse le coût unitaire et améliore nettement les marges. De plus, les grossistes offrent souvent des remises et promotions introuvables en vente au détail.</p>
+
+        <h2>Rationalisation des chaînes d'approvisionnement</h2>
+        <p>Travailler avec un grossiste fiable permet de consolider votre chaîne d'approvisionnement. Au lieu de jongler avec de multiples fournisseurs, un unique grossiste peut proposer une gamme complète de produits, simplifiant la logistique et réduisant les erreurs potentielles.</p>
+
+        <h2>Amélioration de l'expérience client</h2>
+        <p>Des produits de qualité fournis par des grossistes réputés élèvent l'expérience client. Des ingrédients frais et du matériel fiable garantissent un service constant et de qualité — essentiel pour fidéliser la clientèle.</p>
+
+        <h2>Avantages clés de l'utilisation d'un grossiste Horeca</h2>
+        <ul>
+          <li><strong>Économies :</strong> acheter en gros permet d'importantes économies.</li>
+          <li><strong>Large choix :</strong> des produits alimentaires aux matériels — un seul fournisseur pour tout.</li>
+          <li><strong>Assurance qualité :</strong> les grossistes réputés respectent les standards industriels.</li>
+        </ul>
+
+        <h2>Gamme complète de produits</h2>
+        <p>Les grossistes offrent une sélection étendue, y compris des produits spéciaux difficiles à trouver localement. Accéder à cette variété permet de diversifier vos menus et d'attirer une clientèle plus large.</p>
+
+        <h2>Efficacité temporelle</h2>
+        <p>Se fournir auprès d'un seul grossiste fait gagner un temps précieux qui peut être réinvesti dans l'exploitation et le service client.</p>
+
+        <h2>Approvisionnement constant</h2>
+        <p>Les grossistes garantissent des approvisionnements réguliers, indispensable pour maintenir un service fiable, surtout en périodes de forte affluence.</p>
+
+        <h2>Comment choisir le bon fournisseur</h2>
+        <p>Le choix du bon grossiste est déterminant. Voici les facteurs à considérer :</p>
+
+        <h3>Gamme et qualité des produits</h3>
+        <p>Un bon "voeding groothandel" doit offrir une diversité de produits — produits frais, produits laitiers, viandes et boissons — tout en respectant des standards de qualité élevés.</p>
+
+        <h3>Évaluation de la fraîcheur des produits</h3>
+        <p>Vérifiez que le grossiste privilégie la fraîcheur : contrôlez les livraisons régulièrement et installez une boucle de retour pour remonter rapidement toute préoccupation.</p>
+
+        <h3>Approvisionnement local et international</h3>
+        <p>Choisissez des grossistes qui fournissent à la fois des produits locaux (plus frais) et internationaux (offrant des spécialités uniques).</p>
+
+        <h3>Certifications et normes</h3>
+        <p>Recherchez des certifications (ISO, HACCP...) qui attestent du respect des normes sanitaires et de qualité.</p>
+
+        <h3>Fiabilité et réputation</h3>
+        <p>Étudiez la réputation : livraisons ponctuelles, qualité constante — demandez des recommandations auprès de vos pairs.</p>
+
+        <h3>Avis clients et témoignages</h3>
+        <p>Les avis d'autres entreprises horeca fournissent des informations précieuses sur la fiabilité et le service client du fournisseur.</p>
+
+        <h3>Prix et conditions de paiement</h3>
+        <p>Comparez les tarifs et les conditions de paiement. N'oubliez pas d'inclure frais de livraison, minimum de commande et éventuelles pénalités.</p>
+
+        <h2>Marché du gros en Belgique</h2>
+        <p>Le marché belge propose de nombreuses options pour les horeca. Voici quelques pôles importants :</p>
+        <ul>
+          <li><strong>Bruxelles :</strong> hub central avec de nombreux fournisseurs.</li>
+          <li><strong>Anvers :</strong> port stratégique offrant un large accès aux produits internationaux.</li>
+          <li><strong>Gand :</strong> une offre diversifiée de produits traditionnels et internationaux.</li>
+        </ul>
+
+        <h3>Spécialités régionales</h3>
+        <p>Chaque région a ses spécialités : fruits de mer à Anvers, scènes culinaires multiculturelles à Bruxelles, plats belges traditionnels à Gand.</p>
+
+        <h3>Logistique et réseaux de distribution</h3>
+        <p>La proximité des axes de transport influence délais et coûts — à prendre en compte dans votre sélection.</p>
+
+        <h3>Langue et communication</h3>
+        <p>Assurez-vous d'une communication claire (néerlandais, français ou anglais) pour éviter les malentendus.</p>
+
+        <h2>Grossistes pour particuliers vs professionnels</h2>
+        <p>Certains grossistes desservent aussi les particuliers, pratique pour les petites structures ou évènements privés.</p>
+
+        <h2>Produits essentiels pour Horeca</h2>
+        <p>Voici les catégories à prioriser : nourriture et boissons, équipements de cuisine, produits d'entretien et hygiène.</p>
+
+        <h3>Ingrédients saisonniers et locaux</h3>
+        <p>Privilégiez les produits de saison et locaux : meilleurs goûts et coûts réduits.</p>
+
+        <h3>Produits gourmets et spécialisés</h3>
+        <p>Les produits de niche peuvent distinguer votre carte et attirer une clientèle exigeante.</p>
+
+        <h3>Sélection de boissons</h3>
+        <p>Proposez une sélection équilibrée de vins, bières et spiritueux adaptée à votre clientèle.</p>
+
+        <h2>Équipements et matériel</h2>
+        <p>Investissez dans du matériel durable et performant (fours, réfrigérateurs, lave-vaisselle) — un gage de longévité et de fiabilité.</p>
+
+        <h3>Appareils économes en énergie</h3>
+        <p>Les appareils économiques réduisent les coûts à long terme malgré un investissement initial plus élevé.</p>
+
+        <h3>Maintenance et support</h3>
+        <p>Privilégiez les fournisseurs offrant maintenance et support pour éviter les temps d'arrêt coûteux.</p>
+
+        <h2>Nettoyage et hygiène</h2>
+        <p>Des produits d'entretien efficaces et écologiques contribuent à la sécurité sanitaire et à l'image de marque.</p>
+
+        <h3>Solutions écoresponsables</h3>
+        <p>Les solutions écologiques séduisent une clientèle moderne et limitent l'impact environnemental.</p>
+
+        <h3>Kits d'hygiène complets</h3>
+        <p>Des kits complets garantissent une propreté constante dans tous les espaces de l'établissement.</p>
+
+        <h2>Conseils pour une gestion efficace des achats en gros</h2>
+        <ul>
+          <li><strong>Établir des relations solides</strong> avec vos fournisseurs pour obtenir de meilleures conditions.</li>
+          <li><strong>Communication ouverte</strong> : des échanges réguliers évitent les malentendus.</li>
+          <li><strong>Négocier</strong> les prix et les conditions pour tirer le meilleur parti de votre volume d'achat.</li>
+          <li><strong>Surveiller l'inventaire</strong> afin d'éviter surstock ou rupture.</li>
+          <li><strong>Faire évoluer</strong> votre offre en suivant les tendances du marché.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Le marché du gros est un pilier de l'industrie horeca. En choisissant les bons partenaires, vous améliorez vos prestations, optimisez vos coûts et assurez la croissance durable de votre établissement. Qu'importe si vous êtes à Bruxelles, Anvers ou Gand : un bon grossiste devient un partenaire stratégique pour votre réussite.</p>
+
+        <p class="muted"><small>Texte traduit et adapté pour <strong>DestockageAlimentaireStore.com</strong> — Présentez-vous avec agressivité commerciale : offres massives, promos assassin, stock XXL. <span class="aggressive">AGISSEZ MAINTENANT.</span></small></p>
+
+        <p><a id="redirect-link" class="cta" href="#">Explore the benefits of partnering with a reliable "groothandel voor horeca" to boost your hospitality business.</a></p>
+      </article>
+      `;
+    }
+
+  </script>
+</body>
+</html>
