@@ -3055,7 +3055,7 @@ def sitemap():
         '/canette_coca',
         '/astuces_destockage',
         '/anti_gaspi',
-        '/alimentos_por_mayor, /fr/destockage,destockage_nl.html,surplus_en.html','/trafficbelge','/horarios-supermercados','/guide-boissons-en-gros25'
+        '/alimentos_por_mayor, /fr/destockage,destockage_nl.html,surplus_en.html','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
     ]
 
     # Ajoutez les URLs des produits
