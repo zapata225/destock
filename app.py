@@ -2068,15 +2068,10 @@ def horarios():
 def guide_boissons25():
     return render_template('guide_boissons25.html')
 
-from flask import Flask, render_template, redirect
-
-app = Flask(__name__)
 
 @app.route("/groothandel-horeca")
 def groothandel_horeca():
     return render_template("destockagealimentairestore_index.html")
-
-
 
 @app.route("/destockbelge")
 def destockbelge():
@@ -2134,7 +2129,6 @@ def avantages():
     return render_template('avantages.html')
 
 
-
 @app.route('/grossistes-aubervilliers25')
 def grossistes25():
     return render_template('grossistes25.html')
@@ -2158,7 +2152,6 @@ def aceite_oliva():
 @app.route('/beneficios-aceite-oliva25')
 def aceite_oliva25():
     return render_template('aceiteoliva.html')
-
 
 
 @app.route('/explorando-bebidas-alcoholicas')
