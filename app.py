@@ -2055,6 +2055,18 @@ def destockage_espana():
 @app.route('/blog/espana-descuentos-alimentarios')
 def blog_espagne():
     return render_template('blog_espagne.html')
+
+@app.route("/trafficbelge")
+def trafficbelge():
+    return render_template("trafficbelge.html")
+
+@app.route('/horarios-supermercados')
+def horarios():
+    return render_template('horarios.html')
+
+@app.route('/guide-boissons-en-gros25')
+def guide_boissons25():
+    return render_template('guide_boissons25.html')
     
 @app.route('/fr/destockage')
 def destockage_fr():
