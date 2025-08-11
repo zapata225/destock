@@ -2060,6 +2060,11 @@ def blog_espagne():
 def trafficbelge():
     return render_template("trafficbelge.html")
 
+
+@app.route('/destockage-alimentaire-belgique2025')
+def destockage_alimentaire2025():
+    return render_template('destockage-alimentaire-belgique2025.html')
+
 @app.route('/horarios-supermercados')
 def horarios():
     return render_template('horarios.html')
