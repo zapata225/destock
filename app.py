@@ -456,37 +456,46 @@ def submit_contact():
         return redirect(url_for('contact'))
 
 
-
 @app.route('/api/search')
 def api_search():
     try:
         query = request.args.get('q', '').strip().lower()
         
-        if not query or len(query) < 2:  # Minimum 2 caractères
+        if not query or len(query) < 2:
             return jsonify([])
         
         results = []
         for product in products:
-            # Recherche dans nom et catégorie
-            if (query in product.get('name', '').lower() or 
-                query in product.get('category', '').lower()):
+            # Gestion robuste du nom et de la catégorie
+            name = product.get('name', '')
+            category = product.get('category', '')
+            
+            # Convertir en string si ce n'est pas déjà le cas
+            if isinstance(name, list):
+                name = ' '.join(name)  # Convertit la liste en string
+            if isinstance(category, list):
+                category = ' '.join(category)  # Convertit la liste en string
+                
+            # Recherche insensible à la casse
+            if (query in name.lower() or 
+                query in category.lower()):
                 
                 # Gestion de l'image
                 image = None
                 if 'images' in product and product['images']:
-                    image = product['images'][0]
-                elif 'image' in product and product['image']:
+                    image = product['images'][0] if isinstance(product['images'], list) else product['images']
+                elif 'image' in product:
                     image = product['image']
                 
                 results.append({
-                    'id': product['id'],
-                    'name': product.get('name', ''),
+                    'id': product.get('id'),
+                    'name': name,
                     'price': float(product.get('price', 0)),
-                    'category': product.get('category', ''),
+                    'category': category,
                     'images': [image] if image else ['default-product.jpg']
                 })
                 
-                if len(results) >= 8:  # Limite les résultats
+                if len(results) >= 8:
                     break
         
         return jsonify(results)
