@@ -928,6 +928,38 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4) !important;
 }
+
+/* Correction spécifique pour le bouton mobile */
+.navbar .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.mobile-menu-btn {
+    display: none; /* Caché par défaut sur desktop */
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-btn {
+        display: flex !important;
+        margin-left: 15px;
+        z-index: 1001;
+        position: relative;
+    }
+    
+    .nav-links {
+        display: none !important;
+    }
+    
+    /* Empêcher le débordement */
+    body {
+        overflow-x: hidden;
+    }
+}
 </style>
 
 
