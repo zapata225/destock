@@ -1,54 +1,156 @@
 {% extends "base.html" %}
-
 {% block content %}
+<!-- Hero Section avec mots-clés primaires -->
 <section class="animated-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ url_for('static', filename='images/restaurant-supplies.jpg') }}');">
     <div class="hero-content animate-pop-in">
-        <h1 class="hero-title">Destockage alimentaire pour professionnels</h1>
-        <p class="hero-subtitle">Économisez jusqu'à 60% sur vos achats de matières premières</p>
+        <h1 class="hero-title">Destockage Alimentaire Pro | Économisez 60% sur Vos Achats</h1>
+        <p class="hero-subtitle">Solution clé en main pour <strong>restaurants, traiteurs, cantines scolaires, hôtels et collectivités</strong></p>
+        <!-- Microdonnées pour Featured Snippet -->
+        <div itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="EUR"/>
+            <div itemprop="offeredBy" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="Destockage Alimentaire Pro"/>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="modern-about">
+<!-- Section About avec mots-clés secondaires -->
+<section class="modern-about" itemscope itemtype="https://schema.org/Service">
     <div class="container">
-        <h2>Solution pour restaurants, traiteurs, cantines</h2>
+        <h2 itemprop="name">Destockage Professionnel pour <span itemprop="serviceType">Restauration Collective</span> et <span itemprop="serviceType">Hôtellerie</span></h2>
         
-        <div class="testimonials">
-            <blockquote>
-                "Grâce à Destockage Alimentaire, j'ai réduit mes coûts d'approvisionnement de 45% cette année." 
-                <cite>- Chef Éric, restaurant étoilé à Lyon</cite>
+        <div itemprop="description">
+            <p>Notre plateforme spécialisée dans le <strong>destockage alimentaire grossiste</strong> permet aux professionnels d'acheter des <strong>matières premières de qualité</strong> à des prix défiant toute concurrence. Produits frais, surgelés, épicerie et boissons disponibles en gros volumes.</p>
+            
+            <!-- Liste optimisée SEO -->
+            <h3>Nos solutions <strong>anti-gaspillage</strong> pour professionnels :</h3>
+            <ul class="seo-optimized-list">
+                <li><strong>Livraison directe</strong> dans votre établissement</li>
+                <li>Produits avec <strong>DLC courte</strong> mais parfaitement consommables</li>
+                <li><strong>Surplus de production</strong> des industriels</li>
+                <li><strong>Stocks dormants</strong> des centrales d'achat</li>
+                <li><strong>Conditionnements professionnels</strong> (sacs 5kg, cartons 10kg...)</li>
+            </ul>
+        </div>
+
+        <!-- Témoignage avec Rich Snippet -->
+        <div class="testimonials" itemscope itemtype="https://schema.org/Review">
+            <blockquote itemprop="reviewBody">
+                "Grâce à Destockage Alimentaire Pro, j'ai réduit mes coûts matières premières de 45% cette année tout en maintenant ma qualité culinaire." 
+                <cite itemprop="author">- Chef Éric, <span itemprop="itemReviewed">Restaurant étoilé</span> à Lyon</cite>
             </blockquote>
         </div>
 
-        <!-- CTA avec mot-clé -->
-        <div class="cta-box">
-            <h3>Demandez votre accès professionnel</h3>
-            <p>Bénéficiez de tarifs négociés et de volumes importants.</p>
-            <a href="/contact-pro" class="btn-checkout">Contactez notre service pro</a>
+        <!-- CTA avec mots-clés transactionnels -->
+        <div class="cta-box" itemscope itemtype="https://schema.org/Action">
+            <h3 itemprop="name">Accès Exclusif Professionnels</h3>
+            <p itemprop="description">Bénéficiez de <strong>tarifs négociés</strong> sur volumes importants et de <strong>conditions logistiques adaptées</strong>.</p>
+            <a href="/contact-pro" class="btn-checkout" itemprop="potentialAction">Demander mon accès privilégié</a>
+            <meta itemprop="target" content="https://www.destockagealimentairestore.com/contact-pro"/>
         </div>
 
-        <!-- Backlinks internes -->
+        <!-- Backlinks internes optimisés -->
         <div class="related-links">
-            <h4>Ressources utiles :</h4>
+            <h4>Ressources pour professionnels :</h4>
             <ul>
-                <li><a href="/blog/optimiser-couts-restaurant">Comment réduire ses coûts en restauration ?</a></li>
-                <li><a href="/guide-destockage-professionnel">Télécharger notre guide PDF gratuit</a></li>
+                <li><a href="/blog/optimiser-couts-restaurant" title="Optimiser ses coûts en restauration">📉 <strong>Optimisation des coûts</strong> en restauration commerciale</a></li>
+                <li><a href="/guide-achats-professionnels" title="Guide des achats professionnels">📘 <strong>Guide PDF gratuit</strong> : Achats malins en restauration collective</a></li>
+                <li><a href="/calendrier-saisonnalites" title="Calendrier des saisonnalités">📅 <strong>Calendrier des produits</strong> par saison et meilleurs prix</a></li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- Schema.org LocalBusiness -->
+<!-- Section Produits avec mots-clés -->
+<section class="product-showcase">
+    <h2>Nos Catégories <strong>Destockage Pro</strong></h2>
+    <div class="product-grid">
+        <div class="product-card" itemscope itemtype="https://schema.org/Product">
+            <h3 itemprop="name">Viandes et Volailles</h3>
+            <p itemprop="description">Bœuf, poulet, canard en conditionnement pro</p>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="price">À partir de 8€/kg</span>
+            </div>
+        </div>
+        <div class="product-card" itemscope itemtype="https://schema.org/Product">
+            <h3 itemprop="name">Poissons et Fruits de Mer</h3>
+            <p itemprop="description">Surplus des criées et importateurs</p>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="price">Jusqu'à -70% sur le marché</span>
+            </div>
+        </div>
+        <!-- 4 autres catégories -->
+    </div>
+</section>
+
+<!-- Schema.org LocalBusiness amélioré -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "B2BService",
+  "@type": "FoodService",
   "name": "Destockage Alimentaire Pro",
-  "description": "Solution de destockage alimentaire pour professionnels de la restauration",
-  "url": "https://www.destockagealimentairestore.com/destockage-professionnel",
+  "description": "Plateforme de destockage alimentaire grossiste pour professionnels de la restauration et collectivités",
+  "url": "https://www.destockagealimentairestore.com/pro",
+  "servesCuisine": "Française, Internationale",
   "serviceArea": {
     "@type": "Country",
     "name": "France"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Produits Destockés",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Viandes et Volailles",
+        "itemListElement": {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Bœuf Bourguignon"
+          }
+        }
+      }
+    ]
   }
 }
 </script>
+
+<!-- Microdata pour Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil",
+    "item": "https://www.destockagealimentairestore.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Espace Pro",
+    "item": "https://www.destockagealimentairestore.com/pro"
+  }]
+}
+</script>
 {% endblock %}
+
+<style>
+/* CSS optimisé pour le SEO */
+.seo-optimized-list {
+    column-count: 2;
+    column-gap: 2rem;
+}
+@media (max-width: 768px) {
+    .seo-optimized-list {
+        column-count: 1;
+    }
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+</style>
