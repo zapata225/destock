@@ -1858,6 +1858,11 @@ def destockage_alimentaire_espagne():
 def produits_belgique():
     return render_template('produits_belgique.html')  # À créer séparément
 
+@app.route(‘/destockage-alimentaire2025’)
+def destockage_alimentaire2025():
+    return render_template('destockage_alimentaire2025.html')
+
+
 @app.route('/article-canicule-destockage')
 def article_canicule():
     return render_template('article_canicule.html', 
