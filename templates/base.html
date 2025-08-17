@@ -2518,14 +2518,110 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     </div>
     <div class="notification-content">
         <div class="notification-avatar">
-            <img src="{{ url_for('static', filename='images/avatar1.jpg') }}" alt="Client">
+            <img src="https://raw.githubusercontent.com/himralefort/logo/main/avatar1.jpg" alt="Client">
         </div>
         <div class="notification-text">
-            <p><strong>Un client</strong> vient d'acheter <a href="#" class="product-link">Produit XYZ</a></p>
+            <p><strong>Un client</strong> vient d'acheter 
+                <a href="https://www.destockagealimentairestore.com/produit/117-palette-de-bouteilles-d-eau-volvic-citron-50-cl-1-152-bouteilles" class="product-link" target="_blank">
+                    Palette de bouteilles d’eau Volvic Citron
+                </a>
+            </p>
             <small class="notification-time">Il y a 2 minutes</small>
+        </div>
+        <div class="notification-product">
+            <a href="https://www.destockagealimentairestore.com/produit/117-palette-de-bouteilles-d-eau-volvic-citron-50-cl-1-152-bouteilles" target="_blank">
+                <img src="https://raw.githubusercontent.com/himralefort/logo/main/palette-red.jpg" alt="Produit acheté">
+            </a>
         </div>
     </div>
 </div>
+
+<style>
+.purchase-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    animation: slideIn 0.5s ease-out;
+    z-index: 1000;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #ff4d4f;
+    color: #fff;
+    font-weight: bold;
+}
+
+.notification-header button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.notification-content {
+    display: flex;
+    padding: 10px 15px;
+    gap: 10px;
+    align-items: center;
+}
+
+.notification-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.notification-text {
+    flex: 1;
+}
+
+.notification-text p {
+    margin: 0 0 5px;
+    font-size: 14px;
+}
+
+.notification-text a.product-link {
+    color: #ff4d4f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.notification-text a.product-link:hover {
+    text-decoration: underline;
+}
+
+.notification-product img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+</style>
+
+<script>
+document.getElementById('close-notification').addEventListener('click', function() {
+    document.getElementById('purchase-notification').style.display = 'none';
+});
+</script>
+
 
 <style>
     /* Style du popup de notification */
