@@ -2016,7 +2016,7 @@ def fournisseurs_aubervilliers():
 def distributeurs_automatiques():
     return render_template('distributeurs_automatiques.html')
 
-@app.route('/grossiste-boisson2025’)
+@app.route('/grossiste-boisson2025')
 def grossiste_boisson25():
     return render_template('grossiste_boisson2025.html')
 
