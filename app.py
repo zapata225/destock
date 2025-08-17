@@ -2016,6 +2016,31 @@ def fournisseurs_aubervilliers():
 def distributeurs_automatiques():
     return render_template('distributeurs_automatiques.html')
 
+@app.route('/grossiste-boisson2025’)
+def grossiste_boisson25():
+    return render_template('grossiste_boisson2025.html')
+
+@app.route('/grossiste-alimentaire2025’)
+def grossiste_alimentaire2025():
+    return render_template('grossiste_alimentaire.html')
+
+@app.route('/grossiste-alimentaire-belgique2025’)
+def grossiste_belgique2025():
+    return render_template('grossiste_belgique2025.html')
+
+@app.route('/mayorista-alimentos-espana')
+def mayorista_espana():
+    return render_template('mayorista_espana.html')
+
+@app.route('/grossiste-alimentaire-france')
+def grossiste_france():
+    return render_template('grossiste_france.html')
+
+
+@app.route('/grossista-alimentare-italia')
+def grossista_italia():
+    return render_template('grossista_italia.html')
+
 @app.route('/champagne-destockage')
 def champagne_destockage():
     return render_template('champagne_destockage.html')
