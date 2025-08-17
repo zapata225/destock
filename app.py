@@ -2236,6 +2236,8 @@ def blog_belgique():
 def blog_suisse():
     return render_template('blog_suisse.html')
 
+
+
 @app.route('/blog/psg-champion-europe-2025')
 def blog_psg():
     return render_template('blog_psg.html')
@@ -3093,6 +3095,12 @@ def sitemap():
         '/champagne_destockage',
         '/canette_coca',
         '/astuces_destockage',
+        '/grossiste-boisson2025',
+        '/grossiste-alimentaire2025',
+        '/grossiste-alimentaire-belgique2025',
+        '/mayorista-alimentos-espana',
+        '/grossiste-alimentaire-france',
+        '/grossista-alimentare-italia',
         '/anti_gaspi',
         '/alimentos_por_mayor, /fr/destockage,destockage_nl.html,surplus_en.html','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
     ]
