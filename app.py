@@ -2022,7 +2022,7 @@ def grossiste_boisson25():
 
 @app.route('/grossiste-alimentaire2025')
 def grossiste_alimentaire2025():
-    return render_template('grossiste_alimentaire.html')
+    return render_template('grossiste_alimentaire2025.html')
 
 @app.route('/grossiste-alimentaire-belgique2025')
 def grossiste_belgique2025():
