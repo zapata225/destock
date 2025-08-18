@@ -3127,6 +3127,11 @@ def sitemap():
         '/grossiste-alimentaire-france',
         '/grossista-alimentare-italia',
         '/anti_gaspi',
+        '/grossiste-boissonbbelgique1',
+        '/grossiste-boisson09',
+        '/grossiste-alimstore',
+        '/grossisteboissonstore',
+        '/grossisteboissonbelgiquestore',
         '/alimentos_por_mayor, /fr/destockage,destockage_nl.html,surplus_en.html','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
     ]
 
