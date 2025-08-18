@@ -1972,6 +1972,26 @@ def blog():
 def conditions():
     return render_template('conditions.html')
 
+@app.route('/grossiste-boissonbbelgique1')
+def grossiste_boissonbelgique25():
+    return render_template('grossiste_boissonbelgique2025.html')
+
+@app.route('/grossiste-boisson09')
+def grossiste_boisson09():
+    return render_template('grossiste_boisson09.html')
+
+@app.route('/grossiste-alimstore')
+def grossiste_alimstore():
+    return render_template('grossiste_alimstore.html')
+
+@app.route('/grossisteboissonstore')
+def grossiste_boissonstore():
+    return render_template('grossiste_boissonstore.html')
+
+@app.route('/grossisteboissonbelgiquestore')
+def grossiste_boissonbelgiquestore():
+    return render_template('grossiste_boissonbelgiquestore.html')
+
 @app.route('/revolution-surplus-alimentaires-2025')
 def revolution_surplus():
     return render_template('revolution_surplus.html',
