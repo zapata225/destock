@@ -1978,7 +1978,7 @@ def grossiste_boissonbelgique25():
 
 @app.route('/grossiste-boisson09')
 def grossiste_boisson09():
-    return render_template('grossiste_boisson09.html')
+    return render_template('grossiste-boisson09.html')
 
 @app.route('/grossiste-alimstore')
 def grossiste_alimstore():
