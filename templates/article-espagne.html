@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayorista de Alimentos España | Nº1 en Desstock | Entrega en Toda España</title>
+    <meta name="description" content="Mayorista de alimentos España - Desstock de alimentos a precios imbatibles. Entrega rápida en Madrid, Barcelona, Valencia y toda España. Productos frescos, bebidas, congelados para profesionales.">
+    <meta name="keywords" content="mayorista alimentos españa, mayorista alimentacion espana, desstock alimentos españa, proveedor alimentario españa, mayorista bebidas españa, wholesale food spain, mayorista madrid, mayorista barcelona, mayorista valencia, mayorista productos frescos españa">
+    <meta name="geo.placename" content="España">
+    <meta name="geo.region" content="ES">
+    <meta name="language" content="es-ES">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to right, #AA151B, #F1BF00, #AA151B);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="white" d="M25,25 a20,20 0 0,1 40,0 a20,20 0 0,1 -40,0 M70,70 a15,15 0 0,1 30,0 a15,15 0 0,1 -30,0"/></svg>');
+            opacity: 0.1;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            color: #AA151B;
+            border-bottom: 3px solid #F1BF00;
+            padding-bottom: 12px;
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+        h3 {
+            color: #AA151B;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 35px;
+            border-left: 5px solid #AA151B;
+        }
+        .content-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        .keyword-highlight {
+            color: #AA151B;
+            font-weight: bold;
+            background-color: #ffebee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .primary-keyword {
+            color: #AA151B;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .cta {
+            background: linear-gradient(to right, #AA151B, #C8412B);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
+            opacity: 0.1;
+        }
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+            margin-top: 0;
+        }
+        .cta a {
+            display: inline-block;
+            background-color: white;
+            color: #AA151B;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #AA151B;
+            color: white;
+            border-radius: 8px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #AA151B;
+        }
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 35px 0;
+        }
+        .benefit {
+            flex-basis: calc(33% - 20px);
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #AA151B;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        .breadcrumb a {
+            color: #AA151B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #C8412B;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex-basis: 22%;
+            border-top: 4px solid #F1BF00;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #AA151B;
+            display: block;
+        }
+        .region-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .region-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        .region-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #eee;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .region-tab.active {
+            background: #AA151B;
+            color: white;
+        }
+        .region-content {
+            display: none;
+        }
+        .region-content.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .benefit {
+                flex-basis: 100%;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .stat-item {
+                flex-basis: 100%;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        ul {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+        li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        li::before {
+            content: '•';
+            color: #AA151B;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .schema-faq {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #AA151B;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #AA151B;
+            margin-top: 15px;
+        }
+        .spain-flag {
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(to bottom, 
+                #AA151B 0%, #AA151B 25%, 
+                #F1BF00 25%, #F1BF00 75%, 
+                #AA151B 75%, #AA151B 100%);
+            margin-right: 10px;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+        }
+        .highlight {
+            background-color: #FFF9C4;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #F1BF00;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="https://www.destockagealimentairestore.com">Inicio</a> > <span>Mayorista de Alimentos España</span>
+    </div>
+
+    <header>
+        <h1><span class="spain-flag"></span>Mayorista de Alimentos España - Nº1 en Desstock</h1>
+        <p>Entrega rápida en toda España - Madrid, Barcelona, Valencia, Sevilla y más</p>
+    </header>
+
+    <div class="intro">
+        <p>Bienvenido a <span class="keyword-highlight">Destockage Alimentaire Store</span>, el <span class="primary-keyword">mayorista de alimentos España</span> líder en el mercado de desstock. Proveemos a profesionales y particulares en toda <span class="keyword-highlight">España</span>: <span class="keyword-highlight">Madrid</span>, <span class="keyword-highlight">Barcelona</span>, <span class="keyword-highlight">Valencia</span>, <span class="keyword-highlight">Sevilla</span> y todas las comunidades autónomas. Nuestra experiencia en <span class="keyword-highlight">desstock de alimentos España</span> nos permite ofrecerle productos de calidad a precios imbatibles.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Nuestra Experiencia como Mayorista de Alimentos España</h2>
+        <p>Con más de 10 años de experiencia en el mercado español, nuestra empresa se ha consolidado como la referencia indiscutible del <span class="primary-keyword">mayorista de alimentos España</span>. Trabajamos directamente con productores locales españoles y grandes marcas internacionales para ofrecerle productos alimenticios de primera calidad a precios de desstock excepcionales.</p>
+        
+        <p>Nuestra red de proveedores que cubre toda <span class="keyword-highlight">España</span> nos permite ofrecer regularmente operaciones de desstock en toda nuestra gama de productos:</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Productos Frescos Españoles</h3>
+                <p>Quesos, embutidos, frutas y verduras de temporada</p>
+            </div>
+            <div class="product-card">
+                <h3>Bebidas Españolas</h3>
+                <p>Vinos, cervezas, refrescos y aguas</p>
+            </div>
+            <div class="product-card">
+                <h3>Productos Congelados</h3>
+                <p>Verduras, platos preparados, carnes y pescados</p>
+            </div>
+            <div class="product-card">
+                <h3>Alimentación Especializada</h3>
+                <p>Productos gourmet, delicatessen y especialidades</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-number">1800+</span>
+            Referencias de productos
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">12 años</span>
+            de experiencia en España
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24-48h</span>
+            Entrega express
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">-40%</span>
+            de media
+        </div>
+    </div>
+
+    <div class="highlight">
+        <h3>¡Oferta Especial para Clientes Españoles!</h3>
+        <p>Este mes, ofrecemos <strong>envío gratuito</strong> para pedidos superiores a 500€ en toda la península. Aproveche nuestros precios de mayorista con descuentos de hasta el 60% en productos seleccionados.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Nuestra Cobertura como Mayorista de Alimentos España</h2>
+        
+        <div class="region-section">
+            <div class="region-tabs">
+                <div class="region-tab active" onclick="showRegion('madrid')">Madrid</div>
+                <div class="region-tab" onclick="showRegion('barcelona')">Barcelona</div>
+                <div class="region-tab" onclick="showRegion('valencia')">Valencia</div>
+                <div class="region-tab" onclick="showRegion('andalucia')">Andalucía</div>
+            </div>
+            
+            <div id="madrid" class="region-content active">
+                <h3>Entrega en Madrid y Comunidad de Madrid</h3>
+                <p>Entregamos diariamente en toda la Comunidad de Madrid. Esté ubicado en el centro de Madrid, Alcobendas, Las Rozas, Getafe, Móstoles o cualquier municipio madrileño, nuestro servicio de <span class="primary-keyword">mayorista de alimentos España</span> le garantiza una entrega rápida y puntual.</p>
+                <p>Nuestro almacén principal está situado en las proximidades de Madrid, lo que nos permite responder rápidamente a las demandas de los profesionales de la restauración y comercios alimentarios de la capital.</p>
+            </div>
+            
+            <div id="barcelona" class="region-content">
+                <h3>Cobertura Completa de Cataluña</h3>
+                <p>Nuestro servicio de entrega se extiende a toda Cataluña: Barcelona, Girona, Lleida y Tarragona. Servimos regularmente las zonas del Maresme, Baix Llobregat, Vallès Occidental y Oriental, así como la Costa Brava y Costa Dorada.</p>
+                <p>Trabajamos con numerosos productores catalanes para ofrecerle productos locales de calidad a precios competitivos.</p>
+            </div>
+            
+            <div id="valencia" class="region-content">
+                <h3>Servicio en Comunidad Valenciana</h3>
+                <p>Entregamos en toda la Comunidad Valenciana: Valencia, Alicante y Castellón. Nuestro servicio incluye las principales zonas turísticas de la Costa Blanca y Costa del Azahar, así como las áreas industriales y urbanas.</p>
+                <p>Ofrecemos una amplia selección de productos adaptados a los gustos y necesidades del mercado valenciano, manteniendo nuestros precios de desstock atractivos.</p>
+            </div>
+            
+            <div id="andalucia" class="region-content">
+                <h3>Entrega en Andalucía</h3>
+                <p>Cubrimos las ocho provincias andaluzas: Sevilla, Málaga, Córdoba, Granada, Cádiz, Huelva, Jaén y Almería. Nuestra logística nos permite servir tanto las zonas costeras como las áreas del interior con la misma eficiencia.</p>
+                <p>Contamos con productos especialmente seleccionados para satisfacer las demandas del mercado andaluz, incluyendo especialidades regionales y productos de la dieta mediterránea.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>¿Por Qué Elegir Nuestro Mayorista de Alimentos en España?</h2>
+        <div class="benefits">
+            <div class="benefit">
+                <h3>Precios Españoles Competitivos</h3>
+                <p>Gracias a nuestra especialización en desstock, ofrecemos precios hasta un 40% inferiores a los del mercado tradicional español.</p>
+            </div>
+            <div class="benefit">
+                <h3>Productos Locales e Internacionales</h3>
+                <p>Ofrecemos tanto productos españoles de calidad como productos internacionales a precios de desstock.</p>
+            </div>
+            <div class="benefit">
+                <h3>Entrega en Toda España</h3>
+                <p>Servicio de entrega rápida en toda España peninsular en 24-48 horas según la región.</p>
+            </div>
+            <div class="benefit">
+                <h3>Atención al Cliente en Español</h3>
+                <p>Equipo de atención al cliente nativo para mejor servirle en toda España.</p>
+            </div>
+            <div class="benefit">
+                <h3>Normas Españolas y Europeas</h3>
+                <p>Todos nuestros productos cumplen las normativas sanitarias españolas y europeas más estrictas.</p>
+            </div>
+            <div class="benefit">
+                <h3>Flexibilidad</h3>
+                <p>Condiciones adaptadas a profesionales españoles con tarifas decrecientes según volumen.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Nuestro Catálogo de Mayorista de Alimentos para España</h2>
+        <p>Como <span class="primary-keyword">mayorista de alimentos España</span> líder, ofrecemos uno de los catálogos más completos del mercado español:</p>
+        
+        <h3>Productos Frescos y Locales</h3>
+        <p>Nuestra selección de productos frescos incluye quesos españoles (manchegos, cabrales, idiazábal), embutidos ibéricos, jamones, frutas y verduras de temporada de productores locales de diversas comunidades autónomas.</p>
+        
+        <h3>Bebidas Españolas e Internacionales</h3>
+        <p>Ofrecemos una amplia gama de vinos españoles (Rioja, Ribera del Duero, Priorat), cervezas, refrescos, aguas minerales y zumos. Nuestro catálogo incluye también licores internacionales a precios de desstock.</p>
+        
+        <h3>Productos Congelados</h3>
+        <p>Verduras congeladas, platos preparados, carnes y pescados congelados, tapas y productos típicos españoles, helados y postres.</p>
+        
+        <h3>Alimentación Especializada</h3>
+        <p>Productos gourmet, delicatessen, alimentos sin gluten, ecológicos, veganos y vegetarianos adaptados al mercado español.</p>
+        
+        <h3>Productos de Dieta Mediterránea</h3>
+        <p>Aceite de oliva español, legumbres, arroces, conservas de pescado y todos los productos característicos de la saludable dieta mediterránea.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Nuestro Compromiso de Calidad para el Mercado Español</h2>
+        <p>Como <span class="primary-keyword">mayorista de alimentos España</span> responsable, nos comprometemos con varios aspectos fundamentales:</p>
+        
+        <ul>
+            <li><strong>Cumplimiento de normativas españolas:</strong> Todos nuestros productos cumplen con las normativas AESAN y las regulaciones españolas vigentes</li>
+            <li><strong>Trazabilidad completa:</strong> Todos nuestros productos son completamente trazables, con especial atención a los productos españoles</li>
+            <li><strong>Frescura garantizada:</strong> Cadena de frío rigurosamente respetada según los estándares españoles</li>
+            <li><strong>Servicio adaptado:</strong> Equipo formado en las especificidades del mercado alimentario español</li>
+            <li><strong>Desarrollo local:</strong> Apoyo a productores españoles a través de nuestra red de distribución</li>
+            <li><strong>Sostenibilidad:</strong> Compromiso con prácticas responsables y respetuosas con el medio ambiente</li>
+        </ul>
+    </div>
+
+    <div class="schema-faq">
+        <h3>Preguntas Frecuentes - Mayorista de Alimentos España</h3>
+        
+        <div class="faq-question">¿Entregáis en toda España?</div>
+        <p>Sí, nuestro servicio de entrega cubre la España peninsular y Baleares. Entregamos en 24-48 horas según su ubicación. Para Canarias, consulte condiciones especiales.</p>
+        
+        <div class="faq-question">¿Ofrecéis productos españoles?</div>
+        <p>Por supuesto. Estamos orgullosos de ofrecer una amplia selección de productos españoles de calidad: vinos, quesos, embutidos, conservas y especialidades regionales.</p>
+        
+        <div class="faq-question">¿Cuáles son vuestros horarios de entrega en España?</div>
+        <p>Realizamos entregas de lunes a viernes, de 8:00 a 18:00. Se pueden acordar franjas horarias específicas para profesionales.</p>
+        
+        <div class="faq-question">¿Ofrecéis tarifas decrecientes para profesionales españoles?</div>
+        <p>Sí, adaptamos nuestras tarifas según los volúmenes pedidos. Contacte con nuestro servicio comercial para obtener una oferta personalizada.</p>
+        
+        <div class="faq-question">¿Facturáis con IVA español?</div>
+        <p>Sí, todas nuestras facturas se emiten con el IVA español aplicable y proporcionamos toda la documentación necesaria para profesionales.</p>
+        
+        <div class="faq-question">¿Trabajáis con productores locales españoles?</div>
+        <p>Sí, colaboramos con productores locales de diversas comunidades autónomas para apoyar la economía local y ofrecer productos frescos y de proximidad.</p>
+    </div>
+
+    <div class="cta">
+        <h2>Conviértase en Partner de Nuestro Mayorista de Alimentos en España</h2>
+        <p>Únase a los miles de profesionales españoles que ya confían en nosotros. Benefíciese ahora de nuestras ofertas de desstock excepcionales en productos alimenticios.</p>
+        <a href="https://www.destockagealimentairestore.com">Descubrir nuestras ofertas de mayorista de alimentos España</a>
+    </div>
+
+    <footer>
+        <p>© 2023 Destockage Alimentaire Store - Su mayorista de alimentos de confianza en España</p>
+        <p>Sitio construido con Python3 App.py</p>
+    </footer>
+
+    <script>
+        function showRegion(regionId) {
+            // Ocultar todos los contenidos de región
+            document.querySelectorAll('.region-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Mostrar el contenido de la región seleccionada
+            document.getElementById(regionId).classList.add('active');
+            
+            // Actualizar las pestañas activas
+            document.querySelectorAll('.region-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

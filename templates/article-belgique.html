@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr-be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grossiste Alimentaire Belgique | N°1 en Destockage | Livraison Partout en Belgique</title>
+    <meta name="description" content="Grossiste alimentaire Belgique - Destockage alimentaire à prix imbattables. Livraison rapide en Bruxelles, Wallonie, Flandre. Produits frais, boissons, surgelés pour professionnels.">
+    <meta name="keywords" content="grossiste alimentaire belgique, grossiste alimentaire belgium, destockage alimentaire belgique, fournisseur alimentaire belgique, grossiste boisson belgique, wholesale food belgium, grossiste bruxelles, grossiste wallonie, grossiste flandre, grossiste produits frais belgique">
+    <meta name="geo.placename" content="Belgique">
+    <meta name="geo.region" content="BE">
+    <meta name="language" content="fr-BE">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to right, #000, #FDDA24, #EF3340);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="white" d="M25,25 a20,20 0 0,1 40,0 a20,20 0 0,1 -40,0 M70,70 a15,15 0 0,1 30,0 a15,15 0 0,1 -30,0"/></svg>');
+            opacity: 0.1;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            color: #000;
+            border-bottom: 3px solid #EF3340;
+            padding-bottom: 12px;
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+        h3 {
+            color: #EF3340;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 35px;
+            border-left: 5px solid #000;
+        }
+        .content-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        .keyword-highlight {
+            color: #000;
+            font-weight: bold;
+            background-color: #f0f5ff;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .primary-keyword {
+            color: #EF3340;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .cta {
+            background: linear-gradient(to right, #000, #EF3340);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
+            opacity: 0.1;
+        }
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+            margin-top: 0;
+        }
+        .cta a {
+            display: inline-block;
+            background-color: white;
+            color: #EF3340;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #000;
+            color: white;
+            border-radius: 8px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #EF3340;
+        }
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 35px 0;
+        }
+        .benefit {
+            flex-basis: calc(33% - 20px);
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #000;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        .breadcrumb a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #EF3340;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex-basis: 22%;
+            border-top: 4px solid #EF3340;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #000;
+            display: block;
+        }
+        .region-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .region-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        .region-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #eee;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .region-tab.active {
+            background: #000;
+            color: white;
+        }
+        .region-content {
+            display: none;
+        }
+        .region-content.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .benefit {
+                flex-basis: 100%;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .stat-item {
+                flex-basis: 100%;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        ul {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+        li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        li::before {
+            content: '•';
+            color: #EF3340;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .schema-faq {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #000;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #000;
+            margin-top: 15px;
+        }
+        .belgium-flag {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            background: linear-gradient(to right, 
+                black 0%, black 33%, 
+                #FDDA24 33%, #FDDA24 66%, 
+                #EF3340 66%, #EF3340 100%);
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="https://www.destockagealimentairestore.com">Accueil</a> > <span>Grossiste Alimentaire Belgique</span>
+    </div>
+
+    <header>
+        <h1><span class="belgium-flag"></span>Grossiste Alimentaire Belgique - N°1 en Destockage</h1>
+        <p>Livraison rapide dans toute la Belgique - Bruxelles, Wallonie, Flandre</p>
+    </header>
+
+    <div class="intro">
+        <p>Bienvenue chez <span class="keyword-highlight">Destockage Alimentaire Store</span>, le <span class="primary-keyword">grossiste alimentaire Belgique</span> leader sur le marché du destockage. Nous fournissons des professionnels et des particuliers dans toute la <span class="keyword-highlight">Belgique</span> : <span class="keyword-highlight">Bruxelles</span>, <span class="keyword-highlight">Wallonie</span> et <span class="keyword-highlight">Flandre</span>. Notre expertise en <span class="keyword-highlight">destockage alimentaire Belgique</span> nous permet de vous proposer des produits de qualité à des prix imbattables.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Expertise en Tant que Grossiste Alimentaire Belgique</h2>
+        <p>Forte de plus de 10 ans d'expérience sur le marché belge, notre entreprise s'est imposée comme la référence incontournable du <span class="primary-keyword">grossiste alimentaire Belgique</span>. Nous travaillons en direct avec les producteurs locaux belges et les grandes marques internationales pour vous proposer des produits alimentaires de première qualité à des prix de destockage exceptionnels.</p>
+        
+        <p>Notre réseau de fournisseurs couvrant toute la <span class="keyword-highlight">Belgique</span> nous permet d'offrir régulièrement des opérations de destockage sur l'ensemble de nos produits :</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Produits Frais Belges</h3>
+                <p>Fromages, viandes, légumes et fruits de saison</p>
+            </div>
+            <div class="product-card">
+                <h3>Boissons Belgiques</h3>
+                <p>Bières belges, jus, eaux et soft drinks</p>
+            </div>
+            <div class="product-card">
+                <h3>Produits Surgelés</h3>
+                <p>Légumes, plats préparés, viandes et poissons</p>
+            </div>
+            <div class="product-card">
+                <h3>Épicerie Fine</h3>
+                <p>Produits de qualité supérieure et spécialités</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-number">1500+</span>
+            Références de produits
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">10 ans</span>
+            d'expérience en Belgique
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24h</span>
+            Livraison express
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">-35%</span>
+            en moyenne
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Couverture en Tant que Grossiste Alimentaire Belgique</h2>
+        
+        <div class="region-section">
+            <div class="region-tabs">
+                <div class="region-tab active" onclick="showRegion('bruxelles')">Bruxelles</div>
+                <div class="region-tab" onclick="showRegion('wallonie')">Wallonie</div>
+                <div class="region-tab" onclick="showRegion('flandre')">Flandre</div>
+            </div>
+            
+            <div id="bruxelles" class="region-content active">
+                <h3>Livraison à Bruxelles et en Brabant Wallon</h3>
+                <p>Nous livrons quotidiennement dans toute la région de Bruxelles-Capitale et du Brabant Wallon. Que vous soyez situé à Bruxelles-Ville, Ixelles, Uccle, Woluwe-Saint-Lambert, Woluwe-Saint-Pierre, ou dans les communes avoisinantes, notre service de <span class="primary-keyword">grossiste alimentaire Belgique</span> vous assure une livraison rapide et ponctuelle.</p>
+                <p>Notre entrepôt principal est situé à proximité de Bruxelles, nous permettant de répondre rapidement aux demandes des professionnels de la restauration et des commerces alimentaires de la capitale.</p>
+            </div>
+            
+            <div id="wallonie" class="region-content">
+                <h3>Couverture Complète de la Wallonie</h3>
+                <p>Notre service de livraison s'étend à toute la Wallonie : du Hainaut à Liège, en passant par le Brabant Wallon, Namur et le Luxembourg Belge. Nous desservons régulièrement les villes de Charleroi, Mons, La Louvière, Tournai, Namur, Liège, Verviers, Arlon et Marche-en-Famenne.</p>
+                <p>Nous travaillons avec de nombreux producteurs wallons pour vous proposer des produits locaux de qualité à des prix compétitifs.</p>
+            </div>
+            
+            <div id="flandre" class="region-content">
+                <h3>Service en Flandre et à Anvers</h3>
+                <p>Nous livrons également dans toute la Flandre : Anvers, Gand, Bruges, Louvain, Malines, Alost, Courtrai, Hasselt et Genk. Notre équipe flamandophone est à votre service pour répondre à toutes vos questions.</p>
+                <p>Nous proposons une large sélection de produits adaptés aux goûts et aux besoins du marché flamand, tout en maintenant nos prix de destockage attractifs.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Pourquoi Choisir Notre Grossiste Alimentaire en Belgique ?</h2>
+        <div class="benefits">
+            <div class="benefit">
+                <h3>Prix Belges Compétitifs</h3>
+                <p>Grâce à notre spécialisation dans le destockage, nous proposons des tarifs jusqu'à 35% inférieurs à ceux du marché traditionnel belge.</p>
+            </div>
+            <div class="benefit">
+                <h3>Produits Locaux et Internationaux</h3>
+                <p>Nous proposons à la fois des produits belges de qualité et des produits internationaux à prix destockage.</p>
+            </div>
+            <div class="benefit">
+                <h3>Livraison Partout en Belgique</h3>
+                <p>Service de livraison rapide dans toute la Belgique sous 24 à 48 heures selon la région.</p>
+            </div>
+            <div class="benefit">
+                <h3>Service Bilingue</h3>
+                <p>Équipe francophone et flamandophone pour mieux vous servir dans toute la Belgique.</p>
+            </div>
+            <div class="benefit">
+                <h3>Normes Belges et Européennes</h3>
+                <p>Tous nos produits respectent les normes sanitaires belges et européennes les plus strictes.</p>
+            </div>
+            <div class="benefit">
+                <h3>Flexibilité</h3>
+                <p>Conditions adaptées aux professionnels belges avec des tarifs dégressifs selon volumes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Catalogue de Grossiste Alimentaire pour la Belgique</h2>
+        <p>En tant que <span class="primary-keyword">grossiste alimentaire Belgique</span> leader, nous proposons l'un des catalogues les plus complets du marché belge :</p>
+        
+        <h3>Produits Frais et Locaux</h3>
+        <p>Notre sélection de produits frais comprend des fromages belges (fromages abbayes, fromages fermiers), viandes belges (boeuf, porc, volaille), légumes et fruits de saison provenant de producteurs locaux en Wallonie et Flandre.</p>
+        
+        <h3>Boissons Belges et Internationales</h3>
+        <p>Nous proposons une large gamme de bières belges (Trappistes, Abbey, blondes, brunes, spéciales), ainsi que des soft drinks, eaux minérales et jus de fruits. Notre catalogue inclut également des vins internationaux à prix destockage.</p>
+        
+        <h3>Produits Surgelés</h3>
+        <p>Légumes surgelés, plats préparés, viandes et poissons surgelés, frites belges de qualité, glaces et desserts.</p>
+        
+        <h3>Épicerie Fine et Produits Spécialisés</h3>
+        <p>Chocolats belges, biscuits, pâtes à tartiner, produits sans gluten, bio et végétariens adaptés au marché belge.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Engagement Qualité pour le Marché Belge</h2>
+        <p>En tant que <span class="primary-keyword">grossiste alimentaire Belgique</span> responsable, nous nous engageons sur plusieurs aspects fondamentaux :</p>
+        
+        <ul>
+            <li><strong>Respect des normes belges :</strong> Tous nos produits respectent les normes AFSCA et les réglementations belges en vigueur</li>
+            <li><strong>Traçabilité complète :</strong> Tous nos produits sont parfaitement traçables, avec une attention particulière pour les produits belges</li>
+            <li><strong>Fraîcheur garantie :</strong> Chaîne du froid rigoureusement respectée selon les standards belges</li>
+            <li><strong>Service adapté :</strong> Equipe formée aux spécificités du marché alimentaire belge</li>
+            <li><strong>Développement local :</strong> Soutien aux producteurs belges à travers notre réseau de distribution</li>
+        </ul>
+    </div>
+
+    <div class="schema-faq">
+        <h3>Questions Fréquentes - Grossiste Alimentaire Belgique</h3>
+        
+        <div class="faq-question">Livrez-vous dans toute la Belgique ?</div>
+        <p>Oui, notre service de livraison couvre les trois régions : Bruxelles-Capitale, Wallonie et Flandre. Nous livrons sous 24 à 48 heures selon votre localisation.</p>
+        
+        <div class="faq-question">Proposez-vous des produits belges ?</div>
+        <p>Absolument. Nous sommes fiers de proposer une large sélection de produits belges de qualité : bières, fromages, viandes, chocolats et spécialités régionales.</p>
+        
+        <div class="faq-question">Quels sont vos horaires de livraison en Belgique ?</div>
+        <p>Nous effectuons des livraisons du lundi au vendredi, de 8h à 18h. Des créneau horaires précis peuvent être arrangés pour les professionnels.</p>
+        
+        <div class="faq-question">Proposez-vous des tarifs dégressifs pour les professionnels belges ?</div>
+        <p>Oui, nous adaptons nos tarifs en fonction des volumes commandés. Contactez notre service commercial pour obtenir une offre personnalisée.</p>
+        
+        <div class="faq-question">Facturez-vous en TVA belge ?</div>
+        <p>Oui, toutes nos factures sont établies avec la TVA belge applicable et nous fournissons tous les documents nécessaires pour les professionnels.</p>
+    </div>
+
+    <div class="cta">
+        <h2>Devenez Partenaire de Notre Grossiste Alimentaire en Belgique</h2>
+        <p>Rejoignez les milliers de professionnels belges qui nous font confiance. Bénéficiez dès maintenant de nos offres de destockage exceptionnelles sur les produits alimentaires.</p>
+        <a href="https://www.destockagealimentairestore.com">Découvrir nos offres de grossiste alimentaire Belgique</a>
+    </div>
+
+    <footer>
+        <p>© 2023 Destockage Alimentaire Store - Votre grossiste alimentaire de confiance en Belgique</p>
+        <p>Site construit avec Python3 App.py</p>
+    </footer>
+
+    <script>
+        function showRegion(regionId) {
+            // Masquer tous les contenus de région
+            document.querySelectorAll('.region-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Afficher le contenu de la région sélectionnée
+            document.getElementById(regionId).classList.add('active');
+            
+            // Mettre à jour les onglets actifs
+            document.querySelectorAll('.region-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grossiste Boisson - N°1 en France | Destockage Alimentaire Store</title>
+    <meta name="description" content="Grossiste boisson n°1 en France. Destockage de boissons à prix imbattables. Livraison rapide partout en France. Boissons alcoolisées et non-alcoolisées.">
+    <meta name="keywords" content="grossiste boisson, grossiste boissons, grossiste boisson france, destockage boisson, grossiste alcool, grossiste soda, grossiste eau, boisson pas cher, grossiste vin, grossiste bière">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="white" d="M25,25 a20,20 0 0,1 40,0 a20,20 0 0,1 -40,0 M70,70 a15,15 0 0,1 30,0 a15,15 0 0,1 -30,0"/></svg>');
+            opacity: 0.1;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            color: #1a2a6c;
+            border-bottom: 3px solid #b21f1f;
+            padding-bottom: 12px;
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+        h3 {
+            color: #b21f1f;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 35px;
+            border-left: 5px solid #1a2a6c;
+        }
+        .content-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        .keyword-highlight {
+            color: #1a2a6c;
+            font-weight: bold;
+            background-color: #f0f5ff;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .primary-keyword {
+            color: #b21f1f;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .cta {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
+            opacity: 0.1;
+        }
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+            margin-top: 0;
+        }
+        .cta a {
+            display: inline-block;
+            background-color: white;
+            color: #b21f1f;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #1a2a6c;
+            color: white;
+            border-radius: 8px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #b21f1f;
+        }
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 35px 0;
+        }
+        .benefit {
+            flex-basis: calc(33% - 20px);
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1a2a6c;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        .breadcrumb a {
+            color: #1a2a6c;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex-basis: 22%;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a2a6c;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .benefit {
+                flex-basis: 100%;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .stat-item {
+                flex-basis: 100%;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        ul {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+        li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        li::before {
+            content: '•';
+            color: #b21f1f;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .schema-faq {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #1a2a6c;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #1a2a6c;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="https://www.destockagealimentairestore.com">Accueil</a> > <span>Grossiste Boisson</span>
+    </div>
+
+    <header>
+        <h1>Grossiste Boisson - N°1 en France</h1>
+        <p>Destockage de boissons à prix imbattables - Livraison rapide partout en France</p>
+    </header>
+
+    <div class="intro">
+        <p>Bienvenue chez <span class="keyword-highlight">Destockage Alimentaire Store</span>, le <span class="primary-keyword">grossiste boisson</span> leader en France. Spécialistes du destockage de boissons, nous vous proposons une gamme complète de produits à des prix défiant toute concurrence. Que vous soyez un professionnel du secteur HORECA, un détaillant ou un particulier, notre service de <span class="primary-keyword">grossiste boissons</span> vous garantit des produits de qualité à des tarifs imbattables.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Expertise en Tant que Grossiste Boisson</h2>
+        <p>Forte de plus de 15 ans d'expérience, notre entreprise s'est imposée comme la référence incontournable du marché du <span class="primary-keyword">grossiste boisson</span> en France. Nous travaillons en direct avec les producteurs, les importateurs et les grandes marques pour vous proposer des boissons de première qualité à des prix de destockage exceptionnels.</p>
+        
+        <p>Notre réseau de fournisseurs nous permet d'offrir régulièrement des opérations de destockage sur l'ensemble de nos produits :</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Boissons Alcoolsées</h3>
+                <p>Vins, bières, spiritueux, champagne</p>
+            </div>
+            <div class="product-card">
+                <h3>Boissons Non-Alcoolsées</h3>
+                <p>Sodas, jus de fruits, eaux, énergisants</p>
+            </div>
+            <div class="product-card">
+                <h3>Boissons Chaudes</h3>
+                <p>Café, thé, chocolat chaud, infusions</p>
+            </div>
+            <div class="product-card">
+                <h3>Boissons Spécialisées</h3>
+                <p>Boissons bio, sans alcool, sans sucre</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-number">2000+</span>
+            Références de boissons
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">15 ans</span>
+            d'expérience
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">48h</span>
+            Livraison express
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">-40%</span>
+            en moyenne
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Pourquoi Choisir Notre Grossiste Boisson ?</h2>
+        <div class="benefits">
+            <div class="benefit">
+                <h3>Prix Inégalés</h3>
+                <p>Grâce à notre spécialisation dans le destockage, nous proposons des tarifs jusqu'à 40% inférieurs à ceux du marché traditionnel.</p>
+            </div>
+            <div class="benefit">
+                <h3>Qualité Garantie</h3>
+                <p>Toutes nos boissons respectent les normes sanitaires françaises et européennes. Certifications et traçabilité complète.</p>
+            </div>
+            <div class="benefit">
+                <h3>Livraison Express</h3>
+                <p>Service de livraison rapide partout en France sous 24 à 48 heures pour les commandes passées avant 16h.</p>
+            </div>
+            <div class="benefit">
+                <h3>Service Personnalisé</h3>
+                <p>Une équipe dédiée pour répondre aux besoins spécifiques des professionnels de la restauration et de la distribution.</p>
+            </div>
+            <div class="benefit">
+                <h3>Variété Incomparable</h3>
+                <p>Plus de 2000 références de boissons disponibles toute l'année, des grands classiques aux produits niche.</p>
+            </div>
+            <div class="benefit">
+                <h3>Conditions Adaptées</h3>
+                <p>Conditions de paiement flexibles pour les professionnels et tarifs dégressifs selon les volumes commandés.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Catalogue de Grossiste Boisson</h2>
+        <p>En tant que <span class="primary-keyword">grossiste boisson</span> leader, nous proposons l'un des catalogues les plus complets du marché :</p>
+        
+        <h3>Vins et Spiritueux</h3>
+        <p>Notre sélection de vins s'étend des grandes régions viticoles françaises (Bordeaux, Bourgogne, Vallée du Rhône) aux vins internationaux renommés. Nous proposons également une large gamme de spiritueux : whiskies, vodkas, rhums, gin et autres alcools premium.</p>
+        
+        <h3>Bières et Cidres</h3>
+        <p>Des bières artisanales locales aux grandes marques internationales, en passant par les bières spéciales et les cidres de qualité. Notre offre de <span class="primary-keyword">grossiste boisson</span> inclut des produits rares et exclusifs.</p>
+        
+        <h3>Boissons Non-Alcoolsées</h3>
+        <p>Sodas, jus de fruits frais et nectar, eaux minérales et de source, boissons énergisantes et isotoniques, sirops et cocktails sans alcool. Tous les produits des grandes marques à prix destockage.</p>
+        
+        <h3>Boissons Chaudes</h3>
+        <p>Cafés en grains, moulus ou capsules compatibles, thés et infusions de qualité, chocolats chauds et boissons spécialisées pour professionnels.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Notre Engagement Qualité</h2>
+        <p>En tant que <span class="primary-keyword">grossiste boisson</span> responsable, nous nous engageons sur plusieurs aspects fondamentaux :</p>
+        
+        <ul>
+            <li><strong>Traçabilité complète :</strong> Toutes nos boissons sont rigoureusement sélectionnées et parfaitement traçables jusqu'au producteur.</li>
+            <li><strong>Conditions optimales de conservation :</strong> Chaîne du froid maîtrisée et conditions d'entreposage parfaites pour préserver toutes les qualités organoleptiques.</li>
+            <li><strong>Conseil expert :</strong> Notre équipe de sommeliers et experts boissons vous guide dans vos choix en fonction de vos besoins.</li>
+            <li><strong>Démarche anti-gaspi :</strong> En participant à notre circuit de destockage, vous luttez activement contre le gaspillage dans l'industrie des boissons.</li>
+            <li><strong>Service responsive :</strong> Une équipe à votre écoute 6j/7 pour répondre à toutes vos questions techniques ou commerciales.</li>
+        </ul>
+    </div>
+
+    <div class="schema-faq">
+        <h3>Questions Fréquentes - Grossiste Boisson</h3>
+        
+        <div class="faq-question">Quels sont les avantages d'acheter auprès d'un grossiste boisson ?</div>
+        <p>L'achat auprès d'un grossiste spécialisé comme Destockage Alimentaire Store vous permet de bénéficier de prix bien inférieurs à ceux du marché, d'une gamme étendue de produits, de conditions adaptées aux professionnels et d'un service personnalisé.</p>
+        
+        <div class="faq-question">Proposez-vous des boissons sans alcool ?</div>
+        <p>Absolument. Notre catalogue de grossiste boisson inclut une large sélection de boissons non-alcoolsées : sodas, jus de fruits, eaux, boissons énergisantes, sirops et cocktails sans alcool.</p>
+        
+        <div class="faq-question">Livrez-vous dans toute la France ?</div>
+        <p>Oui, notre service de livraison couvre l'ensemble du territoire français métropolitain. Nous livrons sous 24 à 48 heures selon les regions.</p>
+        
+        <div class="faq-question">Proposez-vous des tarifs dégressifs pour les professionnels ?</div>
+        <p>Oui, nous adaptons nos tarifs en fonction des volumes commandés. Contactez notre service commercial pour obtenir une offre personnalisée.</p>
+    </div>
+
+    <div class="cta">
+        <h2>Devenez Partenaire de Notre Grossiste Boisson</h2>
+        <p>Rejoignez les milliers de professionnels qui nous font confiance. Bénéficiez dès maintenant de nos offres de destockage exceptionnelles sur les boissons.</p>
+        <a href="https://www.destockagealimentairestore.com">Découvrir nos offres de grossiste boisson</a>
+    </div>
+
+    <div class="content-section">
+        <h2>Zone d'Intervention de Notre Grossiste Boisson</h2>
+        <p>Notre plateforme de <span class="primary-keyword">grossiste boisson</span> livre dans toute la France métropolitaine : Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Strasbourg, Rennes, et toutes les autres villes françaises. Nous proposons également un service de retrait en entrepôt pour les commandes volumineuses.</p>
+        
+        <p>Que vous soyez restaurateur, gérant de bar, traiteur, organisateur d'événements, détaillant ou simplement un particulier à la recherche de bonnes affaires, notre service de <span class="primary-keyword">grossiste boisson</span> saura répondre à vos attentes en termes de qualité, de prix et de service.</p>
+    </div>
+
+    <footer>
+        <p>© 2023 Destockage Alimentaire Store - Votre grossiste boisson de confiance en France</p>
+        <p>Site construit avec Python3 App.py</p>
+    </footer>
+</body>
+</html>
