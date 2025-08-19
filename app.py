@@ -1885,6 +1885,26 @@ def article_destockage():
 def contact_urgence():
     return render_template('contact_urgence.html')
 
+@app.route('/article-espagne')
+def article_espagne():
+    return render_template('article-espagne.html')
+
+@app.route('/article-belgique')
+def article_belgique():
+    return render_template('article-belgique.html')
+
+@app.route('/article-france')
+def article_france():
+    return render_template('article-france.html')
+
+@app.route('/article-belgique-2')
+def article_belgique_2():
+    return render_template('article-belgique-2.html')
+
+@app.route('/article-france-2')
+def article_france_2():
+    return render_template('article-france-2.html')
+
 # Traitement du Formulaire
 @app.route('/confirmation1', methods=['POST'])
 def confirmation1():
