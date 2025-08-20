@@ -2054,7 +2054,7 @@ def magasin_bio_local():
 def grossiste_alimentaire_belgique():
     return render_template('grossiste_alimentairebruxellee.html')
 
-@app.route('/')
+@app.route('/landi')
 def landing_page():
     return render_template('landing_page.html')
 
