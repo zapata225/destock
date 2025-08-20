@@ -400,8 +400,8 @@ products = [
     },
     {
         "id": 105,
-        "name": "🍫 Nutella Pot 1kg en Palette, avec 432 pots de Nutella",
-        "description": "Pâte à tartiner iconique au cacao et aux noisettes - Palette complète de 432 pots de 1kg. Produit italien de qualité supérieure, parfait pour cafés, boulangeries et revendeurs.",
+        "name": "🍫 Nutella Pot 1kg en Palette, avec 760 pots de Nutella",
+        "description": "Pâte à tartiner iconique au cacao et aux noisettes - Palette complète de 760 pots de 1kg. Produit italien de qualité supérieure, parfait pour cafés, boulangeries et revendeurs.",
         "price": 1536.00,
         "priceCurrency": "EUR",
         "category": "Épicerie",
@@ -433,7 +433,7 @@ products = [
             "allergenes": "Lait, noisettes, soja",
             "nutrition": "539kcal/100g - Glucides: 57g/100g"
         },
-        "seo_description": "Palette Nutella 1kg - 432 pots - Pâte à tartiner noisettes-cacao - Meilleur prix de gros - Produit Italien - Livraison rapide - Pour professionnels"
+        "seo_description": "Palette Nutella 1kg - 760 pots - Pâte à tartiner noisettes-cacao - Meilleur prix de gros - Produit Italien - Livraison rapide - Pour professionnels"
     },
     {
         "id": 112,
@@ -1491,8 +1491,8 @@ products = [
     {
         "id": 308,
         "name": "🍫 Palette Nutella 750 g",
-        "description": "Pâte à tartiner Nutella 750g de 768 Pots de Nutella – Produit iconique au cacao et noisettes. Conditionnement professionnel pour cafés, boulangeries et revendeurs.",
-        "price": 1548.00,
+        "description": "Pâte à tartiner Nutella 750g de 760 Pots de Nutella – Produit iconique au cacao et noisettes. Conditionnement professionnel pour cafés, boulangeries et revendeurs.",
+        "price": 1448.00,
         "priceCurrency": "EUR",
         "category": "Épicerie",
         "stock": 6,
@@ -1526,7 +1526,7 @@ products = [
             "DLC": "12 mois",
             "allergenes": "Lait, noisettes, soja"
         },
-        "seo_description": "Palette Nutella 1KG - 108 pots - Pâte à tartiner noisettes-cacao - Conditionnement professionnel - Meilleur prix de gros - Livraison rapide"
+        "seo_description": "Palette Nutella 1KG - 608 pots - Pâte à tartiner noisettes-cacao - Conditionnement professionnel - Meilleur prix de gros - Livraison rapide"
     },
     {
         "id": 309,
