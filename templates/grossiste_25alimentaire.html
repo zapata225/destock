@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grossiste Alimentaire | Votre Partenaire Approvisionnement à Prix Direct Usine</title>
+    <meta name="description" content="Grossiste alimentaire pour professionnels de la restauration et distributeurs. Plus de 5000 références de produits alimentaires à prix direct producteur. Livraison partout en France.">
+    <meta name="keywords" content="grossiste alimentaire, grossiste alimentaire france, fournisseur restauration, produits alimentaires en gros, wholesale food, approvisionnement restaurant, distributeur produits alimentaires">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="DestockageAlimentaireStore">
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="France">
+    <meta name="language" content="fr">
+    <link rel="canonical" href="https://destockagealimentairestore.com/grossiste-alimentaire">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WholesaleStore",
+      "name": "Grossiste Alimentaire DestockageAlimentaireStore",
+      "description": "Grossiste alimentaire pour professionnels de la restauration et distributeurs",
+      "url": "https://destockagealimentairestore.com",
+      "telephone": "+33-1-2345-6789",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Rue du Commerce",
+        "addressLocality": "Paris",
+        "postalCode": "75001",
+        "addressCountry": "FR"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "priceRange": "€€"
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #ff6f00;
+            --accent-color: #1565c0;
+            --light-color: #f5f5f5;
+            --dark-color: #333333;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1b5e20 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 .highlight {
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e65100;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 5rem 0;
+            background-color: #f2f2f2;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        /* SEO Content Section */
+        .seo-content {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .seo-section {
+            margin-bottom: 2rem;
+        }
+        
+        .seo-section h2 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .seo-section h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .keyword-list {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .keyword-list h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .keyword {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background-color: #f2f2f2;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1b5e20 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background-color: #f5f5f5;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Grossiste<span>Alimentaire</span>.com</a>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#avantages">Avantages</a></li>
+                    <li><a href="#livraison">Livraison</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb container">
+        <a href="#">Accueil</a> > <a href="#">Grossiste</a> > <span>Grossiste Alimentaire</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <h1><span class="highlight">Grossiste Alimentaire</span> pour Professionnels</h1>
+            <p>Découvrez notre sélection de plus de 5000 références alimentaires à prix direct producteur. Livraison rapide partout en France.</p>
+            <a href="#produits" class="btn btn-large">Voir le catalogue</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="avantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi choisir notre service de <span class="highlight">grossiste alimentaire</span>?</h2>
+                <p>Des avantages exclusifs pour tous vos achats de produits alimentaires en gros</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Prix Direct Usine</h3>
+                    <p>Économisez jusqu'à 60% sur les prix habituels grâce à nos relations directes avec les producteurs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Livraison Express</h3>
+                    <p>Expédition sous 24/48h partout en France avec des conditions optimales de conservation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Qualité Garantie</h3>
+                    <p>Tous nos produits sont rigoureusement sélectionnés et conformes aux normes sanitaires françaises</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="produits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos catégories de produits alimentaires</h2>
+                <p>Découvrez notre large gamme de produits alimentaires pour professionnels</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Produits Frais</h3>
+                        <p>Légumes, fruits, viandes et poissons frais livrés quotidiennement</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Boissons</h3>
+                        <p>Vins, bières, spiritueux, soft drinks et jus de fruits à prix grossiste</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Produits Bio</h3>
+                        <p>Large sélection de produits biologiques pour une alimentation saine</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1578911376513-7e66b5c8c4a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Épicerie Fine</h3>
+                        <p>Produits gastronomiques et spécialités régionales pour professionnels</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content">
+        <div class="container">
+            <div class="seo-section">
+                <h1>Grossiste Alimentaire - Votre Partenaire pour l'Approvisionnement Professionnel</h1>
+                
+                <p>En tant que <span class="highlight">grossiste alimentaire</span> de référence, nous proposons aux professionnels de la restauration, de l'hôtellerie et de la distribution une gamme complète de produits alimentaires à des prix compétitifs. Notre mission est de simplifier l'approvisionnement des professionnels en leur offrant un service de qualité, rapide et économique.</p>
+                
+                <h2>Notre Expertise en Tant que Grossiste Alimentaire</h2>
+                
+                <p>Notre entreprise de <span class="highlight">grossiste alimentaire</span> s'est bâtie une solide réputation grâce à son expertise sectorielle et sa capacité à répondre aux exigences spécifiques des professionnels. Nous comprenons les défis auxquels sont confrontés les restaurateurs, les traiteurs et les gérants d'établissements alimentaires, c'est pourquoi nous avons développé une offre sur mesure.</p>
+                
+                <h3>Notre Sélection de Produits</h3>
+                
+                <p>Notre catalogue de <span class="highlight">grossiste alimentaire</span> comprend plus de 5000 références soigneusement sélectionnées :</p>
+                
+                <ul>
+                    <li>Produits frais (fruits, légumes, viandes, poissons)</li>
+                    <li>Produits surgelés de qualité professionnelle</li>
+                    <li>Boissons (vins, bières, spiritueux, soft drinks)</li>
+                    <li>Produits d'épicerie et denrées non périssables</li>
+                    <li>Produits biologiques et spécialités régionales</li>
+                    <li>Matériel et équipements pour professionnels</li>
+                </ul>
+                
+                <h2>Avantages d'un Grossiste Alimentaire pour Professionnels</h2>
+                
+                <p>Travailler avec un <span class="highlight">grossiste alimentaire</span> professionnel comme le nôtre présente de nombreux avantages :</p>
+                
+                <h3>Économies Substantielle</h3>
+                
+                <p>En achetant auprès d'un <span class="highlight">grossiste alimentaire</span>, vous bénéficiez de tarifs préférentiels grâce aux volumes importants que nous traitons. Ces économies se répercutent directement sur votre marge bénéficiaire.</p>
+                
+                <h3>Gain de Temps</h3>
+                
+                <p>Notre plateforme de <span class="highlight">grossiste alimentaire</span> vous permet de commander tous vos produits en quelques clics, sans avoir à multiplier les fournisseurs. Une facturation unique et des livraisons regroupées simplifient votre gestion administrative.</p>
+                
+                <h3>Qualité et Fraîcheur Garanties</h3>
+                
+                <p>En tant que <span class="highlight">grossiste alimentaire</span> sérieux, nous mettons un point d'honneur à travailler avec des producteurs et des fournisseurs rigoureusement sélectionnés pour la qualité de leurs produits.</p>
+                
+                <h2>Notre Processus de Livraison en Tant que Grossiste Alimentaire</h2>
+                
+                <p>Notre service de livraison de <span class="highlight">grossiste alimentaire</span> a été spécialement conçu pour répondre aux contraintes des professionnels :</p>
+                
+                <ul>
+                    <li><strong>Livraison Express</strong> : Commandez avant 16h, recevez le lendemain</li>
+                    <li><strong>Livraison de Nuit</strong> : Pour les établissements ouverts tôt</li>
+                    <li><strong>Frais de Livraison</strong> : Offerts à partir de 500€ d'achat</li>
+                    <li><strong>Suivi en Temps Réel</strong> : Géolocalisation de votre livraison</li>
+                </ul>
+                
+                <h2>Zone de Livraison de Notre Grossiste Alimentaire</h2>
+                
+                <p>Notre service de <span class="highlight">grossiste alimentaire</span> couvre l'ensemble du territoire français, avec des entrepôts stratégiquement situés à :</p>
+                
+                <ul>
+                    <li>Paris et Île-de-France</li>
+                    <li>Lyon et région Auvergne-Rhône-Alpes</li>
+                    <li>Marseille et région Provence-Alpes-Côte d'Azur</li>
+                    <li>Lille et région Hauts-de-France</li>
+                    <li>Bordeaux et région Nouvelle-Aquitaine</li>
+                </ul>
+                
+                <p>Cette implantation nationale nous permet d'offrir des délais de livraison optimaux et des frais de transport réduits.</p>
+                
+                <div class="keyword-list">
+                    <h3>Mots-clés optimisés pour le référencement "Grossiste Alimentaire"</h3>
+                    <div class="keywords">
+                        <span class="keyword">grossiste alimentaire</span>
+                        <span class="keyword">grossiste alimentaire france</span>
+                        <span class="keyword">grossiste alimentaire paris</span>
+                        <span class="keyword">grossiste alimentaire lyon</span>
+                        <span class="keyword">grossiste alimentaire marseille</span>
+                        <span class="keyword">grossiste produits alimentaires</span>
+                        <span class="keyword">grossiste boisson</span>
+                        <span class="keyword">grossiste restauration</span>
+                        <span class="keyword">fournisseur produits alimentaires</span>
+                        <span class="keyword">achat produits alimentaires en gros</span>
+                        <span class="keyword">vente en gros alimentaire</span>
+                        <span class="keyword">grossiste alimentaire pas cher</span>
+                        <span class="keyword">grossiste alimentaire professionnel</span>
+                        <span class="keyword">grossiste alimentaire pour restaurant</span>
+                        <span class="keyword">grossiste alimentaire bio</span>
+                        <span class="keyword">grossiste alimentaire métro</span>
+                        <span class="keyword">grossiste alimentaire discount</span>
+                        <span class="keyword">meilleur grossiste alimentaire</span>
+                        <span class="keyword">grossiste alimentaire en ligne</span>
+                    </div>
+                </div>
+                
+                <h2>FAQ Grossiste Alimentaire</h2>
+                
+                <h3>Qui peut acheter auprès d'un grossiste alimentaire ?</h3>
+                <p>Notre service de <span class="highlight">grossiste alimentaire</span> s'adresse exclusivement aux professionnels : restaurateurs, traiteurs, hôteliers, collectivités, épiceries, et tout commerce alimentaire détenteur d'un numéro SIRET.</p>
+                
+                <h3>Quels sont les montants minimum de commande ?</h3>
+                <p>Le montant minimum de commande pour notre service de <span class="highlight">grossiste alimentaire</span> est de 250€ HT. Les frais de port sont offerts à partir de 500€ HT d'achat.</p>
+                
+                <h3>Proposez-vous des produits locaux et régionaux ?</h3>
+                <p>Oui, en tant que <span class="highlight">grossiste alimentaire</span> engagé, nous mettons un point d'honneur à proposer une large sélection de produits locaux et régionaux, soutenant ainsi les producteurs français.</p>
+                
+                <h3>Comment devenir client de votre grossiste alimentaire ?</h3>
+                <p>L'ouverture d'un compte professionnel chez notre <span class="highlight">grossiste alimentaire</span> est simple et rapide. Il vous suffit de nous fournir votre K-bis et les documents nécessaires à votre inscription en tant que professionnel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions Fréquentes sur Notre Grossiste Alimentaire</h2>
+                <p>Retrouvez les réponses aux questions les plus posées sur nos services de grossiste alimentaire</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment puis-je passer commande auprès de votre grossiste alimentaire ?</div>
+                <p>Vous pouvez passer commande via notre plateforme en ligne disponible 24h/24, par téléphone au 01 23 45 67 89 du lundi au vendredi de 8h à 18h, ou par email à commande@grossiste-alimentaire.com.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Quelles sont les conditions de livraison de votre grossiste alimentaire ?</div>
+                <p>Nous livrons du lundi au samedi matin. Les commandes passées avant 16h sont livrées le lendemain. Nous proposons différentes plages horaires pour s'adapter aux contraintes de votre établissement.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Proposez-vous des produits issus de l'agriculture biologique ?</div>
+                <p>Oui, notre gamme de produits bio compte plus de 800 références, toutes certifiées AB ou équivalent européen. Nous développons constamment cette offre pour répondre à la demande croissante.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Comment garantir la fraîcheur des produits lors de la livraison ?</div>
+                <p>Nous utilisons des véhicules réfrigérés avec des zones de températures différenciées. Tous nos livreurs sont formés aux bonnes pratiques de manutention des produits alimentaires.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt à optimiser votre approvisionnement ?</h2>
+            <p>Rejoignez les milliers de professionnels satisfaits et bénéficiez des avantages de notre service de grossiste alimentaire.</p>
+            <a href="https://destockagealimentairestore.com" class="btn btn-large">Devenir client</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Notre Grossiste Alimentaire</h3>
+                    <ul>
+                        <li><a href="#">Qui sommes-nous ?</a></li>
+                        <li><a href="#">Nos engagements qualité</a></li>
+                        <li><a href="#">Devenir fournisseur</a></li>
+                        <li><a href="#">Recrutement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services Professionnels</h3>
+                    <ul>
+                        <li><a href="#">Compte professionnel</a></li>
+                        <li><a href="#">Livraison express</a></li>
+                        <li><a href="#">Service client</a></li>
+                        <li><a href="#">Programme fidélité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations Légales</h3>
+                    <ul>
+                        <li><a href="#">Conditions générales de vente</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contactez Notre Grossiste</h3>
+                    <ul>
+                        <li>Email: contact@grossiste-alimentaire.com</li>
+                        <li>Téléphone: 01 23 45 67 89</li>
+                        <li>Adresse: 123 Rue du Commerce, 75001 Paris</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DestockageAlimentaireStore.com - Tous droits réservés | SIRET: 123 456 789 00045</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
