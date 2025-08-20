@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desstock Alimentario España - Mayorista Alimenticio a Precios Excepcionales</title>
+    <meta name="description" content="Desstock alimentario en España. Mayorista alimenticio para profesionales y particulares. Precios imbatibles en productos alimenticios, bebidas y congelados. Entrega en toda España.">
+    <meta name="keywords" content="desstock alimentario españa, mayorista alimenticio españa, desstock alimentario, mayorista españa, productos alimenticios baratos españa, excedentes alimentarios españa, liquidación alimentaria">
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #ffcc00;
+            --accent-color: #c60b1e;
+            --light-color: #f5f5f5;
+            --dark-color: #333333;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .logo-flag {
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(to bottom, red 25%, yellow 25%, yellow 75%, red 75%);
+            margin-right: 10px;
+            border: 1px solid #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 .spain {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #a50918;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title h2 .spain {
+            color: var(--primary-color);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .categories {
+            padding: 5rem 0;
+            background-color: #f2f2f2;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .location-icon {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        .seo-content {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .seo-section {
+            margin-bottom: 2rem;
+        }
+        
+        .seo-section h2 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .keyword-list {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .keyword-list h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .keyword {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .spain-cities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .city {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .city h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--dark-color);
+        }
+        
+        .spain-map {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo"><span class="logo-flag"></span>Desstock<span>España</span>.com</a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#entrega">Entrega</a></li>
+                    <li><a href="#ventajas">Ventajas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button class="language-btn">ES/FR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Desstock Alimentario <span class="spain">España</span></h1>
+            <p>Mayorista alimenticio para profesionales y particulares en España. Precios imbatibles en productos alimenticios, bebidas y congelados. Entrega en toda España.</p>
+            <a href="#productos" class="btn btn-large">Ver las ofertas</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="features">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">15K</span>
+                    <span class="stat-label">Búsquedas Mensuales</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">14</span>
+                    <span class="stat-label">Índice de Competencia</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfacción Cliente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="ventajas">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué elegir nuestro desstock en <span class="spain">España</span>?</h2>
+                <p>Ventajas exclusivas para todas tus compras de productos alimenticios en desstock</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Ahorros garantizados</h3>
+                    <p>Hasta 70% de descuento sobre los precios habituales de mayoristas alimenticios en España</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Entrega rápida</h3>
+                    <p>Envío en 24/48h a toda España con condiciones óptimas de conservación</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Calidad controlada</h3>
+                    <p>Todos nuestros productos están rigurosamente seleccionados y cumplen las normativas sanitarias españolas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="productos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras categorías de productos en <span class="spain">España</span></h2>
+                <p>Descubre nuestra amplia gama de productos alimenticios y bebidas en desstock</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Productos Alimenticios</h3>
+                        <p>Productos secos, congelados, especialidades y productos de primera necesidad a precio de descuento.</p>
+                        <a href="#" class="btn">Descubrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Bebidas</h3>
+                        <p>Vinos, cervezas españolas, licores, refrescos, aguas y zumos de fruta a precios imbatibles.</p>
+                        <a href="#" class="btn">Descubrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Productos Ecológicos</h3>
+                        <p>Amplia selección de productos biológicos a precios reducidos para una alimentación sana.</p>
+                        <a href="#" class="btn">Descubrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Especialidades Españolas</h3>
+                        <p>Jamón ibérico, quesos, aceite de oliva, conservas y otras especialidades españolas a precio de desstock.</p>
+                        <a href="#" class="btn">Descubrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spain Cities Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entregamos en toda <span class="spain">España</span></h2>
+                <p>Servicio de entrega rápida en todas las principales ciudades de España</p>
+            </div>
+            <div class="spain-cities">
+                <div class="city">
+                    <h4>Madrid</h4>
+                    <p>Entrega en 24h</p>
+                </div>
+                <div class="city">
+                    <h4>Barcelona</h4>
+                    <p>Entrega en 24h</p>
+                </div>
+                <div class="city">
+                    <h4>Valencia</h4>
+                    <p>Entrega en 48h</p>
+                </div>
+                <div class="city">
+                    <h4>Sevilla</h4>
+                    <p>Entrega en 48h</p>
+                </div>
+                <div class="city">
+                    <h4>Bilbao</h4>
+                    <p>Entrega en 48h</p>
+                </div>
+                <div class="city">
+                    <h4>Zaragoza</h4>
+                    <p>Entrega en 48h</p>
+                </div>
+            </div>
+            <div class="spain-map">
+                <div class="map-placeholder">Mapa de España con zonas de entrega</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content">
+        <div class="container">
+            <div class="seo-section">
+                <h2>Desstock Alimentario en España: Una Oportunidad Excepcional</h2>
+                <p>El <span class="highlight">desstock alimentario España</span> representa una oportunidad única para profesionales y particulares españoles de abastecerse de productos de calidad a precios excepcionales. Como <span class="highlight">mayorista alimenticio España</span> especializado en desstock, trabajamos directamente con productores, importadores y distribuidores para ofrecerte excedentes de stock, fin de series y productos en rotación a precios que desafían toda competencia.</p>
+            </div>
+            
+            <div class="seo-section">
+                <h2>Nuestra Experiencia como Mayorista Alimenticio para España</h2>
+                <p>Nuestra sección de <span class="highlight">mayorista alimenticio España</span> ofrece una impresionante selección de productos alimenticios, bebidas y especialidades españolas a precios reducidos. Ya seas un profesional de la restauración o un particular en busca de buenos negocios, nuestro catálogo de productos en desstock sabrá responder a tus expectativas con marcas reconocidas y productos de calidad.</p>
+            </div>
+            
+            <div class="keyword-list">
+                <h3>Palabras clave optimizadas para el posicionamiento en España</h3>
+                <div class="keywords">
+                    <span class="keyword">desstock alimentario españa</span>
+                    <span class="keyword">mayorista alimenticio españa</span>
+                    <span class="keyword">desstock alimentario</span>
+                    <span class="keyword">mayorista españa</span>
+                    <span class="keyword">productos alimenticios baratos españa</span>
+                    <span class="keyword">excedentes alimentarios españa</span>
+                    <span class="keyword">liquidación alimentaria</span>
+                    <span class="keyword">desstock supermercado españa</span>
+                    <span class="keyword">mayorista madrid</span>
+                    <span class="keyword">mayorista barcelona</span>
+                    <span class="keyword">mayorista valencia</span>
+                    <span class="keyword">desstock bebidas españa</span>
+                    <span class="keyword">desstock productos frescos españa</span>
+                    <span class="keyword">comida desstock</span>
+                    <span class="keyword">alimentos liquidación</span>
+                    <span class="keyword">desstock alimentario online</span>
+                    <span class="keyword">ofertas mayorista alimenticio</span>
+                </div>
+            </div>
+            
+            <div class="seo-section">
+                <h2>¿Cómo funciona nuestra plataforma de desstock para España?</h2>
+                <p>Nuestro sitio de desstock alimentario conecta directamente a compradores españoles con mayoristas que deben liquidar sus excedentes. Gracias a nuestra plataforma desarrollada con Python 3 Flask, ofrecemos una experiencia de usuario óptima y funcionalidades avanzadas para encontrar las mejores ofertas de <span class="highlight">mayorista alimenticio España</span> en tiempo real.</p>
+            </div>
+            
+            <div class="seo-section">
+                <h2>Ventajas para profesionales de la restauración en España</h2>
+                <p>Restauradores, hoteleros y caterings españoles encontrarán en nuestro <span class="highlight">desstock alimentario España</span> una solución ideal para reducir sus costes de aprovisionamiento sin comprometer la calidad. Nuestras ofertas de <span class="highlight">mayorista alimenticio España</span> permiten también realizar sustanciales economías en las materias primas y bebidas servidas en establecimiento.</p>
+            </div>
+            
+            <div class="seo-section">
+                <h2>Nuestro proceso de selección riguroso para el mercado español</h2>
+                <p>Cada producto que proponemos en nuestra plataforma de desstock está rigurosamente seleccionado según criterios estrictos adaptados al mercado español:</p>
+                <ul>
+                    <li>Calidad y origen de los productos (con énfasis en productos locales españoles)</li>
+                    <li>Cumplimiento de las normativas sanitarias españolas y europeas</li>
+                    <li>Respeto de las regulaciones específicas de España</li>
+                    <li>Plazos de entrega óptimos para toda España</li>
+                    <li>Relación calidad-precio excepcional</li>
+                </ul>
+                <p>Nuestro equipo de expertos vela personalmente por la selección de productos para garantizar tu satisfacción.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Confían en nosotros en <span class="spain">España</span></h2>
+                <p>Descubre los testimonios de nuestros clientes satisfechos</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Gracias a este sitio de desstock, he reducido mis costes de aprovisionamiento en un 35% para mi restaurante madrileño. La calidad de los productos es siempre excelente."</p>
+                    <p class="testimonial-author">Carlos M., Restaurador en Madrid</p>
+                    <div class="location">
+                        <span class="location-icon">📍</span>
+                        <span>Madrid</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Encuentro regularmente productos excepcionales a precios imbatibles. Una mina de oro para mi tienda de delicatessen barcelonesa."</p>
+                    <p class="testimonial-author">Elena G., Comerciante en Barcelona</p>
+                    <div class="location">
+                        <span class="location-icon">📍</span>
+                        <span>Barcelona</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"El servicio al cliente es reactivo y las entregas siempre puntuales. Una referencia en el desstock alimentario en España."</p>
+                    <p class="testimonial-author">Javier P., Gerente de supermercado en Valencia</p>
+                    <div class="location">
+                        <span class="location-icon">📍</span>
+                        <span>Valencia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="productos">
+        <div class="container">
+            <h2>¿Listo para hacer economías excepcionales?</h2>
+            <p>Únete a los miles de clientes satisfechos en España y accede a nuestras ofertas de desstock alimentario a precio de mayorista.</p>
+            <a href="https://destockagealimentairestore.com" class="btn btn-large">Acceder al sitio principal</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#entrega">Entrega</a></li>
+                        <li><a href="#ventajas">Ventajas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Zonas de entrega</h3>
+                    <ul>
+                        <li><a href="#">Madrid</a></li>
+                        <li><a href="#">Barcelona</a></li>
+                        <li><a href="#">Valencia</a></li>
+                        <li><a href="#">Sevilla</a></li>
+                        <li><a href="#">Bilbao</a></li>
+                        <li><a href="#">Zaragoza</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informaciones legales</h3>
+                    <ul>
+                        <li><a href="#">Condiciones generales</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Aviso legal</a></li>
+                        <li><a href="#">Política de cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto España</h3>
+                    <ul>
+                        <li>Email: contacto@desstockespana.com</li>
+                        <li>Teléfono: +34 91 123 45 67</li>
+                        <li>Dirección: Calle Comercio 123, Madrid</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DestockageAlimentaireStore.com - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destockage Alimentaire - Grossiste Alimentaire et Boissons à Prix Exceptionnels</title>
+    <meta name="description" content="Découvrez nos offres exceptionnelles de destockage alimentaire. Grossiste alimentaire et boissons à prix imbattables. Livraison rapide partout en France.">
+    <meta name="keywords" content="grossiste alimentaire, grossiste boisson, destockage alimentaire, destockage boisson, produits alimentaires pas chers, boissons à prix discount, surplus alimentaire">
+    <style>
+        :root {
+            --primary-color: #ff6b00;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e55e00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .categories {
+            padding: 5rem 0;
+            background-color: #f2f2f2;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        .seo-content {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .seo-section {
+            margin-bottom: 2rem;
+        }
+        
+        .seo-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .keyword-list {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .keyword-list h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .keyword {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Destockage<span>Alimentaire</span>.com</a>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#avantages">Avantages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <h1>Grossiste Alimentaire et Boissons à Prix de Destockage</h1>
+            <p>Découvrez chaque jour des centaines de références alimentaires et de boissons à prix cassés. Destockage permanent pour professionnels et particuliers.</p>
+            <a href="#produits" class="btn btn-large">Voir les offres</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="avantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi choisir notre plateforme?</h2>
+                <p>Des avantages exclusifs pour tous vos achats de produits alimentaires et boissons en destockage</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Économies garanties</h3>
+                    <p>Jusqu'à 70% de réduction sur les prix habituels des grossistes alimentaires traditionnels</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Livraison rapide</h3>
+                    <p>Expédition sous 24/48h partout en France avec des conditions optimales de conservation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Qualité controlée</h3>
+                    <p>Tous nos produits sont rigoureusement sélectionnés et conformes aux normes sanitaires</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos catégories de produits</h2>
+                <p>Découvrez notre large gamme de produits alimentaires et boissons en destockage</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Grossiste Alimentaire</h3>
+                        <p>Produits secs, surgelés, épicerie fine et denrées de première nécessité à prix discount.</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Grossiste Boisson</h3>
+                        <p>Vins, spiritueux, soft drinks, eaux et jus de fruits à des prix imbattables.</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Produits Bio</h3>
+                        <p>Large sélection de produits biologiques à prix réduits pour une alimentation saine.</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1578911376513-7e66b5c8c4a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Surplus de restaurants</h3>
+                        <p>Matériel professionnel et équipements de restauration à prix cassés.</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content">
+        <div class="container">
+            <div class="seo-section">
+                <h2>Le Destockage Alimentaire: Une Solution Gagnante</h2>
+                <p>Le <span class="highlight">destockage alimentaire</span> représente une opportunité unique pour les professionnels et les particuliers de s'approvisionner en produits de qualité à des prix exceptionnels. En tant que <span class="highlight">grossiste alimentaire</span> spécialisé dans le destockage, nous travaillons directement avec les producteurs, importateurs et distributeurs pour vous proposer des surplus de stock, des fins de série et des produits en rotation à des prix défiant toute concurrence.</p>
+            </div>
+            
+            <div class="seo-section">
+                <h2>Notre Expertise en Grossiste Boisson</h2>
+                <p>Notre section <span class="highlight">grossiste boisson</span> offre une sélection impressionnante de vins, spiritueux, bières artisanales et soft drinks à prix réduits. Que vous soyez un professionnel de la restauration ou un particulier à la recherche de bonnes affaires, notre catalogue de boissons en destockage saura répondre à vos attentes avec des marques reconnues et des produits de qualité.</p>
+            </div>
+            
+            <div class="keyword-list">
+                <h3>Mots-clés optimisés pour votre référencement</h3>
+                <div class="keywords">
+                    <span class="keyword">grossiste alimentaire</span>
+                    <span class="keyword">grossiste boisson</span>
+                    <span class="keyword">destockage alimentaire</span>
+                    <span class="keyword">destockage boisson</span>
+                    <span class="keyword">produits alimentaires pas chers</span>
+                    <span class="keyword">boissons à prix discount</span>
+                    <span class="keyword">surplus alimentaire</span>
+                    <span class="keyword">grossiste discount</span>
+                    <span class="keyword">vente en gros alimentaire</span>
+                    <span class="keyword">destockage épicerie</span>
+                    <span class="keyword">vin pas cher</span>
+                    <span class="keyword">boissons discount</span>
+                    <span class="keyword">grossiste Paris</span>
+                    <span class="keyword">grossiste France</span>
+                    <span class="keyword">restaurant destockage</span>
+                    <span class="keyword">supermarket surplus</span>
+                    <span class="keyword">alimentation discount</span>
+                    <span class="keyword">boisson wholesale</span>
+                    <span class="keyword">food liquidation</span>
+                </div>
+            </div>
+            
+            <div class="seo-section">
+                <h2>Comment fonctionne notre plateforme de destockage?</h2>
+                <p>Notre site de destockage alimentaire connecte directement les acheteurs avec les grossistes qui doivent écouler leurs surplus. Grâce à notre plateforme développée avec Python 3 Flask, nous offrons une expérience utilisateur optimale et des fonctionnalités avancées pour trouver les meilleures offres de <span class="highlight">grossiste alimentaire</span> et <span class="highlight">grossiste boisson</span> en temps réel.</p>
+            </div>
+            
+            <div class="seo-section">
+                <h2>Avantages pour les professionnels de la restauration</h2>
+                <p>Les restaurateurs, hôteliers et traiteurs trouveront dans notre <span class="highlight">destockage alimentaire</span> une solution idéale pour réduire leurs coûts d'approvisionnement sans compromis sur la qualité. Nos offres de <span class="highlight">grossiste boisson</span> permettent également de réaliser des économies substantielles sur les cartes des vins et les boissons servies en établissement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ils nous font confiance</h2>
+                <p>Découvrez les témoignages de nos clients satisfaits</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Grâce à ce site de destockage, j'ai réduit mes coûts d'approvisionnement de 30%. La qualité des produits est toujours au rendez-vous."</p>
+                    <p class="testimonial-author">Michel D., Restaurateur à Lyon</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Je trouve régulièrement des vins d'exception à des prix imbattables. Une mine d'or pour enrichir ma cave à petit budget."</p>
+                    <p class="testimonial-author">Sophie L., Amatrice de vins à Bordeaux</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Le service client est réactif et les livraisons toujours ponctuelles. Une référence dans le destockage alimentaire professionnel."</p>
+                    <p class="testimonial-author">Thomas P., Gérant de supermarché à Toulouse</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="produits">
+        <div class="container">
+            <h2>Prêt à faire des économies exceptionnelles?</h2>
+            <p>Rejoignez les milliers de clients satisfaits et accédez à nos offres de destockage alimentaire et boissons à prix grossiste.</p>
+            <a href="https://destockagealimentairestore.com" class="btn btn-large">Accéder au site principal</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Produits</a></li>
+                        <li><a href="#categories">Catégories</a></li>
+                        <li><a href="#avantages">Avantages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="#">Grossiste Alimentaire</a></li>
+                        <li><a href="#">Grossiste Boisson</a></li>
+                        <li><a href="#">Produits Bio</a></li>
+                        <li><a href="#">Surplus Restauration</a></li>
+                        <li><a href="#">Épicerie Fine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations légales</h3>
+                    <ul>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email: contact@destockagealimentaire.com</li>
+                        <li>Téléphone: +33 1 23 45 67 89</li>
+                        <li>Adresse: 123 Rue du Commerce, Paris</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DestockageAlimentaireStore.com - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
