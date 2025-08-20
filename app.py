@@ -1809,6 +1809,11 @@ def landing3():
 def landing2():
     return render_template('landing2.html')
 
+@app.route('/grossiste-25alimentaire')
+def grossiste_25alimentaire():
+    return render_template('grossiste_25alimentaire.html')
+
+
 @app.after_request
 def add_header(response):
     if request.path.startswith('/static/'):
