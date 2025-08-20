@@ -2049,6 +2049,24 @@ def magasin_bio_local():
 def grossiste_alimentaire_belgique():
     return render_template('grossiste_alimentairebruxellee.html')
 
+@app.route('/')
+def landing_page():
+    return render_template('landing_page.html')
+
+@app.route('/belgique')
+def belgique_page():
+    return render_template('belgique.html')
+
+@app.route('/boissons')
+def boissons_page():
+    return render_template('boissons.html')
+
+
+@app.route('/espana')
+def espana_page():
+    return render_template('espana.html')
+
+
 @app.route('/grossiste-alimentaire-belgique')
 def grossiste_alimentaire_bruxelles():
     return render_template('grossiste_alimentaire_belgique.html')
