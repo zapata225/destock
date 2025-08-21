@@ -1,30 +1,19 @@
 {% extends "base.html" %}
-{% block head_extra %}
-    <!-- Title MEGA-ATTRACTIF avec emojis et promos -->
-    <title>🚨 DESTOCKAGE ALIMENTAIRE | Grossiste N°1 France | 🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | ★★★★☆ (4.9/5)</title>
-    
-    <!-- Description ULTRA-VENDEUSE -->
-    <meta name="description" content="🔥 GROSSISTE BOISSON : -70% sur 🥤 Boissons, 🧀 Laitiers, 🍎 Produits frais ! Livraison 48h France ★★★★☆ (4.9/5) ☎ +33644694515| Stocks limités !"/>
-    
-    <!-- Keywords STRATÉGIQUES -->
-    <meta name="keywords" content="
-        grossiste boisson, destockage alimentaire Lille, grossiste boissons Nord, 
-        palette soda pas cher, vin en gros France,
-        destockage surgelés pro, fromage gros volume,
-        entrepôt alimentaire Lille, destockage laitage,
-        electroménager cuisine discount, promotion alimentaire,
-        avis destockage store, magasin destockage 59,
-        discounter alimentaire Nord, invendus usine alimentaire,
-        destockage alimentaire, destockeur alimentaire,
-        déstockage invendus usine alimentaire, destockage alimentaire en gros,
-        grossiste alimentaire, magasin déstockage alimentaire,
-        magasin destockage alimentaire, grossiste produits alimentaires surgelés,
-        discounter alimentaire
-    " />
 
-    
-    <!-- Open Graph URGENTIEL -->
-    <meta property="og:title" content="🚨 DESTOCKAGE ALIMENTAIRE -70% | LIVRAISON FRANCE" />
+{% block page_title %}Destockage Alimentaire -70% | Grossiste N°1 France | Livraison 48h | ★★★★☆ (4.9/5){% endblock %}
+
+{% block meta_description %}🔥 GROSSISTE DESTOCKAGE ALIMENTAIRE : -70% sur 🥤 Boissons, ❄️ Surgelés pro, 🧀 Laitiers, 🍎 Produits frais ! Livraison express France ★★★★☆ (4.9/5) ☎ +33644694515 | Stocks limités !{% endblock %}
+
+{% block meta_keywords %}
+destockage alimentaire, grossiste boisson, destockage alimentaire Lille, grossiste boissons Nord, 
+palette soda pas cher, vin en gros France, destockage surgelés pro, fromage gros volume,
+entrepôt alimentaire Lille, destockage laitage, promotion alimentaire, destockage alimentaire en gros,
+grossiste alimentaire, magasin destockage alimentaire, produits alimentaires surgelés
+{% endblock %}
+
+{% block head_extra %}
+    <!-- Open Graph -->
+    <meta property="og:title" content="Destockage Alimentaire -70% | Livraison France Express" />
     <meta property="og:description" content="Grossiste N°1 en destockage : 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers à prix cassés. ★★★★☆ (4.9/5) - ☎ +33644694515" />
     <meta property="og:url" content="https://www.destockagealimentairestore.com" />
     <meta property="og:type" content="website" />
@@ -32,14 +21,15 @@
     <meta property="og:image:alt" content="Destockage alimentaire -70% toute la France" />
     <meta property="og:locale" content="fr_FR" />
 
-
-    <!-- Twitter Card ULTRA-ATTRACTIVE -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="🥇 Destockage Alimentaire | 4.9/5 ★ | Livraison France" />
+    <meta name="twitter:title" content="Destockage Alimentaire | 4.9/5 ★ | Livraison France" />
     <meta name="twitter:description" content="🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur les invendus de qualité professionnelle" />
     <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-destockage-france.jpg" />
+    
     <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
     <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
+
     <!-- Rich Snippet COMPLET -->
     <script type="application/ld+json">
     {
@@ -58,12 +48,12 @@
           "@type": "SearchAction",
           "target": "https://www.destockagealimentairestore.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
-        },
+      },
       "sameAs": [
-          "https://www.facebook.com/votrepage",
-          "https://www.instagram.com/votrecompte"
-        ]
-     "address": {
+          "https://www.facebook.com/destockagealimentaire",
+          "https://www.instagram.com/destockagealimentaire"
+      ],
+      "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Rue de l'Entrepôt",
         "addressLocality": "Lille",
@@ -145,9 +135,8 @@
       }
     }
     </script>
-
-    </script>
 {% endblock %}
+
 {% block extra_css %}
 <style>
     /* Nouveaux styles - Page d'accueil uniquement */
