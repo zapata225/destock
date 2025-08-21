@@ -634,16 +634,16 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🥤 Boissons, �
   "@context": "https://schema.org",
   "@type": "Store",
   "name": "Destockage Alimentaire Store",
-  "description": "Grossiste alimentaire spécialisé dans le destockage de produits alimentaires à prix anti-gasti. Découvrez nos offres exceptionnelles sur les denrées alimentaires en destockage.",
+  "description": "{% if current_category and current_category != 'all' %}Grossiste {{ current_category }} en destockage à -70%{% else %}Grossiste alimentaire spécialisé dans le destockage{% endif %}",
   "url": "https://destockagealimentairestore.com",
   "priceRange": "€€",
   "image": "https://destockagealimentairestore.com/static/images/logo.jpg",
-  "telephone": "+33XXXXXXXXX",
+  "telephone": "+33644694515",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Adresse de votre entreprise",
-    "addressLocality": "Ville",
-    "postalCode": "Code postal",
+    "streetAddress": "123 Rue de l'Entrepôt",
+    "addressLocality": "Lille",
+    "postalCode": "59000",
     "addressCountry": "FR"
   },
   "openingHoursSpecification": {
@@ -660,7 +660,8 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🥤 Boissons, �
     "closes": "18:00"
   },
   "sameAs": [
-    "URL de vos réseaux sociaux"
+    "https://www.facebook.com/destockagealimentaire",
+    "https://www.instagram.com/destockagealimentaire"
   ]
 }
 </script>
