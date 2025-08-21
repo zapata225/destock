@@ -17,7 +17,7 @@ products = [
         "category": "Produits frais",
         "stock": 15,
         "featured": False,
-        "images": ["foie-gras.jpg", "foie-gras-2.jpg", "foie-gras-3.jpg"],
+        "images": ["foie-gras.jpg"],
         "offers": {
             "@type": "Offer",
             "price": "257.00",
@@ -49,7 +49,7 @@ products = [
         "category": "Produits frais",
         "stock": 8,
         "featured": False,
-        "images": ["saumon-fume.jpg", "saumon-fume-2.jpg", "saumon-fume-3.jpg"],
+        "images": ["saumon-fume.jpg", "saumon-fume-2.jpg"],
         "offers": {
             "@type": "Offer",
             "price": "2550.00",
@@ -80,7 +80,7 @@ products = [
     "category": "Produits laitiers",
     "stock": 20,
     "featured": False,
-    "images": ["fromages.jpg", "fromages-2.jpg", "fromages-3.jpg"],
+    "images": ["fromages.jpg", "fromages-3.jpg"],
     "offers": {
       "@type": "Offer",
       "price": "1760.00",
@@ -703,7 +703,7 @@ products = [
         "category": "Épicerie",
         "stock": 5,
         "featured": True,
-        "images": ["cafe-royal.jpg", "cafe-royal-2.jpg", "cafe-royal-3.jpg"],
+        "images": ["cafe-royal.jpg", "cafe-royal-2.jpg"],
         "offers": {
             "@type": "Offer",
             "price": "1278.00",
@@ -2811,7 +2811,7 @@ products = [
         "stock": 3,
         "featured": True,
         "published": True,
-        "images": ["bjorg-soja-palette.jpg", "bjorg-soja-palette1.jpg"],
+        "images": ["bjorg-soja-palette.jpg"],
         "details": {
             "marque": "BJORG",
             "type": "Boisson végétale au soja",
