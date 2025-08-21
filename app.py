@@ -2261,11 +2261,26 @@ def aceite_oliva25():
     return render_template('aceiteoliva.html')
 
 
+
 @app.route('/explorando-bebidas-alcoholicas')
 def bebidas_alcoholicas():
     return render_template('bebidasalcoholicas.html')  # Vous aviez mis un `redirect` par erreur
 
 
+@app.route('/role-grossiste-alimentaire')
+def article_role_grossiste_clean():
+    """Version sans /blog/"""
+    return render_template('article_role_grossiste.html')
+
+@app.route('/destockage-belgique')
+def destockage_belgique_clean():
+    """Version sans /blog/"""
+    return render_template('destockage--beligique.html')
+
+@app.route('/grossiste-paris')
+def grossiste_paris():
+    """Nouvel article grossiste Paris"""
+    return render_template('grossiste-paris.html')
 
 
     
