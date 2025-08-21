@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}FAQ - Questions Fréquentes - Destockage Alimentaire Prénium{% endblock %}
+{% block page_title %}FAQ Destockage Alimentaire | Questions/Réponses | Livraison 48h{% endblock %}
 
-{% block meta_description %}
-Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : commande, livraison, paiement, retours et produits alimentaires à prix discount.
-{% endblock %}
+{% block meta_description %}✅ Réponses à toutes vos questions sur le destockage alimentaire : commande, livraison express 48h, paiement sécurisé, retours. Service client réactif. ☎ +33644694515{% endblock %}
 
 {% block content %}
 <section class="faq-section">
     <div class="container">
-        <h1 class="faq-title">Questions Fréquentes</h1>
+        <h1 class="faq-title">FAQ Destockage Alimentaire - Questions Fréquentes</h1>
         
         <div class="faq-intro">
-            <p>Vous trouverez ci-dessous les réponses aux questions les plus fréquemment posées. Si vous ne trouvez pas la réponse à votre question, n'hésitez pas à <a href="{{ url_for('contact') }}">nous contacter</a>.</p>
+            <p>Vous trouverez ci-dessous les réponses aux questions les plus fréquemment posées sur notre service de destockage alimentaire premium. Si vous ne trouvez pas la réponse à votre question, n'hésitez pas à <a href="{{ url_for('contact') }}">nous contacter</a>.</p>
         </div>
         
         <div class="faq-categories">
-            <div class="faq-category active" data-category="general">Général</div>
+            <div class="faq-category active" data-category="all">Toutes les questions</div>
+            <div class="faq-category" data-category="general">Général</div>
             <div class="faq-category" data-category="commande">Commande</div>
             <div class="faq-category" data-category="livraison">Livraison</div>
             <div class="faq-category" data-category="paiement">Paiement</div>
@@ -35,7 +34,7 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
             <div class="faq-item" data-category="general">
                 <div class="faq-question">Où sont situés vos entrepôts ?</div>
                 <div class="faq-answer">
-                    <p>Nos entrepôts sont situés dans toute la France pour assurer une livraison rapide. Notre siège social est à Paris.</p>
+                    <p>Nos entrepôts sont situés dans toute la France pour assurer une livraison rapide. Notre siège social est à Paris et nous disposons de plateformes logistiques à Lille, Lyon et Marseille.</p>
                 </div>
             </div>
             
@@ -43,21 +42,22 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
             <div class="faq-item" data-category="commande">
                 <div class="faq-question">Comment passer commande ?</div>
                 <div class="faq-answer">
-                    <p>Pour commander :</p>
+                    <p>Pour commander sur Destockage Alimentaire Prénium :</p>
                     <ol>
                         <li>Ajoutez les produits à votre panier</li>
                         <li>Cliquez sur "Valider le panier"</li>
                         <li>Renseignez vos coordonnées</li>
-                        <li>Choisissez votre mode de paiement</li>
+                        <li>Choisissez votre mode de paiement sécurisé</li>
                         <li>Confirmez votre commande</li>
                     </ol>
+                    <p>Vous recevrez un email de confirmation immédiatement.</p>
                 </div>
             </div>
             
             <div class="faq-item" data-category="commande">
                 <div class="faq-question">Puis-je modifier ma commande ?</div>
                 <div class="faq-answer">
-                    <p>Vous pouvez modifier votre commande tant qu'elle n'a pas été expédiée. Contactez-nous rapidement par téléphone ou email.</p>
+                    <p>Vous pouvez modifier votre commande tant qu'elle n'a pas été expédiée. Contactez-nous rapidement par téléphone au ☎ <strong>+33644694515</strong> ou par email pour toute modification.</p>
                 </div>
             </div>
             
@@ -69,7 +69,8 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
                     <ul>
                         <li>Produits secs : 2-3 jours ouvrés</li>
                         <li>Produits frais/surgelés : 24-48h</li>
-                        <li>Palettes : 3-5 jours ouvrés</li>
+                        <li>Palettes complètes : 3-5 jours ouvrés</li>
+                        <li>Livraison express disponible en option</li>
                     </ul>
                 </div>
             </div>
@@ -77,7 +78,7 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
             <div class="faq-item" data-category="livraison">
                 <div class="faq-question">Comment sont livrés les produits frais ?</div>
                 <div class="faq-answer">
-                    <p>Les produits frais et surgelés sont livrés dans des emballages isothermes avec des accumulateurs de froid pour garantir la chaîne du froid.</p>
+                    <p>Les produits frais et surgelés sont livrés dans des emballages isothermes professionnels avec des accumulateurs de froid pour garantir le respect de la chaîne du froid. Nos livreurs sont formés aux normes HACCP.</p>
                 </div>
             </div>
             
@@ -85,12 +86,19 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
             <div class="faq-item" data-category="paiement">
                 <div class="faq-question">Quels modes de paiement acceptez-vous ?</div>
                 <div class="faq-answer">
-                    <p>Nous acceptons :</p>
+                    <p>Nous acceptons les modes de paiement suivants :</p>
                     <ul>
-                        <li>Cartes bancaires (Visa, Mastercard, CB)</li>
+                        <li>Cartes bancaires (Visa, Mastercard, CB) - Paiement 100% sécurisé</li>
                         <li>PayPal</li>
-                        <li>Virement bancaire (pour les professionnels)</li>
+                        <li>Virement bancaire (pour les professionnels et commandes volumineuses)</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="paiement">
+                <div class="faq-question">Le paiement est-il sécurisé ?</div>
+                <div class="faq-answer">
+                    <p>Absolument. Tous nos paiements sont cryptés SSL et conformes aux normes PCI DSS. Nous ne stockons jamais vos coordonnées bancaires.</p>
                 </div>
             </div>
             
@@ -98,12 +106,13 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
             <div class="faq-item" data-category="produits">
                 <div class="faq-question">Pourquoi vos prix sont-ils si bas ?</div>
                 <div class="faq-answer">
-                    <p>Nos prix réduits s'expliquent par :</p>
+                    <p>Nos prix réduits s'expliquent par plusieurs facteurs :</p>
                     <ul>
-                        <li>Achats en gros volumes</li>
-                        <li>Produits en fin de série ou surplus</li>
-                        <li>Emballages légèrement abîmés</li>
-                        <li>Dates de consommation courtes mais encore valides</li>
+                        <li>Achats en gros volumes auprès de producteurs et industriels</li>
+                        <li>Produits en fin de série ou surplus de production</li>
+                        <li>Emballages légèrement abîmés mais produits intacts</li>
+                        <li>Dates de consommation courtes mais encore parfaitement valides</li>
+                        <li>Absence d'intermédiaires</li>
                     </ul>
                 </div>
             </div>
@@ -111,100 +120,160 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
             <div class="faq-item" data-category="produits">
                 <div class="faq-question">Puis-je retourner un produit alimentaire ?</div>
                 <div class="faq-answer">
-                    <p>Pour des raisons d'hygiène, les produits alimentaires ne peuvent être retournés que s'ils sont non conformes à votre commande ou défectueux.</p>
+                    <p>Pour des raisons d'hygiène et de sécurité alimentaire, les produits alimentaires ne peuvent être retournés que dans les cas suivants :</p>
+                    <ul>
+                        <li>Produit non conforme à votre commande</li>
+                        <li>Produit défectueux ou avarié</li>
+                        <li>Erreur de livraison</li>
+                    </ul>
+                    <p>Contactez notre service client dans les 24h suivant la réception.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="produits">
+                <div class="faq-question">Les produits sont-ils aux normes françaises ?</div>
+                <div class="faq-answer">
+                    <p>Oui, tous nos produits sont conformes aux normes sanitaires françaises et européennes. Nous travaillons exclusivement avec des fournisseurs agréés et certifiés.</p>
                 </div>
             </div>
         </div>
         
         <div class="faq-contact">
-            <p>Vous n'avez pas trouvé de réponse à votre question ? <a href="{{ url_for('contact') }}" class="contact-link">Contactez-nous</a> et nous vous répondrons dans les plus brefs délais.</p>
+            <div class="contact-card">
+                <h3>❓ Question sans réponse ?</h3>
+                <p>Notre équipe clientèle est à votre disposition du lundi au vendredi de 8h à 19h et le samedi de 9h à 17h.</p>
+                <div class="contact-methods">
+                    <p>☎ <strong>+33644694515</strong></p>
+                    <p>✉ <strong>contact@destockagealimentaire.fr</strong></p>
+                </div>
+                <a href="{{ url_for('contact') }}" class="btn-contact">Nous contacter</a>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
 .faq-section {
-    padding: 60px 0;
-    background-color: #f9f9f9;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .faq-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #2a5bd7;
     margin-bottom: 30px;
     text-align: center;
-    position: relative;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .faq-title:after {
     content: '';
     display: block;
-    width: 80px;
-    height: 4px;
-    background: #2a5bd7;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #2a5bd7, #ff6b81);
     margin: 20px auto 0;
+    border-radius: 2px;
 }
 
 .faq-intro {
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #495057;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .faq-categories {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
+    gap: 12px;
+    margin-bottom: 50px;
 }
 
 .faq-category {
-    padding: 10px 20px;
+    padding: 12px 25px;
     background: white;
     border-radius: 50px;
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
     border: 2px solid #2a5bd7;
     color: #2a5bd7;
+    box-shadow: 0 3px 10px rgba(42, 91, 215, 0.1);
 }
 
-.faq-category:hover, .faq-category.active {
-    background: #2a5bd7;
+.faq-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 91, 215, 0.2);
+}
+
+.faq-category.active {
+    background: linear-gradient(135deg, #2a5bd7 0%, #1e4aba 100%);
     color: white;
+    border-color: #2a5bd7;
 }
 
 .faq-accordion {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .faq-item {
     background: white;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #2a5bd7;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .faq-question {
-    padding: 20px;
-    font-weight: 600;
+    padding: 25px;
+    font-weight: 700;
     cursor: pointer;
     position: relative;
     color: #2a5bd7;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.faq-question:before {
+    content: '❓';
+    margin-right: 15px;
+    font-size: 1.3rem;
 }
 
 .faq-question:after {
     content: '+';
     position: absolute;
-    right: 20px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.5rem;
-    transition: all 0.3s;
+    font-size: 1.8rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
 }
 
 .faq-item.active .faq-question:after {
@@ -212,50 +281,125 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
 }
 
 .faq-answer {
-    padding: 0 20px;
+    padding: 0 25px;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    background: #f8f9fa;
 }
 
 .faq-item.active .faq-answer {
-    padding: 0 20px 20px;
-    max-height: 500px;
+    padding: 25px;
+    max-height: 1000px;
 }
 
-.faq-answer p, .faq-answer ul, .faq-answer ol {
+.faq-answer p {
     margin-bottom: 15px;
+    line-height: 1.6;
+    color: #495057;
 }
 
 .faq-answer ul, .faq-answer ol {
-    padding-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+.faq-answer li {
+    margin-bottom: 8px;
+    line-height: 1.5;
 }
 
 .faq-contact {
     text-align: center;
-    margin-top: 50px;
-    font-size: 1.1rem;
+    margin-top: 70px;
 }
 
-.contact-link {
+.contact-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-card h3 {
     color: #2a5bd7;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-.contact-link:hover {
-    text-decoration: underline;
+.contact-methods {
+    margin: 25px 0;
+}
+
+.contact-methods p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.btn-contact {
+    display: inline-block;
+    background: linear-gradient(135deg, #2a5bd7 0%, #1e4aba 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(42, 91, 215, 0.3);
 }
 
 @media (max-width: 768px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+    
     .faq-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+    
+    .faq-categories {
+        gap: 8px;
     }
     
     .faq-category {
-        padding: 8px 15px;
+        padding: 10px 18px;
         font-size: 0.9rem;
+    }
+    
+    .faq-question {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    
+    .contact-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-title {
+        font-size: 1.8rem;
+    }
+    
+    .faq-intro {
+        font-size: 1rem;
+        padding: 20px;
+    }
+    
+    .faq-question {
+        padding: 15px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 15px;
     }
 }
 </style>
@@ -264,16 +408,19 @@ Trouvez les réponses à vos questions sur Destockage Alimentaire Prénium : com
 document.addEventListener('DOMContentLoaded', function() {
     // Gestion des catégories FAQ
     const categories = document.querySelectorAll('.faq-category');
+    const items = document.querySelectorAll('.faq-item');
+    
     categories.forEach(category => {
         category.addEventListener('click', function() {
+            // Active la catégorie cliquée
             categories.forEach(c => c.classList.remove('active'));
             this.classList.add('active');
             
             const categoryName = this.dataset.category;
-            const items = document.querySelectorAll('.faq-item');
             
+            // Filtre les questions
             items.forEach(item => {
-                if(item.dataset.category === categoryName || categoryName === 'all') {
+                if(categoryName === 'all' || item.dataset.category === categoryName) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
@@ -289,15 +436,88 @@ document.addEventListener('DOMContentLoaded', function() {
             const item = this.parentElement;
             const isActive = item.classList.contains('active');
             
+            // Ferme tous les autres items
             document.querySelectorAll('.faq-item').forEach(i => {
                 i.classList.remove('active');
             });
             
+            // Ouvre l'item cliqué s'il n'était pas actif
             if(!isActive) {
                 item.classList.add('active');
+                
+                // Scroll doux vers la question
+                item.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
             }
         });
     });
+
+    // Animation d'entrée des éléments
+    setTimeout(() => {
+        items.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.5s ease';
+            
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, 100 + index * 50);
+        });
+    }, 100);
 });
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que Destockage Alimentaire Prénium ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Destockage Alimentaire Prénium est un spécialiste de la vente de produits alimentaires à prix réduits. Nous proposons des produits de qualité provenant de destockages, avec des réductions allant jusqu'à -70%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels sont les délais de livraison ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Produits secs : 2-3 jours ouvrés, Produits frais/surgelés : 24-48h, Palettes complètes : 3-5 jours ouvrés. Livraison express disponible en option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment sont livrés les produits frais ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les produits frais et surgelés sont livrés dans des emballages isothermes professionnels avec des accumulateurs de froid pour garantir le respect de la chaîne du froid. Normes HACCP respectées."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels modes de paiement acceptez-vous ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cartes bancaires (Visa, Mastercard, CB) - Paiement 100% sécurisé, PayPal, Virement bancaire pour les professionnels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi vos prix sont-ils si bas ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Achats en gros volumes, produits en fin de série, emballages légèrement abîmés, dates de consommation courtes mais valides, absence d'intermédiaires."
+      }
+    }
+  ]
+}
 </script>
 {% endblock %}
