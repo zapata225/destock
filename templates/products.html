@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
+{% block page_title %}
+{% if current_category and current_category != 'all' %}
+Destockage {{ current_category }} -70% | Grossiste France | Livraison 48h
+{% else %}
+Destockage Alimentaire -70% | Tous nos produits | Livraison Express
+{% endif %}
+{% endblock %}
+
+{% block meta_description %}
+{% if current_category and current_category != 'all' %}
+Découvrez nos {{ current_category }} en destockage à -70%. ✅ Livraison express France. ★★★★☆ (4.9/5) ☎ +33644694515
+{% else %}
+Découvrez tous nos produits de destockage alimentaire à -70%. 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers. Livraison express France. ★★★★☆ (4.9/5)
+{% endif %}
+{% endblock %}
+
 {% block extra_css %}
 <style>
     /* Styles de base modernes */
