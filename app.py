@@ -2275,7 +2275,7 @@ def article_role_grossiste_clean():
 @app.route('/destockage-belgique')
 def destockage_belgique_clean():
     """Version sans /blog/"""
-    return render_template('destockage--beligique.html')
+    return render_template('destockage--belgique.html')
 
 @app.route('/grossiste-paris')
 def grossiste_paris():
