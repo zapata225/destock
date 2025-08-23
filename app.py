@@ -2320,6 +2320,53 @@ def blog_suisse():
     return render_template('blog_suisse.html')
 
 
+@app.route('/blog/soldes-alimentaires')
+def blog_soldes_alimentaires():
+    return render_template('blog/soldes-alimentaires.html')
+
+@app.route('/blog/anti-gaspillage')
+def blog_anti_gaspillage():
+    return render_template('blog/anti-gaspillage.html')
+
+@app.route('/blog/grossiste-halal')
+def blog_grossiste_halal():
+    return render_template('blog/grossiste-halal.html')
+
+@app.route('/blog/grossiste-electromenager')
+def blog_grossiste_electromenager():
+    return render_template('blog/grossiste-electromenager.html')
+
+@app.route('/blog/innovations-distribution')
+def blog_innovations_distribution():
+    return render_template('blog/innovations-distribution.html')
+
+@app.route('/blog/boissons-gros')
+def blog_boissons_gros():
+    return render_template('blog/boissons-gros.html')
+
+@app.route('/blog/discount-alimentation')
+def blog_discount_alimentation():
+    return render_template('blog/discount-alimentation.html')
+
+@app.route('/blog/grossiste-bruxelles')
+def blog_grossiste_bruxelles():
+    return render_template('blog/grossiste-bruxelles.html')
+
+@app.route('/blog/alcohol-barato')
+def blog_alcohol_barato():
+    return render_template('blog/alcohol-barato.html')
+
+@app.route('/blog/mayorista-espana')
+def blog_mayorista_espana():
+    return render_template('blog/mayorista-espana.html')
+
+@app.route('/blog/boissons-suisses')
+def blog_boissons_suisses():
+    return render_template('blog/boissons-suisses.html')
+
+@app.route('/blog/tendances-horeca')
+def blog_tendances_horeca():
+    return render_template('blog/tendances-horeca.html')
 
 @app.route('/blog/psg-champion-europe-2025')
 def blog_psg():
