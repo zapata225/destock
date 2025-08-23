@@ -3221,14 +3221,14 @@ def sitemap():
         '/article-grossiste-sitefrance','/article-grossiste-sitefrancelo','/article-espagne','/destockage-alimentaire-particuliers-français', '/descuentos-alimentarios-espana',
         '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge', '/trouver_magasins',
         '/supermarche_proximite',
-        '/supermarche_24_7',
-        '/recettes_nutella',
-        '/magasin_bio_local',
-        '/grossiste_alimentaire',  # Ce nom est dupliqué (voir remarque plus bas)
-        '/fournisseurs_aubervilliers',
-        '/distributeurs_automatiques',
-        '/champagne_destockage',
-        '/canette_coca',
+        '/supermarche-ouvert-24-7',
+        '/recettes-nutella',
+        '/magasin-bio-local',
+        '/grossiste-alimentaire-belgique',  # Ce nom est dupliqué (voir remarque plus bas)
+        '/meilleurs-fournisseurs-aubervilliers-2025',
+        '/distributeurs-automatiques-rentabilite-innovations',
+        '/champagne-destockage',
+        '/canette-coca-histoire-innovation',
         '/astuces_destockage',
         '/grossiste-boisson2025',
         '/grossiste-alimentaire2025',
@@ -3236,7 +3236,7 @@ def sitemap():
         '/mayorista-alimentos-espana',
         '/grossiste-alimentaire-france',
         '/grossista-alimentare-italia',
-        '/anti_gaspi',
+        '/blog/anti-gaspi-creatif',
         '/grossiste-boissonbbelgique1',
         '/grossiste-boisson09',
         '/grossiste-alimstore',
@@ -3255,7 +3255,7 @@ def sitemap():
         '/blog/boissons-suisses',
         '/blog/tendances-horeca',
         '/blog/alimentation-bio',
-        '/blog/produits-italiens',
+        '/blog/produits-italiens','/comprar-alimentos-por-mayor-espana',
         '/alimentos_por_mayor', '/fr/destockage,destockage_nl.html','/en/surplus','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
     ]
 
