@@ -1911,9 +1911,8 @@ def article_france_2():
     return render_template('article-france-2.html')
 
 # Traitement du Formulaire
-@app.route('/confirmation1', methods=['POST'])
+@app.route('/confirmation1')
 def confirmation1():
-    # Ici vous pourriez traiter les données du formulaire
     return render_template('confirmation1.html')
 
 
