@@ -1,0 +1,806 @@
+{% extends "base.html" %}
+
+{% block page_title %}Innovations Technologiques Distribution Moderne | Transformation Digitale | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez comment les innovations technologiques transforment les magasins de distribution en France, optimisant la vente au détail et enrichissant l'expérience client.{% endblock %}
+
+{% block content %}
+<article class="blog-article">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Innovations Distribution</span>
+            </nav>
+            
+            <h1 class="article-title">Innovations Technologiques dans la Distribution Moderne</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date">📅 20 Décembre 2024</span>
+                <span class="reading-time">⏱️ 18 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/innovation-distribution.jpg') }}" 
+                     alt="Innovations technologiques distribution moderne transformation digitale" class="hero-image">
+                <div class="hero-overlay">
+                    <p class="hero-text">La révolution digitale redéfinit l'expérience d'achat et l'efficacité opérationnelle</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container">
+        <div class="content-wrapper">
+            <main class="main-content">
+                <section class="intro-section">
+                    <p class="lead-text">
+                        Dans un monde en constante évolution, la distribution moderne doit faire face à de nombreux défis pour répondre aux besoins changeants des consommateurs. Grâce aux innovations technologiques, le secteur de la vente au détail a pu transformer ses opérations, améliorer l'expérience client et optimiser son efficacité. Les avancées technologiques n'ont pas seulement modifié les opérations internes des entreprises, mais elles ont également redéfini les attentes des consommateurs en matière de service et de commodité.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <h2>🎯 Transformation de la Chaîne Logistique</h2>
+                    <p>
+                        Les technologies numériques ont profondément modifié la façon dont les produits circulent dans le réseau de distribution. Les systèmes de gestion de la chaîne logistique, utilisant l'intelligence artificielle et l'analyse de données, permettent aux magasins de prévoir la demande avec plus de précision.
+                    </p>
+                    
+                    <div class="definition-box">
+                        <h3>📊 Gestion Prédictive des Stocks</h3>
+                        <p>Cette capacité à anticiper les besoins des consommateurs permet une gestion proactive des stocks, réduisant les ruptures de stock et les surplus coûteux. L'analyse prédictive offre aux détaillants la possibilité d'optimiser leurs stratégies de merchandising en fonction des tendances émergentes.</p>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <h3>📡 Internet des Objets (IoT) en Entrepôt</h3>
+                        <p>L'utilisation de capteurs IoT dans les entrepôts et les centres de distribution permet de suivre en temps réel l'emplacement et l'état des produits. Ces capteurs fournissent des données cruciales sur la température, l'humidité et d'autres conditions environnementales.</p>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <h3>🤖 Robotique et Automatisation</h3>
+                        <p>L'intégration de la robotique dans les entrepôts permet une automatisation accrue des processus, réduisant ainsi les erreurs humaines et augmentant la vitesse de traitement. Les supermarchés en France adoptent ces technologies pour optimiser leurs stocks.</p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🛒 Expérience Client Augmentée</h2>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <span class="benefit-icon">🤖</span>
+                            <h4>Caisses Automatiques</h4>
+                            <p>Les caisses automatiques, applications mobiles et kiosques interactifs offrent aux clients des moyens plus rapides et plus pratiques pour effectuer leurs achats, réduisant les files d'attente.</p>
+                        </div>
+                        
+                        <div class="benefit">
+                            <span class="benefit-icon">📱</span>
+                            <h4>Promotions Personnalisées</h4>
+                            <p>Les plateformes numériques permettent d'offrir des promotions personnalisées et des programmes de fidélité, augmentant ainsi l'engagement des clients de manière significative.</p>
+                        </div>
+                        
+                        <div class="benefit">
+                            <span class="benefit-icon">👓</span>
+                            <h4>Réalité Augmentée</h4>
+                            <p>L'intégration de la RA dans les magasins aide les clients à visualiser les produits dans leur environnement quotidien et à obtenir des informations nutritionnelles supplémentaires.</p>
+                        </div>
+
+                        <div class="benefit">
+                            <span class="benefit-icon">🔄</span>
+                            <h4>Réalité Virtuelle</h4>
+                            <p>Les innovations en matière de RV offrent des possibilités pour des visites guidées virtuelles de magasins, permettant aux clients de découvrir les offres depuis leur domicile.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>💳 Innovations dans les Paiements</h2>
+                    
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon">💳</div>
+                            <h3>Paiement Sans Contact</h3>
+                            <p>Les solutions de paiement sans contact, telles que les cartes NFC et les applications de portefeuille mobile, offrent une méthode de paiement rapide et sécurisée, réduisant les temps d'attente.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">📱</div>
+                            <h3>Portefeuilles Mobiles</h3>
+                            <p>L'adoption croissante des portefeuilles mobiles transforme l'expérience de paiement, minimisant le besoin de manipuler de l'argent liquide et améliorant l'hygiène.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">👁️</div>
+                            <h3>Reconnaissance Faciale</h3>
+                            <p>Les systèmes de paiement par reconnaissance faciale émergent, offrant un niveau de commodité et de sécurité sans précédent pour les consommateurs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🌐 Personnalisation en Ligne</h2>
+                    
+                    <div class="wholesaler-types">
+                        <div class="type-card">
+                            <h3>🎯 Recommandations Personnalisées</h3>
+                            <p>Grâce à l'analyse des données clients, les plateformes de vente au détail peuvent offrir des recommandations de produits personnalisées, améliorant ainsi l'expérience utilisateur et augmentant les ventes.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>🤖 Algorithmes Intelligents</h3>
+                            <p>Les algorithmes d'apprentissage automatique analysent les comportements d'achat passés et les interactions en temps réel pour affiner les recommandations et proposer des offres sur mesure.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>📊 Marketing Ciblé</h3>
+                            <p>Les détaillants investissent dans des campagnes de marketing ciblées basées sur l'analyse des données, améliorant la pertinence des communications et augmentant le taux de conversion.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🚚 Révolution Logistique</h2>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">1</span>
+                                <h3>Drones de Livraison</h3>
+                            </div>
+                            <p>Les innovations dans le domaine de la logistique, telles que les drones, commencent à transformer le secteur en accélérant le processus de distribution, particulièrement dans les zones urbaines.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">2</span>
+                                <h3>Points de Retrait Automatisés</h3>
+                            </div>
+                            <p>Les points de retrait automatisés et les casiers intelligents permettent aux clients de récupérer leurs commandes à leur convenance, sans frais de livraison supplémentaires.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">3</span>
+                                <h3>Optimisation des Itinéraires</h3>
+                            </div>
+                            <p>L'intégration de solutions logicielles de gestion des itinéraires optimise les trajets de livraison, réduisant ainsi les coûts et l'empreinte carbone des opérations.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>💻 Expérience Utilisateur Digitale</h2>
+                    
+                    <div class="players-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Élément</th>
+                                    <th>Importance</th>
+                                    <th>Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>📱 Design Réactif</td>
+                                    <td>Essentiel</td>
+                                    <td>Accessibilité multi-appareils et amélioration de l'engagement</td>
+                                </tr>
+                                <tr>
+                                    <td>🎙️ Recherche Vocale</td>
+                                    <td>Croissant</td>
+                                    <td>Amélioration de l'accessibilité et commodité d'utilisation</td>
+                                </tr>
+                                <tr>
+                                    <td>🤖 Assistants Virtuels</td>
+                                    <td>Stratégique</td>
+                                    <td>Assistance en temps réel et personnalisation accrue</td>
+                                </tr>
+                                <tr>
+                                    <td>⚡ Performance</td>
+                                    <td>Critique</td>
+                                    <td>Réduction du taux d'abandon et amélioration de la satisfaction</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔐 Sécurité et Confidentialité</h2>
+                    
+                    <div class="importance-features">
+                        <div class="feature">
+                            <span class="feature-number">1</span>
+                            <div>
+                                <h4>Protection des Données</h4>
+                                <p>Les entreprises doivent garantir la protection des informations personnelles des clients tout en utilisant des données pour améliorer leurs services, avec des mesures de sécurité rigoureuses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <span class="feature-number">2</span>
+                            <div>
+                                <h4>Conformité RGPD</h4>
+                                <p>Le respect des réglementations sur la protection des données, telles que le RGPD en Europe, est essentiel pour maintenir la confiance des clients et éviter les sanctions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <span class="feature-number">3</span>
+                            <div>
+                                <h4>Formation contre les Cybermenaces</h4>
+                                <p>Face à la fréquence croissante des cyberattaques, les entreprises doivent investir dans des systèmes de sécurité avancés et former régulièrement leur personnel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>👨‍💼 Formation et Adaptation</h2>
+                    
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon">📚</div>
+                            <h3>Formation Digitale</h3>
+                            <p>Les employés doivent être formés pour utiliser efficacement les outils numériques et offrir une assistance technique aux clients dans le nouvel environnement de travail numérique.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🔄</div>
+                            <h3>Programmes Continus</h3>
+                            <p>Les enseignes doivent investir dans des programmes de formation continue pour garantir une transition fluide vers un environnement de travail numérique et évolutif.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🎯</div>
+                            <h3>Parcours Personnalisés</h3>
+                            <p>Les programmes de formation doivent être adaptés aux différents niveaux de compétences des employés, offrant des parcours d'apprentissage personnalisés.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔮 Avenir de la Distribution</h2>
+                    
+                    <div class="wholesaler-types">
+                        <div class="type-card">
+                            <h3>🔗 Technologie Blockchain</h3>
+                            <p>La blockchain pourrait offrir une transparence accrue dans la chaîne d'approvisionnement, permettant un suivi inaltérable des produits et renforçant la confiance des consommateurs.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>🧠 Intelligence Artificielle</h3>
+                            <p>L'IA continuera de jouer un rôle clé dans l'amélioration des opérations et de l'expérience client, avec des chatbots avancés et des systèmes de recommandation toujours plus précis.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>🤖 Automatisation Avancée</h3>
+                            <p>L'automatisation des processus continuera de s'étendre, avec des systèmes capables de gérer des tâches complexes et d'optimiser l'ensemble de la chaîne de valeur.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="conclusion-section">
+                    <h2>🎯 Conclusion : Une Transformation Inévitable</h2>
+                    <p>
+                        Les innovations technologiques transforment radicalement la distribution moderne, offrant de nouvelles opportunités pour améliorer l'efficacité et l'expérience client. Les magasins alimentaires, les supermarchés et les plateformes en ligne en France sont à la pointe de cette transformation, adoptant des technologies avancées pour rester compétitifs dans un marché en constante évolution.
+                    </p>
+                    
+                    <div class="expert-box">
+                        <h3>💡 Avantage Concurrentiel</h3>
+                        <p>Les entreprises qui réussissent à intégrer ces innovations tout en répondant aux attentes des consommateurs et en respectant les réglementations bénéficieront d'un avantage concurrentiel significatif sur le marché.</p>
+                    </div>
+                    
+                    <div class="cta-box">
+                        <h3>🚀 Prêt à Transformer Votre Distribution?</h3>
+                        <p>Notre équipe d'experts en solutions digitales est à votre disposition pour vous accompagner dans votre transformation technologique.</p>
+                        <div class="cta-buttons">
+                            <a href="{{ url_for('contact') }}" class="btn btn-primary">📞 Consultation Expert</a>
+                            <a href="{{ url_for('solutions') }}" class="btn btn-secondary">💡 Découvrir nos Solutions</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="article-sidebar">
+                <div class="sidebar-widget">
+                    <h3>📊 Technologies Clés</h3>
+                    <ul class="services-list">
+                        <li>✅ Intelligence Artificielle</li>
+                        <li>✅ Internet des Objets (IoT)</li>
+                        <li>✅ Réalité Augmentée/Virtuelle</li>
+                        <li>✅ Blockchain</li>
+                        <li>✅ Paiements Sans Contact</li>
+                        <li>✅ Robotique et Automatisation</li>
+                        <li>✅ Analyse Prédictive</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📞 Contact Expert Digital</h3>
+                    <div class="contact-info">
+                        <p>☎️ <strong>+33644694515</strong></p>
+                        <p>✉️ <strong>digital@destockagealimentaire.fr</strong></p>
+                        <p>🕒 <strong>Lun-Ven: 9h-18h</strong></p>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>🏆 Leaders Français</h3>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Carrefour</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Leclerc</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Auchan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📱 Recevez notre Guide Digital</h3>
+                    <p>Inscrivez-vous pour recevoir notre guide complet sur la transformation digitale dans la distribution.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" class="newsletter-input">
+                        <button type="submit" class="btn-newsletter">Télécharger</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</article>
+
+<style>
+.blog-article {
+    padding: 40px 0;
+    background: #f8f9fa;
+}
+
+.article-header {
+    background: linear-gradient(135deg, #2a5bd7 0%, #1e4aba 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.article-hero {
+    position: relative;
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    color: white;
+}
+
+.hero-text {
+    margin: 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.article-content {
+    margin-top: 40px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+}
+
+.main-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.article-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-widget {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.content-section h2 {
+    color: #2a5bd7;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.definition-box {
+    background: #e8f4fd;
+    padding: 20px;
+    border-left: 4px solid #2a5bd7;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.benefit {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.impact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.impact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.wholesaler-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.type-card {
+    background: #e8f4fd;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #2a5bd7;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.process-step {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.step-number {
+    background: #2a5bd7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.players-table {
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+.players-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.players-table th {
+    background: #2a5bd7;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.players-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.players-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.importance-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-number {
+    background: #2a5bd7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.conclusion-section {
+    background: #e8f4fd;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.expert-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #2a5bd7;
+}
+
+.cta-box {
+    background: #2a5bd7;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: white;
+    color: #2a5bd7;
+}
+
+.btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2a5bd7;
+    transform: translateY(-2px);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2a5bd7;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.services-list li:last-child {
+    border-bottom: none;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.btn-newsletter {
+    background: #2a5bd7;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-newsletter:hover {
+    background: #1e4aba;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #eaeaea;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-title {
+        font-size: 2rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid,
+    .wholesaler-types,
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .process-step {
+        padding: 15px;
+    }
+}
+</style>
+{% endblock %}

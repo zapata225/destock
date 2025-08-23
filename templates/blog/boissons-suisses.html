@@ -1,0 +1,749 @@
+{% extends "base.html" %}
+
+{% block page_title %}Boisson Suisse: Vins, Spiritueux et Cafés | Guide Complet | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez la variété des boissons suisses, des vins élégants aux bières artisanales, et explorez l'art de savourer chaque boisson suisse authentique.{% endblock %}
+
+{% block content %}
+<article class="blog-article">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Boissons Suisses</span>
+            </nav>
+            
+            <h1 class="article-title">Découvrez la Boisson Suisse : Vins, Spiritueux et Cafés</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date">📅 20 Décembre 2024</span>
+                <span class="reading-time">⏱️ 14 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/boissons-suisses.jpg') }}" 
+                     alt="Boissons suisses vins spiritueux cafés bières artisanales" class="hero-image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Explorez la richesse des saveurs authentiques de la Suisse</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container">
+        <div class="content-wrapper">
+            <main class="main-content">
+                <section class="intro-section">
+                    <p class="lead-text">
+                        La Suisse, bien que petite par sa taille, est riche en traditions culinaires et en boissons uniques. Des vins élégants aux cafés réconfortants, en passant par des spiritueux distincts, le pays helvétique offre une vaste gamme de boissons qui méritent d'être découvertes. Dans cet article, nous explorerons les meilleures boissons suisses que vous devriez absolument essayer, que vous soyez un habitant curieux ou un voyageur avide de nouvelles expériences.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <h2>🍷 Le Vin Suisse : Un Trésor Caché</h2>
+                    <p>
+                        La Suisse produit une variété impressionnante de vins, bien que seulement une petite partie soit exportée, ce qui en fait un secret bien gardé. Les vignobles suisses couvrent environ 15 000 hectares, concentrés principalement dans les régions de Vaud, du Valais, de Genève et du Tessin.
+                    </p>
+                    
+                    <div class="definition-box">
+                        <h3>🏞️ Régions Viticoles</h3>
+                        <p>Ces régions bénéficient de microclimats uniques et de sols variés qui contribuent à la complexité et à la diversité des vins suisses. Le savoir-faire des vignerons suisses, souvent transmis de génération en génération, joue un rôle crucial dans la production de vins de haute qualité.</p>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <h3>🍇 Cépages Locaux</h3>
+                        <p>Découvrez la diversité des cépages locaux comme le Chasselas, le Pinot Noir et le Merlot. Ces variétés offrent des profils aromatiques uniques qui reflètent parfaitement le terroir suisse.</p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🏰 Caves à Vin et Dégustations</h2>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <span class="benefit-icon">🏔️</span>
+                            <h4>Visites de Vignobles</h4>
+                            <p>Explorer les vignobles suisses est une expérience à ne pas manquer. De nombreux domaines viticoles proposent des dégustations permettant de savourer la diversité des cépages locaux.</p>
+                        </div>
+                        
+                        <div class="benefit">
+                            <span class="benefit-icon">👨‍🌾</span>
+                            <h4>Rencontres avec Vignerons</h4>
+                            <p>Participer à une visite de cave donne l'occasion de rencontrer les vignerons passionnés et de comprendre leur processus de vinification unique.</p>
+                        </div>
+                        
+                        <div class="benefit">
+                            <span class="benefit-icon">🍽️</span>
+                            <h4>Accords Mets et Vins</h4>
+                            <p>Les dégustations incluent souvent des accords mets et vins, permettant de découvrir comment les saveurs se complètent et s'enrichissent mutuellement.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🥃 Spiritueux Suisses : Tradition et Innovation</h2>
+                    
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon">🍃</div>
+                            <h3>L'Absinthe : La Fée Verte</h3>
+                            <p>Originaire de la région de Val-de-Travers, l'absinthe est reconnue pour ses saveurs anisées et sa couleur verte distincte. Elle est généralement consommée diluée avec de l'eau, offrant un rituel de préparation unique.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🍒</div>
+                            <h3>Le Kirsch : Eau-de-vie de Cerise</h3>
+                            <p>Le kirsch est une eau-de-vie claire faite à partir de cerises fermentées. C'est un ingrédient clé dans de nombreux plats suisses, comme la fondue et les desserts.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🍐</div>
+                            <h3>Liqueurs et Eaux-de-vie</h3>
+                            <p>Découvrez d'autres spiritueux suisses comme la liqueur de poire et les eaux-de-vie de prunelle, offrant une palette de saveurs authentiques et variées.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🍺 Bières Artisanales : Une Scène Florissante</h2>
+                    
+                    <div class="wholesaler-types">
+                        <div class="type-card">
+                            <h3>🎨 Créativité et Innovation</h3>
+                            <p>La Suisse abrite une scène de bière artisanale en plein essor, avec de nombreuses petites brasseries produisant des bières innovantes souvent infusées avec des ingrédients locaux.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>🏆 Reconnaissance Internationale</h3>
+                            <p>Les bières artisanales suisses sont de plus en plus reconnues sur la scène internationale, participant à des compétitions et remportant des prix pour leur qualité exceptionnelle.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>👨‍🍳 Processus de Brassage</h3>
+                            <p>Les visites de brasseries incluent des explications sur les ingrédients utilisés, les techniques de brassage et l'histoire de chaque brasserie, avec la possibilité de rencontrer les brasseurs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>☕ Café Suisse : Une Culture Bien Ancrée</h2>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">1</span>
+                                <h3>Culture Café Suisse</h3>
+                            </div>
+                            <p>La culture du café en Suisse est influencée par ses voisins européens mais a développé ses propres traditions. Le café suisse est souvent servi sous forme d'espresso ou de café crème.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">2</span>
+                                <h3>Cafés Historiques</h3>
+                            </div>
+                            <p>Visiter un café historique en Suisse est une expérience unique. Ces établissements offrent une ambiance chaleureuse pour savourer un café accompagné de pâtisseries suisses traditionnelles.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">3</span>
+                                <h3>Torréfacteurs Locaux</h3>
+                            </div>
+                            <p>Les torréfacteurs locaux proposent des mélanges exclusifs mettant en valeur les profils aromatiques des grains utilisés, avec des conseils d'experts pour choisir le café parfait.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🛒 Où Acheter les Boissons Suisses</h2>
+                    
+                    <div class="players-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type de Boisson</th>
+                                    <th>Lieux d'Achat</th>
+                                    <th>Recommandations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>🍷 Vins Suisses</td>
+                                    <td>Domaines viticoles, magasins spécialisés</td>
+                                    <td>Achat direct chez le producteur pour des prix compétitifs et conseils experts</td>
+                                </tr>
+                                <tr>
+                                    <td>🥃 Spiritueux</td>
+                                    <td>Distilleries, boutiques spécialisées</td>
+                                    <td>Visites de distilleries pour découvrir le processus de production</td>
+                                </tr>
+                                <tr>
+                                    <td>🍺 Bières Artisanales</td>
+                                    <td>Brasseries, marchés locaux</td>
+                                    <td>Marchés locaux et foires artisanales pour acheter directement auprès des brasseurs</td>
+                                </tr>
+                                <tr>
+                                    <td>☕ Cafés Suisses</td>
+                                    <td>Torréfacteurs, magasins spécialisés</td>
+                                    <td>Achat direct auprès des torréfacteurs pour soutenir l'économie locale</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🎉 Événements et Expériences</h2>
+                    
+                    <div class="importance-features">
+                        <div class="feature">
+                            <span class="feature-number">1</span>
+                            <div>
+                                <h4>Foires aux Vins</h4>
+                                <p>Les foires aux vins et les événements locaux sont d'excellentes occasions pour découvrir et acheter des vins suisses tout en rencontrant les producteurs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <span class="feature-number">2</span>
+                            <div>
+                                <h4>Festivals de Bière</h4>
+                                <p>De nombreuses brasseries organisent des événements et des festivals qui célèbrent la culture de la bière, offrant une atmosphère conviviale et festive.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <span class="feature-number">3</span>
+                            <div>
+                                <h4>Ateliers de Dégustation</h4>
+                                <p>Participez à des ateliers de dégustation pour apprendre à apprécier les nuances des différentes boissons suisses et développer votre palais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="conclusion-section">
+                    <h2>🎯 Conclusion : L'Art de Savourer les Boissons Suisses</h2>
+                    <p>
+                        Que vous soyez amateur de vins raffinés, de spiritueux distincts, de bières artisanales ou de cafés réconfortants, la Suisse a quelque chose à offrir à chaque palais. En explorant ces boissons, vous découvrirez une facette de la culture suisse qui enrichit l'expérience culinaire du pays.
+                    </p>
+                    
+                    <div class="expert-box">
+                        <h3>💡 Un Voyage Sensoriel</h3>
+                        <p>Apprécier ces boissons, c'est célébrer l'artisanat et le savoir-faire des producteurs suisses qui mettent leur passion dans chaque bouteille et chaque tasse.</p>
+                    </div>
+                    
+                    <div class="cta-box">
+                        <h3>🚀 Prêt à Découvrir les Saveurs Suisses?</h3>
+                        <p>Explorez notre sélection de boissons suisses authentiques et laissez-vous séduire par la richesse culturelle et gastronomique de la Suisse.</p>
+                        <div class="cta-buttons">
+                            <a href="{{ url_for('product_list') }}" class="btn btn-primary">🛒 Découvrir les Produits</a>
+                            <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Conseils Personnalisés</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="article-sidebar">
+                <div class="sidebar-widget">
+                    <h3>📊 Régions Viticoles Suisses</h3>
+                    <ul class="services-list">
+                        <li>🏔️ Vaud - Chasselas</li>
+                        <li>⛰️ Valais - Pinot Noir</li>
+                        <li>🌄 Genève - Gamay</li>
+                        <li>🌅 Tessin - Merlot</li>
+                        <li>🏞️ Zurich - Riesling-Sylvaner</li>
+                        <li>🌁 Neuchâtel - Blancs de Neuchâtel</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📞 Contact Expert Suisse</h3>
+                    <div class="contact-info">
+                        <p>☎️ <strong>+41 22 123 4567</strong></p>
+                        <p>✉️ <strong>suisse@destockagealimentaire.fr</strong></p>
+                        <p>🕒 <strong>Lun-Ven: 9h-18h</strong></p>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>⭐ Spiritueux Emblématiques</h3>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Absinthe</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Kirsch</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Williams</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📱 Recevez notre Guide Suisse</h3>
+                    <p>Inscrivez-vous pour recevoir notre guide complet des boissons suisses et des bonnes adresses.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" class="newsletter-input">
+                        <button type="submit" class="btn-newsletter">Télécharger</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</article>
+
+<style>
+.blog-article {
+    padding: 40px 0;
+    background: #f8f9fa;
+}
+
+.article-header {
+    background: linear-gradient(135deg, #2a5bd7 0%, #1e4aba 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.article-hero {
+    position: relative;
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    color: white;
+}
+
+.hero-text {
+    margin: 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.article-content {
+    margin-top: 40px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+}
+
+.main-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.article-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-widget {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.content-section h2 {
+    color: #2a5bd7;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.definition-box {
+    background: #e8f4fd;
+    padding: 20px;
+    border-left: 4px solid #2a5bd7;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.benefit {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.impact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.impact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.wholesaler-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.type-card {
+    background: #e8f4fd;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #2a5bd7;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.process-step {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.step-number {
+    background: #2a5bd7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.players-table {
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+.players-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.players-table th {
+    background: #2a5bd7;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.players-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.players-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.importance-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-number {
+    background: #2a5bd7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.conclusion-section {
+    background: #e8f4fd;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.expert-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #2a5bd7;
+}
+
+.cta-box {
+    background: #2a5bd7;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: white;
+    color: #2a5bd7;
+}
+
+.btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2a5bd7;
+    transform: translateY(-2px);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2a5bd7;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.services-list li:last-child {
+    border-bottom: none;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.btn-newsletter {
+    background: #2a5bd7;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-newsletter:hover {
+    background: #1e4aba;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #eaeaea;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-title {
+        font-size: 2rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid,
+    .wholesaler-types,
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .process-step {
+        padding: 15px;
+    }
+}
+</style>
+{% endblock %}

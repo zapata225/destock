@@ -1,0 +1,799 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire Anti-Gaspillage | Solution Écologique | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez comment le déstockage alimentaire réduit le gaspillage tout en vous faisant économiser. Solution écologique et économique pour tous.{% endblock %}
+
+{% block content %}
+<article class="blog-article">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Anti-Gaspillage</span>
+            </nav>
+            
+            <h1 class="article-title">Déstockage Alimentaire : Une Solution Anti-Gaspillage</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date">📅 20 Décembre 2024</span>
+                <span class="reading-time">⏱️ 12 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/anti-gaspillage.jpg') }}" 
+                     alt="Destockage alimentaire solution anti-gaspillage écologique" class="hero-image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Réduisez le gaspillage tout en réalisant des économies substantielles</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container">
+        <div class="content-wrapper">
+            <main class="main-content">
+                <section class="intro-section">
+                    <p class="lead-text">
+                        Dans un monde où le gaspillage alimentaire est un problème croissant, le déstockage alimentaire se présente comme une solution efficace et économique. Non seulement il aide à réduire les déchets, mais il offre également aux consommateurs la possibilité d'acheter des produits alimentaires à des prix réduits. Cet article explore le concept de déstockage alimentaire, ses avantages, et comment il peut être une option viable pour les particuliers à la recherche de bonnes affaires sur la nourriture.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <h2>🎯 Qu'est-ce que le Déstockage Alimentaire?</h2>
+                    <p>
+                        Le déstockage alimentaire consiste à vendre des produits alimentaires qui sont proches de leur date de péremption, qui ont un emballage légèrement endommagé ou qui sont en surplus de production. Ces produits sont souvent vendus à des prix réduits, ce qui en fait une option attrayante pour les consommateurs soucieux de leur budget.
+                    </p>
+                    
+                    <div class="definition-box">
+                        <h3>📊 Historique et Évolution</h3>
+                        <p>Le concept de déstockage alimentaire n'est pas nouveau. Historiquement, les commerçants cherchaient déjà à réduire leurs pertes en vendant des produits invendus à prix réduits. Aujourd'hui, avec l'augmentation de la conscience écologique et la pression économique, ce concept a pris de l'ampleur, devenant une solution plus structurée et accessible.</p>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <h3>👥 Les Acteurs du Marché</h3>
+                        <p>Le marché du déstockage alimentaire est composé de divers acteurs. Les grossistes alimentaires, les détaillants, et même les producteurs jouent un rôle crucial. Ils collaborent pour offrir des produits à des prix réduits, transformant ainsi un problème potentiel en une opportunité pour les consommateurs.</p>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <h3>🚚 La Logistique du Déstockage</h3>
+                        <p>La logistique est un aspect essentiel du déstockage alimentaire. Elle implique une coordination précise pour que les produits soient disponibles à temps. Les entreprises doivent gérer efficacement les stocks pour s'assurer que les produits soient consommés avant qu'ils ne deviennent impropres à la consommation, réduisant ainsi le gaspillage.</p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>💰 Pourquoi Choisir le Déstockage Alimentaire?</h2>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <span class="benefit-icon">💸</span>
+                            <h4>Avantages Économiques</h4>
+                            <p>L'un des principaux avantages du déstockage alimentaire est l'économie réalisée sur les courses. Les produits sont souvent vendus à des prix bien inférieurs à ceux des magasins traditionnels.</p>
+                        </div>
+                        
+                        <div class="benefit">
+                            <span class="benefit-icon">🏠</span>
+                            <h4>Impact sur le Budget Familial</h4>
+                            <p>Pour les familles nombreuses ou à revenu limité, le déstockage alimentaire peut représenter une économie substantielle en permettant l'achat de produits de qualité à moindre coût.</p>
+                        </div>
+                        
+                        <div class="benefit">
+                            <span class="benefit-icon">📊</span>
+                            <h4>Comparaison avec les Prix Traditionnels</h4>
+                            <p>Les consommateurs qui fréquentent régulièrement les magasins de déstockage peuvent constater des différences de prix significatives par rapport aux magasins traditionnels.</p>
+                        </div>
+
+                        <div class="benefit">
+                            <span class="benefit-icon">🏢</span>
+                            <h4>Opportunités pour les Entreprises</h4>
+                            <p>Les entreprises, notamment les restaurants et les petites épiceries, peuvent également bénéficier du déstockage alimentaire en augmentant leurs marges bénéficiaires.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🌍 Réduction du Gaspillage Alimentaire</h2>
+                    
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon">🗑️</div>
+                            <h3>Contribution Environnementale</h3>
+                            <p>Le déstockage alimentaire joue un rôle crucial dans la réduction du gaspillage alimentaire. En achetant des produits qui seraient autrement jetés, les consommateurs contribuent à diminuer la quantité de nourriture gaspillée.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">♻️</div>
+                            <h3>Modèle Durable</h3>
+                            <p>En intégrant le déstockage alimentaire dans leurs habitudes, les consommateurs participent activement à un modèle de consommation plus durable et respectueux de l'environnement.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">📚</div>
+                            <h3>Sensibilisation Écologique</h3>
+                            <p>Le déstockage alimentaire sert également d'outil éducatif en sensibilisant les consommateurs aux enjeux du gaspillage alimentaire et en encourageant des comportements responsables.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🔄</div>
+                            <h3>Effet Domino sur l'Industrie</h3>
+                            <p>Le succès du déstockage alimentaire encourage d'autres secteurs de l'industrie à repenser leurs stratégies de gestion des stocks et à adopter des pratiques similaires.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📍 Où Trouver des Produits de Déstockage Alimentaire?</h2>
+                    
+                    <div class="wholesaler-types">
+                        <div class="type-card">
+                            <h3>🏪 Magasins Physiques</h3>
+                            <p>Il existe plusieurs magasins spécialisés dans le déstockage alimentaire. Ces magasins proposent une large gamme de produits allant des produits frais aux produits secs, en passant par les produits d'épicerie fine.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>📦 Réseaux de Distribution</h3>
+                            <p>Les réseaux de distribution de déstockage alimentaire se sont étendus ces dernières années. Ils incluent non seulement des magasins spécialisés mais aussi des sections dédiées dans certains supermarchés.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>🤝 Avantages des Magasins Locaux</h3>
+                            <p>Faire ses achats dans des magasins locaux de déstockage permet non seulement de bénéficier de produits à bas prix, mais aussi de soutenir l'économie locale.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <h3>🎪 Événements de Déstockage</h3>
+                            <p>Certains magasins organisent des événements de déstockage où les produits sont vendus à des prix encore plus réduits, offrant des occasions exceptionnelles pour les consommateurs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🌐 Déstockage Alimentaire en Ligne</h2>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">1</span>
+                                <h3>Plateformes Spécialisées</h3>
+                            </div>
+                            <p>De nombreuses plateformes en ligne se sont spécialisées dans le déstockage alimentaire. Elles offrent une interface conviviale pour naviguer parmi les produits disponibles, avec des filtres pour trouver exactement ce que l'on recherche.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">2</span>
+                                <h3>Avantages des Achats en Ligne</h3>
+                            </div>
+                            <p>Acheter en ligne offre plusieurs avantages, notamment la commodité et l'accès à un plus grand choix de produits. Les consommateurs peuvent comparer les prix plus facilement et profiter de promotions exclusives.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-header">
+                                <span class="step-number">3</span>
+                                <h3>Sécurité et Qualité en Ligne</h3>
+                            </div>
+                            <p>Les sites de déstockage alimentaire en ligne s'assurent que les produits proposés respectent les normes de sécurité alimentaire. Ils fournissent des informations détaillées sur l'origine des produits et leurs conditions de stockage.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🛒 Comment Acheter Intelligemment lors de Déstockage Alimentaire?</h2>
+                    
+                    <div class="players-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Conseil</th>
+                                    <th>Avantage</th>
+                                    <th>Application</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>📋 Planifiez vos Achats</td>
+                                    <td>Éviter les achats impulsifs</td>
+                                    <td>Faites une liste des produits dont vous avez besoin et fixez-vous un budget</td>
+                                </tr>
+                                <tr>
+                                    <td>📅 Vérifiez les Dates de Péremption</td>
+                                    <td>Éviter le gaspillage</td>
+                                    <td>Assurez-vous de consommer ces produits avant leur date d'expiration</td>
+                                </tr>
+                                <tr>
+                                    <td>🗃️ Stockage Adéquat</td>
+                                    <td>Prolonger la durée de vie</td>
+                                    <td>Investir dans des contenants hermétiques et comprendre les conditions de stockage optimales</td>
+                                </tr>
+                                <tr>
+                                    <td>👨‍🍳 Consommation Créative</td>
+                                    <td>Utilisation optimale des produits</td>
+                                    <td>Cherchez des recettes qui vous permettent d'utiliser efficacement vos achats</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📦 Types de Produits Disponibles en Déstockage</h2>
+                    
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon">🥦</div>
+                            <h3>Produits Frais et Surgelés</h3>
+                            <p>Les produits frais, tels que les fruits et légumes, et les produits surgelés sont couramment disponibles dans les magasins de déstockage. Ces produits offrent une grande valeur nutritive à des prix abordables.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🥫</div>
+                            <h3>Produits d'Épicerie et Boissons</h3>
+                            <p>Les produits d'épicerie, y compris les conserves, les céréales et les pâtes, sont souvent en surplus de production. Les boissons sont également fréquemment trouvées en déstockage.</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon">🌟</div>
+                            <h3>Produits Spécialisés</h3>
+                            <p>Les produits spécialisés, tels que les articles d'épicerie fine ou les aliments biologiques, peuvent également être trouvés en déstockage, offrant une opportunité d'essayer des aliments haut de gamme à prix réduits.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🏢 Déstockage Alimentaire : Pour les Grossistes et les Particuliers</h2>
+                    
+                    <div class="importance-features">
+                        <div class="feature">
+                            <span class="feature-number">1</span>
+                            <div>
+                                <h4>Avantages pour les Grossistes</h4>
+                                <p>Les grossistes peuvent réduire les pertes financières en écoulant des stocks excédentaires grâce au déstockage alimentaire. Cela leur permet de libérer de l'espace dans leurs entrepôts et de réinvestir dans de nouveaux produits.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <span class="feature-number">2</span>
+                            <div>
+                                <h4>Grossistes pour Particuliers</h4>
+                                <p>De plus en plus de grossistes alimentaires s'ouvrent aux particuliers, permettant ainsi à ces derniers d'acheter des produits en gros à des prix réduits, bénéficiant de tarifs préférentiels habituellement réservés aux professionnels.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <span class="feature-number">3</span>
+                            <div>
+                                <h4>Partenariats et Collaborations</h4>
+                                <p>Les partenariats entre grossistes et détaillants sont cruciaux pour le succès du déstockage alimentaire. Ces collaborations permettent d'optimiser la chaîne d'approvisionnement et de maximiser les bénéfices pour toutes les parties impliquées.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="conclusion-section">
+                    <h2>🎯 Conclusion : Une Solution Gagnante pour Tous</h2>
+                    <p>
+                        Le déstockage alimentaire est une solution gagnante pour tous. Il offre aux consommateurs la possibilité d'acheter des produits de qualité à moindre coût tout en contribuant à la réduction du gaspillage alimentaire. Que ce soit en magasin ou en ligne, il existe de nombreuses options pour accéder à des produits alimentaires déstockés.
+                    </p>
+                    
+                    <div class="expert-box">
+                        <h3>💡 Intégration dans la Routine</h3>
+                        <p>Avec un peu de recherche et de planification, vous pouvez facilement intégrer le déstockage alimentaire dans votre routine d'achats et profiter des nombreux avantages qu'il offre, tant économiques qu'écologiques.</p>
+                    </div>
+                    
+                    <div class="expert-box">
+                        <h3>🌮 Élargir ses Horizons Culinaires</h3>
+                        <p>Le déstockage alimentaire permet également d'explorer de nouvelles saveurs et produits que l'on n'aurait pas forcément essayés autrement, enrichissant l'expérience culinaire personnelle.</p>
+                    </div>
+                    
+                    <div class="cta-box">
+                        <h3>🚀 Un Engagement pour l'Avenir</h3>
+                        <p>En choisissant le déstockage alimentaire, vous faites un choix conscient pour un avenir plus responsable. Chaque achat déstocké est un pas vers une réduction du gaspillage et une meilleure gestion des ressources alimentaires.</p>
+                        <div class="cta-buttons">
+                            <a href="{{ url_for('contact') }}" class="btn btn-primary">📞 Devenir Partenaire</a>
+                            <a href="{{ url_for('product_list') }}" class="btn btn-secondary">🛒 Découvrir nos Produits</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="article-sidebar">
+                <div class="sidebar-widget">
+                    <h3>📊 Impact du Gaspillage Alimentaire</h3>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">10M</span>
+                            <span class="stat-label">Tonnes gaspillées/an en France</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">16M</span>
+                            <span class="stat-label">Tonnes de CO2 évitables</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">30%</span>
+                            <span class="stat-label">Réduction possible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📞 Contact Expert Anti-Gaspillage</h3>
+                    <div class="contact-info">
+                        <p>☎️ <strong>+33644694515</strong></p>
+                        <p>✉️ <strong>ecologie@destockagealimentaire.fr</strong></p>
+                        <p>🕒 <strong>Lun-Ven: 9h-18h</strong></p>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>🎯 Nos Engagements Écologiques</h3>
+                    <ul class="services-list">
+                        <li>✅ Réduction active du gaspillage alimentaire</li>
+                        <li>✅ Partenariats avec des producteurs locaux</li>
+                        <li>✅ Logistique optimisée pour moins de CO2</li>
+                        <li>✅ Emballages écologiques et recyclables</li>
+                        <li>✅ Sensibilisation des consommateurs</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📱 Restez Informé</h3>
+                    <p>Inscrivez-vous à notre newsletter éco-responsable pour recevoir nos conseils anti-gaspillage.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" class="newsletter-input">
+                        <button type="submit" class="btn-newsletter">S'inscrire</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</article>
+
+<style>
+.blog-article {
+    padding: 40px 0;
+    background: #f8f9fa;
+}
+
+.article-header {
+    background: linear-gradient(135deg, #2a5bd7 0%, #1e4aba 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.article-hero {
+    position: relative;
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    color: white;
+}
+
+.hero-text {
+    margin: 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.article-content {
+    margin-top: 40px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+}
+
+.main-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.article-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-widget {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.content-section h2 {
+    color: #2a5bd7;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.definition-box {
+    background: #e8f4fd;
+    padding: 20px;
+    border-left: 4px solid #2a5bd7;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.benefit {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.impact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.impact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.wholesaler-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.type-card {
+    background: #e8f4fd;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #2a5bd7;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.process-step {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.step-number {
+    background: #2a5bd7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.players-table {
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+.players-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.players-table th {
+    background: #2a5bd7;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.players-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.players-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.importance-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-number {
+    background: #2a5bd7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.conclusion-section {
+    background: #e8f4fd;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.expert-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #2a5bd7;
+}
+
+.cta-box {
+    background: #2a5bd7;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: white;
+    color: #2a5bd7;
+}
+
+.btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2a5bd7;
+    transform: translateY(-2px);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2a5bd7;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.services-list li:last-child {
+    border-bottom: none;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.btn-newsletter {
+    background: #2a5bd7;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-newsletter:hover {
+    background: #1e4aba;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #eaeaea;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-title {
+        font-size: 2rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid,
+    .wholesaler-types,
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .process-step {
+        padding: 15px;
+    }
+}
+</style>
+{% endblock %}
