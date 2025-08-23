@@ -3243,7 +3243,21 @@ def sitemap():
         '/grossiste-alimstore',
         '/grossisteboissonstore',
         '/grossisteboissonbelgiquestore',
-        '/alimentos_por_mayor, /fr/destockage,destockage_nl.html,surplus_en.html','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
+        'blog/soldes-alimentaires',
+        'blog/anti-gaspillage',
+        'blog/grossiste-halal',
+        'blog/grossiste-electromenager',
+        'blog/innovations-distribution',
+        'blog/boissons-gros',
+        'blog/discount-alimentation',
+        'blog/grossiste-bruxelles',
+        'blog/alcohol-barato',
+        'blog/mayorista-espana',
+        'blog/boissons-suisses',
+        'blog/tendances-horeca',
+        'blog/alimentation-bio',
+        'blog/produits-italiens',
+        '/alimentos_por_mayor', '/fr/destockage,destockage_nl.html','surplus_en.html','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
     ]
 
     # Ajoutez les URLs des produits
