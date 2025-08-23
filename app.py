@@ -2282,7 +2282,13 @@ def grossiste_paris():
     """Nouvel article grossiste Paris"""
     return render_template('grossiste-paris.html')
 
+@app.route('/blog/alimentation-bio')
+def blog_alimentation_bio():
+    return render_template('blog/alimentation-bio.html')
 
+@app.route('/blog/produits-italiens')
+def blog_produits_italiens():
+    return render_template('blog/produits-italiens.html')
     
 @app.route('/fr/destockage')
 def destockage_fr():
