@@ -2095,6 +2095,46 @@ def grossiste_alimentaire2025():
 def grossiste_belgique2025():
     return render_template('grossiste_belgique2025.html')
 
+@app.route('/achat-destockage')
+def achat_destockage():
+    return render_template('achat-destockage.html')  # Le fichier contenant le code HTML ci-dessus
+
+@app.route('/destockage-alimentaire-lille')
+def destockage_lille():
+    return render_template('destockage-lille.html')  # Le fichier contenant le code HTML ci-dessus
+
+@app.route('/destockage-alimentaire-paris')
+def destockage_paris():
+    return render_template('destockage-paris.html')  # Le fichier contenant le code HTML ci-dessus
+
+@app.route('/guide-grossistes-paris')
+def guide_grossistes_paris():
+    return render_template('guide_grossistes_paris.html')
+
+
+
+# Route principale
+@app.route('/grossiste-alimentaire-international')
+def grossiste_international():
+    return render_template('grossiste-international.html')
+
+# Routes pour les versions internationales (hreflang)
+@app.route('/be/grossiste-alimentaire-international')
+def grossiste_belgique():
+    return render_template('grossiste-international.html')  # Même contenu ou version adaptée
+
+@app.route('/ch/grossiste-alimentaire-international')
+def grossiste_suisse():
+    return render_template('grossiste-international.html')  # Même contenu ou version adaptée
+
+@app.route('/es/mayorista-alimentario-internacional')
+def grossiste_espagne():
+    return render_template('grossiste-espagnol.html')  # Version en espagnol
+
+
+@app.route('/guide-des-soldes-alimentaires')
+def guide_soldes_alimentaires():
+    return render_template('guide_soldes_alimentaires.html')
 @app.route('/mayorista-alimentos-espana')
 def mayorista_espana():
     return render_template('mayorista_espana.html')
