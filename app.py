@@ -2474,6 +2474,11 @@ def article_grossiste_site23():
 def article_grossiste_site24():
     return render_template('article_grossistefrancelo.html')
 
+
+@app.route('/boissons-en-gros-pas-cheres')
+def boissons_gros_pas_cher():
+    return render_template('boissons-gros-pas-cher.html') 
+    
 @app.route('/article-espagne')
 def article_grossiste_site2025():
     return render_template('article_grossisteespagne.html')
