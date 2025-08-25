@@ -2376,7 +2376,7 @@ def discount_alimentaire_ultime():
 
 @app.route('/innovations-2025-distribution-boissons-modernisee')
 def innovations_boissons():
-return render_template("innovations-2025-distribution-boissons.html")
+    return render_template("innovations-2025-distribution-boissons.html")
 
 @app.route('/destockage-date-courte-anti-gaspillage-2025')
 def destockage_date_courte():
