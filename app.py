@@ -2382,7 +2382,7 @@ return render_template("innovations-2025-distribution-boissons.html")
 def destockage_date_courte():
     return render_template('destockage-date-courte.html')
 
-@app.route('grossiste-alimentation-halal-choisir-fournisseur-25’)
+@app.route('grossiste-alimentation-halal-choisir-fournisseur-25')
 def grossiste_halal():
     return render_template('grossiste_halal_2025.html')
 
