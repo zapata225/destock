@@ -2365,6 +2365,35 @@ def blog_suisse():
     return render_template('blog_suisse.html')
 
 
+@app.route('/discount-alimentaire-economies-astuces')
+def discount_alimentaire_astuces():
+    return render_template('discount-alimentaire-astuces.html')  # Le fichier contenant le code HTML ci-dessus
+
+@app.route('/discount-alimentaire-guide-ultime-2025')
+def discount_alimentaire_ultime():
+    return render_template('discount-alimentaire-ultime.html')
+
+
+@app.route("innovations-2025-distribution-boissons-modernisee")
+def innovations_boissons():
+return render_template("innovations-2025-distribution-boissons.html")
+
+@app.route('/destockage-date-courte-anti-gaspillage-2025')
+def destockage_date_courte():
+    return render_template('destockage-date-courte.html')
+
+@app.route('grossiste-alimentation-halal-choisir-fournisseur-25’)
+def grossiste_halal():
+    return render_template('grossiste_halal_2025.html')
+
+@app.route('/groothandel-voor-horeca')
+def groothandel_horeca():
+    return render_template('groothandel_horeca.html')
+
+@app.route('/grossistes-alimentaires-bruxelles-2025')
+def grossistes_bruxelles():
+    return render_template('grossistes-25-bruxelles.html')
+    
 @app.route('/blog/soldes-alimentaires')
 def blog_soldes_alimentaires():
     return render_template('blog/soldes-alimentaires.html')
@@ -3286,6 +3315,13 @@ def sitemap():
         '/grossiste-boisson09',
         '/grossiste-alimstore',
         '/grossisteboissonstore',
+        "/discount-alimentaire-economies-astuces",
+        "/discount-alimentaire-guide-ultime-2025",
+        "/blog/innovations-2025-distribution-boissons-modernisee",
+        "/destockage-date-courte-anti-gaspillage-2025",
+        "/grossiste-alimentation-halal-choisir-fournisseur-25",
+        "/groothandel-voor-horeca",
+        "/grossistes-alimentaires-bruxelles-2025",
         '/grossisteboissonbelgiquestore',
         '/blog/soldes-alimentaires',
         '/blog/anti-gaspillage',
