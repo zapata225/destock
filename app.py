@@ -2387,7 +2387,7 @@ def grossiste_halal():
     return render_template('grossiste_halal_2025.html')
 
 @app.route('/groothandel-voor-horeca')
-def groothandel_horeca():
+def groothandel_horeca_25():
     return render_template('groothandel_horeca.html')
 
 @app.route('/grossistes-alimentaires-bruxelles-2025')
