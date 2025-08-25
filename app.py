@@ -3280,7 +3280,7 @@ def sitemap():
         '/grossiste-alimentaire-belgique2025',
         '/mayorista-alimentos-espana',
         '/grossiste-alimentaire-france',
-        '/grossista-alimentare-italia',
+        '/grossista-alimentare-italia','/boissons-en-gros-pas-cheres',
         '/blog/anti-gaspi-creatif',
         '/grossiste-boissonbbelgique1',
         '/grossiste-boisson09',
