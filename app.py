@@ -2849,24 +2849,38 @@ def cleanup_guest_sessions():
             session['guest_created'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")# Authentification
             
 @app.route('/connexion', methods=['GET', 'POST'])
+@app.route('/connexion', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username').strip()
+        password = request.form.get('password')
 
+        # Vérifie que les champs ne sont pas vides
+        if not username or not password:
+            flash("Veuillez remplir tous les champs", "error")
+            return redirect(url_for('login'))
+
+        # Récupère l'utilisateur dans la DB
         user = User.query.filter_by(username=username).first()
+
         if user and user.check_password(password):
+            # Crée la session
             session['logged_in'] = True
             session['username'] = user.username
             session['role'] = user.role  # "user" ou "admin"
 
+            flash(f"Bienvenue {user.full_name or user.username} !", "success")
+
+            # Redirige selon le rôle
             if user.role == "admin":
                 return redirect(url_for('admin_dashboard'))
             return redirect(url_for('index'))
 
-        flash("Identifiants incorrects", "error")
+        flash("Nom d'utilisateur ou mot de passe incorrect", "error")
+        return redirect(url_for('login'))
 
     return render_template('login.html')
+
 
 
 @app.route('/checkout-guest', methods=['POST'])
@@ -3082,66 +3096,51 @@ def order_details(order_id):
         return redirect(url_for('account'))
     
     return render_template('order_details.html', order=order)
+    
 @app.route('/compte', methods=['GET', 'POST'])
 def account():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     
     username = session['username']
-    user = users.get(username)
     
-    if user is None:
+    # Récupère l'utilisateur depuis la DB
+    user = User.query.filter_by(username=username).first()
+    if not user:
         flash('Votre session a expiré, veuillez vous reconnecter', 'error')
+        session.clear()
         return redirect(url_for('login'))
-    
+
     # Préparation des commandes pour le template
     user_orders = []
-    if 'orders' in session:
-        for order_id, order_data in session['orders'].items():
-            if isinstance(order_data, dict) and order_data.get('user') == username:
-                # Création d'une nouvelle structure de commande
-                order = {
-                    'id': order_id,
-                    'date': order_data.get('date', 'Date inconnue'),
-                    'status': order_data.get('status', 'Inconnu'),
-                    'total': order_data.get('total', 0),
-                    'items': []
-                }
-                
-                # Gestion des items de la commande
-                items = order_data.get('items', {})
-                if hasattr(items, 'items'):  # Si c'est un dictionnaire
-                    items = items.items()
-                elif callable(items):  # Si c'est une méthode
-                    continue  # On saute cette commande
-                
-                # Conversion en liste si nécessaire
-                if not isinstance(items, (list, tuple)):
-                    items = []
-                
-                for product_id, quantity in items:
-                    product = next((p for p in products if str(p['id']) == str(product_id)), None)
-                    if product:
-                        order['items'].append({
-                            'id': product['id'],
-                            'name': product['name'],
-                            'price': product['price'],
-                            'quantity': quantity,
-                            'image': product.get('image', 'default-product.jpg')
-                        })
-                
-                user_orders.append(order)
+    all_orders = session.get('orders', {})
     
-    # Initialisation des champs manquants
-    user.setdefault('joined_date', datetime.now().strftime("%Y-%m-%d"))
-    user.setdefault('payment_methods', [])
-    user.setdefault('address', '')
-    user.setdefault('phone', '')
+    for order_id, order_data in all_orders.items():
+        if order_data.get('user') == username:
+            order_items = []
+            for product_id, quantity in order_data.get('items', {}).items():
+                product = next((p for p in products if str(p['id']) == str(product_id)), None)
+                if product:
+                    order_items.append({
+                        'id': product['id'],
+                        'name': product['name'],
+                        'price': product['price'],
+                        'quantity': quantity,
+                        'image': product.get('image', 'default-product.jpg')
+                    })
+            user_orders.append({
+                'id': order_id,
+                'date': order_data.get('date', 'Date inconnue'),
+                'status': order_data.get('status', 'Inconnu'),
+                'total': order_data.get('total', 0),
+                'items': order_items
+            })
     
     return render_template('account.html', 
-                         user=user,
-                         orders=user_orders,
-                         products=products)
+                           user=user,
+                           orders=user_orders,
+                           products=products)
+
 
 @app.route('/admin')
 @admin_required
