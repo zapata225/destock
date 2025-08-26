@@ -3070,65 +3070,63 @@ def delete_address():
     
     return redirect(url_for('account'))
 
-# Gestion des cartes
+# Ajouter une carte
 @app.route('/add_card', methods=['POST'])
 def add_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
+
     username = session['username']
-    card_data = {
-        'id': str(uuid.uuid4()),
-        'number': request.form.get('card_number'),
-        'expiry': request.form.get('expiry_date'),
-        'name': request.form.get('card_name'),
-        'cvv': request.form.get('cvv'),
-        'default': request.form.get('default_card') == 'on'
-    }
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        flash("Utilisateur introuvable", "error")
+        return redirect(url_for('account'))
+
+    default_card = request.form.get('default_card') == 'on'
     
-    if 'payment_methods' not in users[username]:
-        users[username]['payment_methods'] = []
-    
-    if card_data['default']:
-        for card in users[username]['payment_methods']:
-            card['default'] = False
-    
-    users[username]['payment_methods'].append(card_data)
+    if default_card:
+        # Supprime l'ancien default
+        for card in user.payment_methods:
+            card.default = False
+
+    card = PaymentMethod(
+        card_number=request.form.get('card_number'),
+        expiry=request.form.get('expiry_date'),
+        card_name=request.form.get('card_name'),
+        cvv=request.form.get('cvv'),
+        default=default_card,
+        user=user
+    )
+
+    db.session.add(card)
+    db.session.commit()
     flash('Carte ajoutée avec succès', 'success')
     return redirect(url_for('account'))
 
 
+# Supprimer une carte
 @app.route('/delete_card', methods=['POST'])
 def delete_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
+
     username = session['username']
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        flash("Utilisateur introuvable", "error")
+        return redirect(url_for('account'))
+
     card_id = request.form.get('card_id')
-    
-    if 'payment_methods' in users[username]:
-        users[username]['payment_methods'] = [
-            card for card in users[username]['payment_methods']
-            if card['id'] != card_id
-        ]
-        flash('Carte supprimée avec succès', 'success')
+    card = PaymentMethod.query.filter_by(id=card_id, user_id=user.id).first()
+    if card:
+        db.session.delete(card)
+        db.session.commit()
+        flash("Carte supprimée avec succès", "success")
     else:
-        flash('Carte non trouvée', 'error')
-    
+        flash("Carte non trouvée", "error")
+
     return redirect(url_for('account'))
 
-# Gestion des commandes
-@app.route('/order/<order_id>')
-def order_details(order_id):
-    if not session.get('logged_in'):
-        return redirect(url_for('login'))
-    
-    order = session.get('orders', {}).get(order_id)
-    if not order:
-        flash('Commande non trouvée', 'error')
-        return redirect(url_for('account'))
-    
-    return render_template('order_details.html', order=order)
     
 @app.route('/compte', methods=['GET', 'POST'])
 def account():
