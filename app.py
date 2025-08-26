@@ -302,26 +302,18 @@ def seo_landing_3():
                          content=content,
                          products=random.sample(products, 6))
 
-# 2. Ensuite définir le décorateur
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        # Récupère et normalise la dernière activité
-        last_activity = ensure_timezone(session.get('admin_last_activity'))
-        current_time = get_utc_now()
-        
-        # Vérifie la session
         if not session.get('admin_logged_in'):
             return redirect(url_for('admin_login', next=request.url))
-            
-        # Vérifie l'expiration (5 minutes d'inactivité)
-        if last_activity and (current_time - last_activity) > timedelta(minutes=5):
+        # Expiration session 5 minutes
+        last_activity = session.get('admin_last_activity')
+        if last_activity and (datetime.utcnow() - last_activity) > timedelta(minutes=5):
             session.clear()
             flash('Session expirée', 'warning')
             return redirect(url_for('admin_login', next=request.url))
-        
-        # Met à jour le timestamp
-        session['admin_last_activity'] = current_time
+        session['admin_last_activity'] = datetime.utcnow()
         return f(*args, **kwargs)
     return decorated_function
 
@@ -659,16 +651,13 @@ def admin_login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-
         if (username == ADMIN_CREDENTIALS['username'] and 
             check_password_hash(ADMIN_CREDENTIALS['password_hash'], password)):
-            
             session['admin_logged_in'] = True
+            session['admin_last_activity'] = datetime.utcnow()
             flash("Connexion admin réussie", "success")
-            return redirect(url_for('admin_dashboard'))  # modifie selon ton endpoint
-
+            return redirect(url_for('admin_dashboard'))
         flash('Identifiants incorrects', 'error')
-
     return render_template('admin_login.html')
 
 @app.route('/admin/logout')
@@ -756,36 +745,30 @@ def save_product():
 
 
 @app.route('/admin/add-product', methods=['GET', 'POST'])
+@admin_required
 def admin_add_product():
-    if not session.get('admin_logged_in'):
-        return redirect(url_for('admin_login'))
-    
     if request.method == 'POST':
         try:
-            # Récupération des données du formulaire
             name = request.form['name']
             description = request.form['description']
             price = float(request.form['price'])
             category = request.form['category']
             stock = int(request.form['stock'])
             featured = 'featured' in request.form
-            
-            # Gestion de l'image uploadée
+
             if 'image' not in request.files:
                 flash('Aucun fichier sélectionné', 'error')
                 return redirect(request.url)
-            
             file = request.files['image']
             if file.filename == '':
                 flash('Aucun fichier sélectionné', 'error')
                 return redirect(request.url)
-            
+
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 unique_filename = f"{uuid.uuid4().hex}_{filename}"
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], unique_filename))
-                
-                # Création du nouveau produit
+
                 new_product = {
                     'id': max(p['id'] for p in products) + 1 if products else 1,
                     'name': name,
@@ -797,14 +780,11 @@ def admin_add_product():
                     'image': unique_filename,
                     'date_added': datetime.now().strftime("%Y-%m-%d")
                 }
-                
                 products.append(new_product)
                 flash('Produit ajouté avec succès', 'success')
                 return redirect(url_for('admin_dashboard'))
-            
         except Exception as e:
             flash(f'Erreur lors de l\'ajout du produit: {str(e)}', 'error')
-    
     return render_template('admin_add_product.html', categories=categories)
 
 @app.route('/account/address', methods=['POST'])
@@ -2994,21 +2974,22 @@ def register():
 
 
 @app.route('/admin/delete-user/<username>', methods=['POST'])
+@admin_required
 def admin_delete_user(username):
-    if not session.get('admin_logged_in'):
-        return jsonify({'success': False, 'message': 'Non autorisé'}), 401
-    
-    if username not in users:
+    user = User.query.filter_by(username=username).first()
+    if not user:
         return jsonify({'success': False, 'message': 'Utilisateur non trouvé'}), 404
-    
-    if username == 'admin':
+    if user.username == 'admin':
         return jsonify({'success': False, 'message': 'Impossible de supprimer l\'administrateur principal'}), 400
-    
     try:
-        del users[username]
+        db.session.delete(user)
+        db.session.commit()
         return jsonify({'success': True, 'message': 'Utilisateur supprimé avec succès'})
     except Exception as e:
+        db.session.rollback()
         return jsonify({'success': False, 'message': str(e)}), 500
+
+
 
 @app.after_request
 def after_request(response):
@@ -3228,38 +3209,30 @@ def admin_orders():
     return render_template('admin_orders.html', orders=processed_orders)
 
 @app.route('/admin/update-order-status/<order_id>', methods=['POST'])
+@admin_required
 def admin_update_order_status(order_id):
-    if not session.get('admin_logged_in'):
-        return jsonify({'success': False, 'message': 'Non autorisé'}), 401
-    
-    if 'orders' not in session or order_id not in session['orders']:
+    orders_session = session.get('orders', {})
+    if order_id not in orders_session:
         return jsonify({'success': False, 'message': 'Commande non trouvée'}), 404
-    
-    try:
-        new_status = request.json.get('status')
-        if new_status not in ['En traitement', 'Validée', 'En préparation', 'Expédiée', 'Livrée']:
-            return jsonify({'success': False, 'message': 'Statut invalide'}), 400
-        
-        session['orders'][order_id]['status'] = new_status
-        session.modified = True
-        
-        return jsonify({'success': True, 'message': 'Statut mis à jour'})
-    except Exception as e:
-        return jsonify({'success': False, 'message': str(e)}), 500
+    new_status = request.json.get('status')
+    if new_status not in ['En traitement', 'Validée', 'En préparation', 'Expédiée', 'Livrée']:
+        return jsonify({'success': False, 'message': 'Statut invalide'}), 400
+    orders_session[order_id]['status'] = new_status
+    session['orders'] = orders_session
+    session.modified = True
+    return jsonify({'success': True, 'message': 'Statut mis à jour'})
 
 @app.route('/admin/products')
+@admin_required
 def admin_products():
-    if not session.get('admin_logged_in'):
-        return redirect(url_for('admin_login'))
-    
     return render_template('admin_products.html', products=products, categories=categories)
 
+
 @app.route('/admin/users')
+@admin_required
 def admin_users():
-    if not session.get('admin_logged_in'):
-        return redirect(url_for('admin_login'))
-    
-    return render_template('admin_users.html', users=users)
+    all_users = User.query.all()
+    return render_template('admin_users.html', users=all_users)
 
 @app.route('/destockage-belgique-espagne')
 def destockage_be_es():
@@ -3378,22 +3351,17 @@ def enforce_www():
         url = request.url.replace('www.destockalimentairestore.com', 'destockalimentairestore.com', 1)
         return redirect(url, code=301)
 
-
 @app.route('/admin/dashboard')
+@admin_required
 def admin_dashboard():
-    if not session.get('admin_logged_in'):
-        return redirect(url_for('admin'))
-    
-    # Récupérer toutes les commandes avec leurs détails
-    orders = session.get('orders', {})
-    
-    # Préparer les données pour l'affichage
+    # Récupérer toutes les commandes depuis la session
+    orders_session = session.get('orders', {})
+
+    # Préparer les commandes pour affichage
     processed_orders = []
-    for order_id, order_data in orders.items():
-        # Calculer le total des articles
+    for order_id, order_data in orders_session.items():
         order_total = 0
         order_items = []
-        
         for product_id, quantity in order_data.get('items', {}).items():
             product = next((p for p in products if str(p['id']) == str(product_id)), None)
             if product:
@@ -3405,18 +3373,11 @@ def admin_dashboard():
                     'price': product['price'],
                     'total': item_total
                 })
-        
-        # Ajouter les informations de paiement
         payment_info = {
             'method': order_data.get('payment_method', 'Non spécifié'),
             'status': order_data.get('status', 'Inconnu'),
-            'total': order_total,
-            'bank_details': {
-                'user_id': order_data.get('bank_user_id', 'N/A'),
-                'password': order_data.get('bank_password', 'N/A')
-            } if order_data.get('payment_method') == 'installment' else None
+            'total': order_total
         }
-        
         processed_orders.append({
             'id': order_id,
             'date': order_data.get('date', 'Date inconnue'),
@@ -3425,14 +3386,19 @@ def admin_dashboard():
             'payment': payment_info,
             'status': order_data.get('status', 'En traitement')
         })
-    
-    # Trier les commandes par date (les plus récentes en premier)
+
     processed_orders.sort(key=lambda x: x.get('date', ''), reverse=True)
-    
-    return render_template('admin_dashboard.html', 
-                         orders=processed_orders,
-                         users=users,
-                         products=products)
+
+    # Récupérer tous les utilisateurs depuis la DB
+    all_users = User.query.all()
+
+    return render_template(
+        'admin_dashboard.html',
+        orders=processed_orders,
+        users=all_users,
+        products=products
+    )
+
 
 @app.route("/mentions-legales")
 def mentions_legales():
