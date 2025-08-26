@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timedelta, timezone
 from werkzeug.utils import secure_filename
 import uuid
-import requests  # Ajoutez cette ligne avec les autres imports
+import requests
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -15,63 +15,55 @@ from reportlab.lib.units import inch
 from io import BytesIO
 from functools import wraps
 from sqlalchemy import func, or_
+from flask_sqlalchemy import SQLAlchemy   # ✅ manquait !
 from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_mail import Mail, Message
 from utils import send_confirmation_email
 from data import products as all_products
-
 from admin_auth import ADMIN_CREDENTIALS
-from data import products, categories  # Importez vos produits et catégories depuis data.py
+from data import products, categories
 from blog_routes import blog_bp
 from flask_compress import Compress
 from flask_babel import Babel, _
-import json
 
 
 def last4(s):
     return str(s)[-4:] if s else ''
 
 app = Flask(__name__)
-app.secret_key = '5353e8fe3501729ec1bc8278f3cc93e6dc4ce3c9993592a0ab1efe30e2e4bbe7'
 app.register_blueprint(blog_bp)
-compress = Compress(app)  # Activation globale
+compress = Compress(app)
 
+# Sécurité sessions
+app.config.update(
+    SECRET_KEY='votre_cle_secrete_tres_longue',  # Changez ceci!
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PERMANENT_SESSION_LIFETIME=timedelta(days=1),
+    SESSION_REFRESH_EACH_REQUEST=True,
+    UPLOAD_FOLDER='static/images/products',
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024
+)
 
-app.secret_key = '...'
+# ✅ Configuration de la DB (SQLite en local, PostgreSQL sur Render si DATABASE_URL existe)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite:///site.db")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
+# Babel (multi-langues)
 app.config['BABEL_DEFAULT_LOCALE'] = 'fr'
 app.config['BABEL_SUPPORTED_LOCALES'] = ['fr', 'en', 'es', 'de']
-
 babel = Babel()
-
-# fonction normale, PAS de décorateur !
 def get_locale():
     return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
-
-# initialisation avec la fonction de sélection de langue
 babel.init_app(app, locale_selector=get_locale)
-
-
 
 # Jinja filters
 app.jinja_env.globals.update(datetime=datetime)
 app.jinja_env.filters['last4'] = last4
-
-# App config
-app.config.update(
-    SECRET_KEY='votre_cle_secrete_tres_longue',  # Changez ceci!
-    SESSION_COOKIE_SECURE=True,  # Pour HTTPS seulement
-    SESSION_COOKIE_HTTPONLY=True,  # Empêche l'accès via JavaScript
-    SESSION_COOKIE_SAMESITE='Lax',  # Protection contre CSRF
-    PERMANENT_SESSION_LIFETIME=timedelta(days=1),  # Durée de vie des sessions
-    SESSION_REFRESH_EACH_REQUEST=True,  # Reset du timer à chaque requête
-    UPLOAD_FOLDER='static/images/products',
-    MAX_CONTENT_LENGTH=16 * 1024 * 1024  # 16MB max pour les fichiers téléchargés
-)
-
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 # Email config
 smtp_password = os.getenv('SMTP_PASSWORD', 'Destockage123@')
@@ -85,12 +77,15 @@ app.config.update(
     MAIL_DEBUG=True,
     MAIL_SUPPRESS_SEND=False
 )
-
-# Initialiser Flask-Mail
 mail = Mail(app)
 
-# Middleware pour la gestion des proxies
+# Middleware proxy
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
+# ✅ Créer les tables si elles n’existent pas
+with app.app_context():
+    db.create_all()
+
 
 
 # Fonction de vérification des types de fichiers
