@@ -106,6 +106,11 @@ subject = "Sujet du message"  # ou request.form['subject']
 # Configuration
 app.config['UPLOAD_FOLDER'] = 'static/images/products'
 
+ADMIN_CREDENTIALS = {
+    'username': 'admin',
+    'password_hash': generate_password_hash('admin123')
+}
+
 # Données utilisateurs simulées
 
 def slugify(text):
