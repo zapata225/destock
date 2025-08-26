@@ -1,7 +1,6 @@
-from flask_sqlalchemy import SQLAlchemy
+# models.py
+from app import db  # ✅ On importe l'instance de db depuis app.py
 from werkzeug.security import generate_password_hash, check_password_hash
-
-db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
