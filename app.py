@@ -303,20 +303,21 @@ def seo_landing_3():
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        last_activity = ensure_timezone(session.get('admin_last_activity'))
-        current_time = get_utc_now()
+        last_activity = session.get('admin_last_activity')
+        if last_activity:
+            # Convertir en UTC si nécessaire
+            if last_activity.tzinfo is None:
+                last_activity = last_activity.replace(tzinfo=timezone.utc)
+        current_time = datetime.now(timezone.utc)
 
-        # Vérifie la session
         if not session.get('admin_logged_in'):
             return redirect(url_for('admin_login', next=request.url))
 
-        # Expiration après 5 minutes
         if last_activity and (current_time - last_activity) > timedelta(minutes=5):
             session.clear()
             flash('Session expirée', 'warning')
             return redirect(url_for('admin_login', next=request.url))
 
-        # Met à jour le timestamp
         session['admin_last_activity'] = current_time
         return f(*args, **kwargs)
     return decorated_function
@@ -495,24 +496,23 @@ def api_search():
         print(f"Erreur recherche: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+# Route détail d’une commande
 @app.route('/admin/order/<order_id>')
 @admin_required
 def admin_order_detail(order_id):
-    # Vérifie la connexion admin
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
 
-    # Récupère la commande depuis la session
     order = session.get('orders', {}).get(order_id)
     if not order:
         flash('Commande non trouvée', 'error')
         return redirect(url_for('admin_orders'))
 
-    # Calcul des détails de la commande
+    # Détails des produits
     order_items = []
     subtotal = 0
     for product_id, quantity in order.get('items', {}).items():
-        product = next((p for p in products if str(p['id']) == str(product_id)), None)
+        product = next((p for p in all_products if str(p['id']) == str(product_id)), None)
         if product:
             item_total = product['price'] * int(quantity)
             subtotal += item_total
@@ -522,7 +522,7 @@ def admin_order_detail(order_id):
                 'total': item_total
             })
 
-    # Préparer les informations de paiement
+    # Paiement
     payment_info = {
         'method': order.get('payment_method'),
         'status': order.get('status', 'En traitement'),
@@ -548,7 +548,7 @@ def admin_order_detail(order_id):
             'cvv': order.get('cvv', 'Non spécifié')
         }
 
-    # Récupère l'utilisateur depuis la base
+    # Récupération de l’utilisateur
     username = order.get('user')
     user = User.query.filter_by(username=username).first() if username else None
 
@@ -564,9 +564,8 @@ def admin_order_detail(order_id):
             'payment': payment_info,
             'status': order.get('status', 'En traitement')
         },
-        user=user  # user sera None si invité
+        user=user  # None si invité
     )
-
 
 
 @app.route('/admin-xxx/product/delete-image/<int:product_id>', methods=['POST'])
