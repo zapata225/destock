@@ -2933,26 +2933,36 @@ def contact():
 @app.route('/inscription', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-        full_name = request.form['full_name']
+        username = request.form.get('username').strip()
+        email = request.form.get('email').strip()
+        password = request.form.get('password')
+        full_name = request.form.get('full_name').strip()
+
+        # Vérifie si les champs obligatoires sont remplis
+        if not username or not email or not password:
+            flash("Veuillez remplir tous les champs obligatoires", "error")
+            return redirect(url_for('register'))
 
         # Vérifie si l'utilisateur existe déjà
-        if User.query.filter((User.username==username) | (User.email==email)).first():
+        existing_user = User.query.filter(
+            (User.username == username) | (User.email == email)
+        ).first()
+
+        if existing_user:
             flash("Nom d'utilisateur ou email déjà utilisé", "error")
             return redirect(url_for('register'))
 
         # Crée le nouvel utilisateur
-        user = User(username=username, email=email, full_name=full_name)
-        user.set_password(password)
-        db.session.add(user)
+        new_user = User(username=username, email=email, full_name=full_name)
+        new_user.set_password(password)
+        db.session.add(new_user)
         db.session.commit()
 
-        flash("Inscription réussie", "success")
+        flash("Inscription réussie ! Vous pouvez maintenant vous connecter.", "success")
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 
 
 @app.route('/admin/delete-user/<username>', methods=['POST'])
