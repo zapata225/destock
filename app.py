@@ -104,15 +104,6 @@ subject = "Sujet du message"  # ou request.form['subject']
 app.config['UPLOAD_FOLDER'] = 'static/images/products'
 
 # Données utilisateurs simulées
-users = {
-    "admin": {
-        "password": generate_password_hash("admin123"),
-        "email": "admin@destockage.com",
-        "full_name": "Administrateur",
-        "address": "123 Rue du Commerce, Paris",
-        "phone": "0123456789"
-    }
-}
 
 def slugify(text):
     text = text.lower()
@@ -676,7 +667,7 @@ def admin_login():
 def admin_logout():
     session.clear()
     flash('Déconnexion réussie', 'success')
-    return redirect(url_for('index')
+    return redirect(url_for('index'))
 
 
 @app.route('/admin/update-status/<order_id>', methods=['POST'])
@@ -2863,17 +2854,19 @@ def login():
         password = request.form['password']
 
         user = User.query.filter_by(username=username).first()
-
         if user and user.check_password(password):
             session['logged_in'] = True
             session['username'] = user.username
-            session['role'] = user.role
-            flash('Connexion réussie', 'success')
+            session['role'] = user.role  # "user" ou "admin"
+
+            if user.role == "admin":
+                return redirect(url_for('admin_dashboard'))
             return redirect(url_for('index'))
-        else:
-            flash('Identifiant ou mot de passe incorrect', 'error')
+
+        flash("Identifiants incorrects", "error")
 
     return render_template('login.html')
+
 
 @app.route('/checkout-guest', methods=['POST'])
 def checkout_guest():
@@ -2940,30 +2933,26 @@ def contact():
 def register():
     if request.method == 'POST':
         username = request.form['username']
-        password = request.form['password']
         email = request.form['email']
+        password = request.form['password']
         full_name = request.form['full_name']
 
-        # Vérifier si username ou email existent déjà
-        if User.query.filter((User.username == username) | (User.email == email)).first():
+        # Vérifie si l'utilisateur existe déjà
+        if User.query.filter((User.username==username) | (User.email==email)).first():
             flash("Nom d'utilisateur ou email déjà utilisé", "error")
             return redirect(url_for('register'))
 
-        # Créer utilisateur
-        new_user = User(
-            username=username,
-            email=email,
-            full_name=full_name
-        )
-        new_user.set_password(password)
-
-        db.session.add(new_user)
+        # Crée le nouvel utilisateur
+        user = User(username=username, email=email, full_name=full_name)
+        user.set_password(password)
+        db.session.add(user)
         db.session.commit()
 
-        flash("Inscription réussie. Vous pouvez maintenant vous connecter.", "success")
+        flash("Inscription réussie", "success")
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 
 @app.route('/admin/delete-user/<username>', methods=['POST'])
 def admin_delete_user(username):
