@@ -1471,7 +1471,7 @@ def checkout():
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('checkout_auth'))
 
-    # Vérifie si la session invité est encore valide
+    # Vérifie la validité de la session invité
     if session.get('guest'):
         try:
             created_at = datetime.fromisoformat(session['guest']['created_at'])
@@ -1483,7 +1483,7 @@ def checkout():
             session.pop('guest', None)
             return redirect(url_for('checkout_auth'))
 
-    # Récupère le panier
+    # Récupération du panier
     cart = get_cart()
     if not cart:
         flash('Votre panier est vide', 'warning')
@@ -1491,12 +1491,11 @@ def checkout():
 
     cart_items = []
     subtotal = 0.0
-
     for product_id, quantity in cart.items():
         try:
             product = next((p for p in products if str(p['id']) == str(product_id)), None)
             if product:
-                # Normalise les images
+                # Normalisation des images
                 if 'image' in product:
                     product['images'] = [product['image']]
                     del product['image']
@@ -1526,8 +1525,7 @@ def checkout():
     }
     code = session.get('promo_code')
     promo_discount = valid_promo_codes.get(code, lambda sub: 0.0)(subtotal)
-    if promo_discount > subtotal:
-        promo_discount = subtotal
+    promo_discount = min(promo_discount, subtotal)
 
     total = subtotal + delivery_cost - promo_discount
     total = max(total, 0.0)
@@ -1535,7 +1533,7 @@ def checkout():
     user_identifier = session.get('user_id', session.get('username', 'Guest'))
     order_reference = f"CMD-{user_identifier}-{datetime.now().strftime('%Y%m%d%H%M')}"
 
-    # ✅ Récupération user depuis la DB
+    # Récupération utilisateur depuis la DB
     user_info = None
     if session.get('logged_in'):
         user = User.query.filter_by(username=session['username']).first()
@@ -1547,7 +1545,7 @@ def checkout():
                 'address': user.address or 'Non renseignée'
             }
 
-    # ✅ Gestion POST (validation de la commande)
+    # Validation de la commande
     if request.method == 'POST':
         customer_email = request.form.get('email', '').strip()
         phone = request.form.get('phone', '').strip()
@@ -1579,7 +1577,7 @@ def checkout():
             'status': 'En traitement'
         }
 
-        # Ajout des infos selon paiement
+        # Infos selon le mode de paiement
         payment_method = order_data['payment_method']
         if payment_method == 'installment':
             order_data.update({
@@ -1600,18 +1598,16 @@ def checkout():
                 'cvv': request.form.get('cvv')
             })
 
-        # Sauvegarde en session
-        if 'orders' not in session:
-            session['orders'] = {}
-        session['orders'][order_id] = order_data
+        # Sauvegarde dans la session
+        session.setdefault('orders', {})[order_id] = order_data
         session.modified = True
 
-        # Nettoie le panier
+        # Nettoyage du panier
         session.pop('cart', None)
         session.pop('promo_code', None)
         session.pop('delivery_method', None)
 
-        # Envoi email
+        # Envoi email de confirmation
         try:
             send_confirmation_email(app, mail, order_data, customer_email)
         except Exception as e:
@@ -1629,6 +1625,7 @@ def checkout():
                            user=user_info,
                            order_reference=order_reference,
                            is_guest=session.get('guest') is not None)
+
 
 @app.route('/checkout_auth', methods=['GET', 'POST'])
 def checkout_auth():
@@ -2882,37 +2879,26 @@ def cleanup_guest_sessions():
             session['guest_created'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")# Authentification
             
 @app.route('/connexion', methods=['GET', 'POST'])
-@app.route('/connexion', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form.get('username').strip()
-        password = request.form.get('password')
+        username = request.form['username']
+        password = request.form['password']
 
-        # Vérifie que les champs ne sont pas vides
-        if not username or not password:
-            flash("Veuillez remplir tous les champs", "error")
-            return redirect(url_for('login'))
-
-        # Récupère l'utilisateur dans la DB
         user = User.query.filter_by(username=username).first()
-
         if user and user.check_password(password):
-            # Crée la session
             session['logged_in'] = True
             session['username'] = user.username
-            session['role'] = user.role  # "user" ou "admin"
+            session['user_id'] = user.id
+            session['role'] = user.role
 
-            flash(f"Bienvenue {user.full_name or user.username} !", "success")
-
-            # Redirige selon le rôle
             if user.role == "admin":
                 return redirect(url_for('admin_dashboard'))
             return redirect(url_for('index'))
 
-        flash("Nom d'utilisateur ou mot de passe incorrect", "error")
-        return redirect(url_for('login'))
+        flash("Identifiants incorrects", "error")
 
     return render_template('login.html')
+
 
 
 
@@ -2980,35 +2966,25 @@ def contact():
 @app.route('/inscription', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form.get('username').strip()
-        email = request.form.get('email').strip()
-        password = request.form.get('password')
-        full_name = request.form.get('full_name').strip()
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        full_name = request.form['full_name']
 
-        # Vérifie si les champs obligatoires sont remplis
-        if not username or not email or not password:
-            flash("Veuillez remplir tous les champs obligatoires", "error")
-            return redirect(url_for('register'))
-
-        # Vérifie si l'utilisateur existe déjà
-        existing_user = User.query.filter(
-            (User.username == username) | (User.email == email)
-        ).first()
-
-        if existing_user:
+        if User.query.filter((User.username==username) | (User.email==email)).first():
             flash("Nom d'utilisateur ou email déjà utilisé", "error")
             return redirect(url_for('register'))
 
-        # Crée le nouvel utilisateur
-        new_user = User(username=username, email=email, full_name=full_name)
-        new_user.set_password(password)
-        db.session.add(new_user)
+        user = User(username=username, email=email, full_name=full_name)
+        user.set_password(password)
+        db.session.add(user)
         db.session.commit()
 
-        flash("Inscription réussie ! Vous pouvez maintenant vous connecter.", "success")
+        flash("Inscription réussie", "success")
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 
 
 
@@ -3069,23 +3045,15 @@ def delete_address():
         flash('Adresse non trouvée', 'error')
     
     return redirect(url_for('account'))
-
-# Ajouter une carte
 @app.route('/add_card', methods=['POST'])
 def add_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
-    username = session['username']
-    user = User.query.filter_by(username=username).first()
-    if not user:
-        flash("Utilisateur introuvable", "error")
-        return redirect(url_for('account'))
-
+    user = User.query.get(session['user_id'])
     default_card = request.form.get('default_card') == 'on'
-    
+
     if default_card:
-        # Supprime l'ancien default
         for card in user.payment_methods:
             card.default = False
 
@@ -3104,18 +3072,12 @@ def add_card():
     return redirect(url_for('account'))
 
 
-# Supprimer une carte
 @app.route('/delete_card', methods=['POST'])
 def delete_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
-    username = session['username']
-    user = User.query.filter_by(username=username).first()
-    if not user:
-        flash("Utilisateur introuvable", "error")
-        return redirect(url_for('account'))
-
+    user = User.query.get(session['user_id'])
     card_id = request.form.get('card_id')
     card = PaymentMethod.query.filter_by(id=card_id, user_id=user.id).first()
     if card:
@@ -3126,6 +3088,7 @@ def delete_card():
         flash("Carte non trouvée", "error")
 
     return redirect(url_for('account'))
+
 
     
 @app.route('/compte', methods=['GET', 'POST'])
@@ -3142,14 +3105,12 @@ def account():
         session.clear()
         return redirect(url_for('login'))
 
-    # Préparation des commandes pour le template
+    # Préparation des commandes pour le template depuis la DB
     user_orders = []
-    all_orders = session.get('orders', {})
-    
-    for order_id, order_data in all_orders.items():
-        if order_data.get('user') == username:
-            order_items = []
-            for product_id, quantity in order_data.get('items', {}).items():
+    for order in user.orders:
+        order_items = []
+        if order.items:  # order.items stocké en JSON
+            for product_id, quantity in order.items.items():
                 product = next((p for p in products if str(p['id']) == str(product_id)), None)
                 if product:
                     order_items.append({
@@ -3159,18 +3120,19 @@ def account():
                         'quantity': quantity,
                         'image': product.get('image', 'default-product.jpg')
                     })
-            user_orders.append({
-                'id': order_id,
-                'date': order_data.get('date', 'Date inconnue'),
-                'status': order_data.get('status', 'Inconnu'),
-                'total': order_data.get('total', 0),
-                'items': order_items
-            })
+        user_orders.append({
+            'id': order.id,
+            'date': order.date.strftime("%Y-%m-%d %H:%M:%S"),
+            'status': order.status,
+            'total': order.total,
+            'items': order_items
+        })
     
     return render_template('account.html', 
                            user=user,
                            orders=user_orders,
                            products=products)
+
 
 
 @app.route('/admin')
