@@ -1465,11 +1465,13 @@ def inject_cart_count():
             count += quantity
     
     return {'cart_count': count}
-@app.route('/checkout', methods=['GET', 'POST'])
+    @app.route('/checkout', methods=['GET', 'POST'])
+    
 def checkout():
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('checkout_auth'))
 
+    # Vérifie si la session invité est encore valide
     if session.get('guest'):
         try:
             created_at = datetime.fromisoformat(session['guest']['created_at'])
@@ -1481,6 +1483,7 @@ def checkout():
             session.pop('guest', None)
             return redirect(url_for('checkout_auth'))
 
+    # Récupère le panier
     cart = get_cart()
     if not cart:
         flash('Votre panier est vide', 'warning')
@@ -1493,6 +1496,7 @@ def checkout():
         try:
             product = next((p for p in products if str(p['id']) == str(product_id)), None)
             if product:
+                # Normalise les images
                 if 'image' in product:
                     product['images'] = [product['image']]
                     del product['image']
@@ -1510,9 +1514,11 @@ def checkout():
             app.logger.error(f"Erreur traitement produit {product_id}: {str(e)}")
             continue
 
+    # Livraison
     delivery_method = session.get('delivery_method', 'standard')
     delivery_cost = 69 if delivery_method == 'standard' else 59
 
+    # Codes promo
     valid_promo_codes = {
         'SAVE10': lambda sub: 10.0,
         'SAVE20': lambda sub: 0.20 * sub,
@@ -1529,13 +1535,19 @@ def checkout():
     user_identifier = session.get('user_id', session.get('username', 'Guest'))
     order_reference = f"CMD-{user_identifier}-{datetime.now().strftime('%Y%m%d%H%M')}"
 
+    # ✅ Récupération user depuis la DB
     user_info = None
     if session.get('logged_in'):
-        user_info = users.get(session['username'], {})
-        user_info.setdefault('address', 'Non renseignée')
-        user_info.setdefault('phone', 'Non renseigné')
-        user_info.setdefault('email', 'Non renseigné')
+        user = User.query.filter_by(username=session['username']).first()
+        if user:
+            user_info = {
+                'username': user.username,
+                'email': user.email or 'Non renseigné',
+                'phone': user.phone or 'Non renseigné',
+                'address': user.address or 'Non renseignée'
+            }
 
+    # ✅ Gestion POST (validation de la commande)
     if request.method == 'POST':
         customer_email = request.form.get('email', '').strip()
         phone = request.form.get('phone', '').strip()
@@ -1567,7 +1579,7 @@ def checkout():
             'status': 'En traitement'
         }
 
-        # Ajout des informations selon le mode de paiement
+        # Ajout des infos selon paiement
         payment_method = order_data['payment_method']
         if payment_method == 'installment':
             order_data.update({
@@ -1588,15 +1600,18 @@ def checkout():
                 'cvv': request.form.get('cvv')
             })
 
+        # Sauvegarde en session
         if 'orders' not in session:
             session['orders'] = {}
         session['orders'][order_id] = order_data
         session.modified = True
 
+        # Nettoie le panier
         session.pop('cart', None)
         session.pop('promo_code', None)
         session.pop('delivery_method', None)
 
+        # Envoi email
         try:
             send_confirmation_email(app, mail, order_data, customer_email)
         except Exception as e:
