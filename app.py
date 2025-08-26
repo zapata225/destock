@@ -3192,43 +3192,43 @@ def admin():
 def admin_orders():
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
-    
-    orders = session.get('orders', {})
+
+    # Récupère toutes les commandes depuis la base, triées par date décroissante
+    orders_query = Order.query.order_by(Order.date.desc()).all()
     processed_orders = []
 
-    for order_id, order_data in orders.items():
-        total = 0
+    for order in orders_query:
+        # Préparer les items si stockés en JSON
         items_list = []
+        total = 0
+        if order.items:
+            for product_id, quantity in order.items.items():
+                product = next((p for p in all_products if str(p['id']) == str(product_id)), None)
+                if product:
+                    item_total = product['price'] * int(quantity)
+                    total += item_total
+                    items_list.append({
+                        'product': product,
+                        'quantity': quantity,
+                        'total': item_total
+                    })
+        else:
+            total = order.total  # fallback si items vide
 
-        # Calcul du total et préparation des items
-        for product_id, quantity in order_data.get('items', {}).items():
-            product = next((p for p in products if str(p['id']) == str(product_id)), None)
-            if product:
-                item_total = product['price'] * int(quantity)
-                total += item_total
-                items_list.append({
-                    'product': product,
-                    'quantity': quantity,
-                    'total': item_total
-                })
-
-        # Préparer chaque commande pour le template
         processed_orders.append({
-            'id': order_id,
-            'date': order_data.get('date', 'Inconnue'),
-            'user': order_data.get('user', 'Invité'),
+            'id': order.id,
+            'date': order.date.strftime("%Y-%m-%d %H:%M"),
+            'user': order.user.username if order.user else "Invité",
             'items': items_list,
             'total': total,
-            'status': order_data.get('status', 'En traitement'),
-            'payment_method': order_data.get('payment_method', 'Non spécifié'),
-            'card_number': order_data.get('card_number', ''),
-            'bank_user_id': order_data.get('bank_user_id', '')
+            'status': order.status,
+            'payment_method': order.payment_method,
+            'card_number': getattr(order, 'card_number', ''),
+            'bank_user_id': getattr(order, 'bank_user_id', '')
         })
 
-    # Trier par date décroissante
-    processed_orders.sort(key=lambda x: x['date'], reverse=True)
-
     return render_template('admin_orders.html', orders=processed_orders)
+
 
 
 @app.route('/admin/update-order-status/<order_id>', methods=['POST'])
