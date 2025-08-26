@@ -1,501 +1,698 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Destockage Alimentaire France</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <style>
-        /* Reset et styles de base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<style>
+    /* Variables modernes */
+    :root {
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --secondary: #10b981;
+        --accent: #f59e0b;
+        --dark: #1f2937;
+        --light: #f8fafc;
+        --gray: #6b7280;
+        --border-radius: 16px;
+        --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Reset et base moderne */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        background: var(--light);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* Hero section ultra moderne */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.15;
+        filter: grayscale(100%) contrast(120%);
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        width: 90%;
+        max-width: 800px;
+    }
+
+    .hero-overlay p {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .stat-item {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Mission section moderne */
+    .about-section {
+        padding: 6rem 0;
+        background: var(--light);
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+    }
+
+    .mission-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mission-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+
+    .mission-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .mission-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .mission-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .mission-card p {
+        color: var(--gray);
+        line-height: 1.7;
+    }
+
+    /* Values section */
+    .values-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .value-card {
+        background: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .value-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+    }
+
+    .value-card h4 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .value-card p {
+        color: var(--gray);
+        line-height: 1.6;
+    }
+
+    /* Testimonials modernisés */
+    .testimonials-section {
+        padding: 6rem 0;
+        background: white;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .testimonial-card {
+        background: var(--light);
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        position: relative;
+        box-shadow: var(--shadow);
+    }
+
+    .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        font-size: 4rem;
+        color: var(--primary);
+        opacity: 0.1;
+        font-family: serif;
+    }
+
+    .testimonial-text {
+        font-size: 1.1rem;
+        color: var(--dark);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .author-info h4 {
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.25rem;
+    }
+
+    .author-info p {
+        color: var(--gray);
+        font-size: 0.9rem;
+    }
+
+    /* Contact section moderne */
+    .contact-form-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    .form-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        padding: 3rem;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-container h2 {
+        color: white;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 100%;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-container {
+        color: white;
+    }
+
+    .info-container h3 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .info-item i {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        margin-top: 0.2rem;
+    }
+
+    .info-item p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.5;
+    }
+
+    .info-item strong {
+        color: white;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Carte moderne */
+    #modern-map {
+        height: 400px;
+        width: 100%;
+        border-radius: var(--border-radius);
+        margin-top: 2rem;
+        box-shadow: var(--shadow);
+        border: none;
+    }
+
+    .warehouse-icon {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Responsive design */
+    @media (max-width: 968px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+        .hero-stats {
+            grid-template-columns: repeat(2, 1fr);
         }
-        
+    }
+
+    @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1rem;
         }
         
-        /* Hero section modernisée */
         .hero-section {
-            position: relative;
-            height: 80vh;
-            overflow: hidden;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            height: auto;
+            min-height: 500px;
+            padding: 4rem 0;
         }
         
         .hero-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            color: white;
-            padding: 3rem;
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 300;
-        }
-        
-        /* Mission section modernisée */
-        .about-section {
-            background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .about-section h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-        
-        .about-section p {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.6;
-        }
-        
-        .mission-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .mission-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .mission-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .mission-card i {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: #4CAF50;
-        }
-        
-        .mission-card:nth-child(1) {
-            border-top: 5px solid #4CAF50;
-        }
-        
-        .mission-card:nth-child(2) {
-            border-top: 5px solid #2196F3;
-        }
-        
-        .mission-card:nth-child(3) {
-            border-top: 5px solid #FF9800;
-        }
-        
-        .mission-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .mission-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .mission-details {
-            margin-top: 4rem;
-            text-align: left;
-        }
-        
-        .mission-details h3 {
-            font-size: 2rem;
-            margin: 2rem 0 1rem;
-            color: #333;
-        }
-        
-        .mission-details p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        /* Testimonials modernisés */
-        .testimonials-section {
-            background: #f9f9f9;
-            padding: 80px 0;
-        }
-        
-        .testimonials-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .testimonials-section > p {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: #666;
-            font-size: 1.1rem;
-        }
-        
-        .testimonial-with-image {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .testimonials-slider {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             position: relative;
-            border-left: 5px solid #9C27B0;
+            top: 0;
+            left: 0;
+            transform: none;
+            padding: 2rem 0;
         }
         
-        .quote-icon {
-            color: #E1BEE7;
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .hero-stats {
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
         
-        .testimonial-text {
-            font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            color: #555;
+        .mission-grid,
+        .values-grid,
+        .testimonials-grid {
+            grid-template-columns: 1fr;
         }
         
-        .testimonial-author {
-            font-weight: bold;
-            color: #9C27B0;
+        .mission-card,
+        .value-card,
+        .testimonial-card {
+            padding: 2rem;
         }
-        
-        .testimonial-image {
-            height: 500px;
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .testimonial-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-        
-        /* Formulaire modernisé */
-        .contact-form-section {
-            padding: 80px 0;
-        }
-        
-        .contact-form-section .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .form-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .form-container h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #333;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #2196F3;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
-        }
-        
-        .btn-primary {
-            background: #2196F3;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background: #0b7dda;
-        }
-        
-        /* Info container */
-        .info-container h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        
-        .info-item i {
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            margin-top: 0.2rem;
-        }
-        
-        /* Styles spécifiques pour la carte */
-        #modern-map {
-            height: 500px;
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-            border: 1px solid #eee;
-        }
-
-        /* Style pour le marqueur personnalisé */
-        .warehouse-icon {
-            background-color: #4CAF50;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3);
-        }
-
-        /* Style pour le contrôle des couches */
-        .leaflet-control-layers {
-            border-radius: 8px !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .contact-form-section .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonial-with-image {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-overlay {
-                font-size: 1.5rem;
-                padding: 1.5rem;
-            }
-            
-            .about-section h2 {
-                font-size: 2.2rem;
-            }
-            
-            .mission-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonials-section h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="hero-section">
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Notre entrepôt de stockage">
-            <div class="hero-overlay">
-                <p>Depuis 12 ans, nous transformons les surplus en opportunités</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section" aria-labelledby="mission-title">
-        <div class="container">
-            <h2 id="mission-title">Notre Mission</h2>
-            <p>
-                Notre engagement pour une économie circulaire et durable est au cœur de toutes nos actions. Chaque geste compte pour un avenir meilleur.
-            </p>
-
-            <!-- Meta Description pour SEO -->
-            <meta name="description" content="Découvrez notre mission pour une économie circulaire et durable, avec des initiatives pour lutter contre le gaspillage, offrir des économies et garantir une logistique performante.">
-
-            <div class="mission-grid">
-                <!-- Card 1: Lutte contre le gaspillage -->
-                <div class="mission-card" itemscope itemtype="https://schema.org/Organization">
-                    <i class="fas fa-recycle" aria-hidden="true"></i>
-                    <h3 itemprop="name">Lutte contre le gaspillage</h3>
-                    <p>Chaque année, nous sauvons plus de <span itemprop="amountOfSubstance">15 000</span> tonnes de produits alimentaires de la destruction. En rejoignant notre initiative, vous participez activement à la réduction du gaspillage alimentaire en France.</p>
-                    <p>Notre mission va au-delà de la simple vente : nous nous engageons à sensibiliser nos clients à l'importance de consommer de manière responsable et durable.</p>
-                </div>
-                
-                <!-- Card 2: Économies garanties -->
-                <div class="mission-card" itemscope itemtype="https://schema.org/Organization">
-                    <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
-                    <h3 itemprop="name">Économies garanties</h3>
-                    <p>Jusqu'à 70% de réduction sur les produits de grande marque, sans compromis sur la qualité. Nous rendons les produits alimentaires de qualité accessibles à tous grâce à des prix imbattables.</p>
-                    <p>Nos réductions vous permettent non seulement de faire des économies, mais aussi de participer à un modèle économique respectueux de l'environnement et durable.</p>
-                </div>
-                
-                <!-- Card 3: Logistique performante -->
-                <div class="mission-card" itemscope itemtype="https://schema.org/Organization">
-                    <i class="fas fa-truck" aria-hidden="true"></i>
-                    <h3 itemprop="name">Logistique performante</h3>
-                    <p>Taux de livraison dans les temps de <span itemprop="deliveryTime">98%</span> sur les 12 derniers mois. Nous travaillons sans relâche pour garantir la ponctualité de vos commandes, partout en France.</p>
-                    <p>Notre réseau de partenaires logistiques et de transporteurs locaux nous permet de livrer rapidement et dans les meilleures conditions, pour votre plus grande satisfaction.</p>
-                </div>
-            </div>
-
-            <!-- Nouveaux paragraphes ajoutés pour SEO et impact -->
-            <div class="mission-details">
-                <h3>Une vision globale et locale</h3>
-                <p>Destockage Alimentaire France adopte une approche à la fois locale et globale. En collaborant avec des producteurs locaux, nous réduisons les émissions de carbone liées au transport tout en soutenant l'agriculture de proximité. Chaque produit que nous proposons est une opportunité pour nos clients de consommer de manière plus responsable et éthique.</p>
-
-                <h3>Une approche tournée vers l'avenir</h3>
-                <p>Nous croyons fermement en une économie circulaire où les produits alimentaires de qualité ne sont pas gaspillés mais redistribués à ceux qui en ont besoin. Notre modèle économique est basé sur l'idée que chaque produit a une deuxième chance. En tant que leader du déstockage alimentaire, nous mettons en place des solutions innovantes pour améliorer l'efficacité de notre chaîne de distribution et maximiser la réduction des déchets alimentaires.</p>
-
-                <h3>La satisfaction de nos clients au cœur de notre mission</h3>
-                <p>Nous savons que la qualité de notre service est primordiale pour nos clients. C'est pourquoi nous mettons un point d'honneur à offrir une expérience d'achat fluide et agréable, avec des produits toujours frais, à prix réduits, et livrés dans les meilleurs délais.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sécurité de la page avec OpenGraph et Twitter Cards -->
-    <meta property="og:title" content="Notre Mission - Destockage Alimentaire France">
-    <meta property="og:description" content="Découvrez notre mission pour une économie circulaire et durable, en luttant contre le gaspillage, en offrant des économies garanties et une logistique performante.">
-    <meta property="og:image" content="URL_IMAGE_À_INSÉRER">
-    <meta property="og:url" content="URL_DE_VOTRE_PAGE">
-    <meta name="twitter:title" content="Notre Mission - Destockage Alimentaire France">
-    <meta name="twitter:description" content="Découvrez notre mission pour une économie circulaire et durable, en luttant contre le gaspillage, en offrant des économies garanties et une logistique performante.">
-    <meta name="twitter:image" content="URL_IMAGE_À_INSÉRER">
-
-    <!-- Google Structured Data - JSON-LD pour la mission -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Destockage Alimentaire France",
-      "description": "Destockage Alimentaire France lutte contre le gaspillage alimentaire, propose des économies garanties et assure une logistique performante.",
-      "mission": "Lutter contre le gaspillage alimentaire, offrir des produits de qualité à prix réduits et garantir une livraison rapide et fiable.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "France"
-      }
     }
-    </script>
 
-    <section class="testimonials-section">
-        <div class="container">
-            <h2>Ils nous font confiance</h2>
-            <p>
-                Découvrez ce que nos partenaires disent de nous
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .delay-100 {
+        animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+
+    .delay-300 {
+        animation-delay: 0.3s;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/warehouse-team.jpg') }}" alt="Entrepôt de destockage alimentaire">
+    </div>
+    <div class="hero-overlay">
+        <p>Transformer les surplus en opportunités depuis {{ stats.years }} ans</p>
+        <div class="hero-stats">
+            <div class="stat-item animate-fade-in-up delay-100">
+                <div class="stat-number">{{ stats.products }}+</div>
+                <div class="stat-label">Tonnes sauvées</div>
+            </div>
+            <div class="stat-item animate-fade-in-up delay-200">
+                <div class="stat-number">{{ stats.delivery_rate }}%</div>
+                <div class="stat-label">Livraisons à temps</div>
+            </div>
+            <div class="stat-item animate-fade-in-up delay-300">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Économies moyennes</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Notre Mission</h2>
+            <p class="section-subtitle">
+                Réinventer la distribution alimentaire grâce à l'économie circulaire et la durabilité
             </p>
+        </div>
+
+        <div class="mission-grid">
+            <div class="mission-card animate-fade-in-up">
+                <i class="fas fa-recycle mission-icon"></i>
+                <h3>Lutte contre le gaspillage</h3>
+                <p>Chaque année, nous sauvons plus de {{ stats.products }} tonnes de produits alimentaires de la destruction. Notre engagement va au-delà de la vente : nous créons un écosystème durable.</p>
+            </div>
             
-            <div class="testimonial-with-image">
-                <div class="testimonial-content">
-                    <div class="testimonials-slider">
-                        <div class="testimonial-card">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">Un partenariat exceptionnel depuis 3 ans. Livraisons toujours à l'heure et produits de qualité irréprochable.</p>
-                            <p class="testimonial-author">- Sophie Monier - Carrefour Market</p>
-                        </div>
-                        <div class="testimonial-card">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">Le meilleur rapport qualité-prix du marché. Service client réactif et professionnel.</p>
-                            <p class="testimonial-author">- Michel Bernard - Metro Cash & Carry</p>
-                        </div>
-                        <div class="testimonial-card">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">Notre fournisseur préféré pour les opérations de destockage. Fiabilité et transparence.</p>
-                            <p class="testimonial-author">- Nathalie Leroy - Intermarché</p>
-                        </div>
+            <div class="mission-card animate-fade-in-up delay-100">
+                <i class="fas fa-hand-holding-usd mission-icon"></i>
+                <h3>Économies garanties</h3>
+                <p>Jusqu'à 70% de réduction sur les produits de grande marque. Nous rendons la qualité accessible à tous grâce à un modèle économique innovant et responsable.</p>
+            </div>
+            
+            <div class="mission-card animate-fade-in-up delay-200">
+                <i class="fas fa-truck mission-icon"></i>
+                <h3>Logistique performante</h3>
+                <p>{{ stats.delivery_rate }}% de livraisons dans les temps. Notre réseau de partenaires locaux garantit une distribution rapide et écologique sur toute la France.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nos Valeurs</h2>
+            <p class="section-subtitle">
+                Les principes qui guident chacune de nos actions
+            </p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h4>Durabilité</h4>
+                <p>Engagement total envers des pratiques commerciales respectueuses de l'environnement.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Transparence</h4>
+                <p>Relations claires et honnêtes avec tous nos partenaires et clients.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4>Innovation</h4>
+                <p>Recherche constante de solutions innovantes pour optimiser notre chaîne logistique.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h4>Communauté</h4>
+                <p>Soutien actif aux producteurs locaux et aux initiatives communautaires.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Ils nous font confiance</h2>
+            <p class="section-subtitle">
+                Témoignages de nos partenaires stratégiques
+            </p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Un partenariat exceptionnel depuis 3 ans. Livraisons toujours à l'heure et produits de qualité irréprochable. Leur engagement écologique est remarquable."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <h4>Sophie Monier</h4>
+                        <p>Carrefour Market</p>
                     </div>
                 </div>
-                
-                <div class="testimonial-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Notre entrepôt moderne">
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Le meilleur rapport qualité-prix du marché. Service client réactif et professionnel. Leur modèle économique est révolutionnaire dans le secteur."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MB</div>
+                    <div class="author-info">
+                        <h4>Michel Bernard</h4>
+                        <p>Metro Cash & Carry</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Notre fournisseur préféré pour les opérations de destockage. Fiabilité et transparence absolues. Leur approche durable fait toute la différence."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">NL</div>
+                    <div class="author-info">
+                        <h4>Nathalie Leroy</h4>
+                        <p>Intermarché</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="contact-form-section">
-        <div class="container">
+<!-- Contact Section -->
+<section class="contact-form-section">
+    <div class="container">
+        <div class="contact-container">
             <div class="form-container">
                 <h2>Contactez-nous</h2>
                 <form action="/submit-contact" method="POST">
@@ -532,150 +729,149 @@
                     <button type="submit" class="btn-primary">Envoyer le message</button>
                 </form>
             </div>
+
             <div class="info-container">
                 <h3>Coordonnées</h3>
                 <div class="contact-info">
-                    <!-- Adresse de l'entrepôt -->
                     <div class="info-item">
-                        <i class="fas fa-map-marker-alt" style="color: #4CAF50;"></i>
-                        <div>
-                            <p><strong>Entrepôt logistique :</strong></p>
-                            <p>4 Allée de la Tourelle<br>13127 Vitrolles, France</p>
-                            <p><em>Visites et retraits uniquement sur rendez-vous</em></p>
-                        </div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>
+                            <strong>Siège social :</strong>
+                            350 Rue Arthur Brunet<br>
+                            59220 Denain, France
+                        </p>
                     </div>
-            
-                    <!-- Téléphone -->
+
                     <div class="info-item">
-                        <i class="fas fa-phone" style="color: #2196F3;"></i>
+                        <i class="fas fa-warehouse"></i>
+                        <p>
+                            <strong>Entrepôt logistique :</strong>
+                            4 Allée de la Tourelle<br>
+                            13127 Vitrolles, France
+                            <em style="display: block; margin-top: 0.5rem; font-size: 0.9em;">Visites sur rendez-vous</em>
+                        </p>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
                         <p>+33 06 44 69 45 15</p>
                     </div>
 
-                    <!-- Email -->
                     <div class="info-item">
-                        <i class="fas fa-envelope" style="color: #FF9800;"></i>
+                        <i class="fas fa-envelope"></i>
                         <p>contact@destockagealimentaire.fr</p>
                     </div>
-            
-                    <!-- Horaires -->
+
                     <div class="info-item">
-                        <i class="fas fa-clock" style="color: #9C27B0;"></i>
-                        <div>
-                            <p><strong>Horaires d'ouverture :</strong></p>
-                            <p>Lundi - Vendredi : 8h - 19h<br>Samedi : 9h - 12h</p>
-                        </div>
+                        <i class="fas fa-clock"></i>
+                        <p>
+                            <strong>Horaires :</strong><br>
+                            Lundi - Vendredi : 8h - 19h<br>
+                            Samedi : 9h - 12h
+                        </p>
                     </div>
                 </div>
-                
+
                 <div id="modern-map"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+{% endblock %}
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Coordonnées de l'entrepôt à Vitrolles
-            const warehouseCoords = [43.4482, 5.2642];
-            
-            // Initialisation de la carte centrée sur l'entrepôt
-            const map = L.map('modern-map', {
-                zoomControl: false,
-                scrollWheelZoom: false
-            }).setView(warehouseCoords, 18);
-            
-            // Ajout du contrôle de zoom personnalisé
-            L.control.zoom({
-                position: 'topright'
-            }).addTo(map);
-            
-            // Définition des couches de carte
-            const streetMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
-                attribution: '© OpenStreetMap contributors © CARTO',
-                subdomains: 'abcd',
-                maxZoom: 20
-            });
-            
-            const satelliteMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles © Esri',
-                maxZoom: 20
-            });
-            
-            // Ajout de la carte routière par défaut
-            streetMap.addTo(map);
-            
-            // Ajout du contrôle des couches
-            L.control.layers({
-                "Plan": streetMap,
-                "Satellite": satelliteMap
-            }, null, {
-                position: 'topright'
-            }).addTo(map);
-            
-            // Marqueur personnalisé pour l'entrepôt
-            const warehouseIcon = L.divIcon({
-                className: 'warehouse-icon',
-                html: '<i class="fas fa-warehouse"></i>',
-                iconSize: [50, 50],
-                iconAnchor: [25, 25]
-            });
-            
-            // Ajout du marqueur de l'entrepôt avec popup
-            const warehouseMarker = L.marker(warehouseCoords, {
-                icon: warehouseIcon,
-                zIndexOffset: 1000
-            }).addTo(map);
-            
-            warehouseMarker.bindPopup(`
-                <div style="text-align: center;">
-                    <h3 style="margin: 0 0 10px; color: #4CAF50;">Entrepôt principal</h3>
-                    <p style="margin: 0;"><strong>DestockAlim</strong></p>
-                    <p style="margin: 5px 0;">Surface: 5 000 m²</p>
-                    <p style="margin: 5px 0;">Capacité: 1 500 palettes</p>
-                </div>
-            `).openPopup();
-            
-            // Ajout d'un polygone pour représenter l'entrepôt
-            const warehousePolygon = L.polygon([
-                [43.4478, 5.2635],
-                [43.4478, 5.2649],
-                [43.4486, 5.2649],
-                [43.4486, 5.2635]
-            ], {
-                color: '#4CAF50',
-                fillColor: '#4CAF50',
-                fillOpacity: 0.3,
-                weight: 2
-            }).addTo(map);
-            
-            // Bouton pour changer la vue zoom
-            const zoomOutButton = L.easyButton({
-                position: 'topright',
-                leafletClasses: true,
-                states: [{
-                    stateName: 'zoom-out',
-                    icon: '<i class="fas fa-search-minus"></i>',
-                    title: 'Vue éloignée',
-                    onClick: function() {
-                        map.setView(warehouseCoords, 15);
-                        this.state('zoom-in');
-                    }
-                }, {
-                    stateName: 'zoom-in',
-                    icon: '<i class="fas fa-search-plus"></i>',
-                    title: 'Vue rapprochée',
-                    onClick: function() {
-                        map.setView(warehouseCoords, 18);
-                        this.state('zoom-out');
-                    }
-                }]
-            }).addTo(map);
-            zoomOutButton.state('zoom-out');
-            
-            // Ajout d'une échelle
-            L.control.scale({position: 'bottomleft'}).addTo(map);
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Coordonnées de l'entrepôt (Vitrolles)
+        const warehouseCoords = [43.4412, 5.2487];
+        
+        // Initialisation de la carte
+        const map = L.map('modern-map', {
+            zoomControl: false,
+            scrollWheelZoom: false
+        }).setView(warehouseCoords, 18);
+        
+        // Couches de carte
+        const streetMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors © CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+        
+        const satelliteMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles © Esri',
+            maxZoom: 20
         });
-    </script>
-</body>
-</html>
+        
+        // Contrôles de carte
+        L.control.zoom({ position: 'topright' }).addTo(map);
+        
+        L.control.layers({
+            "Plan": streetMap,
+            "Satellite": satelliteMap
+        }, null, { position: 'topright' }).addTo(map);
+        
+        // Marqueur personnalisé
+        const warehouseIcon = L.divIcon({
+            className: 'warehouse-icon',
+            html: '<i class="fas fa-warehouse"></i>',
+            iconSize: [50, 50],
+            iconAnchor: [25, 25]
+        });
+        
+        // Marqueur avec popup
+        const warehouseMarker = L.marker(warehouseCoords, {
+            icon: warehouseIcon,
+            zIndexOffset: 1000
+        }).addTo(map);
+        
+        warehouseMarker.bindPopup(`
+            <div style="text-align: center; padding: 1rem;">
+                <h3 style="margin: 0 0 0.5rem; color: #2563eb; font-size: 1.2rem;">Entrepôt Principal</h3>
+                <p style="margin: 0.25rem 0; color: #374151;">4 Allée de la Tourelle</p>
+                <p style="margin: 0.25rem 0; color: #374151;">13127 Vitrolles, France</p>
+                <p style="margin: 0.25rem 0; color: #10b981; font-weight: 600;">Surface: 5 000 m²</p>
+                <p style="margin: 0.25rem 0; color: #10b981; font-weight: 600;">Capacité: 1 500 palettes</p>
+            </div>
+        `).openPopup();
+        
+        // Zone de l'entrepôt
+        const warehousePolygon = L.polygon([
+            [43.4410, 5.2485],
+            [43.4410, 5.2490],
+            [43.4415, 5.2490],
+            [43.4415, 5.2485]
+        ], {
+            color: '#2563eb',
+            fillColor: '#2563eb',
+            fillOpacity: 0.2,
+            weight: 2
+        }).addTo(map);
+        
+        // Contrôle d'échelle
+        L.control.scale({ position: 'bottomleft' }).addTo(map);
+        
+        // Animation des éléments
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    });
+</script>
+{% endblock %}
