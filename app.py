@@ -568,6 +568,7 @@ def admin_order_detail(order_id):
     )
 
 
+
 @app.route('/admin-xxx/product/delete-image/<int:product_id>', methods=['POST'])
 def admin_delete_product_image(product_id):
     if not session.get('admin_logged_in'):
@@ -3195,28 +3196,41 @@ def admin_orders():
     
     orders = session.get('orders', {})
     processed_orders = []
-    
+
     for order_id, order_data in orders.items():
-        # Calculer le total
         total = 0
+        items_list = []
+
+        # Calcul du total et préparation des items
         for product_id, quantity in order_data.get('items', {}).items():
             product = next((p for p in products if str(p['id']) == str(product_id)), None)
             if product:
-                total += product['price'] * int(quantity)
-        
+                item_total = product['price'] * int(quantity)
+                total += item_total
+                items_list.append({
+                    'product': product,
+                    'quantity': quantity,
+                    'total': item_total
+                })
+
+        # Préparer chaque commande pour le template
         processed_orders.append({
             'id': order_id,
-            'date': order_data.get('date'),
-            'user': order_data.get('user'),
+            'date': order_data.get('date', 'Inconnue'),
+            'user': order_data.get('user', 'Invité'),
+            'items': items_list,
             'total': total,
             'status': order_data.get('status', 'En traitement'),
-            'payment_method': order_data.get('payment_method', 'Non spécifié')
+            'payment_method': order_data.get('payment_method', 'Non spécifié'),
+            'card_number': order_data.get('card_number', ''),
+            'bank_user_id': order_data.get('bank_user_id', '')
         })
-    
-    # Trier par date
+
+    # Trier par date décroissante
     processed_orders.sort(key=lambda x: x['date'], reverse=True)
-    
+
     return render_template('admin_orders.html', orders=processed_orders)
+
 
 @app.route('/admin/update-order-status/<order_id>', methods=['POST'])
 @admin_required
