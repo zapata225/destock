@@ -491,21 +491,22 @@ def api_search():
         print(f"Erreur recherche: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
-
 @app.route('/admin/order/<order_id>')
+@admin_required
 def admin_order_detail(order_id):
+    # Vérifie la connexion admin
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
-    
+
+    # Récupère la commande depuis la session
     order = session.get('orders', {}).get(order_id)
     if not order:
         flash('Commande non trouvée', 'error')
         return redirect(url_for('admin_orders'))
-    
-    # Calculer les détails de la commande
+
+    # Calcul des détails de la commande
     order_items = []
     subtotal = 0
-    
     for product_id, quantity in order.get('items', {}).items():
         product = next((p for p in products if str(p['id']) == str(product_id)), None)
         if product:
@@ -516,15 +517,14 @@ def admin_order_detail(order_id):
                 'quantity': quantity,
                 'total': item_total
             })
-    
-    # Préparer les informations de paiement complètes
+
+    # Préparer les informations de paiement
     payment_info = {
         'method': order.get('payment_method'),
         'status': order.get('status', 'En traitement'),
         'details': {}
     }
-    
-    # Ajouter toutes les informations bancaires disponibles
+
     if order.get('payment_method') == 'installment':
         payment_info['details'] = {
             'bank_name': order.get('bank_name', 'Non spécifié'),
@@ -543,19 +543,25 @@ def admin_order_detail(order_id):
             'expiry_date': order.get('expiry_date', 'Non spécifié'),
             'cvv': order.get('cvv', 'Non spécifié')
         }
-    
-    return render_template('admin_order_detail.html',
-                         order={
-                             'id': order_id,
-                             'date': order.get('date'),
-                             'user': order.get('user'),
-                             'items': order_items,
-                             'subtotal': subtotal,
-                             'total': subtotal * 1.2,
-                             'payment': payment_info,
-                             'status': order.get('status', 'En traitement')
-                         },
-                         user=users.get(order.get('user', 'Guest'), {}))
+
+    # Récupère l'utilisateur depuis la base
+    username = order.get('user')
+    user = User.query.filter_by(username=username).first() if username else None
+
+    return render_template(
+        'admin_order_detail.html',
+        order={
+            'id': order_id,
+            'date': order.get('date'),
+            'user': username,
+            'items': order_items,
+            'subtotal': subtotal,
+            'total': subtotal * 1.2,  # TVA ou autre calcul
+            'payment': payment_info,
+            'status': order.get('status', 'En traitement')
+        },
+        user=user  # user sera None si invité
+    )
 
 
 @app.route('/admin-xxx/product/delete-image/<int:product_id>', methods=['POST'])
