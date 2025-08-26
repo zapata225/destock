@@ -1465,8 +1465,8 @@ def inject_cart_count():
             count += quantity
     
     return {'cart_count': count}
-    @app.route('/checkout', methods=['GET', 'POST'])
     
+@app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('checkout_auth'))
