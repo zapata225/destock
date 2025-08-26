@@ -802,81 +802,94 @@ def admin_add_product():
     
     return render_template('admin_add_product.html', categories=categories)
 
-
-
 @app.route('/account/address', methods=['POST'])
 def manage_address():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
-    username = session['username']
-    action = request.form.get('action')
-    
-    if action == 'update':
-        # Mettre à jour l'adresse principale
-        users[username]['address'] = request.form.get('address')
-        users[username]['phone'] = request.form.get('phone')
-        flash('Adresse mise à jour avec succès', 'success')
-    
-    elif action == 'delete':
-        # Supprimer l'adresse
-        users[username]['address'] = ''
-        flash('Adresse supprimée avec succès', 'success')
-    
-    return redirect(url_for('account'))
 
+    user = User.query.filter_by(username=session['username']).first()
+    if not user:
+        flash('Session expirée, reconnectez-vous', 'error')
+        return redirect(url_for('login'))
+
+    action = request.form.get('action')
+    if action == 'update':
+        user.address = request.form.get('address')
+        user.phone = request.form.get('phone')
+        db.session.commit()
+        flash('Adresse mise à jour avec succès', 'success')
+    elif action == 'delete':
+        user.address = ''
+        user.phone = ''
+        db.session.commit()
+        flash('Adresse supprimée avec succès', 'success')
+
+    return redirect(url_for('account'))
 
 
 @app.route('/save-profile', methods=['POST'])
 def save_profile():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
-    username = session['username']
-    user = users.get(username)
-    
-    if user:
-        user['full_name'] = request.form.get('full_name', user['full_name'])
-        user['email'] = request.form.get('email', user['email'])
-        user['phone'] = request.form.get('phone', user['phone'])
-        flash('Profil mis à jour avec succès', 'success')
-    
+
+    user = User.query.filter_by(username=session['username']).first()
+    if not user:
+        flash('Session expirée, reconnectez-vous', 'error')
+        return redirect(url_for('login'))
+
+    user.full_name = request.form.get('full_name', user.full_name)
+    user.email = request.form.get('email', user.email)
+    user.phone = request.form.get('phone', user.phone)
+    db.session.commit()
+
+    flash('Profil mis à jour avec succès', 'success')
     return redirect(url_for('account'))
+
 
 @app.route('/save-address', methods=['POST'])
 def save_address():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
-    username = session['username']
+
+    user = User.query.filter_by(username=session['username']).first()
+    if not user:
+        flash('Session expirée, reconnectez-vous', 'error')
+        return redirect(url_for('login'))
+
     action = request.form.get('action')
-    
     if action == 'update':
-        users[username]['address'] = request.form.get('address', '')
-        users[username]['phone'] = request.form.get('phone', '')
+        user.address = request.form.get('address', '')
+        user.phone = request.form.get('phone', '')
+        db.session.commit()
         flash('Adresse mise à jour', 'success')
     elif action == 'delete':
-        users[username]['address'] = ''
+        user.address = ''
+        db.session.commit()
         flash('Adresse supprimée', 'success')
-    
+
     return redirect(url_for('account'))
+
 
 @app.route('/change-password', methods=['POST'])
 def change_password():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
-    username = session['username']
+
+    user = User.query.filter_by(username=session['username']).first()
+    if not user:
+        flash('Session expirée, reconnectez-vous', 'error')
+        return redirect(url_for('login'))
+
     current_password = request.form.get('current_password')
     new_password = request.form.get('new_password')
-    
-    user = users.get(username)
-    if user and check_password_hash(user['password'], current_password):
-        user['password'] = generate_password_hash(new_password)
+
+    if check_password_hash(user.password, current_password):
+        user.password = generate_password_hash(new_password)
+        db.session.commit()
         flash('Mot de passe changé avec succès', 'success')
     else:
         flash('Mot de passe actuel incorrect', 'error')
-    
+
     return redirect(url_for('account'))
 
 
@@ -884,28 +897,31 @@ def change_password():
 def set_default_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
-    username = session['username']
+
+    user = User.query.filter_by(username=session['username']).first()
+    if not user:
+        flash('Session expirée, reconnectez-vous', 'error')
+        return redirect(url_for('login'))
+
     card_id = request.form.get('card_id')
-    
-    # Initialise si nécessaire
-    if 'payment_methods' not in users[username]:
-        users[username]['payment_methods'] = []
-    
-    # Met à jour toutes les cartes
-    for card in users[username]['payment_methods']:
-        card['default'] = (card.get('id') == card_id)
-    
+
+    # Exemple simplifié : tu devras avoir un modèle PaymentMethod lié à User
+    for card in user.payment_methods:
+        card.default = (str(card.id) == str(card_id))
+
+    db.session.commit()
     flash('Carte par défaut mise à jour', 'success')
     return redirect(url_for('account'))
+
 
 @app.route('/admin/view-users')
 def admin_view_users():
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
-    
-    return render_template('admin_view_users.html', users=users)
 
+    all_users = User.query.all()
+    return render_template('admin_view_users.html', users=all_users)
+    
 @app.route('/produit/<int:product_id>')
 def product_detail_old(product_id):
     product = next((p for p in products if p['id'] == product_id), None)
