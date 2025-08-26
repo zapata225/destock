@@ -27,6 +27,7 @@ from data import products, categories
 from blog_routes import blog_bp
 from flask_compress import Compress
 from flask_babel import Babel, _
+from admin_auth import ADMIN_CREDENTIALS   # identifiants admin
 
 
 def last4(s):
