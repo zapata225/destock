@@ -28,6 +28,7 @@ from blog_routes import blog_bp
 from flask_compress import Compress
 from flask_babel import Babel, _
 from admin_auth import ADMIN_CREDENTIALS   # identifiants admin
+from models import User  # Import après db
 
 
 def last4(s):
