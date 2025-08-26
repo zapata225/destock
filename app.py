@@ -29,6 +29,8 @@ from flask_compress import Compress
 from flask_babel import Babel, _
 from admin_auth import ADMIN_CREDENTIALS   # identifiants admin
 from models import User  # Import après db
+from extensions import db
+
 
 
 def last4(s):
@@ -53,7 +55,7 @@ app.config.update(
 # ✅ Configuration de la DB (SQLite en local, PostgreSQL sur Render si DATABASE_URL existe)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite:///site.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+db.init_app(app)
 
 # Babel (multi-langues)
 app.config['BABEL_DEFAULT_LOCALE'] = 'fr'
