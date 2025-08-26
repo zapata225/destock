@@ -659,23 +659,23 @@ def admin_login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        
+
         if (username == ADMIN_CREDENTIALS['username'] and 
             check_password_hash(ADMIN_CREDENTIALS['password_hash'], password)):
             
             session['admin_logged_in'] = True
-            session['admin_last_activity'] = get_utc_now()
-            return redirect(url_for('admin_dashboard'))  # Modifiez selon votre endpoint
-            
+            flash("Connexion admin réussie", "success")
+            return redirect(url_for('admin_dashboard'))  # modifie selon ton endpoint
+
         flash('Identifiants incorrects', 'error')
-    
+
     return render_template('admin_login.html')
 
 @app.route('/admin/logout')
 def admin_logout():
     session.clear()
     flash('Déconnexion réussie', 'success')
-    return redirect(url_for('index'))
+    return redirect(url_for('index')
 
 
 @app.route('/admin/update-status/<order_id>', methods=['POST'])
@@ -2860,20 +2860,18 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        
-        user = users.get(username)
-        if user and check_password_hash(user['password'], password):
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and user.check_password(password):
             session['logged_in'] = True
-            session['username'] = username
+            session['username'] = user.username
+            session['role'] = user.role
             flash('Connexion réussie', 'success')
-            
-            next_page = session.pop('next', None)
-            if next_page:
-                return redirect(url_for(next_page))
             return redirect(url_for('index'))
         else:
             flash('Identifiant ou mot de passe incorrect', 'error')
-    
+
     return render_template('login.html')
 
 @app.route('/checkout-guest', methods=['POST'])
@@ -2944,20 +2942,26 @@ def register():
         password = request.form['password']
         email = request.form['email']
         full_name = request.form['full_name']
-        
-        if username in users:
-            flash('Ce nom d\'utilisateur est déjà pris', 'error')
-        else:
-            users[username] = {
-                'password': generate_password_hash(password),
-                'email': email,
-                'full_name': full_name,
-                'address': '',
-                'phone': ''
-            }
-            flash('Inscription réussie. Vous pouvez maintenant vous connecter.', 'success')
-            return redirect(url_for('login'))
-    
+
+        # Vérifier si username ou email existent déjà
+        if User.query.filter((User.username == username) | (User.email == email)).first():
+            flash("Nom d'utilisateur ou email déjà utilisé", "error")
+            return redirect(url_for('register'))
+
+        # Créer utilisateur
+        new_user = User(
+            username=username,
+            email=email,
+            full_name=full_name
+        )
+        new_user.set_password(password)
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash("Inscription réussie. Vous pouvez maintenant vous connecter.", "success")
+        return redirect(url_for('login'))
+
     return render_template('register.html')
 
 @app.route('/admin/delete-user/<username>', methods=['POST'])
