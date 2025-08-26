@@ -198,18 +198,16 @@ def save_cart(cart):
 
 
 
-# 1. D'abord définir les fonctions utilitaires
 def get_utc_now():
-    """Retourne la date/heure actuelle avec timezone UTC"""
     return datetime.now(timezone.utc)
 
 def ensure_timezone(dt):
-    """Assure qu'une datetime a un fuseau horaire (UTC si absent)"""
     if dt is None:
         return None
-    return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
-
-import random
+    # Si dt n'a pas de timezone, on ajoute UTC
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt
 
 @app.route('/destockage-alimentaire-professionnel')
 def seo_landing_1():
@@ -305,15 +303,21 @@ def seo_landing_3():
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        last_activity = ensure_timezone(session.get('admin_last_activity'))
+        current_time = get_utc_now()
+
+        # Vérifie la session
         if not session.get('admin_logged_in'):
             return redirect(url_for('admin_login', next=request.url))
-        # Expiration session 5 minutes
-        last_activity = session.get('admin_last_activity')
-        if last_activity and (datetime.utcnow() - last_activity) > timedelta(minutes=5):
+
+        # Expiration après 5 minutes
+        if last_activity and (current_time - last_activity) > timedelta(minutes=5):
             session.clear()
             flash('Session expirée', 'warning')
             return redirect(url_for('admin_login', next=request.url))
-        session['admin_last_activity'] = datetime.utcnow()
+
+        # Met à jour le timestamp
+        session['admin_last_activity'] = current_time
         return f(*args, **kwargs)
     return decorated_function
 
