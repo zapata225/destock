@@ -3631,7 +3631,7 @@ products = [
   {
     "id": 464,
     "name": "Palette Château La Gorce 2017 – Médoc (600 bouteilles)",
-    "description": "Palette de 600 bouteilles de 75 cl du Château La Gorce 2027, vin rouge Médoc Cru Bourgeois. Vin équilibré, fruité avec tanins fins, parfait pour professionnels et restaurateurs.",
+    "description": "Palette de 600 bouteilles de 75 cl du Château La Gorce 2017, vin rouge Médoc Cru Bourgeois. Vin équilibré, fruité avec tanins fins, parfait pour professionnels et restaurateurs.",
     "price": 4200.00,
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
@@ -3678,7 +3678,7 @@ products = [
       "ratingValue": "4.2",
       "reviewCount": "150"
     },
-    "seo_description": "Palette Château La Gorce 2027 – 600 bouteilles à 7€/bouteille (4 200€). Médoc Cru Bourgeois, vin rouge fruité et équilibré, parfait pour professionnels et restaurateurs."
+    "seo_description": "Palette Château La Gorce 2017 – 600 bouteilles à 7€/bouteille (4 200€). Médoc Cru Bourgeois, vin rouge fruité et équilibré, parfait pour professionnels et restaurateurs."
   },
   {
     "id": 451,
