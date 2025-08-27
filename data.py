@@ -3499,8 +3499,8 @@ products = [
         "priceCurrency": "EUR",
         "category": "Hygiène",
         "stock": 5,
-        "featured": true,
-        "published": true,
+        "featured": True,
+        "published": True,
         "images": ["palmolive-palette.jpg"],
         "details": {
             "marque": "Palmolive",
@@ -3545,8 +3545,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 5,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "ame-qui-vive-1.jpg",
       "ame-qui-vive-2.jpg"
@@ -3591,8 +3591,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 8,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "lantidote-1.jpg",
       "lantidote-2.jpg"
@@ -3636,8 +3636,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 10,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "chateau-la-gorce-1.jpg",
     ],
@@ -3689,8 +3689,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Épicerie",
     "stock": 10,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "huile-olive-bio-25cl-palette-1.jpg",
       "huile-olive-bio-25cl-palette-2.jpg",
@@ -3698,7 +3698,7 @@ products = [
     "details": {
       "marque": "Carrefour Bio",
       "type": "Huile d'olive vierge extra",
-      "bio": true,
+      "bio": True,
       "conseils_conso": {
         "utilisation": "Assaisonnement et cuisson (température maximale conseillée : 175°C).",
         "conservation": "À conserver à l'abri de la lumière et de la chaleur. Bien refermer après chaque usage."
