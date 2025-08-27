@@ -3489,7 +3489,305 @@ products = [
             "reviewCount": "20"
         },
         "seo_description": "Palette Gel Douche Palmolive 360 flacons - 0.40€/L. Parfums variés, idéal spas/hôtels. Destockage flash."
-    }
+    },
+    
+    {
+        "id": 450,
+        "name": "⚡ FLASH - Gel Douche Palmolive (360 flacons)",
+        "description": "Parfums variés (12 options). Prix urgent 290€ (0.40€/L). Convient spas/hôtels.",
+        "price": 290.00,
+        "priceCurrency": "EUR",
+        "category": "Hygiène",
+        "stock": 5,
+        "featured": true,
+        "published": true,
+        "images": ["palmolive-palette.jpg"],
+        "details": {
+            "marque": "Palmolive",
+            "type": "Gel douche",
+            "bulk_specs": {
+                "flacons_palette": 360,
+                "volume_total": "720L",
+                "poids": "580 kg",
+                "dimensions": "1m x 1m x 1.5m"
+            },
+            "features": [
+                "pH équilibré 5.5",
+                "DLC 2025",
+                "3 palettes partent à l'heure"
+            ],
+            "urgency": {
+                "sold_today": 22,
+                "stock_left": 5
+            }
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "290.00",
+            "priceCurrency": "EUR",
+            "priceValidUntil": "2025-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "/produits/450",
+            "unit_price": "0.40€/L"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "20"
+        },
+        "seo_description": "Palette Gel Douche Palmolive 360 flacons - 0.40€/L. Parfums variés, idéal spas/hôtels. Destockage flash."
+    },
+  {
+    "id": 461,
+    "name": "Palette Domaine Les Terres Promises – « Âme qui vive » 2023 (600 bouteilles)",
+    "description": "Palette de 600 bouteilles de 750 ml du vin rouge Domaine Les Terres Promises – « Âme qui vive » 2021. Vin élégant et racé, aux arômes de fruits noirs mûrs et notes épicées.",
+    "price": 12000.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 5,
+    "featured": true,
+    "published": true,
+    "images": [
+      "ame-qui-vive-1.jpg",
+      "ame-qui-vive-2.jpg"
+    ],
+    "details": {
+      "origine": "Provence, France",
+      "type": "Vin rouge (assemblage)",
+      "volume": "750 ml",
+      "alcohol": "14 %",
+      "bulk_specs": {
+        "unites_palette": 600,
+        "volume_total": "450 L",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m (euro-palette)"
+      },
+      "tasting_notes": [
+        "Arômes de fruits noirs mûrs",
+        "Notes épicées et animales",
+        "Équilibre parfait entre tanins et fraîcheur"
+      ],
+      "pairing_suggestions": [
+        "Côtelettes d'agneau",
+        "Viande rouge",
+        "Gibier"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "12000.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/461",
+      "unit_price": "20€/bouteille"
+    },
+    "seo_description": "Palette Domaine Les Terres Promises – « Âme qui vive » 2021 – 600 bouteilles à 20 €/bouteille (12 000 €). Vin rouge de Provence, élégant et racé, parfait pour professionnels."
+  },
+  {
+    "id": 462,
+    "name": "Palette Domaine Les Terres Promises – « L’Antidote » 2022 (600 bouteilles)",
+    "description": "Palette de 600 bouteilles de 750 ml du vin rouge Domaine Les Terres Promises – « L’Antidote » 2022. Vin fruité, frais et dense, avec des tanins fins et croquants.",
+    "price": 6000.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 8,
+    "featured": true,
+    "published": true,
+    "images": [
+      "lantidote-1.jpg",
+      "lantidote-2.jpg"
+    ],
+    "details": {
+      "origine": "Provence, France",
+      "type": "Vin rouge (Carignan)",
+      "volume": "750 ml",
+      "alcohol": "13,5 %",
+      "bulk_specs": {
+        "unites_palette": 600,
+        "volume_total": "450 L",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m (euro-palette)"
+      },
+      "tasting_notes": [
+        "Vin fruité et frais",
+        "Tanins fins et croquants",
+        "Structure élégante"
+      ],
+      "pairing_suggestions": [
+        "Grillades",
+        "Plats méditerranéens"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "6600.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/462",
+      "unit_price": "11€/bouteille"
+    },
+    "seo_description": "Palette Domaine Les Terres Promises – « L’Antidote » 2022 – 600 bouteilles à 11 €/bouteille (6 600 €). Vin rouge fruité et dense, idéal pour professionnels."
+  },
+  {
+    "id": 464,
+    "name": "Palette Château La Gorce 2017 – Médoc (600 bouteilles)",
+    "description": "Palette de 600 bouteilles de 75 cl du Château La Gorce 2027, vin rouge Médoc Cru Bourgeois. Vin équilibré, fruité avec tanins fins, parfait pour professionnels et restaurateurs.",
+    "price": 4200.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 10,
+    "featured": true,
+    "published": true,
+    "images": [
+      "chateau-la-gorce-1.jpg",
+    ],
+    "details": {
+      "origine": "Médoc, Bordeaux, France",
+      "type": "Vin rouge (Merlot, Cabernet Sauvignon, Petit Verdot)",
+      "volume": "75 cl",
+      "alcohol": "14%",
+      "bulk_specs": {
+        "unites_palette": 600,
+        "volume_total": "450 L",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m (euro-palette)"
+      },
+      "tasting_notes": [
+        "Arômes de fruits rouges mûrs : framboise et cerise",
+        "Notes florales, vanille et chocolat",
+        "Bouche équilibrée, tanins fins et élégants, finale persistante"
+      ],
+      "pairing_suggestions": [
+        "Épaule d'agneau braisé",
+        "Gigot aux flageolets",
+        "Navarin d'agneau",
+        "Fromages affinés"
+      ],
+      "winery_style": "Authentique, équilibré et accessible, Cru Bourgeois"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4200.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/464",
+      "unit_price": "7€/bouteille"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.2",
+      "reviewCount": "150"
+    },
+    "seo_description": "Palette Château La Gorce 2027 – 600 bouteilles à 7€/bouteille (4 200€). Médoc Cru Bourgeois, vin rouge fruité et équilibré, parfait pour professionnels et restaurateurs."
+  },
+  {
+    "id": 451,
+    "name": "⚡ PROMO - Palette Huile d'olive vierge extra BIO (2000 flacons de 25cl)",
+    "description": "Palette de 2000 flacons de 25 cl d'huile d'olive vierge extra issue de l'agriculture biologique. Équivalent 500 L par palette. Prix promo 3 600 € (1,80 €/unité au lieu de 2,00 €).",
+    "price": 3600.00,
+    "oldPrice": 4000.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 10,
+    "featured": true,
+    "published": true,
+    "images": [
+      "huile-olive-bio-25cl-palette-1.jpg",
+      "huile-olive-bio-25cl-palette-2.jpg",
+    ],
+    "details": {
+      "marque": "Carrefour Bio",
+      "type": "Huile d'olive vierge extra",
+      "bio": true,
+      "conseils_conso": {
+        "utilisation": "Assaisonnement et cuisson (température maximale conseillée : 175°C).",
+        "conservation": "À conserver à l'abri de la lumière et de la chaleur. Bien refermer après chaque usage."
+      },
+      "engagements_bio": [
+        "0 pesticide de synthèse",
+        "0 colorant",
+        "0 exhausteur de goût",
+        "0 arôme de synthèse",
+        "0 OGM",
+        "0 engrais chimique",
+        "Chaîne contrôlée au minimum 1 fois/an par un organisme certificateur"
+      ],
+      "ingredients": "Huile d'olive vierge extra issue de l'agriculture biologique",
+      "nutrition_100g": {
+        "energie_kJ": 3367,
+        "energie_kcal": 819,
+        "matieres_grasses_g": 91,
+        "acides_gras_satures_g": 15
+      },
+      "bulk_specs": {
+        "format_unitaire": "25 cl (flacon verre/PET)",
+        "unites_palette": 2000,
+        "volume_total": "500 L",
+        "poids_estime": "≈ 560 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m (euro-palette)"
+      },
+      "features": [
+        "Vierge extra, goût authentique",
+        "Certification BIO (UE)",
+        "Format pratique 25 cl",
+        "Équivalent 500 L par palette",
+        "Prix promotionnel exceptionnel"
+      ],
+      "urgency": {
+        "sold_today": 15,
+        "stock_left": 10
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "3600.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/451",
+      "unit_price": "1.80€/unité",
+      "price_note": "Prix promo basé sur 2000 unités × 1,80€ (au lieu de 2,00€)"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.52",
+      "reviewCount": "303",
+      "breakdown": {
+        "1_etoile": "0%",
+        "2_etoiles": "0%",
+        "3_etoiles": "3%",
+        "4_etoiles": "43%",
+        "5_etoiles": "54%"
+      }
+    },
+    "reviews": [
+      {
+        "author": "Marcienne M.",
+        "rating": 4,
+        "title": "Qualité",
+        "reviewBody": "Très bonne qualité",
+        "reviewDate": "2022-09-24",
+        "purchaseDate": "2022-06-07"
+      },
+      {
+        "author": "Christian L.",
+        "rating": 4,
+        "title": "Chère",
+        "reviewBody": "Bonne huile mais chère",
+        "reviewDate": "2022-12-01",
+        "purchaseDate": "2022-04-19"
+      },
+      {
+        "author": "Sylvia T.",
+        "rating": 5,
+        "title": "À 100%",
+        "reviewBody": "Je la renouvelle souvent, petite qualité et petit prix, mais elle est bonne",
+        "reviewDate": "2022-12-10",
+        "purchaseDate": "2022-10-11"
+      }
+    ],
+    "seo_description": "⚡ PROMO Palette Huile d'olive vierge extra BIO – 2000 flacons de 25 cl à 1,80€/unité (3 600€ au lieu de 4 000€). Équivalent 500 L, certification BIO, idéal professionnels."
+  }
 ]
 
 
