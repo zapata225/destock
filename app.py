@@ -3191,60 +3191,70 @@ def admin():
                          users=users,
                          products=products)
 
-@app.route('/admin/orders')
-@admin_required
+@app.route('/admin/commandes')
 def admin_orders():
-    if not session.get('admin_logged_in'):
+    # Vérifie si l'utilisateur est admin
+    if not session.get('admin'):
+        flash("Accès refusé", "error")
         return redirect(url_for('admin_login'))
 
-    orders_query = Order.query.order_by(Order.date.desc()).all()
-    processed_orders = []
+    # Récupère toutes les commandes de la base, triées par date décroissante
+    orders = Order.query.order_by(Order.date.desc()).all()
 
-    for order in orders_query:
-        items_list = []
-        total = 0
-        if order.items:
+    # Préparation des commandes pour le template
+    orders_data = []
+    for order in orders:
+        order_items = []
+        if order.items:  # items stockés en JSON
             for product_id, quantity in order.items.items():
-                product = next((p for p in all_products if str(p['id']) == str(product_id)), None)
+                product = next((p for p in products if str(p['id']) == str(product_id)), None)
                 if product:
-                    item_total = product['price'] * int(quantity)
-                    total += item_total
-                    items_list.append({
-                        'product': product,
+                    order_items.append({
+                        'id': product['id'],
+                        'name': product['name'],
+                        'price': product['price'],
                         'quantity': quantity,
-                        'total': item_total
+                        'total': float(product['price']) * quantity,
+                        'image': product.get('image', 'default-product.jpg')
                     })
-        else:
-            total = order.total
-
-        processed_orders.append({
+        orders_data.append({
             'id': order.id,
-            'date': order.date.strftime("%Y-%m-%d %H:%M"),
-            'user': order.user.username if order.user else "Invité",
-            'items': items_list,
-            'total': total,
+            'reference': order.reference,
+            'user': order.user.username if order.user else 'Invité',
+            'email': order.email,
+            'phone': order.phone,
+            'date': order.date.strftime("%Y-%m-%d %H:%M:%S"),
             'status': order.status,
-            'payment_method': order.payment_method,
-            'card_number': getattr(order, 'card_number', ''),
-            'bank_user_id': getattr(order, 'bank_user_id', '')
+            'subtotal': order.subtotal,
+            'delivery_cost': order.delivery_cost,
+            'discount': order.discount,
+            'total': order.total,
+            'items': order_items
         })
 
-    return render_template('admin_orders.html', orders=processed_orders)
+    return render_template('admin_orders.html', orders=orders_data)
 
 
 @app.route('/admin/update-order-status/<order_id>', methods=['POST'])
 @admin_required
 def admin_update_order_status(order_id):
-    orders_session = session.get('orders', {})
-    if order_id not in orders_session:
+    # Récupère la commande depuis la DB
+    order = Order.query.get(order_id)
+    if not order:
         return jsonify({'success': False, 'message': 'Commande non trouvée'}), 404
+
+    # Nouveau statut envoyé par le front
     new_status = request.json.get('status')
-    if new_status not in ['En traitement', 'Validée', 'En préparation', 'Expédiée', 'Livrée']:
+    valid_status = ['En traitement', 'Validée', 'En préparation', 'Expédiée', 'Livrée']
+    if new_status not in valid_status:
         return jsonify({'success': False, 'message': 'Statut invalide'}), 400
-    orders_session[order_id]['status'] = new_status
-    session['orders'] = orders_session
-    session.modified = True
+
+    # Met à jour le statut
+    order.status = new_status
+    db.session.commit()
+
     return jsonify({'success': True, 'message': 'Statut mis à jour'})
+
 
 @app.route('/admin/products')
 @admin_required
