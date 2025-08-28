@@ -3193,12 +3193,10 @@ def admin_orders():
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
 
-    # Récupère toutes les commandes depuis la base, triées par date décroissante
     orders_query = Order.query.order_by(Order.date.desc()).all()
     processed_orders = []
 
     for order in orders_query:
-        # Préparer les items si stockés en JSON
         items_list = []
         total = 0
         if order.items:
@@ -3213,7 +3211,7 @@ def admin_orders():
                         'total': item_total
                     })
         else:
-            total = order.total  # fallback si items vide
+            total = order.total
 
         processed_orders.append({
             'id': order.id,
@@ -3228,7 +3226,6 @@ def admin_orders():
         })
 
     return render_template('admin_orders.html', orders=processed_orders)
-
 
 
 @app.route('/admin/update-order-status/<order_id>', methods=['POST'])
