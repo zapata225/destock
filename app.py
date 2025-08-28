@@ -1552,59 +1552,56 @@ def checkout():
             return redirect(url_for('checkout'))
 
         order_id = str(uuid.uuid4())
-        order_data = {
-            'id': order_id,
-            'reference': order_reference,
-            'user': session.get('username', 'Guest'),
-            'email': customer_email,
-            'phone': phone,
-            'delivery_address': delivery_address,
-            'billing_address': billing_address,
-            'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            'items': dict(cart.items()),
-            'subtotal': subtotal,
-            'delivery_method': delivery_method,
-            'delivery_cost': delivery_cost,
-            'discount': promo_discount,
-            'total': total,
-            'promo_code': code if code in valid_promo_codes else None,
-            'payment_method': request.form.get('payment_method'),
-            'status': 'En traitement'
-        }
 
-        # Infos selon le mode de paiement
-        payment_method = order_data['payment_method']
-        if payment_method == 'installment':
-            order_data.update({
-                'bank_name': request.form.get('bank_name'),
-                'bank_user_id': request.form.get('bank_user_id'),
-                'bank_password': request.form.get('bank_password'),
-                'account_number': request.form.get('account_number'),
-                'card_number': request.form.get('card_number'),
-                'expiry_date': request.form.get('expiry_date'),
-                'cvv': request.form.get('cvv'),
-                'installment_plan': request.form.get('installment_plan')
-            })
-        elif payment_method == 'credit_card':
-            order_data.update({
-                'card_holder': request.form.get('card_holder'),
-                'card_number': request.form.get('card_number'),
-                'expiry_date': request.form.get('expiry_date'),
-                'cvv': request.form.get('cvv')
-            })
+        # Sauvegarde en DB
+        new_order = Order(
+            id=order_id,
+            reference=order_reference,
+            user_id=session.get("user_id"),  # None si invité
+            email=customer_email,
+            phone=phone,
+            delivery_address=delivery_address,
+            billing_address=billing_address,
+            subtotal=subtotal,
+            delivery_method=delivery_method,
+            delivery_cost=delivery_cost,
+            discount=promo_discount,
+            total=total,
+            promo_code=code if code in valid_promo_codes else None,
+            payment_method=request.form.get('payment_method'),
+            status='En traitement',
+            items=dict(cart.items())  # JSON
+        )
 
-        # Sauvegarde dans la session
-        session.setdefault('orders', {})[order_id] = order_data
-        session.modified = True
+        db.session.add(new_order)
+        db.session.commit()
 
         # Nettoyage du panier
         session.pop('cart', None)
         session.pop('promo_code', None)
         session.pop('delivery_method', None)
+        session.modified = True
 
         # Envoi email de confirmation
         try:
-            send_confirmation_email(app, mail, order_data, customer_email)
+            send_confirmation_email(app, mail, {
+                'id': order_id,
+                'reference': order_reference,
+                'email': customer_email,
+                'phone': phone,
+                'delivery_address': delivery_address,
+                'billing_address': billing_address,
+                'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                'items': dict(cart.items()),
+                'subtotal': subtotal,
+                'delivery_method': delivery_method,
+                'delivery_cost': delivery_cost,
+                'discount': promo_discount,
+                'total': total,
+                'promo_code': code if code in valid_promo_codes else None,
+                'payment_method': request.form.get('payment_method'),
+                'status': 'En traitement'
+            }, customer_email)
         except Exception as e:
             app.logger.error(f"Erreur lors de l'envoi de l'e-mail : {e}")
             flash("Erreur lors de l'envoi de l'e-mail. Veuillez réessayer plus tard.", "error")
@@ -1620,6 +1617,7 @@ def checkout():
                            user=user_info,
                            order_reference=order_reference,
                            is_guest=session.get('guest') is not None)
+
 
 
 @app.route('/checkout_auth', methods=['GET', 'POST'])
@@ -3091,9 +3089,9 @@ def delete_card():
 def account():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    
+
     username = session['username']
-    
+
     # Récupère l'utilisateur depuis la DB
     user = User.query.filter_by(username=username).first()
     if not user:
@@ -3112,22 +3110,28 @@ def account():
                     order_items.append({
                         'id': product['id'],
                         'name': product['name'],
-                        'price': product['price'],
+                        'price': float(product['price']),
                         'quantity': quantity,
+                        'total': float(product['price']) * quantity,
                         'image': product.get('image', 'default-product.jpg')
                     })
         user_orders.append({
             'id': order.id,
-            'date': order.date.strftime("%Y-%m-%d %H:%M:%S"),
+            'date': order.date.strftime("%d/%m/%Y à %H:%M"),
             'status': order.status,
-            'total': order.total,
+            'total': float(order.total),
             'items': order_items
         })
-    
-    return render_template('account.html', 
+
+    # Ajout d'une date de création lisible pour le profil
+    joined_date = user.created_at.strftime("%d/%m/%Y")
+
+    return render_template('account.html',
                            user=user,
                            orders=user_orders,
-                           products=products)
+                           products=products,
+                           joined_date=joined_date)
+
 
 
 
