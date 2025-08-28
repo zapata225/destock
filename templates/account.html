@@ -2,8 +2,9 @@
 
 {% block extra_css %}
 <style>
+    /* Variables de design système moderne avec couleurs vibrantes */
     :root {
-        /* Palette de couleurs raffinée et professionnelle */
+        /* Nouvelle palette de couleurs vibrantes et modernes */
         --primary-50: #f0f9ff;
         --primary-100: #e0f2fe;
         --primary-200: #bae6fd;
@@ -16,14 +17,14 @@
         --primary-900: #0c4a6e;
         --primary-950: #082f49;
         
-        /* Couleurs d'accent sophistiquées */
-        --accent-purple: #8b5cf6;
+        /* Couleurs d'accent vibrantes */
+        --accent-purple: #a855f7;
         --accent-pink: #ec4899;
         --accent-orange: #f97316;
         --accent-teal: #0d9488;
         --accent-cyan: #06b6d4;
         
-        /* Couleurs neutres élégantes */
+        /* Couleurs neutres améliorées */
         --neutral-50: #fafafa;
         --neutral-100: #f4f4f5;
         --neutral-200: #e4e4e7;
@@ -36,24 +37,28 @@
         --neutral-900: #18181b;
         --neutral-950: #09090b;
         
-        /* Couleurs sémantiques */
+        /* Couleurs sémantiques vibrantes */
         --success: #10b981;
         --warning: #f59e0b;
         --danger: #ef4444;
         --info: #3b82f6;
         
-        /* Dégradés premium */
+        /* Nouveaux dégradés colorés et modernes */
         --primary-gradient: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-cyan) 100%);
         --secondary-gradient: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+        --success-gradient: linear-gradient(135deg, var(--success) 0%, var(--accent-teal) 100%);
+        --warning-gradient: linear-gradient(135deg, var(--warning) 0%, var(--accent-orange) 100%);
         --glass-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
         --card-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        --sidebar-gradient: linear-gradient(180deg, var(--primary-600) 0%, var(--primary-800) 100%);
         
-        /* Effets d'ombre sophistiqués */
+        /* Effets d'ombre modernes avec couleurs */
         --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         --shadow-primary: 0 10px 15px -3px rgba(14, 165, 233, 0.3), 0 4px 6px -2px rgba(14, 165, 233, 0.15);
         
         /* Bordures et rayons */
@@ -63,12 +68,13 @@
         --radius-xl: 1rem;
         --radius-2xl: 1.5rem;
         
-        /* Transitions fluides */
+        /* Transitions et animations améliorées */
         --transition-base: all 0.2s ease-in-out;
         --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
-    /* Reset et base */
+    /* Reset et base modernisée avec arrière-plan coloré */
     * {
         box-sizing: border-box;
         margin: 0;
@@ -83,7 +89,7 @@
         min-height: 100vh;
     }
 
-    /* Layout principal */
+    /* Layout principal avec glassmorphisme amélioré */
     .account-container {
         display: grid;
         grid-template-columns: 320px 1fr;
@@ -100,9 +106,9 @@
         }
     }
 
-    /* Sidebar premium */
+    /* Sidebar moderne avec effet glass et couleurs vibrantes */
     .account-sidebar {
-        background: rgba(255, 255, 255, 0.95);
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(2, 132, 199, 0.9) 100%);
         backdrop-filter: blur(10px);
         border-radius: var(--radius-2xl);
         box-shadow: var(--shadow-xl);
@@ -110,8 +116,9 @@
         height: fit-content;
         position: sticky;
         top: 120px;
-        border: 1px solid rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         overflow: hidden;
+        color: white;
     }
 
     .account-sidebar::before {
@@ -121,14 +128,14 @@
         left: 0;
         right: 0;
         height: 6px;
-        background: var(--primary-gradient);
+        background: var(--secondary-gradient);
         border-radius: 3px 3px 0 0;
     }
 
     .user-profile {
         text-align: center;
         padding: 2rem 0;
-        border-bottom: 1px solid var(--neutral-200);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         margin-bottom: 1.5rem;
         position: relative;
     }
@@ -139,9 +146,9 @@
         border-radius: 50%;
         object-fit: cover;
         margin: 0 auto 1.25rem;
-        border: 4px solid var(--primary-100);
+        border: 4px solid rgba(255, 255, 255, 0.5);
         box-shadow: var(--shadow-lg);
-        transition: var(--transition-smooth);
+        transition: var(--transition-bounce);
         position: relative;
     }
 
@@ -154,31 +161,33 @@
         height: 22px;
         background: var(--success);
         border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 0 0 0 2px var(--primary-100);
+        border: 3px solid var(--primary-600);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
     }
 
     .user-avatar:hover {
         transform: scale(1.08);
-        box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
     .user-name {
         font-size: 1.375rem;
         font-weight: 700;
-        color: var(--primary-800);
+        color: white;
         margin-bottom: 0.5rem;
         letter-spacing: -0.025em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .user-email {
-        color: var(--neutral-600);
+        color: rgba(255, 255, 255, 0.9);
         font-size: 0.9375rem;
         display: inline-block;
-        background: var(--primary-50);
+        background: rgba(255, 255, 255, 0.15);
         padding: 0.375rem 0.875rem;
         border-radius: 50px;
         font-weight: 500;
+        backdrop-filter: blur(10px);
     }
 
     .nav-menu {
@@ -196,41 +205,65 @@
         align-items: center;
         padding: 0.875rem 1.25rem;
         border-radius: var(--radius-lg);
-        color: var(--neutral-600);
+        color: rgba(255, 255, 255, 0.9);
         transition: var(--transition-smooth);
         font-weight: 500;
         text-decoration: none;
         gap: 0.875rem;
         position: relative;
         overflow: hidden;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--secondary-gradient);
+        opacity: 0.2;
+        transition: var(--transition-smooth);
+        z-index: 0;
     }
 
     .nav-link:hover {
-        color: var(--primary-700);
-        background: var(--primary-50);
+        color: white;
         transform: translateX(4px);
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-link:hover::before {
+        left: 0;
     }
 
     .nav-link.active {
-        background: var(--primary-100);
-        color: var(--primary-700);
-        box-shadow: var(--shadow-sm);
+        background: rgba(255, 255, 255, 0.25);
+        color: white;
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-link.active::before {
+        display: none;
     }
 
     .nav-link i {
         font-size: 1.2rem;
         width: 24px;
         text-align: center;
+        z-index: 1;
     }
 
-    /* Contenu principal */
+    /* Contenu principal amélioré avec couleurs */
     .account-content {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(10px);
         border-radius: var(--radius-2xl);
         box-shadow: var(--shadow-lg);
         padding: 2.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.7);
         margin-bottom: 2rem;
     }
 
@@ -267,9 +300,13 @@
         color: var(--primary-800);
         margin: 0;
         letter-spacing: -0.025em;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
-    /* Cartes de statistiques */
+    /* Cartes de statistiques améliorées avec couleurs vibrantes */
     .account-stats {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -282,7 +319,7 @@
         border-radius: var(--radius-xl);
         padding: 1.75rem;
         transition: var(--transition-smooth);
-        border: 1px solid var(--neutral-200);
+        border: 1px solid rgba(255, 255, 255, 0.8);
         box-shadow: var(--shadow-md);
         position: relative;
         overflow: hidden;
@@ -303,7 +340,7 @@
     }
 
     .stat-card:nth-child(3)::before {
-        background: linear-gradient(135deg, var(--success) 0%, var(--accent-teal) 100%);
+        background: var(--success-gradient);
     }
 
     .stat-card:hover {
@@ -323,15 +360,24 @@
 
     .stat-title i {
         font-size: 1.1rem;
-        color: var(--primary-500);
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .stat-card:nth-child(2) .stat-title i {
-        color: var(--accent-purple);
+        background: var(--secondary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .stat-card:nth-child(3) .stat-title i {
-        color: var(--success);
+        background: var(--success-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .stat-value {
@@ -341,7 +387,7 @@
         letter-spacing: -0.025em;
     }
 
-    /* Sections */
+    /* Sections améliorées avec couleurs */
     .account-section {
         margin-bottom: 3.5rem;
     }
@@ -368,13 +414,13 @@
         border-radius: 2px;
     }
 
-    /* Cartes d'information */
+    /* Cartes d'information améliorées avec couleurs */
     .info-card {
         background: var(--card-gradient);
         border-radius: var(--radius-xl);
         padding: 1.75rem;
         margin-bottom: 1.75rem;
-        border: 1px solid var(--neutral-200);
+        border: 1px solid rgba(255, 255, 255, 0.8);
         box-shadow: var(--shadow-sm);
         transition: var(--transition-smooth);
         position: relative;
@@ -430,7 +476,7 @@
         min-width: 140px;
     }
 
-    /* Boutons */
+    /* Boutons améliorés avec couleurs vibrantes */
     .edit-btn {
         background: rgba(14, 165, 233, 0.1);
         border: 1px solid rgba(14, 165, 233, 0.2);
@@ -456,7 +502,7 @@
         font-size: 0.75rem;
     }
 
-    /* Formulaires */
+    /* Formulaires améliorés avec couleurs */
     .form-group {
         margin-bottom: 1.75rem;
     }
@@ -499,6 +545,19 @@
         font-size: 1rem;
         box-shadow: var(--shadow-md);
         letter-spacing: 0.025em;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-save::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: var(--transition-smooth);
     }
 
     .btn-save:hover {
@@ -506,7 +565,11 @@
         box-shadow: var(--shadow-lg);
     }
 
-    /* Tableau des commandes */
+    .btn-save:hover::before {
+        left: 100%;
+    }
+
+    /* Tableau des commandes amélioré avec couleurs */
     .orders-table {
         width: 100%;
         border-collapse: separate;
@@ -575,7 +638,7 @@
         border: 1px solid #fca5a5;
     }
 
-    /* Moyens de paiement */
+    /* Moyens de paiement améliorés avec couleurs */
     .payment-methods {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -584,7 +647,7 @@
 
     .payment-card {
         background: var(--card-gradient);
-        border: 1px solid var(--neutral-200);
+        border: 1px solid rgba(255, 255, 255, 0.8);
         border-radius: var(--radius-xl);
         padding: 1.75rem;
         transition: var(--transition-smooth);
@@ -630,7 +693,10 @@
 
     .card-type i {
         font-size: 1.75rem;
-        color: var(--primary-500);
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .card-default {
@@ -703,7 +769,7 @@
         transform: translateY(-2px);
     }
 
-    /* Bouton ajouter */
+    /* Bouton ajouter amélioré avec couleurs */
     .add-payment-btn {
         display: flex;
         align-items: center;
@@ -731,7 +797,7 @@
         font-size: 1.5rem;
     }
 
-    /* Animations */
+    /* Animations améliorées */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
@@ -742,6 +808,12 @@
         to { opacity: 1; transform: translateX(0); }
     }
 
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
     .fade-in {
         animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -750,7 +822,11 @@
         animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Responsive */
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    /* Responsive amélioré */
     @media (max-width: 1024px) {
         .account-sidebar {
             position: static;
@@ -797,7 +873,7 @@
         }
     }
 
-    /* État vide */
+    /* État vide amélioré avec couleurs */
     .empty-state {
         text-align: center;
         padding: 3.5rem 1.5rem;
@@ -810,7 +886,10 @@
 
     .empty-state i {
         font-size: 3.5rem;
-        color: var(--primary-500);
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         margin-bottom: 1.5rem;
     }
 
@@ -820,7 +899,7 @@
         color: var(--primary-700);
     }
 
-    /* Bouton primaire */
+    /* Bouton primaire amélioré avec couleurs */
     .btn-primary {
         background: var(--primary-gradient);
         color: white;
@@ -835,11 +914,126 @@
         align-items: center;
         gap: 0.5rem;
         box-shadow: var(--shadow-md);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: var(--transition-smooth);
     }
 
     .btn-primary:hover {
         transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:hover::before {
+        left: 100%;
+    }
+
+    /* Mode sombre automatique avec couleurs préservées */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --neutral-50: #09090b;
+            --neutral-100: #18181b;
+            --neutral-200: #27272a;
+            --neutral-300: #3f3f46;
+            --neutral-400: #52525b;
+            --neutral-500: #71717a;
+            --neutral-600: #a1a1aa;
+            --neutral-700: #d4d4d8;
+            --neutral-800: #e4e4e7;
+            --neutral-900: #f4f4f5;
+            --neutral-950: #fafafa;
+        }
+
+        .account-sidebar {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(2, 132, 199, 0.9) 100%);
+        }
+
+        .account-content,
+        .stat-card,
+        .info-card,
+        .payment-card {
+            background: rgba(24, 24, 27, 0.9);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--neutral-200);
+        }
+
+        .orders-table,
+        .empty-state {
+            background: var(--neutral-100);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--neutral-200);
+        }
+
+        .orders-table th {
+            background: var(--primary-900);
+            color: white;
+        }
+
+        .form-control {
+            background: var(--neutral-200);
+            border-color: var(--neutral-300);
+            color: var(--neutral-700);
+        }
+
+        .info-content strong,
+        .account-title,
+        .section-title,
+        .info-title {
+            color: var(--primary-300);
+        }
+
+        .stat-value,
+        .card-number {
+            color: white;
+        }
+    }
+
+    /* Améliorations spécifiques pour mobile */
+    @media (max-width: 576px) {
+        .account-container {
+            padding: 0 1rem;
+            margin: 1rem auto;
+        }
+
+        .account-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .btn-save, .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .account-title {
+            font-size: 1.75rem;
+        }
+    }
+
+    /* Indicateur de chargement moderne avec couleurs */
+    .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
     }
 
     /* Badge de notification */
@@ -875,12 +1069,12 @@
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="#profile" class="nav-link active" data-tab="profile">
-                    <i class="fas fa-user"></i> 👤 Mon Profil
+                    <i class="fas fa-user"></i> Mon Profil
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#orders" class="nav-link" data-tab="orders">
-                    <i class="fas fa-shopping-bag"></i> 🛍️ Mes Commandes
+                    <i class="fas fa-shopping-bag"></i> Mes Commandes
                     {% if orders|length > 0 %}
                     <span class="notification-badge">{{ orders|length }}</span>
                     {% endif %}
@@ -888,17 +1082,17 @@
             </li>
             <li class="nav-item">
                 <a href="#address" class="nav-link" data-tab="address">
-                    <i class="fas fa-map-marker-alt"></i> 📍 Adresse
+                    <i class="fas fa-map-marker-alt"></i> Adresse
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#payments" class="nav-link" data-tab="payments">
-                    <i class="fas fa-credit-card"></i> 💳 Paiements
+                    <i class="fas fa-credit-card"></i> Paiements
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#security" class="nav-link" data-tab="security">
-                    <i class="fas fa-lock"></i> 🔒 Sécurité
+                    <i class="fas fa-lock"></i> Sécurité
                 </a>
             </li>
         </ul>
@@ -909,7 +1103,7 @@
         <!-- Profile Section -->
         <div class="account-section" id="profile-section">
             <div class="account-header">
-                <h1 class="account-title">👤 Mon Profil</h1>
+                <h1 class="account-title">Mon Profil</h1>
             </div>
 
             <div class="account-stats">
@@ -935,34 +1129,34 @@
 
             <div class="info-card">
                 <div class="info-title">
-                    <span>📋 Informations personnelles</span>
+                    <span>Informations personnelles</span>
                     <button class="edit-btn" id="edit-profile-btn">
-                        <i class="fas fa-edit"></i> ✏️ Modifier
+                        <i class="fas fa-edit"></i> Modifier
                     </button>
                 </div>
                 <div class="info-content">
-                    <p><strong>👤 Nom complet:</strong> {{ user.full_name }}</p>
-                    <p><strong>📧 Email:</strong> {{ user.email }}</p>
-                    <p><strong>📞 Téléphone:</strong> {{ user.phone if user.phone else 'Non renseigné' }}</p>
+                    <p><strong>Nom complet:</strong> {{ user.full_name }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Téléphone:</strong> {{ user.phone if user.phone else 'Non renseigné' }}</p>
                 </div>
             </div>
 
             <!-- Edit Profile Form -->
             <form id="profile-form" class="fade-in" style="display: none;" action="{{ url_for('save_profile') }}" method="POST">
                 <div class="form-group">
-                    <label for="full_name">👤 Nom complet</label>
+                    <label for="full_name">Nom complet</label>
                     <input type="text" id="full_name" name="full_name" class="form-control" value="{{ user.full_name }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">📧 Email</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">📞 Téléphone</label>
+                    <label for="phone">Téléphone</label>
                     <input type="tel" id="phone" name="phone" class="form-control" value="{{ user.phone if user.phone else '' }}">
                 </div>
                 <button type="submit" class="btn-save">
-                    <i class="fas fa-save"></i> 💾 Enregistrer
+                    <i class="fas fa-save"></i> Enregistrer
                 </button>
             </form>
         </div>
@@ -970,7 +1164,7 @@
         <!-- Orders Section -->
         <div class="account-section" id="orders-section" style="display: none;">
             <div class="account-header">
-                <h1 class="account-title">🛍️ Mes Commandes</h1>
+                <h1 class="account-title">Mes Commandes</h1>
             </div>
 
             {% if orders %}
@@ -979,10 +1173,10 @@
                     <thead>
                         <tr>
                             <th>N° Commande</th>
-                            <th>📅 Date</th>
-                            <th>💰 Total</th>
-                            <th>📊 Statut</th>
-                            <th>🔍 Actions</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -999,7 +1193,7 @@
                             </td>
                             <td>
                                 <a href="{{ url_for('confirmation', order_id=order.id) }}" class="btn-primary">
-                                    <i class="fas fa-eye"></i> 👁️ Détails
+                                    <i class="fas fa-eye"></i> Détails
                                 </a>
                             </td>
                         </tr>
@@ -1012,7 +1206,7 @@
                 <i class="fas fa-shopping-bag"></i>
                 <p>Vous n'avez pas encore passé de commande.</p>
                 <a href="{{ url_for('product_list') }}" class="btn-primary">
-                    <i class="fas fa-store"></i> 🛒 Voir nos produits
+                    <i class="fas fa-store"></i> Voir nos produits
                 </a>
             </div>
             {% endif %}
@@ -1021,19 +1215,19 @@
         <!-- Address Section -->
         <div class="account-section" id="address-section" style="display: none;">
             <div class="account-header">
-                <h1 class="account-title">📍 Mon Adresse</h1>
+                <h1 class="account-title">Mon Adresse</h1>
             </div>
 
             <div class="info-card">
                 <div class="info-title">
-                    <span>🏠 Adresse de livraison</span>
+                    <span>Adresse de livraison</span>
                     <button class="edit-btn" id="edit-address-btn">
-                        <i class="fas fa-edit"></i> ✏️ Modifier
+                        <i class="fas fa-edit"></i> Modifier
                     </button>
                 </div>
                 <div class="info-content">
                     {% if user.address %}
-                        <p><strong>📍 Adresse:</strong> {{ user.address }}</p>
+                        <p><strong>Adresse:</strong> {{ user.address }}</p>
                     {% else %}
                         <p>Aucune adresse enregistrée</p>
                     {% endif %}
@@ -1044,19 +1238,19 @@
             <form id="address-form" class="fade-in" style="display: none;" action="{{ url_for('manage_address') }}" method="POST">
                 <input type="hidden" name="action" value="update">
                 <div class="form-group">
-                    <label for="address">📍 Adresse</label>
+                    <label for="address">Adresse</label>
                     <textarea id="address" name="address" class="form-control" rows="3" placeholder="Saisissez votre adresse complète">{{ user.address if user.address else '' }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="phone">📞 Téléphone</label>
+                    <label for="phone">Téléphone</label>
                     <input type="tel" id="phone" name="phone" class="form-control" value="{{ user.phone if user.phone else '' }}" placeholder="Votre numéro de téléphone">
                 </div>
                 <button type="submit" class="btn-save">
-                    <i class="fas fa-save"></i> 💾 Enregistrer
+                    <i class="fas fa-save"></i> Enregistrer
                 </button>
                 {% if user.address %}
                 <button type="button" id="delete-address-btn" class="card-btn card-btn-delete" style="margin-left: 0.5rem;">
-                    <i class="fas fa-trash"></i> 🗑️ Supprimer
+                    <i class="fas fa-trash"></i> Supprimer
                 </button>
                 {% endif %}
             </form>
@@ -1065,7 +1259,7 @@
         <!-- Payments Section -->
         <div class="account-section" id="payments-section" style="display: none;">
             <div class="account-header">
-                <h1 class="account-title">💳 Moyens de Paiement</h1>
+                <h1 class="account-title">Moyens de Paiement</h1>
             </div>
 
             <div class="payment-methods">
@@ -1077,58 +1271,58 @@
                             <span>{{ card.type if card.type else 'Carte de crédit' }}</span>
                         </div>
                         {% if card.default %}
-                        <span class="card-default">⭐ Défaut</span>
+                        <span class="card-default">Défaut</span>
                         {% endif %}
                     </div>
                     <div class="card-number">•••• •••• •••• {{ card.number[-4:] if card.number else '' }}</div>
                     <div class="card-expiry">
-                        <i class="fas fa-calendar"></i> 📅 Expire le {{ card.expiry }}
+                        <i class="fas fa-calendar"></i> Expire le {{ card.expiry }}
                     </div>
                     <div class="card-actions">
                         {% if not card.default %}
                         <button class="card-btn card-btn-default" data-card-id="{{ card.id }}">
-                            <i class="fas fa-star"></i> ⭐ Définir par défaut
+                            <i class="fas fa-star"></i> Définir par défaut
                         </button>
                         {% endif %}
                         <button class="card-btn card-btn-delete" data-card-id="{{ card.id }}">
-                            <i class="fas fa-trash"></i> 🗑️ Supprimer
+                            <i class="fas fa-trash"></i> Supprimer
                         </button>
                     </div>
                 </div>
                 {% endfor %}
 
                 <button class="add-payment-btn" id="add-payment-btn">
-                    <i class="fas fa-plus-circle"></i> ➕ Ajouter un moyen de paiement
+                    <i class="fas fa-plus-circle"></i> Ajouter un moyen de paiement
                 </button>
             </div>
 
             <!-- Add Payment Form -->
             <form id="payment-form" class="fade-in" style="display: none;" action="{{ url_for('add_card') }}" method="POST">
                 <div class="form-group">
-                    <label for="card_name">👤 Nom sur la carte</label>
+                    <label for="card_name">Nom sur la carte</label>
                     <input type="text" id="card_name" name="card_name" class="form-control" required placeholder="Ex: Jean DUPONT">
                 </div>
                 <div class="form-group">
-                    <label for="card_number">💳 Numéro de carte</label>
+                    <label for="card_number">Numéro de carte</label>
                     <input type="text" id="card_number" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" required>
                 </div>
                 <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
-                        <label for="card_expiry">📅 Date d'expiration</label>
+                        <label for="card_expiry">Date d'expiration</label>
                         <input type="text" id="card_expiry" name="expiry_date" class="form-control" placeholder="MM/AA" required>
                     </div>
                     <div class="form-group">
-                        <label for="card_cvv">🔒 CVV</label>
+                        <label for="card_cvv">CVV</label>
                         <input type="text" id="card_cvv" name="cvv" class="form-control" placeholder="123" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="default_card">
-                        <input type="checkbox" id="default_card" name="default_card"> ⭐ Définir comme moyen de paiement par défaut
+                        <input type="checkbox" id="default_card" name="default_card"> Définir comme moyen de paiement par défaut
                     </label>
                 </div>
                 <button type="submit" class="btn-save">
-                    <i class="fas fa-credit-card"></i> 💳 Enregistrer la carte
+                    <i class="fas fa-credit-card"></i> Enregistrer la carte
                 </button>
             </form>
         </div>
@@ -1136,37 +1330,37 @@
         <!-- Security Section -->
         <div class="account-section" id="security-section" style="display: none;">
             <div class="account-header">
-                <h1 class="account-title">🔒 Sécurité</h1>
+                <h1 class="account-title">Sécurité</h1>
             </div>
 
             <div class="info-card">
                 <div class="info-title">
-                    <span>🔐 Mot de passe</span>
+                    <span>Mot de passe</span>
                     <button class="edit-btn" id="change-password-btn">
-                        <i class="fas fa-edit"></i> ✏️ Modifier
+                        <i class="fas fa-edit"></i> Modifier
                     </button>
                 </div>
                 <div class="info-content">
-                    <p><strong>📅 Dernière modification:</strong> Il y a 3 mois</p>
+                    <p><strong>Dernière modification:</strong> Il y a 3 mois</p>
                 </div>
             </div>
 
             <!-- Change Password Form -->
             <form id="password-form" class="fade-in" style="display: none;" action="{{ url_for('change_password') }}" method="POST">
                 <div class="form-group">
-                    <label for="current_password">🔐 Mot de passe actuel</label>
+                    <label for="current_password">Mot de passe actuel</label>
                     <input type="password" id="current_password" name="current_password" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="new_password">🆕 Nouveau mot de passe</label>
+                    <label for="new_password">Nouveau mot de passe</label>
                     <input type="password" id="new_password" name="new_password" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="confirm_password">✅ Confirmer le nouveau mot de passe</label>
+                    <label for="confirm_password">Confirmer le nouveau mot de passe</label>
                     <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
                 </div>
                 <button type="submit" class="btn-save">
-                    <i class="fas fa-lock"></i> 🔒 Changer le mot de passe
+                    <i class="fas fa-lock"></i> Changer le mot de passe
                 </button>
             </form>
         </div>
@@ -1176,7 +1370,7 @@
 
 {% block extra_js %}
 <script>
-    // Gestion des onglets
+    // Gestion des onglets améliorée
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1205,7 +1399,7 @@
         });
     });
 
-    // Gestion du formulaire de profil
+    // Gestion du formulaire de profil améliorée
     const editProfileBtn = document.getElementById('edit-profile-btn');
     const profileForm = document.getElementById('profile-form');
     
@@ -1216,7 +1410,7 @@
         }
     });
 
-    // Gestion du formulaire d'adresse
+    // Gestion du formulaire d'adresse améliorée
     const editAddressBtn = document.getElementById('edit-address-btn');
     const addressForm = document.getElementById('address-form');
     const deleteAddressBtn = document.getElementById('delete-address-btn');
@@ -1250,7 +1444,7 @@
         });
     }
 
-    // Gestion des moyens de paiement
+    // Gestion des moyens de paiement améliorée
     const addPaymentBtn = document.getElementById('add-payment-btn');
     const paymentForm = document.getElementById('payment-form');
     
@@ -1261,7 +1455,7 @@
         }
     });
 
-    // Gestion du changement de mot de passe
+    // Gestion du changement de mot de passe améliorée
     const changePasswordBtn = document.getElementById('change-password-btn');
     const passwordForm = document.getElementById('password-form');
     
@@ -1272,14 +1466,14 @@
         }
     });
 
-    // Formatage du numéro de carte
+    // Formatage du numéro de carte amélioré
     document.getElementById('card_number')?.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         let formatted = value.replace(/(\d{4})/g, '$1 ').trim();
         e.target.value = formatted;
     });
 
-    // Formatage de la date d'expiration
+    // Formatage de la date d'expiration amélioré
     document.getElementById('card_expiry')?.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         if (value.length > 2) {
@@ -1288,7 +1482,7 @@
         e.target.value = value;
     });
 
-    // Gestion des cartes de crédit
+    // Gestion des cartes de crédit améliorée
     document.querySelectorAll('.card-btn-default').forEach(btn => {
         btn.addEventListener('click', function() {
             const cardId = this.getAttribute('data-card-id');
@@ -1343,7 +1537,7 @@
         });
     });
 
-    // Validation des formulaires
+    // Validation des formulaires améliorée
     document.querySelectorAll('form').forEach(form => {
         form.addEventListener('submit', function(e) {
             const submitButton = this.querySelector('button[type="submit"]');
