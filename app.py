@@ -1535,6 +1535,7 @@ def checkout():
 
     # Récupération utilisateur depuis la DB
     user_info = None
+    user_id = None
     if session.get('logged_in'):
         user = User.query.filter_by(username=session['username']).first()
         if user:
@@ -1544,6 +1545,7 @@ def checkout():
                 'phone': user.phone or 'Non renseigné',
                 'address': user.address or 'Non renseignée'
             }
+            user_id = user.id
 
     # Validation de la commande
     if request.method == 'POST':
@@ -1558,11 +1560,15 @@ def checkout():
 
         order_id = str(uuid.uuid4())
 
+        # Pour les invités, user_id reste None
+        if session.get('guest'):
+            user_id = None
+
         # Sauvegarde en DB
         new_order = Order(
             id=order_id,
             reference=order_reference,
-            user_id=session.get("user_id"),  # None si invité
+            user_id=user_id,  # Associer à l'utilisateur (None pour invités)
             email=customer_email,
             phone=phone,
             delivery_address=delivery_address,
@@ -3088,8 +3094,6 @@ def delete_card():
 
     return redirect(url_for('account'))
 
-
-    
 @app.route('/compte', methods=['GET', 'POST'])
 def account():
     if not session.get('logged_in'):
@@ -3106,27 +3110,41 @@ def account():
 
     # Préparation des commandes pour le template depuis la DB
     user_orders = []
-    for order in user.orders:
+    for order in user.orders:  # Utilise la relation définie dans le modèle User
         order_items = []
         if order.items:  # order.items stocké en JSON
             for product_id, quantity in order.items.items():
                 product = next((p for p in products if str(p['id']) == str(product_id)), None)
                 if product:
+                    # Gestion des images
+                    image = 'default-product.jpg'
+                    if 'images' in product and product['images']:
+                        image = product['images'][0] if isinstance(product['images'], list) else product['images']
+                    elif 'image' in product:
+                        image = product['image']
+                    
                     order_items.append({
                         'id': product['id'],
                         'name': product['name'],
                         'price': float(product['price']),
                         'quantity': quantity,
                         'total': float(product['price']) * quantity,
-                        'image': product.get('image', 'default-product.jpg')
+                        'image': image
                     })
+        
         user_orders.append({
             'id': order.id,
+            'reference': order.reference,
             'date': order.date.strftime("%d/%m/%Y à %H:%M"),
             'status': order.status,
             'total': float(order.total),
-            'items': order_items
+            'items': order_items,
+            'delivery_method': order.delivery_method,
+            'payment_method': order.payment_method
         })
+
+    # Trier les commandes par date (les plus récentes en premier)
+    user_orders.sort(key=lambda x: x['date'], reverse=True)
 
     # Ajout d'une date de création lisible pour le profil
     joined_date = user.created_at.strftime("%d/%m/%Y")
@@ -3136,7 +3154,6 @@ def account():
                            orders=user_orders,
                            products=products,
                            joined_date=joined_date)
-
 
 
 
