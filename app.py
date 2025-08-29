@@ -672,7 +672,7 @@ def admin_login():
 
         flash("Identifiants invalides ou non autorisés", "error")
     
-    return render_template("login.html")
+    return render_template("admin/login.html")
 
 
 @app.route('/admin/logout')
@@ -1465,6 +1465,7 @@ def inject_cart_count():
             count += quantity
     
     return {'cart_count': count}
+    
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
     if not (session.get('logged_in') or session.get('guest')):
@@ -1545,7 +1546,6 @@ def checkout():
                 'address': user.address or 'Non renseignée'
             }
             user_id = user.id
-            print(f"DEBUG CHECKOUT: Utilisateur connecté - ID: {user_id}, Username: {user.username}")
 
     # Validation de la commande
     if request.method == 'POST':
@@ -1563,54 +1563,29 @@ def checkout():
         # Pour les invités, user_id reste None
         if session.get('guest'):
             user_id = None
-            print(f"DEBUG CHECKOUT: Commande invité - Email: {customer_email}")
-
-        # DEBUG: Afficher les informations de la commande
-        print(f"DEBUG CHECKOUT: Création commande {order_id}")
-        print(f"DEBUG CHECKOUT: User ID: {user_id}")
-        print(f"DEBUG CHECKOUT: Email: {customer_email}")
-        print(f"DEBUG CHECKOUT: Items: {dict(cart.items())}")
-        print(f"DEBUG CHECKOUT: Total: {total}")
 
         # Sauvegarde en DB
-        try:
-            new_order = Order(
-                id=order_id,
-                reference=order_reference,
-                user_id=user_id,  # Associer à l'utilisateur (None pour invités)
-                email=customer_email,
-                phone=phone,
-                delivery_address=delivery_address,
-                billing_address=billing_address,
-                subtotal=subtotal,
-                delivery_method=delivery_method,
-                delivery_cost=delivery_cost,
-                discount=promo_discount,
-                total=total,
-                promo_code=code if code in valid_promo_codes else None,
-                payment_method=request.form.get('payment_method'),
-                status='En traitement',
-                items=dict(cart.items())  # JSON
-            )
+        new_order = Order(
+            id=order_id,
+            reference=order_reference,
+            user_id=user_id,  # Associer à l'utilisateur (None pour invités)
+            email=customer_email,
+            phone=phone,
+            delivery_address=delivery_address,
+            billing_address=billing_address,
+            subtotal=subtotal,
+            delivery_method=delivery_method,
+            delivery_cost=delivery_cost,
+            discount=promo_discount,
+            total=total,
+            promo_code=code if code in valid_promo_codes else None,
+            payment_method=request.form.get('payment_method'),
+            status='En traitement',
+            items=dict(cart.items())  # JSON
+        )
 
-            db.session.add(new_order)
-            db.session.commit()
-            
-            print(f"DEBUG CHECKOUT: Commande {order_id} créée avec succès")
-            print(f"DEBUG CHECKOUT: User ID dans la commande: {new_order.user_id}")
-
-            # Vérification que la commande est bien enregistrée
-            saved_order = Order.query.get(order_id)
-            if saved_order:
-                print(f"DEBUG CHECKOUT: Commande vérifiée en DB - User ID: {saved_order.user_id}")
-            else:
-                print("DEBUG CHECKOUT: ERREUR - Commande non trouvée en DB après création")
-
-        except Exception as e:
-            print(f"DEBUG CHECKOUT: ERREUR lors de la création de la commande: {str(e)}")
-            db.session.rollback()
-            flash("Erreur lors de la création de la commande", "error")
-            return redirect(url_for('checkout'))
+        db.session.add(new_order)
+        db.session.commit()
 
         # Nettoyage du panier
         session.pop('cart', None)
@@ -1620,7 +1595,7 @@ def checkout():
 
         # Envoi email de confirmation
         try:
-            order_data = {
+            send_confirmation_email(app, mail, {
                 'id': order_id,
                 'reference': order_reference,
                 'email': customer_email,
@@ -1637,15 +1612,12 @@ def checkout():
                 'promo_code': code if code in valid_promo_codes else None,
                 'payment_method': request.form.get('payment_method'),
                 'status': 'En traitement'
-            }
-            send_confirmation_email(app, mail, order_data, customer_email)
-            print(f"DEBUG CHECKOUT: Email de confirmation envoyé à {customer_email}")
+            }, customer_email)
         except Exception as e:
             app.logger.error(f"Erreur lors de l'envoi de l'e-mail : {e}")
-            print(f"DEBUG CHECKOUT: ERREUR email: {str(e)}")
             flash("Erreur lors de l'envoi de l'e-mail. Veuillez réessayer plus tard.", "error")
 
-        return redirect(url_for('confirmation', order_id=order_id))
+        return redirect(url_for('order_confirmation', order_id=order_id))
 
     return render_template('checkout.html',
                            cart_items=cart_items,
@@ -1656,6 +1628,7 @@ def checkout():
                            user=user_info,
                            order_reference=order_reference,
                            is_guest=session.get('guest') is not None)
+
 
 
 @app.route('/checkout_auth', methods=['GET', 'POST'])
@@ -2805,20 +2778,27 @@ from datetime import datetime
 from data import products as all_products  # ✅ Import correct
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
-    # Autoriser soit les utilisateurs connectés, soit les invités
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('login'))
 
-    # Récupération de la commande depuis la DB
-    order = Order.query.get(order_id)
+    order = session.get('orders', {}).get(order_id)
     if not order:
         flash('Commande non trouvée', 'error')
         return redirect(url_for('index'))
 
-    # Produits commandés
-    ordered_products = []
-    if order.items:
-        for pid_str, quantity in order.items.items():
+    order.setdefault('subtotal', 0.0)
+    order.setdefault('delivery_method', 'standard')
+    order.setdefault('delivery_cost', 69 if order['delivery_method'] == 'standard' else 59)
+    order.setdefault('discount', 0.0)
+    order.setdefault('total', order['subtotal'] + order['delivery_cost'] - order['discount'])
+    order.setdefault('payment_method', 'Inconnu')
+    order.setdefault('status', 'Inconnu')
+    order.setdefault('promo_code', None)
+    order.setdefault('date', datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+    try:
+        ordered_products = []
+        for pid_str, quantity in order.get('items', {}).items():
             pid = int(pid_str)
             product = next((p for p in all_products if p["id"] == pid), None)
             if product:
@@ -2830,41 +2810,51 @@ def confirmation(order_id):
                     'total_price': float(product["price"]) * quantity
                 })
 
-    order_data = {
-        'id': order.id,
-        'reference': order.reference,
-        'date': order.date.strftime("%d/%m/%Y à %H:%M"),
-        'status': order.status,
-        'subtotal': float(order.subtotal),
-        'delivery_method': order.delivery_method,
-        'delivery_cost': float(order.delivery_cost),
-        'discount': float(order.discount),
-        'total': float(order.total),
-        'payment_method': order.payment_method,
-        'is_guest': not order.user_id,
-        'promo_code': order.promo_code,
-        'phone': order.phone or 'Non fourni',
-        'email': order.email or 'non@fourni.com',
-        'user': order.user.username if order.user else 'Invité',
-        'products': ordered_products,
-        'company': {
-            'name': 'Destockage Alimentaire',
-            'siret': '0866596654',
-            'phone': '06 86 59 66 54',
-            'email': 'contact@destockagealimentaire.fr',
-            'address': "123 Rue de l'Épicerie, 75000 Paris, France"
-        },
-        'delivery_address': order.delivery_address or 'Adresse non précisée',
-        'billing_address': order.billing_address or 'Adresse non précisée'
-    }
+        order_data = {
+            'id': order_id,
+            'reference': order.get('reference', f"CMD-{order_id}"),
+            'date': datetime.strptime(order['date'], "%Y-%m-%d %H:%M:%S").strftime("%d/%m/%Y à %H:%M"),
+            'status': order['status'],
+            'subtotal': float(order['subtotal']),
+            'delivery_method': order['delivery_method'],
+            'delivery_cost': float(order['delivery_cost']),
+            'discount': float(order['discount']),
+            'total': float(order['total']),
+            'payment_method': order['payment_method'],
+            'is_guest': 'guest' in session,
+            'promo_code': order.get('promo_code'),
+            'phone': order.get('phone', 'Non fourni'),
+            'email': order.get('email') or session.get('last_order_email') or 'non@fourni.com',
+            'user': order.get('user', 'Invité'),
+            'products': ordered_products,
 
-    # Envoi mail si nécessaire
-    if order_data['email'] and is_valid_email(order_data['email']):
-        try:
-            html_content = render_template('email_confirmation.html', order=order_data, company=order_data['company'])
-            send_confirmation_email(app, mail, order_data, order_data['email'], html_content)
-        except Exception as e:
-            app.logger.error(f"Erreur lors de l’envoi de l’e-mail : {str(e)}")
+            'company': {
+                'name': 'Destockage Alimentaire',
+                'siret': '0866596654',
+                'phone': '06 86 59 66 54',
+                'email': 'contact@destockagealimentaire.fr',
+                'address': "123 Rue de l'Épicerie, 75000 Paris, France"
+            },
+
+            'delivery_address': order.get('delivery_address', 'Adresse non précisée'),
+            'billing_address': order.get('billing_address', 'Adresse non précisée')
+        }
+
+        recipient_email = order_data['email']
+        if recipient_email and is_valid_email(recipient_email):
+            try:
+                html_content = render_template('email_confirmation.html', order=order_data, company=order_data['company'])
+                send_confirmation_email(app, mail, order_data, recipient_email, html_content)
+
+            except Exception as e:
+                app.logger.error(f"Erreur lors de l’envoi de l’e-mail : {str(e)}")
+        else:
+            app.logger.error(f"Email invalide ou manquant pour la commande {order_id}")
+
+    except Exception as e:
+        app.logger.error(f"Erreur lors de la préparation de la commande : {e}")
+        flash('Erreur interne lors de l’affichage de la confirmation.', 'error')
+        return redirect(url_for('index'))
 
     return render_template('confirmation.html', order=order_data)
 
@@ -2892,7 +2882,7 @@ def cleanup_guest_sessions():
         elif 'guest_created' not in session:
             session['guest_created'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")# Authentification
             
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/connexion', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -2900,18 +2890,18 @@ def login():
 
         user = User.query.filter_by(username=username).first()
         if user and user.check_password(password):
-            # Sauvegarde en session
             session['logged_in'] = True
-            session['user_id'] = user.id
             session['username'] = user.username
+            session['user_id'] = user.id
+            session['role'] = user.role
 
-            flash('Connexion réussie !', 'success')
-            return redirect(url_for('account'))
-        else:
-            flash('Nom d’utilisateur ou mot de passe incorrect', 'error')
+            if user.role == "admin":
+                return redirect(url_for('admin_dashboard'))
+            return redirect(url_for('index'))
+
+        flash("Identifiants incorrects", "error")
 
     return render_template('login.html')
-
 
 
 
@@ -3104,14 +3094,12 @@ def delete_card():
 
     return redirect(url_for('account'))
 
-
 @app.route('/compte', methods=['GET', 'POST'])
 def account():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
     username = session['username']
-    print(f"DEBUG ACCOUNT: Utilisateur connecté: {username}")
 
     # Récupère l'utilisateur depuis la DB
     user = User.query.filter_by(username=username).first()
@@ -3119,33 +3107,12 @@ def account():
         flash('Votre session a expiré, veuillez vous reconnecter', 'error')
         session.clear()
         return redirect(url_for('login'))
-    
-    print(f"DEBUG ACCOUNT: User ID: {user.id}")
-    print(f"DEBUG ACCOUNT: Relation orders: {type(user.orders)}")
 
-    # Méthode 1: Via la relation
-    orders_via_relation = list(user.orders)
-    print(f"DEBUG ACCOUNT: Commandes via relation: {len(orders_via_relation)}")
-    
-    for order in orders_via_relation:
-        print(f"DEBUG ACCOUNT: Commande {order.id} - User ID: {order.user_id} - Status: {order.status}")
-
-    # Méthode 2: Via query directe
-    orders_via_query = Order.query.filter_by(user_id=user.id).order_by(Order.date.desc()).all()
-    print(f"DEBUG ACCOUNT: Commandes via query: {len(orders_via_query)}")
-    
-    for order in orders_via_query:
-        print(f"DEBUG ACCOUNT: Commande query {order.id} - User ID: {order.user_id}")
-
-    # Utiliser la méthode qui fonctionne le mieux
-    orders_to_use = orders_via_query if orders_via_query else orders_via_relation
-
+    # Préparation des commandes pour le template depuis la DB
     user_orders = []
-    for order in orders_to_use:
-        print(f"DEBUG ACCOUNT: Traitement commande {order.id}")
+    for order in user.orders:  # Utilise la relation définie dans le modèle User
         order_items = []
-        if order.items:
-            print(f"DEBUG ACCOUNT: Items dans commande: {order.items}")
+        if order.items:  # order.items stocké en JSON
             for product_id, quantity in order.items.items():
                 product = next((p for p in products if str(p['id']) == str(product_id)), None)
                 if product:
@@ -3164,8 +3131,6 @@ def account():
                         'total': float(product['price']) * quantity,
                         'image': image
                     })
-        else:
-            print(f"DEBUG ACCOUNT: Aucun item dans la commande {order.id}")
         
         user_orders.append({
             'id': order.id,
@@ -3180,7 +3145,6 @@ def account():
 
     # Trier les commandes par date (les plus récentes en premier)
     user_orders.sort(key=lambda x: x['date'], reverse=True)
-    print(f"DEBUG ACCOUNT: Commandes préparées pour template: {len(user_orders)}")
 
     # Ajout d'une date de création lisible pour le profil
     joined_date = user.created_at.strftime("%d/%m/%Y")
@@ -3190,6 +3154,8 @@ def account():
                            orders=user_orders,
                            products=products,
                            joined_date=joined_date)
+
+
 
 @app.route('/admin')
 @admin_required
