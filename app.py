@@ -672,7 +672,7 @@ def admin_login():
 
         flash("Identifiants invalides ou non autorisés", "error")
     
-    return render_template("admin/login.html")
+    return render_template("login.html")
 
 
 @app.route('/admin/logout')
