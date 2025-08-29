@@ -2805,27 +2805,20 @@ from datetime import datetime
 from data import products as all_products  # ✅ Import correct
 @app.route('/confirmation/<order_id>')
 def confirmation(order_id):
+    # Autoriser soit les utilisateurs connectés, soit les invités
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('login'))
 
-    order = session.get('orders', {}).get(order_id)
+    # Récupération de la commande depuis la DB
+    order = Order.query.get(order_id)
     if not order:
         flash('Commande non trouvée', 'error')
         return redirect(url_for('index'))
 
-    order.setdefault('subtotal', 0.0)
-    order.setdefault('delivery_method', 'standard')
-    order.setdefault('delivery_cost', 69 if order['delivery_method'] == 'standard' else 59)
-    order.setdefault('discount', 0.0)
-    order.setdefault('total', order['subtotal'] + order['delivery_cost'] - order['discount'])
-    order.setdefault('payment_method', 'Inconnu')
-    order.setdefault('status', 'Inconnu')
-    order.setdefault('promo_code', None)
-    order.setdefault('date', datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-
-    try:
-        ordered_products = []
-        for pid_str, quantity in order.get('items', {}).items():
+    # Produits commandés
+    ordered_products = []
+    if order.items:
+        for pid_str, quantity in order.items.items():
             pid = int(pid_str)
             product = next((p for p in all_products if p["id"] == pid), None)
             if product:
@@ -2837,51 +2830,41 @@ def confirmation(order_id):
                     'total_price': float(product["price"]) * quantity
                 })
 
-        order_data = {
-            'id': order_id,
-            'reference': order.get('reference', f"CMD-{order_id}"),
-            'date': datetime.strptime(order['date'], "%Y-%m-%d %H:%M:%S").strftime("%d/%m/%Y à %H:%M"),
-            'status': order['status'],
-            'subtotal': float(order['subtotal']),
-            'delivery_method': order['delivery_method'],
-            'delivery_cost': float(order['delivery_cost']),
-            'discount': float(order['discount']),
-            'total': float(order['total']),
-            'payment_method': order['payment_method'],
-            'is_guest': 'guest' in session,
-            'promo_code': order.get('promo_code'),
-            'phone': order.get('phone', 'Non fourni'),
-            'email': order.get('email') or session.get('last_order_email') or 'non@fourni.com',
-            'user': order.get('user', 'Invité'),
-            'products': ordered_products,
+    order_data = {
+        'id': order.id,
+        'reference': order.reference,
+        'date': order.date.strftime("%d/%m/%Y à %H:%M"),
+        'status': order.status,
+        'subtotal': float(order.subtotal),
+        'delivery_method': order.delivery_method,
+        'delivery_cost': float(order.delivery_cost),
+        'discount': float(order.discount),
+        'total': float(order.total),
+        'payment_method': order.payment_method,
+        'is_guest': not order.user_id,
+        'promo_code': order.promo_code,
+        'phone': order.phone or 'Non fourni',
+        'email': order.email or 'non@fourni.com',
+        'user': order.user.username if order.user else 'Invité',
+        'products': ordered_products,
+        'company': {
+            'name': 'Destockage Alimentaire',
+            'siret': '0866596654',
+            'phone': '06 86 59 66 54',
+            'email': 'contact@destockagealimentaire.fr',
+            'address': "123 Rue de l'Épicerie, 75000 Paris, France"
+        },
+        'delivery_address': order.delivery_address or 'Adresse non précisée',
+        'billing_address': order.billing_address or 'Adresse non précisée'
+    }
 
-            'company': {
-                'name': 'Destockage Alimentaire',
-                'siret': '0866596654',
-                'phone': '06 86 59 66 54',
-                'email': 'contact@destockagealimentaire.fr',
-                'address': "123 Rue de l'Épicerie, 75000 Paris, France"
-            },
-
-            'delivery_address': order.get('delivery_address', 'Adresse non précisée'),
-            'billing_address': order.get('billing_address', 'Adresse non précisée')
-        }
-
-        recipient_email = order_data['email']
-        if recipient_email and is_valid_email(recipient_email):
-            try:
-                html_content = render_template('email_confirmation.html', order=order_data, company=order_data['company'])
-                send_confirmation_email(app, mail, order_data, recipient_email, html_content)
-
-            except Exception as e:
-                app.logger.error(f"Erreur lors de l’envoi de l’e-mail : {str(e)}")
-        else:
-            app.logger.error(f"Email invalide ou manquant pour la commande {order_id}")
-
-    except Exception as e:
-        app.logger.error(f"Erreur lors de la préparation de la commande : {e}")
-        flash('Erreur interne lors de l’affichage de la confirmation.', 'error')
-        return redirect(url_for('index'))
+    # Envoi mail si nécessaire
+    if order_data['email'] and is_valid_email(order_data['email']):
+        try:
+            html_content = render_template('email_confirmation.html', order=order_data, company=order_data['company'])
+            send_confirmation_email(app, mail, order_data, order_data['email'], html_content)
+        except Exception as e:
+            app.logger.error(f"Erreur lors de l’envoi de l’e-mail : {str(e)}")
 
     return render_template('confirmation.html', order=order_data)
 
