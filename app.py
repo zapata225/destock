@@ -1465,13 +1465,12 @@ def inject_cart_count():
             count += quantity
     
     return {'cart_count': count}
-    
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
     if not (session.get('logged_in') or session.get('guest')):
         return redirect(url_for('checkout_auth'))
 
-    # Vérifie la validité session invité
+    # Vérifie la validité de la session invité
     if session.get('guest'):
         try:
             created_at = datetime.fromisoformat(session['guest']['created_at'])
@@ -1483,30 +1482,41 @@ def checkout():
             session.pop('guest', None)
             return redirect(url_for('checkout_auth'))
 
-    # Panier
+    # Récupération du panier
     cart = get_cart()
     if not cart:
         flash('Votre panier est vide', 'warning')
         return redirect(url_for('product_list'))
 
-    cart_items, subtotal = [], 0.0
+    cart_items = []
+    subtotal = 0.0
     for product_id, quantity in cart.items():
-        product = next((p for p in products if str(p['id']) == str(product_id)), None)
-        if product:
-            image = product.get('image', 'default.jpg')
-            item_total = float(product['price']) * int(quantity)
-            subtotal += item_total
-            cart_items.append({
-                'product': product,
-                'quantity': quantity,
-                'total': item_total,
-                'image': image
-            })
+        try:
+            product = next((p for p in products if str(p['id']) == str(product_id)), None)
+            if product:
+                # Normalisation des images
+                if 'image' in product:
+                    product['images'] = [product['image']]
+                    del product['image']
+                elif 'images' not in product or not product['images']:
+                    product['images'] = ['default.jpg']
 
-    # Livraison & promos
+                item_total = float(product['price']) * int(quantity)
+                subtotal += item_total
+                cart_items.append({
+                    'product': product,
+                    'quantity': quantity,
+                    'total': item_total
+                })
+        except (ValueError, TypeError, KeyError) as e:
+            app.logger.error(f"Erreur traitement produit {product_id}: {str(e)}")
+            continue
+
+    # Livraison
     delivery_method = session.get('delivery_method', 'standard')
     delivery_cost = 69 if delivery_method == 'standard' else 59
 
+    # Codes promo
     valid_promo_codes = {
         'SAVE10': lambda sub: 10.0,
         'SAVE20': lambda sub: 0.20 * sub,
@@ -1514,9 +1524,28 @@ def checkout():
     }
     code = session.get('promo_code')
     promo_discount = valid_promo_codes.get(code, lambda sub: 0.0)(subtotal)
-    total = max(subtotal + delivery_cost - promo_discount, 0.0)
+    promo_discount = min(promo_discount, subtotal)
 
-    order_reference = f"CMD-{datetime.now().strftime('%Y%m%d%H%M')}"
+    total = subtotal + delivery_cost - promo_discount
+    total = max(total, 0.0)
+
+    user_identifier = session.get('user_id', session.get('username', 'Guest'))
+    order_reference = f"CMD-{user_identifier}-{datetime.now().strftime('%Y%m%d%H%M')}"
+
+    # Récupération utilisateur depuis la DB
+    user_info = None
+    user_id = None
+    if session.get('logged_in'):
+        user = User.query.filter_by(username=session['username']).first()
+        if user:
+            user_info = {
+                'username': user.username,
+                'email': user.email or 'Non renseigné',
+                'phone': user.phone or 'Non renseigné',
+                'address': user.address or 'Non renseignée'
+            }
+            user_id = user.id
+            print(f"DEBUG CHECKOUT: Utilisateur connecté - ID: {user_id}, Username: {user.username}")
 
     # Validation de la commande
     if request.method == 'POST':
@@ -1531,38 +1560,92 @@ def checkout():
 
         order_id = str(uuid.uuid4())
 
-        # Associer l’utilisateur connecté ou None si invité
-        user_id = session.get('user_id') if session.get('logged_in') else None
+        # Pour les invités, user_id reste None
+        if session.get('guest'):
+            user_id = None
+            print(f"DEBUG CHECKOUT: Commande invité - Email: {customer_email}")
 
-        new_order = Order(
-            id=order_id,
-            reference=order_reference,
-            user_id=user_id,
-            email=customer_email,
-            phone=phone,
-            delivery_address=delivery_address,
-            billing_address=billing_address,
-            subtotal=subtotal,
-            delivery_method=delivery_method,
-            delivery_cost=delivery_cost,
-            discount=promo_discount,
-            total=total,
-            promo_code=code if code in valid_promo_codes else None,
-            payment_method=request.form.get('payment_method'),
-            status='En traitement',
-            items=dict(cart.items())
-        )
+        # DEBUG: Afficher les informations de la commande
+        print(f"DEBUG CHECKOUT: Création commande {order_id}")
+        print(f"DEBUG CHECKOUT: User ID: {user_id}")
+        print(f"DEBUG CHECKOUT: Email: {customer_email}")
+        print(f"DEBUG CHECKOUT: Items: {dict(cart.items())}")
+        print(f"DEBUG CHECKOUT: Total: {total}")
 
-        db.session.add(new_order)
-        db.session.commit()
+        # Sauvegarde en DB
+        try:
+            new_order = Order(
+                id=order_id,
+                reference=order_reference,
+                user_id=user_id,  # Associer à l'utilisateur (None pour invités)
+                email=customer_email,
+                phone=phone,
+                delivery_address=delivery_address,
+                billing_address=billing_address,
+                subtotal=subtotal,
+                delivery_method=delivery_method,
+                delivery_cost=delivery_cost,
+                discount=promo_discount,
+                total=total,
+                promo_code=code if code in valid_promo_codes else None,
+                payment_method=request.form.get('payment_method'),
+                status='En traitement',
+                items=dict(cart.items())  # JSON
+            )
 
-        # Nettoyage session
+            db.session.add(new_order)
+            db.session.commit()
+            
+            print(f"DEBUG CHECKOUT: Commande {order_id} créée avec succès")
+            print(f"DEBUG CHECKOUT: User ID dans la commande: {new_order.user_id}")
+
+            # Vérification que la commande est bien enregistrée
+            saved_order = Order.query.get(order_id)
+            if saved_order:
+                print(f"DEBUG CHECKOUT: Commande vérifiée en DB - User ID: {saved_order.user_id}")
+            else:
+                print("DEBUG CHECKOUT: ERREUR - Commande non trouvée en DB après création")
+
+        except Exception as e:
+            print(f"DEBUG CHECKOUT: ERREUR lors de la création de la commande: {str(e)}")
+            db.session.rollback()
+            flash("Erreur lors de la création de la commande", "error")
+            return redirect(url_for('checkout'))
+
+        # Nettoyage du panier
         session.pop('cart', None)
         session.pop('promo_code', None)
         session.pop('delivery_method', None)
         session.modified = True
 
-        return redirect(url_for('order_confirmation', order_id=order_id))
+        # Envoi email de confirmation
+        try:
+            order_data = {
+                'id': order_id,
+                'reference': order_reference,
+                'email': customer_email,
+                'phone': phone,
+                'delivery_address': delivery_address,
+                'billing_address': billing_address,
+                'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                'items': dict(cart.items()),
+                'subtotal': subtotal,
+                'delivery_method': delivery_method,
+                'delivery_cost': delivery_cost,
+                'discount': promo_discount,
+                'total': total,
+                'promo_code': code if code in valid_promo_codes else None,
+                'payment_method': request.form.get('payment_method'),
+                'status': 'En traitement'
+            }
+            send_confirmation_email(app, mail, order_data, customer_email)
+            print(f"DEBUG CHECKOUT: Email de confirmation envoyé à {customer_email}")
+        except Exception as e:
+            app.logger.error(f"Erreur lors de l'envoi de l'e-mail : {e}")
+            print(f"DEBUG CHECKOUT: ERREUR email: {str(e)}")
+            flash("Erreur lors de l'envoi de l'e-mail. Veuillez réessayer plus tard.", "error")
+
+        return redirect(url_for('confirmation', order_id=order_id))
 
     return render_template('checkout.html',
                            cart_items=cart_items,
@@ -1570,10 +1653,9 @@ def checkout():
                            delivery_cost=delivery_cost,
                            total=total,
                            promo_discount=promo_discount,
+                           user=user_info,
                            order_reference=order_reference,
                            is_guest=session.get('guest') is not None)
-
-
 
 
 @app.route('/checkout_auth', methods=['GET', 'POST'])
@@ -3039,25 +3121,58 @@ def delete_card():
 
     return redirect(url_for('account'))
 
+
 @app.route('/compte', methods=['GET', 'POST'])
 def account():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
-    user = User.query.get(session['user_id'])
+    username = session['username']
+    print(f"DEBUG ACCOUNT: Utilisateur connecté: {username}")
+
+    # Récupère l'utilisateur depuis la DB
+    user = User.query.filter_by(username=username).first()
     if not user:
         flash('Votre session a expiré, veuillez vous reconnecter', 'error')
         session.clear()
         return redirect(url_for('login'))
+    
+    print(f"DEBUG ACCOUNT: User ID: {user.id}")
+    print(f"DEBUG ACCOUNT: Relation orders: {type(user.orders)}")
+
+    # Méthode 1: Via la relation
+    orders_via_relation = list(user.orders)
+    print(f"DEBUG ACCOUNT: Commandes via relation: {len(orders_via_relation)}")
+    
+    for order in orders_via_relation:
+        print(f"DEBUG ACCOUNT: Commande {order.id} - User ID: {order.user_id} - Status: {order.status}")
+
+    # Méthode 2: Via query directe
+    orders_via_query = Order.query.filter_by(user_id=user.id).order_by(Order.date.desc()).all()
+    print(f"DEBUG ACCOUNT: Commandes via query: {len(orders_via_query)}")
+    
+    for order in orders_via_query:
+        print(f"DEBUG ACCOUNT: Commande query {order.id} - User ID: {order.user_id}")
+
+    # Utiliser la méthode qui fonctionne le mieux
+    orders_to_use = orders_via_query if orders_via_query else orders_via_relation
 
     user_orders = []
-    for order in user.orders:
+    for order in orders_to_use:
+        print(f"DEBUG ACCOUNT: Traitement commande {order.id}")
         order_items = []
         if order.items:
+            print(f"DEBUG ACCOUNT: Items dans commande: {order.items}")
             for product_id, quantity in order.items.items():
                 product = next((p for p in products if str(p['id']) == str(product_id)), None)
                 if product:
-                    image = product.get('image', 'default.jpg')
+                    # Gestion des images
+                    image = 'default-product.jpg'
+                    if 'images' in product and product['images']:
+                        image = product['images'][0] if isinstance(product['images'], list) else product['images']
+                    elif 'image' in product:
+                        image = product['image']
+                    
                     order_items.append({
                         'id': product['id'],
                         'name': product['name'],
@@ -3066,12 +3181,13 @@ def account():
                         'total': float(product['price']) * quantity,
                         'image': image
                     })
+        else:
+            print(f"DEBUG ACCOUNT: Aucun item dans la commande {order.id}")
         
         user_orders.append({
             'id': order.id,
             'reference': order.reference,
-            'date': order.date,
-            'date_str': order.date.strftime("%d/%m/%Y à %H:%M"),
+            'date': order.date.strftime("%d/%m/%Y à %H:%M"),
             'status': order.status,
             'total': float(order.total),
             'items': order_items,
@@ -3079,16 +3195,18 @@ def account():
             'payment_method': order.payment_method
         })
 
-    # Trier par date réelle
+    # Trier les commandes par date (les plus récentes en premier)
     user_orders.sort(key=lambda x: x['date'], reverse=True)
+    print(f"DEBUG ACCOUNT: Commandes préparées pour template: {len(user_orders)}")
+
+    # Ajout d'une date de création lisible pour le profil
+    joined_date = user.created_at.strftime("%d/%m/%Y")
 
     return render_template('account.html',
                            user=user,
                            orders=user_orders,
-                           joined_date=user.created_at.strftime("%d/%m/%Y"))
-
-
-
+                           products=products,
+                           joined_date=joined_date)
 
 @app.route('/admin')
 @admin_required
