@@ -655,20 +655,25 @@ def prepare_order_data(orders):
             order_data['items'] = order_data['items']()
         processed[order_id] = order_data
     return processed
-
-@app.route('/admin-login', methods=['GET', 'POST'])
+    
+@app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        if (username == ADMIN_CREDENTIALS['username'] and 
-            check_password_hash(ADMIN_CREDENTIALS['password_hash'], password)):
-            session['admin_logged_in'] = True
-            session['admin_last_activity'] = datetime.utcnow()
-            flash("Connexion admin réussie", "success")
+        username = request.form['username']
+        password = request.form['password']
+        user = User.query.filter_by(username=username).first()
+
+        if user and user.check_password(password) and user.role == "admin":
+            session['logged_in'] = True
+            session['role'] = 'admin'
+            session['username'] = user.username
+            flash("Connexion réussie", "success")
             return redirect(url_for('admin_dashboard'))
-        flash('Identifiants incorrects', 'error')
-    return render_template('admin_login.html')
+
+        flash("Identifiants invalides ou non autorisés", "error")
+    
+    return render_template("admin/login.html")
+
 
 @app.route('/admin/logout')
 def admin_logout():
