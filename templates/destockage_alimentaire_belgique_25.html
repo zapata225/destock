@@ -139,7 +139,7 @@
                 <h1 class="display-4 fw-bold mb-3">Destockage Alimentaire Belgique 🚨 -70% sur Nos Produits</h1>
                 <p class="lead mb-4">Grossiste N°1 en <strong>destockage alimentaire Belgique</strong>. Boissons, surgelés, laitiers et produits secs à prix cassés. Livraison rapide dans toute la Belgique.</p>
                 <div class="d-flex flex-wrap gap-2">
-                    <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg fw-bold">Voir les Offres de Destockage</a>
+                    <a href="{{ url_for('index') }}" class="btn btn-warning btn-lg fw-bold">Voir les Offres de Destockage</a>
                     <a href="#contact" class="btn btn-outline-light btn-lg">Contactez-Nous</a>
                 </div>
                 <div class="mt-4">
@@ -189,7 +189,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Boissons</h3>
                         <p class="card-text">Destockage de boissons en Belgique: sodas, eaux, jus de fruits, vins et bières à -70%.</p>
-                        <a href="{{ url_for('produits') }}?category=boissons" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=boissons" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Surgelés</h3>
                         <p class="card-text">Destockage de produits surgelés en Belgique: viandes, poissons, légumes, plats préparés.</p>
-                        <a href="{{ url_for('produits') }}?category=surgeles" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=surgeles" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -209,7 +209,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Produits Laitiers</h3>
                         <p class="card-text">Destockage de produits laitiers en Belgique: yaourts, fromages, beurre, crèmes à prix discount.</p>
-                        <a href="{{ url_for('produits') }}?category=laitiers" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=laitiers" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Produits Secs</h3>
                         <p class="card-text">Destockage de produits secs en Belgique: pâtes, riz, conserves, biscuits, céréales à -70%.</p>
-                        <a href="{{ url_for('produits') }}?category=secs" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=secs" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -341,7 +341,7 @@
                 <h2 class="mb-4">Prêt à Profiter de Nos Offres de <strong>Destockage Alimentaire Belgique</strong> ?</h2>
                 <p class="lead mb-4">Rejoignez des centaines de clients satisfaits en Belgique et économisez jusqu'à 70% sur vos achats alimentaires.</p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg fw-bold">Voir le Catalogue Destockage</a>
+                    <a href="{{ url_for('product_list') }}" class="btn btn-warning btn-lg fw-bold">Voir le Catalogue Destockage</a>
                     <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Contact Express</a>
                 </div>
                 <p class="mt-3 small">Livraison rapide dans toute la Belgique 🇧🇪</p>
@@ -394,7 +394,7 @@
 <script>
     // Tracking des conversions pour la Belgique
     document.addEventListener('DOMContentLoaded', function() {
-        const belgiumLinks = document.querySelectorAll('a[href*="produits"], a[href*="contact"]');
+        const belgiumLinks = document.querySelectorAll('a[href*="product_list"], a[href*="contact"]');
         belgiumLinks.forEach(link => {
             link.addEventListener('click', function() {
                 if (typeof gtag !== 'undefined') {
