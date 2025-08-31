@@ -1,0 +1,432 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Bruxelles 🚨 | -70% sur Boissons, Surgelés | Livraison Bruxelles{% endblock %}
+
+{% block meta_description %}✅ Grossiste N°1 en Destockage Alimentaire à Bruxelles. Palette de Boissons, Surgelés, Laitiers à Prix Cassés -70%. Livraison Rapide dans tout Bruxelles. ☎ Devis Immédiat. Destockage alimentaire professionnel Bruxelles.{% endblock %}
+
+{% block head_extra %}
+    <!-- Open Graph -->
+    <meta property="og:title" content="Destockage Alimentaire Bruxelles -70% | Livraison Express" />
+    <meta property="og:description" content="Grossiste N°1 en destockage alimentaire Bruxelles : 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers à prix cassés. ★★★★☆ (4.9/5) - ☎ +33644694515" />
+    <meta property="og:url" content="https://www.destockagealimentairestore.com/destockage-alimentaire-bruxelles" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.destockagealimentairestore.com/static/images/og-destockage-bruxelles.jpg" />
+    <meta property="og:image:alt" content="Destockage alimentaire Bruxelles -70% toute la région" />
+    <meta property="og:locale" content="fr_BE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Destockage Alimentaire Bruxelles | 4.9/5 ★ | Livraison Express" />
+    <meta name="twitter:description" content="🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur les invendus de qualité professionnelle à Bruxelles" />
+    <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-destockage-bruxelles.jpg" />
+    
+    <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
+    <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
+
+    <!-- Rich Snippet COMPLET Bruxelles -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WholesaleStore",
+      "name": "Destockage Alimentaire Store Bruxelles",
+      "description": "Grossiste en destockage alimentaire pour professionnels et particuliers à Bruxelles",
+      "url": "https://www.destockagealimentairestore.com/destockage-alimentaire-bruxelles",
+      "image": "https://www.destockagealimentairestore.com/static/images/logo-destockage-bruxelles.jpg",
+      "telephone": "+33644694515",
+      "email": "contact@destockagealimentaire.fr",
+      "priceRange": "€€",
+      "openingHours": "Mo-Fr 08:00-19:00",
+      "areaServed": "BE-BRU",
+      "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.destockagealimentairestore.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+          "https://www.facebook.com/destockagealimentaire",
+          "https://www.instagram.com/destockagealimentaire"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenue de l'Alimentation 456",
+        "addressLocality": "Bruxelles",
+        "postalCode": "1000",
+        "addressCountry": "BE"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "87",
+        "bestRating": "5"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catégories Destockage Bruxelles",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Boissons",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Vins en gros Bruxelles",
+                "priceSpecification": {
+                  "price": "5.99",
+                  "priceCurrency": "EUR"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Sodas discount Bruxelles",
+                "priceSpecification": {
+                  "price": "0.39",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Surgelés",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Viandes professionnelles Bruxelles",
+                "priceSpecification": {
+                  "price": "3.99",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "7.90",
+          "currency": "EUR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BE",
+          "addressRegion": "Bruxelles"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "1"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "1"
+          }
+        }
+      }
+    }
+    </script>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section Ultra Optimisée -->
+<section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="display-4 fw-bold mb-3">Destockage Alimentaire Bruxelles 🚨 -70% sur Nos Produits</h1>
+                <p class="lead mb-4">Grossiste N°1 en <strong>destockage alimentaire Bruxelles</strong>. Boissons, surgelés, laitiers et produits secs à prix cassés. Livraison rapide dans toute la région de Bruxelles.</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="{{ url_for('produits') }}?location=bruxelles" class="btn btn-warning btn-lg fw-bold">Voir les Offres de Destockage</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Contactez-Nous</a>
+                </div>
+                <div class="mt-4">
+                    <span class="badge bg-success me-2">★★★★★ 4.9/5</span>
+                    <span class="me-2">•</span>
+                    <span>+200 clients satisfaits à Bruxelles</span>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img src="{{ url_for('static', filename='images/hero-destockage-bruxelles.jpg') }}" alt="Destockage alimentaire Bruxelles -70% sur produits" class="img-fluid rounded shadow" loading="eager">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Mots-Clés LSI -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="h4 mb-4">Destockage Alimentaire à Bruxelles - Grossiste de Référence</h2>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <span class="badge bg-secondary py-2 px-3">destockage alimentaire Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">destockage alimentaire professionnel Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">grossiste destockage alimentaire Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">destockage produits alimentaires Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">destockage supermarché Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">destockage alimentaire 1000 Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">destockage alimentaire Ixelles</span>
+                    <span class="badge bg-secondary py-2 px-3">destockage alimentaire Schaerbeek</span>
+                    <span class="badge bg-secondary py-2 px-3">invendus alimentaires Bruxelles</span>
+                    <span class="badge bg-secondary py-2 px-3">palettes destockage alimentaire Bruxelles</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Catégories -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nos Catégories de <strong>Destockage Alimentaire Bruxelles</strong></h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/boissons-destockage-bruxelles.jpg') }}" class="card-img-top" alt="Destockage boissons Bruxelles - Boissons à prix cassés" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Boissons</h3>
+                        <p class="card-text">Destockage de boissons à Bruxelles: sodas, eaux, jus de fruits, vins et bières à -70%.</p>
+                        <a href="{{ url_for('produits') }}?category=boissons&location=bruxelles" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/surgeles-destockage-bruxelles.jpg') }}" class="card-img-top" alt="Destockage surgelés Bruxelles - Produits surgelés discount" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Surgelés</h3>
+                        <p class="card-text">Destockage de produits surgelés à Bruxelles: viandes, poissons, légumes, plats préparés.</p>
+                        <a href="{{ url_for('produits') }}?category=surgeles&location=bruxelles" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/laitiers-destockage-bruxelles.jpg') }}" class="card-img-top" alt="Destockage produits laitiers Bruxelles - Yaourts, fromages" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Produits Laitiers</h3>
+                        <p class="card-text">Destockage de produits laitiers à Bruxelles: yaourts, fromages, beurre, crèmes à prix discount.</p>
+                        <a href="{{ url_for('produits') }}?category=laitiers&location=bruxelles" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/secs-destockage-bruxelles.jpg') }}" class="card-img-top" alt="Destockage produits secs Bruxelles - Pâtes, riz, conserves" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Produits Secs</h3>
+                        <p class="card-text">Destockage de produits secs à Bruxelles: pâtes, riz, conserves, biscuits, céréales à -70%.</p>
+                        <a href="{{ url_for('produits') }}?category=secs&location=bruxelles" class="btn btn-sm btn-primary stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Avantages -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Pourquoi Choisir Notre <strong>Destockage Alimentaire Bruxelles</strong> ?</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">💰</span>
+                    </div>
+                    <h3 class="h5">Économies Jusqu'à -70%</h3>
+                    <p>Prix cassés sur tous nos produits de destockage alimentaire à Bruxelles.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">🚚</span>
+                    </div>
+                    <h3 class="h5">Livraison Express Bruxelles</h3>
+                    <p>Livraison rapide en 24h dans toute la région bruxelloise.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">✅</span>
+                    </div>
+                    <h3 class="h5">Qualité Garantie</h3>
+                    <p>Produits de destockage de qualité professionnelle, parfaitement conservés.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">📦</span>
+                    </div>
+                    <h3 class="h5">Achat en Palette</h3>
+                    <p>Possibilité d'acheter par palette complète pour encore plus d'économies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section FAQ Optimisée SEO -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Questions Fréquentes sur le <strong>Destockage Alimentaire à Bruxelles</strong></h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="accordion" id="faqDestockage">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Qu'est-ce que le destockage alimentaire à Bruxelles ?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqDestockage">
+                            <div class="accordion-body">
+                                Le <strong>destockage alimentaire à Bruxelles</strong> consiste à vendre des surplus de production, des invendus ou des produits en fin de série à des prix très avantageux, jusqu'à -70%. Cela permet aux professionnels et particuliers bruxellois d'acheter des produits alimentaires de qualité à prix réduits.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Livrez-vous dans toute la région de Bruxelles ?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqDestockage">
+                            <div class="accordion-body">
+                                Oui, nous livrons partout dans <strong>Bruxelles</strong> et sa région : Bruxelles-Ville, Ixelles, Schaerbeek, Etterbeek, Uccle, Anderlecht et toutes les autres communes. Nos livraisons sont rapides et sécurisées pour garantir la fraîcheur de nos produits de destockage alimentaire.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Les produits de destockage sont-ils de bonne qualité ?
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqDestockage">
+                            <div class="accordion-body">
+                                Absolument. Tous nos produits de <strong>destockage alimentaire Bruxelles</strong> sont de qualité professionnelle, parfaitement conservés et respectent les normes sanitaires. Ils proviennent de surplus de production ou de fins de série de grandes marques.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Puis-je acheter en petite quantité ou faut-il acheter par palette ?
+                            </button>
+                        </h3>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqDestockage">
+                            <div class="accordion-body">
+                                Nous proposons les deux options. Vous pouvez acheter des produits à l'unité ou par carton, mais les meilleurs prix sont réservés à l'achat par palette complète de <strong>destockage alimentaire à Bruxelles</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section CTA -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Prêt à Profiter de Nos Offres de <strong>Destockage Alimentaire Bruxelles</strong> ?</h2>
+                <p class="lead mb-4">Rejoignez des centaines de clients satisfaits à Bruxelles et économisez jusqu'à 70% sur vos achats alimentaires.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="{{ url_for('produits') }}?location=bruxelles" class="btn btn-warning btn-lg fw-bold">Voir le Catalogue Destockage</a>
+                    <a href="{{ url_for('contact') }}?subject=Destockage Bruxelles" class="btn btn-outline-light btn-lg">Contact Express</a>
+                </div>
+                <p class="mt-3 small">Livraison rapide dans tout Bruxelles 🇧🇪</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Zones de Livraison -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nous Livrons Dans Tout <strong>Bruxelles</strong></h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="h5">Bruxelles-Capitale</h3>
+                <ul class="list-unstyled">
+                    <li>• Bruxelles-ville (1000)</li>
+                    <li>• Schaerbeek (1030)</li>
+                    <li>• Ixelles (1050)</li>
+                    <li>• Anderlecht (1070)</li>
+                    <li>• Etterbeek (1040)</li>
+                    <li>• Uccle (1180)</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h5">Périphérie Bruxelloise</h3>
+                <ul class="list-unstyled">
+                    <li>• Woluwe-Saint-Lambert (1200)</li>
+                    <li>• Woluwe-Saint-Pierre (1150)</li>
+                    <li>• Forest (1190)</li>
+                    <li>• Saint-Gilles (1060)</li>
+                    <li>• Molenbeek (1080)</li>
+                    <li>• Et toutes communes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <div class="alert alert-info">
+                <strong>Livraison express en 24h</strong> - Commandez avant 14h et recevez le lendemain !
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Scripts spécifiques à la page -->
+<script>
+    // Tracking des conversions pour Bruxelles
+    document.addEventListener('DOMContentLoaded', function() {
+        const bruxellesLinks = document.querySelectorAll('a[href*="produits"], a[href*="contact"]');
+        bruxellesLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-YOUR_CONVERSION_ID/Bruxelles_Conversion',
+                        'event_callback': function() {
+                            document.location = link.href;
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Ajout du marqueur géographique pour Bruxelles
+        const bruxellesMarker = document.createElement('meta');
+        bruxellesMarker.name = 'geo.region';
+        bruxellesMarker.content = 'BE-BRU';
+        document.head.appendChild(bruxellesMarker);
+        
+        const placenameMarker = document.createElement('meta');
+        placenameMarker.name = 'geo.placename';
+        placenameMarker.content = 'Bruxelles';
+        document.head.appendChild(placenameMarker);
+        
+        const positionMarker = document.createElement('meta');
+        positionMarker.name = 'geo.position';
+        positionMarker.content = '50.85045;4.34878';
+        document.head.appendChild(positionMarker);
+        
+        const icbmMarker = document.createElement('meta');
+        icbmMarker.name = 'ICBM';
+        icbmMarker.content = '50.85045, 4.34878';
+        document.head.appendChild(icbmMarker);
+    });
+</script>
+{% endblock %}

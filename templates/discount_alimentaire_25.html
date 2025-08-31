@@ -1,0 +1,467 @@
+{% extends "base.html" %}
+
+{% block page_title %}Discount Alimentaire 🚨 | -70% sur Boissons, Surgelés | Livraison France & Belgique{% endblock %}
+
+{% block meta_description %}✅ Magasin N°1 en Discount Alimentaire. Boissons, Surgelés, Laitiers à Prix Cassés -70%. Livraison Rapide France & Belgique. ☎ Devis Immédiat. Discount alimentaire professionnel.{% endblock %}
+
+{% block head_extra %}
+    <!-- Open Graph -->
+    <meta property="og:title" content="Discount Alimentaire -70% | Livraison Express France Belgique" />
+    <meta property="og:description" content="Magasin N°1 en discount alimentaire : 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers à prix cassés. ★★★★☆ (4.9/5) - ☎ +33644694515" />
+    <meta property="og:url" content="https://www.destockagealimentairestore.com/discount-alimentaire" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.destockagealimentairestore.com/static/images/og-discount-alimentaire.jpg" />
+    <meta property="og:image:alt" content="Discount alimentaire -70% France et Belgique" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Discount Alimentaire | 4.9/5 ★ | Livraison France Belgique" />
+    <meta name="twitter:description" content="🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur produits discount de qualité professionnelle" />
+    <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-discount-alimentaire.jpg" />
+    
+    <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
+    <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
+
+    <!-- Rich Snippet COMPLET Discount -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DiscountStore",
+      "name": "Discount Alimentaire Store",
+      "description": "Magasin discount alimentaire pour professionnels et particuliers",
+      "url": "https://www.destockagealimentairestore.com/discount-alimentaire",
+      "image": "https://www.destockagealimentairestore.com/static/images/logo-discount-alimentaire.jpg",
+      "telephone": "+33644694515",
+      "email": "contact@destockagealimentaire.fr",
+      "priceRange": "€",
+      "openingHours": "Mo-Fr 08:00-19:00",
+      "areaServed": ["FR", "BE"],
+      "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.destockagealimentairestore.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+          "https://www.facebook.com/destockagealimentaire",
+          "https://www.instagram.com/destockagealimentaire"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Rue du Discount",
+        "addressLocality": "Lille",
+        "postalCode": "59000",
+        "addressCountry": "FR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "215",
+        "bestRating": "5"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catégories Discount",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Boissons Discount",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Vins discount",
+                "priceSpecification": {
+                  "price": "4.99",
+                  "priceCurrency": "EUR"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Sodas discount",
+                "priceSpecification": {
+                  "price": "0.35",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Surgelés Discount",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Viandes discount",
+                "priceSpecification": {
+                  "price": "3.49",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "8.90",
+          "currency": "EUR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": ["FR", "BE"]
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "2"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "3"
+          }
+        }
+      }
+    }
+    </script>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section Ultra Optimisée -->
+<section class="hero-section bg-danger text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="display-4 fw-bold mb-3">Discount Alimentaire 🚨 Jusqu'à -70% sur Nos Produits</h1>
+                <p class="lead mb-4">Magasin N°1 en <strong>discount alimentaire</strong>. Boissons, surgelés, laitiers et produits secs à prix discount. Livraison rapide France et Belgique.</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="{{ url_for('produits') }}?type=discount" class="btn btn-warning btn-lg fw-bold">Voir les Offres Discount</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Contactez-Nous</a>
+                </div>
+                <div class="mt-4">
+                    <span class="badge bg-success me-2">★★★★★ 4.8/5</span>
+                    <span class="me-2">•</span>
+                    <span>+700 clients satisfaits</span>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img src="{{ url_for('static', filename='images/hero-discount-alimentaire.jpg') }}" alt="Discount alimentaire jusqu'à -70% sur produits" class="img-fluid rounded shadow" loading="eager">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Mots-Clés LSI -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="h4 mb-4">Discount Alimentaire - Magasin de Référence</h2>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <span class="badge bg-secondary py-2 px-3">discount alimentaire</span>
+                    <span class="badge bg-secondary py-2 px-3">produits discount alimentaire</span>
+                    <span class="badge bg-secondary py-2 px-3">magasin discount alimentaire</span>
+                    <span class="badge bg-secondary py-2 px-3">alimentation discount</span>
+                    <span class="badge bg-secondary py-2 px-3">supermarché discount</span>
+                    <span class="badge bg-secondary py-2 px-3">discount nourriture</span>
+                    <span class="badge bg-secondary py-2 px-3">discount boissons</span>
+                    <span class="badge bg-secondary py-2 px-3">discount surgelés</span>
+                    <span class="badge bg-secondary py-2 px-3">prix discount alimentaire</span>
+                    <span class="badge bg-secondary py-2 px-3">promotion alimentaire discount</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Catégories -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nos Catégories <strong>Discount Alimentaire</strong></h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/boissons-discount.jpg') }}" class="card-img-top" alt="Discount boissons - Boissons à prix discount" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Boissons Discount</h3>
+                        <p class="card-text">Discount sur boissons: sodas, eaux, jus de fruits, vins et bières à prix cassés.</p>
+                        <a href="{{ url_for('produits') }}?category=boissons&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/surgeles-discount.jpg') }}" class="card-img-top" alt="Discount surgelés - Produits surgelés à petit prix" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Surgelés Discount</h3>
+                        <p class="card-text">Discount de produits surgelés: viandes, poissons, légumes, plats préparés.</p>
+                        <a href="{{ url_for('produits') }}?category=surgeles&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/laitiers-discount.jpg') }}" class="card-img-top" alt="Discount produits laitiers - Yaourts, fromages pas chers" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Produits Laitiers Discount</h3>
+                        <p class="card-text">Discount de produits laitiers: yaourts, fromages, beurre, crèmes à prix réduits.</p>
+                        <a href="{{ url_for('produits') }}?category=laitiers&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/secs-discount.jpg') }}" class="card-img-top" alt="Discount produits secs - Pâtes, riz, conserves discount" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Produits Secs Discount</h3>
+                        <p class="card-text">Discount de produits secs: pâtes, riz, conserves, biscuits, céréales à -70%.</p>
+                        <a href="{{ url_for('produits') }}?category=secs&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Avantages -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Pourquoi Choisir Notre <strong>Discount Alimentaire</strong> ?</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-danger rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">💰</span>
+                    </div>
+                    <h3 class="h5">Économies Jusqu'à -70%</h3>
+                    <p>Prix discount sur tous nos produits alimentaires.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-danger rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">🚚</span>
+                    </div>
+                    <h3 class="h5">Livraison France & Belgique</h3>
+                    <p>Livraison rapide en France et en Belgique.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-danger rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">✅</span>
+                    </div>
+                    <h3 class="h5">Qualité Garantie</h3>
+                    <p>Produits discount de qualité professionnelle.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center">
+                    <div class="bg-danger rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="text-white fs-1">📦</span>
+                    </div>
+                    <h3 class="h5">Achat en Gros</h3>
+                    <p>Possibilité d'acheter en gros pour plus d'économies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section FAQ Optimisée SEO -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Questions Fréquentes sur le <strong>Discount Alimentaire</strong></h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="accordion" id="faqDiscount">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Qu'est-ce que le discount alimentaire ?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Le <strong>discount alimentaire</strong> consiste à vendre des produits alimentaires à des prix très avantageux, généralement avec des réductions allant jusqu'à -70%. Ces produits peuvent être des surplus de production, des invendus, des fins de série ou des produits achetés en grande quantité.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Quelle est la différence entre discount et destockage ?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Le <strong>destockage alimentaire</strong> concerne spécifiquement l'écoulement de stocks excédentaires, tandis que le <strong>discount alimentaire</strong> est une approche plus large qui inclut tous les produits vendus à prix réduits, qu'ils proviennent de destockage ou d'achats volume à prix discount.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Les produits discount sont-ils de bonne qualité ?
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Absolument. Tous nos produits de <strong>discount alimentaire</strong> sont de qualité professionnelle, parfaitement conservés et respectent les normes sanitaires. La réduction de prix vient de notre stratégie d'achat volume et non d'une baisse de qualité.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Livrez-vous partout en France et en Belgique ?
+                            </button>
+                        </h3>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Oui, nous livrons partout en <strong>France</strong> et en <strong>Belgique</strong>. Nos livraisons sont rapides et sécurisées pour garantir la fraîcheur de nos produits alimentaires discount.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section CTA -->
+<section class="py-5 bg-danger text-white">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Prêt à Profiter de Nos Offres <strong>Discount Alimentaire</strong> ?</h2>
+                <p class="lead mb-4">Rejoignez des centaines de clients satisfaits et économisez jusqu'à 70% sur vos achats alimentaires.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="{{ url_for('produits') }}?type=discount" class="btn btn-warning btn-lg fw-bold">Voir le Catalogue Discount</a>
+                    <a href="{{ url_for('contact') }}?subject=Discount Alimentaire" class="btn btn-outline-light btn-lg">Contact Express</a>
+                </div>
+                <p class="mt-3 small">Livraison rapide France et Belgique 🇫🇷🇧🇪</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Zones de Livraison -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nous Livrons Partout en <strong>France et Belgique</strong></h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="h5">France</h3>
+                <ul class="list-unstyled">
+                    <li>• Paris et Île-de-France</li>
+                    <li>• Lille et Nord-Pas-de-Calais</li>
+                    <li>• Lyon et Rhône-Alpes</li>
+                    <li>• Marseille et PACA</li>
+                    <li>• Toulouse et Occitanie</li>
+                    <li>• Et toute la France</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h5">Belgique</h3>
+                <ul class="list-unstyled">
+                    <li>• Bruxelles et région</li>
+                    <li>• Wallonie</li>
+                    <li>• Flandre</li>
+                    <li>• Anvers</li>
+                    <li>• Liège</li>
+                    <li>• Et toute la Belgique</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <div class="alert alert-info">
+                <strong>Frais de port offerts</strong> à partir de 200€ d'achat !
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Comparaison Prix -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Comparaison des Prix <strong>Discount vs Classique</strong></h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix Classique</th>
+                        <th>Prix Discount</th>
+                        <th>Économie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Soda 33cl (x24)</td>
+                        <td>14,90€</td>
+                        <td>8,90€</td>
+                        <td class="text-success">-40%</td>
+                    </tr>
+                    <tr>
+                        <td>Vin Rouge Bouteille</td>
+                        <td>7,50€</td>
+                        <td>4,90€</td>
+                        <td class="text-success">-35%</td>
+                    </tr>
+                    <tr>
+                        <td>Filets de Poulet (5kg)</td>
+                        <td>42,90€</td>
+                        <td>29,90€</td>
+                        <td class="text-success">-30%</td>
+                    </tr>
+                    <tr>
+                        <td>Fromage (2kg)</td>
+                        <td>21,90€</td>
+                        <td>15,90€</td>
+                        <td class="text-success">-27%</td>
+                    </tr>
+                    <tr>
+                        <td>Pâtes (10kg)</td>
+                        <td>18,90€</td>
+                        <td>11,90€</td>
+                        <td class="text-success">-37%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Scripts spécifiques à la page -->
+<script>
+    // Tracking des conversions pour le discount
+    document.addEventListener('DOMContentLoaded', function() {
+        const discountLinks = document.querySelectorAll('a[href*="produits"], a[href*="contact"]');
+        discountLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-YOUR_CONVERSION_ID/Discount_Conversion',
+                        'event_callback': function() {
+                            document.location = link.href;
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Animation des économies
+        const economyElements = document.querySelectorAll('.text-success');
+        economyElements.forEach(el => {
+            el.style.fontWeight = 'bold';
+        });
+    });
+</script>
+{% endblock %}
