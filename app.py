@@ -2546,6 +2546,23 @@ def descuentos_espana():
 def destockage_particuliers():
     return render_template('destockage_particuliersbelge.html')
 
+
+@app.route('/destockage-alimentaire-belgique-25')
+def destockage_belgique_25():
+    """Route pour la page ultra-optimisée destockage alimentaire Belgique"""
+    return render_template('destockage_alimentaire_belgique_25.html')
+
+@app.route('/destockage-alimentaire-bruxelles-25')
+def destockage_bruxelles_25():
+    """Route pour la page ultra-optimisée destockage alimentaire Bruxelles"""
+    return render_template('destockage_bruxelles_25.html')
+
+@app.route('/discount-alimentaire-25')
+def discount_alimentaire_25():
+    """Route pour la page ultra-optimisée discount alimentaire"""
+    return render_template('discount_alimentaire_25.html')
+    
+
 @app.route('/destockage-belgiquebbelge')
 def destockage_belgique25():
     return render_template('destockage_belgique_belge.html')
@@ -3369,7 +3386,7 @@ def sitemap():
         '/grossiste-alimentaire-international',
         '/be/grossiste-alimentaire-international',
         '/ch/grossiste-alimentaire-international',
-        '/es/mayorista-alimentario-internacional',
+        '/es/mayorista-alimentario-internacional','/destockage-alimentaire-belgique-25','/discount-alimentaire-25','/destockage-alimentaire-bruxelles-25'
         '/guide-des-soldes-alimentaires',
         '/blog/produits-italiens','/comprar-alimentos-por-mayor-espana',
         '/alimentos_por_mayor', '/fr/destockage,destockage_nl.html','/en/surplus','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
