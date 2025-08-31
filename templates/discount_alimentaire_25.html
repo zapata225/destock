@@ -139,7 +139,7 @@
                 <h1 class="display-4 fw-bold mb-3">Discount Alimentaire 🚨 Jusqu'à -70% sur Nos Produits</h1>
                 <p class="lead mb-4">Magasin N°1 en <strong>discount alimentaire</strong>. Boissons, surgelés, laitiers et produits secs à prix discount. Livraison rapide France et Belgique.</p>
                 <div class="d-flex flex-wrap gap-2">
-                    <a href="{{ url_for('produits') }}?type=discount" class="btn btn-warning btn-lg fw-bold">Voir les Offres Discount</a>
+                    <a href="{{ url_for('product_list') }}?type=discount" class="btn btn-warning btn-lg fw-bold">Voir les Offres Discount</a>
                     <a href="#contact" class="btn btn-outline-light btn-lg">Contactez-Nous</a>
                 </div>
                 <div class="mt-4">
@@ -189,7 +189,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Boissons Discount</h3>
                         <p class="card-text">Discount sur boissons: sodas, eaux, jus de fruits, vins et bières à prix cassés.</p>
-                        <a href="{{ url_for('produits') }}?category=boissons&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=boissons&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Surgelés Discount</h3>
                         <p class="card-text">Discount de produits surgelés: viandes, poissons, légumes, plats préparés.</p>
-                        <a href="{{ url_for('produits') }}?category=surgeles&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=surgeles&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -209,7 +209,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Produits Laitiers Discount</h3>
                         <p class="card-text">Discount de produits laitiers: yaourts, fromages, beurre, crèmes à prix réduits.</p>
-                        <a href="{{ url_for('produits') }}?category=laitiers&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=laitiers&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                     <div class="card-body">
                         <h3 class="h5 card-title">Produits Secs Discount</h3>
                         <p class="card-text">Discount de produits secs: pâtes, riz, conserves, biscuits, céréales à -70%.</p>
-                        <a href="{{ url_for('produits') }}?category=secs&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
+                        <a href="{{ url_for('product_list') }}?category=secs&type=discount" class="btn btn-sm btn-danger stretched-link">Voir les offres</a>
                     </div>
                 </div>
             </div>
@@ -341,7 +341,7 @@
                 <h2 class="mb-4">Prêt à Profiter de Nos Offres <strong>Discount Alimentaire</strong> ?</h2>
                 <p class="lead mb-4">Rejoignez des centaines de clients satisfaits et économisez jusqu'à 70% sur vos achats alimentaires.</p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="{{ url_for('produits') }}?type=discount" class="btn btn-warning btn-lg fw-bold">Voir le Catalogue Discount</a>
+                    <a href="{{ url_for('product_list') }}?type=discount" class="btn btn-warning btn-lg fw-bold">Voir le Catalogue Discount</a>
                     <a href="{{ url_for('contact') }}?subject=Discount Alimentaire" class="btn btn-outline-light btn-lg">Contact Express</a>
                 </div>
                 <p class="mt-3 small">Livraison rapide France et Belgique 🇫🇷🇧🇪</p>
