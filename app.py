@@ -1937,7 +1937,10 @@ def article_france_2():
 def confirmation1():
     return render_template('confirmation1.html')
 
-
+@app.route('/destockage-alimentaire-belgiqu092025')
+def destockage_belgique092025():
+    return render_template('destockage-belgique092025.html')
+    
 @app.route("/destockage-alimentaire-urgence-23mai2025")
 def article_urgence():
     # Balises dynamiques pour Google
