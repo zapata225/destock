@@ -1332,7 +1332,7 @@ products = [
         "id": 303,
         "name": "🥤 Palette Pepsi Zero Sleek Cans 33cl (108 cartons de 24 canettes)",
         "description": "Pepsi Zero sans sucres en canettes élégantes 33cl. Palette complète de 2592 canettes. Même grand goût Pepsi sans les calories. Conditionnement professionnel.",
-        "price": 570.24,
+        "price": 870.24,
         "priceCurrency": "EUR",
         "category": "Boissons",
         "stock": 6,
