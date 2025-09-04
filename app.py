@@ -2193,6 +2193,160 @@ def anti_gaspi():
 def alimentos_por_mayor():
     return render_template('alimentos_por_mayor.html')
 
+
+@app.route('/grossistes-alimentaires-paris-2023')
+def grossistes_paris_2023():
+    """Page article sur les grossistes alimentaires à Paris"""
+    meta = {
+        'title': 'Top Grossistes Alimentaires à Paris 2023 | Destockage Alimentaire',
+        'description': 'Découvrez les meilleurs grossistes alimentaires à Paris en 2023. Guide complet pour professionnels de la restauration avec Rungis, Transgourmet, Pomona et Métro.',
+        'keywords': 'grossistes alimentaires paris, rungis, transgourmet, pomona, metro, restauration paris, produits frais, grossiste alimentaire',
+        'canonical': 'https://destockagealimentairestore.com/grossistes-alimentaires-paris-2023'
+    }
+    return render_template('grossistes-paris-2023.html', meta=meta)
+
+
+@app.route('/astuces-economie-alimentation')
+def astuces_economie_alimentation():
+    """Page article sur les astuces pour économiser sur l'alimentation"""
+    meta = {
+        'title': 'Les meilleures astuces pour économiser sur l\'alimentation | Destockage Alimentaire',
+        'description': 'Découvrez nos astuces pour réduire votre budget alimentaire : magasins de déstockage, planification des repas, achats en gros et bonnes habitudes alimentaires.',
+        'keywords': 'économiser alimentation, astuces économie, déstockage alimentaire, budget courses, réduire dépenses alimentaires',
+        'canonical': 'https://destockagealimentairestore.com/astuces-economie-alimentation'
+    }
+    return render_template('astuces-economie-alimentation.html', meta=meta)
+
+
+@app.route('/avantages-grossiste-boisson')
+def avantages_grossiste_boisson():
+    """Page article sur les avantages de choisir un grossiste boisson"""
+    meta = {
+        'title': 'Les avantages de choisir un grossiste boisson | Destockage Alimentaire',
+        'description': 'Découvrez les nombreux avantages de choisir un grossiste boisson pour optimiser votre approvisionnement. Profitez de tarifs compétitifs et d\'une large gamme de produits adaptés à vos besoins, que vous soyez à Bruxelles ou ailleurs en Belgique.',
+        'keywords': 'grossiste boisson, boissons Bruxelles, grossiste Belgique, approvisionnement boissons, tarifs compétitifs boissons',
+        'canonical': 'https://destockagealimentairestore.com/avantages-grossiste-boisson'
+    }
+    return render_template('avantages-grossiste-boisson.html', meta=meta)
+
+@app.route('/destockage-alimentaire-belgique-guide')
+def destockage_belgique_guide():
+    """Guide complet du destockage alimentaire en Belgique"""
+    meta = {
+        'title': 'Guide Ultime du Destockage Alimentaire en Belgique 2023 | Economisez Jusqu\'à 70%',
+        'description': 'Découvrez le guide complet du destockage alimentaire en Belgique. Où trouver les meilleures offres, comment économiser jusqu\'à 70% sur vos courses et toutes les astuces pour profiter des surplus de qualité.',
+        'keywords': 'destockage alimentaire Belgique, magasins destockage, surplus alimentaire, économiser courses, produits discount Belgique, destockage professionnel',
+        'canonical': 'https://destockagealimentairestore.com/destockage-alimentaire-belgique-guide'
+    }
+    return render_template('destockage-alimentaire-belgique-guide.html', meta=meta)
+
+@app.route('/avantages-destockage-local')
+def avantages_destockage_local():
+    """Page article sur les avantages du déstockage alimentaire local"""
+    meta = {
+        'title': 'Les avantages du déstockage alimentaire local | Destockage Alimentaire',
+        'description': 'Découvrez les nombreux avantages du déstockage alimentaire local : économies, écologie, et soutien à l\'économie locale. Une solution gagnante pour tous.',
+        'keywords': 'destockage alimentaire, avantages déstockage, économies alimentaires, gaspillage alimentaire, consommation locale',
+        'canonical': 'https://destockagealimentairestore.com/avantages-destockage-local'
+    }
+    return render_template('avantages-destockage-local.html', meta=meta)
+
+@app.route('/tendances-distribution')
+def tendances_distribution():
+    """Page article sur les tendances actuelles dans la distribution"""
+    meta = {
+        'title': 'Les tendances actuelles dans la distribution | Destockage Alimentaire',
+        'description': 'Découvrez les tendances actuelles dans la distribution : e-commerce, réseaux de distribution, transformation des magasins physiques, durabilité et impact technologique.',
+        'keywords': 'tendances distribution, commerce de détail, e-commerce, réseaux distribution, magasins physiques, durabilité distribution, technologie distribution',
+        'canonical': 'https://destockagealimentairestore.com/tendances-distribution'
+    }
+    return render_template('tendances-distribution.html', meta=meta)
+
+
+@app.route('/achat-boisson-gros')
+def achat_boisson_gros():
+    """Page article sur l'achat de boissons en gros"""
+    meta = {
+        'title': 'Achat Boisson en Gros: Guide Ultime et Astuces | Destockage Alimentaire',
+        'description': 'Découvrez comment acheter des boissons en gros peut vous faire économiser de l\'argent, avec des conseils sur le choix du bon grossiste et l\'optimisation des achats pour les particuliers et professionnels.',
+        'keywords': 'achat boisson en gros, grossiste boisson, boissons pas cher, économiser sur boissons, guide achat boissons',
+        'canonical': 'https://destockagealimentairestore.com/achat-boisson-gros'
+    }
+    return render_template('achat-boisson-gros.html', meta=meta)
+
+
+@app.route('/achat-boisson-gros')
+def achat_boisson_gros():
+    """Page article sur l'achat de boissons en gros"""
+    meta = {
+        'title': 'Achat Boisson en Gros: Guide Ultime et Astuces | Destockage Alimentaire',
+        'description': 'Découvrez comment acheter des boissons en gros peut vous faire économiser de l\'argent, avec des conseils sur le choix du bon grossiste et l\'optimisation des achats pour les particuliers et professionnels.',
+        'keywords': 'achat boisson en gros, grossiste boisson, boissons pas cher, économiser sur boissons, guide achat boissons',
+        'canonical': 'https://destockagealimentairestore.com/achat-boisson-gros'
+    }
+    return render_template('achat-boisson-gros.html', meta=meta)
+
+
+@app.route('/grossistes-alimentaires-paris-2023')
+def grossistes_alimentaires_paris_2023():
+    """Page article sur les meilleurs grossistes alimentaires à Paris"""
+    meta = {
+        'title': 'Top Grossistes Alimentaires à Paris 2023 | Destockage Alimentaire',
+        'description': 'Découvrez les meilleurs grossistes alimentaires à Paris en 2023. Guide complet pour professionnels de la restauration avec Rungis, Transgourmet, Pomona et Métro.',
+        'keywords': 'grossistes alimentaires paris, rungis, transgourmet, pomona, metro, restauration paris, produits frais, grossiste alimentaire',
+        'canonical': 'https://destockagealimentairestore.com/grossistes-alimentaires-paris-2023'
+    }
+    return render_template('grossistes-alimentaires-paris-2023.html', meta=meta)
+
+
+@app.route('/destockage-alimentaire-paris')
+def destockage_alimentaire_paris():
+    """Page dédiée au déstockage alimentaire à Paris"""
+    meta = {
+        'title': 'Destockage Alimentaire Paris | Grossiste Destockage Professionnel',
+        'description': 'Déstockage alimentaire à Paris : produits de qualité à prix réduits jusqu\'à -70%. Livraison rapide pour professionnels et particuliers. Commandez en ligne!',
+        'keywords': 'destockage alimentaire Paris, grossiste alimentaire Paris, produits alimentaires pas chers, destockage professionnel, surplus alimentaire, liquidation stock Paris',
+        'canonical': 'https://destockagealimentairestore.com/destockage-alimentaire-paris'
+    }
+    return render_template('destockage-alimentaire-paris.html', meta=meta)
+
+@app.route('/destockage-alimentaire-lille')
+def destockage_alimentaire_lille():
+    """Page article sur le destockage alimentaire à Lille"""
+    meta = {
+        'title': 'Destockage Alimentaire Lille: Guide Complet 2023 | Économisez jusqu\'à 70%',
+        'description': 'Découvrez les meilleures adresses de destockage alimentaire à Lille. Guide complet pour professionnels et particuliers pour économiser jusqu\'à 70% sur vos achats alimentaires.',
+        'keywords': 'destockage alimentaire Lille, produits alimentaires discount Lille, économiser alimentation Lille, surplus alimentaire Lille, destockage professionnel Lille',
+        'canonical': 'https://destockagealimentairestore.com/destockage-alimentaire-lille'
+    }
+    return render_template('destockage-alimentaire-lille.html', meta=meta)
+
+
+@app.route('/initiatives-destockage-alimentaire')
+def initiatives_destockage_alimentaire():
+    """Page article sur les initiatives de déstockage alimentaire en France"""
+    meta = {
+        'title': 'Initiatives de Déstockage Alimentaire en France | Anti-Gaspillage et Économies',
+        'description': 'Découvrez comment les initiatives de déstockage alimentaire en France permettent de réduire le gaspillage tout en offrant des produits de qualité à prix réduits.',
+        'keywords': 'destockage alimentaire France, anti-gaspillage, économies alimentaires, déstockage en ligne, gaspillage alimentaire',
+        'canonical': 'https://destockagealimentairestore.com/initiatives-destockage-alimentaire'
+    }
+    return render_template('initiatives-destockage-alimentaire.html', meta=meta)
+
+
+@app.route('/optimiser-magasin-distribution')
+def optimiser_magasin_distribution():
+    """Page article sur l'optimisation des magasins de distribution"""
+    meta = {
+        'title': 'Comment optimiser votre magasin de distribution | Guide Complet 2023',
+        'description': 'Découvrez les stratégies pour optimiser votre magasin de distribution : gestion de stock, agencement, expérience client et intégration numérique. Guide complet pour augmenter votre rentabilité.',
+        'keywords': 'optimisation magasin distribution, gestion stock, agencement magasin, expérience client, commerce numérique, stratégie distribution',
+        'canonical': 'https://destockagealimentairestore.com/optimiser-magasin-distribution'
+    }
+    return render_template('optimiser-magasin-distribution.html', meta=meta)
+
+
+
 @app.after_request
 def add_header(response):
     response.cache_control.max_age = 86400  # 1 jour
