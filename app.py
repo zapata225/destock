@@ -2263,17 +2263,6 @@ def tendances_distribution():
     return render_template('tendances-distribution.html', meta=meta)
 
 
-@app.route('/achat-boisson-gros')
-def achat_boisson_gros():
-    """Page article sur l'achat de boissons en gros"""
-    meta = {
-        'title': 'Achat Boisson en Gros: Guide Ultime et Astuces | Destockage Alimentaire',
-        'description': 'Découvrez comment acheter des boissons en gros peut vous faire économiser de l\'argent, avec des conseils sur le choix du bon grossiste et l\'optimisation des achats pour les particuliers et professionnels.',
-        'keywords': 'achat boisson en gros, grossiste boisson, boissons pas cher, économiser sur boissons, guide achat boissons',
-        'canonical': 'https://destockagealimentairestore.com/achat-boisson-gros'
-    }
-    return render_template('achat-boisson-gros.html', meta=meta)
-
 
 @app.route('/achat-boisson-gros')
 def achat_boisson_gros():
