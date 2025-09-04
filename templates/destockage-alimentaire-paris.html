@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destockage Alimentaire Paris | Grossiste Destockage Professionnel</title>
+    <meta name="description" content="Déstockage alimentaire à Paris : produits de qualité à prix réduits jusqu'à -70%. Livraison rapide pour professionnels et particuliers. Commandez en ligne!">
+    <meta name="keywords" content="destockage alimentaire Paris, grossiste alimentaire Paris, produits alimentaires pas chers, destockage professionnel, surplus alimentaire, liquidation stock Paris">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Destockage Alimentaire Paris | Grossiste Destockage Professionnel">
+    <meta property="og:description" content="Déstockage alimentaire à Paris : produits de qualité à prix réduits jusqu'à -70%. Livraison rapide pour professionnels et particuliers.">
+    <meta property="og:url" content="https://destockagealimentairestore.com/destockage-alimentaire-paris">
+    <meta property="og:type" content="website">
+    <style>
+        :root {
+            --primary-color: #2a5bd7;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --light-bg: #f8fafc;
+            --dark-text: #1f2937;
+            --light-text: #6b7280;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&h=800&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            position: relative;
+        }
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #e69008;
+            transform: translateY(-2px);
+        }
+        section {
+            padding: 4rem 0;
+        }
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+        .advantages {
+            background: white;
+        }
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .advantage-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .advantage-card:hover {
+            transform: translateY(-5px);
+        }
+        .advantage-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .advantage-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        .products {
+            background: var(--light-bg);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-img {
+            height: 200px;
+            background-color: #f3f4f6;
+            background-position: center;
+            background-size: cover;
+        }
+        .product-content {
+            padding: 1.5rem;
+        }
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        .product-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .product-original {
+            text-decoration: line-through;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        .testimonials {
+            background: white;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .faq {
+            background: var(--light-bg);
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+        }
+        .faq-active .faq-answer {
+            display: block;
+        }
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+        .cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        footer {
+            background: var(--dark-text);
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #4b5563;
+            color: #9ca3af;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">DestockFood Paris</div>
+            <nav>
+                <ul>
+                    <li><a href="#avantages">Avantages</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#temoinages">Témoignages</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Déstockage Alimentaire à Paris - Jusqu'à -70%</h1>
+            <p>Découvrez notre sélection exceptionnelle de produits alimentaires à prix destockage. Livraison rapide dans tout Paris et Île-de-France.</p>
+            <a href="#produits" class="btn">Voir les offres</a>
+        </div>
+    </section>
+
+    <section id="avantages" class="advantages">
+        <div class="container">
+            <h2>Pourquoi choisir notre déstockage alimentaire à Paris ?</h2>
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>Économies importantes</h3>
+                    <p>Bénéficiez de réductions allant jusqu'à 70% sur des produits de qualité professionnelle. Des prix imbattables pour les professionnels et les particuliers.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚚</div>
+                    <h3>Livraison express</h3>
+                    <p>Livraison sous 24h à 48h dans tout Paris et la région Île-de-France. Service fiable et adapté à vos contraintes horaires.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">✅</div>
+                    <h3>Qualité garantie</h3>
+                    <p>Tous nos produits sont contrôlés et respectent les normes sanitaires françaises. Des produits de qualité à prix réduits.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🌱</div>
+                    <h3>Anti-gaspi</h3>
+                    <p>Participez à la lutte contre le gaspillage alimentaire en sauvant des produits parfaitement consommables qui seraient autrement détruits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produits" class="products">
+        <div class="container">
+            <h2>Nos produits en déstockage</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80');"></div>
+                    <div class="product-content">
+                        <div class="product-title">Pâtes alimentaires premium</div>
+                        <div class="product-price">12,90€ <span class="product-original">39,90€</span></div>
+                        <p>Lot de 10 paquets de pâtes de qualité professionnelle. Origine Italie.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1559715544-33d9c8ed0f5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80');"></div>
+                    <div class="product-content">
+                        <div class="product-title">Huile d'olive extra vierge</div>
+                        <div class="product-price">24,50€ <span class="product-original">69,90€</span></div>
+                        <p>Carton de 6 bouteilles d'huile d'olive AOP. Provenance Espagne.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80');"></div>
+                    <div class="product-content">
+                        <div class="product-title">Chocolat professionnel</div>
+                        <div class="product-price">18,90€ <span class="product-original">52,00€</span></div>
+                        <p>Lot de 5kg de chocolat de couverture noir 70%. Qualité pâtissier.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80');"></div>
+                    <div class="product-content">
+                        <div class="product-title">Café en grains premium</div>
+                        <div class="product-price">29,90€ <span class="product-original">89,90€</span></div>
+                        <p>Sac de 2.5kg de café 100% Arabica. Torréfaction française.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="temoinages" class="testimonials">
+        <div class="container">
+            <h2>Ce que disent nos clients parisiens</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Je tiens un restaurant dans le 11ème arrondissement et depuis que je me fournis chez DestockFood Paris, j'ai réduit mes coûts d'approvisionnement de près de 35%. La qualité est toujours au rendez-vous et la livraison est ultra-rapide."
+                    </div>
+                    <div class="testimonial-author">Marc T., restaurateur à Paris</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "En tant que traiteur, je suis toujours à la recherche de produits qualité à prix raisonnables. DestockFood Paris m'a permis d'accéder à des ingrédients premium à des prix défiant toute concurrence. Service client au top !"
+                    </div>
+                    <div class="testimonial-author">Sophie L., traiteur dans le 16ème</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "J'ai découvert DestockFood Paris pour mon association caritative. Nous pouvons maintenant proposer des repas de qualité à moindre coût et ainsi aider plus de personnes dans le besoin. Une initiative géniale !"
+                    </div>
+                    <div class="testimonial-author">Thomas P., responsable associatif</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>Questions fréquentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Comment fonctionne le déstockage alimentaire ?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Le déstockage alimentaire consiste à vendre des produits parfaitement consommables à prix réduits. Ces produits peuvent être des surplus de production, des fins de série, des produits avec des emballages légèrement abîmés ou approchant de leur date limite de consommation. Tous nos produits sont rigoureusement contrôlés et respectent les normes sanitaires en vigueur.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Qui peut acheter sur votre plateforme ?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Notre service s'adresse à la fois aux professionnels (restaurateurs, traiteurs, hôtels, associations) et aux particuliers. Les professionnels bénéficient de conditions spéciales et de remises supplémentaires sur les volumes importants.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Quels sont les délais de livraison à Paris ?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nous livrons dans tout Paris et la région Île-de-France sous 24h à 48h. Pour les commandes passées avant 12h, la livraison peut souvent être effectuée le lendemain. Des créneaux horaires précis peuvent être convenus pour les professionnels.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Proposez-vous des produits frais ?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, nous proposons régulièrement des produits frais (fruits, légumes, viandes, fromages) en déstockage. Ces produits proviennent directement de producteurs et de fournisseurs locaux et sont livrés dans des conditions optimales de fraîcheur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Prêt à faire des économies sur vos achats alimentaires ?</h2>
+            <p>Rejoignez les centaines de professionnels et particuliers qui profitent déjà de nos offres de déstockage à Paris. Inscrivez-vous pour accéder à nos deals exclusifs.</p>
+            <a href="#" class="btn">Créer un compte</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DestockFood Paris</h3>
+                    <p>Votre grossiste en déstockage alimentaire à Paris et en Île-de-France. Produits de qualité à prix réduits jusqu'à -70%.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#avantages">Avantages</a></li>
+                        <li><a href="#produits">Produits</a></li>
+                        <li><a href="#temoinages">Témoignages</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📞 01 23 45 67 89</li>
+                        <li>✉️ contact@destockfood-paris.fr</li>
+                        <li>🏢 123 Rue du Commerce, 75000 Paris</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DestockFood Paris - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script pour les FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('faq-active');
+                
+                const icon = question.querySelector('span');
+                icon.textContent = item.classList.contains('faq-active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
