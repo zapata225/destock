@@ -2374,510 +2374,12 @@ body {
 {% endblock %}
 
 {% block content %}
-<style>
-    /* Variables CSS */
-    :root {
-        --slider-height: 85vh;
-        --slide-padding: 5vw;
-        --primary-accent: #00ACFF;
-        --secondary-accent: #0066CC;
-        --bg-color: #ffffff;
-        --text-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    /* Reset et styles de base */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Montserrat', sans-serif;
-        overflow-x: hidden;
-    }
-
-    /* Barre de promotion */
-    .promo-bar {
-        background: linear-gradient(90deg, #ff6b6b, #ff3838, #ff6b6b);
-        color: white;
-        text-align: center;
-        padding: 12px 20px;
-        font-weight: 700;
-        font-size: clamp(0.8rem, 2vw, 1rem);
-        letter-spacing: 0.5px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .promo-bar:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-        0% { left: -100%; }
-        20% { left: 100%; }
-        100% { left: 100%; }
-    }
-
-    /* Conteneur principal */
-    .mega-slider-container {
-        position: relative;
-        height: var(--slider-height);
-        min-height: 600px;
-        overflow: hidden;
-        background: #f8f9fa;
-    }
-
-    /* Slider principal */
-    .mega-slider {
-        display: flex;
-        height: 100%;
-        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Slide individuelle */
-    .mega-slide {
-        min-width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        position: relative;
-    }
-
-    /* Arrière-plan coloré */
-    .slide-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        background: var(--bg-color);
-        opacity: 1;
-    }
-
-    /* Contenu texte (gauche) */
-    .slide-content {
-        padding: 5% var(--slide-padding);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #333;
-        position: relative;
-        z-index: 2;
-        background: rgba(255,255,255,0.92);
-        backdrop-filter: blur(10px);
-    }
-
-    /* Réduction de la taille des caractères */
-    .slide-title {
-        font-size: clamp(1.8rem, 4vw, 3.2rem);
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-    }
-
-    .discount {
-        font-size: 2.2rem;
-        font-weight: 800;
-    }
-
-    .current-price {
-        font-size: 3rem;
-        font-weight: 800;
-        color: var(--primary-color, var(--primary-accent));
-    }
-
-    .old-price {
-        font-size: 1.4rem;
-        text-decoration: line-through;
-        opacity: 0.7;
-    }
-
-    .offer-features {
-        list-style: none;
-        margin: 20px 0;
-    }
-
-    .offer-features li {
-        font-size: 0.95rem;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-    }
-
-    .offer-features i {
-        color: var(--primary-color, var(--primary-accent));
-        margin-right: 10px;
-        font-size: 1.1rem;
-    }
-
-    /* Image produit (droite) */
-    .slide-image {
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        box-shadow: -5px 0 25px rgba(0,0,0,0.08);
-    }
-
-    .slide-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        filter: brightness(0.97) contrast(1.05);
-    }
-
-    .mega-slide:hover .slide-image img {
-        transform: scale(1.08);
-    }
-
-    /* Badge de promotion */
-    .promo-badge {
-        background: var(--primary-color, var(--primary-accent));
-        color: white;
-        padding: 8px 20px;
-        border-radius: 30px;
-        font-weight: 700;
-        display: inline-block;
-        margin-bottom: 20px;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        align-self: flex-start;
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-
-    /* Mise en avant promo */
-    .promo-highlight {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin: 15px 0;
-    }
-
-    .promo-text {
-        font-size: 0.9rem;
-        font-weight: 700;
-        color: var(--primary-color, var(--primary-accent));
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* Prix */
-    .price-container {
-        margin: 20px 0;
-    }
-
-    .price-group {
-        display: flex;
-        align-items: baseline;
-        gap: 15px;
-        margin-bottom: 5px;
-    }
-
-    .economy {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: #28a745;
-    }
-
-    /* Boutons CTA */
-    .cta-group {
-        display: flex;
-        gap: 15px;
-        margin-top: 25px;
-        flex-wrap: wrap;
-    }
-
-    .primary-cta {
-        background: linear-gradient(135deg, var(--primary-color, var(--primary-accent)), var(--secondary-color, var(--secondary-accent)));
-        color: white;
-        padding: 16px 32px;
-        border-radius: 50px;
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        font-size: 0.9rem;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    }
-
-    .primary-cta:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
-
-    .secondary-cta {
-        background: rgba(255,255,255,0.9);
-        color: var(--primary-color, var(--primary-accent));
-        padding: 15px 30px;
-        border-radius: 50px;
-        font-weight: 600;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        border: 2px solid var(--primary-color, var(--primary-accent));
-        font-size: 0.9rem;
-    }
-
-    .secondary-cta:hover {
-        background: var(--primary-color, var(--primary-accent));
-        color: white;
-    }
-
-    /* Badges de confiance */
-    .trust-badges {
-        display: flex;
-        gap: 10px;
-        margin-top: 30px;
-        flex-wrap: wrap;
-    }
-
-    .badge {
-        background: rgba(255,255,255,0.9);
-        color: #555;
-        padding: 8px 15px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid #eee;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    /* Tag flottant sur l'image */
-    .floating-tag {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: var(--primary-color, var(--primary-accent));
-        color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
-        font-weight: 700;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        z-index: 3;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    /* Contrôles du slider */
-    .slider-controls {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        z-index: 10;
-        background: rgba(255,255,255,0.9);
-        padding: 10px 20px;
-        border-radius: 50px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        backdrop-filter: blur(5px);
-    }
-
-    .slider-prev, .slider-next {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: none;
-        background: var(--primary-color, var(--primary-accent));
-        color: white;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        font-size: 1rem;
-    }
-
-    .slider-prev:hover, .slider-next:hover {
-        transform: scale(1.1);
-        background: var(--secondary-color, var(--secondary-accent));
-    }
-
-    .slider-pagination {
-        display: flex;
-        gap: 8px;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #ddd;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .dot.active {
-        background: var(--primary-color, var(--primary-accent));
-        transform: scale(1.2);
-    }
-
-    /* Miniatures */
-    .slider-thumbnails {
-        position: absolute;
-        bottom: 30px;
-        right: var(--slide-padding);
-        display: flex;
-        gap: 8px;
-        z-index: 10;
-    }
-
-    .thumbnail {
-        width: 80px;
-        height: 50px;
-        background: rgba(255,255,255,0.8);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.7rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-    }
-
-    .thumbnail.active {
-        background: var(--primary-color, var(--primary-accent));
-        color: white;
-        border-color: white;
-    }
-
-    .thumbnail:hover {
-        transform: translateY(-3px);
-    }
-
-    /* Indicateur de chargement */
-    .loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
-    }
-
-    .loader-spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid var(--primary-accent);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .mega-slide {
-            grid-template-columns: 1fr;
-        }
-        
-        .slide-image {
-            order: -1;
-            height: 40vh;
-        }
-    }
-
-    @media (max-width: 768px) {
-        :root {
-            --slider-height: auto;
-        }
-        
-        .current-price {
-            font-size: 2.2rem;
-        }
-        
-        .discount {
-            font-size: 1.8rem;
-        }
-        
-        .cta-group {
-            flex-direction: column;
-        }
-        
-        .slider-thumbnails {
-            display: none;
-        }
-        
-        .slider-controls {
-            bottom: 15px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .slide-title {
-            font-size: 1.5rem;
-        }
-        
-        .current-price {
-            font-size: 1.8rem;
-        }
-        
-        .discount {
-            font-size: 1.5rem;
-        }
-        
-        .promo-badge {
-            font-size: 0.7rem;
-            padding: 5px 15px;
-        }
-        
-        .primary-cta, .secondary-cta {
-            padding: 12px 20px;
-            font-size: 0.85rem;
-        }
-        
-        .slide-image {
-            height: 30vh;
-        }
-    }
-</style>
-</head>
-<body>
 <!-- Barre de promotion -->
 <div class="promo-bar">
     🎉 DESTOCKAGE MASSIF JUSQU'À -70% | LIVRAISON OFFERTE À PARTIR DE 1500€ D'ACHAT | COMMANDEZ MAINTENANT 🚀
 </div>
-
 <!-- Mega Slider Professionnel -->
+
 <section class="mega-slider-container">
     <div class="mega-slider">
         <!-- Slide 1 - Red Bull -->
@@ -2957,7 +2459,7 @@ body {
                 </div>
             </div>
             <div class="slide-image">
-                <img src="https://github.com/himralefort/logo/raw/main/moet-champagne.jpg" alt="Palette de Champagne Moët & Chandon">
+                <img src="{{ url_for('static', filename='images/slider/champagne-moet.jpg') }}" alt="Palette de Champagne Moët & Chandon">
                 <div class="floating-tag">EXCLUSIVITÉ</div>
             </div>
         </div>
@@ -2998,7 +2500,7 @@ body {
                 </div>
             </div>
             <div class="slide-image">
-                <img src="https://github.com/himralefort/logo/raw/main/nutella-palette.jpg" alt="Palette de Nutella">
+                <img src="{{ url_for('static', filename='images/slider/palette-nutella.jpg') }}" alt="Palette de Nutella">
                 <div class="floating-tag">BEST-SELLER</div>
             </div>
         </div>
@@ -3026,7 +2528,7 @@ body {
                     <li><i class="fas fa-check-circle"></i> Origine France</li>
                 </ul>
                 <div class="cta-group">
-                    <a href="/produit/113-palette-de-canettes-de-coca-cola-33cl" class="primary-cta">
+                    <a href="/produit/113-palette-de-canettes-de-coca-cola-33cl" class="primary-cta btn btn-primary">
                         <i class="fas fa-bolt"></i> COMMANDER MAINTENANT
                     </a>
                     <a href="/produit/113-palette-de-canettes-de-coca-cola-33cl" class="secondary-cta">
@@ -3042,6 +2544,7 @@ body {
                 <img src="https://github.com/himralefort/logo/raw/main/palette-coca%20(1).jpg" alt="Palette de Coca Cola">
                 <div class="floating-tag">ICONIQUE</div>
             </div>
+
         </div>
 
         <!-- Slide 5 - Saumon -->
@@ -3059,7 +2562,7 @@ body {
                         <span class="old-price">550€</span>
                         <span class="current-price">257€</span>
                     </div>
-                    <div class="economy">Économisez 293€</div>
+                    <div class="economy">Économisez 2 100€</div>
                 </div>
                 <ul class="offer-features">
                     <li><i class="fas fa-check-circle"></i> 750 portions de 200g</li>
@@ -3067,10 +2570,10 @@ body {
                     <li><i class="fas fa-check-circle"></i> Fumé au bois de hêtre</li>
                 </ul>
                 <div class="cta-group">
-                    <a href="/produit/saumon-fume-norvege" class="primary-cta">
+                    <a href="/produit/1-lot-de-10-foie-gras-labeyrie-285g" class="primary-cta">
                         <i class="fas fa-bolt"></i> COMMANDER MAINTENANT
                     </a>
-                    <a href="/produit/saumon-fume-norvege" class="secondary-cta">
+                    <a href="/produit/1-lot-de-10-foie-gras-labeyrie-285g" class="secondary-cta">
                         <i class="fas fa-info-circle"></i> DÉTAILS DE L'OFFRE
                     </a>
                 </div>
@@ -3090,7 +2593,7 @@ body {
     <div class="slider-controls">
         <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
         <div class="slider-pagination">
-            <span class="dot active"></span>
+            <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
@@ -3119,117 +2622,369 @@ body {
     </div>
 </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const slider = document.querySelector('.mega-slider');
-        const slides = document.querySelectorAll('.mega-slide');
-        const dots = document.querySelectorAll('.dot');
-        const thumbnails = document.querySelectorAll('.thumbnail');
-        const prevBtn = document.querySelector('.slider-prev');
-        const nextBtn = document.querySelector('.slider-next');
-        
-        let currentSlide = 0;
-        const slideCount = slides.length;
-        let autoSlideInterval;
-        
-        // Fonction pour aller à une slide spécifique
-        function goToSlide(index) {
-            if (index < 0) index = slideCount - 1;
-            if (index >= slideCount) index = 0;
-            
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Mettre à jour les indicateurs
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-            
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            thumbnails[index].classList.add('active');
-            
-            currentSlide = index;
-        }
-        
-        // Navigation avec les boutons
-        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-        
-        // Navigation avec les points
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => goToSlide(index));
-        });
-        
-        // Navigation avec les miniatures
-        thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => goToSlide(index));
-        });
-        
-        // Navigation au clavier
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
-            if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
-        });
-        
-        // Défilement automatique
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                goToSlide(currentSlide + 1);
-            }, 6000); // Change toutes les 6 secondes
-        }
-        
-        function stopAutoSlide() {
-            clearInterval(autoSlideInterval);
-        }
-        
-        // Démarrer le défilement automatique
-        startAutoSlide();
-        
-        // Arrêter le défilement automatique quand l'utilisateur interagit
-        slider.addEventListener('mouseenter', stopAutoSlide);
-        slider.addEventListener('mouseleave', startAutoSlide);
-        
-        // Navigation tactile pour mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        slider.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            stopAutoSlide();
-        }, false);
-        
-        slider.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-            startAutoSlide();
-        }, false);
-        
-        function handleSwipe() {
-            const minSwipeDistance = 50;
-            
-            if (touchStartX - touchEndX > minSwipeDistance) {
-                // Swipe gauche -> slide suivante
-                goToSlide(currentSlide + 1);
-            }
-            
-            if (touchEndX - touchStartX > minSwipeDistance) {
-                // Swipe droite -> slide précédente
-                goToSlide(currentSlide - 1);
-            }
-        }
-        
-        // Précharger les images pour un affichage plus fluide
-        function preloadImages() {
-            slides.forEach(slide => {
-                const img = slide.querySelector('img');
-                if (img) {
-                    const preloadImg = new Image();
-                    preloadImg.src = img.src;
-                }
-            });
-        }
-        
-        preloadImages();
-    });
-</script>
+<style>
+/* Variables CSS */
+:root {
+    --slider-height: 85vh;
+    --slide-padding: 5vw;
+    --primary-accent: #00ACFF;
+    --secondary-accent: #0066CC;
+    --bg-color: #ffffff;
+    --text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Conteneur principal */
+.mega-slider-container {
+    position: relative;
+    height: var(--slider-height);
+    min-height: 800px;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: #f8f9fa;
+}
+
+/* Slider principal */
+.mega-slider {
+    display: flex;
+    height: 100%;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide individuelle */
+.mega-slide {
+    min-width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+/* Arrière-plan coloré */
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: var(--bg-color);
+    opacity: 1;
+}
+
+/* Contenu texte (gauche) */
+.slide-content {
+    padding: 5% var(--slide-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(5px);
+}
+
+/* Réduction de la taille des caractères */
+.slide-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.discount {
+    font-size: 2.5rem;
+}
+
+.current-price {
+    font-size: 3.5rem;
+}
+
+.old-price {
+    font-size: 1.5rem;
+}
+
+.offer-features li {
+    font-size: 1rem;
+}
+
+/* Image produit (droite) */
+.slide-image {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(0.95) contrast(1.05);
+}
+
+.mega-slide:hover .slide-image img {
+    transform: scale(1.05);
+}
+
+/* Badge de promotion */
+.promo-badge {
+    background: var(--primary-color, var(--primary-accent));
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    animation: pulse 2s infinite;
+}
+
+/* Mise en avant promo */
+.promo-highlight {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.promo-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color, var(--primary-accent));
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Prix */
+.price-container {
+    margin: 20px 0;
+}
+
+.price-group {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.economy {
+    font-size: 1rem;
+}
+
+/* Boutons CTA */
+.cta-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.primary-cta {
+    background: var(--primary-color, var(--primary-accent));
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.secondary-cta {
+    background: rgba(255,255,255,0.9);
+    color: var(--primary-color, var(--primary-accent));
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color, var(--primary-accent));
+    font-size: 0.9rem;
+}
+
+/* Badges de confiance */
+.trust-badges {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255,255,255,0.9);
+    color: #555;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #eee;
+}
+
+/* Tag flottant sur l'image */
+.floating-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color, var(--primary-accent));
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* Contrôles du slider */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.slider-prev, .slider-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+}
+
+/* Miniatures */
+.slider-thumbnails {
+    position: absolute;
+    bottom: 30px;
+    right: var(--slide-padding);
+    display: flex;
+    gap: 8px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 50px;
+    font-size: 0.7rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .mega-slide {
+        grid-template-columns: 1fr;
+    }
+    
+    .slide-image {
+        order: -1;
+        height: 40vh;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --slider-height: auto;
+    }
+    
+    .current-price {
+        font-size: 2.5rem;
+    }
+}
+/* Modifications pour améliorer le responsive mobile */
+@media (max-width: 768px) {
+    :root {
+        --slider-height: auto;
+        --slide-padding: 20px; /* Plus d'espace sur les côtés */
+    }
+    
+    /* Ajustements des tailles de texte */
+    .slide-title {
+        font-size: clamp(1.5rem, 6vw, 2rem); /* Taille réduite pour mobile */
+        line-height: 1.2;
+    }
+    
+    .discount {
+        font-size: 1.8rem; /* Réduction de la taille */
+    }
+    
+    .current-price {
+        font-size: 2rem; /* Taille plus raisonnable pour mobile */
+    }
+    
+    .old-price {
+        font-size: 1.2rem;
+    }
+    
+    .offer-features li {
+        font-size: 0.9rem; /* Légère réduction */
+    }
+    
+    .promo-text, .economy {
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustement des boutons */
+    .cta-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .primary-cta, .secondary-cta {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        justify-content: center;
+    }
+    
+    /* Réduction de la hauteur de l'image */
+    .slide-image {
+        height: 30vh;
+    }
+    
+    /* Ajustement des miniatures */
+    .slider-thumbnails {
+        display: none; /* Optionnel - cacher sur mobile si trop encombrant */
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+    .slide-title {
+        font-size: 1.3rem;
+    }
+    
+    .current-price {
+        font-size: 1.8rem;
+    }
+    
+    .discount {
+        font-size: 1.5rem;
+    }
+    
+    .promo-badge {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+}
+</style>
 <style>
 /* Variables modernes */
 :root {
