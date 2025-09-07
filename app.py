@@ -1905,6 +1905,65 @@ def espagne():
 @app.route('/article-destockage-belgique')
 def article_destockage():
     return render_template('article_destockage.html')
+@app.route('/blog/discount-alimentation-maximisez-economies-soldes')
+def discount_alimentation_article():
+    return render_template('discount-alimentation-article.html')
+
+@app.route('/blog/discount-alimentation-astuces-economiser')
+def discount_alimentation_astuces():
+    return render_template('discount-alimentation-astuces.html')
+
+@app.route('/blog/optimiser-magasin-distribution')
+def optimiser_magasin_distribution25():
+    return render_template('optimiser-magasin-distribution25.html')
+
+@app.route('/blog/champagne-solde-astuces-bonnes-affaires')
+def champagne_solde_astuces():
+    return render_template('champagne-solde-astuces.html')
+
+@app.route('/blog/destockage-alimentaire-local-ecologie')
+def destockage_alimentaire_local():
+    return render_template('destockage-alimentaire-local.html')
+
+@app.route('/blog/champagne-pas-cher-qualite-economie')
+def champagne_pas_cher():
+    return render_template('champagne-pas-cher.html')
+
+@app.route('/blog/distribution-boisson-tendances-innovations-2025')
+def distribution_boisson_tendances():
+    return render_template('distribution-boisson-tendances.html')
+
+@app.route('/blog/destockage-pres-chez-vous-offres')
+def destockage_pres_chez_vous():
+    return render_template('destockage-pres-chez-vous.html')
+
+@app.route('/blog/boisson-en-gros-pas-cher-offres')
+def boisson_gros_pas_cher():
+    return render_template('boisson-gros-pas-cher.html')
+
+@app.route('/blog/grossiste-alimentation-halal-guide-achat')
+def grossiste_halal_guide():
+    return render_template('grossiste-halal-guide.html')
+
+@app.route('/blog/guide-champagne-3-litres-luxe')
+def guide_champagne_3litres():
+    return render_template('guide-champagne-3-litres.html')
+
+@app.route('/blog/hard-discount-ascension-impact')
+def hard_discount_article():
+    return render_template('hard-discount-article.html')
+
+@app.route('/blog/magasin-alimentaire-bio-local-belgique')
+def magasin_bio_local_article():
+    return render_template('magasin-bio-local-article.html')
+
+@app.route('/blog/trouver-fournisseur-ideal-revendeur-pro')
+def fournisseur_ideal_article():
+    return render_template('fournisseur-ideal-revendeur-pro.html')
+
+@app.route('/blog/destockage-alimentaire-economies-durabilite-belgique')
+def destockage_durabilite_article():
+    return render_template('destockage-durabilite-article.html')
 
 
 # Formulaire de Contact
