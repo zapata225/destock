@@ -3543,7 +3543,7 @@ def sitemap():
         '/grossiste-alimentaire-international',
         '/be/grossiste-alimentaire-international',
         '/ch/grossiste-alimentaire-international',
-        '/es/mayorista-alimentario-internacional','/destockage-alimentaire-belgique-25','/discount-alimentaire-25','/destockage-alimentaire-bruxelles-25'
+        '/es/mayorista-alimentario-internacional','/destockage-alimentaire-belgique-25','/discount-alimentaire-25','/destockage-alimentaire-bruxelles-25',
         '/guide-des-soldes-alimentaires',
         '/blog/produits-italiens','/comprar-alimentos-por-mayor-espana',
         '/alimentos_por_mayor', '/fr/destockage,destockage_nl.html','/en/surplus','/destockbelge','/destockagefranceparis','/beneficios-aceite-oliva'
