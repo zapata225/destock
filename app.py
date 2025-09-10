@@ -1991,6 +1991,66 @@ def article_belgique_2():
 def article_france_2():
     return render_template('article-france-2.html')
 
+
+@app.route('/blog/top-grossistes-alimentaires-bruxelles')
+def grossistes_bruxelles_article():
+    return render_template('grossistes-bruxelles-article.html')
+
+@app.route('/blog/champagne-pas-cher-rapport-qualite-prix')
+def champagne_pas_cher_article():
+    return render_template('champagne-pas-cher-article.html')
+
+@app.route('/blog/destockage-alimentaire-belgique')
+def destockage_belgique_article():
+    return render_template('destockage-belgique-article.html')
+
+@app.route('/blog/ruinart-achat-guide-complet')
+def ruinart_achat_article():
+    return render_template('ruinart-achat-article.html')
+
+
+@app.route('/blog/prix-red-bull-meilleures-offres')
+def red_bull_article():
+    return render_template('prix-red-bull-article.html')
+
+@app.route('/blog/destockage-alimentaire-avantages-defis')
+def destockage_avantages_defis():
+    return render_template('destockage-avantages-defis.html')
+
+@app.route('/blog/discount-alimentation-economisez-achats')
+def discount_alimentation_economisez():
+    return render_template('discount-alimentation-economisez.html')
+
+@app.route('/blog/tendances-distribution-boissons')
+def tendances_distribution_boissons():
+    return render_template('tendances-distribution-boissons.html')
+
+@app.route('/blog/recettes-nutella-faciles-delicieuses')
+def recettes_nutella_article():
+    return render_template('recettes-nutella-article.html')
+
+@app.route('/blog/comment-choisir-produit-entretien-efficace')
+def produit_entretien_article():
+    return render_template('produit-entretien-article.html')
+
+@app.route('/blog/luxe-champagne-marques-prestigieuses')
+def luxe_champagne_article():
+    return render_template('luxe-champagne-article.html')
+
+@app.route('/blog/prix-nutella-tendances-astuces-economiser')
+def prix_nutella_article():
+    return render_template('prix-nutella-article.html')
+
+@app.route('/blog/optimisation-magasin-distribution')
+def optimisation_magasin_article():
+    return render_template('optimisation-magasin-article.html')
+
+@app.route('/blog/destockage-alimentaire-economiser-reduire-gaspillage')
+def destockage_alimentaire_article():
+    return render_template('destockage-alimentaire-article.html')
+
+
+
 # Traitement du Formulaire
 @app.route('/confirmation1')
 def confirmation1():
@@ -3591,6 +3651,20 @@ def sitemap():
         '/blog/discount-alimentation',
         '/blog/grossiste-bruxelles',
         '/blog/alcohol-barato',
+        '/blog/top-grossistes-alimentaires-bruxelles',
+        '/blog/champagne-pas-cher-rapport-qualite-prix',
+        '/blog/destockage-alimentaire-belgique',
+        '/blog/ruinart-achat-guide-complet',
+        '/blog/prix-red-bull-meilleures-offres',
+        '/blog/destockage-alimentaire-avantages-defis',
+        '/blog/discount-alimentation-economisez-achats',
+        '/blog/tendances-distribution-boissons',
+        '/blog/recettes-nutella-faciles-delicieuses',
+        '/blog/comment-choisir-produit-entretien-efficace',
+        '/blog/luxe-champagne-marques-prestigieuses',
+        '/blog/prix-nutella-tendances-astuces-economiser',
+        '/blog/optimisation-magasin-distribution',
+        '/blog/destockage-alimentaire-economiser-reduire-gaspillage',
         '/blog/mayorista-espana',
         '/blog/boissons-suisses',
         '/blog/tendances-horeca',
