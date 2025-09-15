@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Paris : Où Acheter Pas Cher | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez les meilleures adresses de déstockage alimentaire à Paris. Guide complet pour acheter des produits alimentaires à prix réduits dans la capitale.{% endblock %}
+
+{% block content %}
+<article class="blog-article">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Paris</span>
+            </nav>
+            
+            <h1 class="article-title">Destockage Alimentaire Paris : Le Guide Ultime des Bonnes Affaires</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date">📅 08 septembre 2025</span>
+                <span class="reading-time">⏱️ 15 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-paris.jpg') }}" 
+                     alt="Destockage alimentaire Paris bonnes affaires" class="hero-image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Découvrez où trouver les meilleurs plans alimentaires à Paris</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container">
+        <section class="intro-section">
+            <p>Paris, ville réputée pour son coût de la vie élevé, regorge pourtant de bonnes adresses pour faire ses courses à petit prix. Découvrez notre guide complet du déstockage alimentaire dans la capitale.</p>
+        </section>
+
+        <section>
+            <h2>Le paysage du déstockage alimentaire à Paris</h2>
+            <p>Paris, souvent perçue comme une ville chère, offre en réalité de nombreuses opportunités pour les consommateurs avisés. Le marché du déstockage alimentaire y est particulièrement dynamique, avec une diversité d'enseignes et de formats qui répondent aux besoins de tous les budgets.</p>
+            <p>La densité de population et la concentration de grandes enseignes distribution dans la région parisienne créent un terrain favorable au déstockage. Les invendus, surplus de production et produits en fin de cycle trouvent facilement preneurs grâce à une clientèle nombreuse et variée.</p>
+            <p>Les Parisiens, réputés pour leur attachement à la qualité alimentaire, sont de plus en plus nombreux à chercher des alternatives économiques sans renoncer à la qualité. Cette demande croissante a favorisé l'émergence d'un réseau dense de points de vente spécialisés dans le déstockage.</p>
+            <p>Contrairement aux idées reçues, le déstockage alimentaire parisien ne se limite pas aux produits bas de gamme. On y trouve une large gamme de produits, depuis les denrées de base jusqu'aux articles premium, en passant par des spécialités régionales et des produits bio.</p>
+            
+            <div class="info-box">
+                <h3>Caractéristiques du déstockage parisien :</h3>
+                <ul>
+                    <li>Densité importante de points de vente</li>
+                    <li>Large variété de produits disponibles</li>
+                    <li>Mixité sociale de la clientèle</li>
+                    <li>Présence de produits haut de gamme à prix réduits</li>
+                    <li>Rotation rapide des stocks</li>
+                </ul>
+            </div>
+            
+            <p>La particularité du marché parisien réside dans sa segmentation géographique. Chaque arrondissement, chaque quartier possède ses spécificités et ses bonnes adresses, des épiceries de quartier aux grandes surfaces de déstockage en périphérie.</p>
+        </section>
+
+        <section>
+            <h2>Où trouver des magasins de déstockage à Paris ?</h2>
+            <p>Paris intra-muros et sa proche banlieue regorgent d'adresses pour acheter alimentaire à prix réduit. Voici un tour d'horizon des différents types de points de vente disponibles.</p>
+            <p>Les épiceries de déstockage de quartier constituent la première catégorie. Ces petites surfaces, disséminées dans tous les arrondissements, proposent des produits d'appel à prix cassés et sont souvent très appréciées des habitants du quartier.</p>
+            <p>Les marchés, notamment en fin de journée, offrent des opportunités intéressantes. Many marchands proposent des tarifs réduits sur leurs invendus plutôt que de les rapporter ou de les jeter.</p>
+            <p>Les grandes surfaces spécialisées en déstockage, souvent situées en périphérie, valent le déplacement pour qui peut stocker. Leurs vastes surfaces permettent des économies d'échelle importantes.</p>
+            
+            <div class="info-box">
+                <h3>Types de points de vente à Paris :</h3>
+                <ul>
+                    <li>Épiceries de déstockage de quartier</li>
+                    <li>Supermarchés discount intra-muros</li>
+                    <li>Grandes surfaces de périphérie</li>
+                    <li>Marchés en fin de journée</li>
+                    <li>Épiceries sociales et solidaires</li>
+                    <li>Plateformes en ligne avec retrait à Paris</li>
+                </ul>
+            </div>
+            
+            <p>Les épiceries sociales et solidaires représentent une catégorie particulière. Accessibles sous condition de ressources, elles proposent des produits à très bas prix et jouent un rôle important dans l'aide alimentaire.</p>
+            <p>Enfin, les plateformes en ligne avec points de retrait à Paris se multiplient. Elles combinent la praticité du digital avec les économies du déstockage, permettant de commander en ligne et de récupérer ses courses à un point relais.</p>
+        </section>
+
+        <section>
+            <h2>Les meilleurs arrondissements pour le déstockage alimentaire</h2>
+            <p>Si tous les arrondissements parisiens offrent des opportunités, certains se distinguent par une concentration plus importante de bonnes adresses.</p>
+            <p>Les arrondissements populaires de l'est parisien (10e, 11e, 12e, 13e, 18e, 19e, 20e) sont réputés pour leur densité de commerces discount et de déstockage. Le coût modéré des loyers commerciaux y permet l'implantation de nombreuses enseignes à bas prix.</p>
+            <p>Le 10e arrondissement, autour du canal Saint-Martin et de Belleville, compte de nombreuses épiceries discount et magasins de déstockage. La mixité sociale du quartier favorise ce type de commerce.</p>
+            <p>Le 13e arrondissement, avec son quartier asiatique, offre des opportunités intéressantes. Les épiceries asiatiques proposent souvent des prix très compétitifs sur de nombreux produits.</p>
+            
+            <div class="info-box">
+                <h3>Arrondissements les plus intéressants :</h3>
+                <ul>
+                    <li>10e : nombreuses épiceries discount</li>
+                    <li>11e : commerces populaires et marchés</li>
+                    <li>13e : quartier asiatique et grandes surfaces</li>
+                    <li>18e : commerces de Barbès et Château Rouge</li>
+                    <li>19e : diversité commerciale et prix attractifs</li>
+                    <li>20e : épiceries de quartier économiques</li>
+                </ul>
+            </div>
+            
+            <p>Le 18e arrondissement, particulièrement autour de Barbès et Château Rouge, est célèbre pour ses marchés et épiceries à prix très bas. On y trouve des produits frais, des épices et des denrées exotiques à des tarifs défiant toute concurrence.</p>
+            <p>Le 19e et 20e arrondissements, bien que moins médiatiques, regorgent de petites épiceries et de commerces de proximité proposant des prix intéressants, notamment sur les produits frais et les spécialités ethniques.</p>
+        </section>
+
+        <section>
+            <h2>Adresses incontournables de déstockage à Paris</h2>
+            <p>Paris compte plusieurs adresses de référence pour le déstockage alimentaire. Voici une sélection d'enseignes et de marchés réputés pour leurs bons prix.</p>
+            <p>Le marché de Barbès, dans le 18e, est une institution pour les Parisiens en quête de bonnes affaires. Tous les mercredis et dimanches, les étals proposent fruits et légumes à des prix défiant toute concurrence.</p>
+            <p>Les épiceries Cash Converters et autres enseignes de revente proposent souvent des produits alimentaires non périssables à prix réduits. On y trouve fréquemment des surplus de stock ou des produits en fin de promotion.</p>
+            <p>Les magasins Noz, présents en périphérie parisienne, sont spécialisés dans le déstockage de produits variés, dont l'alimentaire. Leurs prix attractifs justifient souvent le déplacement.</p>
+            
+            <div class="info-box">
+                <h3>Adresses parisiennes réputées :</h3>
+                <ul>
+                    <li>Marché de Barbès (18e) - fruits et légumes pas chers</li>
+                    <li>Épiceries de Château Rouge (18e) - produits exotiques</li>
+                    <li>Quartier asiatique du 13e - riz, sauces, produits surgelés</li>
+                    <li>Supermarchés Lidl et Aldi - plusieurs implantations</li>
+                    <li>Magasins Noz en proche banlieue - déstockage diversifié</li>
+                    <li>Épiceries turques et arabes du 10e - épices et produits frais</li>
+                </ul>
+            </div>
+            
+            <p>Le quartier asiatique du 13e arrondissement, autour d'avenue de Choisy et avenue d'Ivry, offre des épiceries proposant riz, nouilles, sauces et produits surgelés à des prix très compétitifs.</p>
+            <p>Les enseignes discount allemandes Lidl et Aldi ont multiplié leurs implantations à Paris et en proche banlieue. Leurs prix bas en font des destinations prisées pour les courses courantes.</p>
+        </section>
+
+        <section>
+            <h2>Destockage alimentaire en proche banlieue parisienne</h2>
+            <p>La proche banlieue parisienne offre souvent des opportunités encore plus intéressantes que Paris intra-muros, grâce à des loyers commerciaux moins élevés et des surfaces plus importantes.</p>
+            <p>Les communes limitrophes comme Montreuil, Bagnolet, Saint-Ouen ou Pantin abritent de nombreuses enseignes de déstockage et grossistes accessibles aux particuliers. Leur accessibilité par les transports en commun facilite les déplacements.</p>
+            <p>Les marchés de banlieue, moins fréquentés par les touristes, offrent souvent des prix plus attractifs que leurs équivalents parisiens. Le marché de Montreuil, par exemple, est réputé pour ses tarifs compétitifs.</p>
+            <p>Les grandes surfaces de périphérie proposent régulièrement des opérations de déstockage importantes. Leur taille leur permet d'acheter et de revendre des volumes conséquents à prix réduits.</p>
+            
+            <div class="info-box">
+                <h3>Villes de proche banlieue intéressantes :</h3>
+                <ul>
+                    <li>Montreuil - marché et grossistes alimentaires</li>
+                    <li>Bagnolet - commerces discount et ethniques</li>
+                    <li>Saint-Ouen - marché et épiceries diversifiées</li>
+                    <li>Pantin - zones commerciales à prix compétitifs</li>
+                    <li>Ivry-sur-Seine - commerces asiatiques et discount</li>
+                    <li>Aubervilliers - grossistes et déstockage professionnel</li>
+                </ul>
+            </div>
+            
+            <p>Aubervilliers, avec sa zone commerciale et ses nombreux grossistes, est une destination privilégiée pour qui cherche à acheter en quantité. Many grossistes acceptent les particuliers, surtout pour des achats en volume.</p>
+            <p>Ivry-sur-Seine et son quartier asiatique prolongent l'offre du 13e arrondissement parisien avec souvent des prix encore plus attractifs et des surfaces plus importantes.</p>
+        </section>
+
+        <section>
+            <h2>Les marchés parisiens pour des courses économiques</h2>
+            <p>Les marchés parisiens constituent une ressource précieuse pour qui cherche à faire des économies sur les courses alimentaires, à condition de connaître les bons créneaux horaires et les bonnes pratiques.</p>
+            <p>La fin des marchés, généralement entre 13h et 14h30, est le moment privilégié pour faire des affaires. Les marchands préfèrent souvent brader leurs invendus plutôt que de les rapporter.</p>
+            <p>Certains marchés sont réputés pour leurs prix globalement plus bas que la moyenne. Le marché de Belleville, le marché d'Aligre ou le marché de Barbès font partie de ces destinations économiques.</p>
+            <p>Les marchés moins touristiques des arrondissements périphériques offrent généralement des prix plus attractifs que ceux du centre de Paris. Le marché de la Porte de Vanves ou celui de la Porte de Montreuil en sont de bons exemples.</p>
+            
+            <div class="info-box">
+                <h3>Marchés parisiens économiques :</h3>
+                <ul>
+                    <li>Marché de Barbès (18e) - mercredi et dimanche</li>
+                    <li>Marché de Belleville (11e/20e) - mardi et vendredi</li>
+                    <li>Marché d'Aligre (12e) - du mardi au dimanche</li>
+                    <li>Marché de la Porte de Vanves (14e) - week-ends</li>
+                    <li>Marché de la Porte de Montreuil (20e) - mardi et vendredi</li>
+                    <li>Marché de Joinville (19e) - mercredi et samedi</li>
+                </ul>
+            </div>
+            
+            <p>Le marché d'Aligre, bien que partiellement touristique, conserve une partie très économique avec son marché couvert Beauvau et ses stands extérieurs proposant fruits et légumes à petits prix.</p>
+            <p>Le marché de la Porte de Vanves, le week-end, attire une clientèle familiale de banlieue et propose des prix compétitifs sur les produits frais et les volailles.</p>
+        </section>
+
+        <section>
+            <h2>Applications et sites utiles pour le déstockage à Paris</h2>
+            <p>Le digital a révolutionné la chasse aux bonnes affaires alimentaires à Paris. De nombreuses applications et sites web facilitent la recherche de promotions et de points de vente intéressants.</p>
+            <p>Les applications de géolocalisation de promotions comme Shopmium, iGraal ou Promoshop permettent de repérer les offres autour de soi et de bénéficier de remboursements sur certains produits.</p>
+            <p>Les plateformes de lutte contre le gaspillage alimentaire comme Too Good To Go ou Phenix mettent en relation commerçants et consommateurs pour écouler les invendus à petit prix.</p>
+            <p>Les sites de cashback alimentaire offrent des remises supplémentaires sur les courses effectuées en ligne ou en magasin. Leur utilisation régulière peut générer des économies substantielles.</p>
+            
+            <div class="info-box">
+                <h3>Outils digitaux pour économiser :</h3>
+                <ul>
+                    <li>Too Good To Go - paniers surprise anti-gaspi</li>
+                    <li>Phenix - invendus à prix réduits</li>
+                    <li>Shopmium - remboursements sur produits ciblés</li>
+                    <li>Google Maps - avis et localisation des commerces</li>
+                    <li>Yuka - scan des produits et alternatives économiques</li>
+                    <li>Groupes Facebook d'astuces parisiennes</li>
+                </ul>
+            </div>
+            
+            <p>Les groupes Facebook dédiés aux bonnes affaires parisiennes sont une mine d'informations. Les membres y partagent les promotions repérées et les bonnes adresses du moment.</p>
+            <p>L'application Yuka, bien connue pour scanner la composition des produits, permet également de trouver des alternatives plus saines et souvent moins chères aux produits scannés.</p>
+        </section>
+
+        <section>
+            <h2>Produits typiques du déstockage parisien</h2>
+            <p>Le déstockage alimentaire à Paris offre une diversité de produits reflétant le cosmopolitisme de la capitale. Certaines catégories de produits sont particulièrement intéressantes à y acheter.</p>
+            <p>Les produits frais, fruits et légumes, sont souvent disponibles à prix réduits sur les marchés en fin de session. La proximité avec les marchés d'intérêt national de Rungis facilite l'approvisionnement à bas coût.</p>
+            <p>Les produits ethniques et exotiques trouvent à Paris une offre abondante et compétitive. Les épiceries africaines, asiatiques et moyen-orientales proposent des tarifs attractifs sur des produits souvent chers ailleurs.</p>
+            <p>Les produits bio en déstockage sont de plus en plus courants à Paris. La demande croissante en produits biologiques génère également des surplus qui se retrouvent dans les circuits de déstockage.</p>
+            
+            <div class="info-box">
+                <h3>Produits intéressants à Paris :</h3>
+                <ul>
+                    <li>Fruits et légumes des marchés de fin de journée</li>
+                    <li>Produits ethniques et exotiques des épiceries spécialisées</li>
+                    <li>Surplus de produits bio</li>
+                    <li>Vins et spiritueux en fin de série</li>
+                    <li>Fromages et produits laitiers de proximité</li>
+                    <li>Produits de luxe déclassés ou en fin de collection</li>
+                </ul>
+            </div>
+            
+            <p>Les vins et spiritueux bénéficient d'un marché de déstockage actif à Paris. Les cavistes proposent régulièrement des références en fin de série ou déclassées à prix attractifs.</p>
+            <p>Les produits de luxe alimentaires trouvent également leur place dans le déstockage parisien. Chocolats haut de gamme, conserves premium ou spécialités gastronomiques peuvent y être trouvées à prix réduits.</p>
+        </section>
+
+        <section>
+            <h2>Conseils spécifiques pour le déstockage à Paris</h2>
+            <p>Faire du déstockage alimentaire à Paris requiert quelques adaptations par rapport à d'autres regions. Voici des conseils spécifiques pour optimiser votre démarche dans la capitale.</p>
+            <p>La mobilité est un facteur clé à Paris. Privilégiez les commerces accessibles par les transports en commun et prévoyez des sacs adaptés pour transporter vos achats dans le métro ou le bus.</p>
+            <p>La compacité des logements parisiens impose une gestion rigoureuse des stocks. Achetez en quantités adaptées à votre capacité de stockage pour éviter le gaspillage.</p>
+            <p>La densité commerciale parisienne permet de comparer facilement les prix entre plusieurs enseignes. N'hésitez pas à faire quelques mètres de plus pour trouver le meilleur prix.</p>
+            
+            <div class="info-box">
+                <h3>Conseils parisiens spécifiques :</h3>
+                <ul>
+                    <li>Privilégiez la proximité et l'accessibilité transports</li>
+                    <li>Adaptez les quantités à la taille de votre logement</li>
+                    <li>Comparez les prix entre plusieurs commerces proches</li>
+                    <li>Profitez de la livraison à domicile pour les achats lourds</li>
+                    <li>Explorez les commerces ethniques pour des prix compétitifs</li>
+                    <li>Utilisez les applications de géolocalisation des promotions</li>
+                </ul>
+            </div>
+            
+            <p>Les services de livraison à domicile peuvent être intéressants pour les achats volumineux ou lourds. Many enseignes proposent désormais ce service, parfois gratuit à partir d'un certain montant.</p>
+            <p>Les commerces ethniques (épiceries arabes, asiatiques, africaines) offrent souvent des prix très compétitifs sur leurs produits spécifiques. N'hésitez pas à les explorer même si vous n'êtes pas familier avec ces cuisines.</p>
+        </section>
+
+        <section>
+            <h2>Destockage alimentaire et gastronomie parisienne</h2>
+            <p>Paris, capitale gastronomique, offre également des opportunités de déstockage dans le domaine de la haute qualité et des produits premium.</p>
+            <p>Les épiceries fines de déstockage proposent régulièrement des produits haut de gamme à prix réduits. Ces produits peuvent être en fin de série, avec un emballage légèrement abîmé ou provenant de surplus d'approvisionnement.</p>
+            <p>Les caves à vin et cavistes organisent régulièrement des ventes de fin de stock ou de millésimes à écouler. Ces occasions permettent d'acquérir des vins de qualité à prix intéressants.</p>
+            <p>Les traiteurs et artisans alimentaires proposent parfois leurs surplus en fin de journée à prix réduits. Une pratique à surveiller notamment autour des quartiers d'affaires.</p>
+            
+            <div class="info-box">
+                <h3>Destockage gastronomique parisien :</h3>
+                <ul>
+                    <li>Épiceries fines à prix réduits</li>
+                    <li>Caves à vin en fin de stock</li>
+                    <li>Traiteurs et artisans en fin de journée</li>
+                    <li>Produits de terroir déclassés</li>
+                    <li>Spécialités régionales en surplus</li>
+                    <li>Produits bio haut de gamme en promotion</li>
+                </ul>
+            </div>
+            
+            <p>Les produits de terroir et spécialités régionales trouvent également leur place dans le déstockage parisien. Les surplus des salons alimentaires ou des représentations régionales sont souvent revendus à prix attractifs.</p>
+            <p>Le bio haut de gamme fait l'objet d'un déstockage actif à Paris. Les épiceries bio proposent régulièrement des promotions sur des références en fin de cycle ou des surplus de commande.</p>
+        </section>
+
+        <section>
+            <h2>Questions fréquentes sur le déstockage à Paris</h2>
+            <p>Le déstockage alimentaire à Paris soulève de nombreuses questions. Voici des réponses aux interrogations les plus courantes.</p>
+            
+            <div class="faq-item">
+                <h3>Le déstockage à Paris est-il vraiment intéressant ?</h3>
+                <p>Oui, malgré son image de ville chère, Paris offre de nombreuses opportunités de déstockage intéressantes, notamment grâce à sa densité commerciale et sa diversité d'enseignes.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Faut-il privilégier Paris intra-muros ou la banlieue ?</h3>
+                <p>Cela dépend de vos besoins. Paris intra-muros offre plus de praticité, la banlieue souvent de meilleurs prix. L'idéal est de combiner les deux selon les opportunités.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quels sont les meilleurs jours pour faire du déstockage ?</h3>
+                <p>Les fins de marché (mercredi, week-end), les soldes commerciales, et généralement les débuts et fins de mois lorsque les enseignes renouvellent leurs stocks.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Points clés à retenir :</h3>
+                <ul>
+                    <li>Paris offre de réelles opportunités de déstockage</li>
+                    <li>Les arrondissements populaires sont les plus intéressants</li>
+                    <li>La banlieue proche propose souvent de meilleurs prix</li>
+                    <li>Les applications mobiles sont des alliées précieuses</li>
+                    <li>La diversification des sources permet les meilleures affaires</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Le déstockage à Paris concerne-t-il seulement les produits bas de gamme ?</h3>
+                <p>Absolument pas. On trouve tous types de produits en déstockage à Paris, y compris des articles premium et de luxe, souvent grâce à des surplus ou fins de série.</p>
+            </div>
+            
+            <p>Avec ces informations en main, vous êtes maintenant équipé pour explorer le paysage du déstockage alimentaire parisien et en tirer le meilleur parti.</p>
+        </section>
+
+        <section class="conclusion">
+            <h2>Conclusion : Paris, capitale du déstockage alimentaire malin</h2>
+            <p>Contrairement aux idées reçues, Paris offre un terrain particulièrement fertile pour qui cherche à faire des économies sur ses courses alimentaires. La densité commerciale, la diversité des enseignes et la concentration de population créent un écosystème favorable au déstockage.</p>
+            
+            <p>Que vous habitiez intra-muros ou en banlieue, que vous recherchiez des produits du quotidien ou des articles premium, Paris et sa région offrent des solutions adaptées à tous les budgets et toutes les preferences.</p>
+            
+            <div class="info-box">
+                <h3>Pour résumer :</h3>
+                <ul>
+                    <li>Explorez les arrondissements populaires de l'est parisien</li>
+                    <li>Pensez à la proche banlieue pour des prix encore plus attractifs</li>
+                    <li>Profitez des marchés en fin de session</li>
+                    <li>Utilisez les applications dédiées aux économies</li>
+                    <li>Osez découvrir les commerces ethniques</li>
+                    <li>Adaptez vos achats à votre capacité de stockage</li>
+                </ul>
+            </div>
+            
+            <p>Le déstockage alimentaire à Paris n'est pas qu'une question d'économie, c'est aussi une opportunité de découvrir de nouveaux produits, de nouvelles cuisines et de nouvelles manières de consommer, plus responsables et plus solidaires.</p>
+            
+            <p>Armé de ces conseils et de ces adresses, vous êtes maintenant prêt à naviguer dans le paysage du déstockage parisien et à faire de véritables affaires. Bonnes courses et bonnes découvertes !</p>
+        </section>
+    </div>
+</article>
+<style>/* Styles spécifiques pour l'article sur le déstockage Paris */
+    .info-box {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .info-box h3 {
+        color: #2e7d32;
+        margin-top: 0;
+    }
+    
+    .article-hero .hero-overlay {
+        background: linear-gradient(transparent, rgba(76, 175, 80, 0.7));
+    }
+    
+    .conclusion {
+        background-color: #e8f5e9;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+    }
+    
+    .faq-item {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #c8e6c9;
+    }
+    
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+    
+    @media (max-width: 768px) {
+        .article-content .info-box {
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    }</style>
+{% endblock %}
