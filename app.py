@@ -2033,6 +2033,41 @@ def recettes_nutella_article():
 def produit_entretien_article():
     return render_template('produit-entretien-article.html')
 
+@app.route('/blog/destockage-alimentaire-comment-economiser-reduire-gaspillage')
+def destockage_ecologique_article():
+    return render_template('destockage-ecologique-article.html')
+
+
+@app.route('/blog/strategies-economie-alimentation-discount')
+def strategies_discount_article():
+    return render_template('strategies-discount-article.html')
+
+@app.route('/blog/champagne-pas-cher-2025')
+def champagne_pas_cher_article_2025():
+    return render_template('champagne-pas-cher-article-25.html')
+
+@app.route('/blog/achat-ruinart')
+def achat_ruinart_article():
+    return render_template('achat-ruinart-article.html')
+
+@app.route('/blog/destockage-alimentaire-belgique')
+def destockage_belgique_article():
+    return render_template('destockage-belgique-article.html')
+
+@app.route('/blog/destockage-alimentaire-25-belgique')
+def destockage_belgique_25_article():
+    return render_template('destockage-belgique-article-25.html')
+
+@app.route('/blog/destockage-alimentaire-paris')
+def destockage_paris_article():
+    return render_template('destockage-paris-article.html')
+
+@app.route('/blog/destockage-alimentaire-lille')
+def destockage_lille_article():
+    return render_template('destockage-lille-article.html')
+
+
+
 @app.route('/blog/luxe-champagne-marques-prestigieuses')
 def luxe_champagne_article():
     return render_template('luxe-champagne-article.html')
