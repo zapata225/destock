@@ -2000,8 +2000,8 @@ def grossistes_bruxelles_article():
 def champagne_pas_cher_article():
     return render_template('champagne-pas-cher-article.html')
 
-@app.route('/blog/destockage-alimentaire-belgique')
-def destockage_belgique_article():
+@app.route('/blog/destockage-alimentaire-belgique-25')
+def destockage_belgique_article_25():
     return render_template('destockage-belgique-article.html')
 
 @app.route('/blog/ruinart-achat-guide-complet')
