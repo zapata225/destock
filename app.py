@@ -3594,7 +3594,22 @@ def admin_update_order_status(order_id):
 
     return jsonify({'success': True, 'message': 'Statut mis à jour'})
 
+@app.route('/blog/nutella')
+def nutella_article():
+    return render_template('nutella-article.html')
 
+@app.route('/blog/discount-alimentaire')
+def discount_alimentaire():
+    return render_template('blog/discount-alimentaire.html')
+
+@app.route('/blog/champagne-pas-chere')
+def champagne_pas_chere():
+    return render_template('champagne_pas_chere.html')
+
+@app.route('/blog/discount-belgique-alimentaire')
+def discount_alimentaire_belgique():
+    return render_template('blog/discount-belgique-alimentaire.html')
+    
 @app.route('/admin/products')
 @admin_required
 def admin_products():
