@@ -4227,6 +4227,656 @@ products = [
       "unit_price": "10€/kg"
     },
     "seo_description": "🫐 PALETTE FRUITS : 300kg de mélange baies surgelées IQF (60x5kg). Qualité premium à 10€/kg (3 000€). Idéal pour juice bars, glaciers, traiteurs et restaurants."
+  },
+  {
+    "id": 711,
+    "name": "Palette Champagne Ruinart Brut Rosé (120 bouteilles)",
+    "description": "Palette exclusive de 120 bouteilles de Champagne Ruinart Brut Rosé 75cl. Assemblage unique de Chardonnay (45%) et Pinot Noir (55%) vinifié en rouge. Bulles fines, arômes de fruits rouges frais (fraise, framboise) et notes épicées. Prestige et élégance pour événements d'exception.",
+    "price": 6800.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 2,
+    "featured": True,
+    "published": True,
+    "images": [
+      "palette-ruinart-rose-1.jpg","palette-ruinart-rose-2.jpg"
+    ],
+    "details": {
+      "origine": "Champagne, France",
+      "type": "Champagne Brut Rosé",
+      "volume": "75 cl",
+      "alcohol": "12.5% vol",
+      "assemblage": "Chardonnay (45%), Pinot Noir (55%)",
+      "bulk_specs": {
+        "unites_palette": 120,
+        "volume_total": "90 L",
+        "poids_brut": "180 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m",
+        "conditionnement": "10 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Arômes de fruits rouges frais (fraise, framboise, cerise)",
+        "Notes épicées subtiles et légèrement boisées",
+        "Bouche fraîche, ample et élégante",
+        "Finale longue et persistante"
+      ],
+      "pairing_suggestions": [
+        "Dés de saumon et fraise",
+        "Volaille rôtie",
+        "Desserts aux fruits rouges"
+      ],
+      "maison": "Plus ancienne maison de Champagne (fondée en 1729)"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "10800.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/711",
+      "unit_price": "90€/bouteille"
+    },
+    "seo_description": "🎀 PALETTE EXCLUSIVE : 120 bouteilles de Ruinart Brut Rosé à 90€/pièce (10 800€). Champagne rosé d'exception, idéal pour événements prestigieux et cadeaux d'entreprise haut de gamme."
+  },
+  {
+    "id": 712,
+    "name": "Palette Grey Goose Vodka 70cl (192 bouteilles)",
+    "description": "Palette de 192 bouteilles de Grey Goose Vodka 70cl. Vodka premium française distilléée à Cognac à partir de blé tendre français et d'eau de source naturelle. Réputée pour son exceptionnelle douceur et sa finesse. Conditionnement pour bars et cavistes premium.",
+    "price": 6680.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 3,
+    "featured": True,
+    "published": True,
+    "images": [
+      "palette-grey-goose-1.jpg"
+    ],
+    "details": {
+      "origine": "Cognac, France",
+      "type": "Vodka de blé premium",
+      "volume": "70 cl",
+      "alcohol": "40% vol",
+      "bulk_specs": {
+        "unites_palette": 192,
+        "volume_total": "134.4 L",
+        "poids_brut": "175 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.6m",
+        "conditionnement": "16 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Nez légèrement floral et fruité",
+        "Bouche incroyablement douce et crémeuse",
+        "Notes subtiles d'amande et d'agrumes",
+        "Finale nette et propre"
+      ],
+      "pairing_suggestions": [
+        "Martini sec ou vodka tonic",
+        "Caviar",
+        "Servie pure, glacée"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "7680.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/712",
+      "unit_price": "40€/bouteille"
+    },
+    "seo_description": "🇫🇷 PALETTE PREMIUM : 192 bouteilles de Grey Goose Vodka à 40€/pièce (7 680€). Vodka française d'exception, incontournable des bars et restaurants haut de gamme."
+  },
+  {
+    "id": 713,
+    "name": "Palette Cîroc Vodka 70cl (168 bouteilles)",
+    "description": "Palette de 168 bouteilles de Cîroc Vodka 70cl. Vodka ultra-premium française distilléée à partir de raisins Mauzac Blanc et Ugni Blanc. Distillation 5 fois pour une texture exceptionnellement lisse et un profil aromatique unique et fruité.",
+    "price": 4480.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 2,
+    "featured":False,
+    "published": True,
+    "images": [
+      "palette-ciroc-1.jpg"
+    ],
+    "details": {
+      "origine": "Gaillac, France",
+      "type": "Vodka de raisin",
+      "volume": "70 cl",
+      "alcohol": "40% vol",
+      "bulk_specs": {
+        "unites_palette": 168,
+        "volume_total": "117.6 L",
+        "poids_brut": "155 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m",
+        "conditionnement": "14 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Notes d'agrumes et de raisin frais",
+        "Texture ultra-lisse et légère",
+        "Caractère distinctif et fruité",
+        "Finale propre et rafraîchissante"
+      ],
+      "pairing_suggestions": [
+        "Cocktails modernes et fruités",
+        "Soda club et zeste de citron vert",
+        "Servie pure pour apprécier sa finesse"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "5880.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/713",
+      "unit_price": "35€/bouteille"
+    },
+    "seo_description": "🍇 PALETTE EXCLUSIVE : 168 bouteilles de Cîroc Vodka (vodka de raisin) à 35€/pièce (5 880€). Produit innovant et luxueux pour une clientèle avide de nouveautés premium."
+  },
+  {
+    "id": 714,
+    "name": "Palette Disaronno Amaretto 70cl (180 bouteilles)",
+    "description": "Palette de 180 bouteilles de Disaronno Originale Amaretto 70cl. Liqueur italienne iconique au goût d'amande, à base de noyaux d'abricot, parfaitement équilibrée entre douceur et amertume. Indispensable pour les bars et pâtisseries.",
+    "price": 3350.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 4,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-disaronno-1.jpg"
+    ],
+    "details": {
+      "origine": "Saronno, Italie",
+      "type": "Liqueur (Amaretto)",
+      "volume": "70 cl",
+      "alcohol": "28% vol",
+      "bulk_specs": {
+        "unites_palette": 180,
+        "volume_total": "126 L",
+        "poids_brut": "165 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.4m",
+        "conditionnement": "15 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Arômes marqués d'amande et de noyau",
+        "Goût doux et légèrement amer (amaretto)",
+        "Notes de vanille et de caramel",
+        "Texture onctueuse et longue en bouche"
+      ],
+      "pairing_suggestions": [
+        "Servie sur glace",
+        "Cocktails (Godfather, Italian Sunset)",
+        "Pâtisserie (Tiramisu, glaces)"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4500.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/714",
+      "unit_price": "25€/bouteille"
+    },
+    "seo_description": "🇮🇹 PALETTE ICONIQUE : 180 bouteilles de Disaronno Amaretto à 25€/pièce (4 500€). Liqueur italienne incontournable pour barbacks et professionnels de la restauration."
+  },
+  {
+    "id": 715,
+    "name": "Palette Baileys Original Irish Cream 70cl (192 bouteilles)",
+    "description": "Palette de 192 bouteilles de Baileys Original Irish Cream 70cl. Liqueur irlandaise iconique au whisky, crème fraîche et chocolat. Texture onctueuse et saveur unique. Best-seller mondial pour les bars et les desserts.",
+    "price": 4300.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 5,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-baileys-1.jpg","palette-baileys-2.jpg"
+    ],
+    "details": {
+      "origine": "Irlande",
+      "type": "Liqueur (Crème irlandaise)",
+      "volume": "70 cl",
+      "alcohol": "17% vol",
+      "bulk_specs": {
+        "unites_palette": 192,
+        "volume_total": "134.4 L",
+        "poids_brut": "170 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.6m",
+        "conditionnement": "16 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Arômes de chocolat, de vanille et de crème fraîche",
+        "Notes subtiles de whisky irlandais",
+        "Texture riche et onctueuse",
+        "Finale douce et persistante"
+      ],
+      "pairing_suggestions": [
+        "Servie sur glace",
+        "Café irlandais",
+        "Desserts (cheesecake, glace)"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4800.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-06-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/715",
+      "unit_price": "25€/bouteille"
+    },
+    "seo_description": "🍫 PALETTE BEST-SELLER : 192 bouteilles de Baileys Original à 25€/pièce (4 800€). Liqueur onctueuse et sucrée, produit phare pour les cafés, bars et pâtisseries."
+  },
+  {
+    "id": 717,
+    "name": "Palette Lave-Vaisselle Professionnel Finish Quantum (1200 tablettes)",
+    "description": "Palette de 50 cartons (24 tablettes/carton) de lessive lave-vaisselle tout-en-un Finish Quantum Ultimate. Élimine les tâches tenaces et le calcaire en une seule étape. Format professionnel pour restaurants, hôtels et collectivités.",
+    "price": 480.00,
+    "priceCurrency": "EUR",
+    "category": "Produits d'Entretien",
+    "stock": 6,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-finish-1.jpg"
+    ],
+    "details": {
+      "marque": "Finish",
+      "type": "Détergent lave-vaisselle (tablettes)",
+      "poids_net": "48 kg (1200x40g)",
+      "action": "Détergent, sel et rinçage intégrés",
+      "avantages": "Élimination des résidus tenaces, protection de la verrerie, action anti-calcaire",
+      "bulk_specs": {
+        "unites_palette": 1200,
+        "poids_net_total": "48 kg",
+        "poids_brut": "55 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.2m",
+        "conditionnement": "50 cartons de 24 tablettes"
+      },
+      "utilisation": "1 tablette par cycle. Placez dans le compartiment à détergent."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "480.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-10-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/717",
+      "unit_price": "0,40€/tablette"
+    },
+    "seo_description": "🍽️ PALETTE PRO : 1200 tablettes lave-vaisselle Finish Quantum. Prix économique à 0,40€/tablette (480€). Solution tout-en-uns pour un résultat impeccable en machine professionnelle."
+  },
+  {
+    "id": 718,
+    "name": "Palette Nuggets de Poulet Surgelés 120x1kg",
+    "description": "Palette de 80 cartons de 1kg de nuggets de poulet surgelés. Préparés à partir de blanc de poulet haché (65% minimum), panure croustillante et dorée. Produit prêt à frire ou à cuire au four, parfait pour les snacks, fast-foods et cantines.",
+    "price": 990.00,
+    "priceCurrency": "EUR",
+    "category": "Surgelés",
+    "stock": 7,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-nuggets-1.jpg"
+    ],
+    "details": {
+      "origine": "Union Européenne",
+      "type": "Préparation de volaille panée surgelée",
+      "poids_net": "80 kg",
+      "ingredients": "Filet de poulet (65%), panure (farine de BLÉ, eau, levure, sel, épices), huile de tournesol.",
+      "conservation": "-18°C",
+      "bulk_specs": {
+        "unites_palette": 80,
+        "poids_net_total": "80 kg",
+        "poids_brut": "85 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.4m",
+        "conditionnement": "8 couches de 10 cartons"
+      },
+      "preparation": "Cuisson au four à 200°C (15-18min) ou friture à 180°C (3-4min) sans décongélation."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1200.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-01-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/718",
+      "unit_price": "15€/kg"
+    },
+    "seo_description": "🍗 PALETTE PRO : 80kg de nuggets de poulet surgelés (80x1kg). Prix compétitif à 15€/kg (1 200€). Produit star des fast-foods et snacks, portion pratique et service rapide."
+  },
+  {
+    "id": 719,
+    "name": "Palette Légumes pour Wok Surgelés 120x1kg",
+    "description": "Palette de 60 sacs de 2kg de mélange de légumes pour wok surgelés IQF (poivrons, carottes, oignons, brocolis, champignons, pousses de soja). Coupe fine, qualité restaurant. Idéal pour accompagnements, plats asiatiques et buffets chauds.",
+    "price": 580.00,
+    "priceCurrency": "EUR",
+    "category": "Surgelés",
+    "stock": 10,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-legumes-wok-1.jpg"
+    ],
+    "details": {
+      "origine": "Union Européenne",
+      "type": "Légumes transformés surgelés",
+      "poids_net": "120 kg",
+      "composition": "Poivrons, carottes, oignons, brocolis, champignons, pousses de soja.",
+      "ingredients": "100% Légumes.",
+      "conservation": "-18°C",
+      "bulk_specs": {
+        "unites_palette": 60,
+        "poids_net_total": "120 kg",
+        "poids_brut": "125 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m",
+        "conditionnement": "6 couches de 10 sacs"
+      },
+      "preparation": "Sautée directement à la poêle ou au wok sans décongélation."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "780.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-04-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/719",
+      "unit_price": "6,50€/kg"
+    },
+    "seo_description": "🥦 PALETTE PRO : 120kg de légumes pour wok surgelés (60x2kg). Gain de temps et qualité constante à 6,50€/kg (780€). Produit de base pour la cuisine professionnelle asiatique et les collectivités."
+  },
+  {
+    "id": 721,
+    "name": "Palette Biscuits Petit Écolier Chocolat au Lait – 120x300g",
+    "description": "Palette de 120 paquets de 300g des biscuits iconiques Petit Écolier de LU. Biscuits fondants et croustillants recouverts d'une onctueuse couche de chocolat au lait. Format familial, parfait pour les grandes surfaces, les épiceries et la vente en ligne.",
+    "price": 580.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 5,
+    "featured": True,
+    "published": True,
+    "images": [
+      "palette-petit-ecolier-1.jpg"
+    ],
+    "details": {
+      "marque": "LU",
+      "type": "Biscuit au chocolat au lait",
+      "poids_net": "36 kg",
+      "ingredients": "Farine de BLÉ, chocolat au lait 46% (sucre, beurre de cacao, pâte de cacao, LAIT écrémé en poudre, lactose, BEURRE concentré, émulsifiant : lécithines de SOJA, arôme), sucre, BEURRE pâtissier, LAIT écrémé en poudre, sirop de glucose-fructose, poudres à lever (carbonates d'ammonium, carbonates de sodium, diphosphates), sel, arômes.",
+      "conservation": "À l'abri de la chaleur et de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 120,
+        "poids_net_total": "36 kg",
+        "poids_brut": "40 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.4m",
+        "conditionnement": "10 couches de 12 paquets"
+      },
+      "allergenes": "Gluten, Lait, Soja"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "780.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-06-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/721",
+      "unit_price": "6,50€/paquet"
+    },
+    "seo_description": "🍪 PALETTE ICONIQUE : 120 paquets de biscuits Petit Écolier LU 300g. Prix de gros à 6,50€/paquet (780€ la palette). Produit familial incontournable pour les revendeurs."
+  },
+  {
+    "id": 722,
+    "name": "Palette Granola Bars Kellogg's – 72x600g (Variété)",
+    "description": "Palette de 72 cartons de barres de céréales Kellogg's (mélange de parfums : chocolat, fruits rouges, miel). Format économique 600g, idéal pour les petits-déjeuners en entreprise, les distributeurs automatiques et les épiceries de grande distribution.",
+    "price": 880.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 4,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-kelloggs-granola-1.jpg"
+    ],
+    "details": {
+      "marque": "Kellogg's",
+      "type": "Barres de céréales",
+      "poids_net": "43.2 kg",
+      "composition": "Mélange de parfums (Chocolat, Fruits Rouges, Miel et Noix)",
+      "ingredients": "Céréales (AVOINE complète, farine de BLÉ), sirop de glucose, sucre, huiles végétales, fruits secs, chocolat, etc.",
+      "conservation": "À l'abri de la chaleur et de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 72,
+        "poids_net_total": "43.2 kg",
+        "poids_brut": "48 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.3m",
+        "conditionnement": "6 couches de 12 cartons"
+      },
+      "allergenes": "Gluten, Lait, Fruits à coque (selon parfum)"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1080.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-05-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/722",
+      "unit_price": "15€/carton"
+    },
+    "seo_description": "🌾 PALETTE KELLOGG'S : 72 cartons de barres granola 600g (parfums variés). Prix compétitif à 15€/carton (1 080€). Snack healthy et pratique pour les professionnels."
+  },
+  {
+    "id": 723,
+    "name": "Palette Céréales Kellogg's Frosties – 80x500g",
+    "description": "Palette de 80 boîtes de 500g de céréales Kellogg's Frosties. Pétales de maïs croustillants et sucrés au goût iconique. Format familial très demandé, parfait pour les supermarchés, les drives et les grossistes alimentaires.",
+    "price": 840.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 6,
+    "featured": True,
+    "published": True,
+    "images": [
+      "palette-kelloggs-frosties-1.jpg"
+    ],
+    "details": {
+      "marque": "Kellogg's",
+      "type": "Céréales de petit-déjeuner",
+      "poids_net": "40 kg",
+      "ingredients": "Maïs, sucre, arôme de malt d'ORGE, sirop de glucose, sel, arômes.",
+      "conservation": "À l'abri de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 80,
+        "poids_net_total": "40 kg",
+        "poids_brut": "45 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m",
+        "conditionnement": "8 couches de 10 boîtes"
+      },
+      "allergenes": "Gluten (Orge)"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1040.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-07-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/723",
+      "unit_price": "13€/boîte"
+    },
+    "seo_description": "🥣 PALETTE BEST-SELLER : 80 boîtes de Kellogg's Frosties 500g. Prix attractif à 13€/boîte (1 040€). Céréales iconiques, produit phare pour la grande distribution."
+  },
+  {
+    "id": 724,
+    "name": "Palette Popcorn Micro-ondes Sweet & Salty – 100x100g",
+    "description": "Palette de 100 sachets de popcorn à réchauffer au micro-ondes, saveur sucré-salé. Maïs soufflé prêt à éclater en 3 minutes, recouvert d'un délicieux caramel. Idéal pour les cinémas, les snacks et les distributeurs automatiques.",
+    "price": 250.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 8,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-popcorn-1.jpg"
+    ],
+    "details": {
+      "marque": "Brandt",
+      "type": "Popcorn à micro-ondes",
+      "poids_net": "10 kg",
+      "ingredients": "Maïs, sucre, graisse de palme, sirop de glucose, sel, émulsifiant (lécithine de SOJA), arômes.",
+      "conservation": "À l'abri de la chaleur et de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 100,
+        "poids_net_total": "10 kg",
+        "poids_brut": "12 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.0m",
+        "conditionnement": "5 couches de 20 sachets"
+      },
+      "preparation": "Au micro-ondes, 3 minutes à puissance maximale.",
+      "allergenes": "Soja"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "250.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-03-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/724",
+      "unit_price": "2,50€/sachet"
+    },
+    "seo_description": "🍿 PALETTE SNACKING : 100 sachets de popcorn micro-ondes sucré-salé. Prix de gros à 2,50€/sachet (250€). Produit de snacking populaire pour cinémas et snacks."
+  },
+  {
+    "id": 725,
+    "name": "Palette Boisson Gazeuse 7UP 33cl – 108x24 Canettes (2592 unités)",
+    "description": "Palette complète de 2592 canettes de 7UP 33cl. Boisson gazeuse rafraîchissante au goût unique de citron-limette, sans caféine. Conditionnement professionnel pour les cafés, hôtels, restaurants et distributeurs automatiques.",
+    "price": 1036.80,
+    "priceCurrency": "EUR",
+    "category": "Boissons",
+    "stock": 3,
+    "featured": True,
+    "published": True,
+    "images": [
+      "palette-7up-1.jpg"
+    ],
+    "details": {
+      "marque": "7UP",
+      "type": "Boisson gazeuse aux extraits de citron",
+      "volume": "33 cl",
+      "ingredients": "Eau gazéifiée, sucre, acidifiant (acide citrique), correcteurs d'acidité (citrates de sodium, citrates de potassium), arômes naturels de citron-citron vert avec autres arômes naturels, stabilisant (E445).",
+      "conservation": "À l'abri de la chaleur et du soleil",
+      "bulk_specs": {
+        "unites_palette": 2592,
+        "volume_total": "855.36 L",
+        "poids_brut": "310 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.8m",
+        "conditionnement": "108 cartons de 24 canettes"
+      },
+      "particularite": "Sans caféine"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1036.80,
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-04-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/725",
+      "unit_price": "0,40€/canette"
+    },
+    "seo_description": "🟢 PALETTE PRO : 2592 canettes de 7UP 33cl. Prix imbattable à 0,40€/canette (1 036,80€). Boisson rafraîchissante sans caféine, incontournable pour les professionnels des CHR."
+  },
+  {
+    "id": 726,
+    "name": "Palette Biscuits Granola – 96x200g (Chocolat Noir)",
+    "description": "Palette de 96 paquets de 200g de biscuits Granola au chocolat noir. Biscuits croquants aux flocons d'avoine et généreux morceaux de chocolat noir. Format pratique, parfait pour les épiceries fines, les bureaux et les commerces de proximité.",
+    "price": 480.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 7,
+    "featured": False,
+    "published": True,
+    "images": [
+      "palette-granola-chocolat-1.jpg","palette-granola-chocolat-2.jpg"
+    ],
+    "details": {
+      "marque": "Granola",
+      "type": "Biscuit aux flocons d'avoine et chocolat",
+      "poids_net": "19.2 kg",
+      "ingredients": "Flocons d'AVOINE 41%, chocolat noir 24% (pâte de cacao, sucre, beurre de cacao, émulsifiant : lécithines de tournesol), farine de BLÉ, sucre, huile de colza, noix de coco, sirop de sucre inverti, poudres à lever (carbonates de sodium, carbonates d'ammonium), sel, arôme.",
+      "conservation": "À l'abri de la chaleur et de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 96,
+        "poids_net_total": "19.2 kg",
+        "poids_brut": "22 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.2m",
+        "conditionnement": "8 couches de 12 paquets"
+      },
+      "allergenes": "Gluten, Avoine, Fruits à coque (noix de coco)"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "480.00,
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-05-15",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/726",
+      "unit_price": "5€/paquet"
+    },
+    "seo_description": "🍫 PALETTE GRANOLA : 96 paquets de biscuits aux flocons d'avoine et chocolat noir 200g. Prix de gros à 5€/paquet (480€). Snack gourmand et healthy pour les revendeurs."
+  },
+  {
+    "id": 727,
+    "name": "Palette Kinder Bueno – 144x135g (19,44 kg)",
+    "description": "Palette complète de 144 barres Kinder Bueno format familial de 135g. La barre iconique : un bâtonnet de biscuit croustillant et de noisettes, fourré d'une crème onctueuse au lait et noisette, le tout enrobé de chocolat fin. Un best-seller incontournable pour les grandes surfaces, les épiceries et les commerces de proximité. Demande constante et forte rotation garantie.",
+    "price": 1080.00,
+    "priceCurrency": "EUR",
+    "category": "Épicerie",
+    "stock": 6,
+    "featured": True,
+    "published": True,
+    "images": [
+      "palette-kinder-bueno-1.jpg",
+      "palette-kinder-bueno-2.jpg"
+    ],
+    "details": {
+      "marque": "Kinder (Ferrero)",
+      "type": "Barre chocolatée fourrée",
+      "poids_net": "19.44 kg",
+      "ingredients": "Chocolat au lait 30% (sucre, beurre de cacao, _lait_ en poudre, pâte de cacao, émulsifiant : lécithines (_soja_), vanilline), sucre, _noisettes_ 13%, huile de palme, farine de _blé_, _lait_ écrémé en poudre, _beurre_ concentré, cacao maigre, émulsifiants : lécithines (_soja_), vanilline, poudres à lever (carbonate acide de sodium, carbonate acide d'ammonium), sel.",
+      "conservation": "À conserver à l'abri de la chaleur et de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 144,
+        "poids_net_total": "19.44 kg",
+        "poids_brut": "22 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.4m",
+        "conditionnement": "12 couches de 12 barres"
+      },
+      "allergenes": "Lait, Soja, Noisettes, Gluten (Blé)",
+      "valeurs_nutritionnelles": {
+        "valeur_energetique": "575 kcal / 100g",
+        "graisses": "38g / 100g",
+        "dont_acides_gras_satures": "16g / 100g",
+        "glucides": "49g / 100g",
+        "dont_sucres": "43g / 100g",
+        "proteines": "8.1g / 100g",
+        "sel": "0.24g / 100g"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1080.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-07-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/727",
+      "unit_price": "7,50€ / barre"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "215"
+    },
+    "seo_description": "🔥 PALETTE BEST-SELLER : 144 barres Kinder Bueno 135g. Prix gros très compétitif à 7,50€/barre (1 080€ la palette). Le produit chocolaté ultra-demandé pour maximiser votre chiffre d'affaires. Livraison palette entière pour professionnels."
   }
 ]
     
