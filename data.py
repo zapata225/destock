@@ -4776,7 +4776,7 @@ products = [
     },
     "offers": {
       "@type": "Offer",
-      "price": "1036.80,
+      "price": "1036.80",
       "priceCurrency": "EUR",
       "priceValidUntil": "2025-04-30",
       "availability": "https://schema.org/InStock",
