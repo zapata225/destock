@@ -3787,8 +3787,450 @@ products = [
       }
     ],
     "seo_description": "⚡ PROMO Palette Huile d'olive vierge extra BIO – 2000 flacons de 25 cl à 1,80€/unité (3 600€ au lieu de 4 000€). Équivalent 500 L, certification BIO, idéal professionnels."
+  },
+  {
+    "id": 701,
+    "name": "Palette Belvedere Vodka 70cl (240 bouteilles)",
+    "description": "Palette complète de 240 bouteilles de Belvedere Vodka 70cl. Vodka de luxe polonaise pur grain de seigle Dankowskie Gold, distillée 4 fois pour une pureté et une douceur exceptionnelles. Conditionnement professionnel pour les bars, hôtels et cavistes exigeants.",
+    "price": 9600.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 3,
+    "featured": true,
+    "published": true,
+    "images": [
+      "belvedere-palette-70cl-1.jpg",
+      "belvedere-palette-70cl-2.jpg"
+    ],
+    "details": {
+      "origine": "Żyrardów, Pologne",
+      "type": "Vodka de seigle premium",
+      "volume": "70 cl",
+      "alcohol": "40% vol",
+      "bulk_specs": {
+        "unites_palette": 240,
+        "volume_total": "168 L",
+        "poids_brut": "225 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.8m (euro-palette)",
+        "conditionnement": "20 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Pureté cristalline et texture veloutée",
+        "Notes subtiles de vanille, de noisette et de poivre blanc",
+        "Bouche incroyablement douce et soyeuse",
+        "Finale nette, propre et persistante"
+      ],
+      "pairing_suggestions": [
+        "Caviar et fruits de mer",
+        "Servie pure, glacée, en vodka martini",
+        "Cocktails classiques premium (Cosmopolitan, Bloody Mary)"
+      ],
+      "certification": "Appellation Vodka Polonaise (Chronique Géographique)"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "9600.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/701",
+      "unit_price": "40€/bouteille"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "45"
+    },
+    "seo_description": "🌟 PALETTE PROFESSIONNELLE : 240 bouteilles de Belvedere Vodka 70cl. Prix imbattable à 40€/btle (9 600€ la palette). Vodka de luxe polonaise pur seigle, livraison directe pour professionnels de l'hôtellerie et de la restauration."
+  },
+  {
+    "id": 702,
+    "name": "Palette Coffrets Magnum Belvedere 1,5L (24 unités)",
+    "description": "Palette de 24 magnums de Belvedere Vodka 1,5L. Format prestige et impactant, parfait pour les événements d'entreprise, les ouvertures ou comme cadeau d'affaire haut de gamme. Chaque bouteille est un symbole d'élégance et de qualité.",
+    "price": 3600.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 2,
+    "featured": true,
+    "published": true,
+    "images": [
+      "palette-belvedere-magnum-1.jpg"
+    ],
+    "details": {
+      "origine": "Żyrardów, Pologne",
+      "type": "Vodka de seigle premium (Format Magnum)",
+      "volume": "1,5 L",
+      "alcohol": "40% vol",
+      "bulk_specs": {
+        "unites_palette": 24,
+        "volume_total": "36 L",
+        "poids_brut": "38 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.2m (demi-palette)",
+        "conditionnement": "12 cartons de 2 magnums"
+      },
+      "tasting_notes": [
+        "Caractère luxueux et intense",
+        "Arômes crémeux de vanille et de zest d'agrume",
+        "Texture riche et onctueuse",
+        "Finale longue et exceptionnellement lisse"
+      ],
+      "pairing_suggestions": [
+        "Événements et cérémonies",
+        "Cadeaux d'entreprise prestigieux",
+        "Cave à vodka de luxe"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "3600.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/702",
+      "unit_price": "150€/magnum"
+    },
+    "seo_description": "🎁 PALETTE MAGNUM : 24 bouteilles Belvedere 1,5L à 150€/pièce (3 600€). Le format prestige ultime pour événements et cadeaux d'entreprise. Vodka de luxe en gros."
+  },
+  {
+    "id": 703,
+    "name": "Palette Frites Surgelées Premium Coupe Cavalière 120x2,5kg",
+    "description": "Palette complète de 120 sacs de 2,5kg de frites coupe cavalière 100% premium. Calibre 10x10mm. Frites épaisses, croustillantes à l'extérieur et fondantes à l'intérieur. Idéales pour restaurants gastronomiques et brasseries. Surgélation rapide pour une qualité optimale.",
+    "price": 1440.00,
+    "priceCurrency": "EUR",
+    "category": "Surgelés",
+    "stock": 5,
+    "featured": true,
+    "published": true,
+    "images": [
+      "palette-frites-cavaliere-1.jpg","palette-frites-cavaliere-2.jpg"
+    ],
+    "details": {
+      "origine": "Nord-Pas-de-Calais, France",
+      "type": "Frites surgelées premium",
+      "variete_pomme_de_terre": "Bintje",
+      "poids_net": "300 kg",
+      "ingredients": "Pommes de terre (95%), huile de tournesol, dextrose.",
+      "conservation": "-18°C",
+      "bulk_specs": {
+        "unites_palette": 120,
+        "poids_net_total": "300 kg",
+        "poids_brut": "315 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.7m",
+        "conditionnement": "10 couches de 12 sacs"
+      },
+      "preparation": "Friture à 175°C pendant 3 minutes sans décongélation.",
+      "qualite": "Label Rouge"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1440.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2024-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/703",
+      "unit_price": "4,80€/kg"
+    },
+    "seo_description": "🍟 PALETTE PROFESSIONNELLE : 300kg de frites coupe cavalière Label Rouge. Prix dégressif à 4,80€/kg (1 440€ la palette). Produit de qualité française pour restaurateurs exigeants."
+  },
+  {
+    "id": 704,
+    "name": "Palette Filets de Cabillaud Panés Surgelés 60x2kg",
+    "description": "Palette de 60 cartons de 2kg de filets de cabillaud panés surgelés. Portions individuelles parfaites. Panure dorée, légère et croustillante, poisson blanc de première qualité (65% de filet). Produit prêt à cuire pour un service rapide et uniforme.",
+    "price": 1800.00,
+    "priceCurrency": "EUR",
+    "category": "Surgelés",
+    "stock": 4,
+    "featured": false,
+    "published": true,
+    "images": [
+      "palette-cabillaud-pane-1.jpg","palette-cabillaud-pane-2.jpg"
+    ],
+    "details": {
+      "origine": "Mers de Norvège (ASC)",
+      "type": "Poisson pané surgelé",
+      "poids_net": "120 kg",
+      "ingredients": "Filet de CABILLAUD (65%), panure (farine de BLÉ, eau, levure, sel, épices), huile de colza.",
+      "conservation": "-18°C",
+      "bulk_specs": {
+        "unites_palette": 60,
+        "poids_net_total": "120 kg",
+        "poids_brut": "130 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.6m",
+        "conditionnement": "6 couches de 10 cartons"
+      },
+      "preparation": "Cuisson au four à 200°C (20min) ou friture à 180°C (4min) sans décongélation.",
+      "certification": "Pêche durable (ASC)"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1800.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2024-10-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/704",
+      "unit_price": "15€/kg"
+    },
+    "seo_description": "🐟 PALETTE PROFESSIONNELLE : 120kg de filets de cabillaud panés (60x2kg). Prix gros à 15€/kg (1 800€). Produit certifié ASC, portion idéale pour restaurants et collectivités."
+  },
+  {
+    "id": 705,
+    "name": "Palette Bonbons Haribo Mix Acidulés – 20x5kg",
+    "description": "Palette de 20 cartons de 5kg de bonbons Haribo acidulés. Mélange économique et populaire (Ours, Crocodiles, Anneaux). Conditionnement destiné aux commerces de détail, distributeurs automatiques, cinémas et événements. Fraîcheur garantie.",
+    "price": 1300.00,
+    "priceCurrency": "EUR",
+    "category": "Bonbons",
+    "stock": 6,
+    "featured": false,
+    "published": true,
+    "images": [
+      "palette-haribo-5kg-1.jpg","palette-haribo-5kg-2.jpg"
+    ],
+    "details": {
+      "marque": "Haribo",
+      "type": "Bonbon gélifié acidulé",
+      "poids_net": "100 kg",
+      "ingredients": "Sirop de glucose, sucre, gélatine, acidifiants (acide citrique), arômes, concentrés de fruits et plantes, colorants (E100, E120, E141).",
+      "conservation": "À l'abri de la chaleur et de l'humidité",
+      "bulk_specs": {
+        "unites_palette": 20,
+        "poids_net_total": "100 kg",
+        "poids_brut": "105 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.4m",
+        "conditionnement": "4 couches de 5 cartons"
+      },
+      "allergenes": "Gélatine de porc"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1300.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-06-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/705",
+      "unit_price": "13€/kg"
+    },
+    "seo_description": "🍬 PALETTE BONBONS : 100kg de mix acidulés Haribo (20x5kg). Prix de gros à 13€/kg (1 300€). Idéal pour revendeurs, snacking et distributeurs automatiques."
+  },
+  {
+    "id": 706,
+    "name": "Palette Belvedere Smogóry Forest 70cl – Édition Limitée (72 bouteilles)",
+    "description": "Palette exclusive de 72 bouteilles de Belvedere Smogóry Forest 70cl. Édition limitée infusée avec des ingrédients sauvages de la forêt polonaise (feuilles de bouleau, gentiane, baies de genièvre). Profil unique, terreux et complexe pour les connaisseurs.",
+    "price": 3960.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 1,
+    "featured": true,
+    "published": true,
+    "images": [
+      "palette-belvedere-smogory-1.jpg"
+    ],
+    "details": {
+      "origine": "Pologne",
+      "type": "Vodka aromatisée Édition Limitée",
+      "volume": "70 cl",
+      "alcohol": "40% vol",
+      "bulk_specs": {
+        "unites_palette": 72,
+        "volume_total": "50,4 L",
+        "poids_brut": "70 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.2m",
+        "conditionnement": "6 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Notes boisées profondes de bouleau et de genièvre",
+        "Complexité herbacée et légère amertume de la gentiane",
+        "Texture riche et légèrement résineuse",
+        "Finale longue et évocatrice de sous-bois"
+      ],
+      "pairing_suggestions": [
+        "Servie sur glace avec un zeste d'orange sanguine",
+        "Tonic premium",
+        "Viandes fumées ou gibier"
+      ],
+      "statut": "Édition Limitée - Production annuelle"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "3960.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2024-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/706",
+      "unit_price": "55€/bouteille"
+    },
+    "seo_description": "🌳 PALETTE EXCLUSIVE : 72 bouteilles Belvedere Smogóry Forest Édition Limitée. Vodka ultra-premium au caractère unique. 55€/btle (3 960€ la palette). Pour collectionneurs et bars à cocktails étoilés."
+  },
+  {
+    "id": 707,
+    "name": "Palette Pizza Surgelée Prosciutto 4 Fromages – 144x320g",
+    "description": "Palette de 144 pizzas surgelées individuelles Prosciutto et 4 Fromages (320g pièce). Pâte fine et croustillante, sauce tomate basilic, mozzarella, prosciutto crudo Italien, gorgonzola, parmesan et ricotta. Qualité artisanale pour professionnels.",
+    "price": 720.00,
+    "priceCurrency": "EUR",
+    "category": "Surgelés",
+    "stock": 3,
+    "featured": false,
+    "published": true,
+    "images": [
+      "palette-pizza-prosciutto-1.jpg"
+    ],
+    "details": {
+      "origine": "Emilia-Romagna, Italie",
+      "type": "Pizza surgelée premium",
+      "poids_net": "46,08 kg",
+      "ingredients": "Farine de BLÉ, MOZZARELLA, sauce tomate, prosciutto crudo Italien (8%), GORGONZOLA, PARMESAN, RICOTTA, basilic, etc.",
+      "conservation": "-18°C",
+      "bulk_specs": {
+        "unites_palette": 144,
+        "poids_net_total": "46,08 kg",
+        "poids_brut": "50 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m",
+        "conditionnement": "12 cartons de 12 pizzas"
+      },
+      "preparation": "Cuisson directe au four à 220°C pendant 8-10 minutes.",
+      "allergenes": "Gluten, Lait"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "720.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2024-11-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/707",
+      "unit_price": "5€/unité"
+    },
+    "seo_description": "🍕 PALETTE PIZZA : 144 pizzas Prosciutto 4 Fromages (46kg). Prix gros à 5€/pièce (720€ la palette). Pizza italienne premium pour snacks, hôtels et restaurants."
+  },
+  {
+    "id": 708,
+    "name": "Palette Bonbons Chocolat Noir Menthe – 20 Seaux de 3kg",
+    "description": "Palette de 20 seaux de 3kg de bonbons de chocolat noir fourrés à la crème de menthe. Coque de chocolat noir 70% cassante, intérieur frais et fondant. Produit de confiserie haut de gamme pour les hôtels, salons et boutiques de cadeaux.",
+    "price": 1500.00,
+    "priceCurrency": "EUR",
+    "category": "Bonbons",
+    "stock": 2,
+    "featured": true,
+    "published": true,
+    "images": [
+      "palette-chocolat-menthe-1.jpg"
+    ],
+    "details": {
+      "marque": "Maison Guyard",
+      "type": "Bonbon de chocolat fourré",
+      "poids_net": "60 kg",
+      "ingredients": "Chocolat noir 70% (cacao, sucre, beurre de cacao, vanille), sucre, beurre LAITIER, crème de menthe naturelle, émulsifiant : lécithine de SOJA.",
+      "conservation": "À l'abri de la chaleur (<18°C)",
+      "bulk_specs": {
+        "unites_palette": 20,
+        "poids_net_total": "60 kg",
+        "poids_brut": "65 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.3m",
+        "conditionnement": "4 couches de 5 seaux"
+      },
+      "allergenes": "Lait, Soja"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1500.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2024-12-01",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/708",
+      "unit_price": "25€/kg"
+    },
+    "seo_description": "🍫 PALETTE LUXE : 60kg de bonbons chocolat noir menthe (20x3kg). Confiserie haut de gamme à 25€/kg (1 500€). Idéal pour réception hôtelière et vente en boutique cadeau."
+  },
+  {
+    "id": 709,
+    "name": "Palette Belvedere Organic Infusions 70cl (96 bouteilles)",
+    "description": "Palette de 96 bouteilles de Belvedere Organic Infusions Basil & Lemon Grass 70cl. Vodka certifiée biologique infusée naturellement avec des arômes de basilic et de citronnelle. Fraîche, moderne et parfaite pour les cocktails d'été. Lot homogène.",
+    "price": 4320.00,
+    "priceCurrency": "EUR",
+    "category": "Vins & Spiritueux",
+    "stock": 2,
+    "featured": false,
+    "published": true,
+    "images": [
+      "palette-belvedere-organic-1.jpg"
+    ],
+    "details": {
+      "origine": "Pologne",
+      "type": "Vodka aromatisée biologique",
+      "volume": "70 cl",
+      "alcohol": "40% vol",
+      "certification": "Certifié Bio (UE)",
+      "bulk_specs": {
+        "unites_palette": 96,
+        "volume_total": "67,2 L",
+        "poids_brut": "90 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.5m",
+        "conditionnement": "8 cartons de 12 bouteilles"
+      },
+      "tasting_notes": [
+        "Notes fraîches et végétales de basilic frais",
+        "Caractère zesté et citronné de la citronnelle",
+        "Profile lumineux et revigorant",
+        "Finish propre et légèrement poivré"
+      ],
+      "pairing_suggestions": [
+        "Tonic Premium Fever-Tree",
+        "Soda club et tranche de concombre",
+        "Cocktails fruités et herbacés"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4320.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-06-30",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/709",
+      "unit_price": "45€/bouteille"
+    },
+    "seo_description": "🌿 PALETTE BIO : 96 bouteilles Belvedere Organic Infusions. Vodka bio basilic-citronnelle. 45€/btle (4 320€). Le must des cocktails healthy et tendance pour bars branchés."
+  },
+  {
+    "id": 710,
+    "name": "Palette Mélange de Baies Surgelées – 60x5kg",
+    "description": "Palette de 60 sacs de 5kg de mélange de baies surgelées IQF (framboises, myrtilles, mûres). Fruits entiers, rapidement surgelés après récolte pour préserver leur valeur nutritionnelle, leur couleur et leur goût. Pour smoothies, coulis, pâtisserie ou accompagnements.",
+    "price": 3000.00,
+    "priceCurrency": "EUR",
+    "category": "Surgelés",
+    "stock": 4,
+    "featured": false,
+    "published": true,
+    "images": [
+      "palette-melange-baies-1.jpg","palette-melange-baies-2.jpg"
+    ],
+    "details": {
+      "origine": "Union Européenne (Serbie, Pologne)",
+      "type": "Fruits rouges surgelés IQF (Individually Quick Frozen)",
+      "poids_net": "300 kg",
+      "composition": "Framboises (40%), Myrtilles (30%), Mûres (30%)",
+      "ingredients": "100% Fruits.",
+      "conservation": "-18°C",
+      "bulk_specs": {
+        "unites_palette": 60,
+        "poids_net_total": "300 kg",
+        "poids_brut": "310 kg",
+        "dimensions_palette": "1.2m x 0.8m x 1.8m",
+        "conditionnement": "6 couches de 10 sacs"
+      },
+      "preparation": "Décongélation partielle ou utilisation directe au mixeur. Ne pas recongeler."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "3000.00",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2025-03-31",
+      "availability": "https://schema.org/InStock",
+      "url": "/produits/710",
+      "unit_price": "10€/kg"
+    },
+    "seo_description": "🫐 PALETTE FRUITS : 300kg de mélange baies surgelées IQF (60x5kg). Qualité premium à 10€/kg (3 000€). Idéal pour juice bars, glaciers, traiteurs et restaurants."
   }
 ]
+    
+
 
 
 
