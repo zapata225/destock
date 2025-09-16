@@ -3796,8 +3796,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 3,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "belvedere-palette-70cl-1.jpg",
       "belvedere-palette-70cl-2.jpg"
@@ -3851,8 +3851,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 2,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "palette-belvedere-magnum-1.jpg"
     ],
@@ -3899,8 +3899,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Surgelés",
     "stock": 5,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "palette-frites-cavaliere-1.jpg","palette-frites-cavaliere-2.jpg"
     ],
@@ -3940,8 +3940,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Surgelés",
     "stock": 4,
-    "featured": false,
-    "published": true,
+    "featured": False,
+    "published": True,
     "images": [
       "palette-cabillaud-pane-1.jpg","palette-cabillaud-pane-2.jpg"
     ],
@@ -3980,8 +3980,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Bonbons",
     "stock": 6,
-    "featured": false,
-    "published": true,
+    "featured": False,
+    "published": True,
     "images": [
       "palette-haribo-5kg-1.jpg","palette-haribo-5kg-2.jpg"
     ],
@@ -4019,8 +4019,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 1,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "palette-belvedere-smogory-1.jpg"
     ],
@@ -4068,8 +4068,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Surgelés",
     "stock": 3,
-    "featured": false,
-    "published": true,
+    "featured": False,
+    "published": True,
     "images": [
       "palette-pizza-prosciutto-1.jpg"
     ],
@@ -4108,8 +4108,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Bonbons",
     "stock": 2,
-    "featured": true,
-    "published": true,
+    "featured": True,
+    "published": True,
     "images": [
       "palette-chocolat-menthe-1.jpg"
     ],
@@ -4147,8 +4147,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins & Spiritueux",
     "stock": 2,
-    "featured": false,
-    "published": true,
+    "featured": False,
+    "published": True,
     "images": [
       "palette-belvedere-organic-1.jpg"
     ],
@@ -4196,8 +4196,8 @@ products = [
     "priceCurrency": "EUR",
     "category": "Surgelés",
     "stock": 4,
-    "featured": false,
-    "published": true,
+    "featured": False,
+    "published": True,
     "images": [
       "palette-melange-baies-1.jpg","palette-melange-baies-2.jpg"
     ],
