@@ -4879,7 +4879,7 @@ products = [
     "seo_description": "🔥 PALETTE BEST-SELLER : 144 barres Kinder Bueno 135g. Prix gros très compétitif à 7,50€/barre (1 080€ la palette). Le produit chocolaté ultra-demandé pour maximiser votre chiffre d'affaires. Livraison palette entière pour professionnels."
   },
 {
-    "id": 205,
+    "id": 1205,
     "name": "💎 Louis Roederer Cristal Vinothèque 1997 (Lot de 24 bouteilles)",
     "description": "Champagne millésimé de légende - Lot professionnel de 24 bouteilles Cristal Vinothèque 1997 avec coffrets prestige. Rare et collectionnable, élégance exceptionnelle après 15 ans d'élevage. Investissement d'exception.",
     "price": 23280.00,
@@ -4919,7 +4919,7 @@ products = [
 },
     
 {
-    "id": 205,
+    "id": 1205,
     "name": "💎 Louis Roederer Cristal Vinothèque 1997 (Lot de 3 bouteilles)",
     "description": "Champagne millésimé de légende - Lot professionnel de 24 bouteilles Cristal Vinothèque 1997 avec coffrets prestige. Rare et collectionnable, élégance exceptionnelle après 15 ans d'élevage. Investissement d'exception.",
     "price": 2400.00,
@@ -4958,7 +4958,7 @@ products = [
     "seo_description": "Louis Roederer Cristal Vinothèque 1997 - Lot de 24 bouteilles - Champagne millésimé rare - Investissement prestige - Parker 95/100 - Livraison ultra sécurisée"
 },
 {
-    "id": 206,
+    "id": 1206,
     "name": "🍾 Champagne Bollinger Brut Special Cuvée (Lot de 150 bouteilles)",
     "description": "Champagne Brut d'exception - Lot professionnel de 150 bouteilles 75cl avec étuis. Assemblage premium Grands Crus. Conditionnement palette complète pour professionnels et événements.",
     "price": 6085.00,
@@ -4996,7 +4996,7 @@ products = [
     "seo_description": "Bollinger Brut Special Cuvée - Lot de 150 bouteilles - Prix professionnel - Grands Crus - Livraison palette - Pour restaurants et événements"
 },
 {
-    "id": 207,
+    "id": 1207,
     "name": "🎁 Louis Roederer Coffret Trilogie Collection (242, 243, 244) 3x30 - 90 bouteilles",
     "description": "Coffret prestige réunissant trois champagnes Bruts d'exception de Louis Roederer. Collections 242, 243 et 244 - Chaque édition associe millésime de base, vins de réserve sous bois et réserve perpétuelle. Élégance et complexité.",
     "price": 5100.00,
@@ -5034,7 +5034,7 @@ products = [
     "seo_description": "Louis Roederer Coffret Trilogie Collections 242-243-244 - 3 champagnes d'exception - Cadeau prestige - Découverte des millésimes 2017-2019"
 },
 {
-    "id": 208,
+    "id": 1208,
     "name": "🌸 Veuve Clicquot La Grande Dame 2018 par Jacquemus (3 lots x 50 bouteilles)",
     "description": "Édition limitée exceptionnelle - Veuve Clicquot La Grande Dame 2018 créée en collaboration avec Simon Porte Jacquemus. Lot professionnel de 150 bouteilles (3 palettes de 50). Design unique, champagne de prestige.",
     "price": 25500.00,
