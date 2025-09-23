@@ -3330,8 +3330,8 @@ def admin_delete_user(username):
 def champagne_brut():
     return render_template('champagne-brut.html')
 
-@app.route('/blog/champagne-pas-cher')
-def champagne_pas_cher():
+@app.route('/blog/champagne-pas-cher1')
+def champagne_pas_cher1():
     return render_template('champagne-pas-cher1.html')
 
 @app.route('/blog/prix-champagne-2023')
