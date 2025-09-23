@@ -3356,23 +3356,23 @@ def economiser_alimentation():
 
 @app.route('/blog/destockage-date-courte')
 def destockage_date_courte1():
-    return render_template('blog/destockage-date-courte1.html')
+    return render_template('destockage-date-courte1.html')
 
 @app.route('/blog/prix-bouteilles-ruinart')
 def prix_bouteilles_ruinart():
-    return render_template('blog/prix-bouteilles-ruinart.html')
+    return render_template('prix-bouteilles-ruinart.html')
 
 @app.route('/blog/ruinart-blanc-de-blanc')
 def ruinart_blanc_de_blanc():
-    return render_template('blog/ruinart-blanc-de-blanc.html')
+    return render_template('ruinart-blanc-de-blanc.html')
 
 @app.route('/blog/prix-dom-perignon')
 def prix_dom_perignon():
-    return render_template('blog/prix-dom-perignon.html')
+    return render_template('prix-dom-perignon.html')
 
 @app.route('/blog/dom-perignon-rose')
 def dom_perignon_rose():
-    return render_template('blog/dom-perignon-rose.html')
+    return render_template('dom-perignon-rose.html')
 
 @app.after_request
 def after_request(response):
