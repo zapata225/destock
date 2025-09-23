@@ -4877,7 +4877,170 @@ products = [
       "reviewCount": "215"
     },
     "seo_description": "🔥 PALETTE BEST-SELLER : 144 barres Kinder Bueno 135g. Prix gros très compétitif à 7,50€/barre (1 080€ la palette). Le produit chocolaté ultra-demandé pour maximiser votre chiffre d'affaires. Livraison palette entière pour professionnels."
-  }
+  },
+{
+    "id": 205,
+    "name": "💎 Louis Roederer Cristal Vinothèque 1997 (Lot de 24 bouteilles)",
+    "description": "Champagne millésimé de légende - Lot professionnel de 24 bouteilles Cristal Vinothèque 1997 avec coffrets prestige. Rare et collectionnable, élégance exceptionnelle après 15 ans d'élevage. Investissement d'exception. PROMO -25%",
+    "price": 19710.00,
+    "originalPrice": 26280.00,
+    "priceCurrency": "EUR",
+    "category": "Champagne Millésimé",
+    "stock": 2,
+    "featured": True,
+    "images": ["cristal-vinotheque-1997.jpg", "cristal-1.jpg", "cristal-2.jpg", "cristal-3.jpg", "cristal-4.jpg"],
+    "offers": {
+        "@type": "Offer",
+        "price": "19710.00",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "/produits/205"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "12"
+    },
+    "details": {
+        "marque": "Louis Roederer",
+        "volume": "24 bouteilles de 75cl avec coffrets",
+        "alcool": "12.5% vol",
+        "origine": "Reims, Champagne, France",
+        "millesime": "1997 (millésime rare)",
+        "assemblage": "62% Pinot Noir, 38% Chardonnay",
+        "vinification": "6% sous bois - Fermentation malolactique 16%",
+        "elevage": "15 ans sur lattes + 5 ans sur pointes + 4 ans après dégorgement",
+        "dosage": "8g/litre",
+        "notation": "Parker 95/100 - Suckling 99/100",
+        "arômes": "Fleurs blanches, amande, miel, nougat, fruits rouges, fumée, tarte tatin",
+        "conditionnement": "Palette sécurisée - Emballage professionnel",
+        "promotion": "Réduction exceptionnelle de 25%"
+    },
+    "seo_description": "Louis Roederer Cristal Vinothèque 1997 - Lot de 24 bouteilles -25% - Champagne millésimé rare - Parker 95/100 - Promotion limitée"
+},
+{
+    "id": 206,
+    "name": "🍾 Champagne Bollinger Brut Special Cuvée (Lot de 150 bouteilles)",
+    "description": "Champagne Brut d'exception - Lot professionnel de 150 bouteilles 75cl avec étuis. Assemblage premium Grands Crus. Conditionnement palette complète pour professionnels. PROMO -25%",
+    "price": 6063.75,
+    "originalPrice": 8085.00,
+    "priceCurrency": "EUR",
+    "category": "Champagne Brut",
+    "stock": 4,
+    "featured": True,
+    "images": ["bollinger-special-cuvee.jpg", "bollinger-palette.jpg", "bollinger-1.jpg"],
+    "offers": {
+        "@type": "Offer",
+        "price": "6063.75",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "/produits/206"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.0",
+        "reviewCount": "35"
+    },
+    "details": {
+        "marque": "Bollinger",
+        "volume": "150 bouteilles de 75cl",
+        "alcool": "12% vol",
+        "origine": "Aÿ, Champagne, France",
+        "assemblage": "60% Pinot Noir, 25% Chardonnay, 15% Meunier",
+        "crus": "85% Grands et Premiers Crus",
+        "dosage": "Brut (8-9g/l de sucre)",
+        "affinage": "2x supérieur à l'appellation",
+        "arômes": "Pomme rôtie, compote, pêche, poire, brioche, épices",
+        "conditionnement": "6 cartons de 25 bouteilles - Palette sécurisée",
+        "utilisation": "Restauration, événements, cavistes professionnels",
+        "promotion": "Réduction exceptionnelle de 25%"
+    },
+    "seo_description": "Bollinger Brut Special Cuvée - Lot de 150 bouteilles -25% - Prix professionnel - Grands Crus - Promotion limitée"
+},
+{
+    "id": 207,
+    "name": "🎁 Louis Roederer Coffret Trilogie Collection 242, 243, 244",
+    "description": "Coffret prestige réunissant trois champagnes Bruts d'exception de Louis Roederer. Collections 242, 243 et 244 - Élégance et complexité. PROMO -25%",
+    "price": 157.50,
+    "originalPrice": 210.00,
+    "priceCurrency": "EUR",
+    "category": "Champagne Brut",
+    "stock": 8,
+    "featured": True,
+    "images": ["roederer-trilogie.jpg", "roederer-trilogie-1.jpg", "roederer-trilogie-2.jpg"],
+    "offers": {
+        "@type": "Offer",
+        "price": "157.50",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "/produits/207"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "28"
+    },
+    "details": {
+        "marque": "Louis Roederer",
+        "volume": "Coffret 3 bouteilles de 75cl",
+        "alcool": "12% vol",
+        "origine": "Reims, Champagne, France",
+        "contenu": "Collection 242 (2017) - Collection 243 (2018) - Collection 244 (2019)",
+        "assemblage": "Millésime + 10% vins de réserve sous bois + réserve perpétuelle",
+        "dosage": "7-8g/l selon collection",
+        "elevage": "3 à 4 ans selon cuvée",
+        "arômes": "Fruits blancs, acacia, noisette grillée, mirabelle, jasmin, notes toastées",
+        "accords": "Gastronomie fine, apéritif, fruits de mer",
+        "idée_cadeau": "Cadeau d'exception pour amateurs de champagne",
+        "promotion": "Réduction exceptionnelle de 25%"
+    },
+    "seo_description": "Louis Roederer Coffret Trilogie -25% - 3 champagnes d'exception - Cadeau prestige - Promotion limitée"
+},
+{
+    "id": 208,
+    "name": "🌸 Veuve Clicquot La Grande Dame 2018 par Jacquemus (3 lots x 50 bouteilles)",
+    "description": "Édition limitée exceptionnelle - Veuve Clicquot La Grande Dame 2018 créée avec Simon Porte Jacquemus. Lot professionnel de 150 bouteilles. Design unique. PROMO -25%",
+    "price": 16875.00,
+    "originalPrice": 22500.00,
+    "priceCurrency": "EUR",
+    "category": "Champagne Millésimé",
+    "stock": 1,
+    "featured": True,
+    "images": ["veuve-jacquemus.jpg", "veuve-jacquemus-1.jpg", "veuve-jacquemus-2.jpg"],
+    "offers": {
+        "@type": "Offer",
+        "price": "16875.00",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "/produits/208"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "15"
+    },
+    "details": {
+        "marque": "Veuve Clicquot",
+        "volume": "150 bouteilles (3 lots de 50)",
+        "alcool": "12% vol",
+        "origine": "Reims, Champagne, France",
+        "millesime": "2018",
+        "collaboration": "Édition limitée Simon Porte Jacquemus",
+        "assemblage": "88% Pinot Noir, 12% Chardonnay",
+        "crus": "8 Grands Crus de la Montagne de Reims et Côte des Blancs",
+        "dosage": "7g/l",
+        "elevage": "5 ans minimum",
+        "design": "Bouteille et coffret design unique Jacquemus",
+        "conditionnement": "3 palettes sécurisées de 50 bouteilles",
+        "limited": "Édition numérotée et collector",
+        "promotion": "Réduction exceptionnelle de 25%"
+    },
+    "seo_description": "Veuve Clicquot La Grande Dame 2018 Jacquemus - Lot de 150 bouteilles -25% - Édition limitée - Promotion exceptionnelle"
+}
 ]
     
 
