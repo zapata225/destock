@@ -5004,7 +5004,7 @@ products = [
     "category": "Champagne Brut",
     "stock": 8,
     "featured": True,
-    "images": ["roederer-trilogie.jpg", "roederer-trilogie-1.jpg", "roederer-trilogie-2.jpg"],
+    "images": ["roederer-trilogie.jpg"],
     "offers": {
         "@type": "Offer",
         "price": "210.00",
