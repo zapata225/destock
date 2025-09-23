@@ -3326,6 +3326,53 @@ def admin_delete_user(username):
         return jsonify({'success': False, 'message': str(e)}), 500
 
 
+@app.route('/blog/champagne-brut')
+def champagne_brut():
+    return render_template('champagne-brut.html')
+
+@app.route('/blog/champagne-pas-cher')
+def champagne_pas_cher():
+    return render_template('champagne-pas-cher1.html')
+
+@app.route('/blog/prix-champagne-2023')
+def prix_champagne_2023():
+    return render_template('prix-champagne-2023.html')
+
+@app.route('/blog/destockage-local')
+def destockage_local():
+    return render_template('destockage-local.html')
+
+@app.route('/blog/champagne-bollinger-brut')
+def champagne_bollinger_brut():
+    return render_template('champagne-bollinger-brut.html')
+
+@app.route('/blog/champagne-blanc-de-blancs')
+def champagne_blanc_de_blancs():
+    return render_template('champagne-blanc-de-blancs.html')
+
+@app.route('/blog/economiser-alimentation')
+def economiser_alimentation():
+    return render_template('economiser-alimentation.html')
+
+@app.route('/blog/destockage-date-courte')
+def destockage_date_courte1():
+    return render_template('blog/destockage-date-courte1.html')
+
+@app.route('/blog/prix-bouteilles-ruinart')
+def prix_bouteilles_ruinart():
+    return render_template('blog/prix-bouteilles-ruinart.html')
+
+@app.route('/blog/ruinart-blanc-de-blanc')
+def ruinart_blanc_de_blanc():
+    return render_template('blog/ruinart-blanc-de-blanc.html')
+
+@app.route('/blog/prix-dom-perignon')
+def prix_dom_perignon():
+    return render_template('blog/prix-dom-perignon.html')
+
+@app.route('/blog/dom-perignon-rose')
+def dom_perignon_rose():
+    return render_template('blog/dom-perignon-rose.html')
 
 @app.after_request
 def after_request(response):
