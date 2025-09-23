@@ -5072,6 +5072,52 @@ products = [
         "limited": "Édition numérotée et collector"
     },
     "seo_description": "Veuve Clicquot La Grande Dame 2018 Jacquemus - Lot de 150 bouteilles - Édition limitée collector - Design exclusif - Investissement prestige"
+},
+    {
+    "id": 1212,
+    "name": "🚛 Palette Dom Pérignon Rosé Vintage 2008 (280 bouteilles)",
+    "description": "Champagne Rosé de prestige millésimé 2008 - Palette professionnelle complète de 280 bouteilles Grand Cru. Notation exceptionnelle Parker 97+/100. Investissement d'exception pour professionnels. PROMO -25%",
+    "price": 18000.00,
+    "originalPrice": 24000.00,
+    "priceCurrency": "EUR",
+    "category": "Vins rares",
+    "stock": 1,
+    "featured": True,
+    "images": ["dom-perignon-rose-palette.jpg", "dom-perignon-rose-2008.jpg"],
+    "offers": {
+        "@type": "Offer",
+        "price": "18000.00",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "/produits/212"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "42"
+    },
+    "details": {
+        "marque": "Dom Pérignon",
+        "volume": "280 bouteilles de 75cl (210 litres)",
+        "alcool": "12.5% vol",
+        "origine": "Hautvillers, Champagne, France",
+        "classification": "Grand Cru",
+        "millesime": "2008 (millésime exceptionnel)",
+        "type": "Rosé Vintage",
+        "assemblage": "Pinot Noir et Chardonnay",
+        "dosage": "Brut",
+        "elevage": "12 années en cave",
+        "notation": "Parker 97+/100 - Suckling 99/100 - Wine Spectator 97/100 - Decanter 96/100",
+        "arômes": "Framboise, fraise sauvage, iris, violette, angélique, pivoine, poivre blanc",
+        "conditionnement": "11 cartons de 24 bouteilles + 1 carton de 16 bouteilles",
+        "poids_palette": "~350 kg (palette sécurisée)",
+        "utilisation": "Cavistes professionnels, restaurants étoilés, événements de luxe, investissement",
+        "prix_unitaire": "64,29€ HT la bouteille (au lieu de 85,71€)",
+        "economie_totale": "6.000€ d'économie sur la palette",
+        "promotion": "Réduction exceptionnelle de 25%"
+    },
+    "seo_description": "Palette Dom Pérignon Rosé Vintage 2008 - 280 bouteilles -25% - Grand Cru exceptionnel - Prix professionnel - Livraison palette sécurisée"
 }
 ]
     
