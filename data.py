@@ -5083,7 +5083,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 1,
-    : True,
+    "featured": True,
     "images": ["dom-perignon-rose-palette.jpg", "dom-perignon-rose-2008.jpg"],
     "offers": {
         "@type": "Offer",
