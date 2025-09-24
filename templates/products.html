@@ -10,9 +10,17 @@ Destockage Alimentaire -70% | Tous nos produits | Livraison Express
 
 {% block meta_description %}
 {% if current_category and current_category != 'all' %}
-Découvrez nos {{ current_category }} en destockage à -70%. ✅ Livraison express France. ★★★★☆ (4.9/5) ☎ +33644694515
+Découvrez nos {{ current_category }} en destockage à -70%. ✅ Livraison express France. 
+{% if current_category == 'Boissons' %}🥤 Boissons gazeuses, eaux, jus, champagne - Dom Pérignon, Moët & Chandon, Veuve Clicquot{% endif %}
+{% if current_category == 'Produits frais' %}❄️ Produits frais de qualité - Foie gras, saumon fumé, fromages{% endif %}
+{% if current_category == 'Épicerie' %}🛒 Épicerie fine et produits de base - Café, Nutella, biscuits{% endif %}
+{% if current_category == 'Surgelés' %}🧊 Surgelés professionnels - Frites, poissons, pizzas{% endif %}
+{% if current_category == 'Produits laitiers' %}🧀 Lait, fromages, yaourts - Produits laitiers frais{% endif %}
+{% if current_category == 'Viandes et poissons' %}🥩 Viandes et poissons premium - Wagyu, cabillaud, saumon{% endif %}
+{% if current_category == 'Vins & Spiritueux' %}🍾 Champagnes premium - Dom Pérignon, Ruinart, Bollinger, Belvedere Vodka{% endif %}
+★★★★☆ (4.9/5) ☎ +33644697212
 {% else %}
-Découvrez tous nos produits de destockage alimentaire à -70%. 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers. Livraison express France. ★★★★☆ (4.9/5)
+Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes prestige, 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers. Dom Pérignon, Moët & Chandon, Veuve Clicquot en stock. Livraison express France. ★★★★☆ (4.9/5)
 {% endif %}
 {% endblock %}
 
