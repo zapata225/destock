@@ -923,7 +923,7 @@ products = [
         "description": "Champagne Vintage de prestige - Palette complète de 480 bouteilles 75cl. Millésime exceptionnel, puissance et complexité aromatique. Emballage professionnel.",
         "price": 9200.00,
         "priceCurrency": "EUR",
-        "category": "Boissons",
+        "category": "Vins, Champagnes et Spiritueux",
         "stock": 1,
         "featured": True,
         "images": ["dom-perignon.jpg", "dom-perignon-1.jpg", "dom-perignon-2.jpg"],
