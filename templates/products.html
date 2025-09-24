@@ -26,7 +26,7 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
 
 {% block extra_css %}
 <style>
-    /* Styles de base modernes */
+    /* Styles de base modernes - Optimisés mobile */
     :root {
         --primary-color: #2a5bd7;
         --accent-color: #ff4757;
@@ -40,9 +40,9 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     
-    /* Layout ultra-moderne */
+    /* Layout ultra-moderne - Optimisé mobile */
     .products-page {
-        padding: 60px 0;
+        padding: 40px 0;
         max-width: 1440px;
         margin: 0 auto;
     }
@@ -51,12 +51,12 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        margin-bottom: 40px;
-        padding: 0 20px;
+        margin-bottom: 30px;
+        padding: 0 15px;
     }
     
     .products-header h1 {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
         font-weight: 700;
         color: var(--primary-color);
         margin: 0;
@@ -79,7 +79,7 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
     
     .search-input {
         width: 100%;
-        padding: 15px 25px;
+        padding: 12px 20px;
         padding-right: 50px;
         border: none;
         border-radius: 50px;
@@ -108,11 +108,12 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
     /* Filtres de catégorie modernes */
     .category-filters {
         display: flex;
-        gap: 12px;
-        padding: 0 20px 15px;
-        margin-bottom: 30px;
+        gap: 8px;
+        padding: 0 15px 12px;
+        margin-bottom: 25px;
         overflow-x: auto;
         scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
     }
     
     .category-filters::-webkit-scrollbar {
@@ -120,7 +121,7 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
     }
     
     .category-filter {
-        padding: 10px 24px;
+        padding: 8px 16px;
         border-radius: 50px;
         background: #f5f7fa;
         color: var(--text-dark);
@@ -129,32 +130,33 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         white-space: nowrap;
         transition: var(--transition);
         border: none;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         box-shadow: var(--shadow-sm);
+        flex-shrink: 0;
     }
     
     .category-filter:hover {
         background: #e0e7ff;
-        transform: translateY(-2px);
+        transform: translateY(-1px);
     }
     
     .category-filter.active {
         background: var(--primary-color);
         color: white;
-        box-shadow: 0 4px 12px rgba(42, 91, 215, 0.3);
+        box-shadow: 0 2px 8px rgba(42, 91, 215, 0.3);
     }
     
-    /* Grille de produits ultra-moderne */
+    /* Grille de produits ultra-moderne - Optimisée mobile */
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
-        padding: 0 20px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 15px;
     }
     
     .product-card {
         background: var(--bg-light);
-        border-radius: 16px;
+        border-radius: 12px;
         overflow: hidden;
         box-shadow: var(--shadow-sm);
         transition: var(--transition);
@@ -162,30 +164,34 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         display: flex;
         flex-direction: column;
         height: 100%;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .product-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-lg);
+    /* Animations désactivées sur mobile pour meilleures performances */
+    @media (hover: hover) and (pointer: fine) {
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
     }
     
     .product-badge {
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
         background: var(--accent-color);
         color: white;
-        padding: 6px 12px;
+        padding: 4px 8px;
         border-radius: 50px;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         font-weight: 700;
         z-index: 2;
         box-shadow: var(--shadow-sm);
     }
     
-    /* Conteneur d'image moderne */
+    /* Conteneur d'image moderne - Optimisé mobile */
     .product-image-container {
-        height: 240px;
+        height: 200px;
         width: 100%;
         overflow: hidden;
         position: relative;
@@ -193,84 +199,96 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         align-items: center;
         justify-content: center;
         background: #f9fafb;
+        aspect-ratio: 1/1;
     }
     
     .product-image {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        padding: 20px;
-        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 15px;
+        transition: transform 0.5s ease;
     }
     
-    .product-card:hover .product-image {
-        transform: scale(1.08);
+    /* Animation image désactivée sur mobile */
+    @media (hover: hover) and (pointer: fine) {
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
     }
     
     /* Info produit moderne */
     .product-info {
-        padding: 24px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
     }
     
     .product-title {
-        font-size: 1.2rem;
-        margin-bottom: 12px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
         color: var(--text-dark);
-        font-weight: 700;
-        line-height: 1.4;
+        font-weight: 600;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     
     .product-description {
         color: var(--text-medium);
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-        line-height: 1.5;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
         flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     
     .product-price {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 800;
         color: var(--primary-color);
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     /* Actions modernes */
     .product-actions {
         display: flex;
-        gap: 12px;
+        gap: 10px;
         margin-top: auto;
     }
     
     .btn-product {
         flex: 1;
-        padding: 12px;
-        border-radius: 8px;
+        padding: 10px;
+        border-radius: 6px;
         font-weight: 600;
         text-align: center;
         transition: var(--transition);
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        font-size: 0.95rem;
+        gap: 6px;
+        font-size: 0.9rem;
         border: none;
         cursor: pointer;
+        min-height: 44px; /* Tappable area pour mobile */
     }
     
     .btn-primary {
         background: var(--primary-color);
         color: white;
-        box-shadow: 0 4px 12px rgba(42, 91, 215, 0.3);
+        box-shadow: 0 2px 8px rgba(42, 91, 215, 0.3);
     }
     
-    .btn-primary:hover {
+    .btn-primary:active {
         background: #1e4aba;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(42, 91, 215, 0.4);
+        transform: scale(0.98);
     }
     
     .btn-outline {
@@ -280,38 +298,52 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         box-shadow: var(--shadow-sm);
     }
     
-    .btn-outline:hover {
+    .btn-outline:active {
         background: #f0f5ff;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
+        transform: scale(0.98);
+    }
+    
+    /* Désactiver les transformations sur mobile */
+    @media (hover: hover) and (pointer: fine) {
+        .btn-primary:hover {
+            background: #1e4aba;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(42, 91, 215, 0.4);
+        }
+        
+        .btn-outline:hover {
+            background: #f0f5ff;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
     }
     
     /* Aucun résultat */
     .no-results {
         grid-column: 1 / -1;
         text-align: center;
-        padding: 80px 0;
+        padding: 60px 0;
     }
     
     .no-results-icon {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         color: #e0e7ff;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     .no-results h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: var(--text-dark);
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
     
     .no-results p {
         color: var(--text-medium);
-        margin-bottom: 25px;
-        font-size: 1rem;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
     }
     
-    /* Animations modernes */
+    /* Animations modernes - Optimisées */
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -320,7 +352,7 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
     @keyframes slideUp {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
         to {
             opacity: 1;
@@ -329,89 +361,228 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
     }
     
     .animated-title {
-        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation: slideUp 0.6s ease-out forwards;
     }
     
     .product-card {
         opacity: 0;
-        animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation: fadeIn 0.4s ease-out forwards;
     }
     
-    /* Responsive ultra-moderne */
+    /* ===== OPTIMISATIONS MOBILE CRITIQUES ===== */
+    
+    /* Tablettes */
     @media (max-width: 1024px) {
         .products-header {
             flex-direction: column;
             align-items: flex-start;
-            gap: 25px;
+            gap: 20px;
         }
         
         .search-container {
             max-width: 100%;
         }
-    }
-    
-    @media (max-width: 768px) {
-        .products-page {
-            padding: 40px 0;
-        }
-        
-        .products-header h1 {
-            font-size: 2.2rem;
-        }
         
         .product-grid {
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 18px;
         }
         
         .product-image-container {
-            height: 200px;
+            height: 180px;
         }
     }
     
-    @media (max-width: 480px) {
+    /* Mobiles - Optimisations critiques */
+    @media (max-width: 768px) {
+        .products-page {
+            padding: 20px 0;
+        }
+        
         .products-header {
-            padding: 0 15px;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+        
+        .products-header h1 {
+            font-size: 1.8rem !important;
+            text-align: center;
+            width: 100%;
         }
         
         .category-filters {
-            padding: 0 15px 15px;
+            padding: 0 10px 10px;
+            margin-bottom: 20px;
+            gap: 6px;
         }
         
+        .category-filter {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+        
+        /* Grille mobile optimisée */
         .product-grid {
-            grid-template-columns: 1fr;
-            padding: 0 15px;
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            padding: 0 10px;
+        }
+        
+        .product-card {
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            animation: none; /* Désactiver animation sur mobile */
+            opacity: 1;
+        }
+        
+        .product-image-container {
+            height: 140px;
+            padding: 10px;
+        }
+        
+        .product-image {
+            padding: 10px;
+            transition: none; /* Désactiver transition image */
         }
         
         .product-info {
-            padding: 20px;
+            padding: 12px;
+        }
+        
+        .product-title {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            -webkit-line-clamp: 2;
+        }
+        
+        .product-description {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            -webkit-line-clamp: 2;
+        }
+        
+        .product-price {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-actions {
+            gap: 6px;
+            flex-direction: column;
+        }
+        
+        .btn-product {
+            padding: 8px;
+            font-size: 0.85rem;
+            min-height: 40px;
+        }
+        
+        /* Désactiver toutes les animations coûteuses */
+        .product-card:hover {
+            transform: none !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+        }
+        
+        .search-container {
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+            border-radius: 25px;
+            padding: 10px;
+        }
+        
+        .search-input {
+            padding: 12px 20px;
+            font-size: 1rem;
         }
     }
     
-    /* Titre principal animé */
+    /* Très petits mobiles */
+    @media (max-width: 480px) {
+        .products-header {
+            padding: 0 8px;
+        }
+        
+        .products-header h1 {
+            font-size: 1.6rem !important;
+        }
+        
+        .category-filters {
+            padding: 0 8px 8px;
+        }
+        
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0 8px;
+        }
+        
+        .product-image-container {
+            height: 120px;
+        }
+        
+        .product-info {
+            padding: 10px 8px;
+        }
+        
+        .product-title {
+            font-size: 0.9rem;
+        }
+        
+        .product-description {
+            display: none; /* Cacher description sur très petits écrans */
+        }
+        
+        .btn-product {
+            font-size: 0.8rem;
+            min-height: 36px;
+        }
+        
+        .no-results {
+            padding: 40px 0;
+        }
+        
+        .no-results-icon {
+            font-size: 2rem;
+        }
+        
+        .no-results h3 {
+            font-size: 1.1rem;
+        }
+    }
+    
+    /* Orientation paysage mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .product-grid {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+        
+        .product-image-container {
+            height: 100px;
+        }
+    }
+
+    /* Titre principal animé - Version mobile optimisée */
     .products-header h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: 700;
         color: #1e3c72;
         text-align: center;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
         text-transform: uppercase;
-        animation: fadeInUp 1s ease-out forwards;
+        animation: fadeInUp 0.8s ease-out forwards;
     }
 
     .products-header h1 span {
         color: #ff6b81;
         font-weight: 800;
-        text-shadow: 2px 2px 6px rgba(255, 107, 129, 0.5);
+        text-shadow: 1px 1px 3px rgba(255, 107, 129, 0.5);
     }
 
-    /* Animation du titre */
+    /* Animation du titre optimisée */
     @keyframes fadeInUp {
         0% {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(15px);
         }
         100% {
             opacity: 1;
@@ -421,15 +592,15 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
 
     /* Sous-titre d'indexation sous le titre */
     .products-subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: center;
         color: #ff6b81;
-        margin-bottom: 30px;
-        animation: fadeInUp 1s ease-out 0.5s forwards;
+        margin-bottom: 20px;
+        animation: fadeInUp 0.8s ease-out 0.3s forwards;
         font-style: italic;
     }
 
-    /* Barre de recherche dynamique */
+    /* Barre de recherche dynamique - Mobile optimisé */
     .search-container {
         position: relative;
         width: 100%;
@@ -439,88 +610,73 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
         align-items: center;
         justify-content: center;
         background: linear-gradient(45deg, #0072ff, #00c6ff);
-        border-radius: 50px;
-        padding: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        animation: gradient-animation 5s ease infinite;
+        border-radius: 25px;
+        padding: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
-    /* Dégradé animé pour la barre de recherche */
-    @keyframes gradient-animation {
-        0% {
-            background: linear-gradient(45deg, #0072ff, #00c6ff);
-        }
-        50% {
-            background: linear-gradient(45deg, #1e3c72, #00bfff);
-        }
-        100% {
-            background: linear-gradient(45deg, #0072ff, #00c6ff);
-        }
-    }
-
-    /* Style du champ de recherche */
+    /* Style du champ de recherche mobile */
     .search-input {
         width: 100%;
-        padding: 15px 30px;
-        font-size: 1.2rem;
+        padding: 12px 20px;
+        font-size: 1rem;
         border: none;
-        border-radius: 50px;
+        border-radius: 25px;
         outline: none;
         background: transparent;
         color: #fff;
         font-family: 'Arial', sans-serif;
         position: relative;
         z-index: 10;
-        transition: all 0.3s ease;
     }
 
-    /* Animation du placeholder */
     .search-input::placeholder {
         color: #fff;
-        opacity: 0.8;
-        animation: placeholder-blink 2s ease infinite;
-    }
-
-    /* Animation du texte du placeholder */
-    @keyframes placeholder-blink {
-        0% {
-            opacity: 0.8;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0.8;
-        }
+        opacity: 0.9;
     }
 
     /* Effet de focus sur le champ de recherche */
     .search-input:focus {
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.15);
     }
 
     /* Icône de recherche */
     .search-icon {
         position: absolute;
-        right: 20px;
+        right: 15px;
         color: #fff;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         pointer-events: none;
     }
 
-    /* Animation mobile pour la recherche */
+    /* Désactiver les animations lourdes sur mobile */
     @media (max-width: 768px) {
         .products-header h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
+            animation-duration: 0.5s;
         }
 
         .products-subtitle {
-            font-size: 1rem;
+            font-size: 0.9rem;
+            animation: none;
         }
 
         .search-container {
-            width: 90%;
+            width: 95%;
+            padding: 10px;
+        }
+        
+        /* Désactiver l'animation de gradient sur mobile */
+        .search-container {
+            animation: none;
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        }
+    }
+
+    /* Prévenir le zoom sur iOS */
+    @media (max-width: 768px) {
+        .search-input {
+            font-size: 16px; /* Empêche le zoom sur iOS */
         }
     }
 </style>
@@ -581,10 +737,11 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
                 <div class="product-image-container">
                     {% if product.images %}
                     <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
-                         alt="{{ product.name }}" class="product-image" itemprop="image">
+                         alt="{{ product.name }}" class="product-image" itemprop="image"
+                         loading="lazy" width="300" height="300">
                     {% else %}
                     <div class="product-image-placeholder">
-                        <i class="fas fa-image" style="font-size: 3rem; color: #e0e7ff;"></i>
+                        <i class="fas fa-image" style="font-size: 2rem; color: #e0e7ff;"></i>
                     </div>
                     {% endif %}
                 </div>
@@ -624,7 +781,7 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
                 </div>
                 <h3>Aucun produit trouvé</h3>
                 <p>Essayez avec d'autres termes de recherche ou une autre catégorie</p>
-                <a href="{{ url_for('product_list') }}" class="btn-product btn-primary" style="display: inline-flex; padding: 12px 24px;">
+                <a href="{{ url_for('product_list') }}" class="btn-product btn-primary" style="display: inline-flex; padding: 10px 20px;">
                     <i class="fas fa-store"></i> Voir tous les produits
                 </a>
             </div>
@@ -678,9 +835,12 @@ Découvrez tous nos produits de destockage alimentaire à -70%. 🍾 Champagnes 
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // SEO: Track page view for BBling
+    // Détection mobile - désactiver certaines fonctionnalités lourdes
+    const isMobile = window.innerWidth <= 768;
+    
+    // SEO: Track page view for BBling - désactivé sur mobile si lent
     function trackPageView() {
-        if (navigator.sendBeacon) {
+        if (!isMobile && navigator.sendBeacon) {
             navigator.sendBeacon('https://tracking.bbling.com/pixel', 
                 new URLSearchParams({
                     type: 'pageview',
@@ -695,15 +855,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track initial page view
     trackPageView();
     
-    // Recherche en temps réel avec debounce
+    // Recherche en temps réel avec debounce optimisé
     const searchInput = document.getElementById('search-input');
     const searchForm = document.getElementById('search-form');
     let searchTimeout;
     
     // Fonction pour soumettre le formulaire
     const submitSearch = () => {
-        // Track search event
-        if (navigator.sendBeacon) {
+        // Track search event - désactivé sur mobile
+        if (!isMobile && navigator.sendBeacon) {
             navigator.sendBeacon('https://tracking.bbling.com/pixel', 
                 new URLSearchParams({
                     type: 'search',
@@ -716,76 +876,114 @@ document.addEventListener('DOMContentLoaded', function() {
         searchForm.submit();
     };
     
-    // Recherche lors de la saisie avec debounce
-    searchInput.addEventListener('input', function() {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(submitSearch, 500);
-    });
+    // Recherche lors de la saisie avec debounce augmenté sur mobile
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(submitSearch, isMobile ? 800 : 500);
+        });
+        
+        // Recherche avec la touche Entrée
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                submitSearch();
+            }
+        });
+    }
     
-    // Recherche lors du clic sur l'icône
-    document.querySelector('.search-icon').addEventListener('click', submitSearch);
+    // Désactiver les animations lourdes sur mobile
+    if (isMobile) {
+        // Désactiver l'animation des cartes
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.animation = 'none';
+            card.style.opacity = '1';
+        });
+        
+        // Simplifier l'animation au scroll
+        const animateOnScroll = () => {
+            const productCards = document.querySelectorAll('.product-card');
+            const windowHeight = window.innerHeight;
+            
+            productCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const animationPoint = windowHeight - 50;
+                
+                if (cardPosition < animationPoint) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    } else {
+        // Version desktop complète
+        const animateOnScroll = () => {
+            const productCards = document.querySelectorAll('.product-card');
+            const windowHeight = window.innerHeight;
+            
+            productCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const animationPoint = windowHeight - 100;
+                
+                if (cardPosition < animationPoint) {
+                    card.style.animationPlayState = 'running';
+                }
+            });
+        };
+        
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    }
     
-    // Recherche avec la touche Entrée
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            submitSearch();
-        }
-    });
-    
-    // Animation des cartes au scroll
-    const animateOnScroll = () => {
+    // Effet de hover amélioré pour les cartes - désactivé sur mobile
+    if (!isMobile) {
         const productCards = document.querySelectorAll('.product-card');
-        const windowHeight = window.innerHeight;
-        
         productCards.forEach(card => {
-            const cardPosition = card.getBoundingClientRect().top;
-            const animationPoint = windowHeight - 100;
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
             
-            if (cardPosition < animationPoint) {
-                card.style.animationPlayState = 'running';
-            }
+            // Track product hover for BBling
+            card.addEventListener('mouseenter', function() {
+                const productName = this.querySelector('.product-title').textContent;
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon('https://tracking.bbling.com/pixel', 
+                        new URLSearchParams({
+                            type: 'product_hover',
+                            source: 'destockagealimentairestore',
+                            product: productName
+                        })
+                    );
+                }
+            });
         });
-    };
+    }
     
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Effet de hover amélioré pour les cartes
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-        
-        // Track product hover for BBling
-        card.addEventListener('mouseenter', function() {
-            const productName = this.querySelector('.product-title').textContent;
-            if (navigator.sendBeacon) {
-                navigator.sendBeacon('https://tracking.bbling.com/pixel', 
-                    new URLSearchParams({
-                        type: 'product_hover',
-                        source: 'destockagealimentairestore',
-                        product: productName
-                    })
-                );
-            }
-        });
-    });
-    
-    // Track add to cart events
+    // Track add to cart events - version simplifiée mobile
     document.querySelectorAll('.btn-primary').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            // Empêcher le double clic sur mobile
+            if (this.classList.contains('loading')) {
+                e.preventDefault();
+                return;
+            }
+            
+            this.classList.add('loading');
+            
             const productCard = this.closest('.product-card');
             const productName = productCard.querySelector('.product-title').textContent;
             const productPrice = productCard.querySelector('.product-price').textContent;
             
-            if (navigator.sendBeacon) {
+            // Tracking simplifié sur mobile
+            if (!isMobile && navigator.sendBeacon) {
                 navigator.sendBeacon('https://tracking.bbling.com/pixel', 
                     new URLSearchParams({
                         type: 'add_to_cart',
@@ -797,7 +995,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // SEO: Track conversion
-            if (window.dataLayer) {
+            if (!isMobile && window.dataLayer) {
                 window.dataLayer.push({
                     'event': 'add_to_cart',
                     'ecommerce': {
@@ -812,10 +1010,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
+            
+            // Retirer la classe loading après un délai
+            setTimeout(() => {
+                this.classList.remove('loading');
+            }, 1000);
         });
     });
     
-    // SEO: Lazy loading for images
+    // SEO: Lazy loading for images - version optimisée
     if ('IntersectionObserver' in window) {
         const lazyImageObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -827,45 +1030,76 @@ document.addEventListener('DOMContentLoaded', function() {
                     lazyImageObserver.unobserve(lazyImage);
                 }
             });
+        }, {
+            rootMargin: isMobile ? '50px' : '100px' // Charger plus tôt sur mobile
         });
         
         document.querySelectorAll('.product-image').forEach(function(lazyImage) {
             lazyImageObserver.observe(lazyImage);
         });
     }
-});
-</script>
-
-<!-- SEO: Google Analytics Enhanced Ecommerce -->
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'GA_MEASUREMENT_ID', {
-    'send_page_view': false,
-    'transport_type': 'beacon'
-});
-
-// Track product impressions
-document.addEventListener('DOMContentLoaded', function() {
-    const products = [];
-    document.querySelectorAll('.product-card').forEach(function(card, index) {
-        const product = {
-            'name': card.querySelector('.product-title').textContent,
-            'id': card.querySelector('input[name="product_id"]')?.value || '',
-            'price': card.querySelector('.product-price').textContent.replace('€', ''),
-            'brand': 'Destockage Alimentaire Store',
-            'category': document.querySelector('.category-filter.active')?.textContent || 'Tous les produits',
-            'position': index + 1
-        };
-        products.push(product);
-    });
     
-    if (products.length > 0) {
-        gtag('event', 'view_item_list', {
-            'items': products
+    // Optimisation pour les écrans tactiles
+    if (isMobile) {
+        // Améliorer la réactivité tactile
+        document.querySelectorAll('.btn-product').forEach(btn => {
+            btn.style.webkitTapHighlightColor = 'transparent';
+        });
+        
+        // Prévenir le zoom sur les inputs
+        document.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('touchstart', function() {
+                this.style.fontSize = '16px';
+            });
         });
     }
 });
+
+// Optimisation des performances mobile
+if (window.innerWidth <= 768) {
+    // Réduire la fréquence des animations
+    window.addEventListener('scroll', () => {
+        // Désactiver les animations pendant le scroll pour plus de fluidité
+        document.body.style.pointerEvents = 'none';
+        setTimeout(() => {
+            document.body.style.pointerEvents = 'auto';
+        }, 100);
+    }, { passive: true });
+}
+</script>
+
+<!-- SEO: Google Analytics Enhanced Ecommerce - Version conditionnelle -->
+<script>
+if (window.innerWidth > 768) { // Desktop seulement
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+        'send_page_view': false,
+        'transport_type': 'beacon'
+    });
+
+    // Track product impressions
+    document.addEventListener('DOMContentLoaded', function() {
+        const products = [];
+        document.querySelectorAll('.product-card').forEach(function(card, index) {
+            const product = {
+                'name': card.querySelector('.product-title').textContent,
+                'id': card.querySelector('input[name="product_id"]')?.value || '',
+                'price': card.querySelector('.product-price').textContent.replace('€', ''),
+                'brand': 'Destockage Alimentaire Store',
+                'category': document.querySelector('.category-filter.active')?.textContent || 'Tous les produits',
+                'position': index + 1
+            };
+            products.push(product);
+        });
+        
+        if (products.length > 0) {
+            gtag('event', 'view_item_list', {
+                'items': products
+            });
+        }
+    });
+}
 </script>
 {% endblock %}
