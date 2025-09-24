@@ -1,4 +1,4 @@
-# ✅ VERSION LÉGÈRE - Maximum performance
+# ✅ CORE FLASK
 Flask==2.3.3
 Werkzeug==2.3.7
 Jinja2==3.1.6
@@ -6,17 +6,36 @@ MarkupSafe==3.0.2
 itsdangerous==2.2.0
 click==8.1.8
 
-# Database
+# ✅ DATABASE & ORM
 Flask-SQLAlchemy==3.1.1
 SQLAlchemy==2.0.29
 psycopg2-binary==2.9.9
-greenlet==3.1.1
+greenlet==3.1.1  # ✅ ESSENTIEL pour performance DB
 
-# Essentials seulement
+# ✅ EMAIL & INTERNATIONALISATION
 Flask-Mail==0.9.1
 Flask-Babel==3.1.0
-flask-compress==1.17
-cffi==1.17.1
-requests==2.31.0
+
+# ✅ FORMULAIRES (utile pour les forms admin)
+Flask-WTF==1.0.1
+
+# ✅ PDF GENERATION (utile pour les factures)
 reportlab==4.0.8
+pdfkit==1.0.0
+WeasyPrint==65.1
+
+# ✅ COMPRESSION & PERFORMANCE
+flask-compress==1.17
+cffi==1.17.1  # ✅ Correction orthographe
+
+# ✅ REQUÊTES HTTP (Telegram, APIs)
+requests==2.31.0
+
+# ✅ MARKDOWN (blog/articles)
+markdown==3.4.1
+
+# ✅ SERVEUR PRODUCTION
 gunicorn==21.2.0
+
+# ✅ OUTILS DE DÉVELOPPEMENT (utile pour le build)
+setuptools==80.1.0
