@@ -1,21 +1,22 @@
+# ✅ VERSION LÉGÈRE - Maximum performance
 Flask==2.3.3
-Flask-Babel==3.1.0
-Flask-Mail==0.9.1
-Flask-WTF==1.0.1
+Werkzeug==2.3.7
 Jinja2==3.1.6
 MarkupSafe==3.0.2
-Werkzeug==2.3.7
 itsdangerous==2.2.0
-setuptools==80.1.0
+click==8.1.8
+
+# Database
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.29
+psycopg2-binary==2.9.9
+greenlet==3.1.1
+
+# Essentials seulement
+Flask-Mail==0.9.1
+Flask-Babel==3.1.0
+flask-compress==1.17
+cffi==1.17.1
 requests==2.31.0
 reportlab==4.0.8
-sqlalchemy==2.0.29
 gunicorn==21.2.0
-click==8.1.8
-pdfkit==1.0.0
-WeasyPrint==65.1
-CFFI==1.17.1
-markdown==3.4.1
-flask-compress==1.17
-Flask-SQLAlchemy==3.1.1
-psycopg2-binary==2.9.9
