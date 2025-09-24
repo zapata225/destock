@@ -818,43 +818,47 @@ img {
 </section>
 
 <style>
-/* ===== SLIDER OPTIMISÉ POUR PERFORMANCES ===== */
-/* Variables CSS réduites */
+/* ===== SLIDER MEGA OPTIMISÉ - VERSION UNIFIÉE ===== */
 :root {
+    /* Variables unifiées pour mobile/desktop */
+    --slider-height-desktop: 70vh;
+    --slider-height-mobile: 50vh;
+    --slide-padding-desktop: 5vw;
+    --slide-padding-mobile: 20px;
     --primary-color: #2a5bd7;
     --accent-color: #ff4757;
     --text-dark: #333;
-    --bg-light: #f8f9fa;
-    --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
-    --transition: all 0.4s ease;
+    --text-light: #fff;
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Reset minimal pour le slider */
+/* Reset minimal */
 .mega-slider-container * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Conteneur principal optimisé */
+/* Conteneur principal responsive */
 .mega-slider-container {
     position: relative;
-    height: 70vh;
+    height: var(--slider-height-desktop);
     min-height: 500px;
     overflow: hidden;
-    font-family: system-ui, -apple-system, sans-serif;
-    background: var(--bg-light);
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #f8f9fa;
     margin: 0;
+    border-radius: 0;
 }
 
-/* Slider principal simplifié */
+/* Slider principal */
 .mega-slider {
     display: flex;
     height: 100%;
     transition: transform 0.6s ease;
 }
 
-/* Slide individuelle optimisée */
+/* Slide individuelle - Layout adaptatif */
 .mega-slide {
     min-width: 100%;
     height: 100%;
@@ -863,31 +867,23 @@ img {
     position: relative;
 }
 
-/* Contenu texte optimisé */
+/* Contenu texte */
 .slide-content {
-    padding: 5% 5%;
+    padding: 5% var(--slide-padding-desktop);
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: var(--text-dark);
     position: relative;
     z-index: 2;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
 }
 
-/* Typographie optimisée */
-.slide-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-/* Image produit optimisée */
+/* Image produit */
 .slide-image {
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .slide-image img {
@@ -895,43 +891,57 @@ img {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.8s ease;
+    transition: transform 6s ease;
 }
 
-/* Badge de promotion simplifié */
+.mega-slide:hover .slide-image img {
+    transform: scale(1.03);
+}
+
+/* Typographie responsive */
+.slide-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--primary-color);
+}
+
 .promo-badge {
     background: var(--accent-color);
     color: white;
     padding: 6px 15px;
     border-radius: 20px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-block;
     margin-bottom: 1rem;
     font-size: 0.8rem;
     text-transform: uppercase;
+    align-self: flex-start;
 }
 
-/* Prix optimisé */
+/* Prix responsive */
 .price-container {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 .price-group {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    margin-bottom: 5px;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .current-price {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 800;
     color: var(--primary-color);
 }
 
 .old-price {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     text-decoration: line-through;
+    color: #666;
     opacity: 0.7;
 }
 
@@ -941,11 +951,11 @@ img {
     font-weight: 600;
 }
 
-/* Boutons CTA optimisés */
+/* Boutons CTA responsive */
 .cta-group {
     display: flex;
-    gap: 10px;
-    margin-top: 1.5rem;
+    gap: 1rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
 }
 
@@ -962,10 +972,11 @@ img {
     transition: var(--transition);
     font-size: 0.9rem;
     border: none;
+    cursor: pointer;
 }
 
 .primary-cta:hover {
-    background: #1e4aba;
+    background: #1a4aba;
     transform: translateY(-2px);
 }
 
@@ -984,41 +995,59 @@ img {
     font-size: 0.9rem;
 }
 
-/* Badges de confiance simplifiés */
+/* Liste des caractéristiques */
+.offer-features {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.offer-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.offer-features i {
+    color: var(--accent-color);
+}
+
+/* Badges de confiance */
 .trust-badges {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
     margin-top: 1.5rem;
     flex-wrap: wrap;
 }
 
 .badge {
-    background: rgba(255,255,255,0.9);
+    background: #f8f9fa;
     color: #555;
     padding: 6px 12px;
     border-radius: 15px;
     font-size: 0.75rem;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    border: 1px solid #eee;
+    gap: 5px;
+    border: 1px solid #e9ecef;
 }
 
-/* Tag flottant optimisé */
+/* Tag flottant */
 .floating-tag {
     position: absolute;
     top: 15px;
     right: 15px;
     background: var(--primary-color);
     color: white;
-    padding: 6px 15px;
+    padding: 5px 15px;
     border-radius: 15px;
-    font-weight: 600;
-    font-size: 0.75rem;
+    font-weight: 700;
+    font-size: 0.7rem;
     z-index: 3;
 }
 
-/* Contrôles du slider optimisés */
+/* Contrôles du slider */
 .slider-controls {
     position: absolute;
     bottom: 20px;
@@ -1026,12 +1055,12 @@ img {
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     z-index: 10;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 8px 15px;
     border-radius: 25px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .slider-prev, .slider-next {
@@ -1048,17 +1077,24 @@ img {
     transition: var(--transition);
 }
 
+.slider-prev:hover, .slider-next:hover {
+    background: #1a4aba;
+    transform: scale(1.1);
+}
+
+/* Pagination */
 .slider-pagination {
     display: flex;
-    gap: 5px;
+    gap: 0.5rem;
 }
 
 .dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.2);
+    background: #ccc;
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .dot.active {
@@ -1067,49 +1103,45 @@ img {
     border-radius: 10px;
 }
 
-/* Miniatures optimisées */
+/* Miniatures */
 .slider-thumbnails {
     position: absolute;
     bottom: 20px;
-    right: 5%;
+    right: var(--slide-padding-desktop);
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
+    z-index: 10;
 }
 
 .thumbnail {
     width: 60px;
     height: 40px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 600;
+    border-radius: 6px;
+    overflow: hidden;
     cursor: pointer;
     transition: var(--transition);
     border: 2px solid transparent;
+    opacity: 0.6;
 }
 
 .thumbnail.active {
     border-color: var(--primary-color);
-    background: white;
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-/* Animation simplifiée */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.fade-in {
-    animation: fadeIn 0.6s ease-out;
-}
+/* ===== RESPONSIVE DESIGN ===== */
 
-/* ===== RESPONSIVE MOBILE FIRST ===== */
+/* Tablettes */
 @media (max-width: 1024px) {
     .mega-slider-container {
-        height: 60vh;
+        height: var(--slider-height-mobile);
         min-height: 400px;
     }
     
@@ -1121,22 +1153,30 @@ img {
     .slide-image {
         order: -1;
     }
+    
+    .slide-content {
+        padding: 5% var(--slide-padding-mobile);
+    }
+    
+    .slider-thumbnails {
+        display: none; /* Cacher sur tablette */
+    }
 }
 
+/* Mobiles */
 @media (max-width: 768px) {
     .mega-slider-container {
         height: auto;
         min-height: auto;
-        margin: 10px;
-        border-radius: 12px;
     }
     
-    .slide-content {
-        padding: 8% 5%;
+    .mega-slide {
+        grid-template-rows: 35vh auto;
+        min-height: 500px;
     }
     
     .slide-title {
-        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-size: 1.5rem;
     }
     
     .current-price {
@@ -1148,28 +1188,31 @@ img {
     }
     
     .primary-cta, .secondary-cta {
+        padding: 10px 20px;
+        font-size: 0.85rem;
         justify-content: center;
-        text-align: center;
-    }
-    
-    .slider-thumbnails {
-        display: none;
     }
     
     .slider-controls {
-        bottom: 15px;
+        bottom: 10px;
         padding: 6px 12px;
+    }
+    
+    .slider-prev, .slider-next {
+        width: 30px;
+        height: 30px;
     }
 }
 
+/* Petits mobiles */
 @media (max-width: 480px) {
-    .mega-slider-container {
-        height: auto;
-        min-height: 300px;
-    }
-    
     .mega-slide {
         grid-template-rows: 30vh auto;
+        min-height: 450px;
+    }
+    
+    .slide-content {
+        padding: 8% 15px;
     }
     
     .slide-title {
@@ -1180,56 +1223,111 @@ img {
         font-size: 1.5rem;
     }
     
+    .price-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
     .promo-badge {
         font-size: 0.7rem;
         padding: 4px 10px;
     }
     
-    .primary-cta, .secondary-cta {
-        padding: 10px 20px;
-        font-size: 0.85rem;
-    }
-    
     .trust-badges {
         justify-content: center;
+    }
+    
+    .offer-features {
+        font-size: 0.8rem;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+    .mega-slide {
+        grid-template-rows: 25vh auto;
+    }
+    
+    .slide-title {
+        font-size: 1.1rem;
+    }
+    
+    .current-price {
+        font-size: 1.3rem;
     }
 }
 
 /* ===== OPTIMISATIONS DE PERFORMANCE ===== */
+
 /* Désactiver les animations pour les utilisateurs qui les préfèrent réduites */
 @media (prefers-reduced-motion: reduce) {
-    .mega-slider {
-        transition: none;
-    }
-    
-    .slide-image img {
-        transition: none;
-    }
-    
-    .primary-cta, .secondary-cta {
-        transition: none;
-    }
-    
-    * {
+    .mega-slider,
+    .slide-image img,
+    .primary-cta,
+    .secondary-cta,
+    .slider-prev,
+    .slider-next,
+    .thumbnail {
+        transition: none !important;
         animation: none !important;
     }
+    
+    .mega-slide:hover .slide-image img {
+        transform: none !important;
+    }
 }
 
-/* Optimiser le rendu des images */
+/* Améliorer le rendu des images */
 .slide-image img {
-    will-change: transform;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
-/* Améliorer les performances de défilement */
-.mega-slider-container {
-    transform: translateZ(0);
+/* Optimiser le layout pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+    .mega-slide:hover .slide-image img {
+        transform: none;
+    }
+    
+    .primary-cta:hover,
+    .secondary-cta:hover {
+        transform: none;
+    }
 }
 
-/* Styles d'impression */
+/* Support pour les navigateurs plus anciens */
+@supports not (display: grid) {
+    .mega-slide {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .slide-image {
+        height: 40vh;
+    }
+}
+
+/* Mode sombre facultatif */
+@media (prefers-color-scheme: dark) {
+    .mega-slider-container {
+        background: #1a1a1a;
+    }
+    
+    .slide-content {
+        background: rgba(30, 30, 30, 0.95);
+        color: #fff;
+    }
+    
+    .slide-title {
+        color: #fff;
+    }
+}
+
+/* Impression */
 @media print {
     .mega-slider-container {
         height: auto;
-        box-shadow: none;
+        break-inside: avoid;
     }
     
     .slider-controls,
@@ -1242,41 +1340,7 @@ img {
     }
     
     .slide-image {
-        display: none;
-    }
-}
-
-/* Chargement progressif */
-.mega-slide:not(:first-child) .slide-image img {
-    loading: lazy;
-}
-
-/* Éviter les cumuls de layout */
-.slide-content {
-    transform: translateZ(0);
-}
-
-/* Optimiser les transitions */
-@media (hover: hover) {
-    .primary-cta:hover,
-    .secondary-cta:hover,
-    .thumbnail:hover {
-        transform: translateY(-2px);
-    }
-    
-    .mega-slide:hover .slide-image img {
-        transform: scale(1.03);
-    }
-}
-
-/* Désactiver les effets 3D sur mobile */
-@media (max-width: 768px) {
-    .mega-slider {
-        perspective: none;
-    }
-    
-    .mega-slide {
-        transform-style: flat;
+        height: 200px;
     }
 }
 </style>
