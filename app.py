@@ -13,7 +13,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.units import inch
 from io import BytesIO
-from functools import wraps, lru_cache
+from functools import wraps
 from sqlalchemy import func, or_
 from flask_sqlalchemy import SQLAlchemy   # ✅ manquait !
 from reportlab.graphics.barcode import qr
@@ -30,7 +30,6 @@ from flask_babel import Babel, _
 from admin_auth import ADMIN_CREDENTIALS   # identifiants admin
 from models import User, Order, PaymentMethod  # Import après db
 from extensions import db
-from flask import make_response
 
 
 
@@ -40,27 +39,17 @@ def last4(s):
 app = Flask(__name__)
 app.register_blueprint(blog_bp)
 compress = Compress(app)
-os.environ['PYTHONUNBUFFERED'] = 'True'
 
 # Sécurité sessions
-# ✅ Configuration Ultra-Optimisée
 app.config.update(
-    SECRET_KEY=os.getenv('SECRET_KEY', 'votre_cle_secrete_tres_longue'),
+    SECRET_KEY='votre_cle_secrete_tres_longue',  # Changez ceci!
     SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
     PERMANENT_SESSION_LIFETIME=timedelta(days=1),
-    SESSION_REFRESH_EACH_REQUEST=False,  # ✅ DÉSACTIVÉ pour performance
+    SESSION_REFRESH_EACH_REQUEST=True,
     UPLOAD_FOLDER='static/images/products',
-    MAX_CONTENT_LENGTH=16 * 1024 * 1024,
-    
-    # ✅ NOUVEAU : Optimisations DB
-    SQLALCHEMY_ENGINE_OPTIONS={
-        "pool_recycle": 300,
-        "pool_pre_ping": True,
-        "pool_size": 10,
-        "max_overflow": 20,
-    }
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024
 )
 
 # ✅ Configuration de la DB (SQLite en local, PostgreSQL sur Render si DATABASE_URL existe)
@@ -189,22 +178,19 @@ def add_header(response):
 
 @app.before_request
 def before_request():
-    # ✅ Version OPTIMISÉE - Moins de calculs
+    session.permanent = True
+    # Initialise le panier si non existant
     if 'cart' not in session:
         session['cart'] = {}
+
+    try:
+        clean_cart()
+    except Exception as e:
+        print(f"Error cleaning cart: {e}")
+        session['cart'] = {}
     
-    # ✅ Nettoyage cart SEULEMENT si nécessaire (performance)
-    cart_created = session.get('cart_created')
-    if cart_created:
-        try:
-            if (datetime.now() - cart_created) > timedelta(hours=24):
-                session['cart'] = {}
-                session['cart_created'] = datetime.now()
-        except:
-            session['cart'] = {}
-            session['cart_created'] = datetime.now()
-    else:
-        session['cart_created'] = datetime.now()
+    # Définit la session comme permanente
+    session.permanent = True
 
 def save_cart(cart):
     session['cart'] = cart
@@ -337,84 +323,87 @@ def admin_required(f):
     return decorated_function
 
 
-# ✅ AJOUTER cette fonction AVANT la route (en haut du fichier)
-from functools import lru_cache
-
-@lru_cache(maxsize=50)
-def get_featured_products():
-    """Retourne les produits featured avec cache mémoire"""
-    featured = [p for p in products if p.get('featured', False)]
-    
-    # ✅ NORMALISATION OPTIMISÉE - Une seule passe
-    for product in featured:
-        # Gestion unique des images
-        if 'image' in product:
-            product['images'] = [product['image']] if product.get('image') else ['default.jpg']
-            del product['image']  # Supprime l'ancienne clé
-        elif not product.get('images'):  # Plus simple que votre vérification triple
-            product['images'] = ['default.jpg']
-    
-    return featured
-
-# ✅ REMPLACER la route complète
 @app.route('/')
 def index():
-    # ✅ UTILISATION DU CACHE - Ultra rapide
-    featured_products = get_featured_products()
+    featured_products = [p for p in products if p.get('featured', False)]
     
-    # ✅ RÉPONSE AVEC HEADERS DE CACHE
-    response = make_response(render_template('index.html', featured_products=featured_products))
-    response.headers['Cache-Control'] = 'public, max-age=3600'  # Cache 1 heure
-    return response
-
-
-# ✅ AJOUTER cette fonction AVANT la route
-@lru_cache(maxsize=100)
-def get_filtered_products(category='all', search_term=''):
-    """Filtrage optimisé avec cache"""
-    # ✅ FILTRAGE SIMPLIFIÉ
-    if category == 'all':
-        filtered = products
-    else:
-        filtered = [p for p in products if p.get('category') == category]
-    
-    # ✅ RECHERCHE OPTIMISÉE
-    if search_term:
-        filtered = [p for p in filtered 
-                   if search_term in p.get('name', '').lower() 
-                   or search_term in p.get('description', '').lower()]
-    
-    # ✅ NORMALISATION EN UNE SEULE PASSE
-    for product in filtered:
+    # Normalisation des données image/images
+    for product in featured_products:
+        # Si le produit utilise l'ancien système avec 'image'
         if 'image' in product:
-            product['images'] = [product['image']] if product.get('image') else ['default.jpg']
-            if 'image' in product:  # Sécurité supplémentaire
-                del product['image']
-        elif not product.get('images'):  # Plus simple
+            # Migration vers le nouveau système
+            product['images'] = [product['image']] if product['image'] else ['default.jpg']
+            del product['image']
+        # Si pas d'images du tout
+        elif 'images' not in product or not product['images']:
+            product['images'] = ['default.jpg']
+        # Si images existe mais est vide
+        elif not product['images']:
             product['images'] = ['default.jpg']
     
-    return filtered
+    return render_template('index.html', featured_products=featured_products)
 
-# ✅ REMPLACER la route complète
+
 @app.route('/produits')
 def product_list():
     category = request.args.get('category', 'all')
     search_term = request.args.get('search', '').lower()
     
-    # ✅ UTILISATION DU CACHE
-    filtered_products = get_filtered_products(category, search_term)
+    # Filtrage
+    if category == 'all':
+        filtered_products = products
+    else:
+        filtered_products = [p for p in products if p['category'] == category]
     
-    # ✅ LIMITATION POUR PERFORMANCE (100 produits max)
-    limited_products = filtered_products[:100]
+    if search_term:
+        filtered_products = [p for p in filtered_products 
+                          if search_term in p['name'].lower() 
+                          or search_term in p['description'].lower()]
     
-    response = make_response(render_template('products.html',
-                         products=limited_products,
+    # Normalisation des images
+    for product in filtered_products:
+        if 'image' in product:
+            product['images'] = [product['image']]
+            del product['image']
+        elif 'images' not in product or not product['images']:
+            product['images'] = ['default.jpg']
+    
+    return render_template('products.html',
+                         products=filtered_products,
                          categories=categories,
-                         current_category=category))
+                         current_category=category)
+
+    # Gestion des images
+    for product in filtered_products:
+        # Si le produit n'a pas d'images du tout
+        if 'images' not in product or not product['images']:
+            product['images'] = ['default.jpg']
+        # Si le produit utilise encore l'ancien système avec 'image'
+        elif 'image' in product and product['image']:
+            # Migration vers le nouveau système
+            product['images'] = [product['image']]
+            del product['image']
     
-    response.headers['Cache-Control'] = 'public, max-age=1800'  # 30 minutes cache
-    return response
+    return render_template('products.html', 
+                         products=filtered_products, 
+                         categories=categories,
+                         current_category=category)
+
+    # Gestion des images
+    for product in filtered_products:
+        # Si le produit n'a pas d'images du tout
+        if 'images' not in product or not product['images']:
+            product['images'] = ['default.jpg']
+        # Si le produit utilise encore l'ancien système avec 'image'
+        elif 'image' in product and product['image']:
+            # Migration vers le nouveau système
+            product['images'] = [product['image']]
+            del product['image']
     
+    return render_template('products.html', 
+                         products=filtered_products, 
+                         categories=categories,
+                         current_category=category)
 @app.route('/submit-contact', methods=['POST'])
 def submit_contact():
     try:
@@ -945,64 +934,45 @@ def product_detail_old(product_id):
     # Redirection 301 vers la nouvelle URL avec slug
     return redirect(url_for('product_detail', product_id=product_id, slug=slug), code=301)
 
-# ✅ AJOUTER cette fonction AVANT la route
-@lru_cache(maxsize=200)
-def get_product_with_related(product_id):
-    """Récupère produit + related en une opération cache"""
+
+@app.route('/produit/<int:product_id>-<slug>')
+def product_detail(product_id, slug):
+    # Recherche du produit par ID
     product = next((p for p in products if p['id'] == product_id), None)
     if not product:
-        return None, []  # Produit non trouvé
-    
-    # ✅ NORMALISATION IMAGE OPTIMISÉE
-    if 'image' in product:
-        product['images'] = [product['image']] if product.get('image') else ['default.jpg']
-        del product['image']
-    elif not product.get('images'):
-        product['images'] = ['default.jpg']
-    
-    # ✅ DÉTAILS UNIQUES
+        flash('Produit non trouvé', 'error')
+        return redirect(url_for('product_list'))
+
+    # Slugification correcte de l'URL
+    correct_slug = slugify(product['name'])
+    if slug != correct_slug:
+        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug), code=301)
+
+    # Assurer que les détails sont présents
     if 'details' not in product:
         product['details'] = {
             'description': product.get('description', ''),
             'catégorie': product.get('category', ''),
             'date_ajout': product.get('date_added', '')
         }
-    
-    # ✅ PRODUITS LIÉS DIRECTEMENT
+
+    # Produits liés (même catégorie, sauf le produit courant)
     category = product.get('category')
-    related = [p for p in products if p.get('category') == category and p.get('id') != product_id][:4]
-    
-    return product, related
+    related_products = [p for p in products if p.get('category') == category and p.get('id') != product_id][:4] if category else []
 
-# ✅ REMPLACER la route complète
-@app.route('/produit/<int:product_id>-<slug>')
-def product_detail(product_id, slug):
-    # ✅ RÉCUPÉRATION OPTIMISÉE
-    product, related_products = get_product_with_related(product_id)
-    
-    if not product:
-        flash('Produit non trouvé', 'error')
-        return redirect(url_for('product_list'))
-
-    # ✅ VÉRIFICATION SLUG RAPIDE
-    correct_slug = slugify(product.get('name', ''))
-    if slug != correct_slug:
-        return redirect(url_for('product_detail', product_id=product_id, slug=correct_slug), code=301)
-
-    # ✅ JSON-LD OPTIMISÉ
+    # Génération du JSON-LD structuré pour SEO (Google)
     jsonld_data = generer_jsonld(product)
     jsonld_str = json.dumps(jsonld_data, ensure_ascii=False)
-    jsonld_str = jsonld_str.replace("</", "<\\/")
+    jsonld_str = jsonld_str.replace("</", "<\\/")  # échappement nécessaire
 
-    response = make_response(render_template(
+    # Rendu du template HTML
+    return render_template(
         'product_detail.html',
         product=product,
         related_products=related_products,
         jsonld_str=jsonld_str
-    ))
-    
-    response.headers['Cache-Control'] = 'public, max-age=1800'  # 30 minutes cache
-    return response
+    )
+
 
 def generer_jsonld(produit):
     import datetime
@@ -1866,28 +1836,12 @@ def grossiste_25alimentaire():
     return render_template('grossiste_25alimentaire.html')
 
 
-# ✅ Cache ULTRA Agressif
 @app.after_request
 def add_header(response):
-    # Cache 1 AN pour les statiques
     if request.path.startswith('/static/'):
         response.cache_control.max_age = 31536000
-        response.cache_control.public = True
-        response.headers['Vary'] = 'Accept-Encoding'
-    
-    # Cache 1 heure pour les pages principales
-    elif request.path in ['/', '/produits', '/contact', '/about', '/blog']:
-        response.cache_control.max_age = 3600
-        response.cache_control.public = True
-    
-    # Cache 5 minutes pour les autres pages
     else:
-        response.cache_control.max_age = 300
-    
-    # Headers de sécurité
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    
+        response.cache_control.max_age = 3600
     return response
 
 @app.route('/promo-urgence')
@@ -4155,47 +4109,7 @@ def test_pdf():
     buffer.seek(0)
     return send_file(buffer, mimetype='application/pdf')
 
-# ✅ Cache Mémoire pour les données fréquentes
-@lru_cache(maxsize=100)
-def get_featured_products():
-    return [p for p in products if p.get('featured', False)][:8]
-
-@lru_cache(maxsize=50)
-def get_product_by_id(product_id):
-    return next((p for p in products if p['id'] == product_id), None)
-
-# ✅ Optimisation des sessions DB
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db.session.remove()
-
-# ✅ Middleware de compression AVANCÉ
-compress = Compress()
-
-def init_compress(app):
-    compress.init_app(app)
-    app.config['COMPRESS_MIMETYPES'] = [
-        'text/html', 'text/css', 'text/javascript',
-        'application/json', 'application/javascript'
-    ]
-    app.config['COMPRESS_LEVEL'] = 6
-    app.config['COMPRESS_MIN_SIZE'] = 500
-
-init_compress(app)
 
 if __name__ == '__main__':
-    # ✅ Mode Production Ultra-Optimisé
-    port = int(os.environ.get("PORT", 10000))
-    
-    # ✅ DÉSACTIVER le debug en production
-    debug_mode = os.environ.get('FLASK_ENV') == 'development'
-    
-    app.run(
-        host='0.0.0.0', 
-        port=port, 
-        debug=debug_mode,
-        # ✅ Désactiver le reload pour performance
-        use_reloader=debug_mode,
-        # ✅ Optimiser le nombre de threads
-        threaded=True
-    )
+    port = int(os.environ.get("PORT", 5010))  # Render fournit le port via la variable PORT
+    app.run(host='0.0.0.0', port=port, debug=True)
