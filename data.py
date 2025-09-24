@@ -333,7 +333,7 @@ products = [
         "priceCurrency": "EUR",
         "category": ["Boissons", "Promotions"],
         "stock": 95,
-        "featured": True,
+        "featured": False,
         "images": ["monster.jpg", "monster-2.jpg", "monster-3.jpg"],
         "offers": {
             "@type": "Offer",
@@ -851,7 +851,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Boissons",
         "stock": 2,
-        "featured": True,
+        "featured": False,
         "images": ["moet-chandon.jpg", "moet-chandon-1.jpg", "moet-chandon-2.jpg"],
         "offers": {
             "@type": "Offer",
@@ -1337,7 +1337,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Boissons",
         "stock": 6,
-        "featured": True,
+        "featured": False,
         "images": ["pepsi-zero.jpg", "pepsi-zero-2.jpg"],
         "dimensions": {
             "carton": "40x30x25 cm",
@@ -1417,7 +1417,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Boissons",
         "stock": 5,
-        "featured": True,
+        "featured": False,
         "images": ["monster-peach.jpg", "monster-peach-2.jpg"],
         "dimensions": {
             "carton": "40x30x25 cm",
@@ -2417,7 +2417,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Electromenager",
         "stock": 2,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["robot-robi4hd.jpg", "robot-robi4hd1.jpg", "robot-robi4hd2.jpg", "robot-robi4hd3.jpg", "robot-robi4hd4.jpg", "robot-robi4hd5.jpg"],
         "details": {
@@ -2463,7 +2463,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Electromenager",
         "stock": 15,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["mambo-cooking.jpg", "mambo-cooking5.jpg", "mambo-cooking1.jpg", "mambo-cooking2.jpg"],
         "details": {
@@ -2512,7 +2512,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Electromenager",
         "stock": 8,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["lave-linge-premium.jpg", "lave-linge-premium1.jpg", "lave-linge-premium2.jpg", "lave-linge-premium3.jpg", "lave-linge-premium4.jpg"],
         "details": {
@@ -2561,7 +2561,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Electromenager",
         "stock": 5,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["frigo-americain-premium.jpg", "frigo-americain-premium1.jpg", "frigo-americain-premium2.jpg", "frigo-americain-premium3.jpg"],
         "details": {
@@ -2760,7 +2760,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Extras",
         "stock": 8,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["cuve-petrole-ibc.jpg"],
         "details": {
@@ -2810,7 +2810,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Bio",
         "stock": 3,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["bjorg-soja-palette.jpg"],
         "details": {
@@ -2862,7 +2862,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Bio",
         "stock": 4,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["bjorg-amande-palette.jpg", "amande-bio-score-b.jpg"],
         "details": {
@@ -2925,7 +2925,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Entretien",
         "stock": 8,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["destop-palette.jpg", "destop-palette-stretch.jpg"],
         "details": {
@@ -3090,7 +3090,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Hygiène",
         "stock": 5,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["dove-palette.jpg"],
         "details": {
@@ -3136,7 +3136,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Entretien",
         "stock": 2,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["mir-palette.jpg"],
         "details": {
@@ -3181,7 +3181,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Alimentaire",
         "stock": 4,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["meinl-palette.jpg"],
         "details": {
@@ -3225,7 +3225,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Boissons",
         "stock": 1,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["coke-palette.jpg", "coke-palette2.jpg"],
         "details": {
@@ -3272,7 +3272,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Alimentaire",
         "stock": 2,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["frial-palette.jpg"],
         "details": {
@@ -3363,7 +3363,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Alimentaire",
         "stock": 1,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["barilla-palette.jpg"],
         "details": {
@@ -3408,7 +3408,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Entretien",
         "stock": 4,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["scotchbrite-palette.jpg"],
         "details": {
@@ -3453,7 +3453,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Hygiène",
         "stock": 5,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["palmolive-palette.jpg"],
         "details": {
@@ -3500,7 +3500,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Hygiène",
         "stock": 5,
-        "featured": True,
+        "featured": False,
         "published": True,
         "images": ["palmolive-palette.jpg"],
         "details": {
@@ -3546,7 +3546,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 5,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "ame-qui-vive-1.jpg",
@@ -3592,7 +3592,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 8,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "lantidote-1.jpg",
@@ -3690,7 +3690,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Épicerie",
     "stock": 10,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "huile-olive-bio-25cl-palette-1.jpg",
@@ -3797,7 +3797,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 3,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "belvedere-palette-70cl-1.jpg",
@@ -4109,7 +4109,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Bonbons",
     "stock": 2,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "palette-chocolat-menthe-1.jpg"
@@ -4287,7 +4287,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 3,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "palette-grey-goose-1.jpg"
@@ -4597,7 +4597,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Épicerie",
     "stock": 5,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "palette-petit-ecolier-1.jpg"
@@ -4676,7 +4676,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Épicerie",
     "stock": 6,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "palette-kelloggs-frosties-1.jpg"
@@ -4755,7 +4755,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Boissons",
     "stock": 3,
-    "featured": True,
+    "featured": False,
     "published": True,
     "images": [
       "palette-7up-1.jpg"
@@ -4887,7 +4887,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 2,
-    "featured": True,
+    "featured": False,
     "images": ["cristal-vinotheque-1997.jpg", "cristal-1.jpg", "cristal-2.jpg"],
     "offers": {
         "@type": "Offer",
@@ -4966,7 +4966,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 4,
-    "featured": True,
+    "featured": False,
     "images": ["bollinger-special-cuvee.jpg"],
     "offers": {
         "@type": "Offer",
@@ -5004,7 +5004,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 8,
-    "featured": True,
+    "featured": False,
     "images": ["roederer-trilogie.jpg"],
     "offers": {
         "@type": "Offer",
@@ -5042,7 +5042,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 1,
-    "featured": True,
+    "featured": False,
     "images": ["veuve-jacquemus.jpg", "veuve-jacquemus-1.jpg"],
     "offers": {
         "@type": "Offer",
@@ -5083,7 +5083,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Vins, Champagnes et Spiritueux",
     "stock": 1,
-    "featured": True,
+    : True,
     "images": ["dom-perignon-rose-palette.jpg", "dom-perignon-rose-2008.jpg"],
     "offers": {
         "@type": "Offer",
