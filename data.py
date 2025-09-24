@@ -3090,7 +3090,7 @@ products = [
         "priceCurrency": "EUR",
         "category": "Hygiène",
         "stock": 5,
-        "featured": False,
+        "featured": True,
         "published": True,
         "images": ["dove-palette.jpg"],
         "details": {
