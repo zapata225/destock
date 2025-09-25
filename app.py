@@ -2270,8 +2270,8 @@ def espana_page():
     return render_template('espana.html')
 
 
-@app.route('/grossiste-alimentaire-belgique')
-def grossiste_alimentaire_bruxelles():
+@app.route('/grossiste-alimentaire-belgique2025')
+def grossiste_alimentaire_bruxelles_2025():
     return render_template('grossiste_alimentaire_belgique.html')
 
 @app.route('/meilleurs-fournisseurs-aubervilliers-2025')
