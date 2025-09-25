@@ -3058,83 +3058,158 @@ def blog_belgique():
 def blog_suisse():
     return render_template('blog_suisse.html')
 
-
 @app.route('/discount-alimentaire-economies-astuces')
 def discount_alimentaire_astuces():
-    return render_template('discount-alimentaire-astuces.html')  # Le fichier contenant le code HTML ci-dessus
+    return render_template(
+        'discount-alimentaire-astuces.html',
+        title="Discount Alimentaire | Économies & Astuces",
+        description="Astuces et conseils pour économiser sur vos courses grâce au déstockage et aux promotions alimentaires."
+    )
 
 @app.route('/discount-alimentaire-guide-ultime-2025')
 def discount_alimentaire_ultime():
-    return render_template('discount-alimentaire-ultime.html')
-
+    return render_template(
+        'discount-alimentaire-ultime.html',
+        title="Guide Ultime Discount Alimentaire 2025 | Économies & Bonnes Pratiques",
+        description="Le guide complet pour profiter du discount alimentaire en 2025 : produits à prix réduits, bons plans et conseils pratiques."
+    )
 
 @app.route('/innovations-2025-distribution-boissons-modernisee')
 def innovations_boissons():
-    return render_template("innovations-2025-distribution-boissons.html")
+    return render_template(
+        "innovations-2025-distribution-boissons.html",
+        title="Innovations 2025 | Distribution de Boissons Modernisée",
+        description="Découvrez les dernières innovations dans la distribution de boissons en 2025 : tendances, technologies et modernisation du marché."
+    )
 
 @app.route('/destockage-date-courte-anti-gaspillage-2025')
 def destockage_date_courte():
-    return render_template('destockage-date-courte.html')
+    return render_template(
+        'destockage-date-courte.html',
+        title="Déstockage Date Courte 2025 | Anti-Gaspillage & Économies",
+        description="Profitez du déstockage alimentaire avec dates courtes pour économiser tout en luttant contre le gaspillage."
+    )
 
 @app.route('/grossiste-alimentation-halal-choisir-fournisseur-25')
 def grossiste_halal():
-    return render_template('grossiste_halal_2025.html')
+    return render_template(
+        'grossiste_halal_2025.html',
+        title="Grossiste Alimentation Halal 2025 | Choisir le Bon Fournisseur",
+        description="Guide pour choisir un grossiste en alimentation halal : conseils, fournisseurs fiables et produits disponibles."
+    )
 
 @app.route('/groothandel-voor-horeca')
 def groothandel_horeca_25():
-    return render_template('groothandel_horeca.html')
+    return render_template(
+        'groothandel_horeca.html',
+        title="Grossiste pour Horeca | Fournisseurs & Offres 2025",
+        description="Trouvez les meilleurs grossistes pour le secteur Horeca : boissons, alimentation et équipements professionnels."
+    )
 
 @app.route('/grossistes-alimentaires-bruxelles-2025')
 def grossistes_bruxelles():
-    return render_template('grossistes-25-bruxelles.html')
-    
+    return render_template(
+        'grossistes-25-bruxelles.html',
+        title="Grossistes Alimentaires Bruxelles 2025 | Produits & Offres",
+        description="Découvrez les grossistes alimentaires à Bruxelles en 2025 : produits, prix et meilleures offres pour professionnels."
+    )
+
 @app.route('/blog/soldes-alimentaires')
 def blog_soldes_alimentaires():
-    return render_template('blog/soldes-alimentaires.html')
+    return render_template(
+        'blog/soldes-alimentaires.html',
+        title="Soldes Alimentaires | Promotions & Bons Plans",
+        description="Profitez des soldes alimentaires pour économiser sur vos courses : produits, promotions et réductions."
+    )
 
 @app.route('/blog/anti-gaspillage')
 def blog_anti_gaspillage():
-    return render_template('blog/anti-gaspillage.html')
+    return render_template(
+        'blog/anti-gaspillage.html',
+        title="Anti-Gaspillage Alimentaire | Économies & Bonnes Pratiques",
+        description="Conseils et astuces pour lutter contre le gaspillage alimentaire tout en économisant sur vos achats."
+    )
 
 @app.route('/blog/grossiste-halal')
 def blog_grossiste_halal():
-    return render_template('blog/grossiste-halal.html')
+    return render_template(
+        'blog/grossiste-halal.html',
+        title="Grossiste Alimentation Halal | Fournisseurs & Guide",
+        description="Découvrez comment choisir un grossiste halal fiable et accéder à des produits alimentaires de qualité."
+    )
 
 @app.route('/blog/grossiste-electromenager')
 def blog_grossiste_electromenager():
-    return render_template('blog/grossiste-electromenager.html')
+    return render_template(
+        'blog/grossiste-electromenager.html',
+        title="Grossiste Électroménager | Fournisseurs & Offres",
+        description="Trouvez les meilleurs grossistes en électroménager pour acheter en gros à prix compétitifs."
+    )
 
 @app.route('/blog/innovations-distribution')
 def blog_innovations_distribution():
-    return render_template('blog/innovations-distribution.html')
+    return render_template(
+        'blog/innovations-distribution.html',
+        title="Innovations Distribution Alimentaire | Tendances & Modernisation",
+        description="Découvrez les dernières innovations dans la distribution alimentaire : technologies, méthodes et optimisation."
+    )
 
 @app.route('/blog/boissons-gros')
 def blog_boissons_gros():
-    return render_template('blog/boissons-gros.html')
+    return render_template(
+        'blog/boissons-gros.html',
+        title="Boissons en Gros | Fournisseurs & Offres",
+        description="Achetez des boissons en gros avec les meilleurs fournisseurs et promotions pour économiser sur vos achats."
+    )
 
 @app.route('/blog/discount-alimentation')
 def blog_discount_alimentation():
-    return render_template('blog/discount-alimentation.html')
+    return render_template(
+        'blog/discount-alimentation.html',
+        title="Discount Alimentation | Bons Plans & Économies",
+        description="Profitez du discount alimentaire pour acheter à prix réduit : astuces, promotions et produits en surplus."
+    )
 
 @app.route('/blog/grossiste-bruxelles')
 def blog_grossiste_bruxelles():
-    return render_template('blog/grossiste-bruxelles.html')
+    return render_template(
+        'blog/grossiste-bruxelles.html',
+        title="Grossiste Alimentaire Bruxelles | Produits & Fournisseurs",
+        description="Guide complet pour trouver les meilleurs grossistes alimentaires à Bruxelles et profiter des offres disponibles."
+    )
 
 @app.route('/blog/alcohol-barato')
 def blog_alcohol_barato():
-    return render_template('blog/alcohol-barato.html')
+    return render_template(
+        'blog/alcohol-barato.html',
+        title="Alcohol Barato | Boissons à Prix Réduit",
+        description="Découvrez comment acheter de l'alcool pas cher : promotions, ventes en gros et conseils pour économiser."
+    )
 
 @app.route('/blog/mayorista-espana')
 def blog_mayorista_espana():
-    return render_template('blog/mayorista-espana.html')
+    return render_template(
+        'blog/mayorista-espana.html',
+        title="Mayorista España | Grossistes & Offres Alimentaires",
+        description="Trouvez les meilleurs grossistes en Espagne pour l'alimentation : produits, prix et bons plans."
+    )
 
 @app.route('/blog/boissons-suisses')
 def blog_boissons_suisses():
-    return render_template('blog/boissons-suisses.html')
+    return render_template(
+        'blog/boissons-suisses.html',
+        title="Boissons Suisses | Grossistes & Promotions",
+        description="Découvrez les fournisseurs et grossistes de boissons en Suisse avec les meilleures offres pour acheter en gros."
+    )
 
 @app.route('/blog/tendances-horeca')
 def blog_tendances_horeca():
-    return render_template('blog/tendances-horeca.html')
+    return render_template(
+        'blog/tendances-horeca.html',
+        title="Tendances Horeca | Alimentation & Boissons 2025",
+        description="Analyse des tendances dans le secteur Horeca en 2025 : alimentation, boissons et innovations pour les professionnels."
+    )
+
 
 @app.route('/blog/psg-champion-europe-2025')
 def blog_psg():
@@ -3187,57 +3262,101 @@ def grossiste_article():
                         
 @app.route('/destockage-boisson')
 def destockage_boisson():
-    return render_template('destockage_boissonbelge.html')
+    return render_template(
+        'destockage_boissonbelge.html',
+        title="Déstockage Boissons | Économies & Offres",
+        description="Profitez du déstockage de boissons en Belgique : produits en gros à prix réduits, promotions et bonnes affaires."
+    )
 
 @app.route('/article-grossiste-sitefrance')
 def article_grossiste_site23():
-    return render_template('article_grossistefrance.html')
+    return render_template(
+        'article_grossistefrance.html',
+        title="Grossiste Alimentaire France | Guide & Offres",
+        description="Découvrez les meilleurs grossistes alimentaires en France : produits, prix et conseils pour revendeurs et professionnels."
+    )
 
 @app.route('/article-grossiste-sitefrancelo')
 def article_grossiste_site24():
-    return render_template('article_grossistefrancelo.html')
-
+    return render_template(
+        'article_grossistefrancelo.html',
+        title="Grossiste Alimentaire France | Fournisseurs & Astuces",
+        description="Guide pour choisir les bons fournisseurs alimentaires en France et bénéficier des meilleures offres."
+    )
 
 @app.route('/boissons-en-gros-pas-cheres')
 def boissons_gros_pas_cher():
-    return render_template('boissons-gros-pas-cher.html') 
-    
+    return render_template(
+        'boissons-gros-pas-cher.html',
+        title="Boissons en Gros Pas Chères | Offres & Économies",
+        description="Achetez des boissons en gros à prix réduits : promotions, fournisseurs et conseils pour économiser."
+    )
+
 @app.route('/article-espagne')
 def article_grossiste_site2025():
-    return render_template('article_grossisteespagne.html')
+    return render_template(
+        'article_grossisteespagne.html',
+        title="Grossiste Alimentaire Espagne | Produits & Fournisseurs",
+        description="Trouvez les meilleurs grossistes alimentaires en Espagne : offres, prix et conseils pour professionnels."
+    )
 
 @app.route('/destockage-alimentaire-particuliers-français')
 def destockage_particuliers2025():
-    return render_template('destockage_particuliersfrancais.html')
+    return render_template(
+        'destockage_particuliersfrancais.html',
+        title="Déstockage Alimentaire Particuliers France | Économies & Anti-Gaspillage",
+        description="Achetez en déstockage alimentaire pour particuliers en France : invendus, fins de série et produits à prix réduits."
+    )
 
 @app.route('/descuentos-alimentarios-espana')
 def descuentos_espana():
-    return render_template('descuentos_espana.html')
+    return render_template(
+        'descuentos_espana.html',
+        title="Descuentos Alimentarios España | Ahorro & Ofertas",
+        description="Descubra las mejores ofertas de alimentación en España : productos rebajados, promociones y consejos de ahorro."
+    )
 
 @app.route('/destockage-alimentaire-particuliers-belge')
 def destockage_particuliers():
-    return render_template('destockage_particuliersbelge.html')
-
+    return render_template(
+        'destockage_particuliersbelge.html',
+        title="Déstockage Alimentaire Particuliers Belgique | Bons Plans",
+        description="Achetez des produits alimentaires en déstockage pour particuliers en Belgique : promotions et économies importantes."
+    )
 
 @app.route('/destockage-alimentaire-belgique-25')
 def destockage_belgique_25():
-    """Route pour la page ultra-optimisée destockage alimentaire Belgique"""
-    return render_template('destockage_alimentaire_belgique_25.html')
+    return render_template(
+        'destockage_alimentaire_belgique_25.html',
+        title="Déstockage Alimentaire Belgique 2025 | Économies & Offres",
+        description="Découvrez les meilleures offres de déstockage alimentaire en Belgique pour 2025 : produits invendus et promotions."
+    )
 
 @app.route('/destockage-alimentaire-bruxelles-25')
 def destockage_bruxelles_25():
-    """Route pour la page ultra-optimisée destockage alimentaire Bruxelles"""
-    return render_template('destockage_bruxelles_25.html')
+    return render_template(
+        'destockage_bruxelles_25.html',
+        title="Déstockage Alimentaire Bruxelles 2025 | Bons Plans & Réductions",
+        description="Profitez du déstockage alimentaire à Bruxelles en 2025 : produits invendus et promotions pour particuliers et professionnels."
+    )
 
 @app.route('/discount-alimentaire-25')
 def discount_alimentaire_25():
-    """Route pour la page ultra-optimisée discount alimentaire"""
-    return render_template('discount_alimentaire_25.html')
-    
+    return render_template(
+        'discount_alimentaire_25.html',
+        title="Discount Alimentaire 2025 | Économies & Promotions",
+        description="Accédez aux meilleures offres de discount alimentaire en 2025 : produits à prix réduits et astuces pour économiser."
+    )
 
 @app.route('/destockage-belgiquebbelge')
 def destockage_belgique25():
-    return render_template('destockage_belgique_belge.html')
+    return render_template(
+        'destockage_belgique_belge.html',
+        title="Déstockage Alimentaire Belgique | Offres et Promotions",
+        description="Découvrez le déstockage alimentaire en Belgique : promotions, produits invendus et bons plans pour économiser."
+    )
+
+
 @app.route('/bebidas-alcoholicas-guia')
 def guia_bebidas():
     return render_template('bebidas_alcoholicas.html',
