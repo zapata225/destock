@@ -1897,193 +1897,366 @@ def article_canicule():
                          temperature_max=38,
                          departments_alert=27)
 
-
 @app.route('/espagne')
 def espagne():
-    return render_template('espagne.html')
+    return render_template(
+        'espagne.html',
+        title="Déstockage Alimentaire Espagne | Bons Plans & Économies",
+        description="Découvrez le déstockage alimentaire en Espagne : produits à prix réduits, fins de série et invendus pour économiser et lutter contre le gaspillage."
+    )
 
 @app.route('/article-destockage-belgique')
 def article_destockage():
-    return render_template('article_destockage.html')
+    return render_template(
+        'article_destockage.html',
+        title="Déstockage Alimentaire Belgique | Guide & Conseils",
+        description="Tout savoir sur le déstockage alimentaire en Belgique : astuces, bonnes pratiques et où trouver des produits à prix réduits."
+    )
+
 @app.route('/blog/discount-alimentation-maximisez-economies-soldes')
 def discount_alimentation_article():
-    return render_template('discount-alimentation-article.html')
+    return render_template(
+        'discount-alimentation-article.html',
+        title="Discount Alimentation | Maximisez vos Économies et Soldes",
+        description="Astuces et conseils pour profiter des soldes et du discount sur l'alimentation : économisez tout en consommant malin."
+    )
 
 @app.route('/blog/discount-alimentation-astuces-economiser')
 def discount_alimentation_astuces():
-    return render_template('discount-alimentation-astuces.html')
+    return render_template(
+        'discount-alimentation-astuces.html',
+        title="Astuces Discount Alimentation | Économiser sur vos Courses",
+        description="Découvrez nos astuces pour économiser sur l'alimentation grâce au déstockage, aux promotions et aux ventes à prix réduits."
+    )
 
 @app.route('/blog/optimiser-magasin-distribution')
 def optimiser_magasin_distribution25():
-    return render_template('optimiser-magasin-distribution25.html')
+    return render_template(
+        'optimiser-magasin-distribution25.html',
+        title="Optimiser Magasin & Distribution | Stratégies Rentables",
+        description="Guide pour optimiser votre magasin et votre distribution alimentaire : organisation, approvisionnement et stratégies d'économie."
+    )
 
 @app.route('/blog/champagne-solde-astuces-bonnes-affaires')
 def champagne_solde_astuces():
-    return render_template('champagne-solde-astuces.html')
+    return render_template(
+        'champagne-solde-astuces.html',
+        title="Champagne Soldes | Astuces pour Bonnes Affaires",
+        description="Découvrez nos conseils pour acheter du champagne en soldes : marques, prix et promotions à ne pas manquer."
+    )
 
 @app.route('/blog/destockage-alimentaire-local-ecologie')
 def destockage_alimentaire_local():
-    return render_template('destockage-alimentaire-local.html')
+    return render_template(
+        'destockage-alimentaire-local.html',
+        title="Déstockage Alimentaire Local & Écologie",
+        description="Achetez local et responsable : déstockage alimentaire près de chez vous pour économiser et réduire le gaspillage."
+    )
 
 @app.route('/blog/champagne-pas-cher-qualite-economie')
 def champagne_pas_cher():
-    return render_template('champagne-pas-cher.html')
+    return render_template(
+        'champagne-pas-cher.html',
+        title="Champagne Pas Cher | Qualité & Économie",
+        description="Achetez du champagne pas cher sans compromettre la qualité : bons plans, promotions et astuces pour économiser."
+    )
 
 @app.route('/blog/distribution-boisson-tendances-innovations-2025')
 def distribution_boisson_tendances():
-    return render_template('distribution-boisson-tendances.html')
+    return render_template(
+        'distribution-boisson-tendances.html',
+        title="Distribution Boissons 2025 | Tendances & Innovations",
+        description="Découvrez les tendances et innovations dans la distribution de boissons en 2025 : grossistes, marchés et stratégies."
+    )
 
 @app.route('/blog/destockage-pres-chez-vous-offres')
 def destockage_pres_chez_vous():
-    return render_template('destockage-pres-chez-vous.html')
+    return render_template(
+        'destockage-pres-chez-vous.html',
+        title="Déstockage Alimentaire Près de Chez Vous | Offres Locales",
+        description="Trouvez les meilleures offres de déstockage alimentaire près de chez vous : économies, invendus et produits de qualité."
+    )
 
 @app.route('/blog/boisson-en-gros-pas-cher-offres')
 def boisson_gros_pas_cher():
-    return render_template('boisson-gros-pas-cher.html')
+    return render_template(
+        'boisson-gros-pas-cher.html',
+        title="Boissons en Gros Pas Cher | Fournisseurs & Offres",
+        description="Achetez des boissons en gros à prix réduits : fournisseurs, promotions et astuces pour économiser sur vos achats."
+    )
 
 @app.route('/blog/grossiste-alimentation-halal-guide-achat')
 def grossiste_halal_guide():
-    return render_template('grossiste-halal-guide.html')
+    return render_template(
+        'grossiste-halal-guide.html',
+        title="Grossiste Alimentation Halal | Guide d'Achat",
+        description="Guide complet pour acheter auprès de grossistes halal : viandes, produits alimentaires et conseils pratiques."
+    )
 
 @app.route('/blog/guide-champagne-3-litres-luxe')
 def guide_champagne_3litres():
-    return render_template('guide-champagne-3-litres.html')
+    return render_template(
+        'guide-champagne-3-litres.html',
+        title="Guide Champagne 3 Litres Luxe | Marques & Prix",
+        description="Tout savoir sur le champagne en format 3 litres : luxe, marques prestigieuses, prix et bons plans."
+    )
 
 @app.route('/blog/hard-discount-ascension-impact')
 def hard_discount_article():
-    return render_template('hard-discount-article.html')
+    return render_template(
+        'hard-discount-article.html',
+        title="Hard Discount | Ascension & Impact sur l'Alimentation",
+        description="Analyse de l'impact du hard discount sur l'alimentation : stratégies, économies et tendances pour les consommateurs."
+    )
 
 @app.route('/blog/magasin-alimentaire-bio-local-belgique')
 def magasin_bio_local_article():
-    return render_template('magasin-bio-local-article.html')
+    return render_template(
+        'magasin-bio-local-article.html',
+        title="Magasin Alimentaire Bio & Local Belgique",
+        description="Découvrez les magasins bio et locaux en Belgique : produits frais, circuits courts et initiatives durables."
+    )
 
 @app.route('/blog/trouver-fournisseur-ideal-revendeur-pro')
 def fournisseur_ideal_article():
-    return render_template('fournisseur-ideal-revendeur-pro.html')
+    return render_template(
+        'fournisseur-ideal-revendeur-pro.html',
+        title="Trouver le Fournisseur Idéal | Revendeur & Professionnel",
+        description="Conseils pour trouver le fournisseur idéal pour revendeurs et professionnels : qualité, prix et fiabilité."
+    )
 
 @app.route('/blog/destockage-alimentaire-economies-durabilite-belgique')
 def destockage_durabilite_article():
-    return render_template('destockage-durabilite-article.html')
-
+    return render_template(
+        'destockage-durabilite-article.html',
+        title="Déstockage Alimentaire Belgique | Économies & Durabilité",
+        description="Achetez en déstockage alimentaire en Belgique : réductions, économies et pratiques durables pour lutter contre le gaspillage."
+    )
 
 # Formulaire de Contact
 @app.route('/contact-urgence-25mai')
 def contact_urgence():
-    return render_template('contact_urgence.html')
+    return render_template(
+        'contact_urgence.html',
+        title="Contact Urgence | Déstockage Alimentaire & Assistance",
+        description="Formulaire de contact pour urgences et assistance concernant le déstockage alimentaire et les commandes."
+    )
 
 @app.route('/article-espagne')
 def article_espagne():
-    return render_template('article-espagne.html')
+    return render_template(
+        'article-espagne.html',
+        title="Déstockage Alimentaire Espagne | Guide & Conseils",
+        description="Tout savoir sur le déstockage alimentaire en Espagne : astuces, bons plans et économies sur vos achats."
+    )
 
 @app.route('/article-belgique')
 def article_belgique():
-    return render_template('article-belgique.html')
+    return render_template(
+        'article-belgique.html',
+        title="Déstockage Alimentaire Belgique | Guide & Bons Plans",
+        description="Découvrez comment acheter en déstockage alimentaire en Belgique : conseils, astuces et offres disponibles."
+    )
 
 @app.route('/article-france')
 def article_france():
-    return render_template('article-france.html')
+    return render_template(
+        'article-france.html',
+        title="Déstockage Alimentaire France | Économies & Astuces",
+        description="Guide complet pour le déstockage alimentaire en France : économies, bons plans et anti-gaspillage."
+    )
 
 @app.route('/article-belgique-2')
 def article_belgique_2():
-    return render_template('article-belgique-2.html')
+    return render_template(
+        'article-belgique-2.html',
+        title="Déstockage Alimentaire Belgique | Produits & Offres",
+        description="Profitez des meilleures offres de déstockage alimentaire en Belgique : invendus, surplus et promotions."
+    )
 
 @app.route('/article-france-2')
 def article_france_2():
-    return render_template('article-france-2.html')
-
+    return render_template(
+        'article-france-2.html',
+        title="Déstockage Alimentaire France | Produits et Bons Plans",
+        description="Trouvez les meilleures offres de déstockage alimentaire en France : conseils, promotions et astuces pour économiser."
+    )
 
 @app.route('/blog/top-grossistes-alimentaires-bruxelles')
 def grossistes_bruxelles_article():
-    return render_template('grossistes-bruxelles-article.html')
+    return render_template(
+        'grossistes-bruxelles-article.html',
+        title="Top Grossistes Alimentaires Bruxelles | Fournisseurs",
+        description="Classement des meilleurs grossistes alimentaires à Bruxelles : produits, prix et offres pour professionnels et particuliers."
+    )
 
 @app.route('/blog/champagne-pas-cher-rapport-qualite-prix')
 def champagne_pas_cher_article():
-    return render_template('champagne-pas-cher-article.html')
+    return render_template(
+        'champagne-pas-cher-article.html',
+        title="Champagne Pas Cher | Rapport Qualité-Prix",
+        description="Analyse des meilleurs champagnes pas chers : qualité, prix et promotions pour bien choisir vos bouteilles."
+    )
 
 @app.route('/blog/destockage-alimentaire-belgique-25')
 def destockage_belgique_article_25():
-    return render_template('destockage-belgique-article.html')
+    return render_template(
+        'destockage-belgique-article-25.html',
+        title="Déstockage Alimentaire Belgique 2025 | Économies & Bons Plans",
+        description="Découvrez les meilleures offres de déstockage alimentaire en Belgique pour 2025 : produits en gros et promotions."
+    )
 
 @app.route('/blog/ruinart-achat-guide-complet')
 def ruinart_achat_article():
-    return render_template('ruinart-achat-article.html')
-
+    return render_template(
+        'ruinart-achat-article.html',
+        title="Achat Champagne Ruinart | Guide Complet",
+        description="Guide complet pour acheter du champagne Ruinart : prix, promotions, millésimes et astuces pour économiser."
+    )
 
 @app.route('/blog/prix-red-bull-meilleures-offres')
 def red_bull_article():
-    return render_template('prix-red-bull-article.html')
+    return render_template(
+        'prix-red-bull-article.html',
+        title="Prix Red Bull | Meilleures Offres & Promotions",
+        description="Découvrez les prix Red Bull et les meilleures offres disponibles pour économiser sur vos achats de boissons énergétiques."
+    )
 
 @app.route('/blog/destockage-alimentaire-avantages-defis')
 def destockage_avantages_defis():
-    return render_template('destockage-avantages-defis.html')
+    return render_template(
+        'destockage-avantages-defis.html',
+        title="Déstockage Alimentaire | Avantages & Défis",
+        description="Explorez les avantages et défis du déstockage alimentaire : économies, écologie et bonnes pratiques."
+    )
 
 @app.route('/blog/discount-alimentation-economisez-achats')
 def discount_alimentation_economisez():
-    return render_template('discount-alimentation-economisez.html')
+    return render_template(
+        'discount-alimentation-economisez.html',
+        title="Discount Alimentation | Économisez sur vos Achats",
+        description="Astuces et conseils pour économiser sur l'alimentation grâce aux promotions, soldes et déstockage."
+    )
 
 @app.route('/blog/tendances-distribution-boissons')
 def tendances_distribution_boissons():
-    return render_template('tendances-distribution-boissons.html')
+    return render_template(
+        'tendances-distribution-boissons.html',
+        title="Tendances Distribution Boissons | Marché 2025",
+        description="Analyse des tendances dans la distribution de boissons en 2025 : innovations, fournisseurs et prix."
+    )
 
 @app.route('/blog/recettes-nutella-faciles-delicieuses')
 def recettes_nutella_article():
-    return render_template('recettes-nutella-article.html')
+    return render_template(
+        'recettes-nutella-article.html',
+        title="Recettes Nutella Faciles & Délicieuses",
+        description="Découvrez des recettes simples et gourmandes avec Nutella : desserts, pâtisseries et idées créatives."
+    )
 
 @app.route('/blog/comment-choisir-produit-entretien-efficace')
 def produit_entretien_article():
-    return render_template('produit-entretien-article.html')
+    return render_template(
+        'produit-entretien-article.html',
+        title="Comment Choisir un Produit d'Entretien Efficace",
+        description="Guide pour choisir le produit d'entretien le plus efficace : conseils, comparatifs et astuces pour un nettoyage optimal."
+    )
 
 @app.route('/blog/destockage-alimentaire-comment-economiser-reduire-gaspillage')
 def destockage_ecologique_article():
-    return render_template('destockage-ecologique-article.html')
-
+    return render_template(
+        'destockage-ecologique-article.html',
+        title="Déstockage Alimentaire | Économiser & Réduire le Gaspillage",
+        description="Astuces pour économiser et réduire le gaspillage grâce au déstockage alimentaire : bons plans et produits à prix réduits."
+    )
 
 @app.route('/blog/strategies-economie-alimentation-discount')
 def strategies_discount_article():
-    return render_template('strategies-discount-article.html')
+    return render_template(
+        'strategies-discount-article.html',
+        title="Stratégies Économie Alimentation | Discount & Bons Plans",
+        description="Découvrez les meilleures stratégies pour économiser sur l'alimentation : discount, promotions et déstockage."
+    )
 
 @app.route('/blog/champagne-pas-cher-2025')
 def champagne_pas_cher_article_2025():
-    return render_template('champagne-pas-cher-article-25.html')
+    return render_template(
+        'champagne-pas-cher-article-25.html',
+        title="Champagne Pas Cher 2025 | Bons Plans & Promotions",
+        description="Achetez du champagne pas cher en 2025 : promotions, déstockage et marques accessibles pour tous."
+    )
 
 @app.route('/blog/achat-ruinart')
 def achat_ruinart_article():
-    return render_template('achat-ruinart-article.html')
+    return render_template(
+        'achat-ruinart-article.html',
+        title="Achat Champagne Ruinart | Promotions & Conseils",
+        description="Découvrez comment acheter du champagne Ruinart au meilleur prix : guide complet, bons plans et réductions."
+    )
 
 @app.route('/blog/destockage-alimentaire-belgique')
 def destockage_belgique_article():
-    return render_template('destockage-belgique-article.html')
+    return render_template(
+        'destockage-belgique-article.html',
+        title="Déstockage Alimentaire Belgique | Bons Plans 2025",
+        description="Achetez en déstockage alimentaire en Belgique : produits à prix réduits et astuces pour économiser."
+    )
 
 @app.route('/blog/destockage-alimentaire-25-belgique')
 def destockage_belgique_25_article():
-    return render_template('destockage-belgique-article-25.html')
+    return render_template(
+        'destockage-belgique-article-25.html',
+        title="Déstockage Alimentaire Belgique 2025 | Économies & Offres",
+        description="Profitez du déstockage alimentaire en Belgique en 2025 : bons plans et produits à prix réduits."
+    )
 
 @app.route('/blog/destockage-alimentaire-paris')
 def destockage_paris_article():
-    return render_template('destockage-paris-article.html')
+    return render_template(
+        'destockage-paris-article.html',
+        title="Déstockage Alimentaire Paris | Économies & Bons Plans",
+        description="Découvrez le déstockage alimentaire à Paris : produits invendus, fins de série et offres spéciales."
+    )
 
 @app.route('/blog/destockage-alimentaire-lille')
 def destockage_lille_article():
-    return render_template('destockage-lille-article.html')
-
-
+    return render_template(
+        'destockage-lille-article.html',
+        title="Déstockage Alimentaire Lille | Bons Plans & Réductions",
+        description="Trouvez les meilleures offres de déstockage alimentaire à Lille : produits à prix réduits et astuces économiques."
+    )
 
 @app.route('/blog/luxe-champagne-marques-prestigieuses')
 def luxe_champagne_article():
-    return render_template('luxe-champagne-article.html')
+    return render_template(
+        'luxe-champagne-article.html',
+        title="Champagne de Luxe | Marques Prestigieuses",
+        description="Guide des champagnes de luxe : marques prestigieuses, prix, dégustation et bons plans pour collectionneurs et amateurs."
+    )
 
 @app.route('/blog/prix-nutella-tendances-astuces-economiser')
 def prix_nutella_article():
-    return render_template('prix-nutella-article.html')
+    return render_template(
+        'prix-nutella-article.html',
+        title="Prix Nutella | Tendances & Astuces pour Économiser",
+        description="Découvrez les prix du Nutella et nos astuces pour économiser sur vos achats tout en profitant des meilleures offres."
+    )
 
 @app.route('/blog/optimisation-magasin-distribution')
 def optimisation_magasin_article():
-    return render_template('optimisation-magasin-article.html')
+    return render_template(
+        'optimisation-magasin-article.html',
+        title="Optimisation Magasin & Distribution | Stratégies Efficaces",
+        description="Conseils pour optimiser votre magasin et votre distribution : approvisionnement, organisation et économies."
+    )
 
 @app.route('/blog/destockage-alimentaire-economiser-reduire-gaspillage')
 def destockage_alimentaire_article():
-    return render_template('destockage-alimentaire-article.html')
-
+    return render_template(
+        'destockage-alimentaire-article.html',
+        title="Déstockage Alimentaire | Économiser & Réduire le Gaspillage",
+        description="Profitez du déstockage alimentaire pour économiser et lutter contre le gaspillage avec des produits de qualité."
+    )
 
 
 # Traitement du Formulaire
@@ -3524,54 +3697,101 @@ def admin_delete_user(username):
         db.session.rollback()
         return jsonify({'success': False, 'message': str(e)}), 500
 
-
 @app.route('/blog/champagne-brut')
 def champagne_brut():
-    return render_template('champagne-brut.html')
+    return render_template(
+        'champagne-brut.html',
+        title="Champagne Brut | Guide & Dégustation",
+        description="Découvrez le champagne brut : marques, cuvées, prix et conseils de dégustation pour particuliers et professionnels."
+    )
 
 @app.route('/blog/champagne-pas-cher1')
 def champagne_pas_cher1():
-    return render_template('champagne-pas-cher1.html')
+    return render_template(
+        'champagne-pas-cher1.html',
+        title="Champagne Pas Cher | Bons Plans & Promotions",
+        description="Achetez du champagne pas cher : bons plans, promotions et astuces pour économiser sur les meilleures cuvées."
+    )
 
 @app.route('/blog/prix-champagne-2023')
 def prix_champagne_2023():
-    return render_template('prix-champagne-2023.html')
+    return render_template(
+        'prix-champagne-2023.html',
+        title="Prix du Champagne 2023 | Comparatif et Bons Plans",
+        description="Découvrez le prix des champagnes en 2023 : comparatif des marques et conseils pour acheter au meilleur prix."
+    )
 
 @app.route('/blog/destockage-local')
 def destockage_local():
-    return render_template('destockage-local.html')
+    return render_template(
+        'destockage-local.html',
+        title="Déstockage Alimentaire Local | Produits à Prix Réduits",
+        description="Trouvez des produits alimentaires en déstockage local : prix réduits, fins de série et promotions près de chez vous."
+    )
 
 @app.route('/blog/champagne-bollinger-brut')
 def champagne_bollinger_brut():
-    return render_template('champagne-bollinger-brut.html')
+    return render_template(
+        'champagne-bollinger-brut.html',
+        title="Champagne Bollinger Brut | Prix & Dégustation",
+        description="Tout savoir sur le champagne Bollinger Brut : prix, dégustation, accords mets-vins et bons plans pour l'acheter."
+    )
 
 @app.route('/blog/champagne-blanc-de-blancs')
 def champagne_blanc_de_blancs():
-    return render_template('champagne-blanc-de-blancs.html')
+    return render_template(
+        'champagne-blanc-de-blancs.html',
+        title="Champagne Blanc de Blancs | Guide Complet",
+        description="Découvrez le champagne Blanc de Blancs : caractéristiques, cuvées, prix et astuces pour choisir le meilleur."
+    )
 
 @app.route('/blog/economiser-alimentation')
 def economiser_alimentation():
-    return render_template('economiser-alimentation.html')
+    return render_template(
+        'economiser-alimentation.html',
+        title="Économiser sur l'Alimentation | Astuces & Bons Plans",
+        description="Conseils pour économiser sur vos courses : déstockage alimentaire, produits fins de série et promotions en ligne."
+    )
 
 @app.route('/blog/destockage-date-courte')
 def destockage_date_courte1():
-    return render_template('destockage-date-courte1.html')
+    return render_template(
+        'destockage-date-courte1.html',
+        title="Déstockage Alimentaire Dates Courtes | Réductions & Bons Plans",
+        description="Profitez du déstockage alimentaire sur produits à dates courtes : prix réduits, économies et lutte contre le gaspillage."
+    )
 
 @app.route('/blog/prix-bouteilles-ruinart')
 def prix_bouteilles_ruinart():
-    return render_template('prix-bouteilles-ruinart.html')
+    return render_template(
+        'prix-bouteilles-ruinart.html',
+        title="Prix des Bouteilles Ruinart | Comparatif & Bons Plans",
+        description="Découvrez les prix des bouteilles de champagne Ruinart : guide complet, comparatif des cuvées et promotions disponibles."
+    )
 
 @app.route('/blog/ruinart-blanc-de-blanc')
 def ruinart_blanc_de_blanc():
-    return render_template('ruinart-blanc-de-blanc.html')
+    return render_template(
+        'ruinart-blanc-de-blanc.html',
+        title="Ruinart Blanc de Blanc | Champagne de Prestige",
+        description="Tout savoir sur le Ruinart Blanc de Blanc : prix, caractéristiques, dégustation et conseils pour l'acheter."
+    )
 
 @app.route('/blog/prix-dom-perignon')
 def prix_dom_perignon():
-    return render_template('prix-dom-perignon.html')
+    return render_template(
+        'prix-dom-perignon.html',
+        title="Prix Dom Pérignon | Guide Complet & Comparatif",
+        description="Découvrez le prix du Dom Pérignon selon les millésimes et cuvées : comparatif, bons plans et astuces d'achat."
+    )
 
 @app.route('/blog/dom-perignon-rose')
 def dom_perignon_rose():
-    return render_template('dom-perignon-rose.html')
+    return render_template(
+        'dom-perignon-rose.html',
+        title="Dom Pérignon Rosé | Champagne de Luxe & Prix",
+        description="Tout savoir sur le Dom Pérignon Rosé : dégustation, prix, accords mets-vins et promotions disponibles."
+    )
 
 @app.after_request
 def after_request(response):
@@ -3839,23 +4059,38 @@ def admin_update_order_status(order_id):
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Statut mis à jour'})
-
 @app.route('/blog/nutella')
 def nutella_article():
-    return render_template('nutella-article.html')
+    return render_template(
+        'nutella-article.html',
+        title="Nutella | Recettes, Astuces & Produits",
+        description="Découvrez des recettes gourmandes et astuces autour de Nutella : desserts, gâteaux et idées créatives pour tous les goûts."
+    )
 
 @app.route('/blog/discount-alimentaire')
 def discount_alimentaire():
-    return render_template('blog/discount-alimentaire.html')
+    return render_template(
+        'blog/discount-alimentaire.html',
+        title="Discount Alimentaire | Bons Plans & Déstockage",
+        description="Profitez du discount alimentaire : promotions, invendus, fins de série et astuces pour économiser jusqu'à 70% sur vos courses."
+    )
 
 @app.route('/blog/champagne-pas-chere')
 def champagne_pas_chere():
-    return render_template('champagne_pas_chere.html')
+    return render_template(
+        'champagne_pas_chere.html',
+        title="Champagne Pas Cher | Offres et Promotions",
+        description="Achetez du champagne pas cher : réductions, déstockage et bons plans pour particuliers et professionnels."
+    )
 
 @app.route('/blog/discount-belgique-alimentaire')
 def discount_alimentaire_belgique():
-    return render_template('blog/discount-belgique-alimentaire.html')
-    
+    return render_template(
+        'blog/discount-belgique-alimentaire.html',
+        title="Discount Alimentaire Belgique | Économies & Déstockage",
+        description="Découvrez le discount alimentaire en Belgique : produits invendus, promotions et offres spéciales pour particuliers et professionnels."
+    )
+
 @app.route('/admin/products')
 @admin_required
 def admin_products():
