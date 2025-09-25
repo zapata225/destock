@@ -2145,11 +2145,20 @@ def destockageprofessionnel():
 
 @app.route('/blog/grossiste-alimentaire-bruxelles')
 def grossiste_alimentaire_bruxelles():
-    return render_template('blog/grossiste-alimentaire-bruxelles.html')
+    return render_template(
+        'blog/grossiste-alimentaire-bruxelles.html',
+        title="Grossiste Alimentaire Bruxelles | Fournisseurs & Déstockage",
+        description="Trouvez les meilleurs grossistes alimentaires à Bruxelles : produits en gros, déstockage, prix compétitifs et fournisseurs locaux."
+    )
 
 @app.route('/blog/magasins-alimentation-bio-traditionnel')
 def magasins_alimentation_bio_traditionnel():
-    return render_template('blog/magasins-alimentation-bio-traditionnel.html')
+    return render_template(
+        'blog/magasins-alimentation-bio-traditionnel.html',
+        title="Magasins Alimentation Bio & Traditionnelle | Guide Complet",
+        description="Découvrez les meilleurs magasins d’alimentation bio et traditionnelle : produits locaux, sains et respectueux de l’environnement."
+    )
+
 
 
 @app.route('/destockage-en-gros')
