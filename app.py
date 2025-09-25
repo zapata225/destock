@@ -2650,6 +2650,76 @@ def blog_alimentation_bio():
 @app.route('/blog/produits-italiens')
 def blog_produits_italiens():
     return render_template('blog/produits-italiens.html')
+
+
+@app.route('/blog/destockage-alimentaire-belgique')
+def destockage_belgique():
+    return render_template('blog/destockage-belgique.html')
+
+@app.route('/blog/achat-ruinart')
+def achat_ruinart():
+    """Page ultra-optimisée pour l'achat de champagne Ruinart"""
+    return render_template('blog/achat-ruinart.html')
+
+@app.route('/blog/champagne-en-gros')
+def champagne_en_gros():
+    return render_template('blog/champagne-en-gros.html')
+
+@app.route('/blog/prix-champagne')
+def prix_champagne():
+    return render_template('blog/prix-champagne.html')
+
+
+@app.route('/blog/discount1-alimentation-astuces')
+def discount_alimentation_astuces1():
+    return render_template('blog/discount-alimentation-astuces1.html')
+
+@app.route('/blog/dom-perignon-prix')
+def dom_perignon_prix():
+    return render_template('blog/dom-perignon-prix.html')
+
+@app.route('/blog/dom-perignon-2012')
+def dom_perignon_2012():
+    return render_template('blog/dom-perignon-2012.html')
+
+@app.route('/blog/nutella-750g-recettes')
+def nutella_recettes():
+    return render_template('blog/nutella-750g-recettes.html')
+
+@app.route('/blog/champagne-ruinart')
+def champagne_ruinart():
+    return render_template('blog/champagne-ruinart.html')
+
+@app.route('/blog/dom-perignon')
+def dom_perignon():
+    return render_template('blog/dom-perignon.html')
+
+@app.route('/blog/grossistes-boissons-2023')
+def grossistes_boissons_2023():
+    return render_template('blog/grossistes-boissons-2023.html')
+
+
+@app.route('/blog/dom-perignon-champagne-luxe')
+def dom_perignon_champagne():
+    return render_template('blog/dom-perignon-champagne-luxe.html')
+
+@app.route('/blog/champagne25-ruinart')
+def champagne_ruinart25():
+    return render_template('blog/champagne-ruinart25.html')
+
+@app.route('/blog/ruinart-brut-champagne')
+def ruinart_brut_champagne():
+    return render_template('blog/ruinart-brut-champagne.html')
+
+@app.route('/blog/distribution-alimentaire-belgique')
+def distribution_alimentaire_belgique():
+    return render_template('blog/distribution-alimentaire-belgique.html')
+
+@app.route('/blog/grossiste-alimentaire-belgique-2025')
+def grossiste_alimentaire_belgique_2025():
+    return render_template('blog/grossiste-alimentaire-belgique-2025.html')
+
+
     
 @app.route('/fr/destockage')
 def destockage_fr():
