@@ -2598,137 +2598,246 @@ def promotion_lait():
         tips=tips,
         market_trends=market_trends
     )
-
+    
 @app.route('/destockagefranceparis')
 def destockagefranceparis():
-    return render_template('destockagemagic.html')
+    return render_template(
+        'destockagemagic.html',
+        title="Déstockage Alimentaire Paris | Bons Plans & Économies en France",
+        description="Découvrez le déstockage alimentaire à Paris et en France. Produits pas chers, invendus et fins de séries pour économiser jusqu'à 70%."
+    )
 
 @app.route('/avantages-hard-discount')
 def avantages():
-    return render_template('avantages.html')
-
+    return render_template(
+        'avantages.html',
+        title="Avantages du Hard Discount | Courses à Petits Prix",
+        description="Quels sont les avantages du hard discount ? Profitez de réductions, bons plans alimentaires et produits de qualité à prix cassés."
+    )
 
 @app.route('/grossistes-aubervilliers25')
 def grossistes25():
-    return render_template('grossistes25.html')
+    return render_template(
+        'grossistes25.html',
+        title="Grossistes Aubervilliers | Fournisseurs & Déstockage",
+        description="Trouvez les meilleurs grossistes à Aubervilliers : alimentation, textile, halal et produits divers à prix de gros."
+    )
 
 @app.route('/grossiste-halal')
 def halal_guide():
-    return render_template('halal_guide.html')
+    return render_template(
+        'halal_guide.html',
+        title="Grossiste Halal | Fournisseurs Alimentaires Halal",
+        description="Guide complet des grossistes halal : alimentation certifiée, viandes, boissons et produits en gros pour particuliers et professionnels."
+    )
 
 @app.route('/grossiste-halal25')
 def halal_guide25():
-    return render_template('halal_guide25.html')
+    return render_template(
+        'halal_guide25.html',
+        title="Grossiste Halal France 2025 | Déstockage & Prix de Gros",
+        description="Découvrez les grossistes halal en France en 2025 : viandes, épicerie et boissons halal à prix compétitifs."
+    )
 
 @app.route('/choosing-the-right-ecommerce-supplier')
 def supplier_guide():
-    return render_template('supplier_guide.html')
+    return render_template(
+        'supplier_guide.html',
+        title="Choosing the Right E-commerce Supplier | Business Guide",
+        description="Learn how to choose the best e-commerce supplier: quality, reliability, pricing and logistics for successful online business."
+    )
 
 @app.route('/beneficios-aceite-oliva')
 def aceite_oliva():
-    return render_template('aceite_oliva.html')
+    return render_template(
+        'aceite_oliva.html',
+        title="Beneficios del Aceite de Oliva | Salud y Cocina",
+        description="Descubre los beneficios del aceite de oliva para la salud y la cocina: antioxidantes, vitaminas y sabor mediterráneo."
+    )
 
 @app.route('/beneficios-aceite-oliva25')
 def aceite_oliva25():
-    return render_template('aceiteoliva.html')
-
-
+    return render_template(
+        'aceiteoliva.html',
+        title="Beneficios del Aceite de Oliva 2025 | Nutrición & Bienestar",
+        description="Aceite de oliva en 2025: beneficios actualizados, usos en la dieta mediterránea y propiedades saludables."
+    )
 
 @app.route('/explorando-bebidas-alcoholicas')
 def bebidas_alcoholicas():
-    return render_template('bebidasalcoholicas.html')  # Vous aviez mis un `redirect` par erreur
-
+    return render_template(
+        'bebidasalcoholicas.html',
+        title="Explorando Bebidas Alcohólicas | Guía & Tendencias",
+        description="Explora las principales bebidas alcohólicas: vinos, cervezas, licores y nuevas tendencias en el mercado."
+    )
 
 @app.route('/role-grossiste-alimentaire')
 def article_role_grossiste_clean():
-    """Version sans /blog/"""
-    return render_template('article_role_grossiste.html')
+    return render_template(
+        'article_role_grossiste.html',
+        title="Rôle du Grossiste Alimentaire | Distribution & Logistique",
+        description="Comprenez le rôle essentiel du grossiste alimentaire : approvisionnement, distribution et déstockage pour professionnels."
+    )
 
 @app.route('/destockage-belgique')
 def destockage_belgique_clean():
-    """Version sans /blog/"""
-    return render_template('destockage--belgique.html')
+    return render_template(
+        'destockage--belgique.html',
+        title="Déstockage Alimentaire Belgique | Bons Plans 2025",
+        description="Achetez en déstockage alimentaire en Belgique : réductions sur invendus, produits en gros et anti-gaspillage."
+    )
 
 @app.route('/grossiste-paris')
 def grossiste_paris():
-    """Nouvel article grossiste Paris"""
-    return render_template('grossiste-paris.html')
+    return render_template(
+        'grossiste-paris.html',
+        title="Grossistes à Paris | Fournisseurs Alimentaires & Déstockage",
+        description="Découvrez les grossistes alimentaires et non alimentaires à Paris. Produits à prix de gros pour particuliers et pros."
+    )
 
 @app.route('/blog/alimentation-bio')
 def blog_alimentation_bio():
-    return render_template('blog/alimentation-bio.html')
+    return render_template(
+        'blog/alimentation-bio.html',
+        title="Alimentation Bio | Tendances et Produits Sains",
+        description="Tout savoir sur l’alimentation bio : avantages santé, labels, conseils et produits de qualité pour mieux consommer."
+    )
 
 @app.route('/blog/produits-italiens')
 def blog_produits_italiens():
-    return render_template('blog/produits-italiens.html')
-
+    return render_template(
+        'blog/produits-italiens.html',
+        title="Produits Italiens | Gastronomie & Importation",
+        description="Découvrez les meilleurs produits italiens : pâtes, fromages, charcuterie, vins et spécialités importées."
+    )
 
 @app.route('/blog/destockage-alimentaire-belgique')
 def destockage_belgique_2025():
-    return render_template('blog/destockage-belgique.html')
+    return render_template(
+        'blog/destockage-belgique.html',
+        title="Déstockage Alimentaire Belgique 2025 | Réductions & Économies",
+        description="Profitez du déstockage alimentaire en Belgique en 2025 : produits à prix réduits, anti-gaspillage et promotions."
+    )
 
 @app.route('/blog/achat-ruinart')
 def achat_ruinart():
-    """Page ultra-optimisée pour l'achat de champagne Ruinart"""
-    return render_template('blog/achat-ruinart.html')
+    return render_template(
+        'blog/achat-ruinart.html',
+        title="Achat Champagne Ruinart | Prix & Bons Plans",
+        description="Achetez du champagne Ruinart en ligne : prix avantageux, promotions et déstockage pour particuliers et professionnels."
+    )
 
 @app.route('/blog/champagne-en-gros')
 def champagne_en_gros():
-    return render_template('blog/champagne-en-gros.html')
+    return render_template(
+        'blog/champagne-en-gros.html',
+        title="Champagne en Gros | Grossistes & Fournisseurs",
+        description="Trouvez du champagne en gros : fournisseurs, grossistes et prix déstockés pour événements et revendeurs."
+    )
 
 @app.route('/blog/prix-champagne')
 def prix_champagne():
-    return render_template('blog/prix-champagne.html')
-
+    return render_template(
+        'blog/prix-champagne.html',
+        title="Prix du Champagne 2025 | Guide & Comparatif",
+        description="Découvrez les prix du champagne en 2025 : comparatif des marques Ruinart, Dom Pérignon, Bollinger et plus."
+    )
 
 @app.route('/blog/discount1-alimentation-astuces')
 def discount_alimentation_astuces1():
-    return render_template('blog/discount-alimentation-astuces1.html')
+    return render_template(
+        'blog/discount-alimentation-astuces1.html',
+        title="Astuces Discount Alimentation | Bons Plans & Économies",
+        description="Nos astuces discount pour économiser sur l’alimentation : déstockage, dates courtes, hard discount et promos."
+    )
 
 @app.route('/blog/dom-perignon-prix')
 def dom_perignon_prix():
-    return render_template('blog/dom-perignon-prix.html')
+    return render_template(
+        'blog/dom-perignon-prix.html',
+        title="Prix Dom Pérignon | Guide & Bons Plans",
+        description="Découvrez le prix du champagne Dom Pérignon selon les cuvées et les millésimes. Bons plans et réductions."
+    )
 
 @app.route('/blog/dom-perignon-2012')
 def dom_perignon_2012():
-    return render_template('blog/dom-perignon-2012.html')
+    return render_template(
+        'blog/dom-perignon-2012.html',
+        title="Dom Pérignon 2012 | Prix, Dégustation & Avis",
+        description="Tout savoir sur le Dom Pérignon 2012 : caractéristiques, prix, notes de dégustation et où l’acheter moins cher."
+    )
 
 @app.route('/blog/nutella-750g-recettes')
 def nutella_recettes():
-    return render_template('blog/nutella-750g-recettes.html')
+    return render_template(
+        'blog/nutella-750g-recettes.html',
+        title="Recettes Nutella 750g | Idées Gourmandes",
+        description="Découvrez des recettes gourmandes avec le pot de Nutella 750g : desserts, gâteaux et idées créatives."
+    )
 
 @app.route('/blog/champagne-ruinart')
 def champagne_ruinart():
-    return render_template('blog/champagne-ruinart.html')
+    return render_template(
+        'blog/champagne-ruinart.html',
+        title="Champagne Ruinart | Prix & Dégustation",
+        description="Découvrez le champagne Ruinart : prix, cuvées, dégustation et bons plans pour acheter moins cher."
+    )
 
 @app.route('/blog/dom-perignon')
 def dom_perignon():
-    return render_template('blog/dom-perignon.html')
+    return render_template(
+        'blog/dom-perignon.html',
+        title="Champagne Dom Pérignon | Guide Complet",
+        description="Tout savoir sur le champagne Dom Pérignon : histoire, prix, cuvées et où l’acheter au meilleur tarif."
+    )
 
 @app.route('/blog/grossistes-boissons-2023')
 def grossistes_boissons_2023():
-    return render_template('blog/grossistes-boissons-2023.html')
-
+    return render_template(
+        'blog/grossistes-boissons-2023.html',
+        title="Grossistes Boissons 2023 | Fournisseurs & Prix",
+        description="Trouvez les meilleurs grossistes en boissons en 2023 : alcools, sodas et eaux à prix de gros."
+    )
 
 @app.route('/blog/dom-perignon-champagne-luxe')
 def dom_perignon_champagne():
-    return render_template('blog/dom-perignon-champagne-luxe.html')
+    return render_template(
+        'blog/dom-perignon-champagne-luxe.html',
+        title="Dom Pérignon Champagne de Luxe | Prix & Dégustation",
+        description="Dom Pérignon, champagne de luxe par excellence : prix, dégustation, millésimes et bons plans."
+    )
 
 @app.route('/blog/champagne25-ruinart')
 def champagne_ruinart25():
-    return render_template('blog/champagne-ruinart25.html')
+    return render_template(
+        'blog/champagne-ruinart25.html',
+        title="Champagne Ruinart 2025 | Prix & Bons Plans",
+        description="Achetez du champagne Ruinart en 2025 : prix, promotions et déstockage pour particuliers et événements."
+    )
 
 @app.route('/blog/ruinart-brut-champagne')
 def ruinart_brut_champagne():
-    return render_template('blog/ruinart-brut-champagne.html')
+    return render_template(
+        'blog/ruinart-brut-champagne.html',
+        title="Ruinart Brut | Champagne d’Exception",
+        description="Découvrez le champagne Ruinart Brut : prix, caractéristiques, accords mets-vins et avis de dégustation."
+    )
 
 @app.route('/blog/distribution-alimentaire-belgique')
 def distribution_alimentaire_belgique():
-    return render_template('blog/distribution-alimentaire-belgique.html')
+    return render_template(
+        'blog/distribution-alimentaire-belgique.html',
+        title="Distribution Alimentaire Belgique | Grossistes & Déstockage",
+        description="Distribution alimentaire en Belgique : fournisseurs, grossistes et déstockage pour professionnels et particuliers."
+    )
 
 @app.route('/blog/grossiste-alimentaire-belgique-2025')
 def grossiste_alimentaire_belgique_2025():
-    return render_template('blog/grossiste-alimentaire-belgique-2025.html')
+    return render_template(
+        'blog/grossiste-alimentaire-belgique-2025.html',
+        title="Grossiste Alimentaire Belgique 2025 | Fournisseurs & Prix",
+        description="Découvrez les grossistes alimentaires en Belgique en 2025 : prix, déstockage et tendances du marché."
+    )
 
 
     
