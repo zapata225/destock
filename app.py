@@ -2653,7 +2653,7 @@ def blog_produits_italiens():
 
 
 @app.route('/blog/destockage-alimentaire-belgique')
-def destockage_belgique():
+def destockage_belgique_2025():
     return render_template('blog/destockage-belgique.html')
 
 @app.route('/blog/achat-ruinart')
