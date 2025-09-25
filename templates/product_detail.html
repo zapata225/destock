@@ -44,6 +44,8 @@
         --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
         --shadow-lg: 0 12px 24px rgba(0,0,0,0.12);
         --transition: all 0.3s ease-in-out;
+        --glass-bg: rgba(255, 255, 255, 0.25);
+        --glass-border: rgba(255, 255, 255, 0.18);
     }
 
     /* ===== BASE STYLES ===== */
@@ -59,6 +61,7 @@
         color: var(--dark);
         padding-bottom: 80px;
         background-color: var(--light);
+        overflow-x: hidden;
     }
 
     .product-detail-container {
@@ -70,7 +73,37 @@
         gap: 3rem;
     }
 
-    /* ===== GALLERIE MODERNE ===== */
+    /* ===== INDICATEUR DE VUES TEMPS RÉEL ===== */
+    .view-counter {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(244, 63, 94, 0.9);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        animation: pulse 2s infinite;
+    }
+
+    .view-counter i {
+        animation: heartbeat 1.5s ease-in-out infinite both;
+    }
+
+    @keyframes heartbeat {
+        from { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        to { transform: scale(1); }
+    }
+
+    /* ===== GALLERIE MODERNE AVEC LIGHTBOX ===== */
     .product-gallery {
         position: relative;
         border-radius: 1rem;
@@ -150,6 +183,252 @@
         box-shadow: var(--shadow-sm);
         text-transform: uppercase;
         letter-spacing: 0.5px;
+    }
+
+    /* ===== LIGHTBOX PROFESSIONNEL ===== */
+    .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-image {
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+
+    .lightbox.active .lightbox-image {
+        transform: scale(1);
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        transition: var(--transition);
+    }
+
+    .lightbox-close:hover {
+        color: var(--accent);
+        transform: scale(1.1);
+    }
+
+    .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        transform: translateY(-50%);
+        z-index: 10001;
+    }
+
+    .lightbox-btn {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        transition: var(--transition);
+    }
+
+    .lightbox-btn:hover {
+        background: rgba(255,255,255,0.3);
+        transform: scale(1.1);
+    }
+
+    .lightbox-thumbnails {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    .lightbox-thumb {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: var(--transition);
+        border: 2px solid transparent;
+    }
+
+    .lightbox-thumb:hover,
+    .lightbox-thumb.active {
+        opacity: 1;
+        border-color: white;
+    }
+
+    /* ===== ZOOM AVANCÉ ===== */
+    .zoom-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .zoom-lens {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        width: 100px;
+        height: 100px;
+        display: none;
+        pointer-events: none;
+    }
+
+    .zoom-result {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 400px;
+        height: 400px;
+        border: 1px solid #d4d4d4;
+        background: white;
+        display: none;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .zoom-result img {
+        position: absolute;
+        max-width: none;
+        max-height: none;
+    }
+
+    /* ===== INTERFACE GLASSMORPHISM ===== */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 1rem;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+
+    .glass-button {
+        background: rgba(67, 97, 238, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        transition: var(--transition);
+    }
+
+    .glass-button:hover {
+        background: rgba(67, 97, 238, 0.9);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    /* ===== TOAST NOTIFICATIONS ===== */
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .toast {
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        transform: translateX(400px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        max-width: 350px;
+        backdrop-filter: blur(10px);
+    }
+
+    .toast.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .toast.success {
+        background: rgba(76, 201, 240, 0.9);
+        border-left: 4px solid var(--success);
+    }
+
+    .toast.error {
+        background: rgba(244, 63, 94, 0.9);
+        border-left: 4px solid #f43f5e;
+    }
+
+    .toast i {
+        font-size: 1.2rem;
+    }
+
+    /* ===== LOADING STATES ===== */
+    .loading {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+        100% { transform: translateX(100%); }
     }
 
     /* ===== PRODUCT INFO ===== */
@@ -696,35 +975,6 @@
         margin-top: 0.25rem;
     }
 
-    /* Modal pour agrandir les images */
-    .proof-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.8);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .proof-modal img {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 0.5rem;
-    }
-
-    .proof-modal-close {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-    }
-
     /* ===== REVIEWS SECTION ===== */
     .reviews-section {
         margin-top: 3rem;
@@ -982,6 +1232,10 @@
         .product-title {
             font-size: 2rem;
         }
+
+        .lightbox-thumbnails {
+            display: none;
+        }
     }
 
     @media (max-width: 768px) {
@@ -1017,6 +1271,18 @@
         .proof-grid {
             grid-template-columns: 1fr;
         }
+
+        .lightbox-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        .lightbox-close {
+            font-size: 30px;
+            top: 10px;
+            right: 15px;
+        }
     }
 
     @media (min-width: 769px) {
@@ -1041,10 +1307,86 @@
         70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
         100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
     }
+
+    /* ===== ENTRÉES EN PAGE FLUIDES ===== */
+    .fade-in {
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    .slide-in-left {
+        animation: slideInLeft 0.8s ease-out;
+    }
+
+    .slide-in-right {
+        animation: slideInRight 0.8s ease-out;
+    }
+
+    @keyframes slideInLeft {
+        from { transform: translateX(-50px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+        from { transform: translateX(50px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* ===== EFFETS DE HOVER SOPHISTIQUÉS ===== */
+    .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .hover-glow:hover {
+        box-shadow: 0 0 15px rgba(67, 97, 238, 0.4);
+    }
+
+    /* ===== OPTIMISATIONS TECHNIQUES ===== */
+    .will-change {
+        will-change: transform, opacity;
+    }
+
+    .backface-hidden {
+        backface-visibility: hidden;
+    }
+
+    /* ===== GESTION MÉMOIRE ===== */
+    .lazy-load {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .lazy-load.loaded {
+        opacity: 1;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
+<!-- Container pour les notifications toast -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Lightbox pour la galerie -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <div class="lightbox-content">
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+    </div>
+    <div class="lightbox-nav">
+        <button class="lightbox-btn" id="lightboxPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-btn" id="lightboxNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+</div>
+
 <div class="product-detail-container">
     <!-- Galerie produit -->
     <div class="product-gallery" role="region" aria-label="Galerie produit">
@@ -1052,13 +1394,21 @@
         <div class="product-badge" aria-label="Meilleure offre">MEILLEURE OFFRE</div>
         {% endif %}
         
-        <div class="main-image-container" tabindex="0">
+        <!-- Indicateur de vues en temps réel -->
+        <div class="view-counter">
+            <i class="fas fa-eye"></i>
+            <span id="viewCount">12 personnes regardent ce produit</span>
+        </div>
+        
+        <div class="main-image-container" tabindex="0" id="zoomContainer">
             <img id="main-image" src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
                  class="main-image" alt="{{ product.name }}" loading="lazy">
+            <div class="zoom-lens" id="zoomLens"></div>
+            <div class="zoom-result" id="zoomResult"></div>
         </div>
         
         <div class="thumbnail-container" role="tablist">
-            {% for image in product.images[:4] %}
+            {% for image in product.images %}
             <img src="{{ url_for('static', filename='images/products/' + image) }}" 
                  class="thumbnail {% if loop.first %}active{% endif %}" 
                  alt="Miniature {{ loop.index }}"
@@ -1066,16 +1416,17 @@
                  tabindex="0"
                  aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
                  onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')"
-                 onkeydown="if(event.key === 'Enter') changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
+                 onkeydown="if(event.key === 'Enter') changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')"
+                 data-full-src="{{ url_for('static', filename='images/products/' + image) }}">
             {% endfor %}
         </div>
     </div>
 
     <!-- Informations produit -->
     <div class="product-info">
-        <h1 class="product-title">{{ product.name }}</h1>
+        <h1 class="product-title slide-in-right">{{ product.name }}</h1>
         
-        <div class="product-price-container">
+        <div class="product-price-container slide-in-right" style="animation-delay: 0.1s">
             <div class="product-price" aria-label="Prix actuel">{{ "%.2f"|format(product.price) }}€</div>
             {% if product.original_price %}
             <div class="original-price" aria-label="Prix original">{{ "%.2f"|format(product.original_price) }}€</div>
@@ -1087,13 +1438,13 @@
         
         <!-- Badges de confiance -->
         <div class="trust-badges" role="list">
-            <div class="trust-badge" role="listitem">
+            <div class="trust-badge glass-card" role="listitem">
                 <i class="fas fa-check-circle" aria-hidden="true"></i> Produit certifié
             </div>
-            <div class="trust-badge" role="listitem">
+            <div class="trust-badge glass-card" role="listitem">
                 <i class="fas fa-shield-alt" aria-hidden="true"></i> Paiement sécurisé
             </div>
-            <div class="trust-badge" role="listitem">
+            <div class="trust-badge glass-card" role="listitem">
                 <i class="fas fa-undo" aria-hidden="true"></i> Retours faciles
             </div>
         </div>
@@ -1120,7 +1471,7 @@
         </div>
 
         <!-- Description -->
-        <div class="product-description" role="region" aria-label="Description du produit">
+        <div class="product-description glass-card" role="region" aria-label="Description du produit">
             <h2 class="description-title">
                 <i class="fas fa-align-left" aria-hidden="true"></i> Description du {{ product.name }}
             </h2>
@@ -1225,7 +1576,7 @@
         </div>
 
         <!-- Détails complets -->
-        <div class="full-details" id="fullDetails" role="region" aria-label="Fiche technique complète">
+        <div class="full-details glass-card" id="fullDetails" role="region" aria-label="Fiche technique complète">
             <h2 class="description-title">
                 <i class="fas fa-info-circle" aria-hidden="true"></i> Fiche technique complète
             </h2>
@@ -1262,19 +1613,19 @@
             </div>
         </div>
 
-        <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
+        <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form" id="addToCartForm">
             <input type="hidden" name="product_id" value="{{ product.id }}">
-            <button type="submit" class="btn-add-to-cart desktop" aria-label="Ajouter {{ product.name }} au panier">
+            <button type="submit" class="btn-add-to-cart desktop glass-button" aria-label="Ajouter {{ product.name }} au panier">
                 <i class="fas fa-cart-plus" aria-hidden="true"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
             </button>
         </form>
         
-        <div class="delivery-info" role="region" aria-label="Informations de livraison">
+        <div class="delivery-info glass-card" role="region" aria-label="Informations de livraison">
             <p><i class="fas fa-truck" aria-hidden="true"></i> Livraison estimée entre 5 à 7 jours ouvrés</p>
             <p><i class="fas fa-shield-alt" aria-hidden="true"></i> Garantie satisfait ou remboursé 30 jours</p>
             <p><i class="fas fa-phone" aria-hidden="true"></i> Service client réactif 7j/7</p>
             
-            <div class="guarantee-badge">
+            <div class="guarantee-badge glass-card">
                 <i class="fas fa-lock" aria-hidden="true"></i> Paiement 100% sécurisé
             </div>
         </div>
@@ -1288,7 +1639,7 @@
         
         <div class="proof-grid">
             <!-- Preuve client 1 -->
-            <div class="proof-card" tabindex="0">
+            <div class="proof-card hover-lift" tabindex="0">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client1.jpg') }}" 
                          alt="Témoignage client Sophie" class="proof-image" loading="lazy">
@@ -1307,7 +1658,7 @@
             </div>
             
             <!-- Preuve client 2 -->
-            <div class="proof-card" tabindex="0">
+            <div class="proof-card hover-lift" tabindex="0">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client2.jpg') }}" 
                          alt="Témoignage client Thomas" class="proof-image" loading="lazy">
@@ -1326,7 +1677,7 @@
             </div>
             
             <!-- Preuve client 3 -->
-            <div class="proof-card" tabindex="0">
+            <div class="proof-card hover-lift" tabindex="0">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client3.jpg') }}" 
                          alt="Témoignage client Marie" class="proof-image" loading="lazy">
@@ -1355,13 +1706,13 @@
                 {% elif product.id == 100 %}(32)
                 {% else %}(15){% endif %}
             </h2>
-            <button id="btn-open-review-form" class="btn-review" aria-label="Ouvrir le formulaire d'avis" aria-expanded="false" aria-controls="reviewForm">
+            <button id="btn-open-review-form" class="btn-review glass-button" aria-label="Ouvrir le formulaire d'avis" aria-expanded="false" aria-controls="reviewForm">
                 <i class="fas fa-pen" aria-hidden="true"></i> Donner votre avis
             </button>
         </div>
 
         <!-- Formulaire d'avis -->
-        <div class="review-form" id="reviewForm" role="form" aria-label="Formulaire pour rédiger un avis">
+        <div class="review-form glass-card" id="reviewForm" role="form" aria-label="Formulaire pour rédiger un avis">
             <h2><i class="fas fa-pen" aria-hidden="true"></i> Rédiger un avis sur {{ product.name }}</h2>
             <form id="submitReviewForm">
                 <div class="form-group">
@@ -1395,7 +1746,7 @@
                     <textarea id="reviewText" class="form-control" rows="5" required aria-required="true"></textarea>
                 </div>
                 
-                <button type="submit" class="btn-submit-review" aria-label="Envoyer l'avis">
+                <button type="submit" class="btn-submit-review glass-button" aria-label="Envoyer l'avis">
                     <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer l'avis
                 </button>
             </form>
@@ -1404,7 +1755,7 @@
         <!-- Liste des avis -->
         <div class="reviews-list" id="reviewsList" role="list">
             {% if product.id == 1 %}
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Jean D.
@@ -1421,7 +1772,7 @@
                 <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé. Je recommande vivement ce produit et ce vendeur."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Marie L.</div>
                     <div class="review-date">Acheté le 10/06/2023</div>
@@ -1433,7 +1784,7 @@
                 <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous. Le goût est excellent, je rachèterai sans hésiter."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Claude R.</div>
                     <div class="review-date">Acheté le 01/06/2023</div>
@@ -1446,7 +1797,7 @@
             </div>
 
             {% elif product.id == 4 %}
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Sophie M.
@@ -1463,7 +1814,7 @@
                 <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon. Tous nos invités ont été impressionnés par la qualité."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Élodie T.</div>
                     <div class="review-date">Acheté le 18/11/2023</div>
@@ -1476,7 +1827,7 @@
             </div>
 
             {% elif product.id == 100 %}
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Thomas B.</div>
                     <div class="review-date">Acheté le 05/07/2023</div>
@@ -1488,7 +1839,7 @@
                 <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison. Emballage très professionnel et sécurisé."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Lucie F.
@@ -1505,7 +1856,7 @@
                 <p>"Très satisfait de ma commande. Livraison rapide et produits bien protégés, mais un peu plus de choix aurait été parfait. Je recommande."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Clara D.</div>
                     <div class="review-date">Acheté le 22/04/2023</div>
@@ -1518,7 +1869,7 @@
             </div>
 
             {% else %}
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Pierre G.</div>
                     <div class="review-date">Acheté le 15/04/2023</div>
@@ -1530,7 +1881,7 @@
                 <p>"Très bonne qualité pour le prix. L'emballage était solide et le produit frais à la réception. Livraison un peu longue mais acceptable."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Anne S.
@@ -1547,7 +1898,7 @@
                 <p>"Qualité exceptionnelle, je suis bluffé par le service. Emballage luxueux, livraison express. Parfait pour offrir à des amis ou clients."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Marc V.</div>
                     <div class="review-date">Acheté le 05/04/2023</div>
@@ -1559,7 +1910,7 @@
                 <p>"Produit très bon, correspond à la description. Livraison dans les temps. Je recommande ce vendeur sérieux. Prix un peu élevé mais justifié."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Julie M.</div>
                     <div class="review-date">Acheté le 01/04/2023</div>
@@ -1571,7 +1922,7 @@
                 <p>"Commande reçue en parfait état, emballage professionnel ! Produit frais et de grande qualité. Service client très réactif à mes questions."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card hover-lift" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
                         Paul T.
@@ -1603,7 +1954,7 @@
         <h2 class="related-title">Vous pourriez aussi aimer</h2>
         <div class="related-grid">
             {% for product in related_products %}
-            <div class="product-card" tabindex="0">
+            <div class="product-card hover-lift" tabindex="0">
                 {% if product.featured %}
                 <div class="product-badge" aria-label="Promotion">PROMO</div>
                 {% endif %}
@@ -1615,7 +1966,7 @@
                     <h3>{{ product.name }}</h3>
                     <div class="price">{{ "%.2f"|format(product.price) }}€</div>
                     <a href="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify) }}" 
-                       class="btn-product" aria-label="Voir les détails de {{ product.name }}">
+                       class="btn-product glass-button" aria-label="Voir les détails de {{ product.name }}">
                         <i class="fas fa-eye" aria-hidden="true"></i> Voir
                     </a>
                 </div>
@@ -1629,7 +1980,7 @@
 <div class="mobile-cta" role="region" aria-label="Bouton d'ajout au panier mobile">
     <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
         <input type="hidden" name="product_id" value="{{ product.id }}">
-        <button type="submit" class="btn-add-to-cart" aria-label="Ajouter {{ product.name }} au panier">
+        <button type="submit" class="btn-add-to-cart glass-button" aria-label="Ajouter {{ product.name }} au panier">
             <i class="fas fa-cart-plus" aria-hidden="true"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
         </button>
     </form>
@@ -1638,7 +1989,316 @@
 
 {% block extra_js %}
 <script defer>
-    // --- Changement d'image principale ---
+    // --- GESTIONNAIRE D'ÉVÉNEMENTS AVEC DÉLÉGATION ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialisation des composants
+        initializeViewCounter();
+        initializeLightbox();
+        initializeZoom();
+        initializeReviewForm();
+        initializeProofModals();
+        updatePagination();
+        initializeAnimations();
+        initializeToastSystem();
+        initializeFormHandlers();
+        
+        // Optimisation des performances
+        initializeLazyLoading();
+        initializeIntersectionObserver();
+    });
+
+    // --- INDICATEUR DE VUES EN TEMPS RÉEL ---
+    function initializeViewCounter() {
+        const viewCounter = document.getElementById('viewCount');
+        if (!viewCounter) return;
+        
+        // Simulation de vues en temps réel
+        let views = 12;
+        setInterval(() => {
+            views += Math.floor(Math.random() * 3);
+            const people = views > 1 ? 'personnes' : 'personne';
+            viewCounter.textContent = `${views} ${people} regardent ce produit`;
+        }, 15000);
+    }
+
+    // --- LIGHTBOX PROFESSIONNEL ---
+    function initializeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const lightboxThumbnails = document.getElementById('lightboxThumbnails');
+        
+        if (!lightbox || !lightboxImage) return;
+        
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        let currentImageIndex = 0;
+        
+        // Création des miniatures pour le lightbox
+        thumbnails.forEach((thumb, index) => {
+            const thumbImg = document.createElement('img');
+            thumbImg.src = thumb.src;
+            thumbImg.className = 'lightbox-thumb';
+            thumbImg.dataset.index = index;
+            lightboxThumbnails.appendChild(thumbImg);
+            
+            thumbImg.addEventListener('click', () => {
+                openLightbox(index);
+            });
+        });
+        
+        // Ouverture du lightbox
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const imageSrc = thumbnails[index].dataset.fullSrc;
+            lightboxImage.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Mise à jour des miniatures actives
+            updateLightboxThumbs();
+        }
+        
+        // Fermeture du lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                lightboxImage.src = '';
+            }, 300);
+        }
+        
+        // Navigation
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = thumbnails.length - 1;
+            if (currentImageIndex >= thumbnails.length) currentImageIndex = 0;
+            
+            openLightbox(currentImageIndex);
+        }
+        
+        // Mise à jour des miniatures actives
+        function updateLightboxThumbs() {
+            const thumbs = lightboxThumbnails.querySelectorAll('.lightbox-thumb');
+            thumbs.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentImageIndex);
+            });
+        }
+        
+        // Événements
+        document.querySelectorAll('.thumbnail, .main-image-container').forEach((element, index) => {
+            element.addEventListener('click', () => openLightbox(index));
+        });
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+        lightboxNext.addEventListener('click', () => navigateLightbox(1));
+        
+        // Navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape': closeLightbox(); break;
+                case 'ArrowLeft': navigateLightbox(-1); break;
+                case 'ArrowRight': navigateLightbox(1); break;
+            }
+        });
+        
+        // Fermeture en cliquant à l'extérieur
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    // --- ZOOM AVANCÉ ---
+    function initializeZoom() {
+        const zoomContainer = document.getElementById('zoomContainer');
+        const mainImage = document.getElementById('main-image');
+        const zoomLens = document.getElementById('zoomLens');
+        const zoomResult = document.getElementById('zoomResult');
+        
+        if (!zoomContainer || !mainImage) return;
+        
+        // Création des éléments de zoom s'ils n'existent pas
+        if (!zoomLens) {
+            const lens = document.createElement('div');
+            lens.id = 'zoomLens';
+            lens.className = 'zoom-lens';
+            zoomContainer.appendChild(lens);
+        }
+        
+        if (!zoomResult) {
+            const result = document.createElement('div');
+            result.id = 'zoomResult';
+            result.className = 'zoom-result';
+            document.body.appendChild(result);
+        }
+        
+        const lens = document.getElementById('zoomLens');
+        const result = document.getElementById('zoomResult');
+        const resultImg = document.createElement('img');
+        resultImg.src = mainImage.src;
+        result.appendChild(resultImg);
+        
+        // Calcul des ratios de zoom
+        const cx = result.offsetWidth / lens.offsetWidth;
+        const cy = result.offsetHeight / lens.offsetHeight;
+        
+        // Événements de souris
+        zoomContainer.addEventListener('mouseenter', () => {
+            lens.style.display = 'block';
+            result.style.display = 'block';
+        });
+        
+        zoomContainer.addEventListener('mouseleave', () => {
+            lens.style.display = 'none';
+            result.style.display = 'none';
+        });
+        
+        zoomContainer.addEventListener('mousemove', (e) => {
+            if (!lens.style.display || lens.style.display === 'none') return;
+            
+            const pos = getCursorPos(e);
+            let x = pos.x - (lens.offsetWidth / 2);
+            let y = pos.y - (lens.offsetHeight / 2);
+            
+            // Maintenir la lentille dans les limites
+            if (x > mainImage.width - lens.offsetWidth) x = mainImage.width - lens.offsetWidth;
+            if (x < 0) x = 0;
+            if (y > mainImage.height - lens.offsetHeight) y = mainImage.height - lens.offsetHeight;
+            if (y < 0) y = 0;
+            
+            // Positionner la lentille
+            lens.style.left = x + "px";
+            lens.style.top = y + "px";
+            
+            // Positionner l'image zoomée
+            resultImg.style.left = - (x * cx) + "px";
+            resultImg.style.top = - (y * cy) + "px";
+        });
+        
+        function getCursorPos(e) {
+            const a = mainImage.getBoundingClientRect();
+            let x = e.pageX - a.left;
+            let y = e.pageY - a.top;
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x: x, y: y};
+        }
+    }
+
+    // --- TOAST NOTIFICATIONS ---
+    function initializeToastSystem() {
+        window.showToast = function(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer');
+            if (!toastContainer) return;
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}"></i>
+                <span>${message}</span>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Animation d'entrée
+            setTimeout(() => toast.classList.add('show'), 100);
+            
+            // Suppression automatique
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    if (toast.parentNode) toast.parentNode.removeChild(toast);
+                }, 300);
+            }, 5000);
+        };
+    }
+
+    // --- GESTIONNAIRES DE FORMULAIRES ---
+    function initializeFormHandlers() {
+        // Formulaire d'ajout au panier
+        const addToCartForm = document.getElementById('addToCartForm');
+        if (addToCartForm) {
+            addToCartForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulation d'ajout au panier
+                showToast('Produit ajouté au panier avec succès!', 'success');
+                
+                // Animation du bouton
+                const button = this.querySelector('.btn-add-to-cart');
+                button.classList.add('loading');
+                setTimeout(() => {
+                    button.classList.remove('loading');
+                    // Soumission réelle du formulaire après l'animation
+                    this.submit();
+                }, 1000);
+            });
+        }
+    }
+
+    // --- ANIMATIONS MODERNES ---
+    function initializeAnimations() {
+        // Animation d'entrée en page
+        const elements = document.querySelectorAll('.product-gallery, .product-info, .customer-proof-section, .reviews-section, .related-products');
+        elements.forEach((el, index) => {
+            el.classList.add('fade-in');
+            el.style.animationDelay = `${index * 0.1}s`;
+        });
+        
+        // Effets de hover sophistiqués
+        const hoverElements = document.querySelectorAll('.product-card, .proof-card, .review-card');
+        hoverElements.forEach(el => {
+            el.classList.add('hover-lift');
+        });
+    }
+
+    // --- OPTIMISATIONS TECHNIQUES ---
+    function initializeLazyLoading() {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback pour les navigateurs qui ne supportent pas IntersectionObserver
+            lazyImages.forEach(img => {
+                img.classList.add('loaded');
+            });
+        }
+    }
+
+    function initializeIntersectionObserver() {
+        // Observer pour les animations d'apparition
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.product-card, .proof-card').forEach(el => {
+                observer.observe(el);
+            });
+        }
+    }
+
+    // --- FONCTIONS EXISTANTES (conservées) ---
     function changeMainImage(thumbnail, newSrc) {
         try {
             const mainImg = document.getElementById('main-image');
@@ -1659,7 +2319,6 @@
         }
     }
 
-    // --- Affichage des détails complets ---
     function toggleDetails() {
         try {
             const fullDetails = document.getElementById('fullDetails');
@@ -1676,7 +2335,6 @@
         }
     }
 
-    // --- Formulaire d'avis ---
     function initializeReviewForm() {
         const btnOpenReviewForm = document.getElementById('btn-open-review-form');
         const reviewForm = document.getElementById('reviewForm');
@@ -1703,12 +2361,12 @@
                     const date = new Date().toLocaleDateString('fr-FR');
 
                     if (!name || !rating || !title || !text) {
-                        alert('Veuillez remplir tous les champs requis.');
+                        showToast('Veuillez remplir tous les champs requis.', 'error');
                         return;
                     }
 
                     const newReview = document.createElement('div');
-                    newReview.className = 'review-card';
+                    newReview.className = 'review-card hover-lift';
                     newReview.setAttribute('role', 'listitem');
                     newReview.innerHTML = `
                         <div class="review-header">
@@ -1729,36 +2387,23 @@
                     this.reset();
                     reviewForm.classList.remove('active');
                     btnOpenReviewForm.setAttribute('aria-expanded', 'false');
-                    alert('Merci pour votre avis ! Il a été ajouté avec succès.');
+                    showToast('Merci pour votre avis ! Il a été ajouté avec succès.');
                     updatePagination();
                 } catch (error) {
                     console.error('Error submitting review:', error);
-                    alert('Une erreur s\'est produite lors de l\'envoi de l\'avis.');
+                    showToast('Une erreur s\'est produite lors de l\'envoi de l\'avis.', 'error');
                 }
             });
         }
     }
 
-    // --- Modal pour preuves clients ---
     function initializeProofModals() {
         document.querySelectorAll('.proof-card').forEach(container => {
             container.addEventListener('click', function(e) {
                 if (e.target.closest('.proof-overlay')) {
                     try {
                         const imgSrc = this.querySelector('.proof-image').src;
-                        const modal = document.createElement('div');
-                        modal.className = 'proof-modal';
-                        modal.innerHTML = `
-                            <span class="proof-modal-close" role="button" aria-label="Fermer la modale">×</span>
-                            <img src="${imgSrc}" alt="Image agrandie du témoignage client">
-                        `;
-                        modal.querySelector('.proof-modal-close').addEventListener('click', () => {
-                            document.body.removeChild(modal);
-                        });
-                        modal.addEventListener('click', e => {
-                            if (e.target === modal) document.body.removeChild(modal);
-                        });
-                        document.body.appendChild(modal);
+                        showToast('Cliquez sur l\'image pour l\'agrandir', 'success');
                     } catch (error) {
                         console.error('Error opening proof modal:', error);
                     }
@@ -1772,7 +2417,6 @@
         });
     }
 
-    // --- Pagination des avis ---
     function updatePagination() {
         try {
             const reviewsList = document.getElementById('reviewsList');
@@ -1829,63 +2473,5 @@
             console.error('Error updating pagination:', error);
         }
     }
-
-    // --- Initialisation au chargement ---
-    document.addEventListener('DOMContentLoaded', function() {
-        try {
-            // Animation au chargement
-            const elements = document.querySelectorAll('.product-gallery, .product-info');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
-                el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 100 + index * 100);
-            });
-
-            // Animation des boutons
-            document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
-                setTimeout(() => {
-                    btn.style.animation = 'pulse 2s infinite';
-                }, 1500);
-            });
-
-        // Zoom image (déjà bien)
-        const mainImageContainer = document.querySelector('.main-image-container');
-        const mainImage = document.getElementById('main-image');
-        if (mainImageContainer && mainImage) {
-            mainImageContainer.addEventListener('mousemove', e => {
-                const { left, top, width, height } = mainImageContainer.getBoundingClientRect();
-                const x = (e.clientX - left) / width * 100;
-                const y = (e.clientY - top) / height * 100;
-                mainImage.style.transformOrigin = `${x}% ${y}%`;
-            });
-            mainImageContainer.addEventListener('mouseenter', () => {
-                mainImage.style.transform = 'scale(1.05)';
-            });
-            mainImageContainer.addEventListener('mouseleave', () => {
-                mainImage.style.transform = 'scale(1)';
-            });
-        }
-
-        // Animation produit similaire
-        const productCards = document.querySelectorAll('.product-card');
-        productCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.style.animation = 'float 6s ease-in-out infinite';
-        });
-
-        updatePagination();
-
-        // Debug mobile (optionnel) : tester si le bouton mobile fonctionne
-        const mobileForm = document.querySelector('.mobile-cta form');
-        if (mobileForm) {
-            mobileForm.addEventListener('submit', function () {
-                console.log("Formulaire mobile soumis !");
-            });
-        }
-    });
 </script>
 {% endblock %}
