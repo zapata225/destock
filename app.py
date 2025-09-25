@@ -2141,6 +2141,17 @@ submit_to_google(new_post_url)
 def destockageprofessionnel():
     return render_template('destockage-professionnel.html')
 
+
+
+@app.route('/blog/grossiste-alimentaire-bruxelles')
+def grossiste_alimentaire_bruxelles():
+    return render_template('blog/grossiste-alimentaire-bruxelles.html')
+
+@app.route('/blog/magasins-alimentation-bio-traditionnel')
+def magasins_alimentation_bio_traditionnel():
+    return render_template('blog/magasins-alimentation-bio-traditionnel.html')
+
+
 @app.route('/destockage-en-gros')
 def destockage_gros_fr():
     return render_template('destockage_gros_fr.html',
