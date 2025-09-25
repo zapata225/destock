@@ -2893,7 +2893,7 @@ def blog_produits_italiens():
         description="Découvrez les meilleurs produits italiens : pâtes, fromages, charcuterie, vins et spécialités importées."
     )
 
-@app.route('/blog/destockage-alimentaire-belgique')
+@app.route('/blog/destockage-alimentaire-belgique-092025')
 def destockage_belgique_2025():
     return render_template(
         'blog/destockage-belgique.html',
@@ -2901,7 +2901,7 @@ def destockage_belgique_2025():
         description="Profitez du déstockage alimentaire en Belgique en 2025 : produits à prix réduits, anti-gaspillage et promotions."
     )
 
-@app.route('/blog/achat-ruinart')
+@app.route('/blog/achat-ruinart-092025')
 def achat_ruinart():
     return render_template(
         'blog/achat-ruinart.html',
