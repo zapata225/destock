@@ -2976,9 +2976,9 @@ def dom_perignon():
 @app.route('/blog/grossistes-boissons-2023')
 def grossistes_boissons_2023():
     return render_template(
-        'blog/grossistes-boissons-2023.html',
-        title="Grossistes Boissons 2023 | Fournisseurs & Prix",
-        description="Trouvez les meilleurs grossistes en boissons en 2023 : alcools, sodas et eaux à prix de gros."
+        'blog/grossistes-boissons-2025.html',
+        title="Grossistes Boissons 2025 | Fournisseurs & Prix",
+        description="Trouvez les meilleurs grossistes en boissons en 2025 : alcools, sodas et eaux à prix de gros."
     )
 
 @app.route('/blog/dom-perignon-champagne-luxe')
