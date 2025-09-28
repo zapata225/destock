@@ -3944,6 +3944,13 @@ def register():
     return render_template('register.html')
 
 
+@app.route('/blog/livraison-champagne')
+def livraison_champagne():
+    return render_template(
+        'blog/livraison-champagne.html',
+        title="Livraison de Champagne à Domicile - Guide 2025",
+        description="Commandez du champagne avec livraison rapide en 2025. Sélection des meilleurs sites, frais, délais et conseils pour une réception sans souci."
+    )
 
 
 @app.route('/admin/delete-user/<username>', methods=['POST'])
