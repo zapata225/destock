@@ -4425,7 +4425,7 @@ def sitemap():
         '/blog/achat-gros-guide',
         '/blog/hard-discount',
         '/blog/guide-achat-alcool-particuliers',
-        '/blog/ruinart-rose-prix','/blog/ruinart-rose-prix',
+        '/blog/ruinart-rose-prix',
         '/blog/dom-perignon-2012-store',
         '/blog/prix-ruinart-brut',
         '/blog/grossiste-lot-destockage',
