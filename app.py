@@ -2958,7 +2958,7 @@ def nutella_recettes():
     )
 
 @app.route('/blog/champagne-ruinart')
-def champagne_ruinart():
+def champagne_ruinart_store():
     return render_template(
         'blog/champagne-ruinart.html',
         title="Champagne Ruinart | Prix & Dégustation",
@@ -3377,6 +3377,152 @@ def destockage():
 @app.route('/es/destockage-alimentaire-particulier99')
 def destockage_es():
     return render_template('destockage_es9.html')
+
+
+@app.route('/blog/achat-gros-guide')
+def achat_gros_guide():
+    return render_template(
+        'blog/achat-gros-guide.html',
+        title="Achat en Gros : Guide Complet pour 2025",
+        description="Apprenez comment acheter en gros efficacement en 2025. Astuces, fournisseurs, bons plans et économies pour particuliers et professionnels."
+    )
+
+@app.route('/blog/hard-discount')
+def hard_discount():
+    return render_template(
+        'blog/hard-discount.html',
+        title="Hard Discount : Le Guide 2025 pour Consommer Malin",
+        description="Découvrez le fonctionnement du hard discount en 2025. Enseignes, produits, économies, avantages et pièges à éviter."
+    )
+
+@app.route('/blog/guide-achat-alcool-particuliers')
+def guide_achat_alcool_particuliers():
+    return render_template(
+        'blog/guide-achat-alcool-particuliers.html',
+        title="Guide d’Achat d’Alcool pour Particuliers - 2025",
+        description="Quels alcools acheter en tant que particulier ? Guide 2025 des meilleurs choix, prix, législation et conseils pratiques."
+    )
+
+@app.route('/blog/ruinart-rose-prix')
+def ruinart_rose_prix():
+    return render_template(
+        'blog/ruinart-rose-prix.html',
+        title="Prix Ruinart Rosé 2025 : Comparatif et Bons Plans",
+        description="Découvrez les prix du champagne Ruinart Rosé en 2025. Comparatif, offres spéciales et astuces pour acheter au meilleur tarif."
+    )
+
+@app.route('/blog/dom-perignon-2012-store')
+def dom_perignon_2012_store():
+    return render_template(
+        'blog/dom-perignon-2012-store.html',
+        title="Dom Pérignon 2012 en Vente : Prix et Distributeurs",
+        description="Où acheter le Dom Pérignon 2012 en 2025 ? Guide des prix, magasins en ligne, et conseils pour trouver la meilleure offre."
+    )
+
+@app.route('/blog/prix-ruinart-brut')
+def prix_ruinart_brut():
+    return render_template(
+        'blog/prix-ruinart-brut.html',
+        title="Prix Champagne Ruinart Brut 2025 - Comparatif Complet",
+        description="Quel est le prix du Ruinart Brut en 2025 ? Consultez notre comparatif détaillé, bons plans et astuces d’achat."
+    )
+
+@app.route('/blog/grossiste-lot-destockage')
+def grossiste_lot_destockage():
+    return render_template(
+        'blog/grossiste-lot-destockage.html',
+        title="Grossiste en Lots & Déstockage : Guide 2025",
+        description="Trouvez des grossistes en lots de déstockage fiables en 2025. Conseils, adresses, types de produits et marges potentielles."
+    )
+
+@app.route('/blog/grossiste-alimentaire-belgique-store')
+def grossiste_alimentaire_belgique_store():
+    return render_template(
+        'blog/grossiste-alimentaire-belgique.html',
+        title="Grossistes Alimentaires en Belgique - Top 2025",
+        description="Les meilleurs grossistes alimentaires en Belgique en 2025. Fournisseurs, tarifs, conditions et contacts pour pros et particuliers."
+    )
+
+@app.route('/blog/prix-champagne-2025')
+def prix_champagne_2025():
+    return render_template(
+        'blog/prix-champagne-2025.html',
+        title="Prix du Champagne en 2025 : Tendances et Comparatifs",
+        description="Évolution des prix du champagne en 2025. Marques, promotions, conseils d’achat et anticipation des hausses."
+    )
+
+@app.route('/blog/discount-alimentaire-pres-de-moi')
+def discount_alimentaire_pres_de_moi():
+    return render_template(
+        'blog/discount-alimentaire-pres-de-moi.html',
+        title="Magasins Discount Alimentaire près de Chez Moi - 2025",
+        description="Trouvez les meilleurs magasins discount alimentaire proches de chez vous en 2025. Localisation, prix, avis clients."
+    )
+
+@app.route('/blog/promo-alimentaire-2025')
+def promo_alimentaire_2025():
+    return render_template(
+        'blog/promo-alimentaire-2025.html',
+        title="Promotions Alimentaires 2025 : Les Meilleures Offres",
+        description="Découvrez les meilleures promos alimentaires en 2025. Bons plans, déstockage, coupons et applications utiles."
+    )
+
+@app.route('/blog/champagne-ruinart-blanc-de-blancs')
+def champagne_ruinart():
+    return render_template(
+        'blog/champagne-ruinart-blanc-de-blancs.html',
+        title="Champagne Ruinart Blanc de Blancs : Dégustation & Infos 2025",
+        description="Tout savoir sur le Ruinart Blanc de Blancs : goût, prix, accords mets-vins et offres en 2025."
+    )
+
+@app.route('/blog/ruinart-promotion-destockage')
+def ruinart_promotion_destockage():
+    return render_template(
+        'blog/ruinart-promotion-destockage.html',
+        title="Promotion & Déstockage Ruinart - Offres 2025",
+        description="Offres exceptionnelles sur le champagne Ruinart en 2025. Promotions, ventes privées et déstockage à prix mini."
+    )
+
+@app.route('/blog/magasin-anti-gaspi')
+def magasin_anti_gaspi():
+    return render_template(
+        'blog/magasin-anti-gaspi.html',
+        title="Magasins Anti-Gaspi : Adresses et Bons Plans 2025",
+        description="Consommez malin grâce aux magasins anti-gaspillage en 2025. Économies, écologie, circuits courts et bonnes adresses."
+    )
+
+@app.route('/blog/champagne-pas-cher-store')
+def champagne_pas_cher_store():
+    return render_template(
+        'blog/champagne-pas-cher-store.html',
+        title="Champagne Pas Cher en Ligne - Guide 2025",
+        description="Où acheter du champagne pas cher en 2025 ? Top boutiques, comparatif des prix et conseils pour faire de bonnes affaires."
+    )
+
+@app.route('/blog/supermarche-discount-guide')
+def supermarche_discount_guide():
+    return render_template(
+        'blog/supermarche-discount-guide.html',
+        title="Supermarchés Discount : Le Guide 2025 Complet",
+        description="Découvrez les meilleurs supermarchés discount en 2025. Enseignes, offres, qualité, avis et conseils pratiques."
+    )
+
+@app.route('/blog/grossiste-alimentation-halal-store')
+def grossiste_alimentation_halal_store():
+    return render_template(
+        'blog/grossiste-alimentation-halal.html',
+        title="Grossistes en Alimentation Halal 2025 - Annuaire Pro",
+        description="Les meilleurs grossistes halal en 2025. Viande, produits secs, certifications, livraisons et conditions d'achat."
+    )
+
+@app.route('/blog/champagne-ruinart-blanc-de-blanc-prix')
+def champagne_ruinart_blanc_de_blanc_prix():
+    return render_template(
+        'blog/champagne-ruinart-blanc-de-blanc-prix.html',
+        title="Prix Champagne Ruinart Blanc de Blancs 2025 - Guide Complet",
+        description="Découvrez le prix actuel du champagne Ruinart Blanc de Blancs en 2025. Comparatif, promos et conseils d'achat pour particuliers et professionnels."
+    )
+
     
 @app.route('/grossiste-boisson')
 def grossiste_boisson():
