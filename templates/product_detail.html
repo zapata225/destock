@@ -93,6 +93,7 @@
         align-items: center;
         justify-content: center;
         cursor: zoom-in;
+        overflow: hidden;
     }
 
     .main-image {
@@ -101,6 +102,11 @@
         object-fit: contain;
         transition: transform 0.5s ease;
         will-change: transform;
+    }
+
+    .main-image.zoomed {
+        cursor: zoom-out;
+        transform: scale(2);
     }
 
     .thumbnail-container {
@@ -217,6 +223,21 @@
 
     .meta-item i {
         color: var(--primary);
+    }
+
+    /* ===== POPULARITY BADGE ===== */
+    .popularity-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(247, 37, 133, 0.1);
+        color: var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(247, 37, 133, 0.2);
     }
 
     /* ===== DESCRIPTION SECTION ===== */
@@ -1075,6 +1096,12 @@
     <div class="product-info">
         <h1 class="product-title">{{ product.name }}</h1>
         
+        <!-- Badge de popularité -->
+        <div class="popularity-badge">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span id="viewer-count">{{ range(5, 15)|random }} personnes consultent ce produit</span>
+        </div>
+        
         <div class="product-price-container">
             <div class="product-price" aria-label="Prix actuel">{{ "%.2f"|format(product.price) }}€</div>
             {% if product.original_price %}
@@ -1659,6 +1686,20 @@
         }
     }
 
+    // --- Zoom de l'image principale ---
+    function toggleImageZoom() {
+        const mainImg = document.getElementById('main-image');
+        if (!mainImg) return;
+        
+        mainImg.classList.toggle('zoomed');
+        const container = document.querySelector('.main-image-container');
+        if (mainImg.classList.contains('zoomed')) {
+            container.style.cursor = 'zoom-out';
+        } else {
+            container.style.cursor = 'zoom-in';
+        }
+    }
+
     // --- Affichage des détails complets ---
     function toggleDetails() {
         try {
@@ -1830,6 +1871,22 @@
         }
     }
 
+    // --- Simuler le nombre de personnes consultantes ---
+    function updateViewerCount() {
+        const viewerCountElement = document.getElementById('viewer-count');
+        if (!viewerCountElement) return;
+        
+        // Générer un nombre aléatoire entre 5 et 15
+        const count = Math.floor(Math.random() * 11) + 5;
+        viewerCountElement.textContent = `${count} personnes consultent ce produit`;
+        
+        // Mettre à jour toutes les 30 secondes pour simuler l'activité
+        setInterval(() => {
+            const newCount = Math.floor(Math.random() * 11) + 5;
+            viewerCountElement.textContent = `${newCount} personnes consultent ce produit`;
+        }, 30000);
+    }
+
     // --- Initialisation au chargement ---
     document.addEventListener('DOMContentLoaded', function() {
         try {
@@ -1852,39 +1909,48 @@
                 }, 1500);
             });
 
-        // Zoom image (déjà bien)
-        const mainImageContainer = document.querySelector('.main-image-container');
-        const mainImage = document.getElementById('main-image');
-        if (mainImageContainer && mainImage) {
-            mainImageContainer.addEventListener('mousemove', e => {
-                const { left, top, width, height } = mainImageContainer.getBoundingClientRect();
-                const x = (e.clientX - left) / width * 100;
-                const y = (e.clientY - top) / height * 100;
-                mainImage.style.transformOrigin = `${x}% ${y}%`;
-            });
-            mainImageContainer.addEventListener('mouseenter', () => {
-                mainImage.style.transform = 'scale(1.05)';
-            });
-            mainImageContainer.addEventListener('mouseleave', () => {
-                mainImage.style.transform = 'scale(1)';
-            });
-        }
+            // Zoom image
+            const mainImageContainer = document.querySelector('.main-image-container');
+            const mainImage = document.getElementById('main-image');
+            if (mainImageContainer && mainImage) {
+                mainImageContainer.addEventListener('click', toggleImageZoom);
+            }
 
-        // Animation produit similaire
-        const productCards = document.querySelectorAll('.product-card');
-        productCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.style.animation = 'float 6s ease-in-out infinite';
-        });
-
-        updatePagination();
-
-        // Debug mobile (optionnel) : tester si le bouton mobile fonctionne
-        const mobileForm = document.querySelector('.mobile-cta form');
-        if (mobileForm) {
-            mobileForm.addEventListener('submit', function () {
-                console.log("Formulaire mobile soumis !");
+            // Animation produit similaire
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'float 6s ease-in-out infinite';
             });
+
+            // Initialiser les fonctionnalités
+            initializeReviewForm();
+            initializeProofModals();
+            updatePagination();
+            updateViewerCount();
+
+            // Gestion améliorée du formulaire mobile
+            const mobileForm = document.querySelector('.mobile-cta form');
+            if (mobileForm) {
+                mobileForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Empêcher les soumissions multiples
+                    const submitBtn = this.querySelector('.btn-add-to-cart');
+                    if (submitBtn.disabled) return;
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ajout en cours...';
+                    
+                    // Simuler l'ajout au panier
+                    setTimeout(() => {
+                        // Soumettre le formulaire après un délai pour montrer l'effet
+                        this.submit();
+                    }, 1000);
+                });
+            }
+
+        } catch (error) {
+            console.error('Error during initialization:', error);
         }
     });
 </script>
