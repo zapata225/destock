@@ -4478,6 +4478,13 @@ def sitemap():
         '/supermarche_proximite',
         '/supermarche-ouvert-24-7',
         '/recettes-nutella',
+        "/blog/vodka-de-luxe",
+        "/blog/authenticite-belvedere-champagne-petit-prix",
+        "/blog/amaretto-disaronno",
+        "/blog/ruinart-rose-prix-2025",
+        "/blog/achat-champagne-gros",
+        "/blog/supermarches-discount-france",
+        "/blog/grossistes-alimentaires-lyon",
         '/magasin-bio-local',
         '/grossiste-alimentaire-belgique',  # Ce nom est dupliqué (voir remarque plus bas)
         '/meilleurs-fournisseurs-aubervilliers-2025',
