@@ -2813,6 +2813,76 @@ def halal_guide():
         description="Guide complet des grossistes halal : alimentation certifiée, viandes, boissons et produits en gros pour particuliers et professionnels."
     )
 
+@app.route('/blog/vodka-de-luxe')
+def vodka_de_luxe():
+    seo = {
+        "title": "Vodka de Luxe – Découvrez les meilleures marques premium",
+        "description": "Explorez notre guide sur la vodka de luxe : conseils, sélections et prix pour amateurs de spiritueux haut de gamme.",
+        "keywords": "vodka de luxe, vodka premium, meilleures vodkas, spiritueux haut de gamme",
+    }
+    return render_template('blog/vodka-de-luxe.html', seo=seo)
+
+
+@app.route('/blog/authenticite-belvedere-champagne-petit-prix')
+def authenticite_belvedere_champagne():
+    seo = {
+        "title": "Authenticité Belvedere et Champagne à Petit Prix",
+        "description": "Découvrez comment profiter de l’authenticité du Belvedere et des champagnes à prix abordables.",
+        "keywords": "belvedere, champagne pas cher, champagne authentique, spiritueux discount",
+    }
+    return render_template('blog/authenticite-belvedere-champagne-petit-prix.html', seo=seo)
+
+
+@app.route('/blog/amaretto-disaronno')
+def amaretto_disaronno():
+    seo = {
+        "title": "Amaretto Disaronno – Liqueur italienne iconique",
+        "description": "Plongez dans l’univers de l’Amaretto Disaronno : histoire, saveur unique et accords parfaits.",
+        "keywords": "amaretto, disaronno, liqueur italienne, digestif",
+    }
+    return render_template('blog/amaretto-disaronno.html', seo=seo)
+
+
+@app.route('/blog/ruinart-rose-prix-2025')
+def ruinart_rose_prix_2025():
+    seo = {
+        "title": "Prix Ruinart Rosé 2025 – Champagne d’exception",
+        "description": "Consultez notre analyse du prix du champagne Ruinart Rosé en 2025 et trouvez les meilleures offres.",
+        "keywords": "ruinart rosé, champagne 2025, prix ruinart, champagne de luxe",
+    }
+    return render_template('blog/ruinart-rose-prix-2025.html', seo=seo)
+
+
+@app.route('/blog/achat-champagne-gros')
+def achat_champagne_gros():
+    seo = {
+        "title": "Achat de Champagne en Gros – Meilleures opportunités",
+        "description": "Guide complet pour acheter du champagne en gros à prix compétitifs pour événements ou revente.",
+        "keywords": "champagne en gros, achat champagne, grossiste champagne, champagne pas cher",
+    }
+    return render_template('blog/achat-champagne-gros.html', seo=seo)
+
+
+@app.route('/blog/supermarches-discount-france')
+def supermarches_discount_france():
+    seo = {
+        "title": "Supermarchés Discount en France – Bons plans alimentaires",
+        "description": "Découvrez les supermarchés discount en France et profitez de nos astuces pour faire des économies.",
+        "keywords": "supermarché discount, courses pas cher, alimentation discount, bons plans supermarché",
+    }
+    return render_template('blog/supermarches-discount-france.html', seo=seo)
+
+
+@app.route('/blog/grossistes-alimentaires-lyon')
+def grossistes_alimentaires_lyon():
+    seo = {
+        "title": "Grossistes Alimentaires à Lyon – Fournisseurs professionnels",
+        "description": "Trouvez les meilleurs grossistes alimentaires à Lyon pour la restauration et la distribution.",
+        "keywords": "grossiste alimentaire Lyon, fournisseurs restauration, achat en gros Lyon",
+    }
+    return render_template('blog/grossistes-alimentaires-lyon.html', seo=seo)
+
+    
 @app.route('/grossiste-halal25')
 def halal_guide25():
     return render_template(
