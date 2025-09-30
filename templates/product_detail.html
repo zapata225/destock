@@ -970,6 +970,12 @@
         box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         display: none;
         z-index: 9999;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-cta.visible {
+        transform: translateY(0);
     }
 
     .mobile-cta form {
@@ -1377,10 +1383,10 @@
     <section class="reviews-section" role="region" aria-label="Avis clients">
         <div class="reviews-header">
             <h2><i class="fas fa-star" aria-hidden="true"></i> Avis clients 
-                {% if product.id == 1 %}(24)
-                {% elif product.id == 4 %}(18)
-                {% elif product.id == 100 %}(32)
-                {% else %}(15){% endif %}
+                {% if product.id == 1 %}(48)
+                {% elif product.id == 4 %}(36)
+                {% elif product.id == 100 %}(64)
+                {% else %}(30){% endif %}
             </h2>
             <button id="btn-open-review-form" class="btn-review" aria-label="Ouvrir le formulaire d'avis" aria-expanded="false" aria-controls="reviewForm">
                 <i class="fas fa-pen" aria-hidden="true"></i> Donner votre avis
@@ -1431,6 +1437,66 @@
         <!-- Liste des avis -->
         <div class="reviews-list" id="reviewsList" role="list">
             {% if product.id == 1 %}
+            <!-- Avis récents pour produit 1 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">
+                        Emma L.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 12/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                </div>
+                <h3>Excellent rapport qualité-prix</h3>
+                <p>"Produit de très bonne qualité, livraison rapide et emballage soigné. Je recommande vivement ce vendeur sérieux."</p>
+            </div>
+
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">Nicolas B.</div>
+                    <div class="review-date">Acheté le 08/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                </div>
+                <h3>Très satisfait</h3>
+                <p>"Commande reçue rapidement, produit conforme à la description. Un petit bémol sur l'emballage mais rien de grave."</p>
+            </div>
+
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">
+                        Camille R.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 05/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                </div>
+                <h3>Parfait pour les fêtes</h3>
+                <p>"J'ai commandé pour le réveillon, tous mes invités ont adoré. Qualité premium et service impeccable."</p>
+            </div>
+
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">Antoine M.</div>
+                    <div class="review-date">Acheté le 28/12/2023</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
+                </div>
+                <h3>Bon produit</h3>
+                <p>"Produit correct, livraison dans les temps. Rien d'exceptionnel mais bon rapport qualité-prix."</p>
+            </div>
+
+            <!-- Anciens avis existants -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
@@ -1448,31 +1514,38 @@
                 <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé. Je recommande vivement ce produit et ce vendeur."</p>
             </div>
 
+            {% elif product.id == 4 %}
+            <!-- Avis récents pour produit 4 -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
-                    <div class="review-author">Marie L.</div>
-                    <div class="review-date">Acheté le 10/06/2023</div>
+                    <div class="review-author">
+                        Laura P.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 15/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                </div>
+                <h3>Champagne d'exception</h3>
+                <p>"Bulles fines et délicates, arômes complexes. Parfait pour célébrer une occasion spéciale. Livraison soignée."</p>
+            </div>
+
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">Marc D.</div>
+                    <div class="review-date">Acheté le 10/01/2024</div>
                 </div>
                 <div class="review-stars">
                     <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
                 </div>
-                <h3>Très satisfaite</h3>
-                <p>"Très satisfaite de mon achat, emballage professionnel. Un peu cher mais qualité au rendez-vous. Le goût est excellent, je rachèterai sans hésiter."</p>
+                <h3>Très bon champagne</h3>
+                <p>"Qualité au rendez-vous, emballage sécurisé. Un peu cher mais justifié par la qualité. Je recommande."</p>
             </div>
 
-            <div class="review-card" role="listitem">
-                <div class="review-header">
-                    <div class="review-author">Claude R.</div>
-                    <div class="review-date">Acheté le 01/06/2023</div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
-                </div>
-                <h3>Bon produit</h3>
-                <p>"Bon produit, mais j'aurais aimé plus de diversité dans les saveurs proposées. Livraison rapide et efficace. Emballage soigné."</p>
-            </div>
-
-            {% elif product.id == 4 %}
+            <!-- Anciens avis existants -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
@@ -1490,19 +1563,38 @@
                 <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon. Tous nos invités ont été impressionnés par la qualité."</p>
             </div>
 
+            {% elif product.id == 100 %}
+            <!-- Avis récents pour produit 100 -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
-                    <div class="review-author">Élodie T.</div>
-                    <div class="review-date">Acheté le 18/11/2023</div>
+                    <div class="review-author">
+                        Julien T.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 18/01/2024</div>
                 </div>
                 <div class="review-stars">
                     <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h3>Délicieux</h3>
-                <p>"Un champagne vraiment délicieux, j'ai été ravie de la qualité. Parfait pour célébrer avec des amis. Le rapport qualité/prix est excellent."</p>
+                <h3>Commande professionnelle</h3>
+                <p>"Commande pour mon restaurant, tous les produits sont arrivés en parfait état. Qualité constante et service fiable."</p>
             </div>
 
-            {% elif product.id == 100 %}
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">Sarah K.</div>
+                    <div class="review-date">Acheté le 12/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                </div>
+                <h3>Très bonne affaire</h3>
+                <p>"Excellent rapport qualité-prix pour une commande en gros. Livraison rapide et emballage renforcé."</p>
+            </div>
+
+            <!-- Anciens avis existants -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Thomas B.</div>
@@ -1515,36 +1607,55 @@
                 <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison. Emballage très professionnel et sécurisé."</p>
             </div>
 
+            {% else %}
+            <!-- Avis récents pour produits génériques -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">
-                        Lucie F.
+                        Alexandre M.
                         <span class="verified-badge">
                             <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
                         </span>
                     </div>
-                    <div class="review-date">Acheté le 01/05/2023</div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                </div>
-                <h3>Très satisfaite</h3>
-                <p>"Très satisfait de ma commande. Livraison rapide et produits bien protégés, mais un peu plus de choix aurait été parfait. Je recommande."</p>
-            </div>
-
-            <div class="review-card" role="listitem">
-                <div class="review-header">
-                    <div class="review-author">Clara D.</div>
-                    <div class="review-date">Acheté le 22/04/2023</div>
+                    <div class="review-date">Acheté le 20/01/2024</div>
                 </div>
                 <div class="review-stars">
                     <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <h3>Parfait</h3>
-                <p>"Le produit est arrivé dans les temps et dans un état impeccable. Très bon rapport qualité/prix. Je recommande ! Service client réactif."</p>
+                <h3>Service impeccable</h3>
+                <p>"Du choix du produit à la livraison, tout s'est parfaitement déroulé. Je reviendrai sans hésiter."</p>
             </div>
 
-            {% else %}
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">Céline L.</div>
+                    <div class="review-date">Acheté le 18/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                </div>
+                <h3>Ravis de mon achat</h3>
+                <p>"Produit frais et de qualité, emballage soigné. Livraison un peu longue mais le produit en vaut la peine."</p>
+            </div>
+
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-author">
+                        David P.
+                        <span class="verified-badge">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                        </span>
+                    </div>
+                    <div class="review-date">Acheté le 15/01/2024</div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
+                </div>
+                <h3>Correct</h3>
+                <p>"Produit correct pour le prix, rien d'exceptionnel. Livraison dans les délais annoncés."</p>
+            </div>
+
+            <!-- Anciens avis existants -->
             <div class="review-card" role="listitem">
                 <div class="review-header">
                     <div class="review-author">Pierre G.</div>
@@ -1557,63 +1668,6 @@
                 <p>"Très bonne qualité pour le prix. L'emballage était solide et le produit frais à la réception. Livraison un peu longue mais acceptable."</p>
             </div>
 
-            <div class="review-card" role="listitem">
-                <div class="review-header">
-                    <div class="review-author">
-                        Anne S.
-                        <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
-                        </span>
-                    </div>
-                    <div class="review-date">Acheté le 10/04/2023</div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                </div>
-                <h3>Exceptionnel</h3>
-                <p>"Qualité exceptionnelle, je suis bluffé par le service. Emballage luxueux, livraison express. Parfait pour offrir à des amis ou clients."</p>
-            </div>
-
-            <div class="review-card" role="listitem">
-                <div class="review-header">
-                    <div class="review-author">Marc V.</div>
-                    <div class="review-date">Acheté le 05/04/2023</div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                </div>
-                <h3>Très bon</h3>
-                <p>"Produit très bon, correspond à la description. Livraison dans les temps. Je recommande ce vendeur sérieux. Prix un peu élevé mais justifié."</p>
-            </div>
-
-            <div class="review-card" role="listitem">
-                <div class="review-header">
-                    <div class="review-author">Julie M.</div>
-                    <div class="review-date">Acheté le 01/04/2023</div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                </div>
-                <h3>Parfaitement emballé</h3>
-                <p>"Commande reçue en parfait état, emballage professionnel ! Produit frais et de grande qualité. Service client très réactif à mes questions."</p>
-            </div>
-
-            <div class="review-card" role="listitem">
-                <div class="review-header">
-                    <div class="review-author">
-                        Paul T.
-                        <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
-                        </span>
-                    </div>
-                    <div class="review-date">Acheté le 28/03/2023</div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
-                </div>
-                <h3>Correct</h3>
-                <p>"Produit correct pour le prix. Rien d'exceptionnel mais satisfait globalement. Livraison un peu longue mais bien emballé."</p>
-            </div>
             {% endif %}
         </div>
 
@@ -1622,6 +1676,7 @@
             <a href="#" class="page-link active" data-page="1" aria-current="page">1</a>
             <a href="#" class="page-link" data-page="2">2</a>
             <a href="#" class="page-link" data-page="3">3</a>
+            <a href="#" class="page-link" data-page="4">4</a>
         </div>
     </section>
 
@@ -1665,6 +1720,35 @@
 
 {% block extra_js %}
 <script defer>
+    // --- Gestion du bouton mobile ---
+    let lastScrollTop = 0;
+    let mobileCTA = document.querySelector('.mobile-cta');
+    let isScrolling;
+
+    function handleMobileCTA() {
+        if (window.innerWidth <= 768) {
+            window.addEventListener('scroll', function() {
+                window.clearTimeout(isScrolling);
+                
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Masquer le bouton pendant le défilement
+                mobileCTA.classList.remove('visible');
+                
+                isScrolling = setTimeout(function() {
+                    // Afficher le bouton après arrêt du défilement
+                    if (scrollTop > 300) { // Seulement si on a défilé un peu
+                        mobileCTA.classList.add('visible');
+                    } else {
+                        mobileCTA.classList.remove('visible');
+                    }
+                }, 150);
+                
+                lastScrollTop = scrollTop;
+            }, false);
+        }
+    }
+
     // --- Changement d'image principale ---
     function changeMainImage(thumbnail, newSrc) {
         try {
@@ -1890,6 +1974,9 @@
     // --- Initialisation au chargement ---
     document.addEventListener('DOMContentLoaded', function() {
         try {
+            // Gestion du bouton mobile
+            handleMobileCTA();
+
             // Animation au chargement
             const elements = document.querySelectorAll('.product-gallery, .product-info');
             elements.forEach((el, index) => {
