@@ -1,0 +1,1594 @@
+{% extends "base.html" %}
+
+{% block page_title %}Recrutement DÉSTOCKAGE+® - Rejoignez notre équipe | Carrières et emplois{% endblock %}
+
+{% block meta_description %}Rejoignez DÉSTOCKAGE+®, leader du destockage alimentaire. Offres d'emploi Commercial, Logistique, Développement. Environnement dynamique, évolution rapide, avantages attractifs. Postulez en ligne ! ☎ 01 84 80 15 65{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    /* Variables globales */
+    :root {
+        --primary-blue: #2563eb;
+        --dark-blue: #1e40af;
+        --light-blue: #dbeafe;
+        --white: #ffffff;
+        --gray-light: #f3f4f6;
+        --gray-medium: #9ca3af;
+        --gray-dark: #4b5563;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.16);
+        --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        --gradient-primary: linear-gradient(135deg, #2a5bd7 0%, #1a3fa8 100%);
+        --gradient-accent: linear-gradient(90deg, #FF6B00 0%, #FF8E00 100%);
+    }
+
+    /* Styles spécifiques à la page recrutement */
+    .recruitment-page {
+        background: #f8fafc;
+        min-height: 100vh;
+    }
+
+    /* Header Recrutement */
+    .recruitment-hero {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 8rem 0 5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin-top: -80px;
+        padding-top: 12rem;
+    }
+
+    .recruitment-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+        background-size: cover;
+    }
+
+    .recruitment-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .recruitment-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .recruitment-hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Section Pourquoi Nous Rejoindre */
+    .why-join {
+        padding: 5rem 0;
+        background: var(--white);
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark-blue);
+        margin-bottom: 1rem;
+    }
+
+    .section-header p {
+        font-size: 1.2rem;
+        color: var(--gray-medium);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .benefit-card {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-light);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-blue);
+    }
+
+    .benefit-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--light-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        color: var(--primary-blue);
+    }
+
+    .benefit-card h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--dark-blue);
+    }
+
+    .benefit-card p {
+        color: var(--gray-medium);
+        line-height: 1.6;
+    }
+
+    /* Section Offres d'Emploi */
+    .job-offers {
+        padding: 5rem 0;
+        background: var(--gray-light);
+    }
+
+    .jobs-filter {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 0.75rem 1.5rem;
+        border: 2px solid var(--primary-blue);
+        background: transparent;
+        color: var(--primary-blue);
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+        background: var(--primary-blue);
+        color: var(--white);
+    }
+
+    .jobs-grid {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .job-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-light);
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .job-card:hover {
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-blue);
+        transform: translateY(-4px);
+    }
+
+    .job-info {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .job-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--dark-blue);
+        margin-bottom: 0.5rem;
+    }
+
+    .job-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .job-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray-medium);
+        font-size: 0.9rem;
+    }
+
+    .job-meta-item i {
+        color: var(--primary-blue);
+    }
+
+    .job-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .job-tag {
+        background: var(--light-blue);
+        color: var(--primary-blue);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .job-actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-primary {
+        background: var(--primary-blue);
+        color: var(--white);
+    }
+
+    .btn-primary:hover {
+        background: var(--dark-blue);
+        transform: translateY(-2px);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--primary-blue);
+        border: 2px solid var(--primary-blue);
+    }
+
+    .btn-outline:hover {
+        background: var(--primary-blue);
+        color: var(--white);
+    }
+
+    /* Modals */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 10000;
+        overflow-y: auto;
+    }
+
+    .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: var(--white);
+        border-radius: 16px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .modal-header {
+        padding: 2rem 2rem 1rem;
+        border-bottom: 1px solid var(--gray-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h2 {
+        color: var(--dark-blue);
+        font-size: 1.8rem;
+    }
+
+    .close-modal {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--gray-medium);
+        transition: all 0.3s;
+    }
+
+    .close-modal:hover {
+        color: var(--gray-dark);
+        transform: rotate(90deg);
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    /* Étapes de candidature */
+    .application-steps {
+        display: flex;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .application-steps::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gray-light);
+        z-index: 1;
+    }
+
+    .step {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        background: var(--gray-light);
+        color: var(--gray-medium);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.5rem;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    .step.active .step-number {
+        background: var(--primary-blue);
+        color: var(--white);
+    }
+
+    .step.completed .step-number {
+        background: var(--success);
+        color: var(--white);
+    }
+
+    .step-label {
+        font-size: 0.9rem;
+        color: var(--gray-medium);
+        font-weight: 500;
+    }
+
+    .step.active .step-label {
+        color: var(--primary-blue);
+        font-weight: 600;
+    }
+
+    .step-content {
+        display: none;
+    }
+
+    .step-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Formulaire de candidature */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--gray-dark);
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--gray-light);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    /* Upload CV */
+    .cv-upload-area {
+        border: 2px dashed var(--gray-light);
+        border-radius: 12px;
+        padding: 3rem 2rem;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .cv-upload-area:hover {
+        border-color: var(--primary-blue);
+        background: var(--light-blue);
+    }
+
+    .cv-upload-area.dragover {
+        border-color: var(--primary-blue);
+        background: var(--light-blue);
+        transform: scale(1.02);
+    }
+
+    .upload-icon {
+        font-size: 3rem;
+        color: var(--primary-blue);
+        margin-bottom: 1rem;
+    }
+
+    .upload-text {
+        margin-bottom: 1rem;
+    }
+
+    .upload-text strong {
+        color: var(--primary-blue);
+    }
+
+    .file-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .file-preview {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: var(--gray-light);
+        border-radius: 8px;
+        display: none;
+    }
+
+    .file-preview.active {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .file-info {
+        flex: 1;
+    }
+
+    .file-name {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .file-size {
+        color: var(--gray-medium);
+        font-size: 0.9rem;
+    }
+
+    .remove-file {
+        background: none;
+        border: none;
+        color: #ff4757;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    /* Boutons navigation */
+    .form-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray-light);
+    }
+
+    .btn-success {
+        background: var(--success);
+        color: var(--white);
+    }
+
+    .btn-success:hover {
+        background: #0da271;
+        transform: translateY(-2px);
+    }
+
+    /* Détails de poste */
+    .job-details-content {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    .job-detail-section {
+        margin-bottom: 2rem;
+    }
+
+    .job-detail-section h3 {
+        color: var(--dark-blue);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .job-detail-section h3 i {
+        color: var(--primary-blue);
+    }
+
+    .mission-list {
+        list-style: none;
+    }
+
+    .mission-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--gray-light);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .mission-list li:last-child {
+        border-bottom: none;
+    }
+
+    .mission-list li::before {
+        content: '•';
+        color: var(--primary-blue);
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .requirements-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .requirement-category h4 {
+        color: var(--dark-blue);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .requirement-list {
+        list-style: none;
+    }
+
+    .requirement-list li {
+        padding: 0.25rem 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .requirement-list li::before {
+        content: '✓';
+        color: var(--success);
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    /* Confirmation */
+    .confirmation-content {
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+
+    .confirmation-icon {
+        font-size: 4rem;
+        color: var(--success);
+        margin-bottom: 1.5rem;
+    }
+
+    .confirmation-content h3 {
+        color: var(--dark-blue);
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .confirmation-content p {
+        color: var(--gray-medium);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Section Contact Recrutement */
+    .recruitment-contact {
+        padding: 4rem 0;
+        background: var(--gradient-primary);
+        color: var(--white);
+        text-align: center;
+    }
+
+    .contact-phone {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .contact-phone a {
+        color: var(--white);
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .contact-phone a:hover {
+        color: var(--light-blue);
+        transform: scale(1.05);
+    }
+
+    .contact-text {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .contact-item i {
+        color: #FFD700;
+        font-size: 1.3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .recruitment-hero {
+            padding: 6rem 0 3rem;
+            margin-top: -60px;
+            padding-top: 10rem;
+        }
+
+        .recruitment-hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .recruitment-hero p {
+            font-size: 1.1rem;
+        }
+
+        .hero-stats {
+            gap: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+        }
+
+        .modal-content {
+            width: 95%;
+            margin: 1rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .requirements-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .job-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .job-actions .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .contact-phone {
+            font-size: 2rem;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .recruitment-hero {
+            padding: 5rem 0 2rem;
+            padding-top: 8rem;
+        }
+
+        .recruitment-hero h1 {
+            font-size: 2rem;
+        }
+
+        .benefits-grid,
+        .jobs-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .jobs-filter {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .filter-btn {
+            width: 200px;
+        }
+
+        .contact-phone {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="recruitment-page">
+    <!-- Header Recrutement -->
+    <section class="recruitment-hero">
+        <div class="container">
+            <div class="recruitment-hero-content">
+                <h1>Rejoignez l'Aventure DÉSTOCKAGE+®</h1>
+                <p>Transformez votre carrière dans l'alimentaire et participez à notre croissance exceptionnelle</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Collaborateurs</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Taux de satisfaction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25</span>
+                        <span class="stat-label">Postes ouverts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Pourquoi Nous Rejoindre -->
+    <section class="why-join">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pourquoi Choisir DÉSTOCKAGE+® ?</h2>
+                <p>Découvrez les avantages uniques de travailler dans une entreprise en pleine croissance</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Croissance Exceptionnelle</h3>
+                    <p>Rejoignez une entreprise qui triple son chiffre d'affaires chaque année avec des perspectives d'évolution rapides.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Culture d'Équipe</h3>
+                    <p>Une ambiance conviviale où l'entraide et la collaboration sont au cœur de notre succès collectif.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Formation Continue</h3>
+                    <p>Programmes de formation réguliers pour développer vos compétences et évoluer professionnellement.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Rémunération Attractive</h3>
+                    <p>Package salarial compétitif avec variable intéressant et primes de performance.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Télétravail Flexible</h3>
+                    <p>Organisation hybride permettant de concilier vie professionnelle et personnelle.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Bien-être au Travail</h3>
+                    <p>Environnement de travail moderne avec espaces détente et activités team-building régulières.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Offres d'Emploi -->
+    <section class="job-offers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Offres d'Emploi</h2>
+                <p>Découvrez les opportunités de carrière qui s'offrent à vous</p>
+            </div>
+
+            <div class="jobs-filter">
+                <button class="filter-btn active">Tous les postes</button>
+                <button class="filter-btn">Commercial</button>
+                <button class="filter-btn">Logistique</button>
+                <button class="filter-btn">Marketing</button>
+                <button class="filter-btn">Informatique</button>
+            </div>
+
+            <div class="jobs-grid">
+                <!-- Offre 1 -->
+                <div class="job-card">
+                    <div class="job-info">
+                        <h3 class="job-title">Commercial B2B - Secteur Alimentaire</h3>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Île-de-France</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>CDI</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Temps plein</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Publiée il y a 2 jours</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Senior</span>
+                            <span class="job-tag">Variable attractif</span>
+                            <span class="job-tag">Véhicule de fonction</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn btn-primary" onclick="openApplicationModal('Commercial B2B')">
+                            <i class="fas fa-paper-plane"></i>
+                            Postuler
+                        </button>
+                        <button class="btn btn-outline" onclick="openJobDetails('Commercial B2B')">
+                            <i class="fas fa-info-circle"></i>
+                            Détails
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Offre 2 -->
+                <div class="job-card">
+                    <div class="job-info">
+                        <h3 class="job-title">Responsable Logistique</h3>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Lyon</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>CDI</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Temps plein</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Publiée il y a 5 jours</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Manager</span>
+                            <span class="job-tag">Optimisation</span>
+                            <span class="job-tag">Supply Chain</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn btn-primary" onclick="openApplicationModal('Responsable Logistique')">
+                            <i class="fas fa-paper-plane"></i>
+                            Postuler
+                        </button>
+                        <button class="btn btn-outline" onclick="openJobDetails('Responsable Logistique')">
+                            <i class="fas fa-info-circle"></i>
+                            Détails
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Offre 3 -->
+                <div class="job-card">
+                    <div class="job-info">
+                        <h3 class="job-title">Développeur Full Stack</h3>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Télétravail/France</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>CDI</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Temps plein</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Publiée il y a 1 semaine</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Python/JS</span>
+                            <span class="job-tag">E-commerce</span>
+                            <span class="job-tag">Remote friendly</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn btn-primary" onclick="openApplicationModal('Développeur Full Stack')">
+                            <i class="fas fa-paper-plane"></i>
+                            Postuler
+                        </button>
+                        <button class="btn btn-outline" onclick="openJobDetails('Développeur Full Stack')">
+                            <i class="fas fa-info-circle"></i>
+                            Détails
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact Recrutement -->
+    <section class="recruitment-contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Une question ? Contactez-nous</h2>
+                <p style="color: rgba(255,255,255,0.9);">Notre équipe RH est à votre écoute pour toute information</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Téléphone RH</span>
+                </div>
+                <span class="contact-phone">
+                    <a href="tel:0184801565">☎ 01 84 80 15 65</a>
+                </span>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>rh@destockageplus.fr</span>
+                </div>
+            </div>
+            
+            <p class="contact-text">
+                Du lundi au vendredi, de 9h à 18h<br>
+                Réponse sous 24h pour vos candidatures
+            </p>
+        </div>
+    </section>
+</div>
+
+<!-- Modal Candidature -->
+<div id="applicationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="applicationJobTitle">Postuler à ce poste</h2>
+            <button class="close-modal" onclick="closeApplicationModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="application-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Informations</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">CV & Lettre</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Confirmation</div>
+                </div>
+            </div>
+
+            <!-- Étape 1: Informations personnelles -->
+            <div id="step1" class="step-content active">
+                <form id="personalInfoForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">Nom *</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="linkedin">Profil LinkedIn (optionnel)</label>
+                        <input type="url" id="linkedin" class="form-control" placeholder="https://linkedin.com/in/votre-profil">
+                    </div>
+                </form>
+                <div class="form-navigation">
+                    <div></div>
+                    <button class="btn btn-primary" onclick="nextStep(2)">
+                        Suivant <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Étape 2: CV et lettre de motivation -->
+            <div id="step2" class="step-content">
+                <div class="form-group">
+                    <label class="form-label">Télécharger votre CV *</label>
+                    <div class="cv-upload-area" id="cvUploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="upload-text">
+                            <strong>Cliquez pour parcourir</strong> ou glissez-déposez votre CV
+                        </div>
+                        <div class="upload-hint">
+                            Formats acceptés: PDF, DOC, DOCX (max. 5MB)
+                        </div>
+                        <input type="file" id="cvFile" class="file-input" accept=".pdf,.doc,.docx">
+                    </div>
+                    <div id="cvPreview" class="file-preview">
+                        <div class="file-info">
+                            <div class="file-name" id="cvFileName">Mon_CV.pdf</div>
+                            <div class="file-size" id="cvFileSize">2.4 MB</div>
+                        </div>
+                        <button class="remove-file" onclick="removeCV()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="coverLetter">Lettre de motivation (optionnelle)</label>
+                    <textarea id="coverLetter" class="form-control" rows="6" placeholder="Expliquez-nous pourquoi vous êtes fait pour ce poste..."></textarea>
+                </div>
+
+                <div class="form-navigation">
+                    <button class="btn btn-outline" onclick="prevStep(1)">
+                        <i class="fas fa-arrow-left"></i> Précédent
+                    </button>
+                    <button class="btn btn-primary" onclick="submitApplication()">
+                        <i class="fas fa-paper-plane"></i> Envoyer ma candidature
+                    </button>
+                </div>
+            </div>
+
+            <!-- Étape 3: Confirmation -->
+            <div id="step3" class="step-content">
+                <div class="confirmation-content">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Candidature envoyée !</h3>
+                    <p>Nous avons bien reçu votre candidature pour le poste de <strong id="confirmedJobTitle">Commercial B2B</strong>.</p>
+                    <p>Notre équipe RH va étudier votre profil et vous recontactera sous 48 heures.</p>
+                    <div class="form-navigation">
+                        <button class="btn btn-success" onclick="closeApplicationModal()">
+                            <i class="fas fa-check"></i> Parfait !
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Détails du poste -->
+<div id="jobDetailsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="detailsJobTitle">Détails du poste</h2>
+            <button class="close-modal" onclick="closeJobDetailsModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body job-details-content">
+            <div id="jobDetailsContent">
+                <!-- Le contenu sera injecté dynamiquement -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Données des postes
+    const jobDetails = {
+        'Commercial B2B': {
+            missions: [
+                "Prospecter et développer un portefeuille clients dans le secteur alimentaire",
+                "Négocier et conclure des contrats avec les grandes et moyennes surfaces",
+                "Analyser les tendances du marché et adapter la stratégie commerciale",
+                "Participer aux salons professionnels et événements sectoriels",
+                "Collaborer avec l'équipe marketing pour optimiser les outils commerciaux",
+                "Suivre et reporting des indicateurs de performance commerciaux"
+            ],
+            profil: [
+                "BAC+3/5 en commerce ou équivalent",
+                "Minimum 5 ans d'expérience en vente B2B alimentaire",
+                "Excellente maîtrise des techniques de négociation",
+                "Capacité à manager une équipe de commerciaux",
+                "Maîtrise des outils CRM et suite Office"
+            ],
+            avantages: [
+                "Salaire fixe attractif + variable illimité",
+                "Véhicule de fonction + carte essence",
+                "Télétravail 2 jours/semaine",
+                "Mutuelle d'entreprise prise en charge à 100%",
+                "Formations certifiantes régulières",
+                "Évolution rapide vers un poste de direction"
+            ],
+            competences: [
+                "Force de proposition commerciale",
+                "Résistance au stress",
+                "Autonomie et prise d'initiative",
+                "Esprit d'équipe et leadership",
+                "Maîtrise de l'anglais professionnel"
+            ]
+        },
+        'Responsable Logistique': {
+            missions: [
+                "Superviser l'ensemble de la chaîne logistique (réception, stockage, expédition)",
+                "Optimiser les processus logistiques pour réduire les coûts et délais",
+                "Manager une équipe de 15 collaborateurs en entrepôt",
+                "Coordonner avec les transporteurs et prestataires logistiques",
+                "Garantir le respect des normes qualité et sécurité alimentaire",
+                "Piloter les indicateurs de performance logistique (KPI)"
+            ],
+            profil: [
+                "BAC+5 en logistique, supply chain ou équivalent",
+                "8 ans d'expérience en logistique dont 3 ans en management",
+                "Expérience dans l'agroalimentaire obligatoire",
+                "Maîtrise des normes HACCP et IFS",
+                "Connaissance des outils WMS et TMS"
+            ],
+            avantages: [
+                "Salaire selon profil + intéressement",
+                "13ème mois + primes de performance",
+                "Horaires flexibles selon planning",
+                "Restaurant d'entreprise",
+                "Comité d'entreprise très actif",
+                "Perspectives d'évolution vers Directeur Supply Chain"
+            ],
+            competences: [
+                "Excellentes capacités managériales",
+                "Expertise en optimisation logistique",
+                "Maîtrise des normes qualité alimentaire",
+                "Capacité d'analyse et résolution de problèmes",
+                "Maîtrise des outils informatiques logistiques"
+            ]
+        },
+        'Développeur Full Stack': {
+            missions: [
+                "Développer et maintenir la plateforme e-commerce DÉSTOCKAGE+®",
+                "Concevoir des APIs robustes et sécurisées",
+                "Optimiser les performances et l'expérience utilisateur",
+                "Collaborer avec l'équipe produit sur les nouvelles fonctionnalités",
+                "Participer aux revues de code et à l'amélioration continue",
+                "Mettre en place des tests automatisés et CI/CD"
+            ],
+            profil: [
+                "BAC+5 en informatique ou équivalent",
+                "3 ans d'expérience minimum en développement full stack",
+                "Maîtrise de Python/Django et React/TypeScript",
+                "Expérience avec PostgreSQL et Redis",
+                "Connaissance des architectures microservices"
+            ],
+            avantages: [
+                "Télétravail 100% possible",
+                "Salaire compétitif + BSPCE",
+                "Matériel de travail haut de gamme",
+                "Budget formation annuel 3000€",
+                "Congés supplémentaires à l'ancienneté",
+                "Ambiance startup avec forte autonomie"
+            ],
+            competences: [
+                "Solide culture DevOps et agile",
+                "Expérience en e-commerce B2B",
+                "Maîtrise des bonnes pratiques SEO",
+                "Capacité à travailler en équipe distribuée",
+                "Veille technologique active"
+            ]
+        }
+    };
+
+    // Variables globales
+    let currentJob = '';
+    let currentStep = 1;
+    let uploadedCV = null;
+
+    // Ouvrir modal candidature
+    function openApplicationModal(jobTitle) {
+        currentJob = jobTitle;
+        document.getElementById('applicationJobTitle').textContent = `Postuler - ${jobTitle}`;
+        document.getElementById('confirmedJobTitle').textContent = jobTitle;
+        document.getElementById('applicationModal').classList.add('active');
+        resetApplicationForm();
+    }
+
+    // Fermer modal candidature
+    function closeApplicationModal() {
+        document.getElementById('applicationModal').classList.remove('active');
+    }
+
+    // Ouvrir modal détails
+    function openJobDetails(jobTitle) {
+        currentJob = jobTitle;
+        document.getElementById('detailsJobTitle').textContent = jobTitle;
+        populateJobDetails(jobTitle);
+        document.getElementById('jobDetailsModal').classList.add('active');
+    }
+
+    // Fermer modal détails
+    function closeJobDetailsModal() {
+        document.getElementById('jobDetailsModal').classList.remove('active');
+    }
+
+    // Remplir les détails du poste
+    function populateJobDetails(jobTitle) {
+        const details = jobDetails[jobTitle];
+        const container = document.getElementById('jobDetailsContent');
+        
+        container.innerHTML = `
+            <div class="job-detail-section">
+                <h3><i class="fas fa-tasks"></i> Missions principales</h3>
+                <ul class="mission-list">
+                    ${details.missions.map(mission => `<li>${mission}</li>`).join('')}
+                </ul>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="requirement-category">
+                    <h4><i class="fas fa-user-graduate"></i> Profil recherché</h4>
+                    <ul class="requirement-list">
+                        ${details.profil.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="requirement-category">
+                    <h4><i class="fas fa-star"></i> Compétences clés</h4>
+                    <ul class="requirement-list">
+                        ${details.competences.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-detail-section">
+                <h3><i class="fas fa-gift"></i> Avantages du poste</h3>
+                <ul class="mission-list">
+                    ${details.avantages.map(avantage => `<li>${avantage}</li>`).join('')}
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-primary" onclick="closeJobDetailsModal(); openApplicationModal('${jobTitle}')">
+                    <i class="fas fa-paper-plane"></i> Postuler à cette offre
+                </button>
+            </div>
+        `;
+    }
+
+    // Navigation entre les étapes
+    function nextStep(step) {
+        if (step === 2 && !validateStep1()) {
+            return;
+        }
+
+        document.querySelectorAll('.step-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.querySelectorAll('.step').forEach(stepEl => {
+            stepEl.classList.remove('active');
+        });
+
+        document.getElementById(`step${step}`).classList.add('active');
+        document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+        
+        currentStep = step;
+    }
+
+    function prevStep(step) {
+        nextStep(step);
+    }
+
+    // Validation étape 1
+    function validateStep1() {
+        const form = document.getElementById('personalInfoForm');
+        const inputs = form.querySelectorAll('input[required]');
+        let valid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.style.borderColor = '#ff4757';
+                valid = false;
+            } else {
+                input.style.borderColor = '';
+            }
+        });
+
+        if (!valid) {
+            alert('Veuillez remplir tous les champs obligatoires');
+        }
+
+        return valid;
+    }
+
+    // Gestion upload CV
+    document.addEventListener('DOMContentLoaded', function() {
+        const cvUploadArea = document.getElementById('cvUploadArea');
+        const cvFileInput = document.getElementById('cvFile');
+        const cvPreview = document.getElementById('cvPreview');
+
+        // Glisser-déposer
+        cvUploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+
+        cvUploadArea.addEventListener('dragleave', function() {
+            this.classList.remove('dragover');
+        });
+
+        cvUploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+            handleFileUpload(e.dataTransfer.files[0]);
+        });
+
+        // Click classique
+        cvFileInput.addEventListener('change', function(e) {
+            if (e.target.files[0]) {
+                handleFileUpload(e.target.files[0]);
+            }
+        });
+    });
+
+    function handleFileUpload(file) {
+        if (file) {
+            // Vérification du type de fichier
+            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Format de fichier non supporté. Veuillez uploader un PDF, DOC ou DOCX.');
+                return;
+            }
+
+            // Vérification de la taille (5MB max)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Le fichier est trop volumineux. Taille maximum: 5MB.');
+                return;
+            }
+
+            uploadedCV = file;
+            document.getElementById('cvFileName').textContent = file.name;
+            document.getElementById('cvFileSize').textContent = formatFileSize(file.size);
+            document.getElementById('cvPreview').classList.add('active');
+        }
+    }
+
+    function removeCV() {
+        uploadedCV = null;
+        document.getElementById('cvFile').value = '';
+        document.getElementById('cvPreview').classList.remove('active');
+    }
+
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // Soumission de la candidature
+    function submitApplication() {
+        if (!uploadedCV) {
+            alert('Veuillez télécharger votre CV avant de soumettre votre candidature.');
+            return;
+        }
+
+        // Simulation d'envoi
+        setTimeout(() => {
+            nextStep(3);
+            
+            // Réinitialiser après succès
+            setTimeout(() => {
+                resetApplicationForm();
+            }, 3000);
+        }, 1000);
+    }
+
+    // Réinitialiser le formulaire
+    function resetApplicationForm() {
+        document.getElementById('personalInfoForm').reset();
+        removeCV();
+        document.getElementById('coverLetter').value = '';
+        nextStep(1);
+    }
+
+    // Fermer les modals en cliquant à l'extérieur
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            closeApplicationModal();
+            closeJobDetailsModal();
+        }
+    });
+
+    // Fermer avec la touche Echap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeApplicationModal();
+            closeJobDetailsModal();
+        }
+    });
+
+    // Filtrage des offres d'emploi
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const jobCards = document.querySelectorAll('.job-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Retirer la classe active de tous les boutons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Ajouter la classe active au bouton cliqué
+                this.classList.add('active');
+
+                const filter = this.textContent.toLowerCase();
+                
+                jobCards.forEach(card => {
+                    if (filter === 'tous les postes') {
+                        card.style.display = 'flex';
+                    } else {
+                        const jobTitle = card.querySelector('.job-title').textContent.toLowerCase();
+                        const jobTags = Array.from(card.querySelectorAll('.job-tag')).map(tag => tag.textContent.toLowerCase());
+                        
+                        if (jobTitle.includes(filter) || jobTags.some(tag => tag.includes(filter))) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}
