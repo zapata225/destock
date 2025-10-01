@@ -2042,7 +2042,6 @@ img {
             mask-composite: exclude;
         }
     </style>
-    
     <section class="modern-showcase">
     <div class="container">
         <div class="section-header">
@@ -2450,445 +2449,127 @@ img {
     transform: translateX(4px);
 }
 
+/* ===== RESPONSIVE MOBILE - 2 PRODUITS PAR LIGNE ===== */
 @media (max-width: 768px) {
     .section-title {
         font-size: 2.25rem;
     }
     
+    .section-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    /* 2 produits par ligne sur mobile */
     .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .product-card {
+        border-radius: 16px;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .product-name {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .product-rating {
+        margin-bottom: 1rem;
     }
     
     .card-actions {
         flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .product-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
     }
     
     .cart-btn {
         width: 100%;
+        height: 44px;
+    }
+    
+    .quick-view-btn {
+        width: 36px;
+        height: 36px;
+        top: 12px;
+        left: 12px;
+    }
+    
+    .product-badge {
+        top: 12px;
+        right: 12px;
+        padding: 4px 10px;
+        font-size: 0.7rem;
     }
 }
-    <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --accent: #4895ef;
-            --dark: #2b2d42;
-            --light: #f8f9fa;
-            --success: #4cc9f0;
-            --warning: #f72585;
-            --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
-            --gradient-secondary: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
-            --gradient-accent: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
-            --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
-            --shadow-medium: 0 15px 40px rgba(0,0,0,0.12);
-            --shadow-large: 0 25px 50px rgba(0,0,0,0.15);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-            color: var(--dark);
-            background: var(--light);
-            overflow-x: hidden;
-            line-height: 1.7;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        section {
-            padding: 6rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h2 {
-            font-size: 3.2rem;
-            margin-bottom: 2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.5px;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 80px;
-            height: 5px;
-            background: var(--gradient-primary);
-            border-radius: 3px;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #5a6778;
-            font-weight: 400;
-        }
-        
-        strong {
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        /* Layout moderne premium */
-        .section-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 5rem;
-            align-items: center;
-        }
-        
-        .section-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-large);
-            transform-style: preserve-3d;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 550px;
-        }
-        
-        .section-image img,
-        .section-image video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s ease;
-        }
-        
-        .section-image:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            z-index: 1;
-            mix-blend-mode: overlay;
-        }
-        
-        .section-image:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 40px 70px -20px rgba(0, 0, 0, 0.4);
-        }
-        
-        .section-image:hover:before {
-            opacity: 0.3;
-        }
-        
-        .section-image:hover img,
-        .section-image:hover video {
-            transform: scale(1.08);
-        }
-        
-        /* Boutons premium */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.2rem 3rem;
-            border-radius: 60px;
-            font-weight: 700;
-            text-decoration: none;
-            margin-top: 2.5rem;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow-soft);
-            z-index: 1;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover:before {
-            opacity: 1;
-        }
-        
-        .btn:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: currentColor;
-            z-index: -2;
-        }
-        
-        .btn i {
-            margin-left: 12px;
-            transition: transform 0.4s ease;
-            font-size: 1.1rem;
-        }
-        
-        .btn:hover i {
-            transform: translateX(8px);
-        }
-        
-        .btn-primary {
-            color: white;
-            background: var(--gradient-primary);
-        }
-        
-        .btn-primary:hover {
-            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
-            transform: translateY(-5px);
-        }
-        
-        .btn-secondary {
-            color: white;
-            background: var(--gradient-secondary);
-        }
-        
-        .btn-secondary:hover {
-            box-shadow: 0 15px 30px rgba(247, 37, 133, 0.4);
-            transform: translateY(-5px);
-        }
-        
-        .btn-accent {
-            color: white;
-            background: var(--gradient-accent);
-        }
-        
-        .btn-accent:hover {
-            box-shadow: 0 15px 30px rgba(76, 201, 240, 0.4);
-            transform: translateY(-5px);
-        }
-        
-        /* Background sections premium */
-        .palette-section {
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
-        }
-        
-        .fresh-products-section {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
-        }
-        
-        .fruits-section {
-            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fef08a 100%);
-        }
-        
-        /* Effets de scroll premium */
-        [data-aos="modern-fade"] {
-            opacity: 0;
-            filter: blur(8px);
-            transform: translateY(60px) scale(0.95);
-            transition-property: transform, opacity, filter;
-            transition-duration: 1s;
-        }
-        
-        [data-aos="modern-fade"].aos-animate {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0) scale(1);
-        }
-        
-        [data-aos="modern-slide-left"] {
-            opacity: 0;
-            transform: translateX(-120px) skewX(-15deg);
-            transition-property: transform, opacity;
-            transition-duration: 1s;
-        }
-        
-        [data-aos="modern-slide-left"].aos-animate {
-            opacity: 1;
-            transform: translateX(0) skewX(0);
-        }
-        
-        [data-aos="modern-slide-right"] {
-            opacity: 0;
-            transform: translateX(120px) skewX(15deg);
-            transition-property: transform, opacity;
-            transition-duration: 1s;
-        }
-        
-        [data-aos="modern-slide-right"].aos-animate {
-            opacity: 1;
-            transform: translateX(0) skewX(0);
-        }
-        
-        [data-aos="modern-zoom"] {
-            opacity: 0;
-            transform: scale(0.7) rotate(-8deg);
-            transition-property: transform, opacity;
-            transition-duration: 1s;
-        }
-        
-        [data-aos="modern-zoom"].aos-animate {
-            opacity: 1;
-            transform: scale(1) rotate(0);
-        }
-        
-        /* Bulles décoratives animées */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            z-index: 0;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        /* Section vidéo premium */
-        .video-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .video-container {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-large);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.3) 0%, rgba(58, 12, 163, 0.5) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            cursor: pointer;
-        }
-        
-        .video-container:hover .video-overlay {
-            opacity: 1;
-        }
-        
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            transform: scale(0.9);
-        }
-        
-        .play-button i {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-left: 5px;
-        }
-        
-        .video-container:hover .play-button {
-            transform: scale(1.1);
-            background: white;
-        }
-        
-        /* Responsive premium */
-        @media (max-width: 1200px) {
-            h2 {
-                font-size: 2.8rem;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .section-content {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-            
-            .section-image {
-                height: 450px;
-                order: -1;
-            }
-            
-            h2 {
-                font-size: 2.4rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 4rem 0;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 0 1.5rem;
-            }
-            
-            .btn {
-                padding: 1rem 2.5rem;
-                font-size: 1rem;
-            }
-            
-            .section-image {
-                height: 350px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            p {
-                font-size: 1rem;
-            }
-            
-            .section-image {
-                height: 280px;
-            }
-        }
-    </style>
+
+@media (max-width: 480px) {
+    .modern-showcase {
+        padding: 3rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Espacement réduit pour très petits écrans */
+    .products-grid {
+        gap: 0.75rem;
+    }
+    
+    .product-card {
+        border-radius: 14px;
+    }
+    
+    .card-content {
+        padding: 0.75rem;
+    }
+    
+    .product-name {
+        font-size: 0.9rem;
+    }
+    
+    .product-price {
+        font-size: 1.1rem;
+    }
+    
+    .view-all-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pour les très grands écrans */
+@media (min-width: 1400px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+</style>
 </head>
 <body>
     <!-- Section Boissons en Palette -->
