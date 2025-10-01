@@ -3724,10 +3724,10 @@
             </div>
         </div>
             
-        <a href="{{ url_for('checkout' if session.logged_in or session.guest else 'checkout_auth') }}" 
-        class="btn-checkout">
-         Passer commande
-         </a>     
+        <a href="{% if session.logged_in or session.guest %}{{ url_for('checkout') }}{% else %}{{ url_for('checkout_auth') }}{% endif %}" 
+           class="btn-checkout">
+           Passer commande
+        </a>      
     {% endif %}
     </div>
     
