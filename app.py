@@ -359,7 +359,7 @@ def product_list():
     if category == 'all':
         filtered_products = products
     else:
-        filtered_products = [p for p in products if p['category'] == category]
+        filtered_products = [p for p in products if category in p['category']]
     
     if search_term:
         filtered_products = [p for p in filtered_products 
