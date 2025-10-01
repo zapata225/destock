@@ -5,7 +5,8 @@ categories = [
     "Épicerie",
     "Surgelés",
     "Produits laitiers",
-    "Viandes et poissons"
+    "Viandes et poissons",
+    "Promotions"
 ]
 
 products = [
@@ -80,7 +81,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Produits laitiers",
     "stock": 20,
-    "featured": False,
+    "featu": False,
     "images": ["fromages.jpg", "fromages-3.jpg"],
     "offers": {
       "@type": "Offer",
@@ -117,7 +118,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Boissons",
     "stock": 25,
-    "featured": False,
+    "featu": False,
     "images": ["champagne.jpg", "champagne-2.jpg", "champagne-3.jpg"],
     "offers": {
       "@type": "Offer",
@@ -153,7 +154,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Épicerie",
     "stock": 6,
-    "featured": False,
+    "featu": False,
     "images": ["cafe.jpg", "cafe-2.jpg", "cafe-3.jpg"],
     "offers": {
       "@type": "Offer",
@@ -189,7 +190,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Viandes et poissons",
     "stock": 8,
-    "featured": False,
+    "featu": False,
     "images": ["wagyu.jpg", "wagyu-2.jpg", "wagyu-3.jpg"],
     "offers": {
       "@type": "Offer",
@@ -225,7 +226,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Boissons",
     "stock": 105,
-    "featured": False,
+    "featu": False,
     "images": ["palette-coca.jpg", "palette-coca1.jpg", "palette-coca2.jpg"],
     "offers": {
       "@type": "Offer",
@@ -252,42 +253,42 @@ products = [
       "nutriscore": "E",
       "allergenes": "Aucun"
     }
-  },
-  {
-    "id": 101,
-    "name": "🥤 Palette de RedBull (250ml)",
-    "description": "Lot complet de 2592 canettes RedBull 250ml. Boisson énergisante originale avec taurine, caféine et vitamines B. Parfaite pour distributeurs automatiques et événements sportifs.",
-    "price": 1432.80,
+  },{
+  "id": 101,
+  "name": "🥤 Palette Red de Bull (250ml)",
+  "description": "Lot complet de 2592 canettes RedBull 250ml. Boisson énergisante originale avec taurine, caféine et vitamines B. Parfaite pour distributeurs automatiques et événements sportifs.",
+  "price": 1432.80,
+  "originalPrice": 1800.00,
+  "priceCurrency": "EUR",
+  "category": ["Boissons", "Promotions"],
+  "stock": 8,
+  "featured": true,
+  "images": ["palette-redbull.jpg", "palette-redbull1.jpg", "palette-redbull2.jpg"],
+  "offers": {
+    "@type": "Offer",
+    "price": "1432.80",
     "priceCurrency": "EUR",
-    "category": "Boissons",
-    "stock": 8,
-    "featured": True,
-    "images": ["palette-redbull.jpg", "palette-redbull1.jpg", "palette-redbull2.jpg"],
-    "offers": {
-      "@type": "Offer",
-      "price": "1432.80",
-      "priceCurrency": "EUR",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "url": "/produits/101"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "61"
-    },
-    "details": {
-      "marque": "RedBull",
-      "volume": "648 litres (2592x250ml)",
-      "quantité": "2592 canettes",
-      "origine": "Autriche",
-      "ingrédients": "Eau, sucre, acidifiant E330, bicarbonate de sodium, caféine (32mg/100ml), taurine",
-      "emballage": "108 cartons de 24 canettes",
-      "conservation": "Température ambiante",
-      "DLC": "18 mois après production",
-      "apport": "80kcal/canette - Vitamines B6, B12",
-      "avertissement": "Déconseillé aux enfants et femmes enceintes"
-    }
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "url": "/produits/101"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "61"
+  },
+  "details": {
+    "marque": "RedBull",
+    "volume": "648 litres (2592x250ml)",
+    "quantité": "2592 canettes",
+    "origine": "Autriche",
+    "ingrédients": "Eau, sucre, acidifiant E330, bicarbonate de sodium, caféine (32mg/100ml), taurine",
+    "emballage": "108 cartons de 24 canettes",
+    "conservation": "Température ambiante",
+    "DLC": "18 mois après production",
+    "apport": "80kcal/canette - Vitamines B6, B12",
+    "avertissement": "Déconseillé aux enfants et femmes enceintes"
+  }
   },
   {
     "id": 102,
