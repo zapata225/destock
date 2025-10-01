@@ -3823,21 +3823,32 @@ img {
     </section>
     
     <!-- Section Vidéo -->
-    <section class="video-section">
-        <div class="video-container">
-            <video id="warehouseVideo" poster="https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80">
-                <source src="videos/entrepot-produits.MOV" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-            <div class="video-overlay">
-                <h3 data-aos="modern-fade">Notre Entrepôt en Action</h3>
-                <p data-aos="modern-fade" data-aos-delay="200">Découvrez nos installations modernes et notre processus de préparation de commandes</p>
-                <div class="play-button" id="playButton" data-aos="modern-zoom" data-aos-delay="400">
-                    <i class="fas fa-play"></i>
-                </div>
+<section class="video-section">
+    <div class="video-container">
+        <video id="warehouseVideo" poster="https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" muted>
+            <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+        <div class="video-overlay">
+            <h3 data-aos="modern-fade">Notre Entrepôt en Action</h3>
+            <p data-aos="modern-fade" data-aos-delay="200">Découvrez nos installations modernes et notre processus de préparation de commandes</p>
+            <div class="play-button" id="playButton" data-aos="modern-zoom" data-aos-delay="400">
+                <i class="fas fa-play"></i>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+const video = document.getElementById('warehouseVideo');
+const playButton = document.getElementById('playButton');
+
+playButton.addEventListener('click', () => {
+    video.play();                // lance la vidéo
+    playButton.style.display = 'none'; // cache le bouton
+});
+</script>
+
 
     <script>
         // Gestion de la vidéo
