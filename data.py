@@ -3982,7 +3982,7 @@ products = [
     "priceCurrency": "EUR",
     "category": "Bonbons",
     "stock": 6,
-    "featured": False,
+    "featured": True,
     "published": True,
     "images": [
       "palette-haribo-5kg-1.jpg","palette-haribo-5kg-2.jpg"
