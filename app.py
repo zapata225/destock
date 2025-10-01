@@ -209,6 +209,12 @@ def ensure_timezone(dt):
         return dt.replace(tzinfo=timezone.utc)
     return dt
 
+
+@app.route('/recrutement')
+def recrutement():
+    # Ici tu peux rendre un template HTML
+    return render_template('recrutement.html')
+
 @app.route('/destockage-alimentaire-professionnel')
 def seo_landing_1():
     """Page ultra-optimisée pour le mot-clé principal"""
