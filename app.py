@@ -355,61 +355,38 @@ def product_list():
     category = request.args.get('category', 'all')
     search_term = request.args.get('search', '').lower()
     
-    # Filtrage
+    # Filtrage par catégorie
     if category == 'all':
         filtered_products = products
     else:
-        filtered_products = [p for p in products if p['category'] == category]
+        # Si category est une liste, on vérifie si category demandée est dedans
+        filtered_products = [p for p in products if category in p.get('category', [])]
     
+    # Filtrage par recherche
     if search_term:
-        filtered_products = [p for p in filtered_products 
-                          if search_term in p['name'].lower() 
-                          or search_term in p['description'].lower()]
+        filtered_products = [
+            p for p in filtered_products
+            if search_term in p['name'].lower() or search_term in p['description'].lower()
+        ]
     
     # Normalisation des images
     for product in filtered_products:
-        if 'image' in product:
-            product['images'] = [product['image']]
-            del product['image']
-        elif 'images' not in product or not product['images']:
-            product['images'] = ['default.jpg']
-    
-    return render_template('products.html',
-                         products=filtered_products,
-                         categories=categories,
-                         current_category=category)
-
-    # Gestion des images
-    for product in filtered_products:
-        # Si le produit n'a pas d'images du tout
         if 'images' not in product or not product['images']:
+            # Si le produit n'a pas d'images
             product['images'] = ['default.jpg']
-        # Si le produit utilise encore l'ancien système avec 'image'
         elif 'image' in product and product['image']:
-            # Migration vers le nouveau système
+            # Migration de l'ancien champ 'image'
             product['images'] = [product['image']]
             del product['image']
     
-    return render_template('products.html', 
-                         products=filtered_products, 
-                         categories=categories,
-                         current_category=category)
+    # Une seule fois le return
+    return render_template(
+        'products.html',
+        products=filtered_products,
+        categories=categories,
+        current_category=category
+    )
 
-    # Gestion des images
-    for product in filtered_products:
-        # Si le produit n'a pas d'images du tout
-        if 'images' not in product or not product['images']:
-            product['images'] = ['default.jpg']
-        # Si le produit utilise encore l'ancien système avec 'image'
-        elif 'image' in product and product['image']:
-            # Migration vers le nouveau système
-            product['images'] = [product['image']]
-            del product['image']
-    
-    return render_template('products.html', 
-                         products=filtered_products, 
-                         categories=categories,
-                         current_category=category)
 @app.route('/submit-contact', methods=['POST'])
 def submit_contact():
     try:
