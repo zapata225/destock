@@ -262,7 +262,7 @@ products = [
   "priceCurrency": "EUR",
   "category": ["Boissons", "Promotions"],
   "stock": 8,
-  "featured": true,
+  "featured": True,
   "images": ["palette-redbull.jpg", "palette-redbull1.jpg", "palette-redbull2.jpg"],
   "offers": {
     "@type": "Offer",
