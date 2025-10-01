@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="keywords" content="destockage {{ product.category }}, {{ product.name }}, achat en gros, livraison rapide, promo {{ product.category }}, destockage alimentaire">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
     {{ jsonld_str | safe }}
   </script>
@@ -32,18 +32,21 @@
 <style>
     /* ===== VARIABLES MODERNES ===== */
     :root {
-        --primary: #4361ee;
-        --primary-dark: #3a56d4;
-        --secondary: #3f37c9;
-        --accent: #f72585;
-        --dark: #1a1a2e;
-        --light: #f8f9fa;
-        --gray: #6c757d;
-        --success: #4cc9f0;
-        --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-        --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
-        --shadow-lg: 0 12px 24px rgba(0,0,0,0.12);
-        --transition: all 0.3s ease-in-out;
+        --primary: #1a365d;
+        --primary-light: #2d4a8a;
+        --secondary: #c8a97e;
+        --accent: #9c4221;
+        --dark: #1a202c;
+        --light: #f7fafc;
+        --gray-light: #e2e8f0;
+        --gray: #718096;
+        --gray-dark: #4a5568;
+        --success: #38a169;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.05);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.05);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --border-radius: 8px;
     }
 
     /* ===== BASE STYLES ===== */
@@ -54,92 +57,80 @@
     }
 
     body {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Inter', sans-serif;
         line-height: 1.6;
         color: var(--dark);
-        padding-bottom: 80px;
         background-color: var(--light);
+        font-weight: 400;
     }
 
     .product-detail-container {
         max-width: 1400px;
-        margin: 2rem auto;
-        padding: 0 1.5rem;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        gap: 4rem;
     }
 
     /* ===== GALLERIE MODERNE ===== */
     .product-gallery {
         position: relative;
-        border-radius: 1rem;
+        border-radius: var(--border-radius);
         overflow: hidden;
-        box-shadow: var(--shadow-lg);
         background: white;
+        box-shadow: var(--shadow-md);
         transition: var(--transition);
     }
 
     .product-gallery:hover {
-        transform: translateY(-5px);
         box-shadow: var(--shadow-lg);
     }
 
     .main-image-container {
         position: relative;
         height: 500px;
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        background: white;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: zoom-in;
         overflow: hidden;
+        border-bottom: 1px solid var(--gray-light);
     }
 
     .main-image {
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 85%;
+        max-height: 85%;
         object-fit: contain;
         transition: transform 0.5s ease;
-        will-change: transform;
-    }
-
-    .main-image.zoomed {
-        cursor: zoom-out;
-        transform: scale(2);
     }
 
     .thumbnail-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 0.75rem;
-        padding: 1rem;
+        gap: 1rem;
+        padding: 1.5rem;
         background: white;
-        border-top: 1px solid rgba(0,0,0,0.05);
     }
 
     .thumbnail {
-        height: 100px;
+        height: 80px;
         width: 100%;
         object-fit: cover;
-        border-radius: 0.5rem;
+        border-radius: var(--border-radius);
         cursor: pointer;
         transition: var(--transition);
-        border: 2px solid transparent;
-        background: white;
-        padding: 0.25rem;
+        border: 1px solid var(--gray-light);
     }
 
     .thumbnail:hover,
     .thumbnail:focus {
-        transform: scale(1.05);
         border-color: var(--primary);
-        box-shadow: var(--shadow-sm);
     }
 
     .thumbnail.active {
         border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.1);
     }
 
     .product-badge {
@@ -148,13 +139,11 @@
         left: 1rem;
         background: var(--accent);
         color: white;
-        padding: 0.375rem 0.875rem;
-        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
         font-size: 0.75rem;
-        font-weight: 700;
+        font-weight: 600;
         z-index: 2;
-        box-shadow: var(--shadow-sm);
-        text-transform: uppercase;
         letter-spacing: 0.5px;
     }
 
@@ -166,11 +155,26 @@
     }
 
     .product-title {
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
         color: var(--dark);
-        line-height: 1.2;
+        line-height: 1.3;
+    }
+
+    /* ===== BADGE DE POPULARITÉ ===== */
+    .popularity-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(156, 66, 33, 0.1);
+        color: var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(156, 66, 33, 0.2);
     }
 
     .product-price-container {
@@ -181,25 +185,48 @@
     }
 
     .product-price {
-        font-size: 2rem;
-        font-weight: 700;
+        font-size: 1.75rem;
+        font-weight: 600;
         color: var(--accent);
     }
 
     .original-price {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         text-decoration: line-through;
         color: var(--gray);
-        opacity: 0.8;
     }
 
     .discount-badge {
         background: var(--accent);
         color: white;
         padding: 0.25rem 0.75rem;
-        border-radius: 0.25rem;
+        border-radius: 4px;
         font-size: 0.875rem;
-        font-weight: 700;
+        font-weight: 600;
+    }
+
+    /* ===== BADGES DE CONFIANCE ===== */
+    .trust-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+    }
+
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(26, 54, 93, 0.05);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: var(--dark);
+        border: 1px solid rgba(26, 54, 93, 0.1);
+    }
+
+    .trust-badge i {
+        color: var(--primary);
     }
 
     /* ===== META INFO ===== */
@@ -207,10 +234,10 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
-        margin: 1rem 0;
-        padding: 1rem 0;
-        border-top: 1px solid rgba(0,0,0,0.05);
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        margin: 1.5rem 0;
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--gray-light);
+        border-bottom: 1px solid var(--gray-light);
     }
 
     .meta-item {
@@ -218,76 +245,56 @@
         align-items: center;
         gap: 0.5rem;
         font-size: 0.875rem;
-        color: var(--gray);
+        color: var(--gray-dark);
     }
 
     .meta-item i {
         color: var(--primary);
     }
 
-    /* ===== POPULARITY BADGE ===== */
-    .popularity-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(247, 37, 133, 0.1);
-        color: var(--accent);
-        padding: 0.5rem 1rem;
-        border-radius: 2rem;
-        font-size: 0.875rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        border: 1px solid rgba(247, 37, 133, 0.2);
-    }
-
     /* ===== DESCRIPTION SECTION ===== */
     .product-description {
         background: white;
-        border-radius: 1rem;
-        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        padding: 2rem;
         margin: 2rem 0;
-        box-shadow: var(--shadow-md);
-        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-light);
     }
 
     .description-title {
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 600;
         color: var(--dark);
-        margin-bottom: 1.25rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
+        margin-bottom: 1.5rem;
         padding-bottom: 0.75rem;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .description-title i {
-        color: var(--primary);
-        font-size: 1.1rem;
+        border-bottom: 1px solid var(--gray-light);
     }
 
     .product-description p {
-        color: #4a5568;
-        line-height: 1.8;
-        font-size: 0.98rem;
+        color: var(--gray-dark);
+        line-height: 1.7;
+        font-size: 0.95rem;
         margin-bottom: 1.5rem;
     }
 
     .read-more {
         color: var(--primary);
-        font-weight: 600;
+        font-weight: 500;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         transition: var(--transition);
         font-size: 0.95rem;
+        background: none;
+        border: none;
+        padding: 0;
     }
 
     .read-more:hover,
     .read-more:focus {
-        color: var(--primary-dark);
+        color: var(--primary-light);
     }
 
     .read-more i {
@@ -304,9 +311,9 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1rem;
         margin-top: 1.5rem;
-        background: #f8fafc;
-        padding: 1.25rem;
-        border-radius: 0.75rem;
+        background: var(--light);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
     }
 
     .spec-item {
@@ -324,27 +331,27 @@
 
     .spec-content strong {
         display: block;
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
         color: var(--gray);
-        margin-bottom: 0.1875rem;
+        margin-bottom: 0.25rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
 
     .spec-content span {
-        font-size: 0.9375rem;
+        font-size: 0.9rem;
         color: var(--dark);
         font-weight: 500;
     }
 
     /* ===== FULL DETAILS ===== */
     .full-details {
-        margin-top: 2.5rem;
-        padding: 1.5rem;
+        margin-top: 2rem;
+        padding: 2rem;
         background: white;
-        border-radius: 1rem;
-        box-shadow: var(--shadow-md);
-        border: 1px solid rgba(0,0,0,0.05);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-light);
         display: none;
     }
 
@@ -354,14 +361,14 @@
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
     .details-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
     }
 
     .details-section {
@@ -369,11 +376,12 @@
     }
 
     .details-section h4 {
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: var(--dark);
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid var(--gray-light);
+        font-weight: 600;
     }
 
     .details-section ul {
@@ -385,6 +393,8 @@
         margin-bottom: 0.75rem;
         display: flex;
         gap: 0.75rem;
+        color: var(--gray-dark);
+        font-size: 0.9rem;
     }
 
     .details-section li i {
@@ -394,11 +404,12 @@
 
     /* ===== DELIVERY INFO ===== */
     .delivery-info {
-        margin-top: 1.5rem;
+        margin-top: 2rem;
         padding: 1.5rem;
-        background: linear-gradient(135deg, #f6f9ff 0%, #eef4ff 100%);
-        border-radius: 1rem;
-        border-left: 4px solid var(--primary);
+        background: white;
+        border-radius: var(--border-radius);
+        border-left: 3px solid var(--primary);
+        box-shadow: var(--shadow-sm);
     }
 
     .delivery-info p {
@@ -407,7 +418,7 @@
         gap: 0.75rem;
         margin: 1rem 0;
         color: var(--dark);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 500;
     }
 
@@ -415,7 +426,7 @@
         color: var(--primary);
         width: 1.25rem;
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     /* ===== GUARANTEE ===== */
@@ -423,199 +434,84 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(67, 97, 238, 0.1);
+        background: rgba(26, 54, 93, 0.05);
         padding: 0.5rem 1rem;
-        border-radius: 2rem;
+        border-radius: 4px;
         margin-top: 1rem;
         font-size: 0.875rem;
         color: var(--primary);
         font-weight: 500;
-        border: 1px solid rgba(67, 97, 238, 0.2);
+        border: 1px solid rgba(26, 54, 93, 0.1);
     }
 
-    /* ===== TRUST BADGES ===== */
-    .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin: 1.5rem 0;
-    }
-
-    .trust-badge {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(67, 97, 238, 0.05);
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        font-size: 0.8125rem;
-        color: var(--dark);
-        border: 1px solid rgba(67, 97, 238, 0.1);
-    }
-
-    .trust-badge i {
-        color: var(--primary);
-    }
-
-    /* ===== FORMULAIRE D'AVIS ===== */
-    .review-form {
-        background: white;
-        border-radius: 1rem;
-        padding: 2rem;
-        margin-top: 2rem;
-        box-shadow: var(--shadow-md);
-        border: 1px solid rgba(0,0,0,0.05);
-        display: none;
-    }
-
-    .review-form.active {
-        display: block;
-        animation: fadeIn 0.5s ease;
-    }
-
-    .review-form h3 {
-        font-size: 1.25rem;
-        margin-bottom: 1.5rem;
-        color: var(--dark);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .review-form h3 i {
-        color: var(--primary);
-    }
-
-    .form-group {
-        margin-bottom: 1.25rem;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
+    /* ===== CTA BUTTONS ===== */
+    .btn-add-to-cart {
+        background: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
         font-weight: 500;
-        color: var(--dark);
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid rgba(0,0,0,0.1);
-        border-radius: 0.5rem;
-        font-size: 0.95rem;
-        transition: var(--transition);
-    }
-
-    .form-control:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        outline: none;
-    }
-
-    .star-rating {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .star-rating input {
-        display: none;
-    }
-
-    .star-rating label {
-        font-size: 1.5rem;
-        color: #ddd;
         cursor: pointer;
         transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 1.5rem;
     }
 
-    .star-rating input:checked ~ label,
-    .star-rating label:hover,
-    .star-rating label:hover ~ label {
-        color: #FFD700;
+    .btn-add-to-cart:hover,
+    .btn-add-to-cart:focus {
+        background: var(--primary-light);
     }
 
-    .star-rating input:checked + label {
-        color: #FFD700;
+    /* ===== MOBILE CTA ===== */
+    .mobile-cta {
+        position: static;
+        background: white;
+        padding: 1.5rem;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        display: none;
+        margin-top: 2rem;
+        border-top: 1px solid var(--gray-light);
     }
 
-    .btn-submit-review {
-        background: var(--primary);
+    .mobile-cta form {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .mobile-cta .btn-add-to-cart {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        background-color: var(--primary);
         color: white;
         border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: 500;
+        border-radius: var(--border-radius);
         cursor: pointer;
-        transition: var(--transition);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .btn-submit-review:hover,
-    .btn-submit-review:focus {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-
-    /* Pagination des avis */
-    .pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-        gap: 0.5rem;
-    }
-
-    .page-link {
-        padding: 0.5rem 0.75rem;
-        border: 1px solid rgba(0,0,0,0.1);
-        border-radius: 0.25rem;
-        color: var(--dark);
-        text-decoration: none;
-        transition: var(--transition);
-    }
-
-    .page-link:hover,
-    .page-link:focus,
-    .page-link.active {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-    }
-
-    /* Avis vérifiés */
-    .verified-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-        background: rgba(76, 201, 240, 0.1);
-        color: var(--success);
-        padding: 0.25rem 0.5rem;
-        border-radius: 2rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-        margin-left: 0.5rem;
     }
 
     /* ===== PREUVES CLIENTS ===== */
     .customer-proof-section {
-        margin: 3rem 0;
-        padding: 2rem 0;
-        border-top: 1px solid rgba(0,0,0,0.05);
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        margin: 4rem 0;
+        padding: 3rem 0;
+        border-top: 1px solid var(--gray-light);
+        border-bottom: 1px solid var(--gray-light);
+        grid-column: 1 / -1;
     }
 
     .proof-title {
         font-size: 1.5rem;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         color: var(--dark);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
+        font-weight: 600;
     }
 
     .proof-grid {
@@ -627,21 +523,21 @@
 
     .proof-card {
         background: white;
-        border-radius: 1rem;
+        border-radius: var(--border-radius);
         overflow: hidden;
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-sm);
         transition: var(--transition);
+        border: 1px solid var(--gray-light);
     }
 
     .proof-card:hover,
     .proof-card:focus-within {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-md);
     }
 
     .proof-image-container {
         position: relative;
-        height: 250px;
+        height: 200px;
         overflow: hidden;
     }
 
@@ -650,7 +546,6 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
-        will-change: transform;
     }
 
     .proof-card:hover .proof-image {
@@ -678,7 +573,7 @@
 
     .proof-overlay i {
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         transform: scale(0.8);
         transition: var(--transition);
     }
@@ -693,7 +588,7 @@
     }
 
     .proof-stars {
-        color: #FFD700;
+        color: #ecc94b;
         margin-bottom: 0.75rem;
         font-size: 0.9rem;
     }
@@ -703,6 +598,7 @@
         color: var(--dark);
         line-height: 1.6;
         margin-bottom: 1rem;
+        font-size: 0.9rem;
     }
 
     .proof-author {
@@ -734,7 +630,7 @@
     .proof-modal img {
         max-width: 90%;
         max-height: 90%;
-        border-radius: 0.5rem;
+        border-radius: var(--border-radius);
     }
 
     .proof-modal-close {
@@ -748,9 +644,9 @@
 
     /* ===== REVIEWS SECTION ===== */
     .reviews-section {
-        margin-top: 3rem;
+        margin-top: 4rem;
         padding-top: 2rem;
-        border-top: 1px solid rgba(0,0,0,0.05);
+        border-top: 1px solid var(--gray-light);
         grid-column: 1 / -1;
     }
 
@@ -758,22 +654,20 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .reviews-header h3 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         color: var(--dark);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
+        font-weight: 600;
     }
 
     .btn-review {
         background: var(--primary);
         color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
         font-size: 0.875rem;
         text-decoration: none;
         transition: var(--transition);
@@ -781,29 +675,22 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
+        border: none;
+        cursor: pointer;
     }
 
     .btn-review:hover,
     .btn-review:focus {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
+        background: var(--primary-light);
     }
 
     .review-card {
         background: white;
-        border-radius: 1rem;
-        padding: 1.25rem;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
         margin-bottom: 1rem;
         box-shadow: var(--shadow-sm);
-        transition: var(--transition);
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .review-card:hover,
-    .review-card:focus-within {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
+        border: 1px solid var(--gray-light);
     }
 
     .review-header {
@@ -814,7 +701,7 @@
     }
 
     .review-author {
-        font-weight: 650;
+        font-weight: 600;
         color: var(--dark);
     }
 
@@ -824,24 +711,162 @@
     }
 
     .review-stars {
-        color: #FFD700;
+        color: #ecc94b;
         margin: 0.5rem 0;
+        font-size: 0.9rem;
+    }
+
+    /* Avis vérifiés */
+    .verified-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        background: rgba(56, 161, 105, 0.1);
+        color: var(--success);
+        padding: 0.25rem 0.5rem;
+        border-radius: 2rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-left: 0.5rem;
+    }
+
+    /* ===== FORMULAIRE D'AVIS ===== */
+    .review-form {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-light);
+        display: none;
+    }
+
+    .review-form.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .review-form h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--dark);
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--border-radius);
         font-size: 0.95rem;
+        transition: var(--transition);
+        font-family: 'Inter', sans-serif;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.1);
+    }
+
+    .star-rating {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 1.5rem;
+        color: #e2e8f0;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: #ecc94b;
+    }
+
+    .star-rating input:checked + label {
+        color: #ecc94b;
+    }
+
+    .btn-submit-review {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-submit-review:hover,
+    .btn-submit-review:focus {
+        background: var(--primary-light);
+    }
+
+    /* Pagination des avis */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 0.5rem;
+    }
+
+    .page-link {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--border-radius);
+        color: var(--dark);
+        text-decoration: none;
+        transition: var(--transition);
+        font-size: 0.875rem;
+    }
+
+    .page-link:hover,
+    .page-link:focus,
+    .page-link.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
     }
 
     /* ===== RELATED PRODUCTS ===== */
     .related-products {
-        margin-top: 5rem;
+        margin-top: 4rem;
         grid-column: 1 / -1;
     }
 
     .related-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         margin-bottom: 2rem;
         text-align: center;
         position: relative;
         padding-bottom: 1rem;
         color: var(--dark);
+        font-weight: 600;
     }
 
     .related-title:after {
@@ -850,8 +875,8 @@
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 5rem;
-        height: 3px;
+        width: 4rem;
+        height: 2px;
         background: var(--primary);
     }
 
@@ -863,8 +888,8 @@
 
     .product-card {
         background: white;
-        border-radius: 1rem;
-        box-shadow: var(--shadow-md);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
         overflow: hidden;
         transition: var(--transition);
         display: flex;
@@ -873,13 +898,12 @@
         text-align: center;
         padding: 1.5rem;
         position: relative;
-        border: 1px solid rgba(0,0,0,0.05);
+        border: 1px solid var(--gray-light);
     }
 
     .product-card:hover,
     .product-card:focus-within {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-md);
     }
 
     .product-card .product-image {
@@ -895,19 +919,18 @@
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        will-change: transform;
     }
 
     .product-card .product-info h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin: 0.5rem 0;
         color: var(--dark);
-        font-weight: 600;
+        font-weight: 500;
     }
 
     .product-card .price {
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.125rem;
+        font-weight: 600;
         color: var(--accent);
         margin-bottom: 1rem;
     }
@@ -917,7 +940,7 @@
         color: white;
         padding: 0.5rem 1.25rem;
         font-size: 0.875rem;
-        border-radius: 0.5rem;
+        border-radius: var(--border-radius);
         text-decoration: none;
         transition: var(--transition);
         display: inline-flex;
@@ -928,78 +951,13 @@
 
     .btn-product:hover,
     .btn-product:focus {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-
-    /* ===== CTA BUTTONS ===== */
-    .btn-add-to-cart {
-        background: var(--primary);
-        color: white;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        width: 100%;
-        margin-top: 1rem;
-    }
-
-    .btn-add-to-cart:hover,
-    .btn-add-to-cart:focus {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-
-    /* ===== MOBILE CTA ===== */
-    .mobile-cta {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 1rem;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-        display: none;
-        z-index: 9999;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-    }
-
-    .mobile-cta.visible {
-        transform: translateY(0);
-    }
-
-    .mobile-cta form {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .mobile-cta .btn-add-to-cart {
-        width: 100%;
-        padding: 16px;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
+        background: var(--primary-light);
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 992px) {
         .product-detail-container {
-            gap: 2rem;
+            gap: 3rem;
         }
         
         .main-image-container {
@@ -1007,14 +965,15 @@
         }
         
         .product-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
     }
 
     @media (max-width: 768px) {
         .product-detail-container {
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
+            padding: 1.5rem 1rem;
         }
         
         .main-image-container {
@@ -1022,11 +981,11 @@
         }
         
         .thumbnail {
-            height: 80px;
+            height: 70px;
         }
         
         .product-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
         
         .tech-specs {
@@ -1044,6 +1003,12 @@
         .proof-grid {
             grid-template-columns: 1fr;
         }
+
+        .reviews-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
     }
 
     @media (min-width: 769px) {
@@ -1055,45 +1020,28 @@
             display: flex !important;
         }
     }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4); }
-        70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
-    }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="product-detail-container">
     <!-- Galerie produit -->
-    <div class="product-gallery" role="region" aria-label="Galerie produit">
+    <div class="product-gallery">
         {% if product.featured %}
-        <div class="product-badge" aria-label="Meilleure offre">MEILLEURE OFFRE</div>
+        <div class="product-badge">MEILLEURE OFFRE</div>
         {% endif %}
         
-        <div class="main-image-container" tabindex="0">
+        <div class="main-image-container">
             <img id="main-image" src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
                  class="main-image" alt="{{ product.name }}" loading="lazy">
         </div>
         
-        <div class="thumbnail-container" role="tablist">
+        <div class="thumbnail-container">
             {% for image in product.images[:4] %}
             <img src="{{ url_for('static', filename='images/products/' + image) }}" 
                  class="thumbnail {% if loop.first %}active{% endif %}" 
                  alt="Miniature {{ loop.index }}"
-                 role="tab"
-                 tabindex="0"
-                 aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
-                 onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')"
-                 onkeydown="if(event.key === 'Enter') changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
+                 onclick="changeMainImage(this, '{{ url_for('static', filename='images/products/' + image) }}')">
             {% endfor %}
         </div>
     </div>
@@ -1104,47 +1052,47 @@
         
         <!-- Badge de popularité -->
         <div class="popularity-badge">
-            <i class="fas fa-users" aria-hidden="true"></i>
+            <i class="fas fa-users"></i>
             <span id="viewer-count">{{ range(5, 15)|random }} personnes consultent ce produit</span>
         </div>
         
         <div class="product-price-container">
-            <div class="product-price" aria-label="Prix actuel">{{ "%.2f"|format(product.price) }}€</div>
+            <div class="product-price">{{ "%.2f"|format(product.price) }}€</div>
             {% if product.original_price %}
-            <div class="original-price" aria-label="Prix original">{{ "%.2f"|format(product.original_price) }}€</div>
-            <div class="discount-badge" aria-label="Réduction">
+            <div class="original-price">{{ "%.2f"|format(product.original_price) }}€</div>
+            <div class="discount-badge">
                 -{{ ((1 - product.price/product.original_price) * 100)|round }}%
             </div>
             {% endif %}
         </div>
         
         <!-- Badges de confiance -->
-        <div class="trust-badges" role="list">
-            <div class="trust-badge" role="listitem">
-                <i class="fas fa-check-circle" aria-hidden="true"></i> Produit certifié
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <i class="fas fa-check-circle"></i> Produit certifié
             </div>
-            <div class="trust-badge" role="listitem">
-                <i class="fas fa-shield-alt" aria-hidden="true"></i> Paiement sécurisé
+            <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i> Paiement sécurisé
             </div>
-            <div class="trust-badge" role="listitem">
-                <i class="fas fa-undo" aria-hidden="true"></i> Retours faciles
+            <div class="trust-badge">
+                <i class="fas fa-undo"></i> Retours faciles
             </div>
         </div>
         
-        <div class="product-meta" role="list">
-            <span class="meta-item" role="listitem">
-                <i class="fas fa-tag" aria-hidden="true"></i> {{ product.category }}
+        <div class="product-meta">
+            <span class="meta-item">
+                <i class="fas fa-tag"></i> {{ product.category }}
             </span>
-            <span class="meta-item" role="listitem">
-                <i class="fas fa-box-open" aria-hidden="true"></i> {{ product.stock }} disponibles
+            <span class="meta-item">
+                <i class="fas fa-box-open"></i> {{ product.stock }} disponibles
             </span>
             {% if product.date_added %}
-            <span class="meta-item" role="listitem">
-                <i class="fas fa-calendar-alt" aria-hidden="true"></i> Ajouté le {{ product.date_added }}
+            <span class="meta-item">
+                <i class="fas fa-calendar-alt"></i> Ajouté le {{ product.date_added }}
             </span>
             {% endif %}
-            <span class="meta-item" role="listitem">
-                <i class="fas fa-star" aria-hidden="true"></i> 
+            <span class="meta-item">
+                <i class="fas fa-star"></i> 
                 {% if product.id == 1 %}4.8/5 (24 avis)
                 {% elif product.id == 4 %}4.9/5 (18 avis)
                 {% elif product.id == 100 %}4.7/5 (32 avis)
@@ -1153,21 +1101,19 @@
         </div>
 
         <!-- Description -->
-        <div class="product-description" role="region" aria-label="Description du produit">
-            <h2 class="description-title">
-                <i class="fas fa-align-left" aria-hidden="true"></i> Description du {{ product.name }}
-            </h2>
+        <div class="product-description">
+            <h2 class="description-title">Description</h2>
             <p>{{ product.description }}</p>
             
-            <button class="read-more" onclick="toggleDetails()" aria-expanded="false" aria-controls="fullDetails">
-                Voir plus de détails <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            <button class="read-more" onclick="toggleDetails()">
+                Voir plus de détails <i class="fas fa-chevron-down"></i>
             </button>
             
             <!-- Fiche technique -->
-            <div class="tech-specs" role="list">
+            <div class="tech-specs">
                 {% if product.details.marque %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-tag spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-tag spec-icon"></i>
                     <div class="spec-content">
                         <strong>Marque</strong>
                         <span>{{ product.details.marque }}</span>
@@ -1176,8 +1122,8 @@
                 {% endif %}
                 
                 {% if product.details.volume %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-weight spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-weight spec-icon"></i>
                     <div class="spec-content">
                         <strong>Volume</strong>
                         <span>{{ product.details.volume }}</span>
@@ -1186,8 +1132,8 @@
                 {% endif %}
                 
                 {% if product.details.poids %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-weight-hanging spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-weight-hanging spec-icon"></i>
                     <div class="spec-content">
                         <strong>Poids</strong>
                         <span>{{ product.details.poids }}</span>
@@ -1196,8 +1142,8 @@
                 {% endif %}
                 
                 {% if product.details.quantité %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-boxes spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-boxes spec-icon"></i>
                     <div class="spec-content">
                         <strong>Quantité</strong>
                         <span>{{ product.details.quantité }}</span>
@@ -1206,8 +1152,8 @@
                 {% endif %}
                 
                 {% if product.details.origine %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-globe-europe spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-globe-europe spec-icon"></i>
                     <div class="spec-content">
                         <strong>Origine</strong>
                         <span>{{ product.details.origine }}</span>
@@ -1216,8 +1162,8 @@
                 {% endif %}
                 
                 {% if product.details.conservation %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-snowflake spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-snowflake spec-icon"></i>
                     <div class="spec-content">
                         <strong>Conservation</strong>
                         <span>{{ product.details.conservation }}</span>
@@ -1226,8 +1172,8 @@
                 {% endif %}
                 
                 {% if product.details.composition %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-list-ul spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-list-ul spec-icon"></i>
                     <div class="spec-content">
                         <strong>Composition</strong>
                         <span>{{ product.details.composition }}</span>
@@ -1236,8 +1182,8 @@
                 {% endif %}
                 
                 {% if product.details.alcool %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-wine-bottle spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-wine-bottle spec-icon"></i>
                     <div class="spec-content">
                         <strong>Degré d'alcool</strong>
                         <span>{{ product.details.alcool }}</span>
@@ -1246,8 +1192,8 @@
                 {% endif %}
                 
                 {% if product.details.DLC %}
-                <div class="spec-item" role="listitem">
-                    <i class="fas fa-calendar-check spec-icon" aria-hidden="true"></i>
+                <div class="spec-item">
+                    <i class="fas fa-calendar-check spec-icon"></i>
                     <div class="spec-content">
                         <strong>DLC</strong>
                         <span>{{ product.details.DLC }}</span>
@@ -1258,38 +1204,36 @@
         </div>
 
         <!-- Détails complets -->
-        <div class="full-details" id="fullDetails" role="region" aria-label="Fiche technique complète">
-            <h2 class="description-title">
-                <i class="fas fa-info-circle" aria-hidden="true"></i> Fiche technique complète
-            </h2>
+        <div class="full-details" id="fullDetails">
+            <h2 class="description-title">Fiche technique complète</h2>
             
             <div class="details-grid">
                 <div class="details-section">
-                    <h3>Caractéristiques</h3>
+                    <h4>Caractéristiques</h4>
                     <ul>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span>Produit de haute qualité</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span>Conditionnement professionnel</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span>Normes sanitaires respectées</span></li>
+                        <li><i class="fas fa-check"></i> <span>Produit de haute qualité</span></li>
+                        <li><i class="fas fa-check"></i> <span>Conditionnement professionnel</span></li>
+                        <li><i class="fas fa-check"></i> <span>Normes sanitaires respectées</span></li>
                         {% if product.details.DLC %}
-                        <li><i class="fas fa-calendar-check" aria-hidden="true"></i> <span>DLC: {{ product.details.DLC }}</span></li>
+                        <li><i class="fas fa-calendar-check"></i> <span>DLC: {{ product.details.DLC }}</span></li>
                         {% endif %}
                     </ul>
                 </div>
                 
                 <div class="details-section">
-                    <h3>Livraison</h3>
+                    <h4>Livraison</h4>
                     <ul>
-                        <li><i class="fas fa-box" aria-hidden="true"></i> <span>Emballage sécurisé</span></li>
-                        <li><i class="fas fa-euro-sign" aria-hidden="true"></i> <span>Livraison gratuite à partir de 1500€</span></li>
+                        <li><i class="fas fa-box"></i> <span>Emballage sécurisé</span></li>
+                        <li><i class="fas fa-euro-sign"></i> <span>Livraison gratuite à partir de 1500€</span></li>
                     </ul>
                 </div>
                 
                 <div class="details-section">
-                    <h3>Garantie</h3>
+                    <h4>Garantie</h4>
                     <ul>
-                        <li><i class="fas fa-shield-alt" aria-hidden="true"></i> <span>Satisfait ou remboursé 30 jours</span></li>
-                        <li><i class="fas fa-phone" aria-hidden="true"></i> <span>Service client 7j/7</span></li>
-                        <li><i class="fas fa-exchange-alt" aria-hidden="true"></i> <span>Retours faciles</span></li>
+                        <li><i class="fas fa-shield-alt"></i> <span>Satisfait ou remboursé 30 jours</span></li>
+                        <li><i class="fas fa-phone"></i> <span>Service client 7j/7</span></li>
+                        <li><i class="fas fa-exchange-alt"></i> <span>Retours faciles</span></li>
                     </ul>
                 </div>
             </div>
@@ -1297,41 +1241,39 @@
 
         <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
             <input type="hidden" name="product_id" value="{{ product.id }}">
-            <button type="submit" class="btn-add-to-cart desktop" aria-label="Ajouter {{ product.name }} au panier">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
+            <button type="submit" class="btn-add-to-cart desktop">
+                <i class="fas fa-cart-plus"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
             </button>
         </form>
         
-        <div class="delivery-info" role="region" aria-label="Informations de livraison">
-            <p><i class="fas fa-truck" aria-hidden="true"></i> Livraison estimée entre 5 à 7 jours ouvrés</p>
-            <p><i class="fas fa-shield-alt" aria-hidden="true"></i> Garantie satisfait ou remboursé 30 jours</p>
-            <p><i class="fas fa-phone" aria-hidden="true"></i> Service client réactif 7j/7</p>
+        <div class="delivery-info">
+            <p><i class="fas fa-truck"></i> Livraison estimée entre 5 à 7 jours ouvrés</p>
+            <p><i class="fas fa-shield-alt"></i> Garantie satisfait ou remboursé 30 jours</p>
+            <p><i class="fas fa-phone"></i> Service client réactif 7j/7</p>
             
             <div class="guarantee-badge">
-                <i class="fas fa-lock" aria-hidden="true"></i> Paiement 100% sécurisé
+                <i class="fas fa-lock"></i> Paiement 100% sécurisé
             </div>
         </div>
     </div>
 
     <!-- Section preuves clients -->
-    <div class="customer-proof-section" role="region" aria-label="Témoignages clients">
-        <h2 class="proof-title">
-            <i class="fas fa-camera-retro" aria-hidden="true"></i> Nos clients témoignent
-        </h2>
+    <div class="customer-proof-section">
+        <h2 class="proof-title">Nos clients témoignent</h2>
         
         <div class="proof-grid">
             <!-- Preuve client 1 -->
-            <div class="proof-card" tabindex="0">
+            <div class="proof-card">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client1.jpg') }}" 
                          alt="Témoignage client Sophie" class="proof-image" loading="lazy">
                     <div class="proof-overlay">
-                        <i class="fas fa-search-plus" aria-hidden="true"></i>
+                        <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="proof-content">
                     <div class="proof-stars">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p>"Commande reçue en parfait état, emballage professionnel !"</p>
                     <div class="proof-author">- Sophie, Paris</div>
@@ -1340,17 +1282,17 @@
             </div>
             
             <!-- Preuve client 2 -->
-            <div class="proof-card" tabindex="0">
+            <div class="proof-card">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client2.jpg') }}" 
                          alt="Témoignage client Thomas" class="proof-image" loading="lazy">
                     <div class="proof-overlay">
-                        <i class="fas fa-search-plus" aria-hidden="true"></i>
+                        <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="proof-content">
                     <div class="proof-stars">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
                     <p>"Livraison rapide et produits frais, je recommande !"</p>
                     <div class="proof-author">- Thomas, Lyon</div>
@@ -1359,17 +1301,17 @@
             </div>
             
             <!-- Preuve client 3 -->
-            <div class="proof-card" tabindex="0">
+            <div class="proof-card">
                 <div class="proof-image-container">
                     <img src="{{ url_for('static', filename='images/customers/client3.jpg') }}" 
                          alt="Témoignage client Marie" class="proof-image" loading="lazy">
                     <div class="proof-overlay">
-                        <i class="fas fa-search-plus" aria-hidden="true"></i>
+                        <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="proof-content">
                     <div class="proof-stars">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p>"Qualité exceptionnelle, je suis bluffé par le service."</p>
                     <div class="proof-author">- Marie, Bordeaux</div>
@@ -1380,291 +1322,291 @@
     </div>
 
     <!-- Section avis clients -->
-    <section class="reviews-section" role="region" aria-label="Avis clients">
+    <section class="reviews-section">
         <div class="reviews-header">
-            <h2><i class="fas fa-star" aria-hidden="true"></i> Avis clients 
+            <h3>Avis clients 
                 {% if product.id == 1 %}(48)
                 {% elif product.id == 4 %}(36)
                 {% elif product.id == 100 %}(64)
                 {% else %}(30){% endif %}
-            </h2>
-            <button id="btn-open-review-form" class="btn-review" aria-label="Ouvrir le formulaire d'avis" aria-expanded="false" aria-controls="reviewForm">
-                <i class="fas fa-pen" aria-hidden="true"></i> Donner votre avis
+            </h3>
+            <button id="btn-open-review-form" class="btn-review">
+                <i class="fas fa-pen"></i> Donner votre avis
             </button>
         </div>
 
         <!-- Formulaire d'avis -->
-        <div class="review-form" id="reviewForm" role="form" aria-label="Formulaire pour rédiger un avis">
-            <h2><i class="fas fa-pen" aria-hidden="true"></i> Rédiger un avis sur {{ product.name }}</h2>
+        <div class="review-form" id="reviewForm">
+            <h3>Rédiger un avis sur {{ product.name }}</h3>
             <form id="submitReviewForm">
                 <div class="form-group">
                     <label for="reviewName">Votre nom</label>
-                    <input type="text" id="reviewName" class="form-control" required aria-required="true">
+                    <input type="text" id="reviewName" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
                     <label>Votre note</label>
-                    <div class="star-rating" role="radiogroup" aria-label="Évaluation">
-                        <input type="radio" id="star5" name="rating" value="5" aria-label="5 étoiles">
-                        <label for="star5"><i class="fas fa-star" aria-hidden="true"></i></label>
-                        <input type="radio" id="star4" name="rating" value="4" aria-label="4 étoiles">
-                        <label for="star4"><i class="fas fa-star" aria-hidden="true"></i></label>
-                        <input type="radio" id="star3" name="rating" value="3" aria-label="3 étoiles">
-                        <label for="star3"><i class="fas fa-star" aria-hidden="true"></i></label>
-                        <input type="radio" id="star2" name="rating" value="2" aria-label="2 étoiles">
-                        <label for="star2"><i class="fas fa-star" aria-hidden="true"></i></label>
-                        <input type="radio" id="star1" name="rating" value="1" aria-label="1 étoile">
-                        <label for="star1"><i class="fas fa-star" aria-hidden="true"></i></label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="reviewTitle">Titre de l'avis</label>
-                    <input type="text" id="reviewTitle" class="form-control" required aria-required="true">
+                    <input type="text" id="reviewTitle" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="reviewText">Votre avis</label>
-                    <textarea id="reviewText" class="form-control" rows="5" required aria-required="true"></textarea>
+                    <textarea id="reviewText" class="form-control" rows="5" required></textarea>
                 </div>
                 
-                <button type="submit" class="btn-submit-review" aria-label="Envoyer l'avis">
-                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer l'avis
+                <button type="submit" class="btn-submit-review">
+                    <i class="fas fa-paper-plane"></i> Envoyer l'avis
                 </button>
             </form>
         </div>
 
         <!-- Liste des avis -->
-        <div class="reviews-list" id="reviewsList" role="list">
+        <div class="reviews-list" id="reviewsList">
             {% if product.id == 1 %}
             <!-- Avis récents pour produit 1 -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Emma L.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 12/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Excellent rapport qualité-prix</h3>
+                <h4>Excellent rapport qualité-prix</h4>
                 <p>"Produit de très bonne qualité, livraison rapide et emballage soigné. Je recommande vivement ce vendeur sérieux."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Nicolas B.</div>
                     <div class="review-date">Acheté le 08/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-                <h3>Très satisfait</h3>
+                <h4>Très satisfait</h4>
                 <p>"Commande reçue rapidement, produit conforme à la description. Un petit bémol sur l'emballage mais rien de grave."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Camille R.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 05/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Parfait pour les fêtes</h3>
+                <h4>Parfait pour les fêtes</h4>
                 <p>"J'ai commandé pour le réveillon, tous mes invités ont adoré. Qualité premium et service impeccable."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Antoine M.</div>
                     <div class="review-date">Acheté le 28/12/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                 </div>
-                <h3>Bon produit</h3>
+                <h4>Bon produit</h4>
                 <p>"Produit correct, livraison dans les temps. Rien d'exceptionnel mais bon rapport qualité-prix."</p>
             </div>
 
             <!-- Anciens avis existants -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Jean D.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 15/06/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Produit exceptionnel</h3>
+                <h4>Produit exceptionnel</h4>
                 <p>"Foie gras exceptionnel, parfait pour les fêtes. Livraison ultra rapide et bien emballé. Je recommande vivement ce produit et ce vendeur."</p>
             </div>
 
             {% elif product.id == 4 %}
             <!-- Avis récents pour produit 4 -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Laura P.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 15/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Champagne d'exception</h3>
+                <h4>Champagne d'exception</h4>
                 <p>"Bulles fines et délicates, arômes complexes. Parfait pour célébrer une occasion spéciale. Livraison soignée."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Marc D.</div>
                     <div class="review-date">Acheté le 10/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-                <h3>Très bon champagne</h3>
+                <h4>Très bon champagne</h4>
                 <p>"Qualité au rendez-vous, emballage sécurisé. Un peu cher mais justifié par la qualité. Je recommande."</p>
             </div>
 
             <!-- Anciens avis existants -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Sophie M.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 12/12/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Parfait pour les fêtes</h3>
+                <h4>Parfait pour les fêtes</h4>
                 <p>"Champagne de qualité, bulles fines et goût délicat. Parfait pour notre réveillon. Tous nos invités ont été impressionnés par la qualité."</p>
             </div>
 
             {% elif product.id == 100 %}
             <!-- Avis récents pour produit 100 -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Julien T.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 18/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Commande professionnelle</h3>
+                <h4>Commande professionnelle</h4>
                 <p>"Commande pour mon restaurant, tous les produits sont arrivés en parfait état. Qualité constante et service fiable."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Sarah K.</div>
                     <div class="review-date">Acheté le 12/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-                <h3>Très bonne affaire</h3>
+                <h4>Très bonne affaire</h4>
                 <p>"Excellent rapport qualité-prix pour une commande en gros. Livraison rapide et emballage renforcé."</p>
             </div>
 
             <!-- Anciens avis existants -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Thomas B.</div>
                     <div class="review-date">Acheté le 05/07/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Excellent rapport qualité/prix</h3>
+                <h4>Excellent rapport qualité/prix</h4>
                 <p>"Excellent rapport qualité/prix pour un événement. Toutes les bouteilles intactes à la livraison. Emballage très professionnel et sécurisé."</p>
             </div>
 
             {% else %}
             <!-- Avis récents pour produits génériques -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         Alexandre M.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 20/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h3>Service impeccable</h3>
+                <h4>Service impeccable</h4>
                 <p>"Du choix du produit à la livraison, tout s'est parfaitement déroulé. Je reviendrai sans hésiter."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Céline L.</div>
                     <div class="review-date">Acheté le 18/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-                <h3>Ravis de mon achat</h3>
+                <h4>Ravis de mon achat</h4>
                 <p>"Produit frais et de qualité, emballage soigné. Livraison un peu longue mais le produit en vaut la peine."</p>
             </div>
 
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">
                         David P.
                         <span class="verified-badge">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i> Vérifié
+                            <i class="fas fa-check-circle"></i> Vérifié
                         </span>
                     </div>
                     <div class="review-date">Acheté le 15/01/2024</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                 </div>
-                <h3>Correct</h3>
+                <h4>Correct</h4>
                 <p>"Produit correct pour le prix, rien d'exceptionnel. Livraison dans les délais annoncés."</p>
             </div>
 
             <!-- Anciens avis existants -->
-            <div class="review-card" role="listitem">
+            <div class="review-card">
                 <div class="review-header">
                     <div class="review-author">Pierre G.</div>
                     <div class="review-date">Acheté le 15/04/2023</div>
                 </div>
                 <div class="review-stars">
-                    <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="far fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                 </div>
-                <h3>Très bonne qualité</h3>
+                <h4>Très bonne qualité</h4>
                 <p>"Très bonne qualité pour le prix. L'emballage était solide et le produit frais à la réception. Livraison un peu longue mais acceptable."</p>
             </div>
 
@@ -1672,8 +1614,8 @@
         </div>
 
         <!-- Pagination -->
-        <div class="pagination" id="pagination" role="navigation" aria-label="Pagination des avis">
-            <a href="#" class="page-link active" data-page="1" aria-current="page">1</a>
+        <div class="pagination" id="pagination">
+            <a href="#" class="page-link active" data-page="1">1</a>
             <a href="#" class="page-link" data-page="2">2</a>
             <a href="#" class="page-link" data-page="3">3</a>
             <a href="#" class="page-link" data-page="4">4</a>
@@ -1681,13 +1623,13 @@
     </section>
 
     <!-- Produits similaires -->
-    <section class="related-products" role="region" aria-label="Produits similaires">
+    <section class="related-products">
         <h2 class="related-title">Vous pourriez aussi aimer</h2>
         <div class="related-grid">
             {% for product in related_products %}
-            <div class="product-card" tabindex="0">
+            <div class="product-card">
                 {% if product.featured %}
-                <div class="product-badge" aria-label="Promotion">PROMO</div>
+                <div class="product-badge">PROMO</div>
                 {% endif %}
                 <div class="product-image">
                     <img src="{{ url_for('static', filename='images/products/' + product.images[0]) }}" 
@@ -1697,8 +1639,8 @@
                     <h3>{{ product.name }}</h3>
                     <div class="price">{{ "%.2f"|format(product.price) }}€</div>
                     <a href="{{ url_for('product_detail', product_id=product.id, slug=product.name|slugify) }}" 
-                       class="btn-product" aria-label="Voir les détails de {{ product.name }}">
-                        <i class="fas fa-eye" aria-hidden="true"></i> Voir
+                       class="btn-product">
+                        <i class="fas fa-eye"></i> Voir
                     </a>
                 </div>
             </div>
@@ -1708,11 +1650,11 @@
 </div>
 
 <!-- CTA Mobile -->
-<div class="mobile-cta" role="region" aria-label="Bouton d'ajout au panier mobile">
+<div class="mobile-cta">
     <form method="post" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
         <input type="hidden" name="product_id" value="{{ product.id }}">
-        <button type="submit" class="btn-add-to-cart" aria-label="Ajouter {{ product.name }} au panier">
-            <i class="fas fa-cart-plus" aria-hidden="true"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
+        <button type="submit" class="btn-add-to-cart">
+            <i class="fas fa-cart-plus"></i> Ajouter au panier - {{ "%.2f"|format(product.price) }}€
         </button>
     </form>
 </div>
@@ -1720,84 +1662,29 @@
 
 {% block extra_js %}
 <script defer>
-    // --- Gestion du bouton mobile ---
-    let lastScrollTop = 0;
-    let mobileCTA = document.querySelector('.mobile-cta');
-    let isScrolling;
-
-    function handleMobileCTA() {
-        if (window.innerWidth <= 768) {
-            window.addEventListener('scroll', function() {
-                window.clearTimeout(isScrolling);
-                
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Masquer le bouton pendant le défilement
-                mobileCTA.classList.remove('visible');
-                
-                isScrolling = setTimeout(function() {
-                    // Afficher le bouton après arrêt du défilement
-                    if (scrollTop > 300) { // Seulement si on a défilé un peu
-                        mobileCTA.classList.add('visible');
-                    } else {
-                        mobileCTA.classList.remove('visible');
-                    }
-                }, 150);
-                
-                lastScrollTop = scrollTop;
-            }, false);
-        }
-    }
-
     // --- Changement d'image principale ---
     function changeMainImage(thumbnail, newSrc) {
-        try {
-            const mainImg = document.getElementById('main-image');
-            if (!mainImg) throw new Error('Main image not found');
-            mainImg.style.opacity = '0';
-            setTimeout(() => {
-                mainImg.src = newSrc;
-                mainImg.style.opacity = '1';
-            }, 200);
-            document.querySelectorAll('.thumbnail').forEach(img => {
-                img.classList.remove('active');
-                img.setAttribute('aria-selected', 'false');
-            });
-            thumbnail.classList.add('active');
-            thumbnail.setAttribute('aria-selected', 'true');
-        } catch (error) {
-            console.error('Error changing main image:', error);
-        }
-    }
-
-    // --- Zoom de l'image principale ---
-    function toggleImageZoom() {
         const mainImg = document.getElementById('main-image');
-        if (!mainImg) return;
-        
-        mainImg.classList.toggle('zoomed');
-        const container = document.querySelector('.main-image-container');
-        if (mainImg.classList.contains('zoomed')) {
-            container.style.cursor = 'zoom-out';
-        } else {
-            container.style.cursor = 'zoom-in';
-        }
+        mainImg.style.opacity = '0';
+        setTimeout(() => {
+            mainImg.src = newSrc;
+            mainImg.style.opacity = '1';
+        }, 200);
+        document.querySelectorAll('.thumbnail').forEach(img => {
+            img.classList.remove('active');
+        });
+        thumbnail.classList.add('active');
     }
 
     // --- Affichage des détails complets ---
     function toggleDetails() {
-        try {
-            const fullDetails = document.getElementById('fullDetails');
-            const readMoreBtn = document.querySelector('.read-more');
-            if (!fullDetails || !readMoreBtn) throw new Error('Details or button not found');
-            const isActive = fullDetails.classList.toggle('active');
-            readMoreBtn.classList.toggle('active');
-            readMoreBtn.setAttribute('aria-expanded', isActive);
-            if (isActive) {
-                fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        } catch (error) {
-            console.error('Error toggling details:', error);
+        const fullDetails = document.getElementById('fullDetails');
+        const readMoreBtn = document.querySelector('.read-more');
+        const isActive = fullDetails.classList.toggle('active');
+        readMoreBtn.classList.toggle('active');
+        
+        if (isActive) {
+            fullDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 
@@ -1805,13 +1692,11 @@
     function initializeReviewForm() {
         const btnOpenReviewForm = document.getElementById('btn-open-review-form');
         const reviewForm = document.getElementById('reviewForm');
-        if (!btnOpenReviewForm || !reviewForm) return;
 
         btnOpenReviewForm.addEventListener('click', function(e) {
             e.preventDefault();
-            const isActive = reviewForm.classList.toggle('active');
-            btnOpenReviewForm.setAttribute('aria-expanded', isActive);
-            if (isActive) {
+            reviewForm.classList.toggle('active');
+            if (reviewForm.classList.contains('active')) {
                 reviewForm.scrollIntoView({ behavior: 'smooth' });
             }
         });
@@ -1820,46 +1705,39 @@
         if (submitReviewForm) {
             submitReviewForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                try {
-                    const name = document.getElementById('reviewName')?.value.trim();
-                    const rating = document.querySelector('input[name="rating"]:checked')?.value;
-                    const title = document.getElementById('reviewTitle')?.value.trim();
-                    const text = document.getElementById('reviewText')?.value.trim();
-                    const date = new Date().toLocaleDateString('fr-FR');
+                const name = document.getElementById('reviewName').value.trim();
+                const rating = document.querySelector('input[name="rating"]:checked')?.value;
+                const title = document.getElementById('reviewTitle').value.trim();
+                const text = document.getElementById('reviewText').value.trim();
+                const date = new Date().toLocaleDateString('fr-FR');
 
-                    if (!name || !rating || !title || !text) {
-                        alert('Veuillez remplir tous les champs requis.');
-                        return;
-                    }
-
-                    const newReview = document.createElement('div');
-                    newReview.className = 'review-card';
-                    newReview.setAttribute('role', 'listitem');
-                    newReview.innerHTML = `
-                        <div class="review-header">
-                            <div class="review-author">${name}</div>
-                            <div class="review-date">Acheté le ${date}</div>
-                        </div>
-                        <div class="review-stars">
-                            ${'<i class="fas fa-star" aria-hidden="true"></i>'.repeat(parseInt(rating))}
-                            ${rating % 1 !== 0 ? '<i class="fas fa-star-half-alt" aria-hidden="true"></i>' : ''}
-                            ${'<i class="far fa-star" aria-hidden="true"></i>'.repeat(5 - Math.ceil(rating))}
-                        </div>
-                        <h3>${title}</h3>
-                        <p>"${text}"</p>
-                    `;
-
-                    const reviewsList = document.getElementById('reviewsList');
-                    reviewsList.prepend(newReview);
-                    this.reset();
-                    reviewForm.classList.remove('active');
-                    btnOpenReviewForm.setAttribute('aria-expanded', 'false');
-                    alert('Merci pour votre avis ! Il a été ajouté avec succès.');
-                    updatePagination();
-                } catch (error) {
-                    console.error('Error submitting review:', error);
-                    alert('Une erreur s\'est produite lors de l\'envoi de l\'avis.');
+                if (!name || !rating || !title || !text) {
+                    alert('Veuillez remplir tous les champs requis.');
+                    return;
                 }
+
+                const newReview = document.createElement('div');
+                newReview.className = 'review-card';
+                newReview.innerHTML = `
+                    <div class="review-header">
+                        <div class="review-author">${name}</div>
+                        <div class="review-date">Acheté le ${date}</div>
+                    </div>
+                    <div class="review-stars">
+                        ${'<i class="fas fa-star"></i>'.repeat(parseInt(rating))}
+                        ${rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                        ${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(rating))}
+                    </div>
+                    <h4>${title}</h4>
+                    <p>"${text}"</p>
+                `;
+
+                const reviewsList = document.getElementById('reviewsList');
+                reviewsList.prepend(newReview);
+                this.reset();
+                reviewForm.classList.remove('active');
+                alert('Merci pour votre avis ! Il a été ajouté avec succès.');
+                updatePagination();
             });
         }
     }
@@ -1869,29 +1747,20 @@
         document.querySelectorAll('.proof-card').forEach(container => {
             container.addEventListener('click', function(e) {
                 if (e.target.closest('.proof-overlay')) {
-                    try {
-                        const imgSrc = this.querySelector('.proof-image').src;
-                        const modal = document.createElement('div');
-                        modal.className = 'proof-modal';
-                        modal.innerHTML = `
-                            <span class="proof-modal-close" role="button" aria-label="Fermer la modale">×</span>
-                            <img src="${imgSrc}" alt="Image agrandie du témoignage client">
-                        `;
-                        modal.querySelector('.proof-modal-close').addEventListener('click', () => {
-                            document.body.removeChild(modal);
-                        });
-                        modal.addEventListener('click', e => {
-                            if (e.target === modal) document.body.removeChild(modal);
-                        });
-                        document.body.appendChild(modal);
-                    } catch (error) {
-                        console.error('Error opening proof modal:', error);
-                    }
-                }
-            });
-            container.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    this.click();
+                    const imgSrc = this.querySelector('.proof-image').src;
+                    const modal = document.createElement('div');
+                    modal.className = 'proof-modal';
+                    modal.innerHTML = `
+                        <span class="proof-modal-close">×</span>
+                        <img src="${imgSrc}" alt="Image agrandie du témoignage client">
+                    `;
+                    modal.querySelector('.proof-modal-close').addEventListener('click', () => {
+                        document.body.removeChild(modal);
+                    });
+                    modal.addEventListener('click', e => {
+                        if (e.target === modal) document.body.removeChild(modal);
+                    });
+                    document.body.appendChild(modal);
                 }
             });
         });
@@ -1899,60 +1768,43 @@
 
     // --- Pagination des avis ---
     function updatePagination() {
-        try {
-            const reviewsList = document.getElementById('reviewsList');
-            const reviews = reviewsList.querySelectorAll('.review-card');
-            const reviewsPerPage = 5;
-            const totalPages = Math.ceil(reviews.length / reviewsPerPage);
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
+        const reviewsList = document.getElementById('reviewsList');
+        const reviews = reviewsList.querySelectorAll('.review-card');
+        const reviewsPerPage = 5;
+        const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
 
-            for (let i = 1; i <= totalPages; i++) {
-                const pageLink = document.createElement('a');
-                pageLink.href = '#';
-                pageLink.className = 'page-link';
-                pageLink.dataset.page = i;
-                pageLink.textContent = i;
-                pageLink.setAttribute('aria-label', `Page ${i}`);
-                if (i === 1) {
-                    pageLink.classList.add('active');
-                    pageLink.setAttribute('aria-current', 'page');
-                }
-                pagination.appendChild(pageLink);
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.className = 'page-link';
+            pageLink.dataset.page = i;
+            pageLink.textContent = i;
+            if (i === 1) {
+                pageLink.classList.add('active');
             }
-
-            function showPage(page) {
-                reviews.forEach((review, index) => {
-                    review.style.display = (index >= (page - 1) * reviewsPerPage && index < page * reviewsPerPage) ? 'block' : 'none';
-                });
-                document.querySelectorAll('.page-link').forEach(link => {
-                    link.classList.remove('active');
-                    link.removeAttribute('aria-current');
-                });
-                const activeLink = document.querySelector(`.page-link[data-page="${page}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                    activeLink.setAttribute('aria-current', 'page');
-                }
-            }
-
-            document.querySelectorAll('.page-link').forEach(link => {
-                link.addEventListener('click', e => {
-                    e.preventDefault();
-                    showPage(parseInt(link.dataset.page));
-                });
-                link.addEventListener('keydown', e => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        showPage(parseInt(link.dataset.page));
-                    }
-                });
-            });
-
-            showPage(1);
-        } catch (error) {
-            console.error('Error updating pagination:', error);
+            pagination.appendChild(pageLink);
         }
+
+        function showPage(page) {
+            reviews.forEach((review, index) => {
+                review.style.display = (index >= (page - 1) * reviewsPerPage && index < page * reviewsPerPage) ? 'block' : 'none';
+            });
+            document.querySelectorAll('.page-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.page-link[data-page="${page}"]`).classList.add('active');
+        }
+
+        document.querySelectorAll('.page-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                showPage(parseInt(link.dataset.page));
+            });
+        });
+
+        showPage(1);
     }
 
     // --- Simuler le nombre de personnes consultantes ---
@@ -1973,72 +1825,23 @@
 
     // --- Initialisation au chargement ---
     document.addEventListener('DOMContentLoaded', function() {
-        try {
-            // Gestion du bouton mobile
-            handleMobileCTA();
+        // Animation au chargement
+        const elements = document.querySelectorAll('.product-gallery, .product-info');
+        elements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
+            el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 + index * 100);
+        });
 
-            // Animation au chargement
-            const elements = document.querySelectorAll('.product-gallery, .product-info');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = `translateY(${index % 2 ? '20px' : '-20px'})`;
-                el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 100 + index * 100);
-            });
-
-            // Animation des boutons
-            document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
-                setTimeout(() => {
-                    btn.style.animation = 'pulse 2s infinite';
-                }, 1500);
-            });
-
-            // Zoom image
-            const mainImageContainer = document.querySelector('.main-image-container');
-            const mainImage = document.getElementById('main-image');
-            if (mainImageContainer && mainImage) {
-                mainImageContainer.addEventListener('click', toggleImageZoom);
-            }
-
-            // Animation produit similaire
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-                card.style.animation = 'float 6s ease-in-out infinite';
-            });
-
-            // Initialiser les fonctionnalités
-            initializeReviewForm();
-            initializeProofModals();
-            updatePagination();
-            updateViewerCount();
-
-            // Gestion améliorée du formulaire mobile
-            const mobileForm = document.querySelector('.mobile-cta form');
-            if (mobileForm) {
-                mobileForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    // Empêcher les soumissions multiples
-                    const submitBtn = this.querySelector('.btn-add-to-cart');
-                    if (submitBtn.disabled) return;
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ajout en cours...';
-                    
-                    // Simuler l'ajout au panier
-                    setTimeout(() => {
-                        // Soumettre le formulaire après un délai pour montrer l'effet
-                        this.submit();
-                    }, 1000);
-                });
-            }
-
-        } catch (error) {
-            console.error('Error during initialization:', error);
-        }
+        // Initialiser les fonctionnalités
+        initializeReviewForm();
+        initializeProofModals();
+        updatePagination();
+        updateViewerCount();
     });
 </script>
 {% endblock %}
