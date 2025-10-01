@@ -410,6 +410,8 @@ def product_list():
                          products=filtered_products, 
                          categories=categories,
                          current_category=category)
+
+
 @app.route('/submit-contact', methods=['POST'])
 def submit_contact():
     try:
