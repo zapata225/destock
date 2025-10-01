@@ -725,271 +725,1533 @@
 }
 
     </style>
-<body>
-   <!-- 🔵 NAVBAR ULTRA PREMIUM - DESTOCKAGE ALIMENTAIRE 🛒 -->
-<nav class="navbar" style="
-background: linear-gradient(135deg, #2a5bd7 0%, #1a3fa8 100%);
-color: white;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-backdrop-filter: blur(8px);
-border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-">
-<div class="container" style="padding: 0 2rem;">
-    <!-- 🏷️ Logo + Nom décalé à gauche -->
-    <a href="{{ url_for('index') }}" class="logo" style="margin-right: auto; transform: translateX(-15px);">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" 
-             alt="🛍️ Logo Destockage Alimentaire" 
-             style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); height: 40px;">
-        <h1 style="
-            color: white; 
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            margin-left: 10px;
-        ">DÉSTOCKAGE+®</h1>
-    </a>
-    
-    <!-- 🔗 Menu Principal -->
-    <div class="nav-links" style="gap: 1.5rem;">
-        <a href="{{ url_for('index') }}" class="nav-link">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-text">Accueil</span>
-        </a>
-        <a href="{{ url_for('product_list') }}" class="nav-link">
-            <span class="nav-icon">📦</span>
-            <span class="nav-text">Produits</span>
-        </a>
-        <a href="{{ url_for('view_cart') }}" class="nav-link">
-            <span class="nav-icon">🛒</span>
-            <span class="nav-text">Panier</span>
-        </a>
-        <a href="{{ url_for('contact') }}" class="nav-link">
-            <span class="nav-icon">📞</span>
-            <span class="nav-text">Contact</span>
-        </a>
-        
-        {% if session.logged_in %}
-            <div class="user-dropdown">
-                <a href="{{ url_for('account') }}" class="nav-link premium">
-                    <span class="nav-icon">👤</span>
-                    <span class="nav-text">Mon Espace</span>
-                </a>
-                <a href="{{ url_for('logout') }}" class="nav-link logout">
-                    <span class="nav-icon">🔒</span>
-                    <span class="nav-text">Déconnexion</span>
-                </a>
-            </div>
-        {% else %}
-            <a href="{{ url_for('login') }}" class="nav-link">
-                <span class="nav-icon">🔑</span>
-                <span class="nav-text">Connexion</span>
-            </a>
-            <a href="{{ url_for('register') }}" class="nav-btn" style="
-                background: linear-gradient(90deg, #FF6B00 0%, #FF8E00 100%);
-                padding: 0.6rem 1.8rem;
-                border-radius: 50px;
-                font-weight: 600;
-                box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
-                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            ">
-                ✨ S'inscrire
-            </a>
-        {% endif %}
-    </div>
-    
-    <!-- 🛍️ Panier avec micro-interaction -->
-    <div class="cart-icon" id="cart-icon" style="margin-left: 2rem;">
-        <div class="cart-container" style="position: relative;">
-            <i class="fas fa-shopping-cart" style="font-size: 1.4rem; color: white;"></i>
-            <span class="cart-count" id="cart-count" style="
-                position: absolute;
-                top: -8px;
-                right: -12px;
-                background: #FF4757;
-                color: white;
-                border-radius: 50%;
-                width: 22px;
-                height: 22px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 0.75rem;
-                font-weight: bold;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            ">
-                {% if 'cart' in session %}
-                    {{ session.cart.values()|sum }}
-                {% else %}
-                    0
-                {% endif %}
-            </span>
-        </div>
-    </div>
-    
-    <!-- 📱 Menu Burger Animé -->
-    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" style="
-        background: transparent;
-        border: none;
-        margin-left: 1.5rem;
-    ">
-        <div class="hamburger" style="
-            width: 25px;
-            height: 20px;
+
+    <style>
+        /* BARRE SUPÉRIEURE ULTRA MODERNE - PLUS LARGE */
+        .top-bar-premium {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            padding: 15px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .top-bar-container-premium {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .urgent-contact-premium {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .urgent-phone-premium {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .phone-icon-premium {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .phone-icon-premium i {
+            color: #10b981;
+            font-size: 1.1rem;
+        }
+
+        .phone-info-premium {
             display: flex;
             flex-direction: column;
+        }
+
+        .phone-label-premium {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .phone-number-premium {
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .phone-number-premium:hover {
+            color: #10b981;
+            transform: translateY(-1px);
+        }
+
+        .contact-badge-premium {
+            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .essential-links-premium {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .link-premium {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .link-premium:hover {
+            color: white;
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-1px);
+        }
+
+        .link-premium.highlight {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .link-premium.highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        /* NAVIGATION PRINCIPALE ULTRA PROFESSIONNELLE */
+        .main-navbar-premium {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-container-premium {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-        ">
-            <span style="
-                display: block;
-                height: 3px;
-                width: 100%;
+            height: 90px;
+        }
+
+        /* Section marque */
+        .brand-section-premium {
+            flex-shrink: 0;
+        }
+
+        .logo-link-premium {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-wrapper-premium {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img-premium {
+            height: 55px;
+            width: auto;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+        }
+
+        .brand-text-premium {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name-premium {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-tagline-premium {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* Navigation centrale */
+        .nav-center-premium {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex: 1;
+            justify-content: center;
+            margin: 0 50px;
+        }
+
+        .main-menu-premium {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item-premium {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item-premium i {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .nav-item-premium:hover {
+            color: #1e40af;
+            background: rgba(30, 64, 175, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .nav-item-premium.active {
+            color: #1e40af;
+            background: rgba(30, 64, 175, 0.12);
+            font-weight: 800;
+        }
+
+        .nav-item-premium.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: #1e40af;
+            border-radius: 3px;
+        }
+
+        .nav-item-premium.hot {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .nav-item-premium.hot i {
+            color: white;
+            opacity: 1;
+        }
+
+        .nav-item-premium.hot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Barre de recherche */
+        .search-container-premium {
+            flex: 1;
+            max-width: 550px;
+            position: relative;
+        }
+
+        .search-box-premium {
+            position: relative;
+            display: flex;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .search-box-premium:focus-within {
+            border-color: #1e40af;
+            box-shadow: 0 6px 25px rgba(30, 64, 175, 0.2);
+        }
+
+        .search-input-premium {
+            flex: 1;
+            border: none;
+            padding: 16px 24px;
+            font-size: 0.95rem;
+            outline: none;
+            background: transparent;
+        }
+
+        .search-input-premium::placeholder {
+            color: #9ca3af;
+        }
+
+        .search-btn-premium {
+            background: #1e40af;
+            border: none;
+            color: white;
+            padding: 0 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .search-btn-premium:hover {
+            background: #1e3a8a;
+        }
+
+        /* Styles pour les résultats de recherche */
+        .search-results-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            margin-top: 8px;
+            display: none;
+            border: 1px solid #e5e7eb;
+        }
+
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f3f4f6;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 12px;
+        }
+
+        .search-result-info {
+            flex: 1;
+        }
+
+        .search-result-name {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .search-result-category {
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .search-result-price {
+            color: #059669;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .search-result-empty {
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .search-loading {
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            z-index: 999;
+            display: none;
+        }
+
+        /* Actions utilisateur */
+        .nav-actions-premium {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-shrink: 0;
+        }
+
+        /* NUMERO URGENT DANS LA NAVBAR */
+        .urgent-phone-navbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border-radius: 12px;
+            margin-right: 15px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .phone-navbar-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-navbar-icon i {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .phone-navbar-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .phone-navbar-label {
+            font-size: 0.7rem;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+
+        .phone-navbar-number {
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            line-height: 1;
+            transition: all 0.3s;
+        }
+
+        .phone-navbar-number:hover {
+            color: #fef3c7;
+            transform: scale(1.05);
+        }
+
+        /* Widget utilisateur */
+        .user-widget-premium {
+            position: relative;
+        }
+
+        .user-dropdown-premium {
+            position: relative;
+        }
+
+        .user-btn-premium {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(30, 64, 175, 0.08);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            color: #4b5563;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .user-btn-premium:hover {
+            background: rgba(30, 64, 175, 0.12);
+            border-color: #1e40af;
+            color: #1e40af;
+        }
+
+        .user-btn-premium i:first-child {
+            font-size: 1.2rem;
+            color: #1e40af;
+        }
+
+        .user-menu-premium {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 240px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            padding: 10px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            z-index: 1000;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .user-dropdown-premium:hover .user-menu-premium {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .user-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .user-menu-item:hover {
+            background: rgba(30, 64, 175, 0.08);
+            color: #1e40af;
+        }
+
+        .user-menu-item.logout {
+            color: #dc2626;
+        }
+
+        .user-menu-item.logout:hover {
+            background: rgba(220, 38, 38, 0.08);
+        }
+
+        .auth-buttons-premium {
+            display: flex;
+            gap: 12px;
+        }
+
+        .auth-btn-premium {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .auth-btn-premium.login {
+            background: transparent;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+        }
+
+        .auth-btn-premium.login:hover {
+            background: rgba(30, 64, 175, 0.08);
+            border-color: #1e40af;
+            color: #1e40af;
+        }
+
+        .auth-btn-premium.register {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: white;
+            border: none;
+        }
+
+        .auth-btn-premium.register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+        }
+
+        /* Widget panier */
+        .cart-widget-premium {
+            position: relative;
+        }
+
+        .cart-btn-premium {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .cart-btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+        }
+
+        .cart-count-premium {
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            animation: bounce 2s infinite;
+            box-shadow: 0 2px 5px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Bouton mobile */
+        .mobile-toggle-premium {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-toggle-premium span {
+            width: 24px;
+            height: 3px;
+            background: #4b5563;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        /* MENU MOBILE PREMIUM - PLUS VOYANT */
+        .mobile-menu-premium {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: 15px 0 40px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-premium.active {
+            left: 0;
+        }
+
+        .mobile-header-premium {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+        }
+
+        .mobile-brand-premium {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: white;
+        }
+
+        .mobile-logo-text {
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .mobile-tagline {
+            font-size: 0.7rem;
+            font-weight: 700;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .mobile-close-premium {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .mobile-close-premium:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        /* SECTION URGENTE MOBILE TRES VISIBLE */
+        .mobile-urgent-section {
+            padding: 20px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-urgent-alert {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .urgent-alert-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .urgent-alert-icon i {
+            color: white;
+            font-size: 1.4rem;
+        }
+
+        .urgent-alert-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+        }
+
+        .urgent-alert-title {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .urgent-alert-phone {
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .urgent-alert-phone:hover {
+            color: #fef3c7;
+            transform: scale(1.05);
+        }
+
+        .urgent-alert-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+            margin-top: 5px;
+        }
+
+        .mobile-search-premium {
+            padding: 25px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .mobile-nav-premium {
+            flex: 1;
+            padding: 25px 0;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 700;
+            transition: all 0.3s;
+            border-left: 5px solid transparent;
+        }
+
+        .mobile-nav-item.active {
+            background: rgba(30, 64, 175, 0.08);
+            color: #1e40af;
+            border-left-color: #1e40af;
+        }
+
+        .mobile-nav-item.hot {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+        }
+
+        .mobile-nav-item.highlight {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .mobile-divider {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 15px 25px;
+        }
+
+        /* SECTION CONTACT MOBILE AMELIOREE */
+        .mobile-contact-premium {
+            padding: 25px;
+            border-top: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
+
+        .urgent-phone-mobile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            border: 3px solid #1e40af;
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.15);
+            transition: all 0.3s;
+        }
+
+        .urgent-phone-mobile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(30, 64, 175, 0.2);
+        }
+
+        .phone-mobile-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .phone-mobile-icon i {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .phone-mobile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .phone-mobile-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .phone-mobile-number {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .phone-mobile-number:hover {
+            color: #1e3a8a;
+            transform: scale(1.05);
+        }
+
+        .phone-mobile-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+            margin-top: 5px;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            }
+            50% { 
+                transform: scale(1.02); 
+                box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-4px); }
+            60% { transform: translateY(-2px); }
+        }
+
+        /* Animation de chargement */
+        @keyframes search-pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        .search-loading {
+            animation: search-pulse 1.5s infinite;
+        }
+
+        /* Adaptation mobile pour les résultats */
+        @media (max-width: 768px) {
+            .top-bar-premium {
+                display: none;
+            }
+            
+            .nav-center-premium {
+                display: none;
+            }
+            
+            .user-widget-premium .auth-buttons-premium,
+            .user-widget-premium .user-dropdown-premium {
+                display: none;
+            }
+            
+            .mobile-toggle-premium {
+                display: flex;
+            }
+            
+            .nav-container-premium {
+                height: 80px;
+                padding: 0 20px;
+            }
+            
+            .brand-name-premium {
+                font-size: 1.4rem;
+            }
+            
+            .brand-tagline-premium {
+                font-size: 0.65rem;
+            }
+            
+            .logo-img-premium {
+                height: 45px;
+            }
+            
+            .mobile-menu-premium {
+                width: 320px;
+            }
+            
+            .mobile-urgent-section {
+                padding: 15px;
+            }
+            
+            .mobile-urgent-alert {
+                padding: 15px;
+            }
+            
+            .urgent-alert-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .urgent-alert-icon i {
+                font-size: 1.2rem;
+            }
+            
+            .urgent-alert-phone {
+                font-size: 1.1rem;
+            }
+
+            .search-results-container {
+                position: fixed;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                max-height: none;
+                border-radius: 0;
+                margin-top: 0;
                 background: white;
-                border-radius: 2px;
-                transition: all 0.3s ease;
-            "></span>
-            <span style="
-                display: block;
-                height: 3px;
-                width: 80%;
-                background: white;
-                border-radius: 2px;
-                transition: all 0.3s ease;
-            "></span>
-            <span style="
-                display: block;
-                height: 3px;
-                width: 60%;
-                background: white;
-                border-radius: 2px;
-                transition: all 0.3s ease;
-            "></span>
+                z-index: 1001;
+            }
+            
+            .search-result-item {
+                padding: 16px;
+            }
+            
+            .search-result-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mobile-menu-premium {
+                width: 300px;
+            }
+            
+            .nav-container-premium {
+                padding: 0 15px;
+            }
+            
+            .logo-img-premium {
+                height: 40px;
+            }
+            
+            .mobile-header-premium {
+                padding: 20px;
+            }
+            
+            .mobile-urgent-section {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre supérieure ULTRA MEGA MODERNE - Contact & Urgence -->
+    <div class="top-bar-premium">
+        <div class="top-bar-container-premium">
+            <!-- Section contact urgente -->
+            <div class="urgent-contact-premium">
+                <div class="urgent-phone-premium">
+                    <div class="phone-icon-premium">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="phone-info-premium">
+                        <span class="phone-label-premium">URGENT COMMANDE</span>
+                        <a href="tel:+33644694515" class="phone-number-premium">+33 6 44 69 45 15</a>
+                    </div>
+                </div>
+                
+                <div class="contact-badge-premium">
+                    <i class="fas fa-bolt"></i>
+                    <span>LIVRAISON 24H/48H</span>
+                </div>
+            </div>
+
+            <!-- Section liens essentiels -->
+            <div class="essential-links-premium">
+                <a href="/recrutement" class="link-premium">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Recrutement</span>
+                </a>
+
+                <a href="/contact" class="link-premium">
+                    <i class="fas fa-headset"></i>
+                    <span>Support</span>
+                </a>
+            </div>
         </div>
-    </button>
-</div>
-</nav>
+    </div>
 
-<!-- ✅ STYLES NAVBAR -->
-<style>
-.nav-link {
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    text-decoration: none;
-}
+    <!-- Navigation principale ULTRA PROFESSIONNELLE -->
+    <nav class="main-navbar-premium">
+        <div class="nav-container-premium">
+            <!-- Logo et marque -->
+            <div class="brand-section-premium">
+                <a href="/" class="logo-link-premium">
+                    <div class="logo-wrapper-premium">
+                        <div class="brand-text-premium">
+                            <span class="brand-name-premium">DÉSTOCKAGE+</span>
+                            <span class="brand-tagline-premium">GROSSISTE ALIMENTAIRE</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-.nav-link .nav-text,
-.nav-link .nav-icon {
-    color: white;
-}
+            <!-- Navigation centrale -->
+            <div class="nav-center-premium">
+                <!-- Menu principal épuré -->
+                <div class="main-menu-premium">
+                    <a href="/" class="nav-item-premium active">
+                        <i class="fas fa-home"></i>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="/produits" class="nav-item-premium">
+                        <i class="fas fa-pallet"></i>
+                        <span>Nos Packs</span>
+                    </a>
+                    <a href="/produits?category=Promotions" class="nav-item-premium hot">
+                        <i class="fas fa-fire"></i>
+                        <span>-70% Flash</span>
+                    </a>
+                </div>
 
-.nav-link:hover {
-    transform: translateY(-2px);
-}
+                <!-- Barre de recherche avancée -->
+                <div class="search-container-premium">
+                    <div class="search-box-premium">
+                        <input type="text" placeholder="Rechercher un produit (ex: palette eau, surgelés...)" class="search-input-premium" id="main-search-input">
+                        <button class="search-btn-premium" id="main-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <!-- Container pour les résultats de recherche -->
+                    <div class="search-results-container" id="search-results"></div>
+                </div>
+            </div>
 
-.nav-link:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease;
-}
+                <!-- Compte utilisateur -->
+                <div class="user-widget-premium">
+                    <div class="auth-buttons-premium">
+                        <a href="/connexion" class="auth-btn-premium login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Connexion</span>
+                        </a>
+                        <a href="/inscription" class="auth-btn-premium register">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Inscription</span>
+                        </a>
+                    </div>
+                </div>
 
-.nav-link:hover:after {
-    width: 100%;
-}
+                <!-- Panier avec indicateur -->
+                <div class="cart-widget-premium" id="cart-icon">
+                    <button class="cart-btn-premium">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count-premium" id="cart-count">0</span>
+                    </button>
+                </div>
 
-.nav-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4) !important;
-}
-
-/* Correction spécifique pour le bouton mobile */
-.navbar .container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 15px;
-}
-
-.mobile-menu-btn {
-    display: none; /* Caché par défaut sur desktop */
-}
-
-@media (max-width: 992px) {
-    .mobile-menu-btn {
-        display: flex !important;
-        margin-left: 15px;
-        z-index: 1001;
-        position: relative;
-    }
-    
-    .nav-links {
-        display: none !important;
-    }
-    
-    /* Empêcher le débordement */
-    body {
-        overflow-x: hidden;
-    }
-}
-</style>
-
-
-    <!-- 📱 Menu Mobile Bleu Élégant -->
-        <div class="mobile-menu" id="mobile-menu" style="background: linear-gradient(135deg, #2a5bd7 0%, #1a3db0 100%); backdrop-filter: blur(10px);">
-            <div class="mobile-menu-header">
-                <button class="close-mobile-menu" id="close-mobile-menu" aria-label="Fermer le menu mobile" style="background: rgba(255,255,255,0.2); border-radius: 50%; padding: 10px;">
-                    <i class="fas fa-times" style="color: white; font-size: 1.5em;"></i>
+                <!-- Bouton menu mobile -->
+                <button class="mobile-toggle-premium" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
-            
-            <div class="mobile-menu-links" style="padding: 20px;">
-                <a href="{{ url_for('index') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    🏠 Accueil
-                </a>
-                <a href="{{ url_for('product_list') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    🛍️ Produits
-                </a>
-                <a href="{{ url_for('view_cart') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    🛒 Panier <span class="cart-count" style="background: #ff4757; border-radius: 50%; padding: 2px 8px; font-size: 0.8em;">0</span>
-                </a>
-                <a href="{{ url_for('contact') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    📩 Contact
-                </a>
-                
-                {% if session.logged_in %}
-                    <a href="{{ url_for('account') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                        👤 Mon Compte
-                    </a>
-                    <a href="{{ url_for('logout') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em;">
-                        🔒 Déconnexion
-                    </a>
-                {% else %}
-                    <a href="{{ url_for('login') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                        🔑 Connexion
-                    </a>
-                    <a href="{{ url_for('register') }}" style="color: white; display: block; padding: 15px 0; font-size: 1.2em;">
-                        ✨ Inscription
-                    </a>
-                {% endif %}
+        </div>
+    </nav>
+
+    <!-- Menu mobile premium - PLUS VOYANT -->
+    <div class="mobile-menu-premium" id="mobile-menu">
+        <div class="mobile-header-premium">
+            <div class="mobile-brand-premium">
+                <span class="mobile-logo-text">DÉSTOCKAGE+</span>
+                <span class="mobile-tagline">GROSSISTE ALIMENTAIRE</span>
             </div>
-            
-            <div style="padding: 20px; text-align: center; margin-top: 20px;">
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.9em;">🌟 Découvrez notre collection exclusive</p>
+            <button class="mobile-close-premium" id="close-mobile-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Section URGENT très visible en haut du menu mobile -->
+        <div class="mobile-urgent-section">
+            <div class="mobile-urgent-alert">
+                <div class="urgent-alert-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="urgent-alert-content">
+                    <span class="urgent-alert-title">COMMANDE URGENTE</span>
+                    <a href="tel:+33644694515" class="urgent-alert-phone">+33 6 44 69 45 15</a>
+                    <span class="urgent-alert-badge">24H/48H</span>
+                </div>
             </div>
         </div>
 
+        <div class="mobile-search-premium">
+            <div class="search-box-premium">
+                <input type="text" placeholder="Rechercher un produit..." id="mobile-search-input">
+                <button class="search-btn-premium" id="mobile-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav-premium">
+            <a href="/" class="mobile-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="/produits" class="mobile-nav-item">
+                <i class="fas fa-pallet"></i>
+                <span>Nos Packs</span>
+            </a>
+            <a href="/promotions" class="mobile-nav-item hot">
+                <i class="fas fa-fire"></i>
+                <span>-70% Flash</span>
+                <span class="badge-premium">🔥</span>
+            </a>
+
+            <a href="/recrutement" class="mobile-nav-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Recrutement</span>
+            </a>
+
+            
+            <div class="mobile-divider"></div>
+            
+            <a href="/connexion" class="mobile-nav-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Connexion</span>
+            </a>
+            <a href="/inscription" class="mobile-nav-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Inscription</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <!-- Overlay pour fermer les résultats -->
+    <div class="search-overlay" id="search-overlay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du menu mobile
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenu = document.getElementById('close-mobile-menu');
+            
+            mobileMenuBtn?.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeMobileMenu?.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Fermer le menu en cliquant à l'extérieur
+            document.addEventListener('click', function(e) {
+                if (mobileMenu && mobileMenuBtn && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Animation du bouton mobile
+            mobileMenuBtn?.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+
+            // FONCTIONNALITÉ DE RECHERCHE AVANCÉE
+            const mainSearchInput = document.getElementById('main-search-input');
+            const mainSearchBtn = document.getElementById('main-search-btn');
+            const mobileSearchInput = document.getElementById('mobile-search-input');
+            const mobileSearchBtn = document.getElementById('mobile-search-btn');
+            const searchResults = document.getElementById('search-results');
+            const searchOverlay = document.getElementById('search-overlay');
+
+            let searchTimeout;
+            let currentSearchQuery = '';
+
+            // Fonction pour effectuer la recherche
+            async function performSearch(query, isMobile = false) {
+                if (!query || query.trim().length === 0) {
+                    hideResults();
+                    return;
+                }
+
+                currentSearchQuery = query.trim();
+                
+                // Afficher le loading
+                showResults();
+                searchResults.innerHTML = '<div class="search-loading">🔍 Recherche en cours...</div>';
+
+                try {
+                    const response = await fetch(`/api/search?q=${encodeURIComponent(currentSearchQuery)}`);
+                    const results = await response.json();
+
+                    // Vérifier si la requête est toujours pertinente
+                    if (currentSearchQuery === query.trim()) {
+                        displayResults(results, isMobile);
+                    }
+                } catch (error) {
+                    console.error('Erreur recherche:', error);
+                    if (currentSearchQuery === query.trim()) {
+                        searchResults.innerHTML = '<div class="search-result-empty">❌ Erreur lors de la recherche</div>';
+                    }
+                }
+            }
+
+            // Fonction pour afficher les résultats
+            function displayResults(results, isMobile = false) {
+                if (!results || results.length === 0) {
+                    searchResults.innerHTML = `
+                        <div class="search-result-empty">
+                            🔍 Aucun produit trouvé pour "${currentSearchQuery}"
+                            <div style="font-size: 12px; margin-top: 8px;">Essayez d'autres termes comme "eau", "surgelés", "boissons"</div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                searchResults.innerHTML = results.map(product => `
+                    <div class="search-result-item" data-product-id="${product.id}">
+                        <img src="/static/images/products/${product.images[0]}" 
+                             alt="${product.name}" 
+                             class="search-result-image"
+                             onerror="this.src='/static/images/default-product.jpg'">
+                        <div class="search-result-info">
+                            <div class="search-result-name">${product.name}</div>
+                            <div class="search-result-category">${product.category}</div>
+                            <div class="search-result-price">${product.price.toFixed(2)}€</div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Ajouter les événements de clic sur les résultats
+                const resultItems = searchResults.querySelectorAll('.search-result-item');
+                resultItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const productId = this.getAttribute('data-product-id');
+                        const product = results.find(p => p.id == productId);
+                        if (product) {
+                            window.location.href = `/produit/${productId}-${slugify(product.name)}`;
+                        }
+                    });
+                });
+
+                // Pour mobile, rediriger directement si un seul résultat
+                if (isMobile && results.length === 1) {
+                    const product = results[0];
+                    window.location.href = `/produit/${product.id}-${slugify(product.name)}`;
+                }
+            }
+
+            // Fonction pour afficher les résultats
+            function showResults() {
+                searchResults.style.display = 'block';
+                searchOverlay.style.display = 'block';
+                positionResultsContainer();
+            }
+
+            // Fonction pour cacher les résultats
+            function hideResults() {
+                searchResults.style.display = 'none';
+                searchOverlay.style.display = 'none';
+                currentSearchQuery = '';
+            }
+
+            // Fonction pour positionner le container de résultats
+            function positionResultsContainer() {
+                const searchBox = document.querySelector('.search-container-premium .search-box-premium');
+                if (searchBox) {
+                    const rect = searchBox.getBoundingClientRect();
+                    searchResults.style.width = rect.width + 'px';
+                    searchResults.style.left = '0';
+                    searchResults.style.top = (rect.height + 8) + 'px';
+                }
+            }
+
+            // Fonction pour slugifier
+            function slugify(text) {
+                if (!text) return '';
+                text = text.toLowerCase();
+                text = text.replace(/[àâä]/g, 'a');
+                text = text.replace(/[éèêë]/g, 'e');
+                text = text.replace(/[îï]/g, 'i');
+                text = text.replace(/[ôö]/g, 'o');
+                text = text.replace(/[ùûü]/g, 'u');
+                text = text.replace(/ç/g, 'c');
+                text = text.replace(/[^a-z0-9]+/g, '-');
+                return text.trim('-');
+            }
+
+            // Gestionnaires d'événements pour la recherche desktop
+            if (mainSearchInput) {
+                // Recherche en temps réel avec debounce (dès le 1er caractère)
+                mainSearchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    const query = this.value.trim();
+                    
+                    if (query.length >= 1) {
+                        searchTimeout = setTimeout(() => {
+                            performSearch(query);
+                        }, 200);
+                    } else {
+                        hideResults();
+                    }
+                });
+
+                // Recherche avec Entrée
+                mainSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const query = this.value.trim();
+                        if (query.length >= 1) {
+                            performSearch(query);
+                        }
+                    }
+                });
+
+                // Afficher les résultats existants au focus
+                mainSearchInput.addEventListener('focus', function() {
+                    const query = this.value.trim();
+                    if (query.length >= 1 && searchResults.innerHTML.includes('search-result-item')) {
+                        showResults();
+                    }
+                });
+            }
+
+            // Bouton de recherche desktop
+            if (mainSearchBtn) {
+                mainSearchBtn.addEventListener('click', function() {
+                    const query = mainSearchInput.value.trim();
+                    if (query.length >= 1) {
+                        performSearch(query);
+                    } else {
+                        mainSearchInput.focus();
+                    }
+                });
+            }
+
+            // Gestionnaires d'événements pour la recherche mobile
+            if (mobileSearchInput) {
+                mobileSearchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    const query = this.value.trim();
+                    
+                    if (query.length >= 1) {
+                        searchTimeout = setTimeout(() => {
+                            performSearch(query, true);
+                        }, 300);
+                    }
+                });
+
+                mobileSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const query = this.value.trim();
+                        if (query.length >= 1) {
+                            performSearch(query, true);
+                        }
+                    }
+                });
+            }
+
+            // Bouton de recherche mobile
+            if (mobileSearchBtn) {
+                mobileSearchBtn.addEventListener('click', function() {
+                    const query = mobileSearchInput.value.trim();
+                    if (query.length >= 1) {
+                        performSearch(query, true);
+                    } else {
+                        mobileSearchInput.focus();
+                    }
+                });
+            }
+
+            // Fermer les résultats avec l'overlay
+            searchOverlay.addEventListener('click', hideResults);
+
+            // Fermer les résultats avec ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    hideResults();
+                }
+            });
+
+            // Re-positionner lors du scroll et redimensionnement
+            window.addEventListener('scroll', positionResultsContainer);
+            window.addEventListener('resize', positionResultsContainer);
+
+            // Cacher les résultats en cliquant en dehors
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container-premium') && 
+                    !e.target.closest('.search-results-container')) {
+                    hideResults();
+                }
+            });
+
+            // Position initiale
+            setTimeout(positionResultsContainer, 100);
+        });
+    </script>
+</body>
+</html>
     <!-- Contenu principal -->
     <main>
         {% with messages = get_flashed_messages(with_categories=true) %}
