@@ -2914,7 +2914,7 @@ def article_role_grossiste_clean():
         description="Comprenez le rôle essentiel du grossiste alimentaire : approvisionnement, distribution et déstockage pour professionnels."
     )
 
-@app.route('/destockage-belgique')
+@app.route('/destockage-belgique-25')
 def destockage_belgique_clean():
     return render_template(
         'destockage--belgique.html',
@@ -3391,8 +3391,8 @@ def accords_dom_perignon_rose():
                            title="Accords Mets et Dom Pérignon Rosé | Guide Gastronomique",
                            description="Guide des meilleurs accords mets et champagne Dom Pérignon Rosé. Idéal pour sublimer vos repas de fête et événements.")
 
-@app.route('/destockage-belgique')
-def destockage_belgique():
+@app.route('/destockage-belgique-2025')
+def destockage_belgique_2025():
     return render_template('destockage_belgique.html', 
                            title="Déstockage Alimentaire Belgique | Grossistes & Promotions",
                            description="Profitez du déstockage alimentaire en Belgique : promotions sur boissons, épicerie, viandes et surgelés.")
