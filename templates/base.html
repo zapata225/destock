@@ -3600,50 +3600,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 {% endfor %}
             {% endif %}
         </div>
- <style>/* ===== CART POPUP ULTRA OPTIMISÉ POUR MOBILE ===== */
+ <style>/* ===== CART POPUP ULTRA PROFESSIONNEL POUR MOBILE ===== */
         @media (max-width: 768px) {
             .cart-popup {
-                width: 100% !important;
-                height: 100% !important;
-                max-height: 100vh !important;
-                border-radius: 0 !important;
+                width: 95% !important;
+                max-width: 400px !important;
+                height: 85vh !important;
+                max-height: 85vh !important;
+                border-radius: 20px 20px 0 0 !important;
+                position: fixed !important;
                 bottom: 0 !important;
-                right: 0 !important;
-                transform: translateX(100%) !important;
-                transition: transform 0.3s ease-in-out !important;
-                z-index: 10000 !important;
-                background: white !important;
-                box-shadow: none !important;
-            }
-        
-            .cart-popup.active {
-                transform: translateX(0) !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                top: auto !important;
+                box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.3) !important;
+                border: 2px solid #E5E7EB !important;
+                overflow: hidden !important;
             }
         
             .cart-header {
-                padding: 1.5rem 1rem !important;
+                padding: 1.5rem !important;
                 background: linear-gradient(135deg, #3B82F6, #1D4ED8) !important;
                 color: white !important;
                 position: sticky !important;
                 top: 0 !important;
-                z-index: 10 !important;
-                border-bottom: 3px solid #1D4ED8 !important;
+                z-index: 100 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
             }
         
             .cart-header h3 {
                 font-size: 1.4rem !important;
                 font-weight: 700 !important;
                 margin: 0 !important;
-                text-align: center !important;
+                color: white !important;
             }
         
             .close-cart {
-                position: absolute !important;
-                right: 1rem !important;
-                top: 50% !important;
-                transform: translateY(-50%) !important;
                 background: rgba(255, 255, 255, 0.2) !important;
-                border: 2px solid rgba(255, 255, 255, 0.3) !important;
+                border: none !important;
                 width: 44px !important;
                 height: 44px !important;
                 border-radius: 50% !important;
@@ -3657,7 +3654,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             .close-cart:hover {
                 background: rgba(255, 255, 255, 0.3) !important;
-                transform: translateY(-50%) scale(1.1) !important;
+                transform: scale(1.1) !important;
             }
         
             .close-cart i {
@@ -3667,71 +3664,47 @@ document.addEventListener('DOMContentLoaded', function() {
         
             .cart-items {
                 padding: 1rem !important;
-                max-height: calc(100vh - 200px) !important;
+                max-height: calc(85vh - 200px) !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
+                background: #F8FAFC !important;
             }
         
-            /* ===== BOUTON PASSER COMMANDE ULTRA OPTIMISÉ ===== */
+            /* Bouton Passer Commande Ultra Optimisé iPhone */
             .cart-footer {
-                position: fixed !important;
+                position: sticky !important;
                 bottom: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
                 background: white !important;
-                padding: 1rem !important;
-                border-top: 3px solid #F3F4F6 !important;
-                box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.1) !important;
-                z-index: 20 !important;
-            }
-        
-            .cart-total {
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                margin-bottom: 1rem !important;
-                padding: 0 0.5rem !important;
-            }
-        
-            .total-label {
-                font-size: 1.1rem !important;
-                font-weight: 600 !important;
-                color: #1F2937 !important;
-            }
-        
-            .total-amount {
-                font-size: 1.4rem !important;
-                font-weight: 800 !important;
-                color: #059669 !important;
-                text-shadow: 0 2px 4px rgba(5, 150, 105, 0.2) !important;
+                padding: 1.5rem !important;
+                border-top: 2px solid #F1F5F9 !important;
+                box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1) !important;
             }
         
             .checkout-btn {
                 width: 100% !important;
-                height: 60px !important; /* Hauteur augmentée pour meilleure accessibilité */
-                background: linear-gradient(135deg, #DC2626, #B91C1C) !important;
+                height: 60px !important; /* Taille optimale pour le tactile */
+                background: linear-gradient(135deg, #10B981, #059669) !important;
                 color: white !important;
                 border: none !important;
                 border-radius: 16px !important;
                 font-size: 1.2rem !important;
-                font-weight: 800 !important;
+                font-weight: 700 !important;
                 cursor: pointer !important;
+                transition: all 0.3s ease !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
-                gap: 0.5rem !important;
-                box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4) !important;
-                transition: all 0.3s ease !important;
-                text-decoration: none !important;
+                gap: 0.8rem !important;
+                box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4) !important;
                 position: relative !important;
                 overflow: hidden !important;
-                /* Taille minimale pour les doigts sur mobile */
-                min-height: 60px !important;
+                /* Taille minimale pour le tactile iOS */
+                min-height: 44px !important;
                 padding: 1rem 2rem !important;
             }
         
             .checkout-btn::before {
-                content: "" !important;
+                content: '' !important;
                 position: absolute !important;
                 top: 0 !important;
                 left: -100% !important;
@@ -3746,14 +3719,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         
             .checkout-btn:hover {
-                transform: translateY(-3px) !important;
-                box-shadow: 0 12px 40px rgba(220, 38, 38, 0.6) !important;
-                background: linear-gradient(135deg, #B91C1C, #991B1B) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6) !important;
+                background: linear-gradient(135deg, #059669, #047857) !important;
             }
         
             .checkout-btn:active {
-                transform: translateY(-1px) !important;
-                box-shadow: 0 6px 25px rgba(220, 38, 38, 0.5) !important;
+                transform: translateY(0) !important;
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
             }
         
             .checkout-btn i {
@@ -3765,21 +3738,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 transform: translateX(3px) !important;
             }
         
-            /* États de focus pour accessibilité */
-            .checkout-btn:focus {
-                outline: none !important;
-                box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.3), 0 8px 30px rgba(220, 38, 38, 0.4) !important;
+            /* État désactivé */
+            .checkout-btn:disabled {
+                background: #9CA3AF !important;
+                cursor: not-allowed !important;
+                transform: none !important;
+                box-shadow: 0 4px 15px rgba(156, 163, 175, 0.4) !important;
             }
         
             /* Animation de pulsation pour attirer l'attention */
             @keyframes pulseCheckout {
                 0%, 100% {
-                    transform: scale(1);
-                    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4);
+                    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
                 }
                 50% {
-                    transform: scale(1.02);
-                    box-shadow: 0 10px 35px rgba(220, 38, 38, 0.6);
+                    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.8);
                 }
             }
         
@@ -3787,29 +3760,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 animation: pulseCheckout 2s infinite !important;
             }
         
-            /* Style pour panier vide */
-            .empty-cart {
-                text-align: center !important;
-                padding: 3rem 1rem !important;
-                color: #6B7280 !important;
-            }
-        
-            .empty-cart p {
-                font-size: 1.1rem !important;
-                margin-bottom: 1.5rem !important;
-                color: #6B7280 !important;
-            }
-        
-            .empty-cart .btn {
-                background: linear-gradient(135deg, #3B82F6, #1D4ED8) !important;
-                color: white !important;
-                padding: 1rem 2rem !important;
+            /* Total du panier */
+            .cart-total {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                margin-bottom: 1rem !important;
+                padding: 1rem !important;
+                background: #F8FAFC !important;
                 border-radius: 12px !important;
-                text-decoration: none !important;
+                border: 1px solid #E5E7EB !important;
+            }
+        
+            .total-label {
+                font-size: 1.1rem !important;
                 font-weight: 600 !important;
-                display: inline-block !important;
-                box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
-                transition: all 0.3s ease !important;
+                color: #374151 !important;
+            }
+        
+            .total-amount {
+                font-size: 1.4rem !important;
+                font-weight: 800 !important;
+                color: #059669 !important;
             }
         
             /* Items du panier optimisés mobile */
@@ -3817,9 +3789,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 display: flex !important;
                 gap: 1rem !important;
                 padding: 1rem !important;
-                background: #F9FAFB !important;
+                background: white !important;
                 border-radius: 12px !important;
                 margin-bottom: 1rem !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
                 border: 1px solid #F3F4F6 !important;
             }
         
@@ -3853,7 +3826,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .cart-item-price {
                 font-size: 1.1rem !important;
                 font-weight: 700 !important;
-                color: #059669 !important;
+                color: #3B82F6 !important;
                 margin-bottom: 0.8rem !important;
             }
         
@@ -3867,31 +3840,33 @@ document.addEventListener('DOMContentLoaded', function() {
             .quantity-btn {
                 width: 36px !important;
                 height: 36px !important;
-                border: 2px solid #E5E7EB !important;
+                border: 1px solid #D1D5DB !important;
                 background: white !important;
                 border-radius: 8px !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
                 cursor: pointer !important;
-                font-weight: 700 !important;
                 font-size: 1.1rem !important;
-                transition: all 0.3s ease !important;
+                font-weight: 600 !important;
+                transition: all 0.2s ease !important;
             }
         
-            .quantity-btn:active {
+            .quantity-btn:hover {
                 background: #F3F4F6 !important;
-                transform: scale(0.95) !important;
+                border-color: #9CA3AF !important;
             }
         
             .quantity-input {
                 width: 50px !important;
                 height: 36px !important;
-                border: 2px solid #E5E7EB !important;
+                border: 1px solid #D1D5DB !important;
                 border-radius: 8px !important;
                 text-align: center !important;
-                font-weight: 600 !important;
                 font-size: 1rem !important;
+                font-weight: 600 !important;
+                -webkit-appearance: none !important;
+                margin: 0 !important;
             }
         
             .remove-item {
@@ -3903,70 +3878,87 @@ document.addEventListener('DOMContentLoaded', function() {
                 font-size: 0.8rem !important;
                 font-weight: 600 !important;
                 cursor: pointer !important;
-                transition: all 0.3s ease !important;
-                margin-left: auto !important;
+                transition: all 0.2s ease !important;
+                flex: 1 !important;
+                min-width: 80px !important;
             }
         
-            .remove-item:active {
+            .remove-item:hover {
                 background: #DC2626 !important;
-                transform: scale(0.95) !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .cart-header {
-                padding: 1.2rem 1rem !important;
+                transform: translateY(-1px) !important;
             }
         
-            .cart-header h3 {
-                font-size: 1.3rem !important;
+            /* Panier vide */
+            .empty-cart {
+                text-align: center !important;
+                padding: 3rem 1rem !important;
+                color: #6B7280 !important;
             }
         
-            .close-cart {
-                width: 40px !important;
-                height: 40px !important;
-            }
-        
-            .checkout-btn {
-                height: 55px !important;
+            .empty-cart p {
                 font-size: 1.1rem !important;
-                min-height: 55px !important;
+                margin-bottom: 1.5rem !important;
             }
         
-            .cart-item {
-                padding: 0.8rem !important;
+            .empty-cart .btn {
+                background: linear-gradient(135deg, #3B82F6, #1D4ED8) !important;
+                color: white !important;
+                padding: 1rem 2rem !important;
+                border-radius: 12px !important;
+                text-decoration: none !important;
+                font-weight: 600 !important;
+                display: inline-block !important;
+                transition: all 0.3s ease !important;
             }
         
-            .cart-item-image {
-                width: 70px !important;
-                height: 70px !important;
-            }
-        
-            .cart-item-title {
-                font-size: 0.95rem !important;
-            }
-        
-            .total-amount {
-                font-size: 1.3rem !important;
+            .empty-cart .btn:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
             }
         }
         
-        /* Support spécifique pour iPhone */
-        @supports (-webkit-touch-callout: none) {
+        /* Optimisations spécifiques iPhone */
+        @media (max-width: 430px) and (max-height: 932px) {
+            .cart-popup {
+                height: 90vh !important;
+                max-height: 90vh !important;
+            }
+        
             .checkout-btn {
-                /* Optimisations spécifiques pour iOS */
-                -webkit-tap-highlight-color: transparent !important;
-                cursor: pointer !important;
+                height: 65px !important; /* Encore plus grand pour iPhone */
+                font-size: 1.3rem !important;
             }
-            
+        
             .cart-items {
-                /* Scroll fluide sur iOS */
-                -webkit-overflow-scrolling: touch !important;
+                max-height: calc(90vh - 220px) !important;
+            }
+        }
+        
+        /* Support pour les iPhones avec encoches */
+        @supports (padding: max(0px)) {
+            .cart-footer {
+                padding-bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
             }
             
-            .quantity-btn, .remove-item {
-                /* Meilleur feedback tactile sur iOS */
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+            .cart-popup {
+                padding-bottom: env(safe-area-inset-bottom) !important;
+            }
+        }
+        
+        /* Améliorations pour le scroll iOS */
+        .cart-items {
+            -webkit-overflow-scrolling: touch !important;
+            scroll-behavior: smooth !important;
+        }
+        
+        /* Prévention du zoom sur les inputs iOS */
+        @media (max-width: 768px) {
+            input[type="number"] {
+                font-size: 16px !important; /* Empêche le zoom automatique sur iOS */
+            }
+            
+            .quantity-input {
+                font-size: 16px !important;
             }
         }</style>
     <meta charset="UTF-8">
