@@ -1941,14 +1941,384 @@
             </div>
         </div>
 
-        <div class="mobile-search-premium">
-            <div class="search-box-premium">
-                <input type="text" placeholder="Rechercher un produit..." id="mobile-search-input">
-                <button class="search-btn-premium" id="mobile-search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
+<div class="mobile-search-premium">
+    <div class="search-box-premium">
+        <input type="text" placeholder="Rechercher un produit (ex: palette eau, surgelés...)" id="mobile-search-input" class="search-input-premium">
+        <button class="search-btn-premium" id="mobile-search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <!-- Container pour les résultats de recherche mobile -->
+    <div class="mobile-search-results" id="mobile-search-results"></div>
+</div>
+
+<!-- Overlay pour mobile -->
+<div class="mobile-search-overlay" id="mobile-search-overlay"></div>
+
+<style>
+/* ===== BARRE DE RECHERCHE MOBILE IDENTIQUE AU PC ===== */
+.mobile-search-premium {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    background: white;
+    position: relative;
+}
+
+.mobile-search-premium .search-box-premium {
+    position: relative;
+    display: flex;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+.mobile-search-premium .search-box-premium:focus-within {
+    border-color: #1e40af;
+    box-shadow: 0 6px 25px rgba(30, 64, 175, 0.2);
+}
+
+.mobile-search-premium .search-input-premium {
+    flex: 1;
+    border: none;
+    padding: 16px 20px;
+    font-size: 1rem;
+    outline: none;
+    background: transparent;
+    color: #4b5563;
+}
+
+.mobile-search-premium .search-input-premium::placeholder {
+    color: #9ca3af;
+    font-size: 0.95rem;
+}
+
+.mobile-search-premium .search-btn-premium {
+    background: #1e40af;
+    border: none;
+    color: white;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    min-width: 60px;
+}
+
+.mobile-search-premium .search-btn-premium:hover {
+    background: #1e3a8a;
+}
+
+/* Résultats de recherche mobile */
+.mobile-search-results {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-height: 60vh;
+    overflow-y: auto;
+    z-index: 1002;
+    margin-top: 8px;
+    display: none;
+    border: 1px solid #e5e7eb;
+}
+
+.mobile-search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mobile-search-result-item:hover {
+    background-color: #f8fafc;
+}
+
+.mobile-search-result-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-search-result-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.mobile-search-result-info {
+    flex: 1;
+}
+
+.mobile-search-result-name {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.mobile-search-result-category {
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.mobile-search-result-price {
+    color: #059669;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.mobile-search-result-empty {
+    padding: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.mobile-search-loading {
+    padding: 20px;
+    text-align: center;
+    color: #6b7280;
+    animation: search-pulse 1.5s infinite;
+}
+
+/* Overlay pour mobile */
+.mobile-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1001;
+    display: none;
+}
+
+/* Animation de chargement */
+@keyframes search-pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6;
+    }
+}
+
+/* Adaptation pour très petits écrans */
+@media (max-width: 380px) {
+    .mobile-search-premium {
+        padding: 15px;
+    }
+    
+    .mobile-search-premium .search-input-premium {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .mobile-search-premium .search-btn-premium {
+        padding: 0 20px;
+        min-width: 50px;
+    }
+    
+    .mobile-search-results {
+        left: 15px;
+        right: 15px;
+    }
+}
+</style>
+
+<script>
+// Gestion de la recherche mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileSearchInput = document.getElementById('mobile-search-input');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    const mobileSearchResults = document.getElementById('mobile-search-results');
+    const mobileSearchOverlay = document.getElementById('mobile-search-overlay');
+    
+    let mobileSearchTimeout;
+    let currentMobileSearchQuery = '';
+    
+    // Fonction pour effectuer la recherche mobile
+    async function performMobileSearch(query) {
+        if (!query || query.trim().length === 0) {
+            hideMobileResults();
+            return;
+        }
+
+        currentMobileSearchQuery = query.trim();
+        
+        // Afficher le loading
+        showMobileResults();
+        mobileSearchResults.innerHTML = '<div class="mobile-search-loading">🔍 Recherche en cours...</div>';
+
+        try {
+            const response = await fetch(`/api/search?q=${encodeURIComponent(currentMobileSearchQuery)}`);
+            const results = await response.json();
+
+            // Vérifier si la requête est toujours pertinente
+            if (currentMobileSearchQuery === query.trim()) {
+                displayMobileResults(results);
+            }
+        } catch (error) {
+            console.error('Erreur recherche mobile:', error);
+            if (currentMobileSearchQuery === query.trim()) {
+                mobileSearchResults.innerHTML = '<div class="mobile-search-result-empty">❌ Erreur lors de la recherche</div>';
+            }
+        }
+    }
+    
+    // Fonction pour afficher les résultats mobiles
+    function displayMobileResults(results) {
+        if (!results || results.length === 0) {
+            mobileSearchResults.innerHTML = `
+                <div class="mobile-search-result-empty">
+                    🔍 Aucun produit trouvé pour "${currentMobileSearchQuery}"
+                    <div style="font-size: 12px; margin-top: 8px;">Essayez d'autres termes comme "eau", "surgelés", "boissons"</div>
+                </div>
+            `;
+            return;
+        }
+
+        mobileSearchResults.innerHTML = results.map(product => `
+            <div class="mobile-search-result-item" data-product-id="${product.id}">
+                <img src="/static/images/products/${product.images[0]}" 
+                     alt="${product.name}" 
+                     class="mobile-search-result-image"
+                     onerror="this.src='/static/images/default-product.jpg'">
+                <div class="mobile-search-result-info">
+                    <div class="mobile-search-result-name">${product.name}</div>
+                    <div class="mobile-search-result-category">${product.category}</div>
+                    <div class="mobile-search-result-price">${product.price.toFixed(2)}€</div>
+                </div>
             </div>
-        </div>
+        `).join('');
+
+        // Ajouter les événements de clic sur les résultats mobiles
+        const resultItems = mobileSearchResults.querySelectorAll('.mobile-search-result-item');
+        resultItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                const product = results.find(p => p.id == productId);
+                if (product) {
+                    // Fermer le menu mobile
+                    document.getElementById('mobile-menu').classList.remove('active');
+                    document.body.style.overflow = '';
+                    // Rediriger vers le produit
+                    window.location.href = `/produit/${productId}-${slugify(product.name)}`;
+                }
+            });
+        });
+
+        // Rediriger directement si un seul résultat
+        if (results.length === 1) {
+            const product = results[0];
+            setTimeout(() => {
+                document.getElementById('mobile-menu').classList.remove('active');
+                document.body.style.overflow = '';
+                window.location.href = `/produit/${product.id}-${slugify(product.name)}`;
+            }, 500);
+        }
+    }
+    
+    // Fonction pour afficher les résultats mobiles
+    function showMobileResults() {
+        mobileSearchResults.style.display = 'block';
+        mobileSearchOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Fonction pour cacher les résultats mobiles
+    function hideMobileResults() {
+        mobileSearchResults.style.display = 'none';
+        mobileSearchOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+        currentMobileSearchQuery = '';
+    }
+    
+    // Gestionnaires d'événements pour la recherche mobile
+    if (mobileSearchInput) {
+        // Recherche en temps réel avec debounce
+        mobileSearchInput.addEventListener('input', function() {
+            clearTimeout(mobileSearchTimeout);
+            const query = this.value.trim();
+            
+            if (query.length >= 1) {
+                mobileSearchTimeout = setTimeout(() => {
+                    performMobileSearch(query);
+                }, 300);
+            } else {
+                hideMobileResults();
+            }
+        });
+
+        // Recherche avec Entrée
+        mobileSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query.length >= 1) {
+                    performMobileSearch(query);
+                }
+            }
+        });
+
+        // Afficher les résultats existants au focus
+        mobileSearchInput.addEventListener('focus', function() {
+            const query = this.value.trim();
+            if (query.length >= 1 && mobileSearchResults.innerHTML.includes('mobile-search-result-item')) {
+                showMobileResults();
+            }
+        });
+    }
+    
+    // Bouton de recherche mobile
+    if (mobileSearchBtn) {
+        mobileSearchBtn.addEventListener('click', function() {
+            const query = mobileSearchInput.value.trim();
+            if (query.length >= 1) {
+                performMobileSearch(query);
+            } else {
+                mobileSearchInput.focus();
+            }
+        });
+    }
+    
+    // Fermer les résultats avec l'overlay
+    mobileSearchOverlay.addEventListener('click', hideMobileResults);
+    
+    // Fermer les résultats avec ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            hideMobileResults();
+        }
+    });
+    
+    // Fermer les résultats quand on ferme le menu mobile
+    document.getElementById('close-mobile-menu')?.addEventListener('click', hideMobileResults);
+    
+    // Fonction pour slugifier (identique à celle du desktop)
+    function slugify(text) {
+        if (!text) return '';
+        text = text.toLowerCase();
+        text = text.replace(/[àâä]/g, 'a');
+        text = text.replace(/[éèêë]/g, 'e');
+        text = text.replace(/[îï]/g, 'i');
+        text = text.replace(/[ôö]/g, 'o');
+        text = text.replace(/[ùûü]/g, 'u');
+        text = text.replace(/ç/g, 'c');
+        text = text.replace(/[^a-z0-9]+/g, '-');
+        return text.trim('-');
+    }
+});
+</script>
 
         <nav class="mobile-nav-premium">
             <a href="/" class="mobile-nav-item active">
@@ -1959,7 +2329,7 @@
                 <i class="fas fa-pallet"></i>
                 <span>Nos Packs</span>
             </a>
-            <a href="/promotions" class="mobile-nav-item hot">
+            <a href="/produits?category=Promotions" class="mobile-nav-item hot">
                 <i class="fas fa-fire"></i>
                 <span>-70% Flash</span>
                 <span class="badge-premium">🔥</span>
