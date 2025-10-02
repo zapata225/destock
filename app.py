@@ -3392,7 +3392,7 @@ def accords_dom_perignon_rose():
                            description="Guide des meilleurs accords mets et champagne Dom Pérignon Rosé. Idéal pour sublimer vos repas de fête et événements.")
 
 @app.route('/destockage-belgique-2025')
-def destockage_belgique_2025():
+def destockage_belgique_2025_page():
     return render_template('destockage_belgique_2025.html', 
                            title="Déstockage Alimentaire Belgique | Grossistes & Promotions",
                            description="Profitez du déstockage alimentaire en Belgique : promotions sur boissons, épicerie, viandes et surgelés.")
@@ -4519,13 +4519,13 @@ def sitemap():
         '/article-grossiste-sitefrance','/article-grossiste-sitefrancelo','/article-espagne','/destockage-alimentaire-particuliers-français', '/descuentos-alimentarios-espana',
         '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge', '/trouver_magasins',
         '/supermarche_proximite',
-        '/supermarche-ouvert-24-7',
+        '/supermarche-ouvert-24-7','destockage-belgique-2025',
         '/recettes-nutella',
         "/blog/vodka-de-luxe",
         "/blog/authenticite-belvedere-champagne-petit-prix",
         "/blog/amaretto-disaronno",
         "/blog/ruinart-rose-prix-2025",
-        "/blog/achat-champagne-gros",'/blog/grossiste-alimentaire-paris', '/blog/champagne-ruinart-blanc-de-blanc','/blog/destockage-alimentaire-lyon-2025','/blog/champagne-pas-cher-astuces','/achat-champagne-gros','/blog/grossistes-alimentaires-lille','/discount-alimentation','/accords-dom-perignon-rose',
+        "/blog/achat-champagne-gros",'/blog/grossiste-alimentaire-paris', '/blog/champagne-ruinart-blanc-de-blanc','/blog/destockage-alimentaire-lyon-2025','/blog/champagne-pas-cher-astuces','/achat-champagne-gros','/blog/grossistes-alimentaires-lille','/discount-alimentation-page','/accords-dom-perignon-rose',
         "/blog/supermarches-discount-france",
         "/blog/grossistes-alimentaires-lyon",
         '/magasin-bio-local',
