@@ -934,13 +934,15 @@ img {
     /* ===== VISUEL - IMAGES PARFAITEMENT CENTRÉES ET COUVRANTES ===== */
     .slide-visual {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        height: 100%;
+        height: 100%; /* peut rester */
+        min-height: 600px; /* force une hauteur minimum pour toutes les slides */
         display: flex;
-        align-items: center;
+        align-items: stretch; /* <-- IMPORTANT pour que l'image remplisse verticalement */
         justify-content: center;
         position: relative;
         overflow: hidden;
     }
+
 
     .image-container {
         position: relative;
