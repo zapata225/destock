@@ -921,7 +921,7 @@ products = [
     {
         "id": 202,
         "name": "🍾 Palette de Dom Pérignon Vintage (280 bouteilles)",
-        "description": "Champagne Vintage de prestige - Palette complète de 480 bouteilles 75cl. Millésime exceptionnel, puissance et complexité aromatique. Emballage professionnel.",
+        "description": "Champagne Vintage de prestige - Palette complète de 280 bouteilles 75cl. Millésime exceptionnel, puissance et complexité aromatique. Emballage professionnel.",
         "price": 9200.00,
         "priceCurrency": "EUR",
         "category": "Vins, Champagnes et Spiritueux",
