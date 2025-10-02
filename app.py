@@ -3379,8 +3379,8 @@ def achat_champagne_gros_2025():
 
 
 # Autres pages
-@app.route('/discount-alimentation')
-def discount_alimentation():
+@app.route('/discount-alimentation-page')
+def discount_alimentation_page():
     return render_template('discount_alimentation.html', 
                            title="Discount Alimentation | Produits pas chers en ligne",
                            description="Découvrez nos offres discount sur l’alimentation : produits frais, surgelés, boissons et épicerie à prix cassés.")
@@ -3393,7 +3393,7 @@ def accords_dom_perignon_rose():
 
 @app.route('/destockage-belgique-2025')
 def destockage_belgique_2025():
-    return render_template('destockage_belgique.html', 
+    return render_template('destockage_belgique_2025.html', 
                            title="Déstockage Alimentaire Belgique | Grossistes & Promotions",
                            description="Profitez du déstockage alimentaire en Belgique : promotions sur boissons, épicerie, viandes et surgelés.")
 
@@ -4525,7 +4525,7 @@ def sitemap():
         "/blog/authenticite-belvedere-champagne-petit-prix",
         "/blog/amaretto-disaronno",
         "/blog/ruinart-rose-prix-2025",
-        "/blog/achat-champagne-gros",
+        "/blog/achat-champagne-gros",'/blog/grossiste-alimentaire-paris', '/blog/champagne-ruinart-blanc-de-blanc','/blog/destockage-alimentaire-lyon-2025','/blog/champagne-pas-cher-astuces','/achat-champagne-gros','/blog/grossistes-alimentaires-lille','/discount-alimentation','/accords-dom-perignon-rose',
         "/blog/supermarches-discount-france",
         "/blog/grossistes-alimentaires-lyon",
         '/magasin-bio-local',
