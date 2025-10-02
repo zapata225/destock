@@ -3372,7 +3372,7 @@ def champagne_pas_cher_astuces():
                            description="Découvrez nos astuces pour acheter du champagne pas cher. Bons plans, déstockage et promotions sur les grandes maisons.")
 
 @app.route('/achat-champagne-gros-2025')
-def achat_champagne_gros():
+def achat_champagne_gros_2025():
     return render_template('achat_champagne_gros_2025.html', 
                            title="Achat Champagne en Gros | Grossiste & Destockage",
                            description="Achetez du champagne en gros auprès de notre grossiste. Idéal pour événements, revendeurs et restaurateurs. Prix déstockage.")
