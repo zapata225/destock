@@ -3337,6 +3337,66 @@ def article_grossiste_site24():
         description="Guide pour choisir les bons fournisseurs alimentaires en France et bénéficier des meilleures offres."
     )
 
+
+# Grossistes alimentaires
+@app.route('/blog/grossiste-alimentaire-paris')
+def grossiste_alimentaire_paris():
+    return render_template('blog/grossiste-alimentaire-paris.html', 
+                           title="Grossiste Alimentaire Paris | Fournisseurs & Produits Pros",
+                           description="Découvrez les meilleurs grossistes alimentaires à Paris : fruits, légumes, viandes, boissons et épicerie pour restaurants et commerces.")
+
+@app.route('/blog/grossistes-alimentaires-lille')
+def grossistes_alimentaires_lille():
+    return render_template('blog/grossistes-alimentaires-lille.html', 
+                           title="Grossistes Alimentaires Lille | Produits Locaux & Fournisseurs",
+                           description="Liste des grossistes alimentaires à Lille. Trouvez des fournisseurs de produits frais, surgelés et boissons pour votre restaurant ou épicerie.")
+
+@app.route('/blog/destockage-alimentaire-lyon-2025')
+def destockage_lyon_2025():
+    return render_template('blog/destockage-lyon-2025.html', 
+                           title="Déstockage Alimentaire Lyon 2025 | Promotions et Produits pas chers",
+                           description="Profitez du déstockage alimentaire à Lyon en 2025. Produits en surplus, promos sur boissons, viandes, surgelés et épicerie.")
+
+
+# Champagne & vins
+@app.route('/blog/champagne-ruinart-blanc-de-blanc')
+def blog_ruinart_blanc_de_blanc():
+    return render_template('blog/champagne-ruinart-blanc-de-blanc-france.html', 
+                           title="Champagne Ruinart Blanc de Blanc | Achat en Ligne",
+                           description="Achetez du Champagne Ruinart Blanc de Blanc au meilleur prix. Livraison rapide en France. Destockage et promos exceptionnelles.")
+
+@app.route('/blog/champagne-pas-cher-astuces')
+def champagne_pas_cher_astuces():
+    return render_template('blog/champagne-pas-cher-astuces.html', 
+                           title="Champagne pas cher : astuces pour bien acheter",
+                           description="Découvrez nos astuces pour acheter du champagne pas cher. Bons plans, déstockage et promotions sur les grandes maisons.")
+
+@app.route('/achat-champagne-gros')
+def achat_champagne_gros():
+    return render_template('achat_champagne_gros.html', 
+                           title="Achat Champagne en Gros | Grossiste & Destockage",
+                           description="Achetez du champagne en gros auprès de notre grossiste. Idéal pour événements, revendeurs et restaurateurs. Prix déstockage.")
+
+
+# Autres pages
+@app.route('/discount-alimentation')
+def discount_alimentation():
+    return render_template('discount_alimentation.html', 
+                           title="Discount Alimentation | Produits pas chers en ligne",
+                           description="Découvrez nos offres discount sur l’alimentation : produits frais, surgelés, boissons et épicerie à prix cassés.")
+
+@app.route('/accords-dom-perignon-rose')
+def accords_dom_perignon_rose():
+    return render_template('accords_dom_perignon_rose.html', 
+                           title="Accords Mets et Dom Pérignon Rosé | Guide Gastronomique",
+                           description="Guide des meilleurs accords mets et champagne Dom Pérignon Rosé. Idéal pour sublimer vos repas de fête et événements.")
+
+@app.route('/destockage-belgique')
+def destockage_belgique():
+    return render_template('destockage_belgique.html', 
+                           title="Déstockage Alimentaire Belgique | Grossistes & Promotions",
+                           description="Profitez du déstockage alimentaire en Belgique : promotions sur boissons, épicerie, viandes et surgelés.")
+
 @app.route('/boissons-en-gros-pas-cheres')
 def boissons_gros_pas_cher():
     return render_template(
