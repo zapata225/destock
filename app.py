@@ -3381,7 +3381,7 @@ def achat_champagne_gros_2025():
 # Autres pages
 @app.route('/discount-alimentation-page')
 def discount_alimentation_page():
-    return render_template('discount_alimentation.html', 
+    return render_template('discount_alimentation_page.html', 
                            title="Discount Alimentation | Produits pas chers en ligne",
                            description="Découvrez nos offres discount sur l’alimentation : produits frais, surgelés, boissons et épicerie à prix cassés.")
 
