@@ -4502,7 +4502,7 @@ def sitemap():
         '/', '/contact', '/about', '/produits', '/mentions-legales', '/destockage-professionnel',
         '/guide-destockage-alimentaire', '/nos-fournisseurs', '/blog', '/presse',
         '/revolution-surplus-alimentaires-2025', '/metamorphose-distribution-2025',
-        '/destockage-alimentaire-2025', '/homex', '/destockage-alimentaire-belgique',
+        '/destockage-alimentaire-2025', '/homex', '/destockage-alimentaire-belgique','/blog/grossistes-alimentaires-lille',
         '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
         '/article-ultra', '/fr/destockage-espagne', '/emeutes-agricoles-prix-alimentaires',
         '/blog/france-degockage-alimentaire', '/destockage-en-gros',
