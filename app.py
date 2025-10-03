@@ -4500,7 +4500,7 @@ def sitemap():
     # URLs statiques
     pages = [
         '/', '/contact', '/about', '/produits', '/mentions-legales', '/destockage-professionnel',
-        '/guide-destockage-alimentaire', '/nos-fournisseurs', '/blog', '/presse',
+        '/guide-destockage-alimentaire', '/nos-fournisseurs', '/blog', '/presse','/achat-champagne-gros-2025',
         '/revolution-surplus-alimentaires-2025', '/metamorphose-distribution-2025',
         '/destockage-alimentaire-2025', '/homex', '/destockage-alimentaire-belgique','/blog/grossistes-alimentaires-lille',
         '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
