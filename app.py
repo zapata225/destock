@@ -4525,8 +4525,8 @@ def sitemap():
         "/blog/authenticite-belvedere-champagne-petit-prix",
         "/blog/amaretto-disaronno",
         "/blog/ruinart-rose-prix-2025",
-        "/blog/achat-champagne-gros",'/blog/grossiste-alimentaire-paris', '/blog/champagne-ruinart-blanc-de-blanc','/blog/destockage-alimentaire-lyon-2025','/blog/champagne-pas-cher-astuces','/achat-champagne-gros','/blog/grossistes-alimentaires-lille','/discount-alimentation-page','/accords-dom-perignon-rose',
-        "/blog/supermarches-discount-france",
+        "/blog/achat-champagne-gros",'/blog/grossiste-alimentaire-paris', '/blog/champagne-ruinart-blanc-de-blanc','/blog/destockage-alimentaire-lyon-2025','/blog/champagne-pas-cher-astuces','/achat-champagne-gros-2025','/blog/grossistes-alimentaires-lille','/discount-alimentation-page','/accords-dom-perignon-rose',
+        "/blog/supermarches-discount-france",'/destockage-belgique-2025',
         "/blog/grossistes-alimentaires-lyon",
         '/magasin-bio-local',
         '/grossiste-alimentaire-belgique',  # Ce nom est dupliqué (voir remarque plus bas)
