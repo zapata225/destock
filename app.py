@@ -4519,7 +4519,7 @@ def sitemap():
         '/article-grossiste-sitefrance','/article-grossiste-sitefrancelo','/article-espagne','/destockage-alimentaire-particuliers-français', '/descuentos-alimentarios-espana',
         '/destockage-alimentaire-particuliers-belge','/destockage-belgiquebbelge', '/trouver_magasins',
         '/supermarche_proximite',
-        '/supermarche-ouvert-24-7','destockage-belgique-2025',
+        '/supermarche-ouvert-24-7','/destockage-belgique-2025',
         '/recettes-nutella',
         "/blog/vodka-de-luxe",
         "/blog/authenticite-belvedere-champagne-petit-prix",
