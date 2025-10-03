@@ -4503,7 +4503,7 @@ def sitemap():
         '/guide-destockage-alimentaire', '/nos-fournisseurs', '/blog', '/presse','/achat-champagne-gros-2025',
         '/revolution-surplus-alimentaires-2025', '/metamorphose-distribution-2025',
         '/destockage-alimentaire-2025', '/homex', '/destockage-alimentaire-belgique','/blog/grossistes-alimentaires-lille',
-        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites',
+        '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites','/blog/achat-champagne-gros',
         '/article-ultra', '/fr/destockage-espagne', '/emeutes-agricoles-prix-alimentaires',
         '/blog/france-degockage-alimentaire', '/destockage-en-gros',
         '/palette-alimentaire-destockage', '/be/destockage-alimentaire-belgique',
