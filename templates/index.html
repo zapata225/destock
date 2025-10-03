@@ -2449,8 +2449,7 @@ img {
         new ProfessionalSlider();
     });
 </script>
-
-   <section class="colorful-categories py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+<section class="colorful-categories py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
     <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
         <h2 class="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16 tracking-tight">
             <span class="relative inline-block">Nos Catégories de Déstockage
@@ -2532,6 +2531,237 @@ img {
         </div>
     </div>
 </section>
+<style>/* ===== CATÉGORIES MOBILE ULTRA PROFESSIONNELLES ===== */
+    @media (max-width: 768px) {
+        .colorful-categories {
+            padding: 3rem 0 !important;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%) !important;
+            margin: 0 !important;
+        }
+    
+        .colorful-categories .container {
+            padding: 0 1rem !important;
+            max-width: 100% !important;
+        }
+    
+        .colorful-categories h2 {
+            font-size: 1.8rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            margin-bottom: 2rem !important;
+            color: #1a1a1a !important;
+            position: relative !important;
+            display: inline-block !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+    
+        .colorful-categories h2 .relative {
+            position: relative !important;
+            display: inline-block !important;
+        }
+    
+        .colorful-categories h2 .absolute {
+            bottom: -8px !important;
+            height: 3px !important;
+            background: linear-gradient(90deg, #d4af37, #b8941f) !important;
+            border-radius: 2px !important;
+        }
+    
+        /* Grille 2 colonnes parfaitement alignées */
+        .categories-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem !important;
+            margin: 0 auto !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+        }
+    
+        /* Cartes de catégories ultra sobres et professionnelles */
+        .category-card {
+            background: #ffffff !important;
+            border-radius: 16px !important;
+            padding: 1.5rem 1rem !important;
+            text-decoration: none !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            border: 1px solid #f0f0f0 !important;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 1px 3px rgba(0, 0, 0, 0.1) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            height: 140px !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+    
+        .category-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%) !important;
+            opacity: 0 !important;
+            transition: opacity 0.3s ease !important;
+            z-index: 1 !important;
+        }
+    
+        .category-card:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.1),
+                0 4px 12px rgba(0, 0, 0, 0.05) !important;
+            border-color: #e0e0e0 !important;
+        }
+    
+        .category-card:hover::before {
+            opacity: 1 !important;
+        }
+    
+        /* Icônes élégantes */
+        .category-icon {
+            font-size: 2rem !important;
+            margin-bottom: 0.8rem !important;
+            transition: all 0.3s ease !important;
+            z-index: 2 !important;
+            position: relative !important;
+        }
+    
+        .category-card:hover .category-icon {
+            transform: scale(1.1) !important;
+        }
+    
+        /* Couleurs sobres et professionnelles pour les icônes */
+        .category-card:nth-child(1) .category-icon { color: #b45309 !important; } /* Boissons - ambre foncé */
+        .category-card:nth-child(2) .category-icon { color: #047857 !important; } /* Aliments - vert foncé */
+        .category-card:nth-child(3) .category-icon { color: #1e40af !important; } /* Surgelés - bleu foncé */
+        .category-card:nth-child(4) .category-icon { color: #7e22ce !important; } /* Vins & Spiritueux - violet */
+        .category-card:nth-child(5) .category-icon { color: #dc2626 !important; } /* Promotions - rouge */
+        .category-card:nth-child(6) .category-icon { color: #4338ca !important; } /* Électroménager - indigo */
+        .category-card:nth-child(7) .category-icon { color: #0f766e !important; } /* Entretien - teal */
+        .category-card:nth-child(8) .category-icon { color: #4d7c0f !important; } /* Extras - vert lime */
+    
+        /* Titres des catégories */
+        .category-card h3 {
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            margin-bottom: 0.4rem !important;
+            line-height: 1.3 !important;
+            z-index: 2 !important;
+            position: relative !important;
+        }
+    
+        /* Descriptions */
+        .category-card p {
+            font-size: 0.75rem !important;
+            color: #666 !important;
+            line-height: 1.4 !important;
+            margin: 0 !important;
+            z-index: 2 !important;
+            position: relative !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+        }
+    
+        /* Effets de hover subtils */
+        .category-card:hover h3 {
+            color: #000 !important;
+        }
+    
+        .category-card:hover p {
+            color: #555 !important;
+        }
+    
+        /* Responsive pour très petits écrans */
+        @media (max-width: 380px) {
+            .categories-grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.6rem !important;
+            }
+            
+            .category-card {
+                height: 120px !important;
+                padding: 1.2rem 0.8rem !important;
+            }
+            
+            .category-icon {
+                font-size: 1.8rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            
+            .category-card h3 {
+                font-size: 0.85rem !important;
+            }
+            
+            .category-card p {
+                font-size: 0.7rem !important;
+            }
+        }
+    
+        /* Animation d'apparition */
+        @keyframes fadeInUpCategories {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        .category-card {
+            animation: fadeInUpCategories 0.6s ease-out !important;
+            animation-fill-mode: both !important;
+        }
+    
+        /* Délais d'animation pour chaque carte */
+        .category-card:nth-child(1) { animation-delay: 0.1s !important; }
+        .category-card:nth-child(2) { animation-delay: 0.2s !important; }
+        .category-card:nth-child(3) { animation-delay: 0.3s !important; }
+        .category-card:nth-child(4) { animation-delay: 0.4s !important; }
+        .category-card:nth-child(5) { animation-delay: 0.5s !important; }
+        .category-card:nth-child(6) { animation-delay: 0.6s !important; }
+        .category-card:nth-child(7) { animation-delay: 0.7s !important; }
+        .category-card:nth-child(8) { animation-delay: 0.8s !important; }
+    }
+    
+    /* ===== OPTIMISATIONS SUPPLÉMENTAIRES MOBILE ===== */
+    @media (max-width: 768px) {
+        /* Amélioration de la lisibilité */
+        .colorful-categories {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+    
+        /* Micro-interactions */
+        .category-card:active {
+            transform: translateY(0) !important;
+            transition-duration: 0.1s !important;
+        }
+    
+        /* Accessibilité */
+        .category-card:focus {
+            outline: 2px solid #3b82f6 !important;
+            outline-offset: 2px !important;
+        }
+    
+        /* Performance */
+        .category-card {
+            will-change: transform, box-shadow !important;
+            backface-visibility: hidden !important;
+            -webkit-font-smoothing: antialiased !important;
+        }
+    }</style>
 
     <!-- Include Tailwind CSS, Font Awesome, and Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
