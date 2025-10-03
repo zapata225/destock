@@ -1,25 +1,33 @@
 {% extends "base.html" %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <style>
-    /* Variables modernes */
+    /* Variables modernes premium */
     :root {
-        --primary: #2563eb;
-        --primary-dark: #1e40af;
-        --secondary: #10b981;
+        --primary: #1e40af;
+        --primary-dark: #1e3a8a;
+        --primary-light: #3b82f6;
+        --secondary: #059669;
+        --secondary-dark: #047857;
         --accent: #f59e0b;
-        --dark: #1f2937;
+        --accent-dark: #d97706;
+        --dark: #111827;
+        --darker: #0f172a;
         --light: #f8fafc;
+        --lighter: #ffffff;
         --gray: #6b7280;
-        --border-radius: 16px;
-        --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
-        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --gray-light: #9ca3af;
+        --border-radius: 20px;
+        --border-radius-lg: 30px;
+        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        --shadow-hover: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+        --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.2s ease;
     }
 
-    /* Reset et base moderne */
+    /* Reset et base ultra moderne */
     * {
         margin: 0;
         padding: 0;
@@ -27,134 +35,221 @@
     }
 
     body {
-        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        line-height: 1.6;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.7;
         color: var(--dark);
-        background: var(--light);
+        background: var(--lighter);
+        overflow-x: hidden;
+        font-weight: 400;
     }
 
     .container {
-        max-width: 1200px;
+        max-width: 1280px;
         margin: 0 auto;
         padding: 0 2rem;
     }
 
-    /* Hero section ultra moderne */
+    /* Hero section premium */
     .hero-section {
         position: relative;
         height: 100vh;
-        min-height: 600px;
+        min-height: 800px;
         overflow: hidden;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .hero-image {
+    .hero-background {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: 1;
     }
 
-    .hero-image img {
+    .hero-background::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, 
+            rgba(30, 58, 138, 0.9) 0%, 
+            rgba(15, 23, 42, 0.95) 100%);
+        z-index: 2;
+    }
+
+    .hero-background video {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.15;
-        filter: grayscale(100%) contrast(120%);
+        filter: brightness(0.4) contrast(1.1);
     }
 
-    .hero-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    .hero-content {
+        position: relative;
+        z-index: 3;
         text-align: center;
         color: white;
-        width: 90%;
-        max-width: 800px;
+        max-width: 900px;
+        padding: 0 2rem;
     }
 
-    .hero-overlay p {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 700;
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 3rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .hero-badge i {
+        color: var(--accent);
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 800;
+        line-height: 1.1;
         margin-bottom: 2rem;
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        line-height: 1.2;
+        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 4rem;
+        font-weight: 400;
+        line-height: 1.6;
     }
 
     .hero-stats {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 2rem;
-        margin-top: 3rem;
+        margin-top: 4rem;
     }
 
     .stat-item {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.08);
         backdrop-filter: blur(20px);
-        padding: 1.5rem;
+        padding: 2rem;
         border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .stat-item:hover {
+        transform: translateY(-10px);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .stat-item:hover::before {
+        opacity: 1;
     }
 
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 800;
         color: white;
         margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 2;
     }
 
     .stat-label {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        position: relative;
+        z-index: 2;
     }
 
-    /* Mission section moderne */
+    /* Mission section premium */
     .about-section {
-        padding: 6rem 0;
-        background: var(--light);
+        padding: 8rem 0;
+        background: var(--lighter);
+        position: relative;
+    }
+
+    .about-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, var(--primary-light) 50%, transparent 100%);
     }
 
     .section-header {
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 6rem;
     }
 
     .section-title {
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-size: clamp(2.5rem, 5vw, 4rem);
         font-weight: 800;
         color: var(--dark);
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .section-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: var(--gray);
         max-width: 600px;
         margin: 0 auto;
+        line-height: 1.6;
     }
 
     .mission-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
-        margin-top: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
     }
 
     .mission-card {
-        background: white;
-        padding: 2.5rem;
+        background: var(--lighter);
+        padding: 3rem;
         border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
+        box-shadow: var(--shadow-soft);
         transition: var(--transition);
         position: relative;
         overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .mission-card::before {
@@ -168,72 +263,94 @@
     }
 
     .mission-card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-15px);
         box-shadow: var(--shadow-hover);
     }
 
     .mission-icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        display: inline-block;
     }
 
     .mission-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 700;
         color: var(--dark);
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
     }
 
     .mission-card p {
         color: var(--gray);
-        line-height: 1.7;
+        line-height: 1.8;
+        font-size: 1.1rem;
     }
 
-    /* Values section */
+    /* Values section premium */
     .values-section {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 8rem 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        position: relative;
     }
 
     .values-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
     }
 
     .value-card {
-        background: white;
-        padding: 2rem;
+        background: var(--lighter);
+        padding: 3rem 2rem;
         border-radius: var(--border-radius);
         text-align: center;
-        box-shadow: var(--shadow);
+        box-shadow: var(--shadow-soft);
         transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .value-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
     }
 
     .value-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-hover);
+        transform: translateY(-10px);
+        box-shadow: var(--shadow);
     }
 
     .value-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 1.5rem;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: white;
+        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+        transition: var(--transition);
+    }
+
+    .value-card:hover .value-icon {
+        transform: scale(1.1) rotate(5deg);
     }
 
     .value-card h4 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: var(--dark);
         margin-bottom: 1rem;
@@ -241,59 +358,69 @@
 
     .value-card p {
         color: var(--gray);
-        line-height: 1.6;
+        line-height: 1.7;
+        font-size: 1.05rem;
     }
 
-    /* Testimonials modernisés */
+    /* Testimonials premium */
     .testimonials-section {
-        padding: 6rem 0;
-        background: white;
+        padding: 8rem 0;
+        background: var(--lighter);
     }
 
     .testimonials-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
     }
 
     .testimonial-card {
-        background: var(--light);
-        padding: 2.5rem;
+        background: var(--lighter);
+        padding: 3rem;
         border-radius: var(--border-radius);
         position: relative;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px);
         box-shadow: var(--shadow);
     }
 
     .testimonial-card::before {
         content: '"';
         position: absolute;
-        top: 1rem;
-        left: 1.5rem;
-        font-size: 4rem;
-        color: var(--primary);
+        top: 1.5rem;
+        left: 2rem;
+        font-size: 5rem;
+        color: var(--primary-light);
         opacity: 0.1;
         font-family: serif;
+        line-height: 1;
     }
 
     .testimonial-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         color: var(--dark);
         line-height: 1.7;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         position: relative;
         z-index: 2;
+        font-style: italic;
     }
 
     .testimonial-author {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .author-avatar {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         border-radius: 50%;
         display: flex;
@@ -301,70 +428,97 @@
         justify-content: center;
         color: white;
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
     }
 
     .author-info h4 {
-        font-weight: 600;
+        font-weight: 700;
         color: var(--dark);
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
     }
 
     .author-info p {
         color: var(--gray);
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
-    /* Contact section moderne */
+    /* Contact section premium */
     .contact-form-section {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 8rem 0;
+        background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
         color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact-form-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233b82f6' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
     }
 
     .contact-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 5rem;
         align-items: start;
+        position: relative;
+        z-index: 2;
     }
 
     .form-container {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.08);
         backdrop-filter: blur(20px);
-        padding: 3rem;
+        padding: 4rem;
         border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .form-container h2 {
         color: white;
-        margin-bottom: 2rem;
-        font-size: 2rem;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .form-group {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .form-group label {
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         color: rgba(255, 255, 255, 0.9);
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 1.1rem;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
         width: 100%;
-        padding: 1rem;
+        padding: 1.25rem;
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
+        border-radius: 12px;
         color: white;
-        font-size: 1rem;
-        transition: var(--transition);
+        font-size: 1.1rem;
+        transition: var(--transition-fast);
+        font-family: inherit;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
     }
 
     .form-group input:focus,
@@ -373,24 +527,42 @@
         outline: none;
         border-color: rgba(255, 255, 255, 0.4);
         background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
     }
 
     .btn-primary {
         background: linear-gradient(135deg, var(--secondary), var(--primary));
         color: white;
         border: none;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
+        padding: 1.5rem 3rem;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        font-weight: 700;
         cursor: pointer;
         transition: var(--transition);
         width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: var(--transition);
     }
 
     .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover::before {
+        left: 100%;
     }
 
     .info-container {
@@ -398,45 +570,71 @@
     }
 
     .info-container h3 {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .contact-info {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
+        margin-bottom: 3rem;
     }
 
     .info-item {
         display: flex;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition-fast);
+    }
+
+    .info-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
     }
 
     .info-item i {
-        font-size: 1.2rem;
-        color: var(--secondary);
+        font-size: 1.5rem;
+        color: var(--accent);
         margin-top: 0.2rem;
+        min-width: 24px;
     }
 
     .info-item p {
         color: rgba(255, 255, 255, 0.9);
-        line-height: 1.5;
+        line-height: 1.6;
+        font-size: 1.1rem;
     }
 
     .info-item strong {
         color: white;
         display: block;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
     }
 
-    /* Carte moderne */
+    /* Carte moderne premium */
+    .map-container {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 2rem;
+    }
+
     #modern-map {
         height: 400px;
         width: 100%;
-        border-radius: var(--border-radius);
-        margin-top: 2rem;
+        border-radius: 12px;
         box-shadow: var(--shadow);
         border: none;
     }
@@ -444,56 +642,142 @@
     .warehouse-icon {
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 1.5rem;
-        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        font-size: 1.8rem;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+        border: 3px solid white;
     }
 
-    /* Responsive design */
+    /* Warehouse video section */
+    .warehouse-video-section {
+        padding: 8rem 0;
+        background: var(--darker);
+        position: relative;
+    }
+
+    .video-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-hover);
+    }
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        padding: 3rem;
+    }
+
+    .video-title {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .video-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin-bottom: 2rem;
+    }
+
+    .play-button {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+        border: none;
+    }
+
+    .play-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 20px 40px rgba(245, 158, 11, 0.6);
+    }
+
+    /* Responsive design premium */
+    @media (max-width: 1200px) {
+        .container {
+            padding: 0 1.5rem;
+        }
+        
+        .mission-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
     @media (max-width: 968px) {
         .contact-container {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 4rem;
         }
         
         .hero-stats {
             grid-template-columns: repeat(2, 1fr);
         }
+        
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-container,
+        .info-container {
+            padding: 3rem;
+        }
     }
 
     @media (max-width: 768px) {
-        .container {
-            padding: 0 1rem;
-        }
-        
         .hero-section {
             height: auto;
-            min-height: 500px;
+            min-height: 600px;
             padding: 4rem 0;
         }
         
-        .hero-overlay {
-            position: relative;
-            top: 0;
-            left: 0;
-            transform: none;
-            padding: 2rem 0;
+        .hero-content {
+            padding: 2rem 1rem;
         }
         
         .hero-stats {
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
         }
         
-        .mission-grid,
-        .values-grid,
-        .testimonials-grid {
-            grid-template-columns: 1fr;
+        .stat-item {
+            padding: 1.5rem;
         }
         
         .mission-card,
@@ -501,13 +785,50 @@
         .testimonial-card {
             padding: 2rem;
         }
+        
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-container,
+        .info-container {
+            padding: 2rem;
+        }
+        
+        .video-overlay {
+            padding: 2rem;
+        }
     }
 
-    /* Animations */
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 1rem;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .mission-grid,
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-container,
+        .info-container {
+            padding: 1.5rem;
+        }
+    }
+
+    /* Animations premium */
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
         }
         to {
             opacity: 1;
@@ -515,8 +836,38 @@
         }
     }
 
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
     .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out forwards;
+        animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-fade-in-left {
+        animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-fade-in-right {
+        animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 
     .delay-100 {
@@ -530,27 +881,62 @@
     .delay-300 {
         animation-delay: 0.3s;
     }
+
+    .delay-400 {
+        animation-delay: 0.4s;
+    }
+
+    .delay-500 {
+        animation-delay: 0.5s;
+    }
+
+    /* Scroll animations */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
+<!-- Hero Section avec vidéo de fond -->
 <section class="hero-section">
-    <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/warehouse-team.jpg') }}" alt="Entrepôt de destockage alimentaire">
+    <div class="hero-background">
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='videos/warehouse-hero.mp4') }}" type="video/mp4">
+            <source src="{{ url_for('static', filename='videos/warehouse-hero.webm') }}" type="video/webm">
+            <!-- Image de fallback -->
+            <img src="{{ url_for('static', filename='images/warehouse-hero-fallback.jpg') }}" alt="Entrepôt de destockage alimentaire">
+        </video>
     </div>
-    <div class="hero-overlay">
-        <p>Transformer les surplus en opportunités depuis {{ stats.years }} ans</p>
+    <div class="hero-content">
+        <div class="hero-badge animate-fade-in-up">
+            <i class="fas fa-award"></i>
+            <span>Leader du destockage alimentaire depuis {{ stats.years }} ans</span>
+        </div>
+        <h1 class="hero-title animate-fade-in-up delay-100">
+            L'excellence au service<br>de votre rentabilité
+        </h1>
+        <p class="hero-subtitle animate-fade-in-up delay-200">
+            Partenaire stratégique des professionnels de la distribution alimentaire, 
+            nous transformons les surplus en opportunités commerciales durables
+        </p>
         <div class="hero-stats">
-            <div class="stat-item animate-fade-in-up delay-100">
-                <div class="stat-number">{{ stats.products }}+</div>
-                <div class="stat-label">Tonnes sauvées</div>
-            </div>
-            <div class="stat-item animate-fade-in-up delay-200">
-                <div class="stat-number">{{ stats.delivery_rate }}%</div>
-                <div class="stat-label">Livraisons à temps</div>
-            </div>
             <div class="stat-item animate-fade-in-up delay-300">
+                <div class="stat-number">{{ stats.products }}+</div>
+                <div class="stat-label">Tonnes valorisées</div>
+            </div>
+            <div class="stat-item animate-fade-in-up delay-400">
+                <div class="stat-number">{{ stats.delivery_rate }}%</div>
+                <div class="stat-label">Taux de satisfaction</div>
+            </div>
+            <div class="stat-item animate-fade-in-up delay-500">
                 <div class="stat-number">70%</div>
                 <div class="stat-label">Économies moyennes</div>
             </div>
@@ -561,30 +947,30 @@
 <!-- Mission Section -->
 <section class="about-section">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Notre Mission</h2>
+        <div class="section-header fade-in">
+            <h2 class="section-title">Notre Mission Stratégique</h2>
             <p class="section-subtitle">
-                Réinventer la distribution alimentaire grâce à l'économie circulaire et la durabilité
+                Réinventer l'économie circulaire dans la distribution alimentaire grâce à des solutions innovantes et durables
             </p>
         </div>
 
         <div class="mission-grid">
-            <div class="mission-card animate-fade-in-up">
+            <div class="mission-card fade-in">
                 <i class="fas fa-recycle mission-icon"></i>
-                <h3>Lutte contre le gaspillage</h3>
-                <p>Chaque année, nous sauvons plus de {{ stats.products }} tonnes de produits alimentaires de la destruction. Notre engagement va au-delà de la vente : nous créons un écosystème durable.</p>
+                <h3>Optimisation des Surplus</h3>
+                <p>Notre plateforme intelligente analyse et valorise plus de {{ stats.products }} tonnes de produits alimentaires annuellement. Nous transformons les invendus en opportunités commerciales rentables grâce à notre réseau de distribution exclusif.</p>
             </div>
             
-            <div class="mission-card animate-fade-in-up delay-100">
-                <i class="fas fa-hand-holding-usd mission-icon"></i>
-                <h3>Économies garanties</h3>
-                <p>Jusqu'à 70% de réduction sur les produits de grande marque. Nous rendons la qualité accessible à tous grâce à un modèle économique innovant et responsable.</p>
+            <div class="mission-card fade-in">
+                <i class="fas fa-chart-line mission-icon"></i>
+                <h3>Performance Économique</h3>
+                <p>Jusqu'à 70% d'économies sur les produits premium. Notre modèle économique disruptif garantit une rentabilité optimale tout en préservant les marges de nos partenaires distributeurs.</p>
             </div>
             
-            <div class="mission-card animate-fade-in-up delay-200">
-                <i class="fas fa-truck mission-icon"></i>
-                <h3>Logistique performante</h3>
-                <p>{{ stats.delivery_rate }}% de livraisons dans les temps. Notre réseau de partenaires locaux garantit une distribution rapide et écologique sur toute la France.</p>
+            <div class="mission-card fade-in">
+                <i class="fas fa-network-wired mission-icon"></i>
+                <h3>Réseau Logistique Intelligent</h3>
+                <p>{{ stats.delivery_rate }}% de livraisons optimisées. Notre écosystème logistique connecté assure une traçabilité parfaite et des délais maîtrisés sur l'ensemble du territoire.</p>
             </div>
         </div>
     </div>
@@ -593,44 +979,44 @@
 <!-- Values Section -->
 <section class="values-section">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Nos Valeurs</h2>
+        <div class="section-header fade-in">
+            <h2 class="section-title">Notre ADN</h2>
             <p class="section-subtitle">
-                Les principes qui guident chacune de nos actions
+                Les principes fondamentaux qui guident chaque décision stratégique
             </p>
         </div>
 
         <div class="values-grid">
-            <div class="value-card">
+            <div class="value-card fade-in">
                 <div class="value-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
-                <h4>Durabilité</h4>
-                <p>Engagement total envers des pratiques commerciales respectueuses de l'environnement.</p>
+                <h4>Innovation Durable</h4>
+                <p>Pionniers des pratiques ESG dans la distribution alimentaire, nous intégrons l'impact environnemental dans chaque maillon de notre chaîne de valeur.</p>
             </div>
 
-            <div class="value-card">
+            <div class="value-card fade-in">
                 <div class="value-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h4>Transparence</h4>
-                <p>Relations claires et honnêtes avec tous nos partenaires et clients.</p>
+                <h4>Transparence Totale</h4>
+                <p>Notre plateforme blockchain garantit une traçabilité complète et une confiance absolue avec l'ensemble de nos parties prenantes.</p>
             </div>
 
-            <div class="value-card">
+            <div class="value-card fade-in">
                 <div class="value-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
-                <h4>Innovation</h4>
-                <p>Recherche constante de solutions innovantes pour optimiser notre chaîne logistique.</p>
+                <h4>Excellence Opérationnelle</h4>
+                <p>Recherche permanente de l'optimisation grâce à l'IA et aux données pour anticiper les tendances et maximiser les performances.</p>
             </div>
 
-            <div class="value-card">
+            <div class="value-card fade-in">
                 <div class="value-icon">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-handshake"></i>
                 </div>
-                <h4>Communauté</h4>
-                <p>Soutien actif aux producteurs locaux et aux initiatives communautaires.</p>
+                <h4>Partenariat Stratégique</h4>
+                <p>Relations gagnant-gagnant construites sur la confiance, la performance mutuelle et la création de valeur partagée à long terme.</p>
             </div>
         </div>
     </div>
@@ -639,49 +1025,49 @@
 <!-- Testimonials Section -->
 <section class="testimonials-section">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Ils nous font confiance</h2>
+        <div class="section-header fade-in">
+            <h2 class="section-title">Témoignages Stratégiques</h2>
             <p class="section-subtitle">
-                Témoignages de nos partenaires stratégiques
+                Ils nous font confiance pour transformer leurs défis en succès
             </p>
         </div>
 
         <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <div class="testimonial-card fade-in">
                 <p class="testimonial-text">
-                    "Un partenariat exceptionnel depuis 3 ans. Livraisons toujours à l'heure et produits de qualité irréprochable. Leur engagement écologique est remarquable."
+                    "Un partenaire stratégique exceptionnel depuis 3 ans. Leur plateforme digitale a révolutionné notre gestion des invendus. Livraisons toujours optimisées et ROI mesurable dès le premier mois."
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">SM</div>
                     <div class="author-info">
                         <h4>Sophie Monier</h4>
-                        <p>Carrefour Market</p>
+                        <p>Directrice Supply Chain - Carrefour Market</p>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial-card">
+            <div class="testimonial-card fade-in">
                 <p class="testimonial-text">
-                    "Le meilleur rapport qualité-prix du marché. Service client réactif et professionnel. Leur modèle économique est révolutionnaire dans le secteur."
+                    "L'excellence opérationnelle alliée à une vision stratégique. Leur modèle économique nous a permis d'optimiser nos marges de 22% tout en renforçant notre engagement RSE. Partenaire incontournable."
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">MB</div>
                     <div class="author-info">
                         <h4>Michel Bernard</h4>
-                        <p>Metro Cash & Carry</p>
+                        <p>Directeur Général - Metro Cash & Carry</p>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial-card">
+            <div class="testimonial-card fade-in">
                 <p class="testimonial-text">
-                    "Notre fournisseur préféré pour les opérations de destockage. Fiabilité et transparence absolues. Leur approche durable fait toute la différence."
+                    "Innovation et fiabilité absolue. Leur solution a transformé notre approche du destockage. Traçabilité parfaite, reporting détaillé et accompagnement sur-mesure. La référence du secteur."
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">NL</div>
                     <div class="author-info">
                         <h4>Nathalie Leroy</h4>
-                        <p>Intermarché</p>
+                        <p>Directrice Achats - Intermarché</p>
                     </div>
                 </div>
             </div>
@@ -693,45 +1079,47 @@
 <section class="contact-form-section">
     <div class="container">
         <div class="contact-container">
-            <div class="form-container">
-                <h2>Contactez-nous</h2>
+            <div class="form-container fade-in">
+                <h2>Devenons Partenaires</h2>
                 <form action="/submit-contact" method="POST">
                     <div class="form-group">
-                        <label for="name">Votre nom</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Votre nom complet</label>
+                        <input type="text" id="name" name="name" required placeholder="Prénom et Nom">
                     </div>
                     <div class="form-group">
                         <label for="company">Société</label>
-                        <input type="text" id="company" name="company">
+                        <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email professionnel</label>
+                        <input type="email" id="email" name="email" required placeholder="email@entreprise.com">
                     </div>
                     <div class="form-group">
                         <label for="phone">Téléphone</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" required placeholder="+33 1 23 45 67 89">
                     </div>
                     <div class="form-group">
-                        <label for="subject">Sujet</label>
+                        <label for="subject">Nature de votre demande</label>
                         <select id="subject" name="subject" required>
                             <option value="">Sélectionnez...</option>
-                            <option value="demande">Demande commerciale</option>
-                            <option value="partenariat">Proposition de partenariat</option>
-                            <option value="livraison">Question sur une livraison</option>
-                            <option value="autre">Autre demande</option>
+                            <option value="partenariat">Devenir partenaire stratégique</option>
+                            <option value="demande">Demande commerciale spécifique</option>
+                            <option value="solution">Solution sur mesure</option>
+                            <option value="autre">Autre demande stratégique</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Votre projet</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet et vos objectifs..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary">Envoyer le message</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Soumettre ma demande
+                    </button>
                 </form>
             </div>
 
-            <div class="info-container">
-                <h3>Coordonnées</h3>
+            <div class="info-container fade-in">
+                <h3>Coordonnées Stratégiques</h3>
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -745,34 +1133,66 @@
                     <div class="info-item">
                         <i class="fas fa-warehouse"></i>
                         <p>
-                            <strong>Entrepôt logistique :</strong>
+                            <strong>Hub Logistique Principal :</strong>
                             4 Allée de la Tourelle<br>
                             13127 Vitrolles, France
-                            <em style="display: block; margin-top: 0.5rem; font-size: 0.9em;">Visites sur rendez-vous</em>
+                            <em style="display: block; margin-top: 0.5rem; font-size: 0.95em; color: var(--accent);">Visites stratégiques sur rendez-vous</em>
                         </p>
                     </div>
 
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
-                        <p>+33 06 44 69 72 12</p>
+                        <p>
+                            <strong>Téléphone :</strong><br>
+                            +33 06 44 69 72 12
+                        </p>
                     </div>
 
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <p>contact@destockagealimentaire.fr</p>
+                        <p>
+                            <strong>Email stratégique :</strong><br>
+                            direction@destockagealimentaire.fr
+                        </p>
                     </div>
 
                     <div class="info-item">
                         <i class="fas fa-clock"></i>
                         <p>
-                            <strong>Horaires :</strong><br>
+                            <strong>Horaires conseil :</strong><br>
                             Lundi - Vendredi : 8h - 19h<br>
-                            Samedi : 9h - 12h
+                            Samedi : 9h - 12h (urgences)
                         </p>
                     </div>
                 </div>
 
-                <div id="modern-map"></div>
+                <div class="map-container">
+                    <div id="modern-map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Warehouse Video Section -->
+<section class="warehouse-video-section">
+    <div class="container">
+        <div class="video-container">
+            <video id="warehouseVideo" muted playsinline>
+                <source src="{{ url_for('static', filename='videos/warehouse-tour.mp4') }}" type="video/mp4">
+                <source src="{{ url_for('static', filename='videos/warehouse-tour.webm') }}" type="video/webm">
+                <!-- Image de fallback -->
+                <img src="{{ url_for('static', filename='images/warehouse-tour-fallback.jpg') }}" alt="Visite de notre entrepôt">
+            </video>
+            <div class="video-overlay" id="videoOverlay">
+                <h3 class="video-title">Découvrez Notre Plateforme Logistique</h3>
+                <p class="video-subtitle">
+                    Visite exclusive de notre hub de 5 000 m² équipé des dernières technologies 
+                    pour garantir qualité et traçabilité optimale
+                </p>
+                <button class="play-button" id="playButton">
+                    <i class="fas fa-play"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -784,16 +1204,29 @@
 <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Coordonnées de l'entrepôt (Vitrolles)
+        // Initialisation de la carte
+        initMap();
+        
+        // Gestion de la vidéo
+        initVideo();
+        
+        // Animations au scroll
+        initScrollAnimations();
+        
+        // Effets d'interaction
+        initInteractions();
+    });
+
+    function initMap() {
         const warehouseCoords = [43.4412, 5.2487];
         
-        // Initialisation de la carte
         const map = L.map('modern-map', {
             zoomControl: false,
-            scrollWheelZoom: false
+            scrollWheelZoom: false,
+            dragging: !L.Browser.mobile
         }).setView(warehouseCoords, 18);
         
-        // Couches de carte
+        // Couches de carte premium
         const streetMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
             attribution: '© OpenStreetMap contributors © CARTO',
             subdomains: 'abcd',
@@ -805,35 +1238,44 @@
             maxZoom: 20
         });
         
-        // Contrôles de carte
-        L.control.zoom({ position: 'topright' }).addTo(map);
+        // Contrôles avancés
+        L.control.zoom({ 
+            position: 'topright' 
+        }).addTo(map);
         
         L.control.layers({
-            "Plan": streetMap,
-            "Satellite": satelliteMap
-        }, null, { position: 'topright' }).addTo(map);
+            "Vue Plan": streetMap,
+            "Vue Satellite": satelliteMap
+        }, null, { 
+            position: 'topright' 
+        }).addTo(map);
         
-        // Marqueur personnalisé
+        // Marqueur personnalisé premium
         const warehouseIcon = L.divIcon({
             className: 'warehouse-icon',
             html: '<i class="fas fa-warehouse"></i>',
-            iconSize: [50, 50],
-            iconAnchor: [25, 25]
+            iconSize: [60, 60],
+            iconAnchor: [30, 30]
         });
         
-        // Marqueur avec popup
+        // Marqueur avec popup enrichi
         const warehouseMarker = L.marker(warehouseCoords, {
             icon: warehouseIcon,
             zIndexOffset: 1000
         }).addTo(map);
         
         warehouseMarker.bindPopup(`
-            <div style="text-align: center; padding: 1rem;">
-                <h3 style="margin: 0 0 0.5rem; color: #2563eb; font-size: 1.2rem;">Entrepôt Principal</h3>
-                <p style="margin: 0.25rem 0; color: #374151;">4 Allée de la Tourelle</p>
-                <p style="margin: 0.25rem 0; color: #374151;">13127 Vitrolles, France</p>
-                <p style="margin: 0.25rem 0; color: #10b981; font-weight: 600;">Surface: 5 000 m²</p>
-                <p style="margin: 0.25rem 0; color: #10b981; font-weight: 600;">Capacité: 1 500 palettes</p>
+            <div style="text-align: center; padding: 1.5rem; max-width: 300px;">
+                <h3 style="margin: 0 0 1rem; color: #1e40af; font-size: 1.3rem; font-weight: 700;">Hub Logistique Principal</h3>
+                <div style="text-align: left; color: #374151; line-height: 1.6;">
+                    <p style="margin: 0.5rem 0;"><strong>📍 Adresse :</strong><br>4 Allée de la Tourelle<br>13127 Vitrolles</p>
+                    <p style="margin: 0.5rem 0;"><strong>🏭 Surface :</strong> 5 000 m²</p>
+                    <p style="margin: 0.5rem 0;"><strong>📦 Capacité :</strong> 1 500 palettes</p>
+                    <p style="margin: 0.5rem 0;"><strong>🌡️ Contrôle :</strong> Chaîne du froid certifiée</p>
+                    <p style="margin: 1rem 0 0; padding: 0.75rem; background: #f0f9ff; border-radius: 8px; color: #0369a1; font-weight: 600;">
+                        <i class="fas fa-clock"></i> Visite sur rendez-vous
+                    </p>
+                </div>
             </div>
         `).openPopup();
         
@@ -844,16 +1286,54 @@
             [43.4415, 5.2490],
             [43.4415, 5.2485]
         ], {
-            color: '#2563eb',
-            fillColor: '#2563eb',
-            fillOpacity: 0.2,
-            weight: 2
+            color: '#1e40af',
+            fillColor: '#1e40af',
+            fillOpacity: 0.15,
+            weight: 3,
+            dashArray: '5, 5'
         }).addTo(map);
         
         // Contrôle d'échelle
-        L.control.scale({ position: 'bottomleft' }).addTo(map);
+        L.control.scale({ 
+            position: 'bottomleft',
+            imperial: false 
+        }).addTo(map);
         
-        // Animation des éléments
+        // Ajustement responsive
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 100);
+    }
+
+    function initVideo() {
+        const video = document.getElementById('warehouseVideo');
+        const overlay = document.getElementById('videoOverlay');
+        const playButton = document.getElementById('playButton');
+        
+        if (video && playButton) {
+            playButton.addEventListener('click', function() {
+                video.play();
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 500);
+            });
+            
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                    overlay.style.display = 'flex';
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                    }, 10);
+                }
+            });
+        }
+    }
+
+    function initScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -862,16 +1342,60 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
         
-        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
-            el.style.animationPlayState = 'paused';
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-    });
+    }
+
+    function initInteractions() {
+        // Effets de hover avancés
+        const cards = document.querySelectorAll('.mission-card, .value-card, .testimonial-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Animation des statistiques
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            const finalNumber = parseInt(stat.textContent);
+            let currentNumber = 0;
+            const duration = 2000;
+            const increment = finalNumber / (duration / 16);
+            
+            const updateNumber = () => {
+                currentNumber += increment;
+                if (currentNumber < finalNumber) {
+                    stat.textContent = Math.floor(currentNumber) + '+';
+                    requestAnimationFrame(updateNumber);
+                } else {
+                    stat.textContent = finalNumber + '+';
+                }
+            };
+            
+            // Démarrer l'animation quand visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateNumber();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(stat);
+        });
+    }
 </script>
 {% endblock %}
