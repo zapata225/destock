@@ -17,7 +17,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Destockage Alimentaire | 4.9/5 ★ | Livraison France" />
-    <meta name="twitter:description" content="🥤 Boissons | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur les invendus de qualité professionnelle" />
+    <meta name="twitter:description" content="🥤 Boissons | Champagne pas cher | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur les invendus de qualité professionnelle" />
     <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-destockage-france.jpg" />
     
     <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
@@ -2450,73 +2450,88 @@ img {
     });
 </script>
 
-    <section class="colorful-categories py-24 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div class="container mx-auto px-6 max-w-7xl">
-            <h2 class="text-5xl font-extrabold text-center text-gray-900 mb-16 tracking-tight">
-                <span class="relative inline-block"> Nos Catégories de Déstockage
-                    <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-amber-700"></span>
-                </span>
-            </h2>
-            <div class="categories-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="navigation" aria-label="Catégories de produits de déstockage">
-                <!-- Catégorie : Boissons -->
-                <a href="{{ url_for('product_list') }}?category=Boissons" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Boissons : Vins, sodas, jus de fruits">
-                    <div class="category-icon text-5xl text-amber-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-wine-bottle"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Boissons</h3>
-                    <p class="text-gray-500 text-sm mt-2">Vins, sodas, jus de fruits à prix réduits</p>
-                </a>
+   <section class="colorful-categories py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <h2 class="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16 tracking-tight">
+            <span class="relative inline-block">Nos Catégories de Déstockage
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-amber-700"></span>
+            </span>
+        </h2>
+        <div class="categories-grid grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8" role="navigation" aria-label="Catégories de produits de déstockage">
+            <!-- Catégorie : Boissons -->
+            <a href="{{ url_for('product_list') }}?category=Boissons" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Boissons : Vins, sodas, jus de fruits">
+                <div class="category-icon text-3xl lg:text-5xl text-amber-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-wine-bottle"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Boissons</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Vins, sodas, jus de fruits à prix réduits</p>
+            </a>
 
-                <!-- Catégorie : Aliments -->
-                <a href="{{ url_for('product_list') }}?category=Épicerie" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Aliments : Fruits, légumes, produits frais">
-                    <div class="category-icon text-5xl text-green-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-apple-alt"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Aliments</h3>
-                    <p class="text-gray-500 text-sm mt-2">Fruits, légumes, produits frais en déstockage</p>
-                </a>
+            <!-- Catégorie : Aliments -->
+            <a href="{{ url_for('product_list') }}?category=Épicerie" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Aliments : Fruits, légumes, produits frais">
+                <div class="category-icon text-3xl lg:text-5xl text-green-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Aliments</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Fruits, légumes, laitiers et produits frais en déstockage</p>
+            </a>
 
-                <!-- Catégorie : Surgelés -->
-                <a href="{{ url_for('product_list') }}?category=Surgeles" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Surgelés : Qualité préservée">
-                    <div class="category-icon text-5xl text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-snowflake"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Surgelés</h3>
-                    <p class="text-gray-500 text-sm mt-2">Qualité préservée à prix imbattables</p>
-                </a>
+            <!-- Catégorie : Surgelés -->
+            <a href="{{ url_for('product_list') }}?category=Surgeles" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Surgelés : Qualité préservée">
+                <div class="category-icon text-3xl lg:text-5xl text-blue-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Surgelés</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Qualité préservée à prix imbattables</p>
+            </a>
 
-                <!-- Catégorie : Laitiers -->
-                <a href="{{ url_for('product_list') }}?category=Produits+laitiers" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Laitiers : Fromages et yaourts">
-                    <div class="category-icon text-5xl text-yellow-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-cheese"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Laitiers</h3>
-                    <p class="text-gray-500 text-sm mt-2">Fromages et yaourts en offre exclusive</p>
-                </a>
+            <!-- Catégorie : Vins & Spiritueux -->
+            <a href="{{ url_for('product_list') }}?category=Vins+Champagnes+Spiritueux" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Vins et Spiritueux">
+                <div class="category-icon text-3xl lg:text-5xl text-purple-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-glass-cheers"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Vins & Spiritueux</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Grands crus et spiritueux d'exception</p>
+            </a>
 
-                <!-- Catégorie : Promotions -->
-                <a href="{{ url_for('product_list') }}?category=Promotions" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les promotions en cours">
-                    <div class="category-icon text-5xl text-red-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-tag"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Promotions</h3>
-                    <p class="text-gray-500 text-sm mt-2">Nos meilleures offres du moment</p>
-                </a>
+            <!-- Catégorie : Promotions -->
+            <a href="{{ url_for('product_list') }}?category=Promotions" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les promotions en cours">
+                <div class="category-icon text-3xl lg:text-5xl text-red-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-tag"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Promotions</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Nos meilleures offres du moment</p>
+            </a>
 
-                <!-- Catégorie : Électroménager -->
-                <a href="{{ url_for('product_list') }}?category=Electromenager" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Électroménager : Appareils de cuisine">
-                    <div class="category-icon text-5xl text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-blender"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Électroménager</h3>
-                    <p class="text-gray-500 text-sm mt-2">Appareils de cuisine à prix déstockés</p>
-                </a>
+            <!-- Catégorie : Électroménager -->
+            <a href="{{ url_for('product_list') }}?category=Electromenager" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Électroménager : Appareils de cuisine">
+                <div class="category-icon text-3xl lg:text-5xl text-indigo-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-blender"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Multimédia & Électroménager</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Appareils de cuisine à prix déstockés</p>
+            </a>
 
-                <!-- Catégorie : Jeux & Loisirs -->
-                <a href="{{ url_for('product_list') }}?category=Entretien" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Entretien : Produits d'entretien et nettoyage">
-                    <div class="category-icon text-5xl text-teal-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-broom"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Entretien</h3>
-                    <p class="text-gray-500 text-sm mt-2">Produits d'entretien et nettoyage à prix réduits</p>
-                </a>
+            <!-- Catégorie : Entretien -->
+            <a href="{{ url_for('product_list') }}?category=Entretien" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits de la catégorie Entretien : Produits d'entretien et nettoyage">
+                <div class="category-icon text-3xl lg:text-5xl text-teal-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Entretien</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Produits d'entretien et nettoyage à prix réduits</p>
+            </a>
 
-
-                <!-- Catégorie : Extras -->
-                <a href="{{ url_for('product_list') }}?category=Extras" class="category-card relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits divers de la catégorie Extras">
-                    <div class="category-icon text-5xl text-lime-600 mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><i class="fas fa-box-open"></i></div>
-                    <h3 class="text-2xl font-semibold text-gray-900">Extras</h3>
-                    <p class="text-gray-500 text-sm mt-2">Produits divers en déstockage</p>
-                </a>
-            </div>
+            <!-- Catégorie : Extras -->
+            <a href="{{ url_for('product_list') }}?category=Extras" class="category-card relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100/50 group" aria-label="Voir les produits divers de la catégorie Extras">
+                <div class="category-icon text-3xl lg:text-5xl text-lime-600 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center" aria-hidden="true">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3 class="text-lg lg:text-2xl font-semibold text-gray-900 text-center">Extras</h3>
+                <p class="text-gray-500 text-xs lg:text-sm mt-2 text-center leading-tight">Produits divers en déstockage</p>
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Include Tailwind CSS, Font Awesome, and Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
