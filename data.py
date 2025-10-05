@@ -2046,41 +2046,6 @@ products = [
         "seo_description": "Pâtes Panzani Penne Rigate 1kg - Lot de 50 - Offre destockage - Qualité professionnelle - Livraison rapide"
     },
     {
-        "id": 410,
-        "name": "🧴 LOT DE 100 SOUPLINE ADOUCISSANT GRAND AIR 2,85L",
-        "description": "Adoucissant textile Soupline parfum Grand Air - Lot de 100 bidons 2,85L. Offre spéciale destockage pour professionnels.",
-        "price": 212.00,
-        "priceCurrency": "EUR",
-        "category": "Entretien",
-        "stock": 6,
-        "featured": False,
-        "published": False,
-        "images": ["soupline-grand-air.jpg", "soupline-grand-air.jpg"],
-        "details": {
-            "marque": "Soupline",
-            "volume": "285 litres (100x2,85L)",
-            "quantité": "100 bidons",
-            "parfum": "Grand Air",
-            "conservation": "À l'abri du gel",
-            "DLC": "36 mois",
-            "utilisation": "1 bouchon pour 5kg de linge"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "212.00",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2025-12-31",
-            "availability": "https://schema.org/InStock",
-            "url": "/produits/410"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.5",
-            "reviewCount": "20"
-        },
-        "seo_description": "Soupline Grand Air 2,85L - Lot de 100 - Adoucissant textile - Offre destockage - Prix cassé"
-    },
-    {
         "id": 411,
         "name": "🥤 Palette de FANTA MANGUE - 600 Canettes 33cl",
         "description": "Fanta saveur mangue en canettes 33cl - Palette complète de 600 canettes. Goût tropical et rafraîchissant, offre spéciale destockage.",
