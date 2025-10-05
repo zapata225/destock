@@ -2404,6 +2404,8 @@ def recettes_nutella():
 def magasin_bio_local():
     return render_template('magasin_bio_local.html')
 
+
+
 @app.route('/grossiste-alimentaire-bruxellees')
 def grossiste_alimentaire_belgique():
     return render_template('grossiste_alimentairebruxellee.html')
@@ -4425,6 +4427,54 @@ def admin_orders():
     return render_template('admin_orders.html', orders=orders_data)
 
 
+@app.route('/blog/accords-mets-vins-dom-perignon-2008')
+def accords_mets_vins_dom_perignon_2008():
+    return render_template(
+        'blog/accords-mets-vins-dom-perignon-2008.html',
+        canonical="https://www.destockagealimentairestore.com/blog/accords-mets-vins-dom-perignon-2008",
+        title="Accords mets et vins Dom Pérignon 2008 - Conseils & Dégustation",
+        description="Découvrez les meilleurs accords mets et vins avec le champagne Dom Pérignon 2008. Un guide gastronomique d’exception pour sublimer vos repas."
+    )
+
+
+@app.route('/blog/prix-dom-perignon-2012-investissement')
+def prix_dom_perignon_2012_investissement():
+    return render_template(
+        'blog/prix-dom-perignon-2012-investissement.html',
+        canonical="https://www.destockagealimentairestore.com/blog/prix-dom-perignon-2012-investissement",
+        title="Prix Dom Pérignon 2012 et investissement - Guide complet",
+        description="Analyse du prix du Dom Pérignon 2012 et conseils pour investir dans un grand cru millésimé. Rentabilité, rareté et potentiel de garde."
+    )
+
+
+@app.route('/blog/ruinart-blanc-de-blanc-prix')
+def ruinart_blanc_de_blanc_prix():
+    return render_template(
+        'blog/ruinart-blanc-de-blanc-prix.html',
+        canonical="https://www.destockagealimentairestore.com/blog/ruinart-blanc-de-blanc-prix",
+        title="Ruinart Blanc de Blancs : prix, dégustation et avis 2025",
+        description="Découvrez le prix du Ruinart Blanc de Blancs, ses arômes subtils et nos conseils pour le déguster au meilleur moment."
+    )
+
+
+@app.route('/blog/discount-alimentation-top-10')
+def discount_alimentation_top_10():
+    return render_template(
+        'blog/discount-alimentation-top-10.html',
+        canonical="https://www.destockagealimentairestore.com/blog/discount-alimentation-top-10",
+        title="Top 10 des meilleurs sites de discount alimentaire 2025",
+        description="Classement des 10 meilleurs sites de discount alimentaire en France. Faites des économies sur vos marques préférées !"
+    )
+
+
+@app.route('/blog/dom-perignon-rose-accords')
+def dom_perignon_rose_accords():
+    return render_template(
+        'blog/dom-perignon-rose-accords.html',
+        canonical="https://www.destockagealimentairestore.com/blog/dom-perignon-rose-accords",
+        title="Dom Pérignon Rosé : les meilleurs accords mets et vins",
+        description="Apprenez à marier le champagne Dom Pérignon Rosé avec vos plats préférés. Nos conseils de sommeliers pour un repas inoubliable."
+    )
 @app.route('/admin/update-order-status/<order_id>', methods=['POST'])
 @admin_required
 def admin_update_order_status(order_id):
@@ -4521,14 +4571,29 @@ def sitemap():
         '/supermarche_proximite',
         '/supermarche-ouvert-24-7','/destockage-belgique-2025',
         '/recettes-nutella',
-        "/blog/vodka-de-luxe",
-        "/blog/authenticite-belvedere-champagne-petit-prix",
-        "/blog/amaretto-disaronno",
-        "/blog/ruinart-rose-prix-2025",
-        "/blog/achat-champagne-gros",'/blog/grossiste-alimentaire-paris', '/blog/champagne-ruinart-blanc-de-blanc','/blog/destockage-alimentaire-lyon-2025','/blog/champagne-pas-cher-astuces','/achat-champagne-gros-2025','/blog/grossistes-alimentaires-lille','/discount-alimentation-page','/accords-dom-perignon-rose',
-        "/blog/supermarches-discount-france",'/destockage-belgique-2025',
-        "/blog/grossistes-alimentaires-lyon",
+         '/blog/accords-mets-vins-dom-perignon-2008',
+        '/blog/prix-dom-perignon-2012-investissement',
+        '/blog/ruinart-blanc-de-blanc-prix',
+        '/blog/discount-alimentation-top-10',
+        '/blog/dom-perignon-rose-accords',
+        '/blog/vodka-de-luxe',
+        '/blog/authenticite-belvedere-champagne-petit-prix',
+        '/blog/amaretto-disaronno',
+        '/blog/ruinart-rose-prix-2025',
+        '/blog/achat-champagne-gros',
+        '/blog/grossiste-alimentaire-paris',
+        '/blog/champagne-ruinart-blanc-de-blanc',
+        '/blog/destockage-alimentaire-lyon-2025',
+        '/blog/champagne-pas-cher-astuces',
+        '/achat-champagne-gros-2025',
+        '/blog/grossistes-alimentaires-lille',
+        '/discount-alimentation-page',
+        '/accords-dom-perignon-rose',
+        '/blog/supermarches-discount-france',
+        '/destockage-belgique-2025',
+        '/blog/grossistes-alimentaires-lyon',
         '/magasin-bio-local',
+
         '/grossiste-alimentaire-belgique',  # Ce nom est dupliqué (voir remarque plus bas)
         '/meilleurs-fournisseurs-aubervilliers-2025',
         '/distributeurs-automatiques-rentabilite-innovations',
