@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head> 
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -125,6 +125,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
         {% block extra_css %}{% endblock %}
+    </head>
 <style>/* Variables */
     :root {
         --primary-blue: #2563eb;
@@ -2317,7 +2318,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return text.trim('-');
     }
 });
-</script><nav class="mobile-nav-premium">
+</script>
+
+        <nav class="mobile-nav-premium">
             <a href="/" class="mobile-nav-item active">
                 <i class="fas fa-home"></i>
                 <span>Accueil</span>
@@ -2353,6 +2356,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span>Inscription</span>
             </a>
         </nav>
+
+    </div>
 
     <!-- Overlay pour fermer les résultats -->
     <div class="search-overlay" id="search-overlay"></div>
