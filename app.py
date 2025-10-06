@@ -3096,15 +3096,6 @@ def boissons_gros_pas_cher_25():
     )
 
 
-@app.route('/blog/achat-champagne-gros')
-def achat_champagne_gros():
-    return render_template(
-        'blog/achat-champagne-gros.html',
-        canonical="https://www.destockagealimentairestore.com/blog/achat-champagne-gros",
-        title="Achat de champagne en gros : prix, conseils et adresses",
-        description="Où acheter du champagne en gros ? Découvrez les meilleurs fournisseurs et nos conseils pour faire de bonnes affaires."
-    )
-
 
 @app.route('/blog/achat-champagne-gros-25')
 def achat_champagne_gros_25():
@@ -3133,16 +3124,6 @@ def guide_discount_alimentaire():
         canonical="https://www.destockagealimentairestore.com/blog/guide-discount-alimentaire",
         title="Guide du discount alimentaire 2025 : bons plans & astuces",
         description="Découvrez notre guide complet du discount alimentaire en 2025. Où acheter moins cher sans sacrifier la qualité ?"
-    )
-
-
-@app.route('/blog/prix-champagne-2025')
-def prix_champagne_2025():
-    return render_template(
-        'blog/prix-champagne-2025.html',
-        canonical="https://www.destockagealimentairestore.com/blog/prix-champagne-2025",
-        title="Prix du champagne en 2025 : tendances, marques et conseils",
-        description="Évolution du prix du champagne en 2025 : découvrez les meilleures marques, les tendances du marché et nos astuces d’achat."
     )
 
 
