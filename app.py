@@ -3076,7 +3076,94 @@ def grossiste_alimentaire_belgique_2025():
         description="Découvrez les grossistes alimentaires en Belgique en 2025 : prix, déstockage et tendances du marché."
     )
 
+@app.route('/blog/magasins-alcool-france')
+def magasins_alcool_france():
+    return render_template(
+        'blog/magasins-alcool-france.html',
+        canonical="https://www.destockagealimentairestore.com/blog/magasins-alcool-france",
+        title="Magasins d’alcool en France : où acheter moins cher en 2025",
+        description="Découvrez les meilleurs magasins d’alcool en France en 2025. Bons plans, prix en gros et adresses pour acheter vos boissons au meilleur tarif."
+    )
 
+
+@app.route('/blog/boissons-gros-pas-cher-25')
+def boissons_gros_pas_cher_25():
+    return render_template(
+        'blog/boissons-gros-pas-cher-25.html',
+        canonical="https://www.destockagealimentairestore.com/blog/boissons-gros-pas-cher-25",
+        title="Boissons en gros pas cher : top fournisseurs 2025",
+        description="Guide complet pour acheter des boissons en gros pas cher en 2025. Découvrez nos conseils et les meilleurs sites de destockage."
+    )
+
+
+@app.route('/blog/achat-champagne-gros')
+def achat_champagne_gros():
+    return render_template(
+        'blog/achat-champagne-gros.html',
+        canonical="https://www.destockagealimentairestore.com/blog/achat-champagne-gros",
+        title="Achat de champagne en gros : prix, conseils et adresses",
+        description="Où acheter du champagne en gros ? Découvrez les meilleurs fournisseurs et nos conseils pour faire de bonnes affaires."
+    )
+
+
+@app.route('/blog/achat-champagne-gros-25')
+def achat_champagne_gros_25():
+    return render_template(
+        'blog/achat-champagne-gros-25.html',
+        canonical="https://www.destockagealimentairestore.com/blog/achat-champagne-gros-25",
+        title="Champagne en gros 2025 : les meilleures offres du marché",
+        description="Comparez les prix du champagne en gros en 2025 et trouvez les meilleures opportunités pour vos événements ou votre commerce."
+    )
+
+
+@app.route('/blog/champagne-brut-secrets-degustation')
+def champagne_brut_secrets():
+    return render_template(
+        'blog/champagne-brut-secrets-degustation.html',
+        canonical="https://www.destockagealimentairestore.com/blog/champagne-brut-secrets-degustation",
+        title="Champagne Brut : secrets de dégustation et accords mets-vins",
+        description="Tout savoir sur le Champagne Brut : ses caractéristiques, les meilleurs accords mets-vins et les conseils de sommeliers."
+    )
+
+
+@app.route('/blog/guide-discount-alimentaire')
+def guide_discount_alimentaire():
+    return render_template(
+        'blog/guide-discount-alimentaire.html',
+        canonical="https://www.destockagealimentairestore.com/blog/guide-discount-alimentaire",
+        title="Guide du discount alimentaire 2025 : bons plans & astuces",
+        description="Découvrez notre guide complet du discount alimentaire en 2025. Où acheter moins cher sans sacrifier la qualité ?"
+    )
+
+
+@app.route('/blog/prix-champagne-2025')
+def prix_champagne_2025():
+    return render_template(
+        'blog/prix-champagne-2025.html',
+        canonical="https://www.destockagealimentairestore.com/blog/prix-champagne-2025",
+        title="Prix du champagne en 2025 : tendances, marques et conseils",
+        description="Évolution du prix du champagne en 2025 : découvrez les meilleures marques, les tendances du marché et nos astuces d’achat."
+    )
+
+
+@app.route('/blog/achat-biere-en-ligne')
+def achat_biere_en_ligne():
+    return render_template(
+        'blog/achat-biere-en-ligne.html',
+        canonical="https://www.destockagealimentairestore.com/blog/achat-biere-en-ligne",
+        title="Achat de bière en ligne : comparatif des meilleurs sites",
+        description="Les meilleurs sites pour acheter de la bière en ligne en 2025. Livraison rapide, prix en gros et grandes marques à petit prix."
+    )
+
+
+@app.route('/blog/quoi-acheter-en-gros-pour-revendre')
+def quoi_acheter_en_gros_pour_revendre():
+    return render_template(
+        'blog/quoi-acheter-en-gros-pour-revendre.html',
+        canonical="https://www.destockagealimentairestore.com/blog/quoi-acheter-en-gros-pour-revendre",
+        title="Quoi acheter en gros pour revendre en 2025 : idées rentables",
+        description="Découvrez les produits les plus rentables à acheter en gros pour revendre en 2025. Alimentaire, boissons, hygiène et plus."
+    )
     
 @app.route('/fr/destockage')
 def destockage_fr():
