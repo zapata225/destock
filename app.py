@@ -4669,7 +4669,6 @@ def sitemap():
         '/destockage-belgique-2025',
         '/blog/grossistes-alimentaires-lyon',
         '/magasin-bio-local',
-
         '/grossiste-alimentaire-belgique',  # Ce nom est dupliqué (voir remarque plus bas)
         '/meilleurs-fournisseurs-aubervilliers-2025',
         '/distributeurs-automatiques-rentabilite-innovations',
