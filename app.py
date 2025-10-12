@@ -4168,6 +4168,44 @@ def champagne_pas_cher1():
         description="Achetez du champagne pas cher : bons plans, promotions et astuces pour économiser sur les meilleures cuvées."
     )
 
+
+@app.route('/blog/le-prix-ruinart-brut')
+def le_prix_ruinart_brut():
+    seo = {
+        "title": "Prix du Champagne Ruinart Brut : Guide et Comparatif 2025 | Destockage Alimentaire",
+        "description": "Découvrez le vrai prix du Ruinart Brut en 2025, nos conseils d’achat, comparatifs et où le trouver au meilleur tarif en France et en Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/le-prix-ruinart-brut",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-brut.webp",
+        "keywords": "prix ruinart brut, champagne ruinart pas cher, champagne ruinart 2025, ruinart brut achat"
+    }
+    return render_template('blog/prix-ruinart-brut.html', seo=seo)
+
+
+# --- ARTICLE 2 ---
+@app.route('/blog/le-ruinart-blanc-de-blanc-prix')
+def le_ruinart_blanc_de_blanc_prix():
+    seo = {
+        "title": "Ruinart Blanc de Blanc Prix et Dégustation : L’Essentiel à Savoir | Destockage Alimentaire",
+        "description": "Le guide complet sur le Ruinart Blanc de Blanc : prix, dégustation, accords mets et vins, et astuces pour l’acheter moins cher.",
+        "url": "https://www.destockagealimentairestore.com/blog/le-ruinart-blanc-de-blanc-prix",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-blanc-de-blanc.webp",
+        "keywords": "ruinart blanc de blanc prix, champagne ruinart, ruinart pas cher, ruinart blanc achat"
+    }
+    return render_template('blog/le-ruinart-blanc-de-blanc-prix.html', seo=seo)
+
+
+# --- ARTICLE 3 ---
+@app.route('/blog/le-discount-alimentation')
+def le_discount_alimentation():
+    seo = {
+        "title": "Le Discount Alimentaire : Acheter en Gros à Prix Cassés | Destockage Alimentaire",
+        "description": "Tout savoir sur le discount alimentaire : comment acheter en gros à prix réduit, astuces pour revendre et faire des économies au quotidien.",
+        "url": "https://www.destockagealimentairestore.com/blog/le-discount-alimentation",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/discount-alimentaire.webp",
+        "keywords": "discount alimentaire, destockage alimentaire, alimentation pas cher, grossiste alimentaire"
+    }
+    return render_template('blog/le-discount-alimentation.html', seo=seo)
+    
 @app.route('/blog/prix-champagne-2023')
 def prix_champagne_2023():
     return render_template(
@@ -4630,7 +4668,7 @@ def sitemap():
         '/blog/champagne-brut-secrets-degustation',
         '/blog/guide-discount-alimentaire',
         '/blog/achat-biere-en-ligne',
-        '/blog/quoi-acheter-en-gros-pour-revendre',
+        '/blog/quoi-acheter-en-gros-pour-revendre','/blog/le-prix-ruinart-brut','/blog/le-ruinart-blanc-de-blanc-prix','/blog/le-discount-alimentation',
 
         '/palette-alimentaire-destockage', '/be/destockage-alimentaire-belgique',
         '/psg-champion-europe', '/loi-anti-gaspillage-2025', '/blog/espana-descuentos-alimentarios',
