@@ -1882,9 +1882,29 @@
                     <div class="search-results-container" id="search-results"></div>
                 </div>
             </div>
-
-                <!-- Compte utilisateur -->
-                <div class="user-widget-premium">
+            <!-- Compte utilisateur -->
+            <div class="user-widget-premium">
+                {% if session.logged_in %}
+                    <!-- Utilisateur connecté -->
+                    <div class="user-dropdown-premium">
+                        <button class="user-btn-premium">
+                            <i class="fas fa-user"></i>
+                            <span>{{ session.username }}</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-premium">
+                            <a href="/compte" class="user-menu-item">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Mon compte</span>
+                            </a>
+                            <a href="/deconnexion" class="user-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Déconnexion</span>
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- Utilisateur non connecté -->
                     <div class="auth-buttons-premium">
                         <a href="/connexion" class="auth-btn-premium login">
                             <i class="fas fa-sign-in-alt"></i>
@@ -1895,8 +1915,8 @@
                             <span>Inscription</span>
                         </a>
                     </div>
-                </div>
-
+                {% endif %}
+            </div>
                 <!-- Panier avec indicateur -->
                 <div class="cart-widget-premium" id="cart-icon">
                     <button class="cart-btn-premium">
@@ -2319,7 +2339,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
         <nav class="mobile-nav-premium">
             <a href="/" class="mobile-nav-item active">
                 <i class="fas fa-home"></i>
@@ -2334,29 +2353,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span>-70% Flash</span>
                 <span class="badge-premium">🔥</span>
             </a>
-
+        
             <a href="/recrutement" class="mobile-nav-item">
                 <i class="fas fa-user-plus"></i>
                 <span>Recrutement</span>
             </a>
             
             <a href="/contact" class="mobile-nav-item">
-                <i class="fas fa-user-plus"></i>
+                <i class="fas fa-headset"></i>
                 <span>Contact</span>
             </a>
             
             <div class="mobile-divider"></div>
             
-            <a href="/connexion" class="mobile-nav-item">
-                <i class="fas fa-sign-in-alt"></i>
-                <span>Connexion</span>
-            </a>
-            <a href="/inscription" class="mobile-nav-item">
-                <i class="fas fa-user-plus"></i>
-                <span>Inscription</span>
-            </a>
+            {% if session.logged_in %}
+                <!-- Utilisateur connecté -->
+                <a href="/compte" class="mobile-nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Mon compte</span>
+                </a>
+                <a href="/deconnexion" class="mobile-nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </a>
+            {% else %}
+                <!-- Utilisateur non connecté -->
+                <a href="/connexion" class="mobile-nav-item">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Connexion</span>
+                </a>
+                <a href="/inscription" class="mobile-nav-item">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Inscription</span>
+                </a>
+            {% endif %}
         </nav>
-
+        
     </div>
 
     <!-- Overlay pour fermer les résultats -->
