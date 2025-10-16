@@ -3556,6 +3556,85 @@ def destockage_particulier():
 def destockage():
     return render_template('destockage9.html')
 
+
+@app.route('/blog/prix-bouteille-ruinart')
+def prix_bouteille_ruinart():
+    seo = {
+        "title": "Prix d’une bouteille de Ruinart : guide complet 2025",
+        "description": "Découvrez les prix des bouteilles de champagne Ruinart, les meilleures offres, et nos conseils pour acheter au meilleur tarif.",
+        "keywords": "prix ruinart, champagne ruinart, ruinart brut, bouteille ruinart pas cher"
+    }
+    return render_template('blog/prix-bouteille-ruinart.html', seo=seo)
+
+
+@app.route('/blog/acheter-au-gros')
+def acheter_au_gros():
+    seo = {
+        "title": "Acheter au gros : comment faire des économies en 2025",
+        "description": "Découvrez où et comment acheter au gros pour réduire vos dépenses alimentaires et profiter de réductions sur les produits de qualité.",
+        "keywords": "acheter en gros, économies, achat alimentaire, grossiste"
+    }
+    return render_template('blog/acheter-au-gros.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-economies-impact')
+def destockage_alimentaire_economies_impact():
+    seo = {
+        "title": "Déstockage alimentaire : économies et impact écologique",
+        "description": "Le déstockage alimentaire permet de réduire le gaspillage tout en économisant. Découvrez son impact sur votre portefeuille et la planète.",
+        "keywords": "déstockage alimentaire, anti-gaspillage, économie, écologie"
+    }
+    return render_template('blog/destockage-alimentaire-economies-impact.html', seo=seo)
+
+
+@app.route('/blog/discount-alimentation-guide')
+def discount_alimentation_guide():
+    seo = {
+        "title": "Guide 2025 du discount alimentaire : bons plans et conseils",
+        "description": "Tout savoir sur le discount alimentaire : où acheter, comment reconnaître les bonnes affaires, et quels sont les meilleurs sites.",
+        "keywords": "discount alimentaire, bons plans, magasins pas chers, guide discount"
+    }
+    return render_template('blog/discount-alimentation-guide.html', seo=seo)
+
+
+@app.route('/blog/champagne-pas-cher-guide')
+def champagne_pas_cher_guide():
+    seo = {
+        "title": "Champagne pas cher : le guide 2025 pour acheter malin",
+        "description": "Nos astuces et adresses pour trouver du champagne pas cher sans sacrifier la qualité. Marques, prix, et conseils d’achat.",
+        "keywords": "champagne pas cher, bons plans champagne, guide champagne, champagne discount"
+    }
+    return render_template('blog/champagne-pas-cher-guide.html', seo=seo)
+
+
+@app.route('/blog/acheter-alcool-en-gros')
+def acheter_alcool_en_gros():
+    seo = {
+        "title": "Acheter de l’alcool en gros : où et comment obtenir les meilleurs prix",
+        "description": "Découvrez les meilleurs sites et fournisseurs pour acheter de l’alcool en gros à prix réduits, pour particuliers et professionnels.",
+        "keywords": "alcool en gros, grossiste alcool, vin en gros, champagne en gros"
+    }
+    return render_template('blog/acheter-alcool-en-gros.html', seo=seo)
+
+
+@app.route('/blog/meilleur-champagne-petit-prix')
+def meilleur_champagne_petit_prix():
+    seo = {
+        "title": "Top 5 des meilleurs champagnes à petit prix (édition 2025)",
+        "description": "Sélection des meilleurs champagnes à moins de 30€, testés et approuvés. Des bulles de qualité sans se ruiner.",
+        "keywords": "meilleur champagne, petit prix, champagne pas cher, comparatif champagne"
+    }
+    return render_template('blog/meilleur-champagne-petit-prix.html', seo=seo)
+
+@app.route('/blog/champagne-blanc-de-blancs-172025')
+def champagne_blanc_de_blancs_172025():
+    seo = {
+        "title": "Champagne Blanc de Blancs : le guide complet 2025",
+        "description": "Découvrez tout sur le Champagne Blanc de Blancs : cépages, meilleures maisons, prix et conseils d’achat pour 2025.",
+        "keywords": "champagne blanc de blancs, chardonnay, champagne prestige, guide champagne"
+    }
+    return render_template('blog/champagne-blanc-de-blancs.html', seo=seo)
+
 # Route pour la version espagnole
 @app.route('/es/destockage-alimentaire-particulier99')
 def destockage_es():
@@ -4679,7 +4758,14 @@ def sitemap():
         '/blog/guide-discount-alimentaire',
         '/blog/achat-biere-en-ligne',
         '/blog/quoi-acheter-en-gros-pour-revendre','/blog/le-prix-ruinart-brut','/blog/le-ruinart-blanc-de-blanc-prix','/blog/le-discount-alimentation',
-
+        '/blog/prix-bouteille-ruinart',
+        '/blog/acheter-au-gros',
+        '/blog/destockage-alimentaire-economies-impact',
+        '/blog/discount-alimentation-guide',
+        '/blog/champagne-pas-cher-guide',
+        '/blog/acheter-alcool-en-gros',
+        '/blog/meilleur-champagne-petit-prix',
+        '/blog/champagne-blanc-de-blancs-172025',
         '/palette-alimentaire-destockage', '/be/destockage-alimentaire-belgique',
         '/psg-champion-europe', '/loi-anti-gaspillage-2025', '/blog/espana-descuentos-alimentarios',
         '/blog/belgique-bon-marche-nourriture', '/blog/suisse-pas-cher-nourriture',
