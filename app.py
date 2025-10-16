@@ -4031,17 +4031,27 @@ def login():
             session['username'] = user.username
             session['user_id'] = user.id
             session['role'] = user.role
-
+            
+            # Rendre la session permanente
+            session.permanent = True
+            
+            flash("Connexion réussie", "success")
+            
             if user.role == "admin":
                 return redirect(url_for('admin_dashboard'))
             return redirect(url_for('index'))
-
-        flash("Identifiants incorrects", "error")
+        else:
+            flash("Identifiants incorrects", "error")
 
     return render_template('login.html')
 
-
-
+@app.before_request
+def check_session():
+    # Vérifie si l'utilisateur est connecté mais la session est expirée
+    if 'logged_in' in session and not session.get('logged_in'):
+        session.clear()
+        flash('Votre session a expiré, veuillez vous reconnecter', 'warning')
+        return redirect(url_for('login'))
 
 @app.route('/checkout-guest', methods=['POST'])
 def checkout_guest():
