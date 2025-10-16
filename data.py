@@ -890,7 +890,7 @@ products = [
         "category": ["Vins, Champagnes et Spiritueux", "Promotions"],
         "stock": 1,
         "featured": True,
-        "images": ["ruinart.jpg", "ruinart-1.jpg", "ruinart-3.jpg"],
+        "images": ["ruinart.jpg", "ruinart-1.jpg", "ruinart-3.jpg","ruinart-4.jpg","ruinart-5.jpg"],
         "offers": {
             "@type": "Offer",
             "price": "6300.00",
@@ -927,7 +927,7 @@ products = [
         "category": "Vins, Champagnes et Spiritueux",
         "stock": 1,
         "featured": True,
-        "images": ["dom-perignon.jpg", "dom-perignon-1.jpg", "dom-perignon-2.jpg"],
+        "images": ["dom-perignon.jpg", "dom-perignon-1.jpg", "dom-perignon-2.jpg","dom-perignon-3.jpg"],
         "offers": {
             "@type": "Offer",
             "price": "9200.00",
