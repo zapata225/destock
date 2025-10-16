@@ -5085,7 +5085,97 @@ products = [
         "promotion": "Réduction exceptionnelle de 25%"
     },
     "seo_description": "Palette Dom Pérignon Rosé Vintage 2008 - 280 bouteilles -25% - Grand Cru exceptionnel - Prix professionnel - Livraison palette sécurisée"
-}
+},
+    {
+        "id": 1001,
+        "name": "🔩 Machine à Laver Samsung WW90TA046AE EcoBubble",
+        "description": "Machine à laver frontale Samsung 9kg - Technologie EcoBubble™ pour un lavage efficace à basse température - Moteur Digital Inverter 10 ans de garantie - Classe A+++ -40% d'énergie",
+        "price": 599.99,
+        "originalPrice": 749.99,
+        "priceCurrency": "EUR",
+        "category": "Électroménager",
+        "stock": 15,
+        "featured": True,
+        "images": ["samsung-machine-laver-1.jpg", "samsung-machine-laver-2.jpg","samsung-machine-laver-3.jpg"],
+        "offers": {
+            "@type": "Offer",
+            "price": "599.99",
+            "priceCurrency": "EUR",
+            "priceValidUntil": "2024-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "/produits/1001"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "128"
+        },
+        "details": {
+            "marque": "Samsung",
+            "modele": "WW90TA046AE",
+            "capacite": "9 kg",
+            "vitesse_essorage": "1400 tours/min",
+            "classe_energetique": "A+++ (-40%)",
+            "consommation_eau": "48 L/cycle",
+            "niveau_sonore": "53 dB (lavage) - 73 dB (essorage)",
+            "dimensions": "85 x 60 x 55 cm (H x L x P)",
+            "couleur": "Blanc",
+            "technologies": "EcoBubble™, Digital Inverter, AddWash™",
+            "programmes": "15 programmes dont Coton, Synthétique, Mains, Rapide, Laine",
+            "affichage": "LED Digital",
+            "garantie": "10 ans sur le moteur",
+            "installation": "Livraison et installation incluses",
+            "promotion": "Réduction de 20% - Livraison offerte"
+        },
+        "seo_description": "Machine à laver Samsung 9kg A+++ - Technologie EcoBubble - Moteur Digital Inverter 10 ans - Livraison offerte"
+    },
+    {
+        "id": 2001,
+        "name": "📱 Apple iPhone 17 Pro Max 1 To Bleu intense",
+        "description": "iPhone 17 Pro Max 1TB - Écran 6,9 pouces ProMotion - Puce A19 Bionic - Caméra quadruple 108MP avec IA - Charge sans fil 50W - iOS 18 - Design en titane aerospace",
+        "price": 1899.00,
+        "originalPrice": 2099.00,
+        "priceCurrency": "EUR",
+        "category": "Smartphones",
+        "stock": 8,
+        "featured": True,
+        "images": ["iphone17-pro-max-black.jpg", "iphone17-pro-max-back2.jpg", "iphone17-pro-max-back.jpg3"],
+        "offers": {
+            "@type": "Offer",
+            "price": "1899.00",
+            "priceCurrency": "EUR",
+            "priceValidUntil": "2024-11-30",
+            "availability": "https://schema.org/InStock",
+            "url": "/produits/2001"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "256"
+        },
+        "details": {
+            "marque": "Apple",
+            "modele": "iPhone 17 Pro Max",
+            "capacite_stockage": "1 TB",
+            "couleur": "Noir Titanium",
+            "ecran": "6,9 pouces Super Retina XDR OLED",
+            "technologie_ecran": "ProMotion 120Hz, Always-On Display",
+            "puce": "A19 Bionic avec Neural Engine",
+            "ram": "12 Go",
+            "systeme_exploitation": "iOS 18",
+            "cameras": "Quadruple 108MP + 48MP + 12MP + LiDAR",
+            "zoom": "Zoom optique 10x, numérique 100x",
+            "batterie": "5000 mAh - Autonomie 2 jours",
+            "charge": "Sans fil MagSafe 50W, rapide 45W",
+            "resistance": "IP68, Ceramic Shield",
+            "connectivite": "5G, Wi-Fi 7, Bluetooth 5.4, Ultra Wideband",
+            "capteurs": "Face ID, Lidar, GPS double fréquence",
+            "garantie": "1 an Apple Limited Warranty",
+            "promotion": "Précommande - Réduction de 200€"
+        },
+        "seo_description": "iPhone 17 Pro Max 1TB Noir Titanium - Puce A19 Bionic - Caméra 108MP - iOS 18 - Précommande avec réduction"
+    }
+]
 ]
     
 
