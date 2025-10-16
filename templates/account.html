@@ -2,29 +2,27 @@
 
 {% block extra_css %}
 <style>
-    /* Variables de design système moderne avec couleurs vibrantes */
+    /* Variables de design système sobre et professionnel */
     :root {
-        /* Nouvelle palette de couleurs vibrantes et modernes */
-        --primary-50: #f0f9ff;
-        --primary-100: #e0f2fe;
-        --primary-200: #bae6fd;
-        --primary-300: #7dd3fc;
-        --primary-400: #38bdf8;
-        --primary-500: #0ea5e9;
-        --primary-600: #0284c7;
-        --primary-700: #0369a1;
-        --primary-800: #075985;
-        --primary-900: #0c4a6e;
-        --primary-950: #082f49;
+        /* Nouvelle palette de couleurs sobre et élégante */
+        --primary-50: #f8fafc;
+        --primary-100: #f1f5f9;
+        --primary-200: #e2e8f0;
+        --primary-300: #cbd5e1;
+        --primary-400: #94a3b8;
+        --primary-500: #64748b;
+        --primary-600: #475569;
+        --primary-700: #334155;
+        --primary-800: #1e293b;
+        --primary-900: #0f172a;
+        --primary-950: #020617;
         
-        /* Couleurs d'accent vibrantes */
-        --accent-purple: #a855f7;
-        --accent-pink: #ec4899;
-        --accent-orange: #f97316;
+        /* Couleurs d'accent subtiles */
+        --accent-blue: #3b82f6;
         --accent-teal: #0d9488;
-        --accent-cyan: #06b6d4;
+        --accent-indigo: #6366f1;
         
-        /* Couleurs neutres améliorées */
+        /* Couleurs neutres raffinées */
         --neutral-50: #fafafa;
         --neutral-100: #f4f4f5;
         --neutral-200: #e4e4e7;
@@ -37,29 +35,25 @@
         --neutral-900: #18181b;
         --neutral-950: #09090b;
         
-        /* Couleurs sémantiques vibrantes */
+        /* Couleurs sémantiques discrètes */
         --success: #10b981;
         --warning: #f59e0b;
         --danger: #ef4444;
         --info: #3b82f6;
         
-        /* Nouveaux dégradés colorés et modernes */
-        --primary-gradient: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-cyan) 100%);
-        --secondary-gradient: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
-        --success-gradient: linear-gradient(135deg, var(--success) 0%, var(--accent-teal) 100%);
-        --warning-gradient: linear-gradient(135deg, var(--warning) 0%, var(--accent-orange) 100%);
-        --glass-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-        --card-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-        --sidebar-gradient: linear-gradient(180deg, var(--primary-600) 0%, var(--primary-800) 100%);
+        /* Dégradés sobres */
+        --primary-gradient: linear-gradient(135deg, var(--primary-100) 0%, var(--primary-200) 100%);
+        --secondary-gradient: linear-gradient(135deg, var(--primary-200) 0%, var(--primary-300) 100%);
+        --sidebar-gradient: linear-gradient(180deg, var(--primary-700) 0%, var(--primary-800) 100%);
+        --card-gradient: linear-gradient(135deg, #ffffff 0%, var(--primary-50) 100%);
         
-        /* Effets d'ombre modernes avec couleurs */
-        --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        --shadow-primary: 0 10px 15px -3px rgba(14, 165, 233, 0.3), 0 4px 6px -2px rgba(14, 165, 233, 0.15);
+        /* Effets d'ombre subtils */
+        --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
         
         /* Bordures et rayons */
         --radius-sm: 0.375rem;
@@ -68,13 +62,12 @@
         --radius-xl: 1rem;
         --radius-2xl: 1.5rem;
         
-        /* Transitions et animations améliorées */
+        /* Transitions douces */
         --transition-base: all 0.2s ease-in-out;
         --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
-    /* Reset et base modernisée avec arrière-plan coloré */
+    /* Reset et base */
     * {
         box-sizing: border-box;
         margin: 0;
@@ -82,20 +75,20 @@
     }
 
     body {
-        background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 50%, var(--neutral-50) 100%);
+        background: var(--primary-50);
         font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
         line-height: 1.6;
         color: var(--neutral-700);
         min-height: 100vh;
     }
 
-    /* Layout principal avec glassmorphisme amélioré */
+    /* Layout principal */
     .account-container {
         display: grid;
-        grid-template-columns: 320px 1fr;
+        grid-template-columns: 300px 1fr;
         gap: 2rem;
         margin: 2rem auto;
-        max-width: 1600px;
+        max-width: 1400px;
         padding: 0 1.5rem;
     }
 
@@ -106,19 +99,17 @@
         }
     }
 
-    /* Sidebar moderne avec effet glass et couleurs vibrantes */
+    /* Sidebar sobre et professionnelle */
     .account-sidebar {
-        background: linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(2, 132, 199, 0.9) 100%);
-        backdrop-filter: blur(10px);
-        border-radius: var(--radius-2xl);
-        box-shadow: var(--shadow-xl);
+        background: white;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
         padding: 1.5rem;
         height: fit-content;
         position: sticky;
         top: 120px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid var(--neutral-200);
         overflow: hidden;
-        color: white;
     }
 
     .account-sidebar::before {
@@ -127,17 +118,16 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 6px;
-        background: var(--secondary-gradient);
-        border-radius: 3px 3px 0 0;
+        height: 4px;
+        background: var(--primary-600);
+        border-radius: 2px 2px 0 0;
     }
 
     .user-profile {
         text-align: center;
         padding: 2rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid var(--neutral-200);
         margin-bottom: 1.5rem;
-        position: relative;
     }
 
     .user-avatar {
@@ -146,48 +136,32 @@
         border-radius: 50%;
         object-fit: cover;
         margin: 0 auto 1.25rem;
-        border: 4px solid rgba(255, 255, 255, 0.5);
-        box-shadow: var(--shadow-lg);
-        transition: var(--transition-bounce);
-        position: relative;
-    }
-
-    .user-avatar::after {
-        content: '';
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-        width: 22px;
-        height: 22px;
-        background: var(--success);
-        border-radius: 50%;
-        border: 3px solid var(--primary-600);
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+        border: 3px solid var(--neutral-200);
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition-smooth);
     }
 
     .user-avatar:hover {
-        transform: scale(1.08);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+        border-color: var(--primary-400);
     }
 
     .user-name {
         font-size: 1.375rem;
         font-weight: 700;
-        color: white;
+        color: var(--primary-800);
         margin-bottom: 0.5rem;
         letter-spacing: -0.025em;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .user-email {
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--neutral-600);
         font-size: 0.9375rem;
         display: inline-block;
-        background: rgba(255, 255, 255, 0.15);
+        background: var(--primary-50);
         padding: 0.375rem 0.875rem;
         border-radius: 50px;
         font-weight: 500;
-        backdrop-filter: blur(10px);
     }
 
     .nav-menu {
@@ -205,65 +179,40 @@
         align-items: center;
         padding: 0.875rem 1.25rem;
         border-radius: var(--radius-lg);
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--neutral-600);
         transition: var(--transition-smooth);
         font-weight: 500;
         text-decoration: none;
         gap: 0.875rem;
         position: relative;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-link::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: var(--secondary-gradient);
-        opacity: 0.2;
-        transition: var(--transition-smooth);
-        z-index: 0;
     }
 
     .nav-link:hover {
-        color: white;
+        color: var(--primary-700);
+        background: var(--primary-50);
         transform: translateX(4px);
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    .nav-link:hover::before {
-        left: 0;
     }
 
     .nav-link.active {
-        background: rgba(255, 255, 255, 0.25);
-        color: white;
-        box-shadow: var(--shadow-md);
-    }
-
-    .nav-link.active::before {
-        display: none;
+        background: var(--primary-50);
+        color: var(--primary-700);
+        box-shadow: var(--shadow-sm);
     }
 
     .nav-link i {
         font-size: 1.2rem;
         width: 24px;
         text-align: center;
-        z-index: 1;
+        color: var(--primary-500);
     }
 
-    /* Contenu principal amélioré avec couleurs */
+    /* Contenu principal */
     .account-content {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        border-radius: var(--radius-2xl);
-        box-shadow: var(--shadow-lg);
+        background: white;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
         padding: 2.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--neutral-200);
         margin-bottom: 2rem;
     }
 
@@ -279,34 +228,18 @@
         align-items: center;
         margin-bottom: 2.5rem;
         padding-bottom: 1.75rem;
-        border-bottom: 2px solid var(--primary-100);
-        position: relative;
-    }
-
-    .account-header::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 80px;
-        height: 4px;
-        background: var(--primary-gradient);
-        border-radius: 2px;
+        border-bottom: 1px solid var(--neutral-200);
     }
 
     .account-title {
         font-size: 2rem;
-        font-weight: 800;
+        font-weight: 700;
         color: var(--primary-800);
         margin: 0;
         letter-spacing: -0.025em;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
     }
 
-    /* Cartes de statistiques améliorées avec couleurs vibrantes */
+    /* Cartes de statistiques */
     .account-stats {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -316,11 +249,11 @@
 
     .stat-card {
         background: var(--card-gradient);
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         padding: 1.75rem;
         transition: var(--transition-smooth);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        box-shadow: var(--shadow-md);
+        border: 1px solid var(--neutral-200);
+        box-shadow: var(--shadow-sm);
         position: relative;
         overflow: hidden;
     }
@@ -330,22 +263,14 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 5px;
+        width: 4px;
         height: 100%;
-        background: var(--primary-gradient);
-    }
-
-    .stat-card:nth-child(2)::before {
-        background: var(--secondary-gradient);
-    }
-
-    .stat-card:nth-child(3)::before {
-        background: var(--success-gradient);
+        background: var(--primary-500);
     }
 
     .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-xl);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
     }
 
     .stat-title {
@@ -360,86 +285,43 @@
 
     .stat-title i {
         font-size: 1.1rem;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .stat-card:nth-child(2) .stat-title i {
-        background: var(--secondary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .stat-card:nth-child(3) .stat-title i {
-        background: var(--success-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--primary-500);
     }
 
     .stat-value {
         font-size: 2.25rem;
-        font-weight: 800;
+        font-weight: 700;
         color: var(--neutral-900);
         letter-spacing: -0.025em;
     }
 
-    /* Sections améliorées avec couleurs */
+    /* Sections */
     .account-section {
         margin-bottom: 3.5rem;
     }
 
     .section-title {
         font-size: 1.625rem;
-        font-weight: 700;
+        font-weight: 600;
         margin-bottom: 1.75rem;
         color: var(--primary-800);
         padding-bottom: 1rem;
-        border-bottom: 2px solid var(--primary-100);
-        position: relative;
-        letter-spacing: -0.025em;
+        border-bottom: 1px solid var(--neutral-200);
     }
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 70px;
-        height: 4px;
-        background: var(--primary-gradient);
-        border-radius: 2px;
-    }
-
-    /* Cartes d'information améliorées avec couleurs */
+    /* Cartes d'information */
     .info-card {
         background: var(--card-gradient);
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         padding: 1.75rem;
         margin-bottom: 1.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.8);
+        border: 1px solid var(--neutral-200);
         box-shadow: var(--shadow-sm);
         transition: var(--transition-smooth);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .info-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: var(--primary-gradient);
     }
 
     .info-card:hover {
         box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
     }
 
     .info-title {
@@ -476,10 +358,10 @@
         min-width: 140px;
     }
 
-    /* Boutons améliorés avec couleurs vibrantes */
+    /* Boutons */
     .edit-btn {
-        background: rgba(14, 165, 233, 0.1);
-        border: 1px solid rgba(14, 165, 233, 0.2);
+        background: var(--primary-50);
+        border: 1px solid var(--primary-200);
         color: var(--primary-600);
         cursor: pointer;
         font-size: 0.875rem;
@@ -493,16 +375,15 @@
     }
 
     .edit-btn:hover {
-        background: rgba(14, 165, 233, 0.2);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-sm);
+        background: var(--primary-100);
+        transform: translateY(-1px);
     }
 
     .edit-btn i {
         font-size: 0.75rem;
     }
 
-    /* Formulaires améliorés avec couleurs */
+    /* Formulaires */
     .form-group {
         margin-bottom: 1.75rem;
     }
@@ -530,11 +411,11 @@
     .form-control:focus {
         border-color: var(--primary-500);
         outline: none;
-        box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+        box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
     }
 
     .btn-save {
-        background: var(--primary-gradient);
+        background: var(--primary-600);
         color: white;
         border: none;
         padding: 1rem 2rem;
@@ -544,39 +425,22 @@
         transition: var(--transition-smooth);
         font-size: 1rem;
         box-shadow: var(--shadow-md);
-        letter-spacing: 0.025em;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn-save::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: var(--transition-smooth);
     }
 
     .btn-save:hover {
-        transform: translateY(-2px);
+        background: var(--primary-700);
+        transform: translateY(-1px);
         box-shadow: var(--shadow-lg);
     }
 
-    .btn-save:hover::before {
-        left: 100%;
-    }
-
-    /* Tableau des commandes amélioré avec couleurs */
+    /* Tableau des commandes */
     .orders-table {
         width: 100%;
         border-collapse: separate;
         border-spacing: 0;
         font-size: 0.9375rem;
         background: white;
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         overflow: hidden;
         box-shadow: var(--shadow-sm);
     }
@@ -638,7 +502,7 @@
         border: 1px solid #fca5a5;
     }
 
-    /* Moyens de paiement améliorés avec couleurs */
+    /* Moyens de paiement */
     .payment-methods {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -647,8 +511,8 @@
 
     .payment-card {
         background: var(--card-gradient);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        border-radius: var(--radius-xl);
+        border: 1px solid var(--neutral-200);
+        border-radius: var(--radius-lg);
         padding: 1.75rem;
         transition: var(--transition-smooth);
         position: relative;
@@ -663,17 +527,13 @@
         left: 0;
         width: 100%;
         height: 4px;
-        background: var(--primary-gradient);
-    }
-
-    .payment-card:nth-child(2n)::before {
-        background: var(--secondary-gradient);
+        background: var(--primary-500);
     }
 
     .payment-card:hover {
         border-color: var(--primary-300);
         box-shadow: var(--shadow-md);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
     }
 
     .card-header {
@@ -693,20 +553,16 @@
 
     .card-type i {
         font-size: 1.75rem;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--primary-500);
     }
 
     .card-default {
-        background: var(--primary-gradient);
+        background: var(--primary-500);
         color: white;
         padding: 0.375rem 0.75rem;
         border-radius: var(--radius-md);
         font-size: 0.75rem;
         font-weight: 600;
-        box-shadow: var(--shadow-sm);
     }
 
     .card-number {
@@ -748,28 +604,26 @@
     }
 
     .card-btn-default {
-        background: rgba(14, 165, 233, 0.1);
+        background: var(--primary-50);
         color: var(--primary-700);
-        border-color: rgba(14, 165, 233, 0.2);
+        border-color: var(--primary-200);
     }
 
     .card-btn-default:hover {
-        background: rgba(14, 165, 233, 0.2);
-        transform: translateY(-2px);
+        background: var(--primary-100);
     }
 
     .card-btn-delete {
-        background: rgba(239, 68, 68, 0.1);
+        background: rgba(239, 68, 68, 0.05);
         color: var(--danger);
         border-color: rgba(239, 68, 68, 0.2);
     }
 
     .card-btn-delete:hover {
-        background: rgba(239, 68, 68, 0.2);
-        transform: translateY(-2px);
+        background: rgba(239, 68, 68, 0.1);
     }
 
-    /* Bouton ajouter amélioré avec couleurs */
+    /* Bouton ajouter */
     .add-payment-btn {
         display: flex;
         align-items: center;
@@ -778,8 +632,8 @@
         width: 100%;
         padding: 2rem;
         border: 2px dashed var(--primary-300);
-        border-radius: var(--radius-xl);
-        background: rgba(14, 165, 233, 0.05);
+        border-radius: var(--radius-lg);
+        background: var(--primary-50);
         color: var(--primary-600);
         font-weight: 500;
         cursor: pointer;
@@ -789,44 +643,24 @@
     .add-payment-btn:hover {
         border-color: var(--primary-500);
         color: var(--primary-700);
-        background: rgba(14, 165, 233, 0.1);
-        transform: translateY(-2px);
+        background: var(--primary-100);
     }
 
     .add-payment-btn i {
         font-size: 1.5rem;
     }
 
-    /* Animations améliorées */
+    /* Animations */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes slideIn {
-        from { opacity: 0; transform: translateX(-20px); }
-        to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-
     .fade-in {
-        animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: fadeIn 0.3s ease-out;
     }
 
-    .slide-in {
-        animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .pulse {
-        animation: pulse 2s infinite;
-    }
-
-    /* Responsive amélioré */
+    /* Responsive */
     @media (max-width: 1024px) {
         .account-sidebar {
             position: static;
@@ -873,23 +707,19 @@
         }
     }
 
-    /* État vide amélioré avec couleurs */
+    /* État vide */
     .empty-state {
         text-align: center;
         padding: 3.5rem 1.5rem;
         color: var(--neutral-500);
         background: var(--card-gradient);
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         border: 2px dashed var(--primary-200);
-        box-shadow: var(--shadow-sm);
     }
 
     .empty-state i {
         font-size: 3.5rem;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--primary-400);
         margin-bottom: 1.5rem;
     }
 
@@ -899,9 +729,9 @@
         color: var(--primary-700);
     }
 
-    /* Bouton primaire amélioré avec couleurs */
+    /* Bouton primaire */
     .btn-primary {
-        background: var(--primary-gradient);
+        background: var(--primary-600);
         color: white;
         border: none;
         padding: 0.875rem 1.75rem;
@@ -914,126 +744,12 @@
         align-items: center;
         gap: 0.5rem;
         box-shadow: var(--shadow-md);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn-primary::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: var(--transition-smooth);
     }
 
     .btn-primary:hover {
-        transform: translateY(-2px);
+        background: var(--primary-700);
+        transform: translateY(-1px);
         box-shadow: var(--shadow-lg);
-    }
-
-    .btn-primary:hover::before {
-        left: 100%;
-    }
-
-    /* Mode sombre automatique avec couleurs préservées */
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --neutral-50: #09090b;
-            --neutral-100: #18181b;
-            --neutral-200: #27272a;
-            --neutral-300: #3f3f46;
-            --neutral-400: #52525b;
-            --neutral-500: #71717a;
-            --neutral-600: #a1a1aa;
-            --neutral-700: #d4d4d8;
-            --neutral-800: #e4e4e7;
-            --neutral-900: #f4f4f5;
-            --neutral-950: #fafafa;
-        }
-
-        .account-sidebar {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(2, 132, 199, 0.9) 100%);
-        }
-
-        .account-content,
-        .stat-card,
-        .info-card,
-        .payment-card {
-            background: rgba(24, 24, 27, 0.9);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: var(--neutral-200);
-        }
-
-        .orders-table,
-        .empty-state {
-            background: var(--neutral-100);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: var(--neutral-200);
-        }
-
-        .orders-table th {
-            background: var(--primary-900);
-            color: white;
-        }
-
-        .form-control {
-            background: var(--neutral-200);
-            border-color: var(--neutral-300);
-            color: var(--neutral-700);
-        }
-
-        .info-content strong,
-        .account-title,
-        .section-title,
-        .info-title {
-            color: var(--primary-300);
-        }
-
-        .stat-value,
-        .card-number {
-            color: white;
-        }
-    }
-
-    /* Améliorations spécifiques pour mobile */
-    @media (max-width: 576px) {
-        .account-container {
-            padding: 0 1rem;
-            margin: 1rem auto;
-        }
-
-        .account-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .btn-save, .btn-primary {
-            width: 100%;
-            justify-content: center;
-        }
-
-        .account-title {
-            font-size: 1.75rem;
-        }
-    }
-
-    /* Indicateur de chargement moderne avec couleurs */
-    .loading-spinner {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        border-top-color: white;
-        animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-        to { transform: rotate(360deg); }
     }
 
     /* Badge de notification */
@@ -1041,7 +757,7 @@
         position: absolute;
         top: -5px;
         right: -5px;
-        background: var(--accent-pink);
+        background: var(--accent-blue);
         color: white;
         border-radius: 50%;
         width: 20px;
@@ -1051,7 +767,6 @@
         justify-content: center;
         font-size: 0.75rem;
         font-weight: 600;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 </style>
 {% endblock %}
@@ -1059,7 +774,7 @@
 {% block content %}
 <div class="account-container">
     <!-- Sidebar -->
-    <div class="account-sidebar slide-in">
+    <div class="account-sidebar">
         <div class="user-profile">
             <img src="{{ url_for('static', filename='images/default-avatar.png') }}" alt="Avatar" class="user-avatar">
             <h3 class="user-name">{{ user.full_name }}</h3>
@@ -1370,7 +1085,7 @@
 
 {% block extra_js %}
 <script>
-    // Gestion des onglets améliorée
+    // Gestion des onglets
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1399,7 +1114,7 @@
         });
     });
 
-    // Gestion du formulaire de profil améliorée
+    // Gestion du formulaire de profil
     const editProfileBtn = document.getElementById('edit-profile-btn');
     const profileForm = document.getElementById('profile-form');
     
@@ -1410,7 +1125,7 @@
         }
     });
 
-    // Gestion du formulaire d'adresse améliorée
+    // Gestion du formulaire d'adresse
     const editAddressBtn = document.getElementById('edit-address-btn');
     const addressForm = document.getElementById('address-form');
     const deleteAddressBtn = document.getElementById('delete-address-btn');
@@ -1426,7 +1141,7 @@
         deleteAddressBtn.addEventListener('click', function() {
             if (confirm('Êtes-vous sûr de vouloir supprimer votre adresse ?')) {
                 const button = this;
-                button.innerHTML = '<div class="loading-spinner"></div>';
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
                 button.disabled = true;
                 
                 fetch("{{ url_for('manage_address') }}", {
@@ -1444,7 +1159,7 @@
         });
     }
 
-    // Gestion des moyens de paiement améliorée
+    // Gestion des moyens de paiement
     const addPaymentBtn = document.getElementById('add-payment-btn');
     const paymentForm = document.getElementById('payment-form');
     
@@ -1455,7 +1170,7 @@
         }
     });
 
-    // Gestion du changement de mot de passe améliorée
+    // Gestion du changement de mot de passe
     const changePasswordBtn = document.getElementById('change-password-btn');
     const passwordForm = document.getElementById('password-form');
     
@@ -1466,14 +1181,14 @@
         }
     });
 
-    // Formatage du numéro de carte amélioré
+    // Formatage du numéro de carte
     document.getElementById('card_number')?.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         let formatted = value.replace(/(\d{4})/g, '$1 ').trim();
         e.target.value = formatted;
     });
 
-    // Formatage de la date d'expiration amélioré
+    // Formatage de la date d'expiration
     document.getElementById('card_expiry')?.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         if (value.length > 2) {
@@ -1482,14 +1197,14 @@
         e.target.value = value;
     });
 
-    // Gestion des cartes de crédit améliorée
+    // Gestion des cartes de crédit
     document.querySelectorAll('.card-btn-default').forEach(btn => {
         btn.addEventListener('click', function() {
             const cardId = this.getAttribute('data-card-id');
             const button = this;
             const originalText = button.innerHTML;
             
-            button.innerHTML = '<div class="loading-spinner"></div>';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
             button.disabled = true;
             
             fetch("{{ url_for('set_default_card') }}", {
@@ -1516,7 +1231,7 @@
                 const button = this;
                 const originalText = button.innerHTML;
                 
-                button.innerHTML = '<div class="loading-spinner"></div>';
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
                 button.disabled = true;
                 
                 fetch("{{ url_for('delete_card') }}", {
@@ -1537,14 +1252,14 @@
         });
     });
 
-    // Validation des formulaires améliorée
+    // Validation des formulaires
     document.querySelectorAll('form').forEach(form => {
         form.addEventListener('submit', function(e) {
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
             
             // Animation de chargement
-            submitButton.innerHTML = '<div class="loading-spinner"></div>';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
             submitButton.disabled = true;
             
             // Validation du formulaire de mot de passe
