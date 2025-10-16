@@ -2,6 +2,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
     /* Variables modernes premium */
     :root {
@@ -728,6 +729,25 @@
         box-shadow: 0 20px 40px rgba(245, 158, 11, 0.6);
     }
 
+    /* Classes pour le contrôle vidéo */
+    .video-auto-play {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .video-auto-play.active {
+        display: block;
+    }
+
+    .video-auto-play:not(.active) {
+        display: none;
+    }
+
+    .video-overlay.hidden {
+        display: none;
+    }
+
     /* Responsive design premium */
     @media (max-width: 1200px) {
         .container {
@@ -798,6 +818,19 @@
         .video-overlay {
             padding: 2rem;
         }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+        }
     }
 
     @media (max-width: 480px) {
@@ -806,7 +839,7 @@
         }
         
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
         
         .section-title {
@@ -821,6 +854,33 @@
         .form-container,
         .info-container {
             padding: 1.5rem;
+        }
+        
+        .hero-badge {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+        }
+        
+        .video-overlay {
+            padding: 1.5rem;
+        }
+        
+        .video-title {
+            font-size: 1.8rem;
+        }
+        
+        .video-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .play-button {
+            width: 70px;
+            height: 70px;
+            font-size: 1.7rem;
         }
     }
 
@@ -916,29 +976,28 @@
         </video>
     </div>
     <div class="hero-content">
-    <div class="hero-badge animate-fade-in-up">
-        <i class="fas fa-award"></i>
-        <span>Leader du destockage alimentaire en France depuis 4 ans</span>
-    </div>
-    <h1 class="hero-title animate-fade-in-up delay-100">
-        L'excellence au service<br>de votre rentabilité
-    </h1>
-    <p class="hero-subtitle animate-fade-in-up delay-200">
-        <strong>PLATEFORME EXCLUSIVEMENT EN LIGNE • LIVRAISON FRANCE ENTIÈRE ET EN EUROPE</strong><br>
-        
-        Partenaire stratégique des professionnels, nous transformons les surplus 
-        en opportunités commerciales durables. Notre marketplace 100% digitale 
-        vous permet de commander 24h/24 depuis n'importe où en France.<br>
-        
-        🚚 <strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong><br>
-        💰 <strong>Économies garanties jusqu'à 60%</strong> sur vos achats<br>
-        🏪 <strong>Aucun point de vente physique</strong> - Service entièrement digital<br>
-        🔒 <strong>Plateforme sécurisée</strong> avec traçabilité complète<br>
-        
-        Optimisez votre rentabilité grâce à notre solution digitale exclusive 
-        déjà adoptée par 2 500 professionnels.
-    </p>
-</div>
+        <div class="hero-badge animate-fade-in-up">
+            <i class="fas fa-award"></i>
+            <span>Leader du destockage alimentaire en France depuis 4 ans</span>
+        </div>
+        <h1 class="hero-title animate-fade-in-up delay-100">
+            L'excellence au service<br>de votre rentabilité
+        </h1>
+        <p class="hero-subtitle animate-fade-in-up delay-200">
+            <strong>PLATEFORME EXCLUSIVEMENT EN LIGNE • LIVRAISON FRANCE ENTIÈRE ET EN EUROPE</strong><br>
+            
+            Partenaire stratégique des professionnels, nous transformons les surplus 
+            en opportunités commerciales durables. Notre marketplace 100% digitale 
+            vous permet de commander 24h/24 depuis n'importe où en France.<br>
+            
+            🚚 <strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong><br>
+            💰 <strong>Économies garanties jusqu'à 60%</strong> sur vos achats<br>
+            🏪 <strong>Aucun point de vente physique</strong> - Service entièrement digital<br>
+            🔒 <strong>Plateforme sécurisée</strong> avec traçabilité complète<br>
+            
+            Optimisez votre rentabilité grâce à notre solution digitale exclusive 
+            déjà adoptée par 2 500 professionnels.
+        </p>
         <div class="hero-stats">
             <div class="stat-item animate-fade-in-up delay-300">
                 <div class="stat-number">{{ stats.products }}+</div>
