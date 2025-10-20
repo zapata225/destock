@@ -4726,6 +4726,70 @@ def discount_alimentaire_belgique():
 def admin_products():
     return render_template('admin_products.html', products=products, categories=categories)
 
+@app.route('/blog/prix-bon-champagne')
+def prix_bon_champagne():
+    return render_template(
+        'blog/prix-bon-champagne.html',
+        title="Prix du Bon Champagne 2025 : Guide Complet",
+        description="Découvrez comment choisir un bon champagne à prix abordable et évitez les erreurs fréquentes."
+    )
+
+@app.route('/blog/promos-boissons')
+def promos_boissons():
+    return render_template(
+        'blog/promos-boissons.html',
+        title="Promotions sur les Boissons 2025 : Bons Plans",
+        description="Retrouvez les meilleures promotions et offres sur les boissons pour cette année."
+    )
+
+@app.route('/blog/champagne-producteurs-recoltants')
+def champagne_producteurs_recoltants():
+    return render_template(
+        'blog/champagne-producteurs-recoltants.html',
+        title="Champagne Producteurs Récoltants : Guide 2025",
+        description="Tout savoir sur les producteurs récoltants de champagne et leurs meilleures cuvées."
+    )
+
+@app.route('/blog/bouteille-ruinart-prix')
+def bouteille_ruinart_prix():
+    return render_template(
+        'blog/bouteille-ruinart-prix.html',
+        title="Prix Bouteille Ruinart 2025 : Comparatif et Astuces",
+        description="Comparez les prix des bouteilles de champagne Ruinart et trouvez les meilleures offres."
+    )
+
+@app.route('/blog/top-champagnes')
+def top_champagnes():
+    return render_template(
+        'blog/top-champagnes.html',
+        title="Top Champagnes 2025 : Sélection des Meilleures Cuvées",
+        description="Découvrez notre sélection des meilleurs champagnes de l'année 2025."
+    )
+
+@app.route('/blog/promo-ruinart')
+def promo_ruinart():
+    return render_template(
+        'blog/promo-ruinart.html',
+        title="Promotions Ruinart 2025 : Bons Plans Champagne",
+        description="Profitez des meilleures promotions sur les champagnes Ruinart cette année."
+    )
+
+@app.route('/blog/dom-perignon-2008')
+def dom_perignon_2008():
+    return render_template(
+        'blog/dom-perignon-2008.html',
+        title="Dom Pérignon 2008 : Prix et Avis 2025",
+        description="Découvrez tout sur le Dom Pérignon 2008 : prix, dégustation et conseils d'achat."
+    )
+
+@app.route('/blog/champagne-ruinart-rose')
+def champagne_ruinart_rose():
+    return render_template(
+        'blog/champagne-ruinart-rose.html',
+        title="Champagne Ruinart Rosé : Guide et Prix 2025",
+        description="Informations sur le champagne Ruinart Rosé, comparatif des prix et conseils d'achat."
+    )
+
 
 @app.route('/admin/users')
 @admin_required
@@ -4791,6 +4855,14 @@ def sitemap():
         '/blog/amaretto-disaronno',
         '/blog/ruinart-rose-prix-2025',
         '/blog/achat-champagne-gros',
+        '/blog/prix-bon-champagne',
+        '/blog/promos-boissons',
+        '/blog/champagne-producteurs-recoltants',
+        '/blog/bouteille-ruinart-prix',
+        '/blog/top-champagnes',
+        '/blog/promo-ruinart',
+        '/blog/dom-perignon-2008',
+        '/blog/champagne-ruinart-rose',
         '/blog/grossiste-alimentaire-paris',
         '/blog/champagne-ruinart-blanc-de-blanc',
         '/blog/destockage-alimentaire-lyon-2025',
