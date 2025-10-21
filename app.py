@@ -4248,6 +4248,37 @@ def champagne_brut():
         title="Champagne Brut | Guide & Dégustation",
         description="Découvrez le champagne brut : marques, cuvées, prix et conseils de dégustation pour particuliers et professionnels."
     )
+@app.route('/blog/magasins-professionnels-commerce')
+def magasins_professionnels_commerce():
+    return render_template(
+        'blog/magasins-professionnels-commerce.html',
+        title="Magasins pour Professionnels et Commerces 2025",
+        description="Découvrez les meilleures solutions de déstockage alimentaire pour professionnels, commerces et grossistes. Offres exclusives et prix en gros."
+    )
+
+@app.route('/blog/alcool-pas-cher-espagne')
+def alcool_pas_cher_espagne():
+    return render_template(
+        'blog/alcool-pas-cher-espagne.html',
+        title="Alcool Pas Cher en Espagne : Guide et Bons Plans 2025",
+        description="Achetez votre alcool moins cher en Espagne ! Comparatif des prix, conseils pour les professionnels et astuces pour économiser."
+    )
+
+@app.route('/blog/fournisseur-alimentaire-restaurant')
+def fournisseur_alimentaire_restaurant():
+    return render_template(
+        'blog/fournisseur-alimentaire-restaurant.html',
+        title="Fournisseur Alimentaire pour Restaurant : Guide 2025",
+        description="Trouvez les meilleurs fournisseurs alimentaires pour restaurants, snacks et traiteurs. Produits en gros et déstockage à prix réduits."
+    )
+
+@app.route('/blog/destockage-alimentaire-date-courte')
+def destockage_alimentaire_date_courte():
+    return render_template(
+        'blog/destockage-alimentaire-date-courte.html',
+        title="Déstockage Alimentaire Date Courte : Économisez Gros",
+        description="Profitez des meilleurs prix grâce au déstockage alimentaire à date courte. Produits de qualité, bons plans et astuces anti-gaspi."
+    )
 
 @app.route('/blog/champagne-pas-cher1')
 def champagne_pas_cher1():
@@ -4860,6 +4891,10 @@ def sitemap():
         '/blog/champagne-producteurs-recoltants',
         '/blog/bouteille-ruinart-prix',
         '/blog/top-champagnes',
+        '/blog/magasins-professionnels-commerce',
+        '/blog/alcool-pas-cher-espagne',
+        '/blog/fournisseur-alimentaire-restaurant',
+        '/blog/destockage-alimentaire-date-courte',
         '/blog/promo-ruinart',
         '/blog/dom-perignon-2008',
         '/blog/champagne-ruinart-rose',
