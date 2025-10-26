@@ -3404,7 +3404,517 @@ img {
             </div>
         </div>
     </section>
+<!-- Popup Urgence Professionnel -->
+<div id="urgencePopup" class="urgence-popup">
+    <div class="popup-container">
+        <div class="popup-header">
+            <div class="urgence-tag">OFFRE LIMITÉE</div>
+            <button class="close-popup">&times;</button>
+        </div>
+        
+        <div class="popup-content">
+            <!-- Compte à rebours discret -->
+            <div class="countdown-mini">
+                <span class="countdown-label">Expire dans :</span>
+                <div class="countdown-numbers">
+                    <span id="countdown-hours">48</span>:<span id="countdown-minutes">00</span>:<span id="countdown-seconds">00</span>
+                </div>
+            </div>
 
+            <!-- Message principal sobre -->
+            <div class="main-message">
+                <h1 class="popup-title">
+                    Liquidation Immédiate
+                    <span class="highlight">-70%</span>
+                </h1>
+                <p class="popup-subtitle">Profitez des derniers stocks à prix cassés</p>
+            </div>
+
+            <!-- Avantages professionnels -->
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">Expédition sous 24h</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">Économies garanties</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-text">Paiement sécurisé</div>
+                </div>
+            </div>
+
+            <!-- Indicateur de stocks -->
+            <div class="stock-indicator">
+                <div class="stock-header">
+                    <span>Stocks disponibles</span>
+                    <span class="stock-percentage">27%</span>
+                </div>
+                <div class="stock-bar">
+                    <div class="stock-fill"></div>
+                </div>
+                <div class="stock-text">Dernières palettes en stock</div>
+            </div>
+
+            <!-- CTA Professionnels -->
+            <div class="cta-container">
+                <button class="cta-primary" onclick="window.location.href='{{ url_for('product_list') }}?urgence=liquidation'">
+                    Voir les offres
+                    <span class="cta-discount">-70%</span>
+                </button>
+                
+                <button class="cta-secondary" onclick="window.open('https://wa.me/33644694515?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20offres%20de%20liquidation', '_blank')">
+                    Contact rapide
+                </button>
+            </div>
+
+            <!-- Note discrète -->
+            <div class="disclaimer">
+                Offre réservée aux professionnels • Valable 48h
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* ===== POPUP PROFESSIONNEL ET SOBRE ===== */
+
+.urgence-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup-container {
+    background: white;
+    border-radius: 16px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: popupSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px 0;
+}
+
+.urgence-tag {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.close-popup {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-popup:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.popup-content {
+    padding: 25px;
+}
+
+/* Compte à rebours discret */
+.countdown-mini {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.countdown-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.countdown-numbers {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #dc2626;
+    letter-spacing: 1px;
+}
+
+/* Message principal */
+.main-message {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.highlight {
+    color: #dc2626;
+    font-weight: 800;
+}
+
+.popup-subtitle {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Grille d'avantages */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 12px 8px;
+    border-radius: 10px;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.benefit-item:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+.benefit-icon {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+}
+
+.benefit-text {
+    font-size: 0.75rem;
+    color: #4b5563;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Indicateur de stocks */
+.stock-indicator {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 25px;
+}
+
+.stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #7f1d1d;
+    font-weight: 500;
+}
+
+.stock-percentage {
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.stock-bar {
+    background: #fecaca;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.stock-fill {
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    height: 100%;
+    width: 27%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.stock-text {
+    font-size: 0.75rem;
+    color: #b91c1c;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* CTA Professionnels */
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.cta-primary, .cta-secondary {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: white;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+.cta-secondary {
+    background: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.cta-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.cta-discount {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Note discrète */
+.disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    line-height: 1.4;
+}
+
+/* Animations */
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 480px) {
+    .urgence-popup {
+        padding: 15px;
+    }
+    
+    .popup-container {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .popup-content {
+        padding: 20px;
+    }
+    
+    .popup-title {
+        font-size: 1.3rem;
+    }
+    
+    .benefits-grid {
+        gap: 10px;
+    }
+    
+    .benefit-item {
+        padding: 10px 6px;
+    }
+    
+    .benefit-text {
+        font-size: 0.7rem;
+    }
+    
+    .cta-primary, .cta-secondary {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Effet de pulse subtil sur le tag urgence */
+@keyframes subtlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.urgence-tag {
+    animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* Transition de fermeture */
+.popup-container.closing {
+    animation: popupSlideOut 0.3s ease-in forwards;
+}
+
+@keyframes popupSlideOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+}
+</style>
+
+<script>
+// Gestion du popup professionnel
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('urgencePopup');
+    const closeBtn = document.querySelector('.close-popup');
+    const popupContainer = document.querySelector('.popup-container');
+    
+    // Afficher le popup après 4 secondes
+    setTimeout(() => {
+        if (!localStorage.getItem('popupClosed')) {
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }, 4000);
+    
+    // Fermer le popup
+    function closePopup() {
+        popupContainer.classList.add('closing');
+        setTimeout(() => {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('popupClosed', 'true');
+        }, 300);
+    }
+    
+    closeBtn.addEventListener('click', closePopup);
+    
+    // Fermer en cliquant à l'extérieur
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+    
+    // Compte à rebours de 48 heures
+    function startCountdown() {
+        const hoursElement = document.getElementById('countdown-hours');
+        const minutesElement = document.getElementById('countdown-minutes');
+        const secondsElement = document.getElementById('countdown-seconds');
+        
+        let totalSeconds = 48 * 60 * 60; // 48 heures
+        
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            
+            hoursElement.textContent = hours.toString().padStart(2, '0');
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+            
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        
+        updateCountdown();
+    }
+    
+    startCountdown();
+    
+    // Tracking des conversions
+    const ctaButtons = document.querySelectorAll('.cta-primary, .cta-secondary');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Google Analytics event tracking
+            gtag('event', 'popup_conversion', {
+                'event_category': 'Liquidation',
+                'event_label': this.classList.contains('cta-primary') ? 'Voir_offres' : 'Contact_rapide'
+            });
+            
+            // Fermer le popup après clic
+            setTimeout(closePopup, 100);
+        });
+    });
+    
+    // Empêcher l'ouverture multiple
+    if (localStorage.getItem('popupConverted')) {
+        popup.style.display = 'none';
+    }
+});
+
+// Réinitialiser le popup après 24h
+function resetPopup() {
+    const lastClosed = localStorage.getItem('popupClosedTime');
+    if (lastClosed) {
+        const now = new Date().getTime();
+        const twentyFourHours = 24 * 60 * 60 * 1000;
+        
+        if (now - lastClosed > twentyFourHours) {
+            localStorage.removeItem('popupClosed');
+            localStorage.removeItem('popupClosedTime');
+        }
+    }
+}
+
+// Appeler la réinitialisation au chargement
+resetPopup();
+</script>
     <!-- Section Fruits & Légumes -->
     <section class="fruits-section">
         <div class="bubble" style="width: 180px; height: 180px; top: 100px; right: -80px; animation-delay: 2s;"></div>
@@ -5443,630 +5953,7 @@ img {
             // Support tactile amélioré
             document.addEventListener('touchstart', function() {}, { passive: true });
         });</script>
-    <!-- Popup Urgence Commerciale -->
-<div id="urgencePopup" class="urgence-popup">
-    <div class="popup-container">
-        <div class="popup-header">
-            <div class="urgence-badge">🚨 URGENCE</div>
-            <button class="close-popup">&times;</button>
-        </div>
-        
-        <div class="popup-content">
-            <div class="urgence-icon">⚡</div>
-            <h1 class="popup-title">
-                <span class="highlight">LIQUIDATION IMMÉDIATE</span><br>
-                DANS <span class="countdown-highlight">48H</span> SEULEMENT !
-            </h1>
-            
-            <div class="urgence-message">
-                <p>🚨 <strong>STOCKS ÉPUISÉS À 87%</strong> - Dernière chance de profiter des prix cassés !</p>
-                <p>💎 <strong>ÉCONOMIES RECORD</strong> jusqu'à -70% sur toute la gamme</p>
-                <p>⚡ <strong>EXPÉDITION EXPRESS</strong> sous 48h garantie</p>
-            </div>
-
-            <!-- Compte à rebours urgent -->
-            <div class="countdown-section">
-                <div class="countdown-title">OFFRE TERMINE DANS :</div>
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">48</div>
-                        <div class="countdown-label">HEURES</div>
-                    </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">MINUTES</div>
-                    </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">SECONDES</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Barre de progression urgence -->
-            <div class="progress-section">
-                <div class="progress-header">
-                    <span>STOCKS RESTANTS</span>
-                    <span class="stock-percent">13%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 13%"></div>
-                </div>
-                <div class="progress-text">⚠️ Plus que 47 palettes disponibles</div>
-            </div>
-
-            <!-- CTA Urgent -->
-            <div class="cta-section">
-                <button class="cta-button primary" onclick="window.location.href='{{ url_for(''product_list'') }}?urgence=liquidation'">
-                    🛒 VOIR LES OFFRES URGENTES
-                    <span class="cta-badge">-70%</span>
-                </button>
-                
-                <button class="cta-button secondary" onclick="window.location.href='https://wa.me/33644697212?text=URGENT%20-%20Je%20suis%20intéressé%20par%20la%20liquidation%20immédiate'">
-                    📞 CONTACT URGENT
-                </button>
-                
-                <div class="guarantee-badges">
-                    <div class="guarantee-item">
-                        <span class="icon">🚚</span>
-                        Livraison 24h
-                    </div>
-                    <div class="guarantee-item">
-                        <span class="icon">💳</span>
-                        Paiement sécurisé
-                    </div>
-                    <div class="guarantee-item">
-                        <span class="icon">↩️</span>
-                        Retour gratuit
-                    </div>
-                </div>
-            </div>
-
-            <!-- Témoignage urgent -->
-            <div class="testimonial-urgence">
-                <div class="testimonial-avatar">🔥</div>
-                <div class="testimonial-content">
-                    <div class="testimonial-text">"J'ai sauvé 2 340€ sur ma commande grâce à cette liquidation !"</div>
-                    <div class="testimonial-author">- Marc D., Restaurateur</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-/* ===== POPUP URGENCE ULTRA-COMMERCIAL ===== */
-
-.urgence-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    animation: fadeIn 0.5s ease-out;
-}
-
-.popup-container {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 50%, #1a1a2d 100%);
-    border-radius: 25px;
-    padding: 0;
-    max-width: 550px;
-    width: 95%;
-    box-shadow: 
-        0 25px 50px rgba(220, 20, 60, 0.3),
-        0 0 0 1px rgba(220, 20, 60, 0.2),
-        0 0 100px rgba(220, 20, 60, 0.1);
-    border: 2px solid #dc143c;
-    position: relative;
-    overflow: hidden;
-    animation: slideInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.popup-container::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(220, 20, 60, 0.1), transparent);
-    animation: shine 3s infinite;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background: linear-gradient(90deg, #dc143c, #ff4444);
-    border-bottom: 2px solid #ff6b6b;
-}
-
-.urgence-badge {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 800;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    animation: pulse 2s infinite;
-}
-
-.close-popup {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.close-popup:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-.popup-content {
-    padding: 30px;
-    text-align: center;
-}
-
-.urgence-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: bounce 2s infinite;
-}
-
-.popup-title {
-    color: white;
-    font-size: 2.2rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 10px rgba(220, 20, 60, 0.5);
-}
-
-.highlight {
-    background: linear-gradient(90deg, #ff6b6b, #ff4444);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: none;
-}
-
-.countdown-highlight {
-    color: #ffd700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-}
-
-.urgence-message {
-    background: rgba(220, 20, 60, 0.1);
-    border: 1px solid rgba(220, 20, 60, 0.3);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 2rem;
-    text-align: left;
-}
-
-.urgence-message p {
-    color: #ffb8b8;
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-.urgence-message strong {
-    color: #ff6b6b;
-}
-
-/* Compte à rebours */
-.countdown-section {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(220, 20, 60, 0.3);
-}
-
-.countdown-title {
-    color: #ff6b6b;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.countdown-item {
-    background: linear-gradient(135deg, #dc143c, #ff4444);
-    border-radius: 12px;
-    padding: 15px 10px;
-    min-width: 80px;
-    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
-}
-
-.countdown-number {
-    color: white;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 5px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.countdown-label {
-    color: #ffb8b8;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.countdown-separator {
-    color: #ff6b6b;
-    font-size: 2rem;
-    font-weight: 900;
-    margin: 0 5px;
-}
-
-/* Barre de progression */
-.progress-section {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(220, 20, 60, 0.3);
-}
-
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    color: #ffb8b8;
-    font-size: 0.9rem;
-}
-
-.stock-percent {
-    color: #ff4444;
-    font-weight: 800;
-}
-
-.progress-bar {
-    background: rgba(255, 255, 255, 0.1);
-    height: 12px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 8px;
-}
-
-.progress-fill {
-    background: linear-gradient(90deg, #dc143c, #ff4444);
-    height: 100%;
-    border-radius: 10px;
-    transition: width 0.3s ease;
-    position: relative;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: progressShine 2s infinite;
-}
-
-.progress-text {
-    color: #ff6b6b;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-/* CTA Section */
-.cta-section {
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    width: 100%;
-    padding: 18px 25px;
-    border: none;
-    border-radius: 15px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 12px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.cta-button.primary {
-    background: linear-gradient(135deg, #ffd700, #ff6b00);
-    color: #1a1a1a;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-}
-
-.cta-button.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
-}
-
-.cta-button.secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid #ff6b6b;
-}
-
-.cta-button.secondary:hover {
-    background: rgba(220, 20, 60, 0.2);
-    transform: translateY(-2px);
-}
-
-.cta-badge {
-    background: #dc143c;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 800;
-}
-
-.guarantee-badges {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.guarantee-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: #ffb8b8;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-/* Témoignage */
-.testimonial-urgence {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(255, 215, 0, 0.1);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-radius: 15px;
-    padding: 15px;
-    text-align: left;
-}
-
-.testimonial-avatar {
-    font-size: 2rem;
-    flex-shrink: 0;
-}
-
-.testimonial-content {
-    flex: 1;
-}
-
-.testimonial-text {
-    color: #ffd700;
-    font-style: italic;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-}
-
-.testimonial-author {
-    color: #ffb8b8;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInUp {
-    from { 
-        opacity: 0;
-        transform: translateY(50px) scale(0.9);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-@keyframes progressShine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* ===== RESPONSIVE MOBILE ===== */
-@media (max-width: 768px) {
-    .popup-container {
-        max-width: 95%;
-        margin: 20px;
-    }
     
-    .popup-content {
-        padding: 20px;
-    }
-    
-    .popup-title {
-        font-size: 1.8rem;
-    }
-    
-    .countdown-timer {
-        gap: 5px;
-    }
-    
-    .countdown-item {
-        min-width: 60px;
-        padding: 12px 8px;
-    }
-    
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-    
-    .countdown-label {
-        font-size: 0.6rem;
-    }
-    
-    .guarantee-badges {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .testimonial-urgence {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Effet de scintillement pour l'urgence */
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0.7; }
-}
-
-.urgence-popup .popup-title {
-    animation: blink 2s infinite;
-}
-</style>
-
-<script>
-// Gestion du popup
-document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('urgencePopup');
-    const closeBtn = document.querySelector('.close-popup');
-    
-    // Afficher le popup après 3 secondes
-    setTimeout(() => {
-        popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }, 3000);
-    
-    // Fermer le popup
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-    
-    // Fermer en cliquant à l'extérieur
-    popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            popup.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-    
-    // Compte à rebours de 48 heures
-    function startCountdown() {
-        const hoursElement = document.getElementById('hours');
-        const minutesElement = document.getElementById('minutes');
-        const secondsElement = document.getElementById('seconds');
-        
-        let totalSeconds = 48 * 60 * 60; // 48 heures en secondes
-        
-        function updateCountdown() {
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
-            hoursElement.textContent = hours.toString().padStart(2, '0');
-            minutesElement.textContent = minutes.toString().padStart(2, '0');
-            secondsElement.textContent = seconds.toString().padStart(2, '0');
-            
-            if (totalSeconds > 0) {
-                totalSeconds--;
-                setTimeout(updateCountdown, 1000);
-            } else {
-                // Quand le compte à rebours se termine
-                document.querySelector('.popup-title').innerHTML = 
-                    '<span class="highlight">OFFRE TERMINÉE !</span><br>Les stocks sont épuisés';
-                document.querySelector('.countdown-title').textContent = 'LIQUIDATION TERMINÉE';
-            }
-        }
-        
-        updateCountdown();
-    }
-    
-    startCountdown();
-    
-    // Tracking des conversions
-    const ctaButtons = document.querySelectorAll('.cta-button');
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Google Analytics ou autre tracking
-            console.log('CTA cliqué:', this.textContent);
-            
-            // Redirection après un léger délai pour le tracking
-            setTimeout(() => {
-                if (this.classList.contains('primary')) {
-                    window.location.href = "{{ url_for('product_list') }}?urgence=liquidation";
-                } else if (this.classList.contains('secondary')) {
-                    window.location.href = "https://wa.me/33644694515?text=URGENT%20-%20Je%20suis%20intéressé%20par%20la%20liquidation%20immédiate";
-                }
-            }, 200);
-        });
-    });
-});
-
-// Empêcher le scroll du body quand le popup est ouvert
-function disableScroll() {
-    document.body.style.overflow = 'hidden';
-}
-
-function enableScroll() {
-    document.body.style.overflow = 'auto';
-}
-</script>
     <!-- Section Vidéo -->
 <section class="video-section">
     <div class="video-container">
