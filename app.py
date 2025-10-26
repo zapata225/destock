@@ -4435,7 +4435,7 @@ def destockage_alimentaire_lille_25():
         "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-lille.webp",
         "keywords": "déstockage alimentaire Lille, grossiste alimentaire Nord, déstockage pas cher Lille, déstockage 59"
     }
-    return render_template('blog/destockage-alimentaire-lille.html', seo=seo)
+    return render_template('blog/destockage-alimentaire-lille-25.html', seo=seo)
 
 
 # --- PAGE VENTE / PROMO : Ruinart Champagne Promo Urgence ---
