@@ -4916,7 +4916,7 @@ def sitemap():
         '/blog/achat-biere-en-ligne',
         '/blog/quoi-acheter-en-gros-pour-revendre','/blog/le-prix-ruinart-brut','/blog/le-ruinart-blanc-de-blanc-prix','/blog/le-discount-alimentation',
         '/blog/prix-bouteille-ruinart',
-        '/blog/acheter-au-gros',
+        '/blog/acheter-au-gros','/blog/destockage-alimentaire-belgique-2510',
         '/blog/destockage-alimentaire-economies-impact',
         '/blog/discount-alimentation-guide',
         '/blog/champagne-pas-cher-guide',
