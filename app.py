@@ -4412,6 +4412,57 @@ def after_request(response):
         session.modified = True
     return response
 
+# --- ARTICLE 1 : Déstockage Alimentaire Paris 2025 ---
+@app.route('/blog/destockage-alimentaire-paris-25')
+def destockage_alimentaire_paris_25():
+    seo = {
+        "title": "Déstockage Alimentaire Paris 2025 : Bons Plans & Produits en Gros | Destockage Alimentaire",
+        "description": "Découvrez les meilleures adresses de déstockage alimentaire à Paris en 2025. Achetez en gros à prix cassés et profitez de réductions jusqu’à -70%.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-25",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-paris.webp",
+        "keywords": "déstockage alimentaire Paris, alimentation pas cher Paris, grossiste alimentaire Paris, destockage 75"
+    }
+    return render_template('blog/destockage-alimentaire-paris25.html', seo=seo)
+
+
+# --- ARTICLE 2 : Déstockage Alimentaire Lille 2025 ---
+@app.route('/blog/destockage-alimentaire-lille-25')
+def destockage_alimentaire_lille_25():
+    seo = {
+        "title": "Déstockage Alimentaire Lille 2025 : Où Acheter Moins Cher ? | Destockage Alimentaire",
+        "description": "Les meilleurs plans déstockage alimentaire à Lille en 2025 : produits en gros, surgelés, boissons, et promotions exceptionnelles.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-lille-25",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-lille.webp",
+        "keywords": "déstockage alimentaire Lille, grossiste alimentaire Nord, déstockage pas cher Lille, déstockage 59"
+    }
+    return render_template('blog/destockage-alimentaire-lille.html', seo=seo)
+
+
+# --- PAGE VENTE / PROMO : Ruinart Champagne Promo Urgence ---
+@app.route('/ruinart-champagne-prix-promo')
+def ruinart_promo_urgence():
+    """Page de vente ultra-optimisée pour Ruinart avec urgence"""
+    seo = {
+        "title": "Promo Ruinart Champagne 2025 : Jusqu’à -40% en Liquidation Limitée | Destockage Alimentaire",
+        "description": "Profitez d’une liquidation exceptionnelle sur les champagnes Ruinart. Offres valables 48H seulement, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/ruinart-champagne-prix-promo",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-promo.webp",
+        "keywords": "ruinart promo, champagne ruinart pas cher, ruinart liquidation, ruinart champagne prix"
+    }
+    return render_template('blog/ruinart-promo-urgence.html', seo=seo)
+
+
+# --- ARTICLE 4 : Dom Pérignon Gros 9200€ ---
+@app.route('/blog/dom-perignon-gros-9200e')
+def dom_perignon_gros_9200e():
+    seo = {
+        "title": "Dom Pérignon en Gros à 9200€ : Achat Pro & Particulier | Destockage Alimentaire",
+        "description": "Achetez du Dom Pérignon en gros à 9200€ le lot. Offres exclusives pour revendeurs, restaurants et particuliers. Livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/dom-perignon-gros-9200e",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/dom-perignon-gros.webp",
+        "keywords": "dom perignon gros, champagne dom perignon prix, dom perignon 9200€, achat dom perignon pro"
+    }
+    return render_template('blog/dom-perignon-gros-9200e.html', seo=seo)
 
 @app.route('/cancel_order/<order_id>', methods=['POST'])
 def cancel_order(order_id):
@@ -4897,6 +4948,10 @@ def sitemap():
         '/blog/destockage-alimentaire-date-courte',
         '/blog/promo-ruinart',
         '/blog/dom-perignon-2008',
+         '/blog/destockage-alimentaire-paris-25',
+        '/blog/destockage-alimentaire-lille-25',
+        '/ruinart-champagne-prix-promo',
+        '/blog/dom-perignon-gros-9200e',
         '/blog/champagne-ruinart-rose',
         '/blog/grossiste-alimentaire-paris',
         '/blog/champagne-ruinart-blanc-de-blanc',
