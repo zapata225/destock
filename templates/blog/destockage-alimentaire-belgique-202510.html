@@ -1,0 +1,733 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Belgique : Économies jusqu'à 70% | Palettes 240 Bouteilles{% endblock %}
+
+{% block meta_description %}Destockage alimentaire Belgique : palettes de 240 bouteilles à 9200€. Économisez jusqu'à 70% sur vos stocks. Livraison partout en Belgique.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Belgique : Économies jusqu'à 70% | Palettes 240 Bouteilles">
+<meta property="og:description" content="Destockage alimentaire Belgique exclusif : palettes de 240 bouteilles à seulement 9200€. Offre limitée, livraison rapide dans toute la Belgique.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-belgique.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Belgique : Économies jusqu'à 70%">
+<meta name="twitter:description" content="Palettes de 240 bouteilles à 9200€ en Belgique. Destockage alimentaire exceptionnel, stocks limités.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-belgique.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique"
+  },
+  "headline": "Destockage Alimentaire Belgique : Économies jusqu'à 70% | Palettes 240 Bouteilles",
+  "description": "Destockage alimentaire Belgique exclusif : palettes de 240 bouteilles à 9200€. Économies massives, livraison Belgique.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-belgique.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "destockage alimentaire belgique, destockage belgique, palette bouteilles belgique, 240 bouteilles 9200€, destockage alimentaire bruxelles"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Belgique</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Destockage Alimentaire Belgique : Économies Exceptionnelles jusqu'à 70%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-belgique.jpg') }}" 
+                     alt="Destockage alimentaire Belgique - palette 240 bouteilles 9200€ économies 70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Palette exclusive 240 bouteilles à 9200€ - Économisez 70%</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <div class="urgent-content">
+                    <span class="urgent-badge">🚨 OFFRE EXCEPTIONNELLE</span>
+                    <h2>Destockage Alimentaire Belgique : Palette de 240 Bouteilles à 9200€</h2>
+                    <p class="urgent-text">Stock limité - Livraison express dans toute la Belgique</p>
+                </div>
+            </div>
+            
+            <div class="price-highlight">
+                <div class="price-main">
+                    <span class="price-amount">9.200€</span>
+                    <span class="price-desc">Palette complète 240 bouteilles</span>
+                </div>
+                <div class="price-breakdown">
+                    <div class="unit-price">
+                        <strong>38,33€/bouteille</strong>
+                        <span>Au lieu de 55€ en magasin</span>
+                    </div>
+                    <div class="savings">
+                        <strong>Économie : 4.000€</strong>
+                        <span>Soit 30% de réduction</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="offer-details">
+            <h2>Notre Offre Exclusive de Destockage en Belgique</h2>
+            
+            <div class="offer-grid">
+                <div class="offer-feature">
+                    <h3>📦 Composition de la Palette</h3>
+                    <ul>
+                        <li><strong>240 bouteilles premium</strong> sélectionnées</li>
+                        <li>Mélange équilibré de vins et spiritueux</li>
+                        <li>Marques reconnues et produits qualité</li>
+                        <li>Emballage professionnel sécurisé</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-feature">
+                    <h3>🚚 Livraison Belgique</h3>
+                    <ul>
+                        <li><strong>Livraison GRATUITE</strong> partout en Belgique</li>
+                        <li>Délai : 24-48h maximum</li>
+                        <li>Service de mise en place inclus</li>
+                        <li>Suivi en temps réel</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-feature">
+                    <h3>💰 Avantages Économiques</h3>
+                    <ul>
+                        <li><strong>Prix imbattable</strong> : 38,33€/bouteille</li>
+                        <li>Économie immédiate de 4.000€</li>
+                        <li>Meilleur rapport qualité-prix du marché</li>
+                        <li>Facturation professionnelle</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="target-audience">
+            <h2>À Qui S'adresse Cette Offre de Destockage ?</h2>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>🏪 Commerces & Cavistes</h3>
+                    <p>Rechargez votre stock à prix coûtant. Idéal pour les cavistes, épiceries fines et commerces alimentaires en Belgique.</p>
+                    <div class="benefit-tag">+45% de marge</div>
+                </div>
+                
+                <div class="audience-card">
+                    <h3>🏨 Hôtels & Restaurants</h3>
+                    <p>Approvisionnez votre carte à un prix défiant toute concurrence. Parfait pour les établissements HORECA.</p>
+                    <div class="benefit-tag">Carte compétitive</div>
+                </div>
+                
+                <div class="audience-card">
+                    <h3>🎪 Événements & Traiteurs</h3>
+                    <p>Stockez pour vos événements : mariages, séminaires, fêtes. Quantité parfaite pour les grosses occasions.</p>
+                    <div class="benefit-tag">Budget maîtrisé</div>
+                </div>
+                
+                <div class="audience-card">
+                    <h3>🏢 Entreprises & CSE</h3>
+                    <p>Offrez des cadeaux d'affaires ou organisez des événements corporate avec des produits de qualité.</p>
+                    <div class="benefit-tag">Prestige économique</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="geographic-coverage">
+            <h2>Livraison dans Toute la Belgique</h2>
+            
+            <div class="cities-grid">
+                <div class="city-group">
+                    <h3>🚚 Région de Bruxelles</h3>
+                    <div class="city-list">
+                        <span class="city-tag">Bruxelles</span>
+                        <span class="city-tag">Schaerbeek</span>
+                        <span class="city-tag">Ixelles</span>
+                        <span class="city-tag">Anderlecht</span>
+                        <span class="city-tag">Saint-Gilles</span>
+                    </div>
+                </div>
+                
+                <div class="city-group">
+                    <h3>📍 Wallonie</h3>
+                    <div class="city-list">
+                        <span class="city-tag">Liège</span>
+                        <span class="city-tag">Charleroi</span>
+                        <span class="city-tag">Namur</span>
+                        <span class="city-tag">Mons</span>
+                        <span class="city-tag">Tournai</span>
+                    </div>
+                </div>
+                
+                <div class="city-group">
+                    <h3>🏘️ Flandre</h3>
+                    <div class="city-list">
+                        <span class="city-tag">Anvers</span>
+                        <span class="city-tag">Gand</span>
+                        <span class="city-tag">Bruges</span>
+                        <span class="city-tag">Louvain</span>
+                        <span class="city-tag">Malines</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="delivery-guarantee">
+                <div class="guarantee-item">
+                    <h4>⏱️ Livraison Express</h4>
+                    <p>Commandez avant 14h, recevez demain</p>
+                </div>
+                <div class="guarantee-item">
+                    <h4>📞 Suivi Personnalisé</h4>
+                    <p>Chauffeur dédié avec contact direct</p>
+                </div>
+                <div class="guarantee-item">
+                    <h4>🎯 Précision Horaire</h4>
+                    <p>Fenêtre de livraison de 2h communiquée</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h3>⚠️ Stock Très Limité</h3>
+                    <div class="stock-counter">
+                        <div class="stock-item">
+                            <span class="stock-label">Palettes disponibles</span>
+                            <span class="stock-value">3</span>
+                        </div>
+                        <div class="stock-item">
+                            <span class="stock-label">Dernière mise à jour</span>
+                            <span class="stock-value">Il y a 2h</span>
+                        </div>
+                    </div>
+                    <p class="urgency-text">Cette offre de destockage en Belgique est exceptionnelle et ne sera pas renouvelée</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Ils Nous Font Confiance en Belgique</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Commande passée lundi, livrée mercredi à Liège. Produits impeccables et économie réelle de 35% par rapport à mon fournisseur habituel."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Pierre D. - Caviste à Liège</strong>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Palette parfaite pour notre hôtel à Bruxelles. Rapport qualité-prix exceptionnel. Service livraison très professionnel."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Marie L. - Hôtel 4* Bruxelles</strong>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Idéal pour nos événements corporate. Nous avons économisé près de 4.000€ sur notre dernier séminaire. Service impeccable."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Thomas B. - Responsable Événements</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-section">
+            <div class="conversion-banner">
+                <div class="conversion-content">
+                    <h2>🚀 Ne Ratez Pas Cette Opportunité Unique</h2>
+                    <p class="conversion-subtitle">Destockage alimentaire Belgique - Offre limitée à 3 palettes</p>
+                    
+                    <div class="conversion-grid">
+                        <div class="conversion-benefit">
+                            <span class="benefit-icon">💰</span>
+                            <div>
+                                <strong>Économie garantie de 4.000€</strong>
+                                <span>Soit 30% de réduction</span>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-benefit">
+                            <span class="benefit-icon">🚚</span>
+                            <div>
+                                <strong>Livraison offerte</strong>
+                                <span>Partout en Belgique</span>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-benefit">
+                            <span class="benefit-icon">⏱️</span>
+                            <div>
+                                <strong>Livraison en 24-48h</strong>
+                                <span>Service express</span>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-benefit">
+                            <span class="benefit-icon">📞</span>
+                            <div>
+                                <strong>Support dédié</strong>
+                                <span>Expert belge à votre écoute</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conversion-cta">
+                        <div class="cta-main">
+                            <a href="{{ url_for('product_list') }}" class="cta-button-primary">
+                                🛒 COMMANDER MAINTENANT
+                                <small>Palette 240 bouteilles - 9.200€</small>
+                            </a>
+                        </div>
+                        <div class="cta-secondary">
+                            <a href="{{ url_for('product_list') }}" class="cta-button-secondary">
+                                📞 NOUS CONTACTER
+                                <small>Devis personnalisé disponible</small>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="security-badges">
+                        <div class="security-item">
+                            <span>🔒</span>
+                            <span>Paiement sécurisé</span>
+                        </div>
+                        <div class="security-item">
+                            <span>📦</span>
+                            <span>Livraison garantie</span>
+                        </div>
+                        <div class="security-item">
+                            <span>💎</span>
+                            <span>Qualité certifiée</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>FAQ : Destockage Alimentaire Belgique</h2>
+            
+            <div class="faq-item">
+                <h3>Quelle est la composition exacte de la palette ?</h3>
+                <p>La palette contient 240 bouteilles soigneusement sélectionnées : vins rouges, blancs, rosés et spiritueux de marques reconnues. Le détail complet est disponible sur commande.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Livrez-vous partout en Belgique ?</h3>
+                <p>Oui, nous livrons dans toute la Belgique : Bruxelles, Wallonie et Flandre. Livraison offerte quel que soit votre lieu de livraison.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quels sont les délais de livraison ?</h3>
+                <p>Livraison en 24-48h maximum sur toute la Belgique. Pour Bruxelles et les grandes villes, livraison souvent en 24h.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Proposez-vous des palettes plus petites ?</h3>
+                <p>Cette offre concerne exclusivement les palettes de 240 bouteilles à 9200€. Contactez-nous pour des besoins spécifiques.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #2c5530;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #4a7c59;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+/* Bannière urgente */
+.urgent-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.urgent-badge {
+    background: #ffc107;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.urgent-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+/* Mise en avant du prix */
+.price-highlight {
+    background: #f8f9fa;
+    border: 3px solid #4a7c59;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.price-main {
+    margin-bottom: 1.5rem;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c5530;
+    display: block;
+}
+
+.price-desc {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.price-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.unit-price, .savings {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #28a745;
+}
+
+.unit-price strong, .savings strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #2c5530;
+}
+
+.unit-price span, .savings span {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Grilles de contenu */
+.offer-grid, .audience-grid, .cities-grid, .testimonial-grid, .conversion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.offer-feature, .audience-card, .testimonial-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a7c59;
+}
+
+.offer-feature ul, .audience-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.offer-feature li, .audience-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Tags et badges */
+.benefit-tag {
+    background: #28a745;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.city-group {
+    text-align: center;
+}
+
+.city-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.city-tag {
+    background: #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Section urgence */
+.urgency-banner {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stock-counter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.stock-item {
+    text-align: center;
+}
+
+.stock-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.stock-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+/* Section conversion */
+.conversion-section {
+    margin: 3rem 0;
+}
+
+.conversion-banner {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.conversion-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.conversion-benefit {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+}
+
+.conversion-cta {
+    margin: 2rem 0;
+}
+
+.cta-main, .cta-secondary {
+    margin: 1rem 0;
+}
+
+.cta-button-primary {
+    display: inline-block;
+    background: #ffc107;
+    color: #000;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button-primary small {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.cta-button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,193,7,0.3);
+}
+
+.cta-button-secondary {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+    background: white;
+    color: #2c5530;
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.security-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Livraison */
+.delivery-guarantee {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.guarantee-item {
+    text-align: center;
+    padding: 1rem;
+    background: #e8f5e8;
+    border-radius: 10px;
+}
+
+/* FAQ */
+.faq-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .offer-grid, .audience-grid, .cities-grid, .testimonial-grid, .conversion-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .price-breakdown, .stock-counter {
+        grid-template-columns: 1fr;
+    }
+    
+    .conversion-banner {
+        padding: 2rem 1rem;
+    }
+    
+    .cta-button-primary {
+        padding: 1.2rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .security-badges {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .price-amount {
+        font-size: 2.5rem;
+    }
+}
+</style>
+{% endblock %}
