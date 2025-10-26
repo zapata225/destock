@@ -3404,118 +3404,59 @@ img {
             </div>
         </div>
     </section>
-
-    <!-- Popup Urgence Professionnel avec Références Gouvernementales -->
+<!-- Popup Mobile Ultra-Compact -->
 <div id="urgencePopup" class="urgence-popup">
     <div class="popup-container">
         <div class="popup-header">
-            <div class="credibility-badges">
-                <div class="gouv-badge">Ministère Économie.fr</div>
-                <div class="urgence-tag">OFFRE LIMITÉE</div>
-            </div>
+            <div class="gouv-badge">Min.Éco.fr</div>
+            <div class="urgence-tag">-70%</div>
             <button class="close-popup">&times;</button>
         </div>
         
         <div class="popup-content">
-            <!-- En-tête de crédibilité -->
-            <div class="credibility-header">
-                <div class="official-seal">
-                    <div class="seal-icon">🏛️</div>
-                    <div class="seal-text">Partenaire Agréé</div>
-                </div>
-                <div class="gouv-references">
-                    <div class="reference-item">
-                        <span class="ref-icon">✓</span>
-                        <span>Référencé France Relance</span>
-                    </div>
-                    <div class="reference-item">
-                        <span class="ref-icon">✓</span>
-                        <span>Conforme DGCCRF</span>
-                    </div>
-                </div>
+            <!-- Compte à rebours compact -->
+            <div class="countdown-compact">
+                <span class="countdown-label">Expire:</span>
+                <span id="countdown-hours">48</span>:<span id="countdown-minutes">00</span>
             </div>
 
-            <!-- Compte à rebours discret -->
-            <div class="countdown-mini">
-                <span class="countdown-label">Expire dans :</span>
-                <div class="countdown-numbers">
-                    <span id="countdown-hours">48</span>:<span id="countdown-minutes">00</span>:<span id="countdown-seconds">00</span>
-                </div>
-            </div>
-
-            <!-- Message principal sobre -->
+            <!-- Message principal ultra-condensé -->
             <div class="main-message">
                 <h1 class="popup-title">
-                    Liquidation Immédiate
+                    Liquidation
                     <span class="highlight">-70%</span>
                 </h1>
-                <p class="popup-subtitle">Opération validée dans le cadre du plan anti-gaspillage alimentaire</p>
+                <p class="popup-subtitle">Stocks subventionnés</p>
             </div>
 
-            <!-- Avantages avec références officielles -->
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">📋</div>
-                    <div class="benefit-text">Certifié Ministère</div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">💰</div>
-                    <div class="benefit-text">Aides État 2024</div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🛡️</div>
-                    <div class="benefit-text">Contrôle DGCCRF</div>
-                </div>
-            </div>
-
-            <!-- Indicateur de stocks avec référence officielle -->
-            <div class="stock-indicator">
-                <div class="stock-header">
-                    <span>Stocks éligibles France Relance</span>
-                    <span class="stock-percentage">27%</span>
-                </div>
+            <!-- Indicateur de stocks mini -->
+            <div class="stock-mini">
                 <div class="stock-bar">
                     <div class="stock-fill"></div>
                 </div>
-                <div class="stock-text">Dernières palettes subventionnées</div>
+                <div class="stock-text">27% restants</div>
             </div>
 
-            <!-- Référence légale discrète -->
-            <div class="legal-mention">
-                <div classlegal-icon">⚖️</div>
-                <span>Opération encadrée par le Ministère de l'Économie - N° AGREEMENT: FR-2024-DGAL-8842</span>
-            </div>
-
-            <!-- CTA Professionnels -->
-            <div class="cta-container">
+            <!-- CTA empilés -->
+            <div class="cta-stack">
                 <button class="cta-primary" onclick="window.location.href='{{ url_for('product_list') }}?urgence=liquidation'">
-                    Accéder aux offres agréées
-                    <span class="cta-discount">-70%</span>
+                    Voir offre
                 </button>
-                
-                <button class="cta-secondary" onclick="window.open('https://wa.me/33644697212?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20offres%20agréées%20France%20Relance', '_blank')">
-                    Contact officiel
+                <button class="cta-secondary" onclick="window.open('https://wa.me/33644694515', '_blank')">
+                    Contact
                 </button>
             </div>
 
-            <!-- Notes légales gouvernementales -->
-            <div class="government-disclaimer">
-                <div class="gouv-logos">
-                    <span class="logo-item">République Française</span>
-                    <span class="logo-item">France Relance</span>
-                    <span class="logo-item">DGCCRF</span>
-                </div>
-                <div class="disclaimer-text">
-                    Opération de sauvegarde alimentaire validée par les services de l'État • 
-                    <a href="#" class="legal-link">Voir l'arrêté officiel</a>
-                </div>
+            <!-- Mention légale micro -->
+            <div class="legal-micro">
+                ✓ Agréé Ministère
             </div>
         </div>
     </div>
 </div>
 
 <style>
-/* ===== POPUP PROFESSIONNEL AVEC RÉFÉRENCES GOUVERNEMENTALES ===== */
+/* ===== POPUP MOBILE ULTRA-COMPACT ===== */
 
 .urgence-popup {
     position: fixed;
@@ -3523,24 +3464,23 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 15px;
     box-sizing: border-box;
 }
 
 .popup-container {
     background: white;
-    border-radius: 16px;
-    max-width: 450px;
+    border-radius: 12px;
+    max-width: 320px;
     width: 100%;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    position: relative;
-    animation: popupSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: popupSlideIn 0.3s ease-out;
     border: 1px solid #e5e7eb;
 }
 
@@ -3548,147 +3488,91 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 25px 15px;
+    padding: 12px 15px;
     border-bottom: 1px solid #f3f4f6;
-}
-
-.credibility-badges {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .gouv-badge {
     background: linear-gradient(135deg, #0055A4, #001489);
     color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    border: 1px solid #001489;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    flex-shrink: 0;
 }
 
 .urgence-tag {
     background: linear-gradient(135deg, #dc2626, #ef4444);
     color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
 }
 
 .close-popup {
-    background: none;
+    background: #f3f4f6;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: #6b7280;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.close-popup:hover {
-    background: #f3f4f6;
-    color: #374151;
+    flex-shrink: 0;
+    padding: 0;
 }
 
 .popup-content {
-    padding: 20px 25px 25px;
-}
-
-/* En-tête de crédibilité gouvernementale */
-.credibility-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
     padding: 15px;
-    background: #f8fafc;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
 }
 
-.official-seal {
+/* Compte à rebours ultra-compact */
+.countdown-compact {
     display: flex;
     align-items: center;
-    gap: 8px;
-}
-
-.seal-icon {
-    font-size: 1.5rem;
-}
-
-.seal-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #1f2937;
-}
-
-.gouv-references {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.reference-item {
-    display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 6px;
-    font-size: 0.75rem;
-    color: #374151;
-}
-
-.ref-icon {
-    color: #059669;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-/* Compte à rebours discret */
-.countdown-mini {
     background: #fef2f2;
     border: 1px solid #fecaca;
-    border-radius: 10px;
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
 }
 
 .countdown-label {
-    font-size: 0.85rem;
-    color: #7f1d1d;
-    font-weight: 500;
-}
-
-.countdown-numbers {
-    font-family: 'SF Mono', Monaco, monospace;
-    font-size: 1rem;
-    font-weight: 600;
     color: #dc2626;
-    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 0.7rem;
 }
 
-/* Message principal */
+.countdown-compact span:not(.countdown-label) {
+    font-family: 'SF Mono', monospace;
+    font-weight: 700;
+    color: #dc2626;
+    font-size: 0.8rem;
+}
+
+/* Message principal compact */
 .main-message {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .popup-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #1f2937;
-    margin-bottom: 8px;
-    line-height: 1.3;
+    margin-bottom: 4px;
+    line-height: 1.2;
 }
 
 .highlight {
@@ -3698,74 +3582,19 @@ img {
 
 .popup-subtitle {
     color: #6b7280;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin: 0;
-    line-height: 1.4;
 }
 
-/* Grille d'avantages officiels */
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.benefit-item {
-    text-align: center;
-    padding: 12px 8px;
-    border-radius: 10px;
-    background: #f8fafc;
-    border: 1px solid #e5e7eb;
-    transition: all 0.2s ease;
-}
-
-.benefit-item:hover {
-    background: #f1f5f9;
-    transform: translateY(-2px);
-    border-color: #d1d5db;
-}
-
-.benefit-icon {
-    font-size: 1.25rem;
-    margin-bottom: 6px;
-}
-
-.benefit-text {
-    font-size: 0.7rem;
-    color: #4b5563;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-/* Indicateur de stocks officiel */
-.stock-indicator {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 20px;
-}
-
-.stock-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 0.8rem;
-    color: #7f1d1d;
-    font-weight: 500;
-}
-
-.stock-percentage {
-    font-weight: 700;
-    color: #dc2626;
+/* Indicateur de stocks mini */
+.stock-mini {
+    margin-bottom: 15px;
 }
 
 .stock-bar {
     background: #fecaca;
-    height: 6px;
-    border-radius: 3px;
+    height: 4px;
+    border-radius: 2px;
     overflow: hidden;
     margin-bottom: 6px;
 }
@@ -3774,69 +3603,44 @@ img {
     background: linear-gradient(90deg, #dc2626, #ef4444);
     height: 100%;
     width: 27%;
-    border-radius: 3px;
-    transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
 .stock-text {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #b91c1c;
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-/* Mention légale gouvernementale */
-.legal-mention {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px;
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 0.7rem;
-    color: #0369a1;
-    line-height: 1.3;
-}
-
-.legal-icon {
-    font-size: 0.9rem;
-    flex-shrink: 0;
-    margin-top: 1px;
-}
-
-/* CTA Professionnels */
-.cta-container {
+/* CTA empilés */
+.cta-stack {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
 .cta-primary, .cta-secondary {
-    padding: 14px 20px;
+    padding: 12px 16px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    text-align: center;
 }
 
 .cta-primary {
     background: linear-gradient(135deg, #dc2626, #ef4444);
     color: white;
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
 }
 
-.cta-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+.cta-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 4px rgba(220, 38, 38, 0.3);
 }
 
 .cta-secondary {
@@ -3845,65 +3649,28 @@ img {
     border: 1px solid #d1d5db;
 }
 
-.cta-secondary:hover {
+.cta-secondary:active {
     background: #f9fafb;
-    border-color: #9ca3af;
+    transform: translateY(1px);
 }
 
-.cta-discount {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 2px 8px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-/* Notes gouvernementales */
-.government-disclaimer {
+/* Mention légale micro */
+.legal-micro {
     text-align: center;
-    padding-top: 15px;
-    border-top: 1px solid #f3f4f6;
-}
-
-.gouv-logos {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-}
-
-.logo-item {
-    font-size: 0.7rem;
-    color: #6b7280;
+    font-size: 0.65rem;
+    color: #059669;
     font-weight: 600;
-    padding: 2px 8px;
-    border: 1px solid #e5e7eb;
+    padding: 6px;
+    background: #f0fdf4;
     border-radius: 6px;
-    background: #f9fafb;
-}
-
-.disclaimer-text {
-    font-size: 0.7rem;
-    color: #9ca3af;
-    line-height: 1.4;
-}
-
-.legal-link {
-    color: #3b82f6;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.legal-link:hover {
-    text-decoration: underline;
+    border: 1px solid #bbf7d0;
 }
 
 /* Animations */
 @keyframes popupSlideIn {
     from {
         opacity: 0;
-        transform: scale(0.9) translateY(-20px);
+        transform: scale(0.95) translateY(-10px);
     }
     to {
         opacity: 1;
@@ -3911,79 +3678,8 @@ img {
     }
 }
 
-/* ===== RESPONSIVE MOBILE ===== */
-@media (max-width: 480px) {
-    .urgence-popup {
-        padding: 15px;
-    }
-    
-    .popup-container {
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .popup-content {
-        padding: 15px 20px 20px;
-    }
-    
-    .popup-header {
-        padding: 15px 20px 12px;
-    }
-    
-    .credibility-header {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-    
-    .popup-title {
-        font-size: 1.3rem;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-    }
-    
-    .benefit-item {
-        padding: 10px 6px;
-    }
-    
-    .benefit-text {
-        font-size: 0.65rem;
-    }
-    
-    .gouv-logos {
-        gap: 8px;
-    }
-    
-    .logo-item {
-        font-size: 0.65rem;
-    }
-    
-    .cta-primary, .cta-secondary {
-        padding: 12px 16px;
-        font-size: 0.85rem;
-    }
-}
-
-/* Effet de pulse sur le badge gouvernemental */
-@keyframes gouvPulse {
-    0%, 100% { 
-        box-shadow: 0 0 0 0 rgba(0, 85, 164, 0.4);
-    }
-    50% { 
-        box-shadow: 0 0 0 3px rgba(0, 85, 164, 0);
-    }
-}
-
-.gouv-badge {
-    animation: gouvPulse 2s ease-in-out infinite;
-}
-
-/* Transition de fermeture */
 .popup-container.closing {
-    animation: popupSlideOut 0.3s ease-in forwards;
+    animation: popupSlideOut 0.2s ease-in forwards;
 }
 
 @keyframes popupSlideOut {
@@ -3993,70 +3689,145 @@ img {
     }
     to {
         opacity: 0;
-        transform: scale(0.9) translateY(-20px);
+        transform: scale(0.95) translateY(-10px);
+    }
+}
+
+/* Pulse subtil sur le badge gouvernemental */
+@keyframes miniPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.gouv-badge {
+    animation: miniPulse 2s ease-in-out infinite;
+}
+
+/* ===== OPTIMISATION PÉTITS ÉCRANS ===== */
+@media (max-width: 360px) {
+    .popup-container {
+        max-width: 280px;
+    }
+    
+    .popup-content {
+        padding: 12px;
+    }
+    
+    .popup-header {
+        padding: 10px 12px;
+    }
+    
+    .popup-title {
+        font-size: 1.1rem;
+    }
+    
+    .cta-primary, .cta-secondary {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .urgence-popup {
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+    
+    .popup-container {
+        max-width: 300px;
+    }
+}
+
+/* Support tactile amélioré */
+@media (hover: none) and (pointer: coarse) {
+    .cta-primary, .cta-secondary {
+        min-height: 44px; /* Taille minimale pour le touch */
+    }
+    
+    .close-popup {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Mode sombre automatique */
+@media (prefers-color-scheme: dark) {
+    .popup-container {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    
+    .popup-title {
+        color: #f9fafb;
+    }
+    
+    .popup-subtitle {
+        color: #d1d5db;
+    }
+    
+    .cta-secondary {
+        background: #374151;
+        color: #f9fafb;
+        border-color: #4b5563;
+    }
+    
+    .cta-secondary:active {
+        background: #4b5563;
+    }
+    
+    .close-popup {
+        background: #374151;
+        color: #d1d5db;
     }
 }
 </style>
 
 <script>
-// Gestion du popup avec références gouvernementales
+// Gestion ultra-simplifiée pour mobile
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('urgencePopup');
     const closeBtn = document.querySelector('.close-popup');
     const popupContainer = document.querySelector('.popup-container');
     
-    // Afficher le popup après 4 secondes
+    // Afficher après 3 secondes sur mobile
     setTimeout(() => {
-        if (!localStorage.getItem('popupClosed')) {
+        if (!localStorage.getItem('mobilePopupClosed')) {
             popup.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            
-            // Tracking d'affichage
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'popup_display', {
-                    'event_category': 'Gouvernement_Agreed',
-                    'event_label': 'Ministry_Reference_Displayed'
-                });
-            }
         }
-    }, 4000);
+    }, 3000);
     
-    // Fermer le popup
+    // Fermeture simplifiée
     function closePopup() {
         popupContainer.classList.add('closing');
         setTimeout(() => {
             popup.style.display = 'none';
             document.body.style.overflow = 'auto';
-            localStorage.setItem('popupClosed', 'true');
-            localStorage.setItem('popupClosedTime', new Date().getTime());
-        }, 300);
+            localStorage.setItem('mobilePopupClosed', 'true');
+        }, 200);
     }
     
     closeBtn.addEventListener('click', closePopup);
+    closeBtn.addEventListener('touchend', closePopup);
     
-    // Fermer en cliquant à l'extérieur
+    // Fermer en tapant à l'extérieur
     popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            closePopup();
-        }
+        if (e.target === popup) closePopup();
     });
     
-    // Compte à rebours de 48 heures
-    function startCountdown() {
+    // Compte à rebours mobile optimisé
+    function startMobileCountdown() {
         const hoursElement = document.getElementById('countdown-hours');
         const minutesElement = document.getElementById('countdown-minutes');
-        const secondsElement = document.getElementById('countdown-seconds');
         
-        let totalSeconds = 48 * 60 * 60; // 48 heures
+        let totalSeconds = 48 * 60 * 60;
         
         function updateCountdown() {
             const hours = Math.floor(totalSeconds / 3600);
             const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
             
             hoursElement.textContent = hours.toString().padStart(2, '0');
             minutesElement.textContent = minutes.toString().padStart(2, '0');
-            secondsElement.textContent = seconds.toString().padStart(2, '0');
             
             if (totalSeconds > 0) {
                 totalSeconds--;
@@ -4067,77 +3838,27 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCountdown();
     }
     
-    startCountdown();
+    startMobileCountdown();
     
-    // Tracking des conversions gouvernementales
-    const ctaButtons = document.querySelectorAll('.cta-primary, .cta-secondary');
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Google Analytics event tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'government_conversion', {
-                    'event_category': 'Ministry_Approved_Offer',
-                    'event_label': this.classList.contains('cta-primary') ? 'Access_Approved_Offers' : 'Official_Contact'
-                });
-            }
-            
-            // Marquer comme converti
-            localStorage.setItem('popupConverted', 'true');
-            
-            // Fermer le popup après clic
-            setTimeout(closePopup, 100);
+    // Tracking mobile simplifié
+    const ctas = document.querySelectorAll('.cta-primary, .cta-secondary');
+    ctas.forEach(cta => {
+        cta.addEventListener('click', function() {
+            // Fermer après clic
+            setTimeout(closePopup, 50);
+        });
+        
+        // Support tactile
+        cta.addEventListener('touchend', function() {
+            setTimeout(closePopup, 50);
         });
     });
-    
-    // Empêcher l'ouverture multiple
-    if (localStorage.getItem('popupConverted')) {
-        popup.style.display = 'none';
-    }
 });
 
-// Réinitialiser le popup après 24h
-function resetPopup() {
-    const lastClosed = localStorage.getItem('popupClosedTime');
-    if (lastClosed) {
-        const now = new Date().getTime();
-        const twentyFourHours = 24 * 60 * 60 * 1000;
-        
-        if (now - lastClosed > twentyFourHours) {
-            localStorage.removeItem('popupClosed');
-            localStorage.removeItem('popupClosedTime');
-            localStorage.removeItem('popupConverted');
-        }
-    }
-}
-
-// Appeler la réinitialisation au chargement
-resetPopup();
-
-// Simulation de vérification gouvernementale
-function simulateGovernmentVerification() {
-    const verificationElement = document.createElement('div');
-    verificationElement.style.cssText = `
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        background: #0055A4;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-size: 0.7rem;
-        z-index: 10001;
-        opacity: 0.9;
-    `;
-    verificationElement.textContent = '✓ Vérifié Ministère';
-    document.body.appendChild(verificationElement);
-    
-    setTimeout(() => {
-        verificationElement.remove();
-    }, 3000);
-}
-
-// Lancer la vérification après l'ouverture du popup
-setTimeout(simulateGovernmentVerification, 4500);
+// Réinitialisation mobile (12h)
+setInterval(() => {
+    localStorage.removeItem('mobilePopupClosed');
+}, 12 * 60 * 60 * 1000);
 </script>
 </script>
     <!-- Section Fruits & Légumes -->
