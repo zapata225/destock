@@ -3799,8 +3799,8 @@ def champagne_ruinart_blanc_de_blanc_prix():
 from flask import render_template
 
 # --- 1. GROSSISTE ALIMENTAIRE BELGIQUE 2025 ---
-@app.route('/blog/grossiste-alimentaire-belgique-2025')
-def grossiste_alimentaire_belgique_2025():
+@app.route('/blog/grossiste-alimentaire-belgique-102025')
+def grossiste_alimentaire_belgique_102025():
     seo = {
         "title": "Grossiste Alimentaire Belgique 2025 : Fournisseurs et Meilleurs Prix | Destockage Alimentaire",
         "description": "Découvrez les meilleurs grossistes alimentaires en Belgique en 2025. Produits en gros, tarifs déstockés et livraison rapide pour particuliers et professionnels.",
@@ -3808,7 +3808,7 @@ def grossiste_alimentaire_belgique_2025():
         "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-belgique.webp",
         "keywords": "grossiste alimentaire belgique, destockage belgique, alimentation en gros belgique, fournisseur belgique"
     }
-    return render_template('blog/grossiste-alimentaire-belgique-2025.html', seo=seo)
+    return render_template('blog/grossiste-alimentaire-belgique-102025.html', seo=seo)
 
 
 # --- 2. GROSSISTE ALIMENTAIRE PARIS 2025 ---
@@ -5059,7 +5059,7 @@ def sitemap():
         '/blog/accords-mets-vins-dom-perignon-2008',
         '/blog/prix-dom-perignon-2012-investissement',
         '/blog/ruinart-blanc-de-blanc-prix',
-        '/blog/grossiste-alimentaire-belgique-2025',
+        '/blog/grossiste-alimentaire-belgique-102025',
         '/blog/grossiste-alimentaire-paris-2025',
         '/blog/grossiste-alimentaire-lille-2025',
         '/blog/champagne-pas-cher-2025',
