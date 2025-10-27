@@ -3876,19 +3876,6 @@ def achat_gros():
     return render_template('achat-gros.html', seo=seo)
 
 
-# --- 7. CHAMPAGNE EN GROS ---
-@app.route('/blog/champagne-en-gros')
-def champagne_en_gros():
-    seo = {
-        "title": "Champagne en Gros : Fournisseurs et Tarifs 2025 | Destockage Alimentaire",
-        "description": "Découvrez les meilleurs fournisseurs de champagne en gros. Moët, Ruinart, Veuve Clicquot à prix déstockés, livraison rapide partout en France.",
-        "url": "https://www.destockagealimentairestore.com/blog/champagne-en-gros",
-        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-en-gros.webp",
-        "keywords": "champagne en gros, fournisseur champagne, achat champagne, champagne destockage"
-    }
-    return render_template('blog/champagne-en-gros.html', seo=seo)
-
-
 # --- 8. CHAMPAGNE EN GROS 2025 ---
 @app.route('/blog/champagne-en-gros-2025')
 def champagne_en_gros_2025():
