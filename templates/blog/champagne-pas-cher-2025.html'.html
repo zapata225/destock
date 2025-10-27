@@ -1,0 +1,806 @@
+{% extends "base.html" %}
+
+{% block page_title %}Champagne Pas Cher : Meilleures Offres 2024 jusqu'à -60% | Achat Immédiat{% endblock %}
+
+{% block meta_description %}🚨 CHAMPAGNE PAS CHER URGENT : Découvrez nos offres champagne à prix cassés. Livraison rapide, qualité garantie. Achetez maintenant et économisez !{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="CHAMPAGNE PAS CHER : Prix Choc 2024 ⚡ Livraison Express">
+<meta property="og:description" content="🔥 OFFRES LIMITÉES : Champagne pas cher jusqu'à -60%. Stocks limités. Achetez maintenant et recevez demain !">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/champagne-pas-cher">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/champagne-pas-cher-urgence.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CHAMPAGNE PAS CHER 🚨 Prix Cassés 2024">
+<meta name="twitter:description" content="⚠️ URGENT : Champagne pas cher -60%. Offres limitées dans le temps. Commandez vite !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/champagne-pas-cher-urgence.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/champagne-pas-cher" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/champagne-pas-cher"
+  },
+  "headline": "CHAMPAGNE PAS CHER : Meilleures Offres 2024 jusqu'à -60%",
+  "description": "OFFRES URGENTES champagne pas cher. Prix cassés, livraison express. Achetez maintenant !",
+  "image": "{{ url_for('static', filename='images/blog/champagne-pas-cher-urgence.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "champagne pas cher, champagne discount, champagne prix cassé, achat champagne pas cher, champagne promo"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Champagne Pas Cher</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">🚨 CHAMPAGNE PAS CHER : Meilleures Offres 2024 jusqu'à -60%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 Offre valable aujourd'hui seulement</span>
+                <span class="reading-time">⚡ Livraison express 24h</span>
+                <span class="author" itemprop="author">💰 Prix cassés garantis</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/champagne-pas-cher-urgence.jpg') }}" 
+                     alt="CHAMPAGNE PAS CHER URGENT -60% prix cassés livraison rapide offre limitée" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">⚠️ STOCKS LIMITÉS : Champagne pas cher jusqu'à -60%</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- SECTION URGENCE IMMÉDIATE -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h2>🔥 URGENT : CHAMPAGNE PAS CHER EN PROMO FLASH</h2>
+                    <p class="urgency-text">🚨 <strong>OFFRE EXCEPTIONNELLE</strong> : Nos champagnes à prix cassés partent vite !</p>
+                    <div class="countdown-timer">
+                        <div class="timer-item">
+                            <span class="timer-number" id="hours">24</span>
+                            <span class="timer-label">HEURES</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="minutes">59</span>
+                            <span class="timer-label">MINUTES</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="seconds">59</span>
+                            <span class="timer-label">SECONDES</span>
+                        </div>
+                    </div>
+                    <div class="urgency-cta">
+                        <a href="{{ url_for('product_list') }}" class="urgency-button">
+                            🛒 ACHETER MAINTENANT - ÉCONOMISEZ 60%
+                        </a>
+                        <p class="urgency-note">⚡ Livraison GRATUITE dès 50€ d'achat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PROMOS CHOC -->
+        <section class="promo-section">
+            <h2>💥 NOS CHAMPAGNES PAS CHERS EN PROMO</h2>
+            
+            <div class="promo-grid">
+                <div class="promo-card urgent">
+                    <div class="promo-badge">PROMO FLASH</div>
+                    <h3>Champagne Brut Réserve</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">45€</span>
+                        <span class="new-price">18€</span>
+                    </div>
+                    <div class="savings">Économisez 60%</div>
+                    <p>Champagne qualité supérieure - Parfait pour l'apéritif</p>
+                    <a href="{{ url_for('product_list') }}" class="promo-button">
+                        🚀 Acheter maintenant
+                    </a>
+                </div>
+                
+                <div class="promo-card hot">
+                    <div class="promo-badge">MEILLEURE VENTE</div>
+                    <h3>Champagne Rosé Élégance</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">52€</span>
+                        <span class="new-price">25€</span>
+                    </div>
+                    <div class="savings">Économisez 52%</div>
+                    <p>Rosé fruité - Idéal pour les célébrations</p>
+                    <a href="{{ url_for('product_list') }}" class="promo-button">
+                        🚀 Acheter maintenant
+                    </a>
+                </div>
+                
+                <div class="promo-card new">
+                    <div class="promo-badge">NOUVEAU</div>
+                    <h3>Champagne Prestige</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">68€</span>
+                        <span class="new-price">32€</span>
+                    </div>
+                    <div class="savings">Économisez 53%</div>
+                    <p>Grande marque - Qualité exceptionnelle</p>
+                    <a href="{{ url_for('product_list') }}" class="promo-button">
+                        🚀 Acheter maintenant
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION AVANTAGES URGENTS -->
+        <section class="advantages-section">
+            <h2>⭐ POURQUOI ACHETER MAINTENANT ?</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>PRIX CASSÉS</h3>
+                    <p>Jusqu'à <strong>-60%</strong> sur nos meilleurs champagnes</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>LIVRAISON EXPRESS</h3>
+                    <p>Recevez votre commande <strong>sous 24h</strong></p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🛡️</div>
+                    <h3>QUALITÉ GARANTIE</h3>
+                    <p>Champagnes de <strong>qualité supérieure</strong></p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚚</div>
+                    <h3>LIVRAISON GRATUITE</h3>
+                    <p>Offerte dès <strong>50€ d'achat</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION TEMOIGNAGES URGENTS -->
+        <section class="testimonials-section">
+            <h2>🎉 CE QUE DISENT NOS CLIENTS URGENTS</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"<strong>Commande passée à 14h, reçue à 10h le lendemain !</strong> Champagne excellent et prix imbattable. Je recommande !"</p>
+                        <div class="client-info">
+                            <span class="client-name">Marie L.</span>
+                            <span class="client-verified">✅ Acheté hier</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"<strong>Économie de 55%</strong> sur mon champagne de mariage. Qualité parfaite, livraison ultra-rapide."</p>
+                        <div class="client-info">
+                            <span class="client-name">Pierre D.</span>
+                            <span class="client-verified">✅ Acheté il y a 2 jours</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Enfin du <strong>champagne pas cher de qualité</strong>. Service client réactif, je reviendrai !"</p>
+                        <div class="client-info">
+                            <span class="client-name">Sophie M.</span>
+                            <span class="client-verified">✅ Acheté cette semaine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION URGENCE FINALE -->
+        <section class="final-urgency">
+            <div class="final-banner">
+                <h2>⏰ DERNIÈRE CHANCE : STOCTS PARTENT VITE !</h2>
+                <div class="stock-warning">
+                    <div class="stock-item">
+                        <span class="stock-name">Champagne Brut Réserve</span>
+                        <div class="stock-bar">
+                            <div class="stock-fill" style="width: 15%"></div>
+                        </div>
+                        <span class="stock-left">⚠️ Plus que 3 bouteilles</span>
+                    </div>
+                    
+                    <div class="stock-item">
+                        <span class="stock-name">Champagne Rosé Élégance</span>
+                        <div class="stock-bar">
+                            <div class="stock-fill" style="width: 25%"></div>
+                        </div>
+                        <span class="stock-left">⚠️ Plus que 7 bouteilles</span>
+                    </div>
+                    
+                    <div class="stock-item">
+                        <span class="stock-name">Champagne Prestige</span>
+                        <div class="stock-bar">
+                            <div class="stock-fill" style="width: 10%"></div>
+                        </div>
+                        <span class="stock-left">🚨 Plus que 2 bouteilles</span>
+                    </div>
+                </div>
+                
+                <div class="final-cta">
+                    <a href="{{ url_for('product_list') }}" class="final-button">
+                        🚀 ACHETER MAINTENANT AVANT RUPTURE
+                    </a>
+                    <p class="guarantee">✅ Satisfait ou remboursé sous 30 jours</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION FAQ URGENTE -->
+        <section class="faq-section">
+            <h2>❓ QUESTIONS FRÉQUENTES URGENTES</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>⚡ Quand serai-je livré ?</h3>
+                    <p><strong>LIVRAISON EXPRESS 24H</strong> : Commandez avant 16h, recevez demain ! Livraison standard 48h.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>💰 Les prix sont-ils vraiment cassés ?</h3>
+                    <p><strong>OUI ! -60% MAXIMUM</strong> : Nous achetons en gros directement chez les producteurs pour vous offrir les meilleurs prix.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🛡️ Qualité garantie ?</h3>
+                    <p><strong>QUALITÉ PREMIUM</strong> : Tous nos champagnes sont contrôlés et garantis qualité supérieure.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>📦 Livraison offerte ?</h3>
+                    <p><strong>LIVRAISON GRATUITE</strong> dès 50€ d'achat. Sinon, seulement 4.90€.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DERNIER APPEL À L'ACTION -->
+        <section class="last-call">
+            <div class="last-call-banner">
+                <h2>🚨 NE MANQUEZ PAS CETTE OPPORTUNITÉ !</h2>
+                <p><strong>Champagne pas cher de qualité à prix cassés</strong> - Offre limitée dans le temps</p>
+                
+                <div class="benefits-list">
+                    <div class="benefit">✅ Jusqu'à <strong>60% de réduction</strong></div>
+                    <div class="benefit">✅ <strong>Livraison express 24h</strong></div>
+                    <div class="benefit">✅ <strong>Qualité garantie</strong></div>
+                    <div class="benefit">✅ <strong>Livraison gratuite</strong> dès 50€</div>
+                </div>
+                
+                <a href="{{ url_for('product_list') }}" class="last-call-button">
+                    🛒 ACHETER MAINTENANT ET ÉCONOMISER
+                </a>
+                
+                <div class="security-badges">
+                    <div class="badge">🔒 Paiement sécurisé</div>
+                    <div class="badge">📞 Service client 7j/7</div>
+                    <div class="badge">✅ Satisfait ou remboursé</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* STYLES URGENCE ET CONVERSION */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d63384;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* SECTION URGENCE */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 3px solid #ffd700;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+.urgency-content h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.urgency-text {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.timer-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.timer-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.urgency-button {
+    display: inline-block;
+    background: #ffd700;
+    color: #c40d0d;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    border: 2px solid #ff6b6b;
+}
+
+.urgency-button:hover {
+    background: #ffed4a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.urgency-note {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* PROMOTIONS */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.promo-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.promo-card.urgent {
+    border-color: #ff6b6b;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+.promo-card.hot {
+    border-color: #fd7e14;
+    box-shadow: 0 5px 15px rgba(253, 126, 20, 0.2);
+}
+
+.promo-card.new {
+    border-color: #20c997;
+    box-shadow: 0 5px 15px rgba(32, 201, 151, 0.2);
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.promo-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.price-comparison {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.new-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.savings {
+    background: #fff3cd;
+    color: #856404;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.promo-button {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.promo-button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* AVANTAGES */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.advantage-card {
+    background: #f8f9fa;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 4px solid #28a745;
+}
+
+.advantage-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.advantage-card h3 {
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+}
+
+/* TEMOIGNAGES */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.client-info {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-verified {
+    color: #28a745;
+    font-size: 0.9rem;
+}
+
+/* URGENCE FINALE */
+.final-urgency {
+    margin: 3rem 0;
+}
+
+.final-banner {
+    background: linear-gradient(135deg, #dc3545, #c40d0d);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stock-warning {
+    margin: 2rem 0;
+}
+
+.stock-item {
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.stock-name {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.stock-bar {
+    background: rgba(255, 255, 255, 0.3);
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.stock-fill {
+    background: #ffd700;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.stock-left {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.final-button {
+    display: inline-block;
+    background: #ffd700;
+    color: #c40d0d;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.final-button:hover {
+    background: #ffed4a;
+    transform: scale(1.05);
+}
+
+.guarantee {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.faq-item h3 {
+    color: #dc3545;
+    margin-bottom: 0.5rem;
+}
+
+/* DERNIER APPEL */
+.last-call {
+    margin: 3rem 0;
+}
+
+.last-call-banner {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.benefits-list {
+    margin: 2rem 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.benefit {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.last-call-button {
+    display: inline-block;
+    background: #ffd700;
+    color: #155724;
+    padding: 18px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+    border: 3px solid white;
+}
+
+.last-call-button:hover {
+    background: #ffed4a;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .promo-grid,
+    .advantages-grid,
+    .testimonials-grid,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+        gap: 1rem;
+    }
+    
+    .timer-item {
+        min-width: 60px;
+        padding: 0.8rem;
+    }
+    
+    .timer-number {
+        font-size: 1.5rem;
+    }
+    
+    .urgency-button,
+    .final-button,
+    .last-call-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .security-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .article-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.urgency-button, .final-button, .last-call-button {
+    animation: pulse 2s infinite;
+}
+
+.promo-card.urgent {
+    animation: pulse 3s infinite;
+}
+</style>
+
+<script>
+// Compte à rebours réel
+function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const diff = endOfDay - now;
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Animation des barres de stock
+function animateStockBars() {
+    const stockBars = document.querySelectorAll('.stock-fill');
+    stockBars.forEach(bar => {
+        const currentWidth = parseInt(bar.style.width);
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.width = bar.getAttribute('data-width') || bar.style.width;
+        }, 500);
+    });
+}
+
+// Lance l'animation au chargement
+document.addEventListener('DOMContentLoaded', animateStockBars);
+</script>
+{% endblock %}

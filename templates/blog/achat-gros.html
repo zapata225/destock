@@ -1,0 +1,733 @@
+{% extends "base.html" %}
+
+{% block page_title %}Achat en Gros : Économisez 70% sur vos Stocks | Livraison Gratuite{% endblock %}
+
+{% block meta_description %}Achat en gros jusqu'à -70% sur 5000+ produits. Stockez malin, économisez gros. Livraison offerte dès 500€. Devenez revendeur certifié.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Achat en Gros : Économisez 70% sur vos Stocks | Livraison Gratuite">
+<meta property="og:description" content="Devenez revendeur et économisez jusqu'à 70% sur l'achat en gros. 5000+ produits, stocks permanents, livraison express offerte.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/achat-gros">
+<meta property="og:image" content="{{ url_for('static', filename='images/achat-gros-70pourcent.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Achat en Gros : Économisez 70% sur vos Stocks">
+<meta name="twitter:description" content="Devenez revendeur -70% sur achat gros. Livraison gratuite, stocks permanents, meilleurs prix garantis.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/achat-gros-70pourcent.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/achat-gros" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Achat en Gros - Économies jusqu'à 70%",
+  "description": "Service d'achat en gros professionnel avec économies jusqu'à 70% sur 5000+ produits",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Destockage Alimentaire"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="sales-page" itemscope itemtype="https://schema.org/Product">
+    <!-- HERO SECTION ULTRA CONVERSION -->
+    <section class="hero-conversion">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge-urgent">🚨 OFFRES GROS LIMITÉES</div>
+                <h1 itemprop="name">ACHAT EN GROS : <span class="highlight">ÉCONOMISEZ 70%</span> SUR VOS STOCKS</h1>
+                <p class="hero-subtitle">Devenez revendeur certifié et accédez à nos tarifs grossiste exclusifs</p>
+                
+                <div class="conversion-grid">
+                    <div class="conversion-item">
+                        <div class="icon">💰</div>
+                        <h3>Jusqu'à 70% d'économie</h3>
+                        <p>Prix grossiste réservés aux professionnels</p>
+                    </div>
+                    <div class="conversion-item">
+                        <div class="icon">🚚</div>
+                        <h3>Livraison gratuite</h3>
+                        <p>Dès 500€ d'achat en France métropolitaine</p>
+                    </div>
+                    <div class="conversion-item">
+                        <div class="icon">📦</div>
+                        <h3>5000+ produits</h3>
+                        <p>Stocks permanents, disponibilité garantie</p>
+                    </div>
+                    <div class="conversion-item">
+                        <div class="icon">⚡</div>
+                        <h3>Expédition 24h</h3>
+                        <p>Commandez aujourd'hui, recevez demain</p>
+                    </div>
+                </div>
+
+                <!-- CTA PRINCIPAL ULTRA VISIBLE -->
+                <div class="cta-mega">
+                    <a href="{{ url_for('product_list') }}" class="btn-mega">
+                        <span class="btn-text">ACCÉDER AUX TARIFS GROS →</span>
+                        <span class="btn-subtext">Devis personnalisé immédiat</span>
+                    </a>
+                    <div class="trust-badges">
+                        <span>🔒 Paiement sécurisé</span>
+                        <span>⭐ 4.9/5 (1254 avis)</span>
+                        <span>🏆 Meilleur prix garanti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION URGENCE -->
+    <section class="urgency-section">
+        <div class="container">
+            <div class="urgency-alert">
+                <div class="urgency-content">
+                    <h2>⚠️ STOCKS LIMITÉS - COMMANDEZ MAINTENANT</h2>
+                    <p>Les prix grossiste actuels sont exceptionnels mais les quantités sont limitées. Ne ratez pas cette opportunité.</p>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <span class="number">12</span>
+                            <span class="label">HEURES</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number">45</span>
+                            <span class="label">MINUTES</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number">22</span>
+                            <span class="label">SECONDES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION AVANTAGES GROS -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>POURQUOI CHOISIR NOTRE ACHAT EN GROS ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏪</div>
+                    <h3>Revendeurs & Commerces</h3>
+                    <p>Augmentez vos marges jusqu'à 300% avec nos prix grossiste</p>
+                    <ul>
+                        <li>✅ TVA déductible</li>
+                        <li>✅ Facturation pro</li>
+                        <li>✅ Conditions négociables</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎪</div>
+                    <h3>Traiteurs & Événements</h3>
+                    <p>Approvisionnez vos événements à prix coûtant</p>
+                    <ul>
+                        <li>✅ Quantités adaptables</li>
+                        <li>✅ Livraison express</li>
+                        <li>✅ Service dédié</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Associations & Collectivités</h3>
+                    <p>Budget maîtrisé pour vos projets alimentaires</p>
+                    <ul>
+                        <li>✅ Devis sur mesure</li>
+                        <li>✅ Paiement différé</li>
+                        <li>✅ Accompagnement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TEMOIGNAGES -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>ILS ONT DÉJÉ ÉCONOMISÉ DES MILLIERS D'EUROS</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Grâce à l'achat en gros, j'ai augmenté ma marge de 45%. Service impeccable !"</p>
+                    <div class="author">
+                        <strong>Marie L., Epicerie Fine</strong>
+                        <span>Économie : 12,400€/an</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Livraison toujours à l'heure, produits de qualité, prix imbattables."</p>
+                    <div class="author">
+                        <strong>Pierre D., Traiteur</strong>
+                        <span>Économie : 8,700€/an</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Devenu revendeur en 24h, maintenant je fais 65% de marge sur mes ventes."</p>
+                    <div class="author">
+                        <strong>Sophie M., Commerce en ligne</strong>
+                        <span>Économie : 15,200€/an</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PRODUITS PHARES -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>NOS MEILLEURES VENTES EN GROS</h2>
+            <p class="section-subtitle">Produits les plus rentables pour vos business</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">🔥 TOP VENTE</div>
+                    <h3>Champagnes Premium</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">Prix détail : 45€</span>
+                        <span class="new-price">Prix gros : 22€</span>
+                    </div>
+                    <p>Économie : <strong>51%</strong></p>
+                    <div class="stock-info">📦 Stock : 1500 caisses</div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">💎 HAUTE MARGES</div>
+                    <h3>Vins de Prestige</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">Prix détail : 35€</span>
+                        <span class="new-price">Prix gros : 15€</span>
+                    </div>
+                    <p>Économie : <strong>57%</strong></p>
+                    <div class="stock-info">📦 Stock : 2800 caisses</div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">🚀 CROISSANCE</div>
+                    <h3>Spiritueux Rares</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">Prix détail : 60€</span>
+                        <span class="new-price">Prix gros : 25€</span>
+                    </div>
+                    <p>Économie : <strong>58%</strong></p>
+                    <div class="stock-info">📦 Stock : 800 caisses</div>
+                </div>
+            </div>
+            
+            <!-- CTA SECONDARY -->
+            <div class="cta-secondary">
+                <a href="{{ url_for('product_list') }}" class="btn-secondary">
+                    <span>VOIR TOUS LES PRODUITS EN GROS</span>
+                    <small>5000+ références disponibles</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PROCESS SIMPLE -->
+    <section class="process-section">
+        <div class="container">
+            <h2>DEVENez REVENDEUR EN 3 ÉTAPES</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Inscription Express</h3>
+                    <p>Créez votre compte pro en 2 minutes</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Accès Immédiat</h3>
+                    <p>Visualisez tous nos prix grossiste</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Commandez & Économisez</h3>
+                    <p>Recevez sous 24-48h</p>
+                </div>
+            </div>
+            
+            <!-- ULTIMATE CTA -->
+            <div class="ultimate-cta">
+                <h3>PRÊT À AUGMENTER VOS MARGES ?</h3>
+                <p>Rejoignez les 2,500+ professionnels qui économisent déjà avec nous</p>
+                <a href="{{ url_for('product_list') }}" class="btn-ultimate">
+                    <span class="main-text">DEVENIR REVENDEUR MAINTENANT</span>
+                    <span class="sub-text">Accès immédiat aux tarifs grossiste →</span>
+                </a>
+                <div class="guarantee">
+                    <span>✅ Sans engagement</span>
+                    <span>✅ 100% gratuit</span>
+                    <span>✅ Support 7j/7</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+<style>
+/* STYLES ULTRA CONVERSION */
+.sales-page {
+    font-family: 'Inter', sans-serif;
+}
+
+/* HERO ULTRA IMPACT */
+.hero-conversion {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d5016 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.badge-urgent {
+    background: #ff4444;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.hero-conversion h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.highlight {
+    color: #4CAF50;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.conversion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.conversion-item {
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.conversion-item .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* CTA MEGA */
+.cta-mega {
+    margin: 3rem 0;
+}
+
+.btn-mega {
+    display: inline-block;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-mega:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.6);
+}
+
+.btn-text {
+    display: block;
+    font-size: 1.8rem;
+}
+
+.btn-subtext {
+    display: block;
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* URGENCY SECTION */
+.urgency-section {
+    background: #fff3cd;
+    padding: 2rem 0;
+    border-left: 5px solid #ffc107;
+}
+
+.urgency-alert h2 {
+    color: #856404;
+    margin-bottom: 1rem;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.countdown-item {
+    background: #856404;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.countdown-item .number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+/* BENEFITS SECTION */
+.benefits-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card ul {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.benefit-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* TESTIMONIALS */
+.testimonials-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #4CAF50;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.author {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+}
+
+/* FEATURED PRODUCTS */
+.featured-products {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.section-subtitle {
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.product-card {
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.product-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.price-comparison {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    opacity: 0.7;
+    margin-right: 1rem;
+}
+
+.new-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.stock-info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* PROCESS SECTION */
+.process-section {
+    padding: 4rem 0;
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    background: #4CAF50;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+/* ULTIMATE CTA */
+.ultimate-cta {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+}
+
+.btn-ultimate {
+    display: inline-block;
+    background: white;
+    color: #4CAF50;
+    padding: 1.5rem 3rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-ultimate:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.main-text {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.sub-text {
+    display: block;
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.guarantee {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-conversion h1 {
+        font-size: 2rem;
+    }
+    
+    .conversion-grid,
+    .benefits-grid,
+    .testimonials-grid,
+    .products-grid,
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-badges,
+    .guarantee {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .countdown {
+        gap: 1rem;
+    }
+    
+    .btn-mega,
+    .btn-ultimate {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+</style>
+
+<script>
+// Countdown timer
+function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const diff = endOfDay - now;
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.querySelector('.countdown-item:nth-child(1) .number').textContent = hours.toString().padStart(2, '0');
+    document.querySelector('.countdown-item:nth-child(2) .number').textContent = minutes.toString().padStart(2, '0');
+    document.querySelector('.countdown-item:nth-child(3) .number').textContent = seconds.toString().padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Scroll animation for trust
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    document.querySelectorAll('.benefit-card, .testimonial-card, .product-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
+});
+</script>
+{% endblock %}

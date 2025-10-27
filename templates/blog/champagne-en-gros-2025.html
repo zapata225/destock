@@ -1,0 +1,802 @@
+{% extends "base.html" %}
+
+{% block page_title %}Champagne en Gros : Économisez Jusqu'à 60% | Livraison Rapide{% endblock %}
+
+{% block meta_description %}Achetez du champagne en gros et économisez jusqu'à 60%. Meilleur prix champagne en gros pour mariages, entreprises et événements. Livraison France entière.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Champagne en Gros : Économisez Jusqu'à 60% | Livraison Rapide">
+<meta property="og:description" content="Achetez du champagne en gros au meilleur prix. Idéal pour mariages, entreprises et événements. Économies garanties, livraison express.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/champagne-en-gros">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/champagne-gros-conversion.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Champagne en Gros : Économisez Jusqu'à 60%">
+<meta name="twitter:description" content="Meilleur prix champagne en gros pour mariages et entreprises. Livraison rapide partout en France.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/champagne-gros-conversion.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/champagne-en-gros" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/champagne-en-gros"
+  },
+  "headline": "Champagne en Gros : Économisez Jusqu'à 60% | Livraison Rapide",
+  "description": "Achetez du champagne en gros au meilleur prix pour mariages, entreprises et événements. Économies garanties avec livraison express France entière.",
+  "image": "{{ url_for('static', filename='images/blog/champagne-gros-conversion.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "champagne en gros, acheter champagne gros volume, champagne mariage pas cher, champagne entreprise, champagne événement, grossiste champagne"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Champagne en Gros</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">CHAMPAGNE EN GROS : ÉCONOMISEZ 60% SUR VOS ÉVÉNEMENTS</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/champagne-gros-conversion.jpg') }}" 
+                     alt="Champagne en gros - économies jusqu'à 60% mariage entreprise événement livraison rapide" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">🚀 ÉCONOMISEZ 60% SUR VOTRE CHAMPAGNE | LIVRAISON 24/48H</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- SECTION URGENCE AVEC CTA PRIMAIRE -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h2>🚨 OFFRE SPÉCIALE CHAMPAGNE EN GROS</h2>
+                    <p><strong>Économisez jusqu'à 60%</strong> sur vos achats de champagne en gros. Parfait pour <strong>mariages, entreprises et grands événements</strong>.</p>
+                    <div class="urgency-features">
+                        <div class="feature">✅ Livraison 24/48h</div>
+                        <div class="feature">✅ Prix dégressifs</div>
+                        <div class="feature">✅ Service personnalisé</div>
+                    </div>
+                    <a href="{{ url_for('product_list') }}" class="urgency-cta">
+                        🥂 DEVIS GRATUIT IMMÉDIAT
+                    </a>
+                    <p class="urgency-note">Obtenez votre devis personnalisé en 2 minutes</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION AVANTAGES ULTRA-CONVERSION -->
+        <section class="benefits-section">
+            <h2>POURQUOI ACHETER DU CHAMPAGNE EN GROS ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card conversion-focused">
+                    <div class="benefit-icon">💰</div>
+                    <h3>ÉCONOMIES GARANTIES</h3>
+                    <p><strong>Jusqu'à 60% d'économie</strong> par rapport au prix détail</p>
+                    <ul>
+                        <li>Prix dégressifs selon volume</li>
+                        <li>Pas d'intermédiaire</li>
+                        <li>Facturation pro possible</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card conversion-focused">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>LIVRAISON EXPRESS</h3>
+                    <p><strong>Livraison 24/48h</strong> partout en France</p>
+                    <ul>
+                        <li>Stock garanti</li>
+                        <li>Suivi en temps réel</li>
+                        <li>Livraison sécurisée</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card conversion-focused">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>SERVICE SUR MESURE</h3>
+                    <p><strong>Solutions adaptées</strong> à chaque événement</p>
+                    <ul>
+                        <li>Conseil personnalisé</li>
+                        <li>Étiquetage personnalisé</li>
+                        <li>Service après-vente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION CAS CLIENTS AVEC CTA -->
+        <section class="use-cases">
+            <h2>SOLUTIONS CHAMPAGNE EN GROS POUR :</h2>
+            
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <span class="use-case-icon">💍</span>
+                        <h3>MARIAGES</h3>
+                    </div>
+                    <div class="use-case-content">
+                        <p><strong>100-200 bouteilles</strong> en moyenne</p>
+                        <ul>
+                            <li>Toast de mariage</li>
+                            <li>Vin d'honneur</li>
+                            <li>Cadeaux invités</li>
+                        </ul>
+                        <div class="use-case-price">
+                            <strong>À partir de 18€/bouteille</strong>
+                        </div>
+                        <a href="{{ url_for('product_list') }}?category=mariage" class="use-case-cta">
+                            DEVIS MARIAGE
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <span class="use-case-icon">🏢</span>
+                        <h3>ENTREPRISES</h3>
+                    </div>
+                    <div class="use-case-content">
+                        <p><strong>Commandes régulières</strong></p>
+                        <ul>
+                            <li>Événements corporate</li>
+                            <li>Cadeaux clients</li>
+                            <li>Cocktails d'entreprise</li>
+                        </ul>
+                        <div class="use-case-price">
+                            <strong>Prix dégressifs</strong>
+                        </div>
+                        <a href="{{ url_for('product_list') }}?category=entreprise" class="use-case-cta">
+                            DEVIS ENTREPRISE
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <span class="use-case-icon">🎪</span>
+                        <h3>ÉVÉNEMENTS</h3>
+                    </div>
+                    <div class="use-case-content">
+                        <p><strong>Grands volumes</strong></p>
+                        <ul>
+                            <li>Anniversaires</li>
+                            <li>Fêtes privées</li>
+                            <li>Salons professionnels</li>
+                        </ul>
+                        <div class="use-case-price">
+                            <strong>Service clé en main</strong>
+                        </div>
+                        <a href="{{ url_for('product_list') }}?category=evenement" class="use-case-cta">
+                            DEVIS ÉVÉNEMENT
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PRIX ULTRA-ATTRACTIVE -->
+        <section class="pricing-section">
+            <h2>NOS TARIFS CHAMPAGNE EN GROS</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>PACK DÉBUTANT</h3>
+                        <div class="price">24€<span>/bouteille</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ 6-12 bouteilles</div>
+                        <div class="feature">✅ Champagne brut</div>
+                        <div class="feature">✅ Livraison 48h</div>
+                        <div class="feature">✅ Économie 30%</div>
+                    </div>
+                    <a href="{{ url_for('product_list') }}?pack=debutant" class="pricing-cta">
+                        COMMANDER
+                    </a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="popular-badge">POPULAIRE</div>
+                    <div class="pricing-header">
+                        <h3>PACK MARIAGE</h3>
+                        <div class="price">19€<span>/bouteille</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ 24-100 bouteilles</div>
+                        <div class="feature">✅ Champagne premium</div>
+                        <div class="feature">✅ Livraison 24h</div>
+                        <div class="feature">✅ Économie 45%</div>
+                    </div>
+                    <a href="{{ url_for('product_list') }}?pack=mariage" class="pricing-cta featured">
+                        COMMANDER
+                    </a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>PACK PRO</h3>
+                        <div class="price">16€<span>/bouteille</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ 100+ bouteilles</div>
+                        <div class="feature">✅ Grands crus</div>
+                        <div class="feature">✅ Livraison express</div>
+                        <div class="feature">✅ Économie 60%</div>
+                    </div>
+                    <a href="{{ url_for('product_list') }}?pack=pro" class="pricing-cta">
+                        COMMANDER
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION GARANTIES -->
+        <section class="guarantees-section">
+            <h2>NOS GARANTIES</h2>
+            
+            <div class="guarantees-grid">
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">🛡️</div>
+                    <h3>QUALITÉ GARANTIE</h3>
+                    <p>Tous nos champagnes sont certifiés et contrôlés</p>
+                </div>
+                
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">🚚</div>
+                    <h3>LIVRAISON GARANTIE</h3>
+                    <p>Livraison express 24/48h partout en France</p>
+                </div>
+                
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">💸</div>
+                    <h3>MEILLEUR PRIX</h3>
+                    <p>Garantie du meilleur prix du marché</p>
+                </div>
+                
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">📞</div>
+                    <h3>SUPPORT 7J/7</h3>
+                    <p>Équipe dédiée à votre service</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL MASSIF -->
+        <section class="final-cta-section">
+            <div class="final-cta-container">
+                <h2>🚀 PRÊT À ÉCONOMISER 60% SUR VOTRE CHAMPAGNE ?</h2>
+                <p class="cta-subtitle">Rejoignez les <strong>500+ clients satisfaits</strong> qui nous font confiance pour leurs événements</p>
+                
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <h3>📞 APPELEZ-NOUS</h3>
+                        <p class="phone-number">01 23 45 67 89</p>
+                        <p>Lun-Ven 9h-18h</p>
+                    </div>
+                    
+                    <div class="cta-card">
+                        <h3>💻 COMMANDEZ EN LIGNE</h3>
+                        <p>Devis instantané</p>
+                        <a href="{{ url_for('product_list') }}" class="main-cta-button">
+                            🥂 COMMANDER MAINTENANT
+                        </a>
+                    </div>
+                    
+                    <div class="cta-card">
+                        <h3>📧 CONTACT RAPIDE</h3>
+                        <p>champagne@gros.com</p>
+                        <p>Réponse sous 1h</p>
+                    </div>
+                </div>
+                
+                <div class="social-proof">
+                    <div class="proof-item">
+                        <strong>500+</strong>
+                        <span>Clients satisfaits</span>
+                    </div>
+                    <div class="proof-item">
+                        <strong>10 000+</strong>
+                        <span>Bouteilles livrées</span>
+                    </div>
+                    <div class="proof-item">
+                        <strong>4.9/5</strong>
+                        <span>Avis clients</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* STYLES ULTRA-CONVERSION */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-title {
+    color: #2c5530;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* SECTION URGENCE */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.urgency-banner h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.urgency-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.urgency-cta {
+    display: inline-block;
+    background: white;
+    color: #ee5a24;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.urgency-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.urgency-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* BENEFITS SECTION */
+.benefits-section h2 {
+    text-align: center;
+    color: #2c5530;
+    font-size: 2rem;
+    margin: 3rem 0 2rem 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 2px solid #4a7c59;
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.benefit-card ul {
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.benefit-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* USE CASES */
+.use-cases h2 {
+    text-align: center;
+    color: #2c5530;
+    font-size: 2rem;
+    margin: 3rem 0 2rem 0;
+}
+
+.use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.use-case-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.use-case-card:hover {
+    transform: translateY(-5px);
+}
+
+.use-case-header {
+    background: linear-gradient(135deg, #4a7c59, #2c5530);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.use-case-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.use-case-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.use-case-content {
+    padding: 1.5rem;
+}
+
+.use-case-price {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1rem 0;
+    border-left: 4px solid #ffc107;
+}
+
+.use-case-cta {
+    display: block;
+    background: #4a7c59;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.use-case-cta:hover {
+    background: #2c5530;
+}
+
+/* PRICING SECTION */
+.pricing-section h2 {
+    text-align: center;
+    color: #2c5530;
+    font-size: 2rem;
+    margin: 3rem 0 2rem 0;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    position: relative;
+    text-align: center;
+    border: 2px solid #dee2e6;
+}
+
+.pricing-card.featured {
+    border-color: #4a7c59;
+    transform: scale(1.05);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4a7c59;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.pricing-header h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c5530;
+    margin: 1rem 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.pricing-features {
+    margin: 1.5rem 0;
+}
+
+.pricing-features .feature {
+    margin: 0.8rem 0;
+    text-align: left;
+}
+
+.pricing-cta {
+    display: block;
+    background: #4a7c59;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.pricing-cta.featured {
+    background: #2c5530;
+}
+
+.pricing-cta:hover {
+    background: #2c5530;
+}
+
+/* GUARANTEES */
+.guarantees-section h2 {
+    text-align: center;
+    color: #2c5530;
+    font-size: 2rem;
+    margin: 3rem 0 2rem 0;
+}
+
+.guarantees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.guarantee-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.guarantee-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.guarantee-card h3 {
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+}
+
+/* FINAL CTA */
+.final-cta-section {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 4rem 2rem;
+    margin: 3rem 0;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.final-cta-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.cta-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.cta-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.cta-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.phone-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.main-cta-button {
+    display: inline-block;
+    background: #ff6b6b;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.main-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.social-proof {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.proof-item {
+    text-align: center;
+}
+
+.proof-item strong {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.8rem;
+    }
+    
+    .benefits-grid,
+    .use-case-grid,
+    .pricing-grid,
+    .guarantees-grid,
+    .cta-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .urgency-features {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .pricing-card.featured {
+        transform: none;
+    }
+    
+    .social-proof {
+        gap: 2rem;
+    }
+    
+    .final-cta-section {
+        padding: 2rem 1rem;
+    }
+    
+    .final-cta-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pricing-card.featured {
+    animation: pulse 2s infinite;
+}
+
+/* LOADING OPTIMIZATION */
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+</style>
+{% endblock %}
