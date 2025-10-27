@@ -3796,7 +3796,125 @@ def champagne_ruinart_blanc_de_blanc_prix():
         description="Découvrez le prix actuel du champagne Ruinart Blanc de Blancs en 2025. Comparatif, promos et conseils d'achat pour particuliers et professionnels."
     )
 
-    
+from flask import render_template
+
+# --- 1. GROSSISTE ALIMENTAIRE BELGIQUE 2025 ---
+@app.route('/blog/grossiste-alimentaire-belgique-2025')
+def grossiste_alimentaire_belgique_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Belgique 2025 : Fournisseurs et Meilleurs Prix | Destockage Alimentaire",
+        "description": "Découvrez les meilleurs grossistes alimentaires en Belgique en 2025. Produits en gros, tarifs déstockés et livraison rapide pour particuliers et professionnels.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-belgique-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-belgique.webp",
+        "keywords": "grossiste alimentaire belgique, destockage belgique, alimentation en gros belgique, fournisseur belgique"
+    }
+    return render_template('blog/grossiste-alimentaire-belgique-2025.html', seo=seo)
+
+
+# --- 2. GROSSISTE ALIMENTAIRE PARIS 2025 ---
+@app.route('/blog/grossiste-alimentaire-paris-2025')
+def grossiste_alimentaire_paris_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Paris 2025 : Produits en Gros à Prix Réduits | Destockage Alimentaire",
+        "description": "Le guide 2025 des meilleurs grossistes alimentaires à Paris : tarifs, fournisseurs, et où acheter en gros pour revendre à prix compétitifs.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-paris-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-paris.webp",
+        "keywords": "grossiste alimentaire paris, destockage alimentaire paris, achat en gros paris, fournisseur paris"
+    }
+    return render_template('blog/grossiste-alimentaire-paris-2025.html', seo=seo)
+
+
+# --- 3. GROSSISTE ALIMENTAIRE LILLE 2025 ---
+@app.route('/blog/grossiste-alimentaire-lille-2025')
+def grossiste_alimentaire_lille_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Lille 2025 : Tarifs, Adresses et Produits en Gros | Destockage Alimentaire",
+        "description": "Trouvez le meilleur grossiste alimentaire à Lille en 2025. Produits alimentaires en gros, tarifs déstockés et livraison en 24/48H.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-lille-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-lille.webp",
+        "keywords": "grossiste alimentaire lille, destockage alimentaire lille, grossiste nord, achat en gros lille"
+    }
+    return render_template('blog/grossiste-alimentaire-lille-2025.html', seo=seo)
+
+
+# --- 4. CHAMPAGNE PAS CHER 2025 ---
+@app.route('/blog/champagne-pas-cher-2025')
+def champagne_pas_cher_2025():
+    seo = {
+        "title": "Champagne Pas Cher 2025 : Les Meilleurs Plans et Destockages | Destockage Alimentaire",
+        "description": "Top 2025 des champagnes pas chers : Ruinart, Moët, Taittinger et plus. Découvrez où acheter du champagne en gros à prix cassés.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-pas-cher-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-pas-cher.webp",
+        "keywords": "champagne pas cher 2025, champagne en gros, destockage champagne, achat champagne discount"
+    }
+    return render_template('blog/champagne-pas-cher-2025.html', seo=seo)
+
+
+# --- 5. ACHAT EN GROS RUINART BLANC DE BLANCS ---
+@app.route('/blog/achat-gros-ruinart-blanc-de-blancs')
+def achat_gros_ruinart_blanc_de_blancs():
+    seo = {
+        "title": "Achat en Gros Ruinart Blanc de Blancs : Prix et Conseils 2025 | Destockage Alimentaire",
+        "description": "Achetez du Ruinart Blanc de Blancs en gros à prix avantageux. Guide d’achat, tarifs déstockés et livraison rapide France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/achat-gros-ruinart-blanc-de-blancs",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-blanc-gros.webp",
+        "keywords": "achat ruinart en gros, ruinart blanc de blancs, champagne ruinart pas cher, champagne en gros"
+    }
+    return render_template('blog/achat-gros-ruinart-blanc-de-blancs.html', seo=seo)
+
+
+# --- 6. PAGE ACHAT EN GROS ---
+@app.route('/achat-gros')
+def achat_gros():
+    seo = {
+        "title": "Achat en Gros Alimentaire : Produits à Prix Déstockés | Destockage Alimentaire",
+        "description": "Commandez vos produits alimentaires en gros à prix cassés. Livraison France & Belgique, service rapide et sécurisé pour particuliers et pros.",
+        "url": "https://www.destockagealimentairestore.com/achat-gros",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/achat-gros.webp",
+        "keywords": "achat en gros, destockage alimentaire, grossiste alimentaire, achat palette alimentaire"
+    }
+    return render_template('achat-gros.html', seo=seo)
+
+
+# --- 7. CHAMPAGNE EN GROS ---
+@app.route('/blog/champagne-en-gros')
+def champagne_en_gros():
+    seo = {
+        "title": "Champagne en Gros : Fournisseurs et Tarifs 2025 | Destockage Alimentaire",
+        "description": "Découvrez les meilleurs fournisseurs de champagne en gros. Moët, Ruinart, Veuve Clicquot à prix déstockés, livraison rapide partout en France.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-en-gros",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-en-gros.webp",
+        "keywords": "champagne en gros, fournisseur champagne, achat champagne, champagne destockage"
+    }
+    return render_template('blog/champagne-en-gros.html', seo=seo)
+
+
+# --- 8. CHAMPAGNE EN GROS 2025 ---
+@app.route('/blog/champagne-en-gros-2025')
+def champagne_en_gros_2025():
+    seo = {
+        "title": "Champagne en Gros 2025 : Les Meilleurs Prix du Marché | Destockage Alimentaire",
+        "description": "Où acheter du champagne en gros en 2025 ? Découvrez nos meilleures offres sur Ruinart, Moët et Veuve Clicquot à prix déstockés.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-en-gros-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-en-gros-2025.webp",
+        "keywords": "champagne gros 2025, champagne pas cher, champagne en gros, fournisseur champagne"
+    }
+    return render_template('blog/champagne-en-gros-2025.html', seo=seo)
+
+
+# --- 9. DISCOUNT ALIMENTAIRE URGENCE ---
+@app.route('/discount-alimentaire-prix-casses')
+def discount_alimentaire_urgence():
+    seo = {
+        "title": "Discount Alimentaire : Prix Cassés et Promotions Exceptionnelles | Destockage Alimentaire",
+        "description": "⚡ URGENCE DESTOCKAGE : produits alimentaires jusqu’à -70%. Profitez de nos offres discount limitées, livraison France et Belgique.",
+        "url": "https://www.destockagealimentairestore.com/discount-alimentaire-prix-casses",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/discount-alimentaire.webp",
+        "keywords": "discount alimentaire, prix cassés, destockage alimentaire, promotion alimentaire"
+    }
+    return render_template('blog/discount-alimentaire-urgence.html', seo=seo)
+
+
 @app.route('/grossiste-boisson')
 def grossiste_boisson():
     return render_template('grossiste_boisson.html',
@@ -4938,9 +5056,19 @@ def sitemap():
         '/supermarche_proximite',
         '/supermarche-ouvert-24-7','/destockage-belgique-2025',
         '/recettes-nutella',
-         '/blog/accords-mets-vins-dom-perignon-2008',
+        '/blog/accords-mets-vins-dom-perignon-2008',
         '/blog/prix-dom-perignon-2012-investissement',
         '/blog/ruinart-blanc-de-blanc-prix',
+        '/blog/grossiste-alimentaire-belgique-2025',
+        '/blog/grossiste-alimentaire-paris-2025',
+        '/blog/grossiste-alimentaire-lille-2025',
+        '/blog/champagne-pas-cher-2025',
+        '/blog/achat-gros-ruinart-blanc-de-blancs',
+        '/blog/champagne-en-gros',
+        '/blog/champagne-en-gros-2025',
+        '/blog/le-prix-ruinart-brut',
+        '/blog/le-ruinart-blanc-de-blanc-prix',
+        '/blog/le-discount-alimentation',
         '/blog/discount-alimentation-top-10',
         '/blog/dom-perignon-rose-accords',
         '/blog/vodka-de-luxe',
