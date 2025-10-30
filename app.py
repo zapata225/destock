@@ -2677,6 +2677,10 @@ def add_header(response):
 def blog_france():
     return render_template('blog_france.html')
 
+@app.route('/DEVIS')
+def devis():
+    return render_template('devis.html')
+
 @app.route('/article-ultra')
 def article_ultra():
     return render_template('article_ultra.html')
@@ -3062,6 +3066,7 @@ def champagne_ruinart25():
         title="Champagne Ruinart 2025 | Prix & Bons Plans",
         description="Achetez du champagne Ruinart en 2025 : prix, promotions et déstockage pour particuliers et événements."
     )
+
 
 @app.route('/blog/ruinart-brut-champagne')
 def ruinart_brut_champagne():
