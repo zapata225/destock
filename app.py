@@ -2679,7 +2679,7 @@ def blog_france():
 
 @app.route('/DEVIS')
 def devis():
-    return render_template('devis.html')
+    return render_template('devispro.html')
 
 @app.route('/article-ultra')
 def article_ultra():
