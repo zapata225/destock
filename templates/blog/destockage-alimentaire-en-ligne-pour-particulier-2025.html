@@ -1,0 +1,653 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70% | StockFood{% endblock %}
+
+{% block meta_description %}Destockage alimentaire en ligne pour particulier : produits jusqu'à -70%, livraison rapide. Achetez malin et économisez sur vos courses alimentaires en ligne.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70%">
+<meta property="og:description" content="Découvrez le destockage alimentaire en ligne pour particulier. Produits jusqu'à -70%, livraison rapide. Économisez sur vos courses alimentaires en ligne.">
+<meta property="og:url" content="https://www.stockfood.com/blog/destockage-alimentaire-en-ligne-pour-particulier">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="StockFood">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70%">
+<meta name="twitter:description" content="Destockage alimentaire en ligne pour particulier : produits jusqu'à -70%. Achetez malin et économisez sur vos courses alimentaires en ligne.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.stockfood.com/blog/destockage-alimentaire-en-ligne-pour-particulier" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.stockfood.com/blog/destockage-alimentaire-en-ligne-pour-particulier"
+  },
+  "headline": "Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70%",
+  "description": "Découvrez le destockage alimentaire en ligne pour particulier. Produits jusqu'à -70%, livraison rapide. Économisez sur vos courses alimentaires en ligne.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "StockFood"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "StockFood",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.stockfood.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "destockage alimentaire en ligne pour particulier, destockage alimentaire en ligne, destockage alimentaire, courses alimentaires en ligne, économies alimentaires"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Alimentaire en Ligne</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 4 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe StockFood</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}" 
+                     alt="Destockage alimentaire en ligne pour particulier - économies jusqu'à 70% sur courses alimentaires" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Économisez jusqu'à 70% sur vos courses avec le destockage alimentaire en ligne</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <div class="urgent-content">
+                    <span class="urgent-badge">🚨 URGENT</span>
+                    <strong>Promotions exceptionnelles en cours : Jusqu'à -70% sur +500 produits</strong>
+                </div>
+            </div>
+            
+            <p>Le <strong>destockage alimentaire en ligne pour particulier</strong> révolutionne la façon dont vous faites vos courses. Découvrez comment acheter des produits alimentaires jusqu'à <strong>-70% moins chers</strong> que dans les grandes surfaces, avec livraison directe chez vous.</p>
+            
+            <div class="stats-highlight">
+                <div class="stat-item">
+                    <div class="stat-number">-70%</div>
+                    <div class="stat-label">Économie moyenne</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Livraison express</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Produits en stock</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pourquoi Choisir le Destockage Alimentaire en Ligne ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item urgent">
+                    <h3>💰 Économies Immédiates</h3>
+                    <p>Avec le <strong>destockage alimentaire en ligne pour particulier</strong>, réalisez des économies immédiates de <strong>30% à 70%</strong> sur tous vos produits alimentaires. Pas besoin d'attendre les soldes !</p>
+                    <div class="savings-example">
+                        <strong>Exemple concret :</strong> Café vendu 15€ en grande surface → 5€ en destockage
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🚚 Livraison Rapide</h3>
+                    <p>Contrairement aux idées reçues, le <strong>destockage alimentaire en ligne</strong> offre une livraison express sous <strong>24 à 48 heures</strong>. Recevez vos courses sans vous déplacer.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🛒 Large Choix de Produits</h3>
+                    <p>Notre plateforme de <strong>destockage alimentaire pour particulier</strong> propose plus de <strong>500 références</strong> : épicerie, boissons, produits frais, surgelés...</p>
+                </div>
+                
+                <div class="benefit-item urgent">
+                    <h3>⭐ Qualité Garantie</h3>
+                    <p>Tous nos produits de <strong>destockage alimentaire en ligne</strong> sont parfaitement consommables. Dates de péremption contrôlées, qualité identique aux grandes surfaces.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgent-section">
+            <h2>🚨 Offres Spéciales Destockage en Cours</h2>
+            
+            <div class="urgent-offers">
+                <div class="urgent-offer">
+                    <div class="offer-badge">LIMITÉ</div>
+                    <h3>Pâtes & Riz</h3>
+                    <div class="offer-price">
+                        <span class="old-price">Jusqu'à 3€</span>
+                        <span class="new-price">À partir de 0,99€</span>
+                    </div>
+                    <p>Économisez jusqu'à 67% sur les produits de base</p>
+                </div>
+                
+                <div class="urgent-offer">
+                    <div class="offer-badge">POPULAIRE</div>
+                    <h3>Boissons & Sodas</h3>
+                    <div class="offer-price">
+                        <span class="old-price">Jusqu'à 8€</span>
+                        <span class="new-price">À partir de 2,50€</span>
+                    </div>
+                    <p>Jusqu'à -69% sur les packs de boissons</p>
+                </div>
+                
+                <div class="urgent-offer">
+                    <div class="offer-badge">EXCLUSIF</div>
+                    <h3>Produits Frais</h3>
+                    <div class="offer-price">
+                        <span class="old-price">Jusqu'à 12€</span>
+                        <span class="new-price">À partir de 3,99€</span>
+                    </div>
+                    <p>Fromages, charcuteries, produits laitiers à -70%</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Comment Fonctionne Notre Destockage Alimentaire en Ligne ?</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Inscription Gratuite</h3>
+                    <p>Créez votre compte <strong>particulier</strong> en 2 minutes. Accès immédiat à toutes nos offres de <strong>destockage alimentaire en ligne</strong>.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Commandez en Ligne</h3>
+                    <p>Parcourez nos <strong>500+ produits en destockage</strong>. Ajoutez vos articles au panier avec des économies jusqu'à <strong>-70%</strong>.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Livraison Express</h3>
+                    <p>Recevez votre <strong>destockage alimentaire</strong> sous 24-48h. Emballage professionnel, produits parfaitement conservés.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Économisez !</h3>
+                    <p>Réalisez en moyenne <strong>50% d'économie</strong> sur votre budget courses grâce au <strong>destockage alimentaire pour particulier</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>🎯 Ils Ont Adopté le Destockage Alimentaire en Ligne</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Grâce au <strong>destockage alimentaire en ligne</strong>, j'économise 200€ par mois sur mes courses. Les produits sont identiques à ceux du supermarché mais jusqu'à 3 fois moins chers !"
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Marie D., Paris</strong>
+                        <span>Client depuis 6 mois</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Livraison ultra-rapide et <strong>économies phénoménales</strong>. Je ne fais plus mes courses ailleurs. Le <strong>destockage alimentaire pour particulier</strong> a changé ma vie !"
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Pierre L., Lyon</strong>
+                        <span>Économise 65% en moyenne</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <h2>⏰ Attention : Stocks Limités</h2>
+                <p>Les produits de <strong>destockage alimentaire en ligne</strong> partent très vite. Ne ratez pas ces opportunités uniques d'économiser jusqu'à <strong>70% sur vos courses</strong>.</p>
+                
+                <div class="stock-counter">
+                    <div class="stock-item">
+                        <span class="stock-label">Produits disponibles :</span>
+                        <span class="stock-value">487/500</span>
+                    </div>
+                    <div class="stock-item">
+                        <span class="stock-label">Promotions actives :</span>
+                        <span class="stock-value">24h restantes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="cta-container">
+                <h2>🚀 Commencez à Économiser dès Maintenant !</h2>
+                <p>Rejoignez les milliers de <strong>particuliers</strong> qui économisent chaque jour grâce à notre <strong>destockage alimentaire en ligne</strong>.</p>
+                
+                <div class="cta-benefits">
+                    <div class="benefit">✅ Économies garanties jusqu'à -70%</div>
+                    <div class="benefit">✅ Livraison express 24-48h</div>
+                    <div class="benefit">✅ Qualité identique grande surface</div>
+                    <div class="benefit">✅ Sans engagement</div>
+                </div>
+                
+                <div class="main-cta">
+                    <a href="{{ url_for('product_list') }}" class="cta-button-large">
+                        <span class="cta-main">ACCÉDER AUX OFFRES DE DESTOCKAGE</span>
+                        <span class="cta-sub">Économisez jusqu'à 70% immédiatement</span>
+                    </a>
+                    <div class="cta-note">
+                        <strong>⚠️ Attention :</strong> Les stocks de destockage alimentaire sont limités et partent rapidement
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>❓ FAQ : Destockage Alimentaire en Ligne</h2>
+            
+            <div class="faq-item">
+                <h3>Qu'est-ce que le destockage alimentaire en ligne pour particulier ?</h3>
+                <p>Le <strong>destockage alimentaire en ligne pour particulier</strong> permet d'acheter des produits alimentaires à prix cassés (jusqu'à -70%) directement en ligne, avec livraison à domicile.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Les produits sont-ils de bonne qualité ?</h3>
+                <p>Absolument ! Tous nos produits de <strong>destockage alimentaire</strong> sont parfaitement consommables, avec des dates de péremption contrôlées. Qualité identique aux grandes surfaces.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quelle économie moyenne puis-je réaliser ?</h3>
+                <p>En moyenne, nos clients réalisent <strong>50% d'économie</strong> sur leur budget courses, avec des promotions pouvant atteindre <strong>-70%</strong> sur certains produits.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Combien de temps dure la livraison ?</h3>
+                <p>Livraison express sous <strong>24 à 48 heures</strong> pour toutes les commandes de <strong>destockage alimentaire en ligne</strong>.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d63384;
+    margin: 2.5rem 0 1.5rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #198754;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.4rem;
+}
+
+/* Bannière urgente */
+.urgent-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.urgent-badge {
+    background: #ffc107;
+    color: #000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+/* Statistiques */
+.stats-highlight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.stat-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #198754;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #198754;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* Grille des bénéfices */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #198754;
+}
+
+.benefit-item.urgent {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+}
+
+.savings-example {
+    background: #d1ecf1;
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+/* Section urgente */
+.urgent-section {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.urgent-offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.urgent-offer {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #dc3545;
+}
+
+.offer-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.offer-price {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    display: block;
+}
+
+.new-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc3545;
+    display: block;
+}
+
+/* Processus */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.process-step {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    background: #198754;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+/* Témoignages */
+.testimonials-section {
+    background: #e7f3ff;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.testimonial {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #198754;
+}
+
+.testimonial-author {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #6c757d;
+}
+
+/* Urgence */
+.urgency-section {
+    margin: 3rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stock-counter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stock-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.stock-value {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* CTA Final */
+.final-cta {
+    background: linear-gradient(135deg, #198754, #157347);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.cta-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.benefit {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.main-cta {
+    margin: 2rem 0;
+}
+
+.cta-button-large {
+    display: block;
+    background: #ffc107;
+    color: #000;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+    margin: 0 auto;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+}
+
+.cta-button-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.cta-main {
+    font-size: 1.3rem;
+    display: block;
+}
+
+.cta-sub {
+    font-size: 1rem;
+    opacity: 0.9;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* FAQ */
+.faq-section {
+    background: #f8f9fa;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .stats-highlight,
+    .benefits-grid,
+    .urgent-offers,
+    .process-steps,
+    .testimonials-grid,
+    .stock-counter,
+    .cta-benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+    
+    .article-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .final-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .cta-button-large {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .cta-main {
+        font-size: 1.1rem;
+    }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,684 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire en Ligne : Économies jusqu'à -70% | Livraison Rapide{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire en ligne : produits jusqu'à -70%, livraison express. Viandes, boissons, surgelés à prix cassés. Économisez sur vos courses!{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire en Ligne : Économies jusqu'à -70% | Livraison Rapide">
+<meta property="og:description" content="Déstockage alimentaire en ligne avec produits jusqu'à -70%. Viandes, boissons, surgelés à prix cassés. Livraison express partout en France.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire en Ligne : Économies jusqu'à -70%">
+<meta name="twitter:description" content="Déstockage alimentaire en ligne avec produits jusqu'à -70%. Prix cassés sur viandes, boissons, surgelés. Livraison rapide.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne"
+  },
+  "headline": "Déstockage Alimentaire en Ligne : Économies jusqu'à -70% | Livraison Rapide",
+  "description": "Déstockage alimentaire en ligne avec produits jusqu'à -70%. Viandes, boissons, surgelés à prix cassés. Livraison express partout en France.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "destockage alimentaire en ligne, destockage alimentaire, produits alimentaires pas cher, destockage nourriture, alimentation discount en ligne"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Déstockage Alimentaire en Ligne</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Déstockage Alimentaire en Ligne : Économies jusqu'à -70% sur Vos Courses</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 4 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}" 
+                     alt="Déstockage alimentaire en ligne - économies jusqu'à 70% produits alimentaires prix cassés" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Économisez jusqu'à 70% sur vos courses avec notre déstockage alimentaire en ligne</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <h2>🚨 OFFRE FLASH : Déstockage Alimentaire en Ligne avec -70% de Réduction</h2>
+                <p>Ne manquez pas notre <strong>déstockage alimentaire en ligne exceptionnel</strong> avec des <strong>prix cassés jusqu'à -70%</strong> sur des centaines de produits. <strong>Livraison express offerte</strong> dès 49€ d'achat !</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pourquoi Choisir Notre Déstockage Alimentaire en Ligne ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>💰 Économies Exceptionnelles</h3>
+                    <p>Avec notre <strong>déstockage alimentaire en ligne</strong>, réalisez des économies substantielles sur votre budget courses. Des <strong>réductions allant jusqu'à 70%</strong> sur des produits de qualité.</p>
+                    <div class="savings-highlight">
+                        <strong>Exemple :</strong> Viande bovine à -60%, Boissons à -50%
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🚚 Livraison Express Gratuite</h3>
+                    <p>Commandez votre <strong>déstockage alimentaire en ligne</strong> et recevez vos produits en <strong>24-48h</strong>. Livraison offerte dès 49€ d'achat pour votre commodité.</p>
+                    <div class="delivery-highlight">
+                        <strong>Zone de livraison :</strong> Toute la France métropolitaine
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🛡️ Qualité Garantie</h3>
+                    <p>Tous nos produits de <strong>déstockage alimentaire</strong> sont parfaitement consommables. Dates de péremption contrôlées et <strong>qualité premium garantie</strong>.</p>
+                    <div class="quality-highlight">
+                        <strong>Certification :</strong> Produits 100% consommables
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Nos Catégories de Déstockage Alimentaire en Ligne</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>🥩 Viandes et Volailles</h3>
+                    <ul>
+                        <li>Bœuf maturé : <strong>-55%</strong></li>
+                        <li>Poulet fermier : <strong>-45%</strong></li>
+                        <li>Agneau : <strong>-60%</strong></li>
+                        <li>Charcuterie : <strong>-40%</strong></li>
+                    </ul>
+                    <div class="stock-info">
+                        🔥 Stock limité
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🥤 Boissons et Jus</h3>
+                    <ul>
+                        <li>Vins et champagnes : <strong>-50%</strong></li>
+                        <li>Jus de fruits premium : <strong>-45%</strong></li>
+                        <li>Eaux minérales : <strong>-35%</strong></li>
+                        <li>Sodas : <strong>-40%</strong></li>
+                    </ul>
+                    <div class="stock-info">
+                        ⚡ Promotion flash
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <h3>❄️ Surgelés et Glacés</h3>
+                    <ul>
+                        <li>Poissons et fruits de mer : <strong>-50%</strong></li>
+                        <li>Légumes surgelés : <strong>-40%</strong></li>
+                        <li>Glaces artisanales : <strong>-45%</strong></li>
+                        <li>Plats préparés : <strong>-35%</strong></li>
+                    </ul>
+                    <div class="stock-info">
+                        🎯 Produits populaires
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🍎 Épicerie et Conserves</h3>
+                    <ul>
+                        <li>Conserves de qualité : <strong>-40%</strong></li>
+                        <li>Pâtes et riz : <strong>-35%</strong></li>
+                        <li>Huiles et vinaigres : <strong>-45%</strong></li>
+                        <li>Épices et condiments : <strong>-30%</strong></li>
+                    </ul>
+                    <div class="stock-info">
+                        📦 Livraison rapide
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="current-promotions">
+            <h2>🔥 Produits Phares du Déstockage Alimentaire en Ligne</h2>
+            
+            <div class="featured-products">
+                <div class="product-card">
+                    <h3>Filet de Bœuf Charolais</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">45€/kg</span>
+                        <span class="new-price">18€/kg</span>
+                    </div>
+                    <div class="discount-badge">-60%</div>
+                    <p>Qualité boucherie - Livraison sous 48h</p>
+                </div>
+                
+                <div class="product-card">
+                    <h3>Champagne Brut Réserve</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">35€</span>
+                        <span class="new-price">17€</span>
+                    </div>
+                    <div class="discount-badge">-51%</div>
+                    <p>Maison réputée - Stock limité</p>
+                </div>
+                
+                <div class="product-card">
+                    <h3>Saumon Sauvage</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">28€/kg</span>
+                        <span class="new-price">12€/kg</span>
+                    </div>
+                    <div class="discount-badge">-57%</div>
+                    <p>Pêche durable - Surgelé premium</p>
+                </div>
+                
+                <div class="product-card">
+                    <h3>Jus d'Orange Pressé</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">4€</span>
+                        <span class="new-price">1.80€</span>
+                    </div>
+                    <div class="discount-badge">-55%</div>
+                    <p>100% pur jus - Sans additifs</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Comment Commander en Déstockage Alimentaire en Ligne ?</h2>
+            
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>📱 Parcourir le Catalogue</h3>
+                    <p>Explorez notre large sélection de produits en <strong>déstockage alimentaire en ligne</strong>. Filtrez par catégorie, prix ou promotion.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>🛒 Ajouter au Panier</h3>
+                    <p>Sélectionnez les produits qui vous intéressent et ajoutez-les à votre panier. Quantités limitées disponibles.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>🚚 Livraison Express</h3>
+                    <p>Choisissez votre créneau de livraison. Recevez vos produits en <strong>24-48h</strong> partout en France.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>💳 Paiement Sécurisé</h3>
+                    <p>Réglez en toute sécurité par carte bancaire, PayPal ou virement. 100% sécurisé.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <h2>Avantages du Déstockage Alimentaire en Ligne</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>⏱️ Gain de Temps</h3>
+                    <p>Fini les files d'attente en magasin. Commandez votre <strong>déstockage alimentaire</strong> en quelques clics, 24h/24 et 7j/7.</p>
+                </div>
+                
+                <div class="advantage-item">
+                    <h3>💸 Économies Réelles</h3>
+                    <p>Réduisez votre budget courses de 30% à 70% grâce à notre <strong>déstockage alimentaire en ligne</strong> permanent.</p>
+                </div>
+                
+                <div class="advantage-item">
+                    <h3>🌱 Lutte Anti-Gaspillage</h3>
+                    <p>En achetant en <strong>déstockage alimentaire</strong>, vous participez activement à la réduction du gaspillage alimentaire.</p>
+                </div>
+                
+                <div class="advantage-item">
+                    <h3>🏠 Confort Domestique</h3>
+                    <p>Recevez vos courses directement chez vous, sans effort. Emballages adaptés pour une parfaite conservation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>🎯 Ils Ont Testé Notre Déstockage Alimentaire en Ligne</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"J'ai économisé 65€ sur ma commande de viandes. <strong>Déstockage alimentaire exceptionnel</strong> et livraison ultra-rapide !"</p>
+                    <div class="client">Marie L., Paris</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Qualité irréprochable pour des <strong>prix de déstockage incroyables</strong>. Je recommande à 100% !"</p>
+                    <div class="client">Pierre D., Lyon</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Livraison express et produits frais. <strong>Meilleur déstockage alimentaire en ligne</strong> que j'ai testé."</p>
+                    <div class="client">Sophie M., Bordeaux</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgent-cta">
+            <div class="urgent-banner">
+                <h2>⏰ URGENT : Déstockage Alimentaire en Ligne - Stocks Limités</h2>
+                <p>Les produits partent vite ! Ne manquez pas cette opportunité de faire jusqu'à <strong>70% d'économies</strong> sur vos courses.</p>
+                
+                <div class="countdown-timer">
+                    <div class="timer-item">
+                        <span class="timer-number">02</span>
+                        <span class="timer-label">Jours</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number">14</span>
+                        <span class="timer-label">Heures</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number">38</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="{{ url_for('product_list') }}" class="cta-button primary">
+                        🛒 Voir Tous les Produits en Déstockage
+                    </a>
+                    <a href="{{ url_for('product_list') }}?category=viandes" class="cta-button secondary">
+                        🥩 Découvrir les Viandes à -60%
+                    </a>
+                </div>
+                
+                <div class="guarantees">
+                    <div class="guarantee-item">🚚 Livraison 24-48h</div>
+                    <div class="guarantee-item">💳 Paiement sécurisé</div>
+                    <div class="guarantee-item">✅ Qualité garantie</div>
+                    <div class="guarantee-item">💰 Meilleur prix</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>FAQ : Déstockage Alimentaire en Ligne</h2>
+            
+            <div class="faq-item">
+                <h3>Qu'est-ce que le déstockage alimentaire en ligne ?</h3>
+                <p>Le <strong>déstockage alimentaire en ligne</strong> consiste à vendre des produits alimentaires à prix réduits (jusqu'à -70%) pour écouler des stocks excédentaires, via une plateforme internet avec livraison à domicile.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>La qualité des produits est-elle garantie ?</h3>
+                <p>Absolument ! Tous nos produits de <strong>déstockage alimentaire</strong> sont parfaitement consommables, avec des dates de péremption contrôlées et une qualité identique aux produits plein prix.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quels sont les délais de livraison ?</h3>
+                <p>Nous assurons une <strong>livraison express en 24-48h</strong> partout en France métropolitaine. Livraison offerte dès 49€ d'achat.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Peut-on commander en grande quantité ?</h3>
+                <p>Oui, notre <strong>déstockage alimentaire en ligne</strong> permet les commandes en volume pour les particuliers et professionnels. Des remises supplémentaires sont appliquées sur les grosses quantités.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #2c5530;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #4a7c59;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.3rem;
+}
+
+.urgent-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+}
+
+.urgent-banner h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.benefits-grid, .categories-grid, .advantages-grid, .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item, .category-card, .advantage-item, .testimonial-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover, .category-card:hover, .advantage-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.savings-highlight, .delivery-highlight, .quality-highlight {
+    background: #fff3cd;
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border-left: 4px solid #ffc107;
+    font-weight: bold;
+}
+
+.stock-info {
+    background: #4a7c59;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.current-promotions {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.featured-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.product-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.price-comparison {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1rem;
+    display: block;
+}
+
+.new-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc3545;
+    display: block;
+}
+
+.discount-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.step-number {
+    background: #4a7c59;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.testimonials-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.client {
+    font-weight: bold;
+    color: #4a7c59;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.urgent-cta {
+    margin: 3rem 0;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.timer-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.timer-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 250px;
+}
+
+.cta-button.primary {
+    background: white;
+    color: #dc3545;
+    font-size: 1.1rem;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.guarantees {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.guarantee-item {
+    background: rgba(255,255,255,0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.faq-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid, .categories-grid, .advantages-grid, .testimonials-grid, 
+    .featured-products, .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .guarantees {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    
+    .timer-item {
+        min-width: 60px;
+        padding: 0.8rem;
+    }
+    
+    .timer-number {
+        font-size: 1.5rem;
+    }
+}
+</style>
+{% endblock %}
