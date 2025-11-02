@@ -3547,6 +3547,80 @@ def discount_alimentaire_25():
         description="Accédez aux meilleures offres de discount alimentaire en 2025 : produits à prix réduits et astuces pour économiser."
     )
 
+
+
+@app.route('/discount-alimentaire-ultra-mega-indexe')
+def discount_alimentaire_ultra():
+    seo = {
+        "title": "Discount Alimentaire Ultra : Offres Méga Indexées -70% | Destockage Alimentaire",
+        "description": "🔥 Découvrez le discount alimentaire ultra indexé : produits en gros et fins de séries jusqu’à -70%, livraison en France et Belgique.",
+        "url": "https://www.destockagealimentairestore.com/discount-alimentaire-ultra-mega-indexe",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/discount-alimentaire-ultra.webp",
+        "keywords": "discount alimentaire, destockage, promo alimentaire, prix cassés, vente en gros"
+    }
+    return render_template('blog/discount-alimentaire-ultra.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-paris-11-2025')
+def destockage_alimentaire_paris_11_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Paris 11 (2025) : Promotions -70% | Destockage Alimentaire",
+        "description": "🗼 Découvrez notre déstockage alimentaire à Paris 11 en 2025 : produits à prix cassés, épicerie, boissons et gros volumes.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-11-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-paris-11.webp",
+        "keywords": "destockage alimentaire Paris 11, déstockage 2025, promo alimentaire Paris, vente en gros Paris"
+    }
+    return render_template('blog/destockage-alimentaire-paris-11-2025.html', seo=seo)
+
+
+@app.route('/achat-ruinart-blanc-de-blancs-112025')
+def achat_ruinart_blanc_de_blancs_112025():
+    seo = {
+        "title": "Achat Ruinart Blanc de Blancs Novembre 2025 | Champagne en Gros Pas Cher",
+        "description": "🍾 Achetez le Ruinart Blanc de Blancs en gros - Édition Novembre 2025. Livraison rapide en France et Belgique, prix professionnel.",
+        "url": "https://www.destockagealimentairestore.com/achat-ruinart-blanc-de-blancs-112025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-blanc-112025.webp",
+        "keywords": "ruinart blanc de blancs, champagne en gros, ruinart pas cher, achat champagne 2025"
+    }
+    return render_template('blog/achat-ruinart-blanc-de-blancs-112025.html', seo=seo)
+
+
+@app.route('/blog/champagne-pas-cher-112025')
+def champagne_pas_cher_112025():
+    seo = {
+        "title": "Champagne Pas Cher : Les Meilleures Offres 2025 | Destockage Alimentaire",
+        "description": "🥂 Découvrez notre sélection de champagnes pas chers en 2025 : Ruinart, Moët, Veuve Clicquot à prix discount, livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-pas-cher",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-pas-cher.webp",
+        "keywords": "champagne pas cher, champagne en gros, ruinart pas cher, moët discount, champagne destockage"
+    }
+    return render_template('blog/champagne-pas-cher-112025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-ligne-2025')
+def destockage_alimentaire_en_ligne_2025():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne 2025 : Jusqu’à -70% | Destockage Alimentaire Store",
+        "description": "💥 Achetez malin en 2025 avec notre déstockage alimentaire en ligne : produits de qualité à prix cassés, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-en-ligne-2025.webp",
+        "keywords": "destockage alimentaire, déstockage en ligne, produits pas chers, promo alimentaire 2025"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-ligne-pour-particulier-2025')
+def destockage_alimentaire_en_ligne_particulier_2025():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne Particulier 2025 | Économisez -70%",
+        "description": "🛒 Découvrez le déstockage alimentaire pour particulier en 2025 : prix cassés, grandes marques et produits de qualité.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-pour-particulier-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-particulier-2025.webp",
+        "keywords": "destockage alimentaire particulier, destockage en ligne, promo alimentaire 2025, réduction alimentaire"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-pour-particulier-2025.html', seo=seo)
+
+
 @app.route('/destockage-belgiquebbelge')
 def destockage_belgique25():
     return render_template(
@@ -5020,7 +5094,7 @@ def sitemap():
         '/blog/france-degockage-alimentaire', '/destockage-en-gros', 
         '/blog/magasins-alcool-france',
         '/blog/boissons-gros-pas-cher-25',
-        '/blog/achat-champagne-gros-25',
+        '/blog/achat-champagne-gros-25','/blog/destockage-alimentaire-en-ligne-pour-particulier-2025','/blog/destockage-alimentaire-en-ligne-2025','/blog/champagne-pas-cher-112025','/achat-ruinart-blanc-de-blancs-112025','/blog/destockage-alimentaire-paris-11-2025','/discount-alimentaire-ultra-mega-indexe',
         '/blog/champagne-brut-secrets-degustation',
         '/blog/guide-discount-alimentaire',
         '/blog/achat-biere-en-ligne',
