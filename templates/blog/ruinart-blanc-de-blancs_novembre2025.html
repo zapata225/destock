@@ -1,0 +1,517 @@
+{% extends "base.html" %}
+
+{% block page_title %}Ruinart Blanc de Blancs : Prix, Avis & Où Acheter | Champagne d'Exception 2024{% endblock %}
+
+{% block meta_description %}Découvrez le Ruinart Blanc de Blancs 2024 : champagne 100% Chardonnay. Meilleur prix garanti, livraison rapide. Achetez maintenant et économisez 15% !{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Ruinart Blanc de Blancs : Champagne Prestige 100% Chardonnay | Prix Exceptionnel">
+<meta property="og:description" content="Commander Ruinart Blanc de Blancs au meilleur prix. Livraison offerte dès 2 bouteilles. Champagne d'exception disponible immédiatement.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/ruinart-blanc-de-blancs">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/ruinart-blanc-de-blancs.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ruinart Blanc de Blancs : Champagne Prestige -15% IMMÉDIAT">
+<meta name="twitter:description" content="Ruinart Blanc de Blancs en PROMO. Prix choc + livraison offerte. Stock limité, commandez vite !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/ruinart-blanc-de-blancs.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/ruinart-blanc-de-blancs" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Ruinart Blanc de Blancs Champagne",
+  "image": "{{ url_for('static', filename='images/blog/ruinart-blanc-de-blancs.jpg') }}",
+  "description": "Champagne Ruinart Blanc de Blancs 100% Chardonnay - Cuvée d'exception au meilleur prix",
+  "brand": {
+    "@type": "Brand",
+    "name": "Ruinart"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
+    "priceCurrency": "EUR",
+    "price": "75",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Destockage Alimentaire"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Product">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Ruinart Blanc de Blancs</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">Ruinart Blanc de Blancs : Le Champagne 100% Chardonnay d'Exception</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <!-- BANNER URGENCE PROMO -->
+            <div class="urgent-promo-banner">
+                <div class="promo-content">
+                    <span class="urgent-badge">🚨 PROMO FLASH</span>
+                    <span class="promo-text">RUINART BLANC DE BLANCS -15% IMMÉDIAT</span>
+                    <span class="promo-timer">⏳ Offre expire dans 2h</span>
+                </div>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/ruinart-blanc-de-blancs.jpg') }}" 
+                     alt="Ruinart Blanc de Blancs champagne 100% chardonnay prix promo immédiate" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">CHAMPAGNE RUINART BLANC DE BLANCS -15% MAINTENANT</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <!-- SECTION PROMO ULTRA CONVERSION -->
+        <section class="conversion-section">
+            <div class="conversion-grid">
+                <div class="conversion-card">
+                    <div class="price-display">
+                        <div class="old-price">89€</div>
+                        <div class="new-price">75€</div>
+                        <div class="economy-badge">Économisez 14€</div>
+                    </div>
+                    <div class="urgency-indicators">
+                        <div class="stock-warning">
+                            <span class="stock-icon">📦</span>
+                            <span class="stock-text">Plus que 12 bouteilles en stock</span>
+                        </div>
+                        <div class="delivery-info">
+                            <span class="delivery-icon">🚚</span>
+                            <span class="delivery-text">Livraison OFFERTE dès 2 bouteilles</span>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('product_list') }}" class="cta-button-big">
+                        <span class="cta-main">ACHETER MAINTENANT</span>
+                        <span class="cta-sub">-15% APPLIQUÉ AUTOMATIQUEMENT</span>
+                    </a>
+                    <div class="trust-badges">
+                        <div class="trust-item">✅ Paiement sécurisé</div>
+                        <div class="trust-item">✅ Livraison 24/48h</div>
+                        <div class="trust-item">✅ Retour gratuit</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-highlights">
+            <h2>Pourquoi Choisir le Ruinart Blanc de Blancs ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>🍇 100% Chardonnay Pur</h3>
+                    <p>Le <strong>Ruinart Blanc de Blancs</strong> est élaboré exclusivement à partir de Chardonnay, offrant une finesse et une élégance incomparables. Cépage roi de la Champagne, il confère au champagne des arômes délicats d'agrumes et de fleurs blanches.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>⭐ Maison Fondée en 1729</h3>
+                    <p><strong>Ruinart</strong> est la <strong>plus ancienne maison de champagne</strong> encore en activité. Un savoir-faire ancestral qui garantit une qualité exceptionnelle et une constance dans l'excellence.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🏆 Notes Exceptionnelles</h3>
+                    <p>Noté <strong>94/100</strong> par Robert Parker, le <strong>Ruinart Blanc de Blancs</strong> est reconnu internationalement comme l'un des meilleurs champagnes de sa catégorie.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tasting-notes">
+            <h2>Caractéristiques du Ruinart Blanc de Blancs</h2>
+            
+            <div class="tasting-grid">
+                <div class="tasting-card">
+                    <h3>👃 Nez</h3>
+                    <p>Arômes complexes de <strong>citron vert, pêche blanche et acacia</strong> avec des notes minérales caractéristiques.</p>
+                </div>
+                
+                <div class="tasting-card">
+                    <h3>👅 Bouche</h3>
+                    <p>Attaque fraîche et vive, <strong>texture crémeuse</strong>, finale longue sur des notes d'agrumes confits et de pain grillé.</p>
+                </div>
+                
+                <div class="tasting-card">
+                    <h3>🕒 Garde</h3>
+                    <p>Potentiel de garde exceptionnel : <strong>5 à 8 ans</strong> pour développer des arômes encore plus complexes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION AVIS CLIENTS -->
+        <section class="reviews-section">
+            <h2>Ils Ont Adoré Leur Ruinart Blanc de Blancs</h2>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer">Marie L.</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text">"Commande reçue en 24h ! Le champagne est exceptionnel, bien supérieur à ce que j'espérais. Je recommande à 100%."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer">Pierre D.</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text">"Prix imbattable pour cette qualité. Emballage soigné, livraison rapide. Je reviendrai !"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer">Sophie M.</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text">"Parfait pour notre anniversaire de mariage. La promotion -15% était une vraie bonne affaire."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION URGENCE FINALE -->
+        <section class="final-urgency">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h3>🚨 DERNIÈRE OPPORTUNITÉ</h3>
+                    <p>Le stock de <strong>Ruinart Blanc de Blancs</strong> s'épuise rapidement</p>
+                    <div class="urgency-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">bouteilles restantes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2h</span>
+                            <span class="stat-label">avant fin de promo</span>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('product_list') }}" class="cta-button-final">
+                        <span class="cta-main">JE PROFITE DE -15%</span>
+                        <span class="cta-sub">PRIX GARANTI SEULEMENT MAINTENANT</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION FAQ ULTRA CONVERSION -->
+        <section class="faq-conversion">
+            <h2>Questions Fréquentes</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>📦 Livraison offerte ?</h3>
+                    <p><strong>OUI !</strong> Livraison GRATUITE dès 2 bouteilles de Ruinart Blanc de Blancs commandées. Livraison express 24/48h.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>💳 Paiement sécurisé ?</h3>
+                    <p><strong>ABSOLUMENT.</strong> Paiement 100% sécurisé CB, PayPal, virement. Cryptage SSL bancaire.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🔄 Satisfait ou remboursé ?</h3>
+                    <p><strong>GARANTIE 30 JOURS</strong> satisfait ou intégralement remboursé. Aucun risque !</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* STYLES ULTRA CONVERSION */
+.urgent-promo-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.promo-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.urgent-badge {
+    background: #ffd700;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.promo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.promo-timer {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.conversion-section {
+    margin: 2rem 0;
+}
+
+.conversion-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.conversion-card {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.price-display {
+    margin-bottom: 1.5rem;
+}
+
+.old-price {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.new-price {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.economy-badge {
+    background: #ffd700;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.urgency-indicators {
+    margin: 1.5rem 0;
+}
+
+.stock-warning, .delivery-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.cta-button-big {
+    display: block;
+    background: #ffd700;
+    color: #000;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cta-button-big:hover {
+    background: #ffed4a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+}
+
+.cta-main {
+    display: block;
+    font-size: 1.4rem;
+}
+
+.cta-sub {
+    display: block;
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.trust-item {
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.benefits-grid, .tasting-grid, .reviews-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item, .tasting-card, .review-card, .faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a7c59;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-rating {
+    color: #ffd700;
+}
+
+.final-urgency {
+    margin: 3rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.urgency-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 1.5rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.cta-button-final {
+    display: inline-block;
+    background: #ffd700;
+    color: #000;
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button-final:hover {
+    background: #ffed4a;
+    transform: scale(1.05);
+}
+
+.product-highlights h2, .tasting-notes h2, .reviews-section h2, .faq-conversion h2 {
+    color: #2c5530;
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .promo-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .benefits-grid, .tasting-grid, .reviews-grid, .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .urgency-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .conversion-card {
+        padding: 1.5rem;
+    }
+    
+    .new-price {
+        font-size: 2.5rem;
+    }
+    
+    .trust-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+{% endblock %}
