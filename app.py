@@ -3953,6 +3953,52 @@ def achat_gros():
         "keywords": "achat en gros, destockage alimentaire, grossiste alimentaire, achat palette alimentaire"
     }
     return render_template('achat-gros.html', seo=seo)
+@app.route('/blog/destockage-alimentaire-pro-novembre-2025')
+def destockage_alimentaire_pro_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Pro Novembre 2025 | Offres Spéciales -70%",
+        "description": "📦 Découvrez notre déstockage alimentaire professionnel en novembre 2025 : produits en gros à prix cassés, livraison rapide en France et Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-pro-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-pro-novembre-2025.webp",
+        "keywords": "destockage alimentaire pro, vente en gros novembre 2025, promo alimentaire professionnelle"
+    }
+    return render_template('blog/destockage-alimentaire-pro-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-ligne-novembre-2025')
+def destockage_alimentaire_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne Novembre 2025 | Jusqu’à -70%",
+        "description": "💥 Profitez du déstockage alimentaire en ligne novembre 2025 : produits de qualité à prix cassés, livraison rapide France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-en-ligne-novembre-2025.webp",
+        "keywords": "destockage alimentaire en ligne, promo alimentaire novembre 2025, produits pas chers en ligne"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/alcool-pas-cher-espagne-en-ligne')
+def alcool_pas_cher_espagne_en_ligne():
+    seo = {
+        "title": "Alcool Pas Cher Espagne en Ligne | Promotions 2025",
+        "description": "🍷 Découvrez nos offres d’alcool pas cher depuis l’Espagne : vins, spiritueux et champagnes à prix discount, livraison rapide France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/alcool-pas-cher-espagne-en-ligne",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/alcool-pas-cher-espagne.webp",
+        "keywords": "alcool pas cher Espagne, vente en ligne, vins pas chers, spiritueux discount"
+    }
+    return render_template('blog/alcool-pas-cher-espagne-en-ligne.html', seo=seo)
+
+
+@app.route('/blog/ruinart-blanc-de-blancs-novembre2025')
+def ruinart_blanc_de_blancs_novembre2025():
+    seo = {
+        "title": "Ruinart Blanc de Blancs Novembre 2025 | Champagne en Gros",
+        "description": "🍾 Achetez le Ruinart Blanc de Blancs édition novembre 2025 à prix professionnel. Livraison rapide France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/ruinart-blanc-de-blancs-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-blanc-novembre2025.webp",
+        "keywords": "ruinart blanc de blancs, champagne en gros, achat champagne novembre 2025, ruinart pas cher"
+    }
+    return render_template('blog/ruinart-blanc-de-blancs_novembre2025.html', seo=seo)
 
 
 # --- 8. CHAMPAGNE EN GROS 2025 ---
@@ -5092,7 +5138,10 @@ def sitemap():
         '/destockage-alimentaire-espagne', '/destockage-tf1-france24-actualites','/blog/achat-champagne-gros',
         '/article-ultra', '/fr/destockage-espagne', '/emeutes-agricoles-prix-alimentaires',
         '/blog/france-degockage-alimentaire', '/destockage-en-gros', 
-        '/blog/magasins-alcool-france',
+        '/blog/magasins-alcool-france','/blog/destockage-alimentaire-pro-novembre-2025',
+        '/blog/destockage-alimentaire-en-ligne-novembre-2025',
+        '/blog/alcool-pas-cher-espagne-en-ligne',
+        '/blog/ruinart-blanc-de-blancs-novembre2025',
         '/blog/boissons-gros-pas-cher-25',
         '/blog/achat-champagne-gros-25','/blog/destockage-alimentaire-en-ligne-pour-particulier-2025','/blog/destockage-alimentaire-en-ligne-2025','/blog/champagne-pas-cher-112025','/achat-ruinart-blanc-de-blancs-112025','/blog/destockage-alimentaire-paris-11-2025','/discount-alimentaire-ultra-mega-indexe',
         '/blog/champagne-brut-secrets-degustation',
