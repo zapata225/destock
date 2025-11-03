@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devis Professionnel - Destockage Alimentaire Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
         
@@ -165,23 +166,21 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            font-size: 13px;
+            font-size: 14px;
         }
         
         th {
             background: #f8f9fa;
             color: #2c3e50;
-            padding: 12px 10px;
+            padding: 14px 15px;
             text-align: left;
             font-weight: 600;
             border-bottom: 2px solid #e0e0e0;
-            font-size: 12px;
         }
         
         td {
-            padding: 12px 10px;
+            padding: 14px 15px;
             border-bottom: 1px solid #f0f0f0;
-            font-size: 12px;
         }
         
         tr:nth-child(even) {
@@ -205,7 +204,7 @@
         
         .grand-total td {
             border: none;
-            font-size: 14px;
+            font-size: 16px;
         }
         
         .ttc-badge {
@@ -223,7 +222,7 @@
             padding: 15px;
             border-radius: 6px;
             margin: 15px 0;
-            font-size: 13px;
+            font-size: 14px;
         }
         
         .price-breakdown p {
@@ -237,14 +236,14 @@
             padding: 20px;
             background: #f8f9fa;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 14px;
             border-left: 4px solid #2c3e50;
         }
         
         .terms h3 {
             margin-bottom: 15px;
             color: #2c3e50;
-            font-size: 14px;
+            font-size: 16px;
         }
         
         .terms ul {
@@ -259,7 +258,7 @@
             text-align: center;
             padding: 25px;
             background: #f8f9fa;
-            font-size: 13px;
+            font-size: 14px;
             color: #666;
             border-top: 1px solid #e0e0e0;
         }
@@ -284,22 +283,42 @@
             margin-top: 70px;
             padding-top: 8px;
             font-weight: 500;
-            font-size: 13px;
-        }
-        
-        .tva-detail {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 15px 0;
-            font-size: 13px;
-        }
-        
-        .tva-detail h4 {
-            color: #856404;
-            margin-bottom: 10px;
             font-size: 14px;
+        }
+        
+        .stamp {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .signature-img {
+            max-width: 270px;
+            height: auto;
+            margin: 10px 0;
+            transform: scale(1.5);
+            transform-origin: center;
+        }
+        
+        .stamp-img {
+            max-width: 180px;
+            height: auto;
+            margin: 10px 0;
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .qr-code img {
+            max-width: 150px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
         }
         
         .print-btn {
@@ -333,9 +352,9 @@
         }
         
         .product-details {
-            font-size: 11px;
+            font-size: 12px;
             color: #666;
-            margin-top: 3px;
+            margin-top: 5px;
         }
         
         .tva-mention {
@@ -345,58 +364,27 @@
             margin-top: 5px;
         }
         
-        .ean-code {
-            font-family: monospace;
-            font-size: 11px;
-            color: #2c3e50;
-            background: #f8f9fa;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-
-        /* Instructions d'impression */
-        .print-instructions {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: #e8f4fd;
-            border-radius: 8px;
-            border-left: 4px solid #2196F3;
-        }
-        
         @media print {
             body {
                 background: white;
                 padding: 0;
-                margin: 0;
             }
             
             .container {
                 box-shadow: none;
-                margin: 0;
-                max-width: 100%;
             }
             
-            .print-btn, .print-instructions {
+            .print-btn {
                 display: none;
             }
             
             .watermark {
                 opacity: 0.1;
             }
-            
-            /* Supprime les URLs */
-            a[href]:after {
-                content: none !important;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="print-instructions">
-        <p><strong>💡 Pour imprimer :</strong> Cliquez sur le bouton "Imprimer" ci-dessous, ou utilisez <kbd>Ctrl+P</kbd> (Windows) / <kbd>Cmd+P</kbd> (Mac)</p>
-    </div>
-
     <div class="container">
         <div class="watermark">DESTOCKAGE ALIMENTAIRE STORE</div>
         
@@ -410,7 +398,7 @@
                     <div class="company-details">
                         <i class="fas fa-map-marker-alt"></i> 87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France<br>
                         <i class="fas fa-warehouse"></i> Entrepôt logistique : 4 Allée de la Tourelle 13127 Vitrolles, France<br>
-                        <i class="fas fa-phone"></i> Tél: 06 44 69 72 12 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr<br>
+                        <i class="fas fa-phone"></i> Tél: 0644694515 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr<br>
                         <i class="fas fa-id-card"></i> SIRET: 90057360100011 | TVA: FR88900573601 | <i class="fas fa-euro-sign"></i> Capital social: 50 000,00 €
                     </div>
                 </div>
@@ -424,17 +412,17 @@
         </div>
         
         <div class="document-title">
-            <i class="fas fa-file-invoice-dollar"></i> DEVIS N° DS-2024-TGT-015
+            <i class="fas fa-file-invoice-dollar"></i> DEVIS N° DS-2025-COCA-024
         </div>
         
         <div class="content">
             <div class="section">
                 <h2 class="section-title">INFORMATIONS DU DEVIS</h2>
                 <div class="info-details">
-                    <p><strong>Date d'émission:</strong> <span id="current-date">15 novembre 2024</span></p>
+                    <p><strong>Date d'émission:</strong> <span id="current-date"></span></p>
                     <p><strong>Validité du devis:</strong> 30 jours</p>
-                    <p><strong>Référence:</strong> DS-TGT-MULTIPRODUITS</p>
-                    <p class="tva-mention"><i class="fas fa-info-circle"></i> Tous les montants sont indiqués en TTC</p>
+                    <p><strong>Référence:</strong> DS-COCA-COLA-CONTAINER</p>
+                    <p class="tva-mention"><i class="fas fa-info-circle"></i> Coca-Cola: TVA 20% incluse | Transport: TVA 20% incluse</p>
                 </div>
             </div>
             
@@ -443,17 +431,17 @@
                 <div class="client-info">
                     <div class="info-block">
                         <h3>Adresse de facturation</h3>
-                        <p><strong>Too Good To Go</strong></p>
-                        <p>12 rue Duhesme</p>
-                        <p>75018 Paris</p>
-                        <p>Contact: Y. Gonaba</p>
-                        <p>Tél: 06 87 05 18 36</p>
-                        <p>Email: ygonaba@toogoodtogo.com</p>
+                        <p><strong>Monsieur Klaai</strong></p>
+                        <p>37 Rue Robert Bunsen</p>
+                        <p>57600 Folkling, France</p>
+                        <p>Contact: Monsieur Klaai</p>
+                        <p>Email: hamzaklaai@didon-business.com </p>
                     </div>
                     <div class="info-block">
                         <h3>Adresse de livraison</h3>
-                        <p>32 Rue d'Anjou</p>
-                        <p>38070 Saint-Quentin-Fallavier</p>
+                        <p><strong>Monsieur Klaai</strong></p>
+                        <p>37 Rue Robert Bunsen</p>
+                        <p>57600 Folkling, France</p>
                         <p><strong>Livraison à quai</strong></p>
                         <p><strong>Déchargement par le client</strong></p>
                     </div>
@@ -461,141 +449,134 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">DÉTAILS DES PRODUITS <span class="ttc-badge">TTC</span></h2>
+                <h2 class="section-title">DÉTAILS DE LA PRESTATION <span class="ttc-badge">TTC</span></h2>
                 
                 <table>
                     <thead>
                         <tr>
-                            <th>Produit</th>
+                            <th>Désignation</th>
                             <th>Quantité</th>
-                            <th>EAN</th>
-                            <th>DDM</th>
-                            <th>TVA</th>
+                            <th>Prix unitaire (€ TTC)</th>
                             <th>Total (€ TTC)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Nutella Pot 1kg</strong><br><span class="product-details">8 palettes</span></td>
-                            <td>6 000 pots</td>
-                            <td><span class="ean-code">4008400401829</span></td>
-                            <td>Janv-Avr 2027</td>
-                            <td>5,5%</td>
-                            <td>12 288,00 €</td>
+                            <td>
+                                <strong>Coca-Cola 33 cl (production européenne)</strong>
+                                <div class="product-details">
+                                    Production européenne<br>
+                                    Conditionnement: Conteneur 40 ft (24 palettes)<br>
+                                    <span style="color: #e74c3c;">TVA 20% incluse</span>
+                                </div>
+                            </td>
+                            <td>24 palettes</td>
+                            <td>1 096,00 €</td>
+                            <td>26 304,00 €</td>
                         </tr>
                         <tr>
-                            <td><strong>Lindt Dubai Style 145g</strong><br><span class="product-details">5 lots</span></td>
-                            <td>500 boîtes</td>
-                            <td><span class="ean-code">4000539150920</span></td>
-                            <td>Août-Oct 2026</td>
-                            <td>20%</td>
-                            <td>3 450,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pâtes Penne Panzani 1kg</strong><br><span class="product-details">9 lots</span></td>
-                            <td>450 paquets</td>
-                            <td><span class="ean-code">3038350001754</span></td>
-                            <td>Oct 2028</td>
-                            <td>5,5%</td>
-                            <td>810,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Biscuit Nutella 220g</strong><br><span class="product-details">2 palettes</span></td>
-                            <td>2 400 paquets</td>
-                            <td><span class="ean-code">8000500310427</span></td>
-                            <td>Juil-Oct 2026</td>
-                            <td>5,5%</td>
-                            <td>2 592,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Biscuit Granola 200g</strong><br><span class="product-details">1 palette</span></td>
-                            <td>672 paquets</td>
-                            <td><span class="ean-code">7622300689124</span></td>
-                            <td>Juil-Oct 2026</td>
-                            <td>5,5%</td>
-                            <td>480,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lipton Ice Tea Pêche</strong><br><span class="product-details">1 palette</span></td>
-                            <td>2 592 canettes</td>
-                            <td><span class="ean-code">3502110001894</span></td>
-                            <td>Oct 2026</td>
-                            <td>20%</td>
-                            <td>1 263,60 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Coca-Cola Zero</strong><br><span class="product-details">1 palette</span></td>
-                            <td>2 592 canettes</td>
-                            <td><span class="ean-code">5449000131805</span></td>
-                            <td>Oct 2026</td>
-                            <td>20%</td>
-                            <td>890,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Schweppes Pomme</strong><br><span class="product-details">1 palette</span></td>
-                            <td>2 592 canettes</td>
-                            <td><span class="ean-code">3701018046611</span></td>
-                            <td>Oct 2026-Janv 2027</td>
-                            <td>20%</td>
-                            <td>1 110,00 €</td>
+                            <td>
+                                <strong>Transport et logistique</strong>
+                                <div class="product-details">
+                                    Livraison à quai - Déchargement client<br>
+                                    Transport sécurisé<br>
+                                    <span style="color: #e74c3c;">TVA 20% incluse</span>
+                                </div>
+                            </td>
+                            <td>1 livraison</td>
+                            <td>359,00 €</td>
+                            <td>359,00 €</td>
                         </tr>
                         <tr class="total-row">
-                            <td colspan="5" style="text-align: right;"><strong>SOUS-TOTAL PRODUITS TTC</strong></td>
-                            <td><strong>22 883,60 €</strong></td>
+                            <td colspan="3" style="text-align: right;"><strong>SOUS-TOTAL TTC</strong></td>
+                            <td><strong>26 663,00 €</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right;">Dont TVA Coca-Cola (20%)</td>
+                            <td>4 384,00 €</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right;">Dont TVA Transport (20%)</td>
+                            <td>59,83 €</td>
+                        </tr>
+                        <tr class="grand-total">
+                            <td colspan="3" style="text-align: right;"><strong>TOTAL TTC À FACTURER</strong></td>
+                            <td><strong>26 663,00 €</strong></td>
                         </tr>
                     </tbody>
                 </table>
-
-                <div class="tva-detail">
-                    <h4><i class="fas fa-receipt"></i> DÉCOMPOSITION DU MONTANT TTC</h4>
-                    <p><strong>Total HT produits</strong> : <span style="float: right;">19 108,60 €</span></p>
-                    <p><strong>TVA 5,5%</strong> (Nutella, Pâtes, Biscuits) : <span style="float: right;">1 051,00 €</span></p>
-                    <p><strong>TVA 20%</strong> (Lindt, Boissons) : <span style="float: right;">2 724,00 €</span></p>
-                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total TTC : <span style="float: right;">22 883,60 €</span></p>
-                    <p style="font-size: 12px; color: #666;">(HT + TVA 5,5% + TVA 20%)</p>
+                
+                <div class="price-breakdown">
+                    <p><strong>Récapitulatif de la commande :</strong></p>
+                    <p>Coca-Cola 33 cl : <span style="float: right;">24 palettes = 26 304,00 € TTC</span></p>
+                    <p>Transport : <span style="float: right;">359,00 € TTC</span></p>
+                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">26 663,00 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA Coca-Cola 20% : <span style="float: right;">4 384,00 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA Transport 20% : <span style="float: right;">59,83 €</span></p>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">CONDITIONS COMMERCIALES</h2>
+                <h2 class="section-title">CONDITIONS COMMERCIALES ET FINANCIÈRES</h2>
                 <div class="terms">
                     <h3>Modalités de paiement</h3>
                     <ul>
-                        <li>Virement bancaire</li>
-                        <li>Paiement à 30 jours fin de mois</li>
+                        <li>Paiement par virement bancaire</li>
+                        <li>Possibilité de régler soit comptant, soit 50 % à la commande et 50 % à la livraison</li>
                     </ul>
+                    
+                    
                     
                     <h3>Conditions de livraison</h3>
                     <ul>
-                        <li>Livraison à quai - Déchargement par le client</li>
-                        <li>Délai de livraison: 2 à 5 jours ouvrés</li>
+                        <li>Déchargement par le client</li>
+                        <li>Délai de livraison: 3 à 5 jours ouvrés après confirmation</li>
                         <li>Heures de livraison: 8h00 - 16h00 du lundi au vendredi</li>
+                        <li>Frais de transport: 359,00 € TTC</li>
                     </ul>
                     
-                    <h3>Informations produits</h3>
+                    <h3>Garanties et conditions</h3>
                     <ul>
-                        <li>DDM garanties comme indiqué</li>
-                        <li>Produits conformes aux normes françaises</li>
-                        <li>Emballages d'origine intacts</li>
-                        <li>EAN vérifiés et validés</li>
+                        <li>Produits conformes aux spécifications</li>
+                        <li>Emballage d'origine intact - Palettes sécurisées</li>
+                        <li>Réserves à formuler dans les 24h suivant la livraison</li>
+                        <li>Les prix sont fermes pendant la durée de validité du devis</li>
+                        <li>Coca-Cola: TVA 20% incluse | Transport: TVA 20% incluse</li>
                     </ul>
                 </div>
             </div>
             
+            <div class="qr-code">
+                <p><strong>Scannez pour visiter notre site web</strong></p>
+                <div id="qrcode"></div>
+                <p style="margin-top: 15px; font-weight: 600;">destockagealimentairestore.com</p>
+            </div>
+            
+            <div class="signature-area">
                 <div class="signature-box">
                     <p>Bon pour accord du client</p>
+                    <div style="height: 100px; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="border-bottom: 1px solid #2c3e50; width: 200px;"></div>
+                    </div>
                     <div class="signature-line">Date et signature</div>
+                    <div class="stamp">
+                        <p>Cachet de l'entreprise cliente</p>
+                        <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                            Monsieur Klaai<br>
+                            37 Rue Robert Bunsen, 57600 Folkling
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="footer">
             <p>Destockage Alimentaire Store - SAS au capital de 50 000,00 € - RCS Libourne 900 573 601</p>
-            <p>87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France - contact@destockagealimentaire.fr </p>
+            <p>87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France - contact@destockagealimentaire.fr - 0644694515</p>
         </div>
     </div>
     
-    <button class="print-btn" onclick="printDevis()">
+    <button class="print-btn" onclick="window.print()">
         <i class="fas fa-print"></i> Imprimer ce devis
     </button>
 
@@ -603,22 +584,21 @@
         // Ajout automatique de la date du jour
         document.addEventListener('DOMContentLoaded', function() {
             const today = new Date();
-            const options = { day: '2-digit', month: 'long', year: 'numeric' };
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
             const dateString = today.toLocaleDateString('fr-FR', options);
+            
+            // Mettre à jour la date dans le document
             document.getElementById('current-date').textContent = dateString;
-        });
-
-        // Fonction d'impression simplifiée
-        function printDevis() {
-            window.print();
-        }
-
-        // Raccourci clavier pour l'impression
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-                e.preventDefault();
-                printDevis();
-            }
+            
+            // Générer le QR Code
+            const qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "https://destockagealimentairestore.com",
+                width: 150,
+                height: 150,
+                colorDark: "#2c3e50",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
         });
     </script>
 </body>
