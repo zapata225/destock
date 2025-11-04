@@ -1,0 +1,740 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire en Ligne : Économies jusqu'à -70% | Livraison Rapide{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire en ligne avec des promotions jusqu'à -70%. Produits alimentaires à prix cassés, livraison gratuite. Économisez sur vos courses dès maintenant!{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire en Ligne : Économies jusqu'à -70% | Livraison Rapide">
+<meta property="og:description" content="Déstockage alimentaire en ligne avec des promotions exceptionnelles. Produits à prix discount, livraison offerte. Commandez maintenant et économisez!">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire en Ligne : Économies jusqu'à -70%">
+<meta name="twitter:description" content="Déstockage alimentaire en ligne avec prix cassés. Livraison rapide, produits frais. Économisez maintenant!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne"
+  },
+  "headline": "Déstockage Alimentaire en Ligne : Économies jusqu'à -70% | Livraison Rapide",
+  "description": "Déstockage alimentaire en ligne avec promotions exceptionnelles jusqu'à -70%. Produits alimentaires à prix discount, livraison offerte.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "destockage alimentaire en ligne, destockage alimentaire, produits alimentaires pas cher, promotion alimentaire, courses pas chères en ligne"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Déstockage Alimentaire</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Déstockage Alimentaire en Ligne : Économisez jusqu'à 70% sur vos Courses!</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 4 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne.jpg') }}" 
+                     alt="Déstockage alimentaire en ligne - économies jusqu'à 70% produits alimentaires prix cassés" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Économisez jusqu'à 70% sur vos courses avec notre déstockage alimentaire en ligne</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <div class="urgent-content">
+                    <span class="urgent-badge">🚨 URGENT</span>
+                    <span class="urgent-text">Promotions exceptionnelles en cours - Stocks limités!</span>
+                </div>
+            </div>
+            
+            <p>Découvrez le <strong>déstockage alimentaire en ligne</strong> révolutionnaire qui vous fait économiser jusqu'à <strong>70% sur vos courses</strong>. Commandez vos <strong>produits alimentaires à prix cassés</strong> et profitez de la <strong>livraison rapide</strong> à domicile.</p>
+            
+            <div class="conversion-grid">
+                <div class="conversion-card">
+                    <div class="conversion-icon">💰</div>
+                    <h3>Économies Garanties</h3>
+                    <p>Jusqu'à <strong>70% de réduction</strong> sur des centaines de produits</p>
+                </div>
+                
+                <div class="conversion-card">
+                    <div class="conversion-icon">🚚</div>
+                    <h3>Livraison Express</h3>
+                    <p>Livraison en <strong>24-48h</strong> partout en France</p>
+                </div>
+                
+                <div class="conversion-card">
+                    <div class="conversion-icon">⭐</div>
+                    <h3>Qualité Premium</h3>
+                    <p>Produits de <strong>qualité supérieure</strong> à prix discount</p>
+                </div>
+                
+                <div class="conversion-card">
+                    <div class="conversion-icon">🛒</div>
+                    <h3>Commandez Maintenant</h3>
+                    <p><strong>Paiement sécurisé</strong> et satisfaction garantie</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgent-cta">
+            <div class="urgent-container">
+                <h2>🚨 PROMOTIONS URGENTES EN COURS 🚨</h2>
+                <p class="urgent-subtitle">Stocks limités - Ne manquez pas ces offres exceptionnelles!</p>
+                
+                <div class="promotion-grid">
+                    <div class="promo-item urgent">
+                        <div class="promo-badge">-70%</div>
+                        <h4>Produits Frais</h4>
+                        <p>Fruits, légumes, viandes à prix cassés</p>
+                        <div class="stock-indicator">
+                            <span class="stock-low">Stock très limité</span>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item urgent">
+                        <div class="promo-badge">-60%</div>
+                        <h4>Épicerie Fine</h4>
+                        <p>Conserves, pâtes, sauces premium</p>
+                        <div class="stock-indicator">
+                            <span class="stock-medium">Stock moyen</span>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item urgent">
+                        <div class="promo-badge">-50%</div>
+                        <h4>Boissons</h4>
+                        <p>Vins, jus, sodas à prix discount</p>
+                        <div class="stock-indicator">
+                            <span class="stock-low">Stock très limité</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-cta">
+                    <h3>🛒 Commandez Maintenant et Économisez!</h3>
+                    <p>Ne laissez pas ces prix incroyables vous échapper. Commandez dès maintenant et profitez de nos meilleures offres de <strong>déstockage alimentaire en ligne</strong>.</p>
+                    <a href="{{ url_for('product_list') }}" class="cta-button mega-button">
+                        <span class="cta-main">VOIR TOUS LES PRODUITS</span>
+                        <span class="cta-sub">Économies jusqu'à 70% - Livraison rapide</span>
+                    </a>
+                    <div class="urgency-notice">
+                        <span class="urgency-icon">⏰</span>
+                        <span><strong>ATTENTION :</strong> Ces promotions prennent fin bientôt. Stocks limités!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pourquoi Choisir Notre Déstockage Alimentaire en Ligne ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>💰 Économies Exceptionnelles</h3>
+                    <p>Notre <strong>déstockage alimentaire en ligne</strong> vous offre des réductions allant jusqu'à <strong>70%</strong> sur des produits de qualité. Nous travaillons directement avec les producteurs pour vous proposer les meilleurs prix.</p>
+                    <div class="savings-example">
+                        <strong>Exemple concret :</strong> Panier de 100€ → seulement 30€!
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🚚 Livraison Ultra-Rapide</h3>
+                    <p>Contrairement à d'autres services de <strong>déstockage alimentaire</strong>, nous garantissons une <strong>livraison en 24-48h</strong>. Vos produits arrivent frais et en parfait état.</p>
+                    <div class="delivery-highlight">
+                        <strong>Livraison OFFERTE</strong> dès 50€ d'achat
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>⭐ Produits de Qualité</h3>
+                    <p>Tous nos produits proviennent de fournisseurs certifiés. Le <strong>déstockage</strong> ne signifie pas qualité inférieure, mais simplement opportunité d'achat.</p>
+                    <div class="quality-badge">
+                        <strong>100% satisfait ou remboursé</strong>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🛒 Commande Simplifiée</h3>
+                    <p>Notre plateforme de <strong>déstockage alimentaire en ligne</strong> est intuitive et sécurisée. Commandez en quelques clics depuis votre canapé.</p>
+                    <div class="security-badge">
+                        <strong>Paiement 100% sécurisé</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <h2>🎉 Ils nous Font Confiance</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p>"J'ai économisé 120€ sur mon mois de courses grâce au <strong>déstockage alimentaire en ligne</strong>. Incroyable!"</p>
+                        <div class="client-info">
+                            <strong>Marie L.</strong>
+                            <span>Client fidèle</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p>"Livraison rapide et produits de qualité. Le <strong>déstockage alimentaire</strong> a révolutionné mes courses."</p>
+                        <div class="client-info">
+                            <strong>Pierre D.</strong>
+                            <span>Paris</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p>"Enfin un <strong>déstockage alimentaire en ligne</strong> fiable. J'ai divisé mon budget courses par 2!"</p>
+                        <div class="client-info">
+                            <strong>Sophie M.</strong>
+                            <span>Lyon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Clients Satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Économie Moyenne</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Livraison Moyenne</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">Avis Clients</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="final-container">
+                <h2>🛑 NE MANQUEZ PAS CETTE OPPORTUNITÉ!</h2>
+                <p class="final-subtitle">Les prix les plus bas du marché ne dureront pas</p>
+                
+                <div class="urgency-features">
+                    <div class="urgency-item">
+                        <span class="urgency-icon">⏰</span>
+                        <span>Promotions limitées dans le temps</span>
+                    </div>
+                    <div class="urgency-item">
+                        <span class="urgency-icon">📦</span>
+                        <span>Stocks en voie d'épuisement</span>
+                    </div>
+                    <div class="urgency-item">
+                        <span class="urgency-icon">💰</span>
+                        <span>Économies records garanties</span>
+                    </div>
+                </div>
+                
+                <div class="mega-cta">
+                    <a href="{{ url_for('product_list') }}" class="cta-button super-button">
+                        <span class="cta-main">ACCÉDER AUX PROMOTIONS</span>
+                        <span class="cta-sub">Économisez jusqu'à 70% - Cliquez ici!</span>
+                    </a>
+                    <div class="guarantee-badge">
+                        <span>✅ Satisfait ou remboursé sous 30 jours</span>
+                    </div>
+                </div>
+                
+                <div class="security-notice">
+                    <span>🔒 Paiement 100% sécurisé • Livraison discrète • Service client 7j/7</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ ultra-convertissante -->
+        <section class="faq-section">
+            <h2>❓ Questions Fréquentes</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Comment puis-je économiser autant ?</h3>
+                    <p>Notre <strong>déstockage alimentaire en ligne</strong> fonctionne directement avec les producteurs et les centrales d'achat, éliminant les intermédiaires. Nous répercutons ces économies sur vos courses!</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>La qualité est-elle au rendez-vous ?</h3>
+                    <p>Absolument! Le <strong>déstockage</strong> concerne des surplus de production, des fins de série ou des produits en réorientation commerciale. La qualité est identique aux produits vendus en grande surface.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quand vais-je recevoir ma commande ?</h3>
+                    <p>Nous garantissons une <strong>livraison en 24-48h</strong> pour toutes les commandes passées avant 16h. Votre colis arrive frais et bien conditionné.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Puis-je vraiment économiser 70% ?</h3>
+                    <p>OUI! Nos clients réalisent en moyenne <strong>60-70% d'économie</strong> sur leur panier. Certains produits sont même vendus à -80% du prix marché.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ultra-optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d32f2f;
+    margin: 2rem 0 1rem 0;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.article-content h3 {
+    color: #2c5530;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+.urgent-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.urgent-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.urgent-badge {
+    background: #ffd700;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.urgent-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.conversion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.conversion-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid #4caf50;
+    transition: transform 0.3s ease;
+}
+
+.conversion-card:hover {
+    transform: translateY(-5px);
+}
+
+.conversion-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.urgent-cta {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    border: 3px solid #ff6b6b;
+}
+
+.urgent-container h2 {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.urgent-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.promotion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.promo-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #ff6b6b;
+}
+
+.promo-item.urgent {
+    animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+.promo-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d32f2f;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.stock-indicator {
+    margin-top: 1rem;
+}
+
+.stock-low {
+    background: #ff6b6b;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.stock-medium {
+    background: #ffa726;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.main-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.mega-button {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    padding: 1.5rem 3rem;
+    font-size: 1.3rem;
+    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+}
+
+.super-button {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: white;
+    padding: 1.5rem 3rem;
+    font-size: 1.3rem;
+    box-shadow: 0 10px 25px rgba(211, 47, 47, 0.3);
+}
+
+.cta-main {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cta-sub {
+    display: block;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.urgency-notice {
+    background: #ffebee;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.urgency-icon {
+    font-size: 1.2rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #4caf50;
+}
+
+.savings-example, .delivery-highlight, .quality-badge, .security-badge {
+    background: #e8f5e8;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.social-proof {
+    background: #f5f5f5;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.client-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4caf50;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.final-cta {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.final-container h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.final-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.urgency-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.urgency-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.mega-cta {
+    margin: 2rem 0;
+}
+
+.guarantee-badge {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.security-notice {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.faq-section {
+    margin: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(5px); }
+}
+
+@media (max-width: 768px) {
+    .conversion-grid, .benefits-grid, .testimonials-grid, .stats-grid, .faq-grid, .promotion-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+    
+    .urgent-cta, .final-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .urgency-features {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .cta-main {
+        font-size: 1.2rem;
+    }
+    
+    .cta-sub {
+        font-size: 0.9rem;
+    }
+}
+</style>
+{% endblock %}

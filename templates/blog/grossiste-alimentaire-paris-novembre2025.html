@@ -1,0 +1,678 @@
+{% extends "base.html" %}
+
+{% block page_title %}Grossiste Alimentaire Paris : Meilleurs Fournisseurs 2024 | Livraison Rapide{% endblock %}
+
+{% block meta_description %}Grossiste alimentaire Paris pas cher ✓ Livraison rapide ✓ Prix de gros ✓ Produits frais et surgelés ✓ Commandez en ligne dès maintenant !{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Grossiste Alimentaire Paris : Meilleurs Fournisseurs 2024">
+<meta property="og:description" content="Grossiste alimentaire Paris pas cher avec livraison rapide. Prix de gros sur tous produits alimentaires. Commandez en ligne maintenant !">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-paris">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/grossiste-alimentaire-paris.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grossiste Alimentaire Paris : Meilleurs Fournisseurs 2024">
+<meta name="twitter:description" content="Grossiste alimentaire Paris pas cher ✓ Livraison rapide ✓ Prix de gros ✓ Commandez maintenant !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/grossiste-alimentaire-paris.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-paris" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-paris"
+  },
+  "headline": "Grossiste Alimentaire Paris : Meilleurs Fournisseurs 2024",
+  "description": "Guide complet du grossiste alimentaire à Paris. Prix de gros, livraison rapide et meilleurs fournisseurs 2024.",
+  "image": "{{ url_for('static', filename='images/blog/grossiste-alimentaire-paris.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-15",
+  "keywords": "grossiste alimentaire paris, grossiste paris, fournisseur alimentaire paris, prix de gros paris, livraison alimentaire paris"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Grossiste Paris</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Grossiste Alimentaire Paris : Guide Complet 2024</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 janvier 2024</span>
+                <span class="reading-time">⏱️ 4 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/grossiste-alimentaire-paris.jpg') }}" 
+                     alt="Grossiste alimentaire Paris - prix de gros livraison rapide produits frais" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Livraison gratuite à Paris dès 200€ d'achat ✓ Prix grossiste ✓</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <h2>🚨 URGENT : Grossiste Alimentaire Paris - Livraison 24h</h2>
+                <p>Commandez avant 14h → Livraison demain dans tout Paris ✓ Prix grossiste garantis ✓</p>
+            </div>
+            
+            <p>Vous recherchez un <strong>grossiste alimentaire à Paris</strong> fiable avec des <strong>prix de gros compétitifs</strong> ? Notre plateforme vous connecte avec les meilleurs <strong>fournisseurs alimentaires parisiens</strong> pour <strong>restaurateurs, traiteurs et particuliers</strong>.</p>
+        </section>
+
+        <section class="advantages-section">
+            <h2>Pourquoi Choisir Notre Grossiste Alimentaire Paris ?</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <h3>💰 Économies Garanties</h3>
+                    <p><strong>Jusqu'à -60%</strong> sur les prix détail</p>
+                    <ul>
+                        <li>Prix grossiste directs</li>
+                        <li>Pas d'intermédiaires</li>
+                        <li>Remises volume</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>🚚 Livraison Express Paris</h3>
+                    <p><strong>Livraison 24h</strong> dans tout Paris</p>
+                    <ul>
+                        <li>Gratuite dès 200€</li>
+                        <li>Frais fixes : 15€</li>
+                        <li>Suivi en temps réel</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>📦 Large Choix Produits</h3>
+                    <p><strong>5 000+ références</strong> en stock</p>
+                    <ul>
+                        <li>Frais et surgelés</li>
+                        <li>Bio et conventionnel</li>
+                        <li>Marques et MDD</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2>Nos Catégories Produits - Prix Grossiste Paris</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>🥩 Viandes et Volailles</h3>
+                    <div class="price-examples">
+                        <p><strong>Bœuf haché</strong> : 8.90€/kg</p>
+                        <p><strong>Poulet fermier</strong> : 6.50€/kg</p>
+                        <p><strong>Jambon blanc</strong> : 12.90€/kg</p>
+                    </div>
+                    <div class="cta-mini">
+                        <a href="{{ url_for('product_list', category='viandes') }}" class="btn-mini">Voir les prix</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🐟 Poissons et Fruits de Mer</h3>
+                    <div class="price-examples">
+                        <p><strong>Saumon frais</strong> : 15.90€/kg</p>
+                        <p><strong>Crevettes</strong> : 18.50€/kg</p>
+                        <p><strong>Filets de sole</strong> : 22.90€/kg</p>
+                    </div>
+                    <div class="cta-mini">
+                        <a href="{{ url_for('product_list', category='poissons') }}" class="btn-mini">Voir les prix</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🥦 Fruits et Légumes</h3>
+                    <div class="price-examples">
+                        <p><strong>Tomates</strong> : 1.90€/kg</p>
+                        <p><strong>Pommes de terre</strong> : 0.90€/kg</p>
+                        <p><strong>Salade</strong> : 1.20€/pièce</p>
+                    </div>
+                    <div class="cta-mini">
+                        <a href="{{ url_for('product_list', category='fruits-legumes') }}" class="btn-mini">Voir les prix</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🧀 Produits Laitiers</h3>
+                    <div class="price-examples">
+                        <p><strong>Fromage râpé</strong> : 7.90€/kg</p>
+                        <p><strong>Beurre</strong> : 5.50€/kg</p>
+                        <p><strong>Yaourts</strong> : 0.35€/pièce</p>
+                    </div>
+                    <div class="cta-mini">
+                        <a href="{{ url_for('product_list', category='laitiers') }}" class="btn-mini">Voir les prix</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="delivery-section">
+            <h2>🚚 Livraison Grossiste Paris - Zone Couverte</h2>
+            
+            <div class="delivery-info">
+                <div class="delivery-zones">
+                    <h3>Zones de Livraison Gratuite</h3>
+                    <div class="zones-grid">
+                        <div class="zone-card">
+                            <h4>Paris Intra-muros</h4>
+                            <p>Livraison 24h gratuite</p>
+                            <span class="free-badge">GRATUIT</span>
+                        </div>
+                        <div class="zone-card">
+                            <h4>Petite Couronne</h4>
+                            <p>92, 93, 94</p>
+                            <span class="free-badge">GRATUIT</span>
+                        </div>
+                        <div class="zone-card">
+                            <h4>Grande Couronne</h4>
+                            <p>77, 78, 91, 95</p>
+                            <span class="price-badge">15€</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-schedule">
+                    <h3>Horaires de Livraison</h3>
+                    <div class="schedule-table">
+                        <div class="schedule-row">
+                            <span>Lundi - Vendredi</span>
+                            <span>6h - 20h</span>
+                        </div>
+                        <div class="schedule-row">
+                            <span>Samedi</span>
+                            <span>6h - 14h</span>
+                        </div>
+                        <div class="schedule-row">
+                            <span>Commandes urgentes</span>
+                            <span>24h/24 sur demande</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="clients-section">
+            <h2>👥 Nos Clients Grossiste Paris</h2>
+            
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>🏪 Restaurateurs</h3>
+                    <ul>
+                        <li>Facturation professionnelle</li>
+                        <li>Commandes récurrentes</li>
+                        <li>Délais de paiement</li>
+                    </ul>
+                </div>
+                
+                <div class="client-card">
+                    <h3>🎂 Traiteurs</h3>
+                    <ul>
+                        <li>Produits haut de gamme</li>
+                        <li>Conditionnements adaptés</li>
+                        <li>Livraison express</li>
+                    </ul>
+                </div>
+                
+                <div class="client-card">
+                    <h3>🏢 Collectivités</h3>
+                    <ul>
+                        <li>Grosses quantités</li>
+                        <li>Contrats annuels</li>
+                        <li>Traçabilité complète</li>
+                    </ul>
+                </div>
+                
+                <div class="client-card">
+                    <h3>👨‍👩‍👧‍👦 Particuliers</h3>
+                    <ul>
+                        <li>Achats groupés</li>
+                        <li>Prix grossiste</li>
+                        <li>Livraison à domicile</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgent-cta">
+            <div class="cta-banner">
+                <h2>⚡ COMMANDEZ MAINTENANT - LIVRAISON 24H</h2>
+                <p>Prix grossiste garantis ✓ Livraison express Paris ✓ Satisfait ou remboursé</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('product_list') }}" class="cta-primary">VOIR TOUS LES PRODUITS</a>
+                    <a href="tel:+33123456789" class="cta-secondary">📞 01 23 45 67 89</a>
+                </div>
+                <div class="urgency-badge">
+                    <span>🔔 Commandez avant 14h → Livraison demain</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>⭐ Avis Clients Grossiste Paris</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"<strong>Meilleur grossiste Paris</strong> ! Prix imbattables et livraison ultra-rapide. Notre restaurant économise 40% sur les achats."</p>
+                    <div class="client-info">
+                        <strong>Pierre M.</strong> - Restaurateur 15ème
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Service client exceptionnel. Les <strong>prix grossiste</strong> nous permettent de proposer des menus plus attractifs."</p>
+                    <div class="client-info">
+                        <strong>Marie L.</strong> - Traiteur Vincennes
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Livraison toujours à l'heure, produits frais et <strong>prix vraiment intéressants</strong>. Notre fournisseur attitré depuis 2 ans."</p>
+                    <div class="client-info">
+                        <strong>Antoine R.</strong> - Hôtel 8ème
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="final-banner">
+                <h2>🎯 Grossiste Alimentaire Paris N°1</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <span>💰</span>
+                        <p>Prix grossiste garantis</p>
+                    </div>
+                    <div class="feature">
+                        <span>🚚</span>
+                        <p>Livraison 24h Paris</p>
+                    </div>
+                    <div class="feature">
+                        <span>📦</span>
+                        <p>5 000+ références</p>
+                    </div>
+                    <div class="feature">
+                        <span>⭐</span>
+                        <p>4.9/5 avis clients</p>
+                    </div>
+                </div>
+                <div class="main-cta">
+                    <a href="{{ url_for('product_list') }}" class="cta-mega">
+                        🛒 COMMANDER MAINTENANT - PRIX GROSSISTE
+                    </a>
+                </div>
+                <div class="guarantee">
+                    <p>✅ <strong>Garantie Satisfait ou Remboursé</strong> - Livraison express Paris - Prix les plus bas garantis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>❓ FAQ Grossiste Alimentaire Paris</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Quels sont les prix d'un grossiste alimentaire à Paris ?</h3>
+                    <p>Nos <strong>prix grossiste Paris</strong> sont 30 à 60% moins chers que le détail. Exemple : bœuf haché à 8.90€/kg vs 15€ en supermarché.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Livrez-vous rapidement sur Paris ?</h3>
+                    <p><strong>Livraison express 24h</strong> dans tout Paris intra-muros. Commandez avant 14h, recevez demain !</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Faut-il un numéro SIRET pour commander ?</h3>
+                    <p>Non ! Nous livrons <strong>particuliers et professionnels</strong>. Les prix grossiste sont accessibles à tous.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quel est le minimum de commande ?</h3>
+                    <p><strong>Pas de minimum</strong> ! Commandez la quantité souhaitée. Livraison gratuite dès 200€.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #2c5530;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #4a7c59;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+.urgent-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 2rem 0;
+    border: 2px solid #ffd700;
+}
+
+.urgent-banner h2 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.advantages-grid, .categories-grid, .clients-grid, .testimonials-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.advantage-card, .category-card, .client-card, .testimonial-card, .faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a7c59;
+}
+
+.advantage-card ul, .client-card ul {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+}
+
+.advantage-card li, .client-card li {
+    margin-bottom: 0.3rem;
+}
+
+.price-examples {
+    margin: 1rem 0;
+}
+
+.price-examples p {
+    margin: 0.5rem 0;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed #dee2e6;
+}
+
+.cta-mini {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn-mini {
+    display: inline-block;
+    background: #4a7c59;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-mini:hover {
+    background: #2c5530;
+}
+
+.delivery-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.zones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.zone-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #e9ecef;
+}
+
+.free-badge, .price-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.free-badge {
+    background: #28a745;
+    color: white;
+}
+
+.price-badge {
+    background: #ffc107;
+    color: #212529;
+}
+
+.schedule-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.schedule-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+
+.urgent-cta {
+    margin: 3rem 0;
+}
+
+.cta-banner {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.cta-banner h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.cta-primary, .cta-secondary {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.cta-primary {
+    background: #ffd700;
+    color: #2c5530;
+}
+
+.cta-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-primary:hover, .cta-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.urgency-badge {
+    background: #ff6b6b;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.client-info {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #6c757d;
+}
+
+.final-cta {
+    margin: 3rem 0;
+}
+
+.final-banner {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cta-mega {
+    display: inline-block;
+    background: #ffd700;
+    color: #1e3c72;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    transition: all 0.3s;
+    border: 3px solid #ffed4a;
+}
+
+.cta-mega:hover {
+    transform: scale(1.05);
+    background: #ffed4a;
+}
+
+.guarantee {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .advantages-grid, .categories-grid, .clients-grid, .testimonials-grid, .faq-grid,
+    .zones-grid, .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .delivery-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-primary, .cta-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+    
+    .cta-mega {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+</style>
+{% endblock %}
