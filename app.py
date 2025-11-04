@@ -2654,6 +2654,102 @@ def initiatives_destockage_alimentaire():
     }
     return render_template('initiatives-destockage-alimentaire.html', meta=meta)
 
+@app.route('/blog/discount-alimentaire-novembre2025')
+def discount_alimentaire_novembre2025():
+    seo = {
+        "title": "Discount Alimentaire Novembre 2025 | Jusqu’à -70% sur les Produits du Mois",
+        "description": "🔥 Profitez du discount alimentaire de novembre 2025 : promotions exceptionnelles, produits de qualité à prix cassés, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/discount-alimentaire-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/discount-alimentaire-novembre2025.webp",
+        "keywords": "discount alimentaire novembre 2025, destockage alimentaire, promo alimentaire, prix cassés"
+    }
+    return render_template('blog/discount-alimentaire-novembre2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-lyon-novembre-2025')
+def destockage_alimentaire_lyon_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Lyon Novembre 2025 | Prix Cassés & Bons Plans",
+        "description": "🦁 Découvrez le déstockage alimentaire à Lyon en novembre 2025 : réductions jusqu’à -70% sur épicerie, boissons et gros volumes.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-lyon-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-lyon-2025.webp",
+        "keywords": "destockage alimentaire Lyon, destockage Lyon 2025, promo alimentaire Lyon, vente en gros Lyon"
+    }
+    return render_template('blog/destockage-alimentaire-lyon-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-paris-novembre2025')
+def grossiste_alimentaire_paris_novembre2025():
+    seo = {
+        "title": "Grossiste Alimentaire Paris Novembre 2025 | Achat en Gros & Destockage",
+        "description": "🗼 Trouvez votre grossiste alimentaire à Paris en novembre 2025 : produits en gros, destockage professionnel, livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-paris-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-paris-2025.webp",
+        "keywords": "grossiste alimentaire Paris, achat en gros Paris, destockage alimentaire, fournisseur alimentaire Paris"
+    }
+    return render_template('blog/grossiste-alimentaire-paris-novembre2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-lille-novembre2025')
+def grossiste_alimentaire_lille_novembre2025():
+    seo = {
+        "title": "Grossiste Alimentaire Lille Novembre 2025 | Achat en Gros à Prix Cassés",
+        "description": "🌆 Découvrez les meilleurs grossistes alimentaires à Lille en novembre 2025 : produits en gros, prix pros, livraison express.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-lille-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-lille-2025.webp",
+        "keywords": "grossiste alimentaire Lille, fournisseur alimentaire Lille, destockage Lille 2025, achat en gros"
+    }
+    return render_template('blog/grossiste-alimentaire-lille-novembre2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-belgique-novembre2025')
+def grossiste_alimentaire_belgique_novembre2025():
+    seo = {
+        "title": "Grossiste Alimentaire Belgique Novembre 2025 | Produits en Gros Pas Chers",
+        "description": "🇧🇪 Profitez des offres de novembre 2025 sur les grossistes alimentaires en Belgique : produits discount, livraison pro & particuliers.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-belgique-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-belgique-2025.webp",
+        "keywords": "grossiste alimentaire Belgique, destockage Belgique, achat en gros Belgique, fournisseur alimentaire 2025"
+    }
+    return render_template('blog/grossiste-alimentaire-belgique-novembre2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-lyon-novembre2025')
+def grossiste_alimentaire_lyon_novembre2025():
+    seo = {
+        "title": "Grossiste Alimentaire Lyon Novembre 2025 | Achat en Gros et Déstockage",
+        "description": "🍽️ Trouvez un grossiste alimentaire à Lyon en novembre 2025 : produits en gros, destockage, prix pros et particuliers.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-lyon-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-lyon-2025.webp",
+        "keywords": "grossiste alimentaire Lyon, destockage alimentaire Lyon, fournisseur alimentaire, achat en gros Lyon"
+    }
+    return render_template('blog/grossiste-alimentaire-lyon-novembre2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-lignenovembre2025')
+def destockage_alimentaire_en_lignenovembre2025():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne Novembre 2025 | Jusqu’à -70% sur les Produits",
+        "description": "💻 Achetez malin en ligne avec nos offres de novembre 2025 : déstockage alimentaire, produits pas chers, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-lignenovembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-en-ligne-novembre2025.webp",
+        "keywords": "destockage alimentaire en ligne, promo alimentaire novembre 2025, produits pas chers, livraison discount"
+    }
+    return render_template('blog/destockage-alimentaire-en-lignenovembre2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-autour-de-moi-novembre2025')
+def destockage_alimentaire_autour_de_moi_novembre2025():
+    seo = {
+        "title": "Déstockage Alimentaire Autour de Moi Novembre 2025 | Offres Locales -70%",
+        "description": "📍 Trouvez le meilleur déstockage alimentaire autour de vous en novembre 2025 : magasins proches, bons plans et promotions.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-autour-de-moi-novembre2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-local-2025.webp",
+        "keywords": "destockage alimentaire proche, destockage autour de moi, promo alimentaire 2025, destockage magasin"
+    }
+    return render_template('blog/destockage-alimentaire-autour-de-moi-novembre2025.html', seo=seo)
+
+
 
 @app.route('/optimiser-magasin-distribution')
 def optimiser_magasin_distribution():
@@ -5140,7 +5236,7 @@ def sitemap():
         '/blog/france-degockage-alimentaire', '/destockage-en-gros', 
         '/blog/magasins-alcool-france','/blog/destockage-alimentaire-pro-novembre-2025',
         '/blog/destockage-alimentaire-en-ligne-novembre-2025',
-        '/blog/alcool-pas-cher-espagne-en-ligne',
+        '/blog/alcool-pas-cher-espagne-en-ligne','/blog/discount-alimentaire-novembre2025','/blog/destockage-alimentaire-lyon-novembre-2025','/blog/grossiste-alimentaire-paris-novembre2025','/blog/grossiste-alimentaire-lille-novembre2025','/blog/grossiste-alimentaire-belgique-novembre2025','/blog/grossiste-alimentaire-lyon-novembre2025','/blog/destockage-alimentaire-en-lignenovembre2025','/blog/destockage-alimentaire-autour-de-moi-novembre2025',
         '/blog/ruinart-blanc-de-blancs-novembre2025',
         '/blog/boissons-gros-pas-cher-25',
         '/blog/achat-champagne-gros-25','/blog/destockage-alimentaire-en-ligne-pour-particulier-2025','/blog/destockage-alimentaire-en-ligne-2025','/blog/champagne-pas-cher-112025','/achat-ruinart-blanc-de-blancs-112025','/blog/destockage-alimentaire-paris-11-2025','/discount-alimentaire-ultra-mega-indexe',
