@@ -478,7 +478,7 @@ products = [
         "id": 113,
         "name": "🥤 Palette de Canettes de Coca-Cola 33cl",
         "description": "Coca-Cola original en canettes 33cl - Palette complète de 2592 unités. Conditionnement professionnel pour cafés, restaurants et distributeurs automatiques.",
-        "price": 1096.00,
+        "price": 1396.00,
         "priceCurrency": "EUR",
         "category": ["Boissons", "Promotions"],
         "stock": 10,
