@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devis Professionnel - Destockage Alimentaire Store</title>
+    <title>Facture Proforma - Destockage Alimentaire Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
         
@@ -50,7 +49,7 @@
         .header {
             background: #1a2a3a;
             color: white;
-            padding: 35px 30px 25px;
+            padding: 30px;
             position: relative;
             z-index: 1;
             border-bottom: 1px solid #e0e0e0;
@@ -89,29 +88,23 @@
             opacity: 0.8;
         }
         
-        .contact-badge {
+        .document-info {
             background: rgba(255, 255, 255, 0.1);
-            padding: 12px 18px;
+            padding: 15px;
             border-radius: 6px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .contact-badge i {
-            margin-right: 6px;
-            color: #e74c3c;
-            font-size: 14px;
+        .document-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         
-        .document-title {
-            background: #2c3e50;
-            color: white;
-            padding: 18px;
-            text-align: center;
-            font-size: 22px;
+        .document-number {
+            font-size: 18px;
             font-weight: 600;
-            position: relative;
-            z-index: 1;
         }
         
         .content {
@@ -207,16 +200,6 @@
             font-size: 16px;
         }
         
-        .ttc-badge {
-            background: #e8f5e8;
-            color: #2c3e50;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-        
         .price-breakdown {
             background: #f8f9fa;
             padding: 15px;
@@ -286,39 +269,18 @@
             font-size: 14px;
         }
         
-        .stamp {
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .signature-img {
-            max-width: 270px;
-            height: auto;
-            margin: 10px 0;
-            transform: scale(1.5);
-            transform-origin: center;
-        }
-        
-        .stamp-img {
-            max-width: 180px;
-            height: auto;
-            margin: 10px 0;
-        }
-        
-        .qr-code {
-            text-align: center;
-            margin: 25px 0;
-            padding: 15px;
-            background: #f8f9fa;
+        .bank-info {
+            background: #e8f4ff;
+            padding: 20px;
             border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
         }
         
-        .qr-code img {
-            max-width: 150px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            background: white;
-            border-radius: 6px;
+        .bank-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
         
         .print-btn {
@@ -339,11 +301,24 @@
             background: #1a2a3a;
         }
         
-        .devis-gratuit {
+        .product-details {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .vat-mention {
+            font-size: 12px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .proforma-badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #27ae60;
+            background: #e74c3c;
             color: white;
             padding: 8px 15px;
             border-radius: 4px;
@@ -351,17 +326,9 @@
             font-size: 14px;
         }
         
-        .product-details {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .tva-mention {
-            font-size: 12px;
-            color: #27ae60;
-            font-weight: 600;
-            margin-top: 5px;
+        /* Styles pour la page séparée des informations bancaires */
+        .bank-info-print {
+            display: none;
         }
         
         @media print {
@@ -381,15 +348,78 @@
             .watermark {
                 opacity: 0.1;
             }
+            
+            /* Masquer les informations bancaires dans le contenu principal */
+            .bank-info {
+                display: none;
+            }
+            
+            /* Afficher les informations bancaires sur une page séparée */
+            .bank-info-print {
+                display: block;
+                page-break-before: always;
+                padding: 40px;
+                background: white;
+                border: 2px solid #2c3e50;
+                margin-top: 30px;
+            }
+            
+            .bank-info-print .watermark {
+                font-size: 60px;
+                opacity: 0.05;
+            }
+            
+            .bank-details-print {
+                text-align: center;
+                margin-top: 50px;
+            }
+            
+            .bank-details-print h2 {
+                color: #2c3e50;
+                margin-bottom: 30px;
+                font-size: 24px;
+                border-bottom: 2px solid #e74c3c;
+                padding-bottom: 10px;
+                display: inline-block;
+            }
+            
+            .bank-details-print .info-box {
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 8px;
+                margin: 20px auto;
+                max-width: 600px;
+                border-left: 4px solid #3498db;
+            }
+            
+            .bank-details-print p {
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+            
+            .bank-details-print .highlight {
+                font-weight: 700;
+                color: #2c3e50;
+                font-size: 18px;
+                margin-top: 10px;
+            }
+            
+            .bank-details-print .reference {
+                background: #e8f4ff;
+                padding: 15px;
+                border-radius: 6px;
+                margin-top: 20px;
+                font-weight: 600;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="watermark">DESTOCKAGE ALIMENTAIRE STORE</div>
+        <div class="watermark">PROFORMA</div>
         
         <div class="header">
-            <div class="devis-gratuit">DEVIS GRATUIT</div>
+            <div class="proforma-badge">FACTURE PROFORMA</div>
             
             <div class="header-top">
                 <div class="logo-section">
@@ -399,157 +429,140 @@
                         <i class="fas fa-map-marker-alt"></i> 87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France<br>
                         <i class="fas fa-warehouse"></i> Entrepôt logistique : 4 Allée de la Tourelle 13127 Vitrolles, France<br>
                         <i class="fas fa-phone"></i> Tél: 0644694515 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr<br>
-                        <i class="fas fa-id-card"></i> SIRET: 90057360100011 | TVA: FR88900573601 | <i class="fas fa-euro-sign"></i> Capital social: 50 000,00 €
+                        <i class="fas fa-id-card"></i> SIRET: 90057360100011 | TVA Intracom: FR88900573601
                     </div>
                 </div>
                 
-                <div class="contact-badge">
-                    <i class="fas fa-check-circle"></i> Devis <br>
-                    <i class="fas fa-shipping-fast"></i> Livraison rapide<br>
-                    <i class="fas fa-award"></i> Produits de qualité
+                <div class="document-info">
+                    <div class="document-title">FACTURE PROFORMA</div>
+                    <div class="document-number">N° PF-2024-COCA-024</div>
+                    <div style="margin-top: 10px;">Date: <span id="current-date"></span></div>
                 </div>
             </div>
-        </div>
-        
-        <div class="document-title">
-            <i class="fas fa-file-invoice-dollar"></i> DEVIS N° DS-2025-COCA-024
         </div>
         
         <div class="content">
             <div class="section">
-                <h2 class="section-title">INFORMATIONS DU DEVIS</h2>
-                <div class="info-details">
-                    <p><strong>Date d'émission:</strong> <span id="current-date"></span></p>
-                    <p><strong>Validité du devis:</strong> 30 jours</p>
-                    <p><strong>Référence:</strong> DS-COCA-COLA-CONTAINER</p>
-                    <p class="tva-mention"><i class="fas fa-info-circle"></i> Coca-Cola: TVA 20% incluse | Transport: TVA 20% incluse</p>
-                </div>
-            </div>
-            
-            <div class="section">
                 <h2 class="section-title">INFORMATIONS CLIENT</h2>
                 <div class="client-info">
                     <div class="info-block">
-                        <h3>Adresse de facturation</h3>
-                        <p><strong>Monsieur Klaai</strong></p>
-                        <p>37 Rue Robert Bunsen</p>
-                        <p>57600 Folkling, France</p>
-                        <p>Contact: Monsieur Klaai</p>
-                        <p>Email: hamzaklaai@didon-business.com </p>
+                        <h3>Client (Livraison et Facturation)</h3>
+                        <p><strong>Hamza Klaai</strong></p>
+                        <p>Didierstr. 18</p>
+                        <p>56112 Lahnstein, Allemagne</p>
+                        <p><strong>USt-IdNr.: DE454519187</strong></p>
+                        <p>Validité: 30.06.2025</p>
                     </div>
                     <div class="info-block">
-                        <h3>Adresse de livraison</h3>
-                        <p><strong>Monsieur Klaai</strong></p>
+                        <h3>Informations de livraison</h3>
+                        <p><strong>Adresse de livraison:</strong></p>
                         <p>37 Rue Robert Bunsen</p>
                         <p>57600 Folkling, France</p>
-                        <p><strong>Livraison à quai</strong></p>
-                        <p><strong>Déchargement par le client</strong></p>
+                        <p><strong>Conditions:</strong> Livraison à quai</p>
+                        <p><strong>Déchargement:</strong> Par le client</p>
                     </div>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">DÉTAILS DE LA PRESTATION <span class="ttc-badge">TTC</span></h2>
+                <h2 class="section-title">DÉTAILS DE LA COMMANDE</h2>
                 
                 <table>
                     <thead>
                         <tr>
+                            <th>Référence</th>
                             <th>Désignation</th>
                             <th>Quantité</th>
-                            <th>Prix unitaire (€ TTC)</th>
-                            <th>Total (€ TTC)</th>
+                            <th>Prix unitaire HT (€)</th>
+                            <th>Montant HT (€)</th>
+                            <th>TVA</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>COCA-33CL-EU</td>
                             <td>
                                 <strong>Coca-Cola 33 cl (production européenne)</strong>
                                 <div class="product-details">
-                                    Production européenne<br>
-                                    Conditionnement: Conteneur 40 ft (24 palettes)<br>
-                                    <span style="color: #e74c3c;">TVA 20% incluse</span>
+                                    Production européenne - Palette complète<br>
+                                    Conditionnement: Conteneur 40 ft (24 palettes)
                                 </div>
                             </td>
                             <td>24 palettes</td>
-                            <td>1 096,00 €</td>
-                            <td>26 304,00 €</td>
+                            <td>913,33 €</td>
+                            <td>21 920,00 €</td>
+                            <td>Exonéré*</td>
                         </tr>
                         <tr>
+                            <td>TRSP-359</td>
                             <td>
                                 <strong>Transport et logistique</strong>
                                 <div class="product-details">
                                     Livraison à quai - Déchargement client<br>
-                                    Transport sécurisé<br>
-                                    <span style="color: #e74c3c;">TVA 20% incluse</span>
+                                    Transport sécurisé vers Allemagne
                                 </div>
                             </td>
                             <td>1 livraison</td>
-                            <td>359,00 €</td>
-                            <td>359,00 €</td>
+                            <td>299,17 €</td>
+                            <td>299,17 €</td>
+                            <td>Exonéré*</td>
                         </tr>
                         <tr class="total-row">
-                            <td colspan="3" style="text-align: right;"><strong>SOUS-TOTAL TTC</strong></td>
-                            <td><strong>26 663,00 €</strong></td>
+                            <td colspan="4" style="text-align: right;"><strong>SOUS-TOTAL HT</strong></td>
+                            <td colspan="2"><strong>22 219,17 €</strong></td>
                         </tr>
                         <tr>
-                            <td colspan="3" style="text-align: right;">Dont TVA Coca-Cola (20%)</td>
-                            <td>4 384,00 €</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="text-align: right;">Dont TVA Transport (20%)</td>
-                            <td>59,83 €</td>
+                            <td colspan="4" style="text-align: right;">TVA 0% (Export UE)</td>
+                            <td colspan="2">0,00 €</td>
                         </tr>
                         <tr class="grand-total">
-                            <td colspan="3" style="text-align: right;"><strong>TOTAL TTC À FACTURER</strong></td>
-                            <td><strong>26 663,00 €</strong></td>
+                            <td colspan="4" style="text-align: right;"><strong>TOTAL À FACTURER</strong></td>
+                            <td colspan="2"><strong>22 219,17 €</strong></td>
                         </tr>
                     </tbody>
                 </table>
                 
+                <div class="vat-mention">
+                    * Exonération de TVA conformément à l'article 262 I du CGI - Livraison intracommunautaire
+                </div>
+                
                 <div class="price-breakdown">
                     <p><strong>Récapitulatif de la commande :</strong></p>
-                    <p>Coca-Cola 33 cl : <span style="float: right;">24 palettes = 26 304,00 € TTC</span></p>
-                    <p>Transport : <span style="float: right;">359,00 € TTC</span></p>
-                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">26 663,00 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA Coca-Cola 20% : <span style="float: right;">4 384,00 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA Transport 20% : <span style="float: right;">59,83 €</span></p>
+                    <p>Coca-Cola 33 cl : <span style="float: right;">24 palettes = 21 920,00 € HT</span></p>
+                    <p>Transport : <span style="float: right;">299,17 € HT</span></p>
+                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général HT : <span style="float: right;">22 219,17 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">TVA 0% (Export UE) : <span style="float: right;">0,00 €</span></p>
                 </div>
+            </div>
+            
+            <!-- Informations bancaires visibles à l'écran -->
+            <div class="bank-info">
+                <h3><i class="fas fa-university"></i> INFORMATIONS BANCAIRES</h3>
+                <p><strong>Bénéficiaire:</strong> ES SEDDYQY RAYANE</p>
+                <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
+                <p><strong>BIC:</strong> FNOMFRP2</p>
+                <p><strong>Référence:</strong> PF-2024-COCA-024</p>
             </div>
             
             <div class="section">
-                <h2 class="section-title">CONDITIONS COMMERCIALES ET FINANCIÈRES</h2>
+                <h2 class="section-title">CONDITIONS COMMERCIALES</h2>
                 <div class="terms">
                     <h3>Modalités de paiement</h3>
                     <ul>
-                        <li>Paiement par virement bancaire</li>
-                        <li>Possibilité de régler soit comptant, soit 50 % à la commande et 50 % à la livraison</li>
+                        <li><strong>Virement bancaire</strong> à réception de cette facture proforma</li>
+                        <li><strong>Options de paiement:</strong> 100% à la commande OU 50% à la commande / 50% avant expédition</li>
+                        <li>Délai de paiement: 7 jours après émission de la facture définitive</li>
                     </ul>
-                    
-                    
-                    
-                    <h3>Conditions de livraison</h3>
+                
+                    <h3>Validité et conditions générales</h3>
                     <ul>
-                        <li>Déchargement par le client</li>
-                        <li>Délai de livraison: 3 à 5 jours ouvrés après confirmation</li>
-                        <li>Heures de livraison: 8h00 - 16h00 du lundi au vendredi</li>
-                        <li>Frais de transport: 359,00 € TTC</li>
-                    </ul>
-                    
-                    <h3>Garanties et conditions</h3>
-                    <ul>
-                        <li>Produits conformes aux spécifications</li>
-                        <li>Emballage d'origine intact - Palettes sécurisées</li>
+                        <li>Cette facture proforma est valable 30 jours à compter de sa date d'émission</li>
+                        <li>Les prix sont fermes et non révisables pendant la durée de validité</li>
+                        <li>Exonération de TVA conformément aux dispositions sur les livraisons intracommunautaires</li>
                         <li>Réserves à formuler dans les 24h suivant la livraison</li>
-                        <li>Les prix sont fermes pendant la durée de validité du devis</li>
-                        <li>Coca-Cola: TVA 20% incluse | Transport: TVA 20% incluse</li>
+                        <li>La commande sera confirmée après réception du paiement ou de l'acompte</li>
                     </ul>
                 </div>
-            </div>
-            
-            <div class="qr-code">
-                <p><strong>Scannez pour visiter notre site web</strong></p>
-                <div id="qrcode"></div>
-                <p style="margin-top: 15px; font-weight: 600;">destockagealimentairestore.com</p>
             </div>
             
             <div class="signature-area">
@@ -559,14 +572,52 @@
                         <div style="border-bottom: 1px solid #2c3e50; width: 200px;"></div>
                     </div>
                     <div class="signature-line">Date et signature</div>
-                    <div class="stamp">
-                        <p>Cachet de l'entreprise cliente</p>
-                        <div style="margin-top: 10px; font-size: 12px; color: #666;">
-                            Monsieur Klaai<br>
-                            37 Rue Robert Bunsen, 57600 Folkling
-                        </div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                        Hamza Klaai<br>
+                        USt-IdNr.: DE454519187
                     </div>
                 </div>
+            </div>
+            
+            <div class="section">
+                <div class="terms">
+                    <h3>Mentions légales et réglementaires</h3>
+                    <ul>
+                        <li>Cette facture proforma n'a pas de valeur comptable et ne peut être considérée comme une facture définitive</li>
+                        <li>La facture définitive sera établie après réception du paiement et portera le même numéro sans le préfixe "PF"</li>
+                        <li>Conformément à l'article 262 I du CGI, les livraisons intracommunautaires sont exonérées de TVA</li>
+                        <li>Le client est responsable de la déclaration et du paiement de la TVA dans son pays conformément au régime d'autoliquidation</li>
+                        <li>En cas de litige, le Tribunal de Commerce de Libourne sera seul compétent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section des informations bancaires pour l'impression (page séparée) -->
+        <div class="bank-info-print">
+            <div class="watermark">INFORMATIONS BANCAIRES</div>
+            <div class="bank-details-print">
+                <h2>INFORMATIONS BANCAIRES POUR LE PAIEMENT</h2>
+                
+                <div class="info-box">
+                    <p><strong>Facture Proforma:</strong> PF-2024-COCA-024</p>
+                    <p><strong>Date:</strong> <span id="current-date-print"></span></p>
+                    <p><strong>Montant à régler:</strong> 22 219,17 €</p>
+                    <p><strong>Devise:</strong> Euro (€)</p>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Bénéficiaire:</strong> ES SEDDYQY RAYANE</p>
+                    <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
+                    <p><strong>BIC:</strong> FNOMFRP2</p>
+                    <p><strong>Banque:</strong> BANQUE NOM</p>
+                </div>
+                
+                <div class="reference">
+                    <p>Veuillez indiquer la référence <strong>PF-2024-COCA-024</strong> dans l'objet du virement</p>
+                </div>
+                
+                <p class="highlight">Merci de nous transmettre le justificatif de virement par email à contact@destockagealimentaire.fr</p>
             </div>
         </div>
         
@@ -577,7 +628,7 @@
     </div>
     
     <button class="print-btn" onclick="window.print()">
-        <i class="fas fa-print"></i> Imprimer ce devis
+        <i class="fas fa-print"></i> Imprimer cette facture proforma
     </button>
 
     <script>
@@ -589,16 +640,7 @@
             
             // Mettre à jour la date dans le document
             document.getElementById('current-date').textContent = dateString;
-            
-            // Générer le QR Code
-            const qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: "https://destockagealimentairestore.com",
-                width: 150,
-                height: 150,
-                colorDark: "#2c3e50",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
+            document.getElementById('current-date-print').textContent = dateString;
         });
     </script>
 </body>
