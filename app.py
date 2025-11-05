@@ -2773,9 +2773,13 @@ def add_header(response):
 def blog_france():
     return render_template('blog_france.html')
 
-@app.route('/DEVIS')
+@app.route('/Factureproforma-DAS-67399')
 def devis():
     return render_template('devispro.html')
+
+@app.route('/Devis-DAS-67399')
+def devis():
+    return render_template('devispro1.html')
 
 @app.route('/article-ultra')
 def article_ultra():
