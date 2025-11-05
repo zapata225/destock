@@ -885,7 +885,7 @@ products = [
         "id": 201,
         "name": "🍾 Palette de Ruinart Blanc de Blancs (240 bouteilles)",
         "description": "Champagne Blanc de Blancs d'exception - Palette complète de 240 bouteilles 75cl. 100% Chardonnay, finesse et élégance. Plus ancienne maison de Champagne (1729).",
-        "price": 6300.00,
+        "price": 7300.00,
         "priceCurrency": "EUR",
         "category": ["Vins, Champagnes et Spiritueux", "Promotions"],
         "stock": 1,
