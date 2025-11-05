@@ -2774,7 +2774,7 @@ def blog_france():
     return render_template('blog_france.html')
 
 @app.route('/Factureproforma-DAS-67399')
-def devis():
+def facturepro():
     return render_template('devispro.html')
 
 @app.route('/Devis-DAS-67399')
