@@ -1,0 +1,543 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire Lille Novembre 2025 : Promotions EXCEPTIONNELLES | Économies Garanties{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire ULTRA MÉGA à Lille novembre 2025 ! Produits jusqu'à -80%. Viandes, boissons, surgelés à prix cassés. Livraison GRATUITE.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire Lille Novembre 2025 : PROMOS ULTRA MÉGA">
+<meta property="og:description" content="DÉSTOCKAGE MASSIF à Lille ! Produits alimentaires jusqu'à -80%. Stocks limités. ACHETEZ MAINTENANT avant rupture !">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-lille-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire Lille">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire Lille Novembre 2025 : -80% ULTRA MÉGA">
+<meta name="twitter:description" content="PROMOTIONS EXPLOSIVES à Lille ! Déstockage alimentaire jusqu'à -80%. DERNIERS JOURS !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-lille-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Déstockage Alimentaire Lille Novembre 2025 : Promotions Exceptionnelles",
+  "startDate": "2025-11-01",
+  "endDate": "2025-11-30",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Lille et Région Hauts-de-France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lille",
+      "postalCode": "59000",
+      "addressCountry": "FR"
+    }
+  },
+  "description": "Déstockage alimentaire MASSIF à Lille avec réductions jusqu'à 80% sur tous les produits. Stocks limités, promotions exclusives novembre 2025.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-01"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Déstockage Lille 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">🚨 DÉSTOCKAGE ALIMENTAIRE LILLE NOVEMBRE 2025 : PROMOTIONS ULTRA MÉGA 🔥</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 01 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Lille</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}" 
+                     alt="Déstockage alimentaire Lille novembre 2025 PROMOTIONS ULTRA MÉGA jusqu'à -80%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">🚀 PROMOTIONS EXPLOSIVES JUSQU'À -80% | STOCKS LIMITÉS ⚡</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="urgent-alert">
+            <div class="alert-banner">
+                <h2>⚠️ URGENT : DERNIERS JOURS DE PROMOTIONS ULTRA MÉGA À LILLE ⚡</h2>
+                <p><strong>Déstockage alimentaire MASSIF novembre 2025</strong> - Économies immédiates jusqu'à <strong>80%</strong> sur tous vos produits préférés !</p>
+            </div>
+        </section>
+
+        <section class="mega-promotions">
+            <h2>🔥 PROMOTIONS ULTRA MÉGA NOVEMBRE 2025</h2>
+            
+            <div class="promo-grid">
+                <div class="promo-card mega">
+                    <div class="promo-badge">-80%</div>
+                    <h3>🥩 VIANDES & VOLAILLES</h3>
+                    <ul>
+                        <li>Filet de bœuf : <strong>12€/kg</strong> au lieu de 60€</li>
+                        <li>Poulet fermier : <strong>4€</strong> au lieu de 20€</li>
+                        <li>Côte d'agneau : <strong>8€/kg</strong> au lieu de 40€</li>
+                    </ul>
+                    <div class="stock-alert">🔄 Derniers stocks disponibles</div>
+                </div>
+                
+                <div class="promo-card mega">
+                    <div class="promo-badge">-75%</div>
+                    <h3>🥤 BOISSONS & SODAS</h3>
+                    <ul>
+                        <li>Pack Coca-Cola 24x33cl : <strong>6€</strong> au lieu de 24€</li>
+                        <li>Jus d'orange 1L : <strong>1€</strong> au lieu de 4€</li>
+                        <li>Eaux minérales : <strong>0.20€</strong> la bouteille</li>
+                    </ul>
+                    <div class="stock-alert">⚡ Promotion FLASH</div>
+                </div>
+                
+                <div class="promo-card mega">
+                    <div class="promo-badge">-70%</div>
+                    <h3>❄️ SURGELÉS & CONGELÉS</h3>
+                    <ul>
+                        <li>Pizzas surgelées : <strong>1.50€</strong> au lieu de 5€</li>
+                        <li>Légumes surgelés : <strong>0.80€</strong> le sachet</li>
+                        <li>Plats préparés : <strong>2€</strong> au lieu de 8€</li>
+                    </ul>
+                    <div class="stock-alert">🎯 Produits QUALITÉ</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-urgency">
+            <div class="urgency-banner">
+                <h2>⏰ URGENCE : STOCKS TRÈS LIMITÉS !</h2>
+                <div class="countdown-timer">
+                    <div class="timer-item">
+                        <span class="timer-number">07</span>
+                        <span class="timer-label">JOURS RESTANTS</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number">354</span>
+                        <span class="timer-label">PRODUITS DISPONIBLES</span>
+                    </div>
+                </div>
+                <p><strong>ATTENTION :</strong> Les produits partent TRÈS VITE ! Ne ratez pas ces promotions EXCEPTIONNELLES.</p>
+            </div>
+        </section>
+
+        <section class="location-info">
+            <h2>📍 ZONES DE DÉSTOCKAGE LILLE</h2>
+            
+            <div class="location-grid">
+                <div class="location-card">
+                    <h3>🏙️ LILLE CENTRE</h3>
+                    <ul>
+                        <li>🛒 <strong>Déstockage Massif</strong> - Rue Nationale</li>
+                        <li>🚚 Livraison GRATUITE dans Lille</li>
+                        <li>⏰ Ouvert 7j/7 de 8h à 22h</li>
+                    </ul>
+                </div>
+                
+                <div class="location-card">
+                    <h3>🏘️ LILLE SUD</h3>
+                    <ul>
+                        <li>🛒 <strong>Entrepôt Sud</strong> - Porte de Valenciennes</li>
+                        <li>🚗 Parking GRATUIT illimité</li>
+                        <li>📦 Retrait en 2h chrono</li>
+                    </ul>
+                </div>
+                
+                <div class="location-card">
+                    <h3>🏭 GRAND LILLE</h3>
+                    <ul>
+                        <li>🛒 <strong>Zone Industrielle</strong> - Lomme</li>
+                        <li>🚛 Commandes en GROS acceptées</li>
+                        <li>💳 Paiement 4x SANS FRAIS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <h2>⭐ AVIS CLIENTS LILLE - NOVEMBRE 2025</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"<strong>INCROYABLE !</strong> J'ai économisé 240€ sur mes courses du mois. Déstockage ULTRA MÉGA !"</p>
+                    <cite>– Marie D., Lille Centre</cite>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"<strong>PROMOTIONS DE FOU</strong> sur la viande. Qualité irréprochable, prix imbattables !"</p>
+                    <cite>– Pierre L., Lille Sud</cite>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"<strong>Service EXCEPTIONNEL</strong> et livraison ultra rapide. Je recommande à 1000% !"</p>
+                    <cite>– Sophie M., Roubaix</cite>
+                </div>
+            </div>
+        </section>
+
+        <section class="mega-cta">
+            <div class="cta-urgent">
+                <h2>🚀 NE RATEZ PAS CES PROMOTIONS ULTRA MÉGA !</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>💰 ÉCONOMIES GARANTIES</h3>
+                        <p>Jusqu'à <strong>80% de réduction</strong> immédiate</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3>🚚 LIVRAISON EXPRESS</h3>
+                        <p>Gratuite dans <strong>tout Lille</strong> sous 24h</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3>✅ QUALITÉ CERTIFIÉE</h3>
+                        <p>Produits <strong>100% frais et contrôlés</strong></p>
+                    </div>
+                </div>
+
+                <div class="final-cta">
+                    <h3>⚡ ACCÉDEZ MAINTENANT AUX PROMOTIONS ULTRA MÉGA</h3>
+                    <p><strong>Dernière chance :</strong> Les stocks s'épuisent TRÈS RAPIDEMENT</p>
+                    <a href="{{ url_for('product_list') }}" class="mega-cta-button">
+                        🛒 VOIR TOUTES LES PROMOS ULTRA MÉGA MAINTENANT
+                    </a>
+                    <div class="security-badges">
+                        <span>🔒 Paiement Sécurisé</span>
+                        <span>🚚 Livraison Offerte</span>
+                        <span>✅ Satisfait ou Remboursé</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ ULTRA CONVERSION -->
+        <section class="faq-urgency">
+            <h2>❓ QUESTIONS FRÉQUENTES ULTRA MÉGA</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>⏰ Jusqu'à quand durent les promotions ?</h3>
+                    <p><strong>URGENT :</strong> Jusqu'au 30 novembre 2025 ou <strong>jusqu'à épuisement des stocks</strong>. Ne tardez pas !</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🚚 Livraison offerte à Lille ?</h3>
+                    <p><strong>OUI !</strong> Livraison GRATUITE dans tout Lille et périphérie pour toute commande > 50€.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>💳 Paiement en plusieurs fois ?</h3>
+                    <p><strong>ABSOLUMENT !</strong> 3x et 4x SANS FRAIS disponibles immédiatement.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* STYLES ULTRA MÉGA CONVERSION */
+.article-title {
+    color: #dc3545;
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
+.urgent-alert {
+    margin: 2rem 0;
+}
+
+.alert-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 3px solid #ffc107;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.mega-promotions {
+    margin: 3rem 0;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.promo-card.mega {
+    background: white;
+    border: 3px solid #28a745;
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.promo-card.mega:hover {
+    transform: translateY(-5px);
+}
+
+.promo-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #dc3545;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.stock-alert {
+    background: #fff3cd;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    border-left: 4px solid #ffc107;
+}
+
+.conversion-urgency {
+    margin: 3rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #212529;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 3px dashed #dc3545;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.timer-item {
+    text-align: center;
+}
+
+.timer-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #dc3545;
+    display: block;
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.location-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+}
+
+.social-proof {
+    margin: 3rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.mega-cta {
+    margin: 4rem 0;
+}
+
+.cta-urgent {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.final-cta {
+    margin-top: 2rem;
+}
+
+.mega-cta-button {
+    display: inline-block;
+    background: #dc3545;
+    color: white;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+    border: 3px solid #ffc107;
+    animation: pulse 2s infinite;
+}
+
+.mega-cta-button:hover {
+    background: #c82333;
+    transform: scale(1.05);
+    color: white;
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.security-badges span {
+    background: rgba(255,255,255,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.faq-urgency {
+    margin: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #6f42c1;
+}
+
+.hero-overlay .hero-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.5rem;
+    }
+    
+    .promo-grid, .location-grid, .testimonials-grid, .benefits-grid, .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .mega-cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .security-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+</style>
+{% endblock %}
