@@ -404,7 +404,7 @@ products = [
         "id": 105,
         "name": "🍫 Nutella Pot 1kg en Palette, avec 760 pots de Nutella",
         "description": "Pâte à tartiner iconique au cacao et aux noisettes - Palette complète de 760 pots de 1kg. Produit italien de qualité supérieure, parfait pour cafés, boulangeries et revendeurs.",
-        "price": 2536.00,
+        "price": 1536.00,
         "priceCurrency": "EUR",
         "category": "Épicerie",
         "stock": 80,
