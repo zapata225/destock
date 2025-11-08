@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture Proforma - Nutella 1kg</title>
+    <title>Facture Proforma - Capsules Café L'Or</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
@@ -340,6 +340,16 @@
             font-size: 16px;
         }
         
+        .discount-badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
         @media print {
             body {
                 background: white;
@@ -358,23 +368,6 @@
                 opacity: 0.1;
             }
         }
-        @page {
-            margin: 20mm;
-            }
-
-            @media print {
-            @page {
-                size: A4;
-                margin: 20mm;
-            }
-
-            /* Masquer les en-têtes/pieds auto du navigateur (si supporté) */
-            body::before, body::after {
-                display: none !important;
-                content: none !important;
-            }
-            }
-
     </style>
 </head>
 <body>
@@ -398,7 +391,7 @@
                 
                 <div class="document-info">
                     <div class="document-title">FACTURE PROFORMA</div>
-                    <div class="document-number">N° PF-2024-NUT-001</div>
+                    <div class="document-number">N° PF-2024-CAF-001</div>
                     <div style="margin-top: 10px;">Date: <span id="current-date"></span></div>
                 </div>
             </div>
@@ -422,6 +415,7 @@
                 <h3><i class="fas fa-truck"></i> INFORMATIONS DE LIVRAISON</h3>
                 <p><strong>Adresse de livraison:</strong> 23 Rue Henri Barbusse, 95100 Argenteuil, France</p>
                 <p><strong>Délai de livraison estimé:</strong> 5 à 7 jours ouvrés après confirmation</p>
+                <p><strong>Fréquence proposée:</strong> 1 palette toutes les 2 semaines</p>
                 <p><strong>Disponibilité:</strong> En stock</p>
             </div>
             
@@ -441,60 +435,56 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>NUT-1KG-001</td>
+                            <td>LOR-ESPRESSO-001</td>
                             <td>
-                                <strong>Nutella - Pot de 1kg</strong>
+                                <strong>Capsules de café L'Or Espresso Delizioso</strong>
                                 <div class="product-details">
-                                    Conditionnement: Palette de 760 pots<br>
-                                    DLUO: Minimum 12 mois à compter de la date de livraison<br>
+                                    Conditionnement: Palette de 720 boîtes (50 capsules par boîte)<br>
+                                    DLUO: Minimum 18 mois à compter de la date de livraison<br>
                                     Date de fabrication: Lot récent (détails sur demande)
                                 </div>
                             </td>
-                            <td>2 palettes (1 520 pots)</td>
-                            <td>1 536,00 €</td>
-                            <td>3 072,00 €</td>
+                            <td>1 palette (720 boîtes)</td>
+                            <td>1 900,00 €</td>
+                            <td>1 900,00 €</td>
                             <td>Incluse (5,5%)</td>
                         </tr>
                         <tr>
-                            <td>TRSP-001</td>
+                            <td>FID-001</td>
                             <td>
-                                <strong>Frais de transport</strong>
+                                <strong>Remise fidélité commande régulière</strong>
                                 <div class="product-details">
-                                    Livraison à Argenteuil (95100)<br>
-                                    Déchargement inclus
+                                    Remise de 10% appliquée pour commande régulière<br>
+                                    Livraison toutes les 2 semaines
                                 </div>
                             </td>
-                            <td>1 livraison</td>
-                            <td>89,00 €</td>
-                            <td>89,00 €</td>
-                            <td>Incluse (20%)</td>
+                            <td>1</td>
+                            <td>-190,00 €</td>
+                            <td>-190,00 €</td>
+                            <td>Incluse</td>
                         </tr>
                         <tr class="total-row">
                             <td colspan="4" style="text-align: right;"><strong>SOUS-TOTAL HT</strong></td>
-                            <td colspan="2"><strong>3 010,43 €</strong></td>
+                            <td colspan="2"><strong>1 621,80 €</strong></td>
                         </tr>
                         <tr>
                             <td colspan="4" style="text-align: right;">TVA 5,5% (Produits)</td>
-                            <td colspan="2">160,19 €</td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align: right;">TVA 20% (Transport)</td>
-                            <td colspan="2">14,83 €</td>
+                            <td colspan="2">88,20 €</td>
                         </tr>
                         <tr class="grand-total">
                             <td colspan="4" style="text-align: right;"><strong>TOTAL À FACTURER TTC</strong></td>
-                            <td colspan="2"><strong>3 161,00 €</strong></td>
+                            <td colspan="2"><strong>1 710,00 €</strong></td>
                         </tr>
                     </tbody>
                 </table>
                 
                 <div class="price-breakdown">
                     <p><strong>Récapitulatif de la commande :</strong></p>
-                    <p>Nutella - Pot de 1kg : <span style="float: right;">2 palettes (1 520 pots) = 3 072,00 € TTC</span></p>
-                    <p>Frais de transport : <span style="float: right;">89,00 € TTC</span></p>
-                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">3 161,00 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 5,5% (produits) : <span style="float: right;">160,19 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 20% (transport) : <span style="float: right;">14,83 €</span></p>
+                    <p>Capsules de café L'Or Espresso Delizioso : <span style="float: right;">1 palette (720 boîtes) = 1 900,00 € TTC</span></p>
+                    <p>Remise fidélité 10% : <span style="float: right;">-190,00 €</span></p>
+                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">1 710,00 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 5,5% : <span style="float: right;">88,20 €</span></p>
+                    <p class="discount-badge" style="display: inline-block; margin-top: 10px;">Économie réalisée : 190,00 €</p>
                 </div>
             </div>
             
@@ -503,7 +493,7 @@
                 <p><strong>Bénéficiaire:</strong> ES SEDDYQY RAYANE</p>
                 <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
                 <p><strong>BIC:</strong> FNOMFRP2</p>
-                <p><strong>Référence:</strong> PF-2024-NUT-001</p>
+                <p><strong>Référence:</strong> PF-2024-CAF-001</p>
             </div>
             
             <div class="section">
@@ -520,10 +510,11 @@
                     <ul>
                         <li>Cette facture proforma est valable 30 jours à compter de sa date d'émission</li>
                         <li>Les prix sont fermes et non révisables pendant la durée de validité</li>
-                        <li>DLUO garantie: Minimum 12 mois à compter de la date de livraison</li>
+                        <li>DLUO garantie: Minimum 18 mois à compter de la date de livraison</li>
                         <li>Date de fabrication: Lot récent (détails précis sur demande)</li>
+                        <li>Remise de 10% applicable sur les commandes régulières (1 palette/2 semaines)</li>
+                        <li>Transport: Livraison offerte pour commande régulière</li>
                         <li>Réserves à formuler dans les 24h suivant la livraison</li>
-                        <li>Transport: Livraison à quai, déchargement inclus</li>
                         <li>Emballages non repris, non consignés</li>
                     </ul>
                 </div>
@@ -548,7 +539,7 @@
                     <ul>
                         <li>Cette facture proforma n'a pas de valeur comptable et ne peut être considérée comme une facture définitive</li>
                         <li>La facture définitive sera établie après réception du paiement et portera le même numéro sans le préfixe "PF"</li>
-                        <li>Conformément à la réglementation en vigueur, la TVA est applicable au taux de 5,5% pour les produits alimentaires et 20% pour les prestations de transport</li>
+                        <li>Conformément à la réglementation en vigueur, la TVA est applicable au taux de 5,5% pour les produits alimentaires</li>
                         <li>En cas de litige, le Tribunal de Commerce de Libourne sera seul compétent</li>
                     </ul>
                 </div>
