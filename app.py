@@ -4003,6 +4003,186 @@ def grossiste_alimentaire_paris_2025():
     return render_template('blog/grossiste-alimentaire-paris-2025.html', seo=seo)
 
 
+@app.route('/blog/destockage-invendus-usine-novembre-2025')
+def destockage_invendus_usine_novembre_2025():
+    seo = {
+        "title": "Déstockage Invendus d’Usine Novembre 2025 | Produits Neufs à Prix Cassés",
+        "description": "🏭 Découvrez notre déstockage d’invendus d’usine pour novembre 2025 : produits neufs, fins de série et lots à petits prix.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-invendus-usine-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-invendus-usine-novembre-2025.webp",
+        "keywords": "destockage invendus, usine, destockage alimentaire, invendus 2025, promo alimentaire"
+    }
+    return render_template('blog/destockage-invendus-usine-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/promo-ruinart-novembre-2025')
+def promo_ruinart_novembre_2025():
+    seo = {
+        "title": "Promo Ruinart Novembre 2025 | Champagne de Luxe à Prix Discount",
+        "description": "🍾 Profitez des promotions Ruinart de novembre 2025 : Blanc de Blancs, Brut et Rosé à prix cassés, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/promo-ruinart-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/promo-ruinart-novembre-2025.webp",
+        "keywords": "promo ruinart, champagne ruinart pas cher, champagne destockage 2025"
+    }
+    return render_template('blog/promo-ruinart-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-professionnel-2025')
+def grossiste_alimentaire_professionnel_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Professionnel 2025 | Vente en Gros et Déstockage",
+        "description": "💼 Trouvez votre grossiste alimentaire professionnel en 2025 : produits en gros, prix pros, destockage et livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-professionnel-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-alimentaire-professionnel-2025.webp",
+        "keywords": "grossiste alimentaire professionnel, fournisseur alimentaire, achat en gros 2025"
+    }
+    return render_template('blog/grossiste-alimentaire-professionnel-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-professionnel-novembre-2025')
+def destockage_alimentaire_professionnel_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Professionnel Novembre 2025 | Prix en Gros",
+        "description": "📦 Découvrez le déstockage alimentaire professionnel de novembre 2025 : produits en gros, remises jusqu’à -70%, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-professionnel-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-alimentaire-professionnel-novembre-2025.webp",
+        "keywords": "destockage alimentaire professionnel, vente en gros, déstockage 2025"
+    }
+    return render_template('blog/destockage-alimentaire-professionnel-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-decembre-2025')
+def destockage_alimentaire_decembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Décembre 2025 | Promotions et Fins de Série",
+        "description": "🎁 Offres spéciales de décembre 2025 : déstockage alimentaire, promos exceptionnelles et lots à prix cassés.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-alimentaire-decembre-2025.webp",
+        "keywords": "destockage alimentaire décembre 2025, promo alimentaire, fins de série"
+    }
+    return render_template('blog/destockage-alimentaire-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-ligne-decembre-2025')
+def destockage_alimentaire_en_ligne_decembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne Décembre 2025 | Jusqu’à -70%",
+        "description": "🛒 Découvrez nos déstockages alimentaires en ligne pour décembre 2025 : produits de qualité à prix cassés, livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-alimentaire-en-ligne-decembre-2025.webp",
+        "keywords": "destockage alimentaire en ligne, déstockage décembre 2025, promo alimentaire"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-en-ligne-particulier')
+def grossiste_alimentaire_en_ligne_particulier():
+    seo = {
+        "title": "Grossiste Alimentaire en Ligne pour Particulier | Achat en Gros Pas Cher",
+        "description": "🛍️ Achetez en gros en tant que particulier : découvrez les grossistes alimentaires en ligne proposant des prix imbattables.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-en-ligne-particulier",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-alimentaire-en-ligne-particulier.webp",
+        "keywords": "grossiste alimentaire particulier, achat en gros, destockage alimentaire"
+    }
+    return render_template('blog/grossiste-alimentaire-en-ligne-particulier.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-en-ligne-professionnel')
+def grossiste_alimentaire_en_ligne_professionnel():
+    seo = {
+        "title": "Grossiste Alimentaire en Ligne Professionnel | Fournisseurs 2025",
+        "description": "💼 Trouvez les meilleurs grossistes alimentaires en ligne pour professionnels : produits en gros, déstockages et livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-en-ligne-professionnel",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-alimentaire-en-ligne-professionnel.webp",
+        "keywords": "grossiste alimentaire professionnel, fournisseur alimentaire, achat en gros"
+    }
+    return render_template('blog/grossiste-alimentaire-en-ligne-professionnel.html', seo=seo)
+
+
+@app.route('/blog/palette-champagne-2025')
+def palette_champagne_2025():
+    seo = {
+        "title": "Palette Champagne 2025 | Achat en Gros et Déstockage de Marques",
+        "description": "🥂 Achetez des palettes de champagne à prix déstockage : Ruinart, Moët, Veuve Clicquot – livraison France et Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/palette-champagne-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/palette-champagne-2025.webp",
+        "keywords": "palette champagne, champagne en gros, destockage champagne, ruinart pas cher"
+    }
+    return render_template('blog/palette-champagne-2025.html', seo=seo)
+
+
+@app.route('/blog/champagne-pas-cher-decembre-2025')
+def champagne_pas_cher_decembre_2025():
+    seo = {
+        "title": "Champagne Pas Cher Décembre 2025 | Offres de Fin d’Année -70%",
+        "description": "🍾 Découvrez les meilleurs champagnes pas chers pour décembre 2025 : Ruinart, Moët, Laurent-Perrier et plus à prix cassés.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-pas-cher-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-pas-cher-decembre-2025.webp",
+        "keywords": "champagne pas cher, destockage champagne, promo champagne 2025"
+    }
+    return render_template('blog/champagne-pas-cher-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/achat-ruinart-decembre-2025')
+def achat_ruinart_decembre_2025():
+    seo = {
+        "title": "Achat Ruinart Décembre 2025 | Champagne en Gros Pas Cher",
+        "description": "🎉 Commandez du Ruinart à prix pro pour décembre 2025 : Blanc de Blancs, Rosé, Brut, en gros et à prix discount.",
+        "url": "https://www.destockagealimentairestore.com/blog/achat-ruinart-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/achat-ruinart-decembre-2025.webp",
+        "keywords": "achat ruinart, champagne ruinart pas cher, champagne en gros 2025"
+    }
+    return render_template('blog/achat-ruinart-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/achat-gros-decembre-2025')
+def achat_gros_decembre_2025():
+    seo = {
+        "title": "Achat en Gros Décembre 2025 | Produits Alimentaires et Boissons",
+        "description": "📦 Achetez en gros en décembre 2025 : produits alimentaires, boissons, épicerie et destockage à prix pros.",
+        "url": "https://www.destockagealimentairestore.com/blog/achat-gros-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/achat-gros-decembre-2025.webp",
+        "keywords": "achat en gros, destockage alimentaire, promo gros volume, décembre 2025"
+    }
+    return render_template('blog/achat-gros-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-belgique-decembre-2025')
+def destockage_alimentaire_belgique_decembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Belgique Décembre 2025 | Livraison Rapide",
+        "description": "🇧🇪 Offres de décembre 2025 en Belgique : déstockage alimentaire, épicerie, boissons et gros volumes à prix cassés.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-belgique-decembre-2025.webp",
+        "keywords": "destockage alimentaire Belgique, promo alimentaire Belgique, destockage décembre 2025"
+    }
+    return render_template('blog/destockage-alimentaire-belgique-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-belgique-decembre-2025')
+def grossiste_alimentaire_belgique_decembre_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Belgique Décembre 2025 | Achat en Gros et Déstockage",
+        "description": "💼 Trouvez les grossistes alimentaires en Belgique pour décembre 2025 : produits en gros, déstockage et livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-belgique-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-belgique-decembre-2025.webp",
+        "keywords": "grossiste alimentaire Belgique, destockage alimentaire, achat en gros Belgique"
+    }
+    return render_template('blog/grossiste-alimentaire-belgique-decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-grossiste-decembre-2025')
+def destockage_grossiste_decembre_2025():
+    seo = {
+        "title": "Déstockage Grossiste Décembre 2025 | Prix Professionnels & Offres Spéciales",
+        "description": "📦 Offres de déstockage pour grossistes en décembre 2025 : produits alimentaires, boissons et épicerie à prix pros.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-grossiste-decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-grossiste-decembre-2025.webp",
+        "keywords": "destockage grossiste, destockage alimentaire, promo gros volume, décembre 2025"
+    }
+    return render_template('blog/destockage-grossiste-decembre-2025.html', seo=seo)
+
+
 # --- 3. GROSSISTE ALIMENTAIRE LILLE 2025 ---
 @app.route('/blog/grossiste-alimentaire-lille-2025')
 def grossiste_alimentaire_lille_2025():
