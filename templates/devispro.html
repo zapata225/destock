@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture Proforma - Capsules Café L'Or</title>
+    <title>Facture Proforma - Champagne Moët & Chandon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
@@ -340,16 +340,6 @@
             font-size: 16px;
         }
         
-        .discount-badge {
-            background: #27ae60;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-        
         @media print {
             body {
                 background: white;
@@ -368,11 +358,30 @@
                 opacity: 0.1;
             }
         }
+        
+        .champagne-badge {
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a2a3a;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background: #fff8e1;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 4px solid #ffc107;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="watermark">PROFORMA</div>
+        <div class="watermark">CHAMPAGNE</div>
         
         <div class="header">
             <div class="proforma-badge">FACTURE PROFORMA</div>
@@ -391,7 +400,7 @@
                 
                 <div class="document-info">
                     <div class="document-title">FACTURE PROFORMA</div>
-                    <div class="document-number">N° PF-2024-CAF-001</div>
+                    <div class="document-number">N° PF-2024-CHAMP-056</div>
                     <div style="margin-top: 10px;">Date: <span id="current-date"></span></div>
                 </div>
             </div>
@@ -402,21 +411,43 @@
                 <h2 class="section-title">INFORMATIONS CLIENT</h2>
                 <div class="client-info">
                     <div class="info-block">
-                        <h3>Client (Livraison et Facturation)</h3>
-                        <p><strong>Eden GUERROU</strong></p>
-                        <p>23 Rue Henri Barbusse</p>
-                        <p>95100 Argenteuil</p>
+                        <h3>Adresse de Facturation</h3>
+                        <p><strong>SOCIÉTÉ RS DESTOCK</strong></p>
+                        <p>180 chemin des Mourier</p>
+                        <p>83490 Le Muy</p>
                         <p>France</p>
+                        
+                        <div class="contact-info">
+                            <p><strong>Contact facturation:</strong></p>
+                            <p><strong>ARNAUD</strong></p>
+                            <p><i class="fas fa-envelope"></i> arnauderjona83490@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> 07 64 41 10 72</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h3>Adresse de Livraison</h3>
+                        <p><strong>SOCIÉTÉ RS DESTOCK</strong></p>
+                        <p>180 chemin des Mourier</p>
+                        <p>83490 Le Muy</p>
+                        <p>France</p>
+                        
+                        <div class="contact-info">
+                            <p><strong>Contact livraison:</strong></p>
+                            <p><strong>ARNAUD</strong></p>
+                            <p><i class="fas fa-envelope"></i> arnauderjona83490@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> 07 64 41 10 72</p>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="delivery-info">
                 <h3><i class="fas fa-truck"></i> INFORMATIONS DE LIVRAISON</h3>
-                <p><strong>Adresse de livraison:</strong> 23 Rue Henri Barbusse, 95100 Argenteuil, France</p>
-                <p><strong>Délai de livraison estimé:</strong> 5 à 7 jours ouvrés après confirmation</p>
-                <p><strong>Fréquence proposée:</strong> 1 palette toutes les 2 semaines</p>
+                <p><strong>Adresse de livraison:</strong> 180 chemin des Mourier, 83490 Le Muy</p>
+                <p><strong>Délai de livraison:</strong> 5 à 7 jours ouvrés après confirmation</p>
                 <p><strong>Disponibilité:</strong> En stock</p>
+                <p><strong>Conditions:</strong> Livraison à quai - Déchargement par le client</p>
             </div>
             
             <div class="section">
@@ -435,56 +466,60 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>LOR-ESPRESSO-001</td>
+                            <td>CHAMP-MC-PAL</td>
                             <td>
-                                <strong>Capsules de café L'Or Espresso Delizioso</strong>
+                                <div class="champagne-badge">PRODUIT PREMIUM</div>
+                                <strong>Champagne Moët & Chandon</strong>
                                 <div class="product-details">
-                                    Conditionnement: Palette de 720 boîtes (50 capsules par boîte)<br>
-                                    DLUO: Minimum 18 mois à compter de la date de livraison<br>
-                                    Date de fabrication: Lot récent (détails sur demande)
+                                    Palette complète - Brut Impérial<br>
+                                    Bouteilles 75cl - Millésime sélectionné
                                 </div>
                             </td>
-                            <td>1 palette (720 boîtes)</td>
-                            <td>1 900,00 €</td>
-                            <td>1 900,00 €</td>
-                            <td>Incluse (5,5%)</td>
+                            <td>1 palette</td>
+                            <td>4 100,00 €</td>
+                            <td>4 100,00 €</td>
+                            <td>Incluse (20%)</td>
                         </tr>
                         <tr>
-                            <td>FID-001</td>
+                            <td>TRSP-83490</td>
                             <td>
-                                <strong>Remise fidélité commande régulière</strong>
+                                <strong>Frais de transport</strong>
                                 <div class="product-details">
-                                    Remise de 10% appliquée pour commande régulière<br>
-                                    Livraison toutes les 2 semaines
+                                    Livraison à Le Muy (83490)<br>
+                                    Livraison à quai - Déchargement par le client
                                 </div>
                             </td>
-                            <td>1</td>
-                            <td>-190,00 €</td>
-                            <td>-190,00 €</td>
-                            <td>Incluse</td>
+                            <td>1 livraison</td>
+                            <td>89,00 €</td>
+                            <td>89,00 €</td>
+                            <td>Incluse (20%)</td>
                         </tr>
                         <tr class="total-row">
                             <td colspan="4" style="text-align: right;"><strong>SOUS-TOTAL HT</strong></td>
-                            <td colspan="2"><strong>1 621,80 €</strong></td>
+                            <td colspan="2"><strong>3 490,83 €</strong></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="text-align: right;">TVA 5,5% (Produits)</td>
-                            <td colspan="2">88,20 €</td>
+                            <td colspan="4" style="text-align: right;">TVA 20% (Champagne)</td>
+                            <td colspan="2">683,33 €</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right;">TVA 20% (Transport)</td>
+                            <td colspan="2">14,83 €</td>
                         </tr>
                         <tr class="grand-total">
                             <td colspan="4" style="text-align: right;"><strong>TOTAL À FACTURER TTC</strong></td>
-                            <td colspan="2"><strong>1 710,00 €</strong></td>
+                            <td colspan="2"><strong>4 189,00 €</strong></td>
                         </tr>
                     </tbody>
                 </table>
                 
                 <div class="price-breakdown">
                     <p><strong>Récapitulatif de la commande :</strong></p>
-                    <p>Capsules de café L'Or Espresso Delizioso : <span style="float: right;">1 palette (720 boîtes) = 1 900,00 € TTC</span></p>
-                    <p>Remise fidélité 10% : <span style="float: right;">-190,00 €</span></p>
-                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">1 710,00 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 5,5% : <span style="float: right;">88,20 €</span></p>
-                    <p class="discount-badge" style="display: inline-block; margin-top: 10px;">Économie réalisée : 190,00 €</p>
+                    <p>Champagne Moët & Chandon : <span style="float: right;">1 palette = 4 100,00 € TTC</span></p>
+                    <p>Frais de transport : <span style="float: right;">89,00 € TTC</span></p>
+                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">4 189,00 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 20% (champagne) : <span style="float: right;">683,33 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 20% (transport) : <span style="float: right;">14,83 €</span></p>
                 </div>
             </div>
             
@@ -493,7 +528,8 @@
                 <p><strong>Bénéficiaire:</strong> ES SEDDYQY RAYANE</p>
                 <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
                 <p><strong>BIC:</strong> FNOMFRP2</p>
-                <p><strong>Référence:</strong> PF-2024-CAF-001</p>
+                <p><strong>Référence:</strong> PF-2024-CHAMP-056</p>
+                <p><strong>Montant à régler:</strong> 4 189,00 € TTC</p>
             </div>
             
             <div class="section">
@@ -502,7 +538,6 @@
                     <h3>Modalités de paiement</h3>
                     <ul>
                         <li><strong>Virement bancaire</strong> à réception de cette facture proforma</li>
-                        <li>Délai de paiement: 30 jours fin de mois</li>
                         <li>La commande sera confirmée après réception du paiement</li>
                     </ul>
                 
@@ -510,11 +545,10 @@
                     <ul>
                         <li>Cette facture proforma est valable 30 jours à compter de sa date d'émission</li>
                         <li>Les prix sont fermes et non révisables pendant la durée de validité</li>
-                        <li>DLUO garantie: Minimum 18 mois à compter de la date de livraison</li>
-                        <li>Date de fabrication: Lot récent (détails précis sur demande)</li>
-                        <li>Remise de 10% applicable sur les commandes régulières (1 palette/2 semaines)</li>
-                        <li>Transport: Livraison offerte pour commande régulière</li>
+                        <li>Produit garanti : Champagne Moët & Chandon authentique</li>
+                        <li>Conditions de stockage : À conserver à l'abri de la lumière et à température constante</li>
                         <li>Réserves à formuler dans les 24h suivant la livraison</li>
+                        <li>Transport: Livraison à quai, déchargement par le client</li>
                         <li>Emballages non repris, non consignés</li>
                     </ul>
                 </div>
@@ -528,7 +562,9 @@
                     </div>
                     <div class="signature-line">Date et signature</div>
                     <div style="margin-top: 10px; font-size: 12px; color: #666;">
-                        Eden GUERROU
+                        SOCIÉTÉ RS DESTOCK<br>
+                        Représenté par ARNAUD<br>
+                        Tél: 07 64 41 10 72
                     </div>
                 </div>
             </div>
@@ -539,7 +575,8 @@
                     <ul>
                         <li>Cette facture proforma n'a pas de valeur comptable et ne peut être considérée comme une facture définitive</li>
                         <li>La facture définitive sera établie après réception du paiement et portera le même numéro sans le préfixe "PF"</li>
-                        <li>Conformément à la réglementation en vigueur, la TVA est applicable au taux de 5,5% pour les produits alimentaires</li>
+                        <li>Conformément à la réglementation en vigueur, la TVA est applicable au taux de 20% pour les champagnes et les prestations de transport</li>
+                        <li>La vente d'alcool est interdite aux mineurs. L'abus d'alcool est dangereux pour la santé, à consommer avec modération</li>
                         <li>En cas de litige, le Tribunal de Commerce de Libourne sera seul compétent</li>
                     </ul>
                 </div>
