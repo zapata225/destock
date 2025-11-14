@@ -5537,6 +5537,186 @@ def champagne_ruinart_rose():
     )
 
 
+@app.route('/blog/destockage-alimentaire-01decembre-2025')
+def destockage_alimentaire_01decembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire 1 Décembre 2025 | Jusqu’à -70%",
+        "description": "🔥 Offres du 1er décembre 2025 : déstockage alimentaire massif, épicerie, boissons et produits en gros. Livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-01decembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-01decembre2025.webp",
+        "keywords": "destockage alimentaire décembre 2025, promo alimentaire, prix cassés, vente en gros"
+    }
+    return render_template('blog/destockage-alimentaire-01decembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-ligne-professionnel-2025')
+def destockage_alimentaire_en_ligne_professionnel_2025():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne Professionnel 2025 | Gros Volumes",
+        "description": "📦 Offres pro 2025 : déstockage alimentaire en ligne pour professionnels, palettes & gros volumes. Prix ultra compétitifs.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-pro-2025.webp",
+        "keywords": "destockage professionnel, grossiste alimentaire, palette alimentaire, 2025"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-professionnel-2025.html', seo=seo)
+
+
+@app.route('/blog/promo-ruinart-14-novembre-2025')
+def promo_ruinart_14_novembre_2025():
+    seo = {
+        "title": "Promo Ruinart 14 Novembre 2025 | Champagne Prix Grossiste",
+        "description": "🍾 Promotion exceptionnelle Ruinart du 14 novembre 2025 : bouteilles et palettes à prix cassés. Stock limité.",
+        "url": "https://www.destockagealimentairestore.com/blog/promo-ruinart-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-14nov.webp",
+        "keywords": "promo ruinart, champagne ruinart pas cher, champagne en gros"
+    }
+    return render_template('blog/promo-ruinart-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/promo-champagne-14-novembre-2025')
+def promo_champagne_14_novembre_2025():
+    seo = {
+        "title": "Promo Champagne 14 Novembre 2025 | Jusqu’à -60%",
+        "description": "🥂 Offres champagne du 14 novembre 2025 : Moët, Ruinart, Veuve Clicquot, prix discount. Livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/promo-champagne-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/promo-champagne-14nov.webp",
+        "keywords": "promo champagne, champagne pas cher, champagne 2025"
+    }
+    return render_template('blog/promo-champagne-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/champagne-pas-cher-2025')
+def champagne_pas_cher_2025():
+    seo = {
+        "title": "Champagne Pas Cher 2025 | Grossiste & Destockage",
+        "description": "🍾 Les meilleures offres champagne 2025 : Ruinart, Moët, Dom Pérignon à prix grossiste. Livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-pas-cher-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-2025.webp",
+        "keywords": "champagne pas cher 2025, champagne en gros, destockage champagne"
+    }
+    return render_template('blog/champagne-pas-cher-2025.html', seo=seo)
+
+
+@app.route('/blog/champagne-ruinart-blanc-de-blancs-2025')
+def champagne_ruinart_blanc_de_blancs_2025():
+    seo = {
+        "title": "Ruinart Blanc de Blancs 2025 | Prix Grossiste",
+        "description": "🥂 Ruinart Blanc de Blancs 2025 à prix discount : achat en gros, palette champagne, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/champagne-ruinart-blanc-de-blancs-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/ruinart-blanc2025.webp",
+        "keywords": "ruinart blanc de blancs, champagne en gros, champagne 2025"
+    }
+    return render_template('blog/champagne-ruinart-blanc-de-blancs-2025.html', seo=seo)
+
+
+@app.route('/blog/dom-perignon-14-novembre-2025')
+def dom_perignon_14_novembre_2025():
+    seo = {
+        "title": "Dom Pérignon 14 Novembre 2025 | Offres Exclusives",
+        "description": "🍾 Promo exceptionnelle Dom Pérignon du 14 novembre 2025 : prix grossistes et destockage champagne.",
+        "url": "https://www.destockagealimentairestore.com/blog/dom-perignon-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/dom-perignon-14nov.webp",
+        "keywords": "dom perignon pas cher, champagne luxe, promo champagne"
+    }
+    return render_template('blog/dom-perignon-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-belgique-14-novembre-2025')
+def destockage_alimentaire_belgique_14_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Belgique 14 Novembre 2025",
+        "description": "🇧🇪 Offres en Belgique : déstockage alimentaire, boissons, épicerie, prix cassés. Livraison 24/48h.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-belgique-14nov.webp",
+        "keywords": "destockage belgique, alimentaire pas cher, promotion belgique"
+    }
+    return render_template('blog/destockage-alimentaire-belgique-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-espagnol-2025')
+def destockage_espagnol_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Espagnol 2025 | Prix Cassés",
+        "description": "🇪🇸 Produits alimentaires espagnols 2025 : huile, tapas, boissons, conserves, prix destockés.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-espagnol-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-espagnol.webp",
+        "keywords": "destockage espagne, produits espagnols, épicerie espagnole"
+    }
+    return render_template('blog/destockage-espagnol-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-paris-14-novembre-2025')
+def destockage_paris_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Paris 14 Novembre 2025 | Prix Cassés",
+        "description": "🗼 Déstockage alimentaire Paris : promotions, épicerie, boissons, gros volumes.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-paris-14nov.webp",
+        "keywords": "destockage paris, alimentaire pas cher paris, promo paris 2025"
+    }
+    return render_template('blog/destockage-alimentaire-paris-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-belgique_15_novembre_2025')
+def grossiste_alimentaire_belgique_15_novembre_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Belgique 15 Novembre 2025 | En Gros",
+        "description": "🇧🇪 Grossiste Belgique : prix pros, palettes alimentaires, boissons, épicerie.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-belgique_15_novembre_2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-belgique-15nov.webp",
+        "keywords": "grossiste belgique, grossiste alimentaire, destockage Belgique"
+    }
+    return render_template('blog/grossiste-alimentaire-belgique_15_novembre_2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-gros-novembre-2025')
+def destockage_alimentaire_gros_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Gros Novembre 2025 | Palettes & Gros Volumes",
+        "description": "📦 Déstockage alimentaire gros volumes novembre 2025 : palette boissons, nourriture, produits secs.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-gros-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-gros-nov2025.webp",
+        "keywords": "destockage gros volumes, palette alimentaire, vente en gros"
+    }
+    return render_template('blog/destockage-alimentaire-gros-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/achat-en-gros-14-novembre-2025')
+def achat_en_gros_14_novembre_2025():
+    seo = {
+        "title": "Achat en Gros 14 Novembre 2025 | Prix Grossiste",
+        "description": "🛒 Achetez en gros le 14 novembre 2025 : produits alimentaires, boissons, épicerie à prix discount.",
+        "url": "https://www.destockagealimentairestore.com/blog/achat-en-gros-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/achat-gros-14nov.webp",
+        "keywords": "achat en gros, grossiste alimentaire, palette alimentaire"
+    }
+    return render_template('blog/achat-en-gros-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-boisson-14-novembre-2025')
+def destockage_boisson_14_novembre_2025():
+    seo = {
+        "title": "Déstockage Boisson 14 Novembre 2025 | Softs & Alcools",
+        "description": "🥤 Déstockage boissons : softs, eau, bières, alcools. Prix cassés le 14 novembre 2025.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-boisson-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-boisson-14nov.webp",
+        "keywords": "destockage boisson, boisson pas cher, palette boisson"
+    }
+    return render_template('blog/destockage-boisson-14-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-boisson-14-novembre-2025')
+def grossiste_boisson_14_novembre_2025():
+    seo = {
+        "title": "Grossiste Boisson 14 Novembre 2025 | Prix Pro & Palettes",
+        "description": "🍹 Grossiste boisson : palettes, softs, alcools, prix professionnels pour le 14 novembre 2025.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-boisson-14-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-boisson-14nov.webp",
+        "keywords": "grossiste boisson, palette boisson, fournisseur boisson"
+    }
+    return render_template('blog/grossiste-boisson-14-novembre-2025.html', seo=seo)
+
+
 @app.route('/admin/users')
 @admin_required
 def admin_users():
@@ -5566,6 +5746,22 @@ def sitemap():
         '/blog/alcool-pas-cher-espagne-en-ligne','/blog/discount-alimentaire-novembre2025','/blog/destockage-alimentaire-lyon-novembre-2025','/blog/grossiste-alimentaire-paris-novembre2025','/blog/grossiste-alimentaire-lille-novembre2025','/blog/grossiste-alimentaire-belgique-novembre2025','/blog/grossiste-alimentaire-lyon-novembre2025','/blog/destockage-alimentaire-en-lignenovembre2025','/blog/destockage-alimentaire-autour-de-moi-novembre2025',
         '/blog/ruinart-blanc-de-blancs-novembre2025',
         '/blog/boissons-gros-pas-cher-25',
+        '/blog/destockage-alimentaire-01decembre-2025',
+        '/blog/destockage-alimentaire-en-ligne-professionnel-2025',
+        '/blog/promo-ruinart-14-novembre-2025',
+        '/blog/promo-champagne-14-novembre-2025',
+        '/blog/champagne-pas-cher-2025',
+        '/blog/champagne-ruinart-blanc-de-blancs-2025',
+        '/blog/dom-perignon-14-novembre-2025',
+        '/blog/destockage-alimentaire-belgique-14-novembre-2025',
+        '/blog/destockage-espagnol-2025',
+        '/blog/destockage-alimentaire-paris-14-novembre-2025',
+        '/blog/grossiste-alimentaire-belgique_15_novembre_2025',
+        '/blog/destockage-alimentaire-gros-novembre-2025',
+        '/blog/achat-en-gros-14-novembre-2025',
+        '/blog/destockage-boisson-14-novembre-2025',
+        '/blog/grossiste-boisson-14-novembre-2025',
+
         '/blog/destockage-invendus-usine-novembre-2025',
         '/blog/promo-ruinart-novembre-2025',
         '/blog/grossiste-alimentaire-professionnel-2025',
