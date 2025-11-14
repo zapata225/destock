@@ -4060,7 +4060,7 @@ def destockage_alimentaire_decembre_2025():
         "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-alimentaire-decembre-2025.webp",
         "keywords": "destockage alimentaire décembre 2025, promo alimentaire, fins de série"
     }
-    return render_template('blog/destockage-alimentaire-decembre-2025.html', seo=seo)
+    return render_template('blog/destockage-alimentaire-01decembre-2025.html', seo=seo)
 
 
 @app.route('/blog/destockage-alimentaire-en-ligne-decembre-2025')
