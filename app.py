@@ -2773,11 +2773,11 @@ def add_header(response):
 def blog_france():
     return render_template('blog_france.html')
 
-@app.route('/Factureproforma-DAS-67399')
+@app.route('/Factureproforma-DAS')
 def facturepro():
     return render_template('devispro.html')
 
-@app.route('/Devis-DAS-67399')
+@app.route('/Devis-DAS')
 def devis():
     return render_template('devispro1.html')
 
