@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture Proforma Acompte - DESTOCKAGE ALIMENTAIRE STORE</title>
+    <title>Facture Proforma Solde - DESTOCKAGE ALIMENTAIRE STORE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2e7d32;
             --primary-dark: #1b5e20;
-            --secondary: #ff9800;
+            --secondary: #2196f3;
             --dark: #263238;
             --light: #f8f9fa;
             --gray: #607d8b;
             --success: #4caf50;
             --border: #e0e0e0;
-            --payment-bg: #fff8e1;
-            --payment-border: #ffd54f;
+            --payment-bg: #e8f5e9;
+            --payment-border: #4caf50;
         }
         
         * {
@@ -97,8 +97,8 @@
             font-weight: 600;
         }
         
-        .acompte-badge {
-            background: #ff5722;
+        .solde-badge {
+            background: #2196f3;
             color: white;
             padding: 6px 12px;
             border-radius: 20px;
@@ -250,7 +250,7 @@
         }
         
         .highlight {
-            background: linear-gradient(135deg, var(--secondary), #ffb300);
+            background: linear-gradient(135deg, var(--secondary), #1976d2);
             color: white;
             padding: 4px 10px;
             border-radius: 4px;
@@ -420,9 +420,9 @@
             </div>
             <div class="invoice-details">
                 <div class="invoice-title">FACTURE PROFORMA</div>
-                <div class="invoice-number">PF-2024-ACOMPTE-50P</div>
+                <div class="invoice-number">PF-2024-SOLDE-50S</div>
                 <div class="invoice-date">Date: 04/11/2025</div>
-                <div class="acompte-badge">ACOMPTE 50%</div>
+                <div class="solde-badge">SOLDE 50%</div>
             </div>
         </div>
         
@@ -453,8 +453,8 @@
                 <div class="address-details">
                     <p><strong>Référence client:</strong> PO1150</p>
                     <p><strong>Date de validité:</strong> 04/12/2025</p>
-                    <p><strong>Type:</strong> Acompte 50%</p>
-                    <p><strong>Condition:</strong> Paiement à la commande</p>
+                    <p><strong>Type:</strong> Solde 50%</p>
+                    <p><strong>Condition:</strong> Paiement à la livraison</p>
                 </div>
             </div>
         </div>
@@ -619,23 +619,15 @@
         <div class="totals-section">
             <table class="totals-table">
                 <tr>
-                    <td>Montant total HT (€)</td>
-                    <td class="text-right">15 918,59</td>
-                </tr>
-                <tr>
-                    <td>Montant TVA (5.5%)</td>
-                    <td class="text-right">875,52</td>
-                </tr>
-                <tr>
-                    <td>Montant TVA (20%)</td>
-                    <td class="text-right">150,89</td>
-                </tr>
-                <tr>
                     <td>Montant total TTC (€)</td>
                     <td class="text-right">16 945,00</td>
                 </tr>
+                <tr>
+                    <td>Acompte déjà payé (€)</td>
+                    <td class="text-right">8 472,50</td>
+                </tr>
                 <tr class="total-row">
-                    <td><strong>ACOMPTE 50% À PAYER (€)</strong></td>
+                    <td><strong>SOLDE 50% À PAYER (€)</strong></td>
                     <td class="text-right"><strong>8 472,50</strong></td>
                 </tr>
             </table>
@@ -646,10 +638,10 @@
             <div class="payment-details">
                 <div class="payment-item">
                     <h4><i class="fas fa-calendar-alt"></i> DÉLAIS DE PAIEMENT</h4>
-                    <p><strong>Condition:</strong> <span class="highlight">50% AVEC PROFORMA</span></p>
+                    <p><strong>Condition:</strong> <span class="highlight">50% À LA LIVRAISON</span></p>
                     <p><strong>Montant dû:</strong> <span class="highlight">8 472,50 €</span></p>
                     <p><strong>Mode de paiement:</strong> Virement bancaire</p>
-                    <p><strong>Échéance:</strong> 15 jours</p>
+                    <p><strong>Échéance:</strong> 30 jours après livraison</p>
                 </div>
                 
                 <div class="payment-item">
@@ -659,7 +651,7 @@
                         <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
                         <p><strong>BIC:</strong> FNOMFRP2</p>
                     </div>
-                    <p><strong>Référence:</strong> PF-2024-COCA-024-ACOMPTE</p>
+                    <p><strong>Référence:</strong> PF-2024-COCA-024-SOLDE</p>
                 </div>
             </div>
         </div>
@@ -667,9 +659,9 @@
         <div class="comments-section">
             <h3><i class="fas fa-comments"></i> COMMENTAIRES OU INSTRUCTIONS SPÉCIFIQUES</h3>
             <div class="comments-content">
-                <p><strong>Conditions de paiement :</strong> 50% à payer avant livraison (acompte) et 50% à la livraison (solde).</p>
-                <p>Cette facture proforma pour acompte de 50% est valable 30 jours à compter de la date d'émission.</p>
-                <p>Le solde de 50% sera facturé après livraison et acceptation des marchandises.</p>
+                <p><strong>Conditions de paiement :</strong> 50% payé avant livraison (acompte) et 50% à régler à la livraison (solde).</p>
+                <p>Cette facture proforma pour solde de 50% est valable 30 jours à compter de la date d'émission.</p>
+                <p>Le solde de 50% est à régler après livraison et acceptation des marchandises.</p>
                 <p>Les prix sont donnés à titre indicatif et peuvent être ajustés en fonction des fluctuations du marché.</p>
                 <p>Toute commande passée sur la base de cette facture proforma est soumise à l'acceptation et à la disponibilité des produits.</p>
             </div>
@@ -696,7 +688,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Facture acompte 50% avec produits détaillés chargée avec succès');
+            console.log('Facture solde 50% avec produits détaillés chargée avec succès');
         });
     </script>
 </body>
