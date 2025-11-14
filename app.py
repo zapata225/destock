@@ -5585,8 +5585,8 @@ def promo_champagne_14_novembre_2025():
     return render_template('blog/promo-champagne-14-novembre-2025.html', seo=seo)
 
 
-@app.route('/blog/champagne-pas-cher-2025')
-def champagne_pas_cher_2025():
+@app.route('/blog/champagne-pas-cher-15-novembre-2025')
+def champagne_pas_cher_15_11_2025():
     seo = {
         "title": "Champagne Pas Cher 2025 | Grossiste & Destockage",
         "description": "🍾 Les meilleures offres champagne 2025 : Ruinart, Moët, Dom Pérignon à prix grossiste. Livraison rapide.",
@@ -5594,7 +5594,7 @@ def champagne_pas_cher_2025():
         "image": "https://www.destockagealimentairestore.com/static/img/blog/champagne-2025.webp",
         "keywords": "champagne pas cher 2025, champagne en gros, destockage champagne"
     }
-    return render_template('blog/champagne-pas-cher-2025.html', seo=seo)
+    return render_template('blog/champagne-pas-cher-15_11_2025.html', seo=seo)
 
 
 @app.route('/blog/champagne-ruinart-blanc-de-blancs-2025')
