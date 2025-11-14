@@ -2342,7 +2342,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+        <!-- NOUVEAU MENU MOBILE - À COLLER -->
         <nav class="mobile-nav-premium">
+            <!-- Navigation principale -->
             <a href="/" class="mobile-nav-item active">
                 <i class="fas fa-home"></i>
                 <span>Accueil</span>
@@ -2369,27 +2371,30 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="mobile-divider"></div>
             
-            {% if session.logged_in %}
-                <!-- Utilisateur connecté -->
-                <a href="/compte" class="mobile-nav-item">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Mon compte</span>
-                </a>
-                <a href="/deconnexion" class="mobile-nav-item logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Déconnexion</span>
-                </a>
-            {% else %}
-                <!-- Utilisateur non connecté -->
-                <a href="/connexion" class="mobile-nav-item">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Connexion</span>
-                </a>
-                <a href="/inscription" class="mobile-nav-item">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Inscription</span>
-                </a>
-            {% endif %}
+            <!-- Section auth fixe en bas -->
+            <div class="mobile-auth-section">
+                {% if session.logged_in %}
+                    <!-- Utilisateur connecté -->
+                    <a href="/compte" class="mobile-nav-item auth-item">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Mon compte</span>
+                    </a>
+                    <a href="/deconnexion" class="mobile-nav-item auth-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                {% else %}
+                    <!-- Utilisateur non connecté -->
+                    <a href="/connexion" class="mobile-nav-item auth-item">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Connexion</span>
+                    </a>
+                    <a href="/inscription" class="mobile-nav-item auth-item">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Inscription</span>
+                    </a>
+                {% endif %}
+            </div>
         </nav>
         
     </div>
@@ -2657,6 +2662,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Position initiale
             setTimeout(positionResultsContainer, 100);
+        });
+        // === FONCTIONS MOBILE - AJOUTER À LA FIN DU SCRIPT ===
+
+        // Fonction pour gérer le checkout sur mobile
+        function handleCheckoutMobile() {
+            // Vérifier si le panier est vide
+            const cartCount = parseInt(document.getElementById('cart-count').textContent) || 0;
+            
+            if (cartCount === 0) {
+                alert('Votre panier est vide');
+                return;
+            }
+            
+            // Fermer le popup panier
+            const cartPopup = document.getElementById('cart-popup');
+            const overlay = document.getElementById('overlay');
+            
+            if (cartPopup) {
+                cartPopup.classList.remove('active');
+            }
+            if (overlay) {
+                overlay.classList.remove('active');
+            }
+            document.body.classList.remove('no-scroll');
+            
+            // Rediriger vers la page appropriée
+            const isLoggedIn = {{ 'true' if session.logged_in or session.guest else 'false' }};
+            const checkoutUrl = isLoggedIn ? "{{ url_for('checkout') }}" : "{{ url_for('checkout_auth') }}";
+            
+            // Utiliser setTimeout pour laisser l'animation se terminer
+            setTimeout(() => {
+                window.location.href = checkoutUrl;
+            }, 300);
+        }
+        
+        // Écouteur d'événement pour le bouton checkout mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkoutBtn = document.getElementById('checkout-button-mobile');
+            
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', handleCheckoutMobile);
+                checkoutBtn.addEventListener('touchend', handleCheckoutMobile);
+            }
+            
+            // Amélioration du défilement mobile
+            const mobileNav = document.querySelector('.mobile-nav-premium');
+            if (mobileNav) {
+                // Forcer le redimensionnement pour iOS
+                setTimeout(() => {
+                    mobileNav.style.height = 'auto';
+                    mobileNav.style.minHeight = 'calc(100vh - 200px)';
+                }, 100);
+            }
         });
     </script>
 </body>
@@ -4652,6 +4710,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 
         
+        <!-- NOUVEAU CODE - À COLLER -->
         {% if 'cart' in session and session.cart %}
         <div class="cart-totals">
             <div class="cart-total-row">
@@ -4677,11 +4736,13 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
             
-        <a href="{% if session.logged_in or session.guest %}{{ url_for('checkout') }}{% else %}{{ url_for('checkout_auth') }}{% endif %}" 
-           class="btn-checkout">
-           Passer commande
-        </a>      
-    {% endif %}
+        <button type="button" 
+                class="btn-checkout" 
+                id="checkout-button-mobile"
+                onclick="handleCheckoutMobile()">
+            Passer commande
+        </button>      
+        {% endif %}
     </div>
     
     <div class="overlay" id="overlay"></div>
@@ -4811,6 +4872,75 @@ document.addEventListener('DOMContentLoaded', function() {
 @keyframes slideIn {
     from { transform: translateX(100%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
+}
+/* === CORRECTIONS MOBILE - AJOUTER À LA FIN DU STYLE EXISTANT === */
+
+/* Correction du défilement mobile */
+.mobile-nav-premium {
+    flex: 1;
+    padding: 25px 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Défilement fluide iOS */
+    scroll-behavior: smooth;
+    padding-bottom: 100px; /* Espace pour le bouton en bas */
+}
+
+/* Assurer que le contenu est scrollable */
+.mobile-menu-premium {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Boutons d'authentification toujours accessibles */
+.mobile-nav-premium .mobile-nav-item {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/* Correction spécifique pour le bouton checkout mobile */
+#checkout-button-mobile {
+    -webkit-appearance: none; /* Évite les styles iOS par défaut */
+    -webkit-tap-highlight-color: transparent; /* Supprime le flash bleu au tap */
+    touch-action: manipulation; /* Améliore la réactivité tactile */
+    cursor: pointer;
+}
+
+/* Amélioration du défilement pour tous les éléments scrollables */
+.cart-items, .mobile-search-results, .search-results-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Section auth fixe en bas */
+.mobile-auth-section {
+    margin-top: auto; /* Pousse vers le bas */
+    padding: 20px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e7eb;
+    position: sticky;
+    bottom: 0;
+}
+
+.mobile-auth-section .auth-item {
+    background: white;
+    margin: 8px 0;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+}
+
+.mobile-auth-section .auth-item:hover {
+    background: #f1f5f9;
+    border-color: #3b82f6;
+}
+
+/* Zone de défilement sécurisée pour iPhone */
+@supports (padding: max(0px)) {
+    .mobile-nav-premium {
+        padding-bottom: max(25px, env(safe-area-inset-bottom));
+    }
 }
 </style>
 
