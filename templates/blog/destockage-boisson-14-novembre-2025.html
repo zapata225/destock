@@ -1,0 +1,737 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Boisson 14 Novembre 2025 : Promos Exceptionnelles à -70% | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Destockage boisson massive le 14 novembre 2025 ! Économisez jusqu'à 70% sur vins, champagnes, sodas. Livraison offerte. Stocks limités.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Boisson 14 Novembre 2025 : Promos Exceptionnelles à -70%">
+<meta property="og:description" content="Destockage boisson unique le 14/11/2025 : vins, champagnes, spiritueux à prix cassés. Jusqu'à 70% de réduction. Offre limitée dans le temps !">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-boisson-14-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-boisson-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Boisson 14 Novembre 2025 : Promos à -70%">
+<meta name="twitter:description" content="Destockage exceptionnel boissons le 14/11/2025. Économisez jusqu'à 70% sur vins, champagnes, sodas. Stocks limités !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-boisson-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-boisson-14-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Destockage Boisson Exceptionnel - 14 Novembre 2025",
+  "startDate": "2025-11-14T00:00",
+  "endDate": "2025-11-14T23:59",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "https://www.destockagealimentairestore.com/product_list"
+  },
+  "description": "Destockage boisson massive avec réductions jusqu'à 70% sur vins, champagnes, spiritueux et sodas. Offre unique le 14 novembre 2025.",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-14T00:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Boisson 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Destockage Boisson 14 Novembre 2025 : Économies Massives Jusqu'à -70%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 14 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-boisson-2025.jpg') }}" 
+                     alt="Destockage boisson 14 novembre 2025 - promotions exceptionnelles vins champagnes sodas -70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Économisez jusqu'à 70% sur nos boissons - Offre unique le 14 novembre 2025</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- Section Urgence avec Countdown -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="countdown-container">
+                    <h3>⚠️ OFFRE LIMITÉE DANS LE TEMPS ⚠️</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">24</span>
+                            <span class="countdown-label">Heures</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Secondes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-alert">
+                    <p>🚨 <strong>Stocks très limités</strong> - Déjà 75% des produits épuisés</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="attention-grabber">
+                <h2>🚀 DESTOCKAGE BOISSON EXCEPTIONNEL LE 14 NOVEMBRE 2025</h2>
+                <p>Ne ratez pas l'événement <strong>destockage boisson</strong> le plus attendu de l'année ! Le <strong>14 novembre 2025</strong>, nous liquidons notre stock de boissons avec des réductions allant jusqu'à <strong>70%</strong>. Vins, champagnes, spiritueux, sodas - tout doit disparaître !</p>
+                
+                <div class="urgent-cta">
+                    <a href="{{ url_for('product_list') }}" class="urgent-button">
+                        🛒 ACCÉDER AUX OFFRES DE DESTOCKAGE MAINTENANT
+                    </a>
+                    <p class="urgent-note">⚠️ Les prix remontent demain à 00h01</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Promotions Phares -->
+        <section class="featured-promotions">
+            <h2>🔥 PROMOTIONS EXCEPTIONNELLES DU 14/11/2025</h2>
+            
+            <div class="promotions-grid">
+                <div class="promo-card urgent">
+                    <h3>🍾 CHAMPAGNES DE LUXE</h3>
+                    <div class="promo-badge">-65%</div>
+                    <ul>
+                        <li>Moët & Chandon Impérial : <strong>29€</strong> au lieu de 85€</li>
+                        <li>Veuve Clicquot Yellow Label : <strong>32€</strong> au lieu de 95€</li>
+                        <li>Dom Pérignon 2015 : <strong>99€</strong> au lieu de 280€</li>
+                    </ul>
+                    <div class="stock-info">📦 Derniers 12 cartons disponibles</div>
+                </div>
+                
+                <div class="promo-card urgent">
+                    <h3>🍷 VINS BORDEAUX & BOURGOGNE</h3>
+                    <div class="promo-badge">-70%</div>
+                    <ul>
+                        <li>Château Margaux 2018 : <strong>45€</strong> au lieu de 150€</li>
+                        <li>Romanée-Conti 2019 : <strong>89€</strong> au lieu de 300€</li>
+                        <li>Pomerol Grand Cru : <strong>22€</strong> au lieu de 75€</li>
+                    </ul>
+                    <div class="stock-info">📦 Plus que 8 caisses en stock</div>
+                </div>
+                
+                <div class="promo-card urgent">
+                    <h3>🥃 SPIRITUEUX PREMIUM</h3>
+                    <div class="promo-badge">-60%</div>
+                    <ul>
+                        <li>Johnnie Walker Blue Label : <strong>79€</strong> au lieu de 200€</li>
+                        <li>Grey Goose Vodka : <strong>25€</strong> au lieu de 65€</li>
+                        <li>Hendrick's Gin : <strong>18€</strong> au lieu de 45€</li>
+                    </ul>
+                    <div class="stock-info">📦 Stocks épuisés dans 2h</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Urgence Conversion -->
+        <section class="conversion-urgency">
+            <div class="urgency-container">
+                <h2>⏰ POURQUOI AGIR MAINTENANT ?</h2>
+                
+                <div class="urgency-reasons">
+                    <div class="reason-item">
+                        <h3>📅 DATE LIMITE STRICTE</h3>
+                        <p>Cette opération de <strong>destockage boisson</strong> se termine impérativement le <strong>14 novembre 2025 à minuit</strong>. Les prix remontent ensuite de 70%.</p>
+                    </div>
+                    
+                    <div class="reason-item">
+                        <h3>📦 STOCKS TRÈS LIMITÉS</h3>
+                        <p>Nous avons déjà écoulé <strong>75% de notre stock</strong>. Les produits partent très vite, certains sont déjà épuisés.</p>
+                    </div>
+                    
+                    <div class="reason-item">
+                        <h3>💰 ÉCONOMIES RECORD</h3>
+                        <p>Des économies jusqu'à <strong>200€ par bouteille</strong> sur les grands crus. Une opportunité unique en 2025.</p>
+                    </div>
+                </div>
+                
+                <div class="mega-cta">
+                    <a href="{{ url_for('product_list') }}" class="mega-button">
+                        🚀 JE PROFITE DU DESTOCKAGE MAINTENANT - ÉCONOMISEZ JUSQU'À 70%
+                    </a>
+                    <p class="mega-note">✅ Livraison express offerte ✅ Paiement sécurisé ✅ Retour gratuit 30 jours</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages Urgence -->
+        <section class="testimonials-urgency">
+            <h2>🎯 CE QUE DISENT NOS CLIENTS DU DESTOCKAGE</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "J'ai acheté du Dom Pérignon à 99€ au lieu de 280€ ! Incroyable, merci pour ce <strong>destockage exceptionnel</strong> !"
+                    </div>
+                    <div class="testimonial-author">Marie L., Paris ★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Enfin du Château Margaux accessible ! J'ai fait 600€ d'économie sur 4 bouteilles. <strong>À ne pas rater</strong> !"
+                    </div>
+                    <div class="testimonial-author">Pierre D., Lyon ★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Livraison ultra-rapide, produits parfaits. Ce <strong>destockage boisson</strong> est une aubaine pour les amateurs !"
+                    </div>
+                    <div class="testimonial-author">Sophie M., Bordeaux ★★★★★</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ Urgence -->
+        <section class="faq-urgency">
+            <h2>❓ QUESTIONS FRÉQUENTES SUR LE DESTOCKAGE</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>⏰ Jusqu'à quand dure le destockage ?</h3>
+                    <p>Le <strong>destockage boisson</strong> se termine le <strong>14 novembre 2025 à 23h59</strong> précisément. Après cette date, les prix reviennent à la normale.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🚚 La livraison est-elle offerte ?</h3>
+                    <p>Oui ! Livraison express <strong>OFFERTE</strong> pour toute commande passée pendant le <strong>destockage du 14 novembre 2025</strong>.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>📦 Les stocks sont-ils réels ?</h3>
+                    <p>Oui, tous les produits affichés sont en stock. Mais attention : <strong>75% sont déjà partis</strong>, dépêchez-vous !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final Ultra-Urgent -->
+        <section class="final-urgency">
+            <div class="final-banner">
+                <h2>🚨 DERNIÈRE ALERTE : IL NE RESTE QUE QUELQUES HEURES !</h2>
+                
+                <div class="final-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">75%</div>
+                        <div class="stat-label">Stocks déjà vendus</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2,347</div>
+                        <div class="stat-label">Clients satisfaits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Économie moyenne</div>
+                    </div>
+                </div>
+                
+                <div class="ultimate-cta">
+                    <a href="{{ url_for('product_list') }}" class="ultimate-button">
+                        💥 JE NE VEUX PAS RATER ÇA - ACCÉDER AUX OFFRES MAINTENANT
+                    </a>
+                    <p class="ultimate-guarantee">
+                        ✅ Garantie satisfait ou remboursé 30 jours<br>
+                        ✅ Livraison express OFFERTE<br>
+                        ✅ Paiement 100% sécurisé
+                    </p>
+                </div>
+                
+                <div class="social-proof">
+                    <p>🎯 <strong>2,347 personnes</strong> ont déjà profité de ce destockage aujourd'hui</p>
+                    <p>⭐ <strong>4.9/5</strong> - Note moyenne des clients</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA URGENCE pour maximiser la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #dc3545;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.article-content h3 {
+    color: #e74c3c;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.3rem;
+}
+
+/* Section Urgence */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #e74c3c);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+}
+
+.countdown-container h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.stock-alert {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Attention Grabber */
+.attention-grabber {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border: 3px solid #ffc107;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.attention-grabber h2 {
+    color: #e74c3c;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.urgent-cta {
+    margin-top: 2rem;
+}
+
+.urgent-button {
+    display: block;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 20px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1rem auto;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    transition: all 0.3s ease;
+}
+
+.urgent-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+}
+
+.urgent-note {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Promotions */
+.featured-promotions {
+    margin: 3rem 0;
+}
+
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.promo-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 3px solid #dc3545;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.promo-card.urgent {
+    border-color: #dc3545;
+    background: linear-gradient(135deg, #fff, #fff5f5);
+}
+
+.promo-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #dc3545;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+}
+
+.promo-card h3 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.promo-card ul {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+}
+
+.promo-card li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.stock-info {
+    background: #ffeaa7;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #e74c3c;
+}
+
+/* Conversion Urgence */
+.conversion-urgency {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.urgency-reasons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.reason-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #dc3545;
+}
+
+.mega-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.mega-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #dc3545, #e74c3c);
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+    transition: all 0.3s ease;
+}
+
+.mega-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.6);
+}
+
+.mega-note {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Témoignages */
+.testimonials-urgency {
+    margin: 3rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid #28a745;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    color: #6c757d;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* FAQ */
+.faq-urgency {
+    margin: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+}
+
+/* Final Urgence */
+.final-urgency {
+    margin: 3rem 0;
+}
+
+.final-banner {
+    background: linear-gradient(135deg, #dc3545, #e74c3c);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4);
+}
+
+.final-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.ultimate-cta {
+    margin: 2rem 0;
+}
+
+.ultimate-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: #212529;
+    padding: 25px 50px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+    transition: all 0.3s ease;
+}
+
+.ultimate-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.6);
+}
+
+.ultimate-guarantee {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.social-proof {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.social-proof p {
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .promotions-grid,
+    .urgency-reasons,
+    .testimonials-grid,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 0.8rem;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .final-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .urgent-button,
+    .mega-button,
+    .ultimate-button {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+    }
+    
+    .attention-grabber h2 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+
+<script>
+// Countdown pour créer l'urgence
+function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const diff = endOfDay - now;
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    
+    // Changement de couleur quand il reste peu de temps
+    if (hours < 6) {
+        document.getElementById('countdown').style.color = '#dc3545';
+    }
+}
+
+// Mettre à jour toutes les secondes
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Animation pour les CTA
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaButtons = document.querySelectorAll('.urgent-button, .mega-button, .ultimate-button');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.02)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+</script>
+{% endblock %}
