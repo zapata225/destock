@@ -3,605 +3,700 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture Proforma - Champagne Moët & Chandon</title>
+    <title>Facture Proforma Acompte - DESTOCKAGE ALIMENTAIRE STORE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ff9800;
+            --dark: #263238;
+            --light: #f8f9fa;
+            --gray: #607d8b;
+            --success: #4caf50;
+            --border: #e0e0e0;
+            --payment-bg: #fff8e1;
+            --payment-border: #ffd54f;
+        }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
         
         body {
-            background: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 30px;
-            min-height: 100vh;
+            background: white;
+            color: var(--dark);
+            line-height: 1.4;
+            padding: 20px;
+            font-size: 12px;
         }
         
-        .container {
-            max-width: 1200px;
+        .invoice-container {
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 80px;
-            color: rgba(0, 0, 0, 0.03);
-            font-weight: 800;
-            z-index: 0;
-            white-space: nowrap;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .header {
-            background: #1a2a3a;
+        .invoice-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 30px;
-            position: relative;
-            z-index: 1;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .header-top {
+            padding: 20px 25px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
         }
         
-        .logo-section {
-            flex: 1;
-        }
-        
-        .company-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
-            color: #fff;
+        .company-info h1 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
         }
         
         .company-tagline {
-            font-size: 16px;
-            opacity: 0.8;
-            margin-bottom: 12px;
-            font-weight: 400;
-        }
-        
-        .company-details {
             font-size: 14px;
-            line-height: 1.5;
-            opacity: 0.8;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         
-        .document-info {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .document-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .document-number {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        
-        .content {
-            padding: 35px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section {
-            margin-bottom: 35px;
-            page-break-inside: avoid;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 2px solid #e74c3c;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .client-info, .company-info {
+        .company-info p {
+            opacity: 0.9;
+            margin-bottom: 3px;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
         }
         
-        .info-block {
-            flex: 1;
-            min-width: 300px;
-            margin-bottom: 20px;
+        .invoice-details {
+            text-align: right;
         }
         
-        .info-block h3 {
+        .invoice-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .invoice-number {
             font-size: 16px;
-            margin-bottom: 12px;
-            color: #2c3e50;
-            background: #f8f9fa;
-            padding: 8px 12px;
-            border-left: 4px solid #e74c3c;
+            margin-bottom: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 50px;
+            display: inline-block;
         }
         
-        .info-block p {
-            margin-bottom: 6px;
-            padding-left: 16px;
+        .invoice-date {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .acompte-badge {
+            background: #ff5722;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        
+        .address-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 20px 25px;
+            background-color: var(--light);
+        }
+        
+        .address-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .address-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .address-box h3 i {
             font-size: 14px;
         }
         
-        table {
+        .address-details p {
+            margin-bottom: 5px;
+            display: flex;
+            font-size: 11px;
+        }
+        
+        .address-details strong {
+            min-width: 100px;
+            color: var(--gray);
+        }
+        
+        .products-section {
+            padding: 0 15px;
+        }
+        
+        .products-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 14px;
+            margin: 15px 0;
+            font-size: 10px;
         }
         
-        th {
-            background: #f8f9fa;
-            color: #2c3e50;
-            padding: 14px 15px;
+        .products-table th {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 10px 8px;
             text-align: left;
             font-weight: 600;
-            border-bottom: 2px solid #e0e0e0;
+            font-size: 10px;
         }
         
-        td {
-            padding: 14px 15px;
-            border-bottom: 1px solid #f0f0f0;
+        .products-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border);
         }
         
-        tr:nth-child(even) {
-            background-color: #fafafa;
+        .products-table tr:nth-child(even) {
+            background-color: #fafbff;
         }
         
-        .total-row {
-            font-weight: 700;
-            background-color: #f8f9fa;
+        .text-right {
+            text-align: right;
         }
         
-        .total-row td {
-            border-top: 2px solid #e0e0e0;
-            border-bottom: none;
-        }
-        
-        .grand-total {
-            background: #2c3e50;
-            color: white;
-        }
-        
-        .grand-total td {
-            border: none;
-            font-size: 16px;
-        }
-        
-        .price-breakdown {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            font-size: 14px;
-        }
-        
-        .price-breakdown p {
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .terms {
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 6px;
-            font-size: 14px;
-            border-left: 4px solid #2c3e50;
-        }
-        
-        .terms h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 16px;
-        }
-        
-        .terms ul {
-            padding-left: 20px;
-        }
-        
-        .terms li {
-            margin-bottom: 10px;
-        }
-        
-        .footer {
+        .text-center {
             text-align: center;
-            padding: 25px;
-            background: #f8f9fa;
-            font-size: 14px;
-            color: #666;
-            border-top: 1px solid #e0e0e0;
         }
         
-        .signature-area {
-            margin-top: 50px;
+        .payment-info {
+            background: var(--payment-bg);
+            padding: 20px 25px;
+            border-top: 2px solid var(--payment-border);
+            border-bottom: 2px solid var(--payment-border);
+            margin: 0;
+        }
+        
+        .payment-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 800;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .payment-info h3 i {
+            color: var(--secondary);
+        }
+        
+        .payment-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
-        .signature-box {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 6px;
+        .payment-item {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--payment-border);
         }
         
-        .signature-line {
-            border-top: 1px solid #2c3e50;
-            margin-top: 70px;
-            padding-top: 8px;
-            font-weight: 500;
+        .payment-item h4 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
             font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--payment-border);
+        }
+        
+        .payment-item h4 i {
+            color: var(--secondary);
+        }
+        
+        .payment-item p {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        
+        .payment-item strong {
+            color: var(--primary-dark);
+            min-width: 110px;
+            display: inline-block;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, var(--secondary), #ffb300);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 11px;
         }
         
         .bank-info {
-            background: #e8f4ff;
-            padding: 20px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 10px;
             border-radius: 6px;
-            margin: 20px 0;
-            border-left: 4px solid #3498db;
+            margin-top: 8px;
+            border-left: 3px solid var(--primary);
         }
         
-        .bank-info h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 16px;
+        .totals-section {
+            padding: 20px 25px;
+            background-color: var(--light);
+            display: flex;
+            justify-content: center;
         }
         
-        .print-btn {
-            display: block;
-            margin: 25px auto;
-            padding: 14px 30px;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
+        .totals-table {
+            width: 350px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            font-size: 11px;
         }
         
-        .print-btn:hover {
-            background: #1a2a3a;
+        .totals-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border);
         }
         
-        .product-details {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .vat-mention {
-            font-size: 12px;
-            color: #e74c3c;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-        
-        .proforma-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #e74c3c;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-weight: 600;
+        .totals-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 800;
             font-size: 14px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
         }
         
-        .delivery-info {
-            background: #f0f8f0;
+        .total-row {
+            background-color: #f8f9ff;
+        }
+        
+        .comments-section {
+            padding: 20px 25px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .comments-section h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .comments-content {
+            background: #f8f9ff;
             padding: 15px;
             border-radius: 6px;
-            margin: 15px 0;
-            border-left: 4px solid #27ae60;
+            border-left: 3px solid var(--success);
+            font-size: 11px;
         }
         
-        .delivery-info h3 {
-            color: #2c3e50;
+        .signature-section {
+            padding: 20px 25px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .client-signature {
+            text-align: center;
+        }
+        
+        .signature-box {
+            height: 70px;
+            border-bottom: 2px dashed var(--gray);
             margin-bottom: 10px;
-            font-size: 16px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 6px;
+            color: var(--gray);
+            font-style: italic;
+            font-size: 11px;
+        }
+        
+        .footer {
+            padding: 15px 25px;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            font-size: 10px;
+        }
+        
+        .footer p {
+            margin-bottom: 5px;
+        }
+        
+        .print-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
+        }
+        
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(46, 125, 50, 0.4);
         }
         
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-            }
-            
-            .print-btn {
+            .print-button {
                 display: none;
             }
             
-            .watermark {
-                opacity: 0.1;
+            body {
+                padding: 0;
+                background: white;
+                font-size: 10px;
             }
-        }
-        
-        .champagne-badge {
-            background: linear-gradient(135deg, #d4af37, #ffd700);
-            color: #1a2a3a;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        
-        .contact-info {
-            background: #fff8e1;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 10px;
-            border-left: 4px solid #ffc107;
+            
+            .invoice-container {
+                border: none;
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .products-table {
+                font-size: 9px;
+            }
+            
+            .products-table th, 
+            .products-table td {
+                padding: 6px 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="watermark">CHAMPAGNE</div>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <div class="company-info">
+                <h1>DESTOCKAGE ALIMENTAIRE STORE</h1>
+                <div class="company-tagline">Votre partenaire de confiance en destockage alimentaire</div>
+                <p><i class="fas fa-map-marker-alt"></i> 87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France</p>
+                <p><i class="fas fa-warehouse"></i> Entrepôt logistique : 4 Allée de la Tourelle 13127 Vitrolles, France</p>
+                <p><i class="fas fa-phone"></i> Tél: 0644694515 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr</p>
+            </div>
+            <div class="invoice-details">
+                <div class="invoice-title">FACTURE PROFORMA</div>
+                <div class="invoice-number">PF-2024-ACOMPTE-50P</div>
+                <div class="invoice-date">Date: 04/11/2025</div>
+                <div class="acompte-badge">ACOMPTE 50%</div>
+            </div>
+        </div>
         
-        <div class="header">
-            <div class="proforma-badge">FACTURE PROFORMA</div>
-            
-            <div class="header-top">
-                <div class="logo-section">
-                    <div class="company-name">DESTOCKAGE ALIMENTAIRE STORE</div>
-                    <div class="company-tagline">Votre partenaire de confiance en destockage alimentaire</div>
-                    <div class="company-details">
-                        <i class="fas fa-map-marker-alt"></i> 87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France<br>
-                        <i class="fas fa-warehouse"></i> Entrepôt logistique : 4 Allée de la Tourelle 13127 Vitrolles, France<br>
-                        <i class="fas fa-phone"></i> Tél: 0644694515 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr<br>
-                        <i class="fas fa-id-card"></i> SIRET: 90057360100011 | TVA Intracom: FR88900573601
-                    </div>
+        <div class="address-section">
+            <div class="address-box">
+                <h3><i class="fas fa-building"></i> FACTURER À</h3>
+                <div class="address-details">
+                    <p><strong>Entreprise:</strong> Too Good To Go France SAS</p>
+                    <p><strong>À l'attention de:</strong> Klimentii Beliankov</p>
+                    <p><strong>Adresse:</strong> 12 rue Duhesme, 75018 Paris</p>
+                    <p><strong>Numéro de TVA:</strong> FR65820731115</p>
+                    <p><strong>SIREN:</strong> 820731115</p>
                 </div>
-                
-                <div class="document-info">
-                    <div class="document-title">FACTURE PROFORMA</div>
-                    <div class="document-number">N° PF-2024-CHAMP-056</div>
-                    <div style="margin-top: 10px;">Date: <span id="current-date"></span></div>
+            </div>
+            
+            <div class="address-box">
+                <h3><i class="fas fa-truck"></i> LIVRER À</h3>
+                <div class="address-details">
+                    <p><strong>Entrepôt:</strong> ID LOGISTICS</p>
+                    <p><strong>Adresse:</strong> 32 Rue d'Anjou - 38070 Saint-Quentin-Fallavier</p>
+                    <p><strong>Contact logistique:</strong> logistics.fr@toogoodtogo.com</p>
+                    <p><strong>Rendez-vous obligatoire:</strong> 48h à l'avance par email</p>
+                </div>
+            </div>
+            
+            <div class="address-box">
+                <h3><i class="fas fa-file-invoice"></i> RÉFÉRENCES</h3>
+                <div class="address-details">
+                    <p><strong>Référence client:</strong> PO1150</p>
+                    <p><strong>Date de validité:</strong> 04/12/2025</p>
+                    <p><strong>Type:</strong> Acompte 50%</p>
+                    <p><strong>Condition:</strong> Paiement à la commande</p>
                 </div>
             </div>
         </div>
         
-        <div class="content">
-            <div class="section">
-                <h2 class="section-title">INFORMATIONS CLIENT</h2>
-                <div class="client-info">
-                    <div class="info-block">
-                        <h3>Adresse de Facturation</h3>
-                        <p><strong>SOCIÉTÉ RS DESTOCK</strong></p>
-                        <p>180 chemin des Mourier</p>
-                        <p>83490 Le Muy</p>
-                        <p>France</p>
-                        
-                        <div class="contact-info">
-                            <p><strong>Contact facturation:</strong></p>
-                            <p><strong>ARNAUD</strong></p>
-                            <p><i class="fas fa-envelope"></i> arnauderjona83490@gmail.com</p>
-                            <p><i class="fas fa-phone"></i> 07 64 41 10 72</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-block">
-                        <h3>Adresse de Livraison</h3>
-                        <p><strong>SOCIÉTÉ RS DESTOCK</strong></p>
-                        <p>180 chemin des Mourier</p>
-                        <p>83490 Le Muy</p>
-                        <p>France</p>
-                        
-                        <div class="contact-info">
-                            <p><strong>Contact livraison:</strong></p>
-                            <p><strong>ARNAUD</strong></p>
-                            <p><i class="fas fa-envelope"></i> arnauderjona83490@gmail.com</p>
-                            <p><i class="fas fa-phone"></i> 07 64 41 10 72</p>
-                        </div>
-                    </div>
+        <div class="products-section">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>EAN</th>
+                        <th>Description</th>
+                        <th class="text-center">Quantité (CU)</th>
+                        <th class="text-right">Prix unitaire HT (€)</th>
+                        <th class="text-center">DDM</th>
+                        <th class="text-right">Total ligne HT (€)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4008400401829</td>
+                        <td>Pot 1 kg – Nutella</td>
+                        <td class="text-center">6 000</td>
+                        <td class="text-right">1,60</td>
+                        <td class="text-center">01/05/2026</td>
+                        <td class="text-right">9 576,80</td>
+                    </tr>
+                    <tr>
+                        <td>4000539150920</td>
+                        <td>Chocolat Dubai Style 145 g – Lindt</td>
+                        <td class="text-center">500</td>
+                        <td class="text-right">2,08</td>
+                        <td class="text-center">01/06/2026</td>
+                        <td class="text-right">1 040,63</td>
+                    </tr>
+                    <tr>
+                        <td>3038350001754</td>
+                        <td>Pâtes Penne Rigate 1 kg – Panzani</td>
+                        <td class="text-center">450</td>
+                        <td class="text-right">0,53</td>
+                        <td class="text-center">01/10/2028</td>
+                        <td class="text-right">239,93</td>
+                    </tr>
+                    <tr>
+                        <td>8000500310427</td>
+                        <td>Biscuits Fourrés Noisettes et Cacao 220 g – Nutella</td>
+                        <td class="text-center">2 400</td>
+                        <td class="text-right">0,55</td>
+                        <td class="text-center">01/06/2026</td>
+                        <td class="text-right">1 308,06</td>
+                    </tr>
+                    <tr>
+                        <td>7622300689124</td>
+                        <td>Biscuits Sablés nappés Chocolat au Lait – Granola 200 g (Lu)</td>
+                        <td class="text-center">672</td>
+                        <td class="text-right">0,39</td>
+                        <td class="text-center">01/06/2026</td>
+                        <td class="text-right">262,75</td>
+                    </tr>
+                    <tr>
+                        <td>3502110001894</td>
+                        <td>Canettes 33 cl – Lipton Ice Tea Pêche</td>
+                        <td class="text-center">2 592</td>
+                        <td class="text-right">0,17</td>
+                        <td class="text-center">01/09/2026</td>
+                        <td class="text-right">429,95</td>
+                    </tr>
+                    <tr>
+                        <td>5449000131805</td>
+                        <td>Canette 33 cl – Coca-Cola Zero</td>
+                        <td class="text-center">2 592</td>
+                        <td class="text-right">0,15</td>
+                        <td class="text-center">01/09/2026</td>
+                        <td class="text-right">386,96</td>
+                    </tr>
+                    <tr>
+                        <td>3701018046611</td>
+                        <td>Canette 33 cl – Schweppes Pomme</td>
+                        <td class="text-center">2 592</td>
+                        <td class="text-right">0,20</td>
+                        <td class="text-center">01/09/2026</td>
+                        <td class="text-right">509,80</td>
+                    </tr>
+                    <tr>
+                        <td>5449000000996</td>
+                        <td>Canette 33 cl – Fanta Orange</td>
+                        <td class="text-center">2 592</td>
+                        <td class="text-right">0,14</td>
+                        <td class="text-center">01/03/2026</td>
+                        <td class="text-right">362,14</td>
+                    </tr>
+                    <tr>
+                        <td>3103220001530</td>
+                        <td>Canette 33 cl – Orangina</td>
+                        <td class="text-center">2 592</td>
+                        <td class="text-right">0,14</td>
+                        <td class="text-center">01/03/2026</td>
+                        <td class="text-right">356,74</td>
+                    </tr>
+                    <tr>
+                        <td>5449000000994</td>
+                        <td>Canette 33 cl – Coca-Cola Classic</td>
+                        <td class="text-center">2 592</td>
+                        <td class="text-right">0,12</td>
+                        <td class="text-center">01/08/2025</td>
+                        <td class="text-right">302,20</td>
+                    </tr>
+                    <tr>
+                        <td>8002270017055</td>
+                        <td>Eau Gazeuse 50 cl – San Pellegrino</td>
+                        <td class="text-center">600</td>
+                        <td class="text-right">0,10</td>
+                        <td class="text-center">01/03/2026</td>
+                        <td class="text-right">60,28</td>
+                    </tr>
+                    <tr>
+                        <td>3181234000157</td>
+                        <td>Eau Gazeuse 50 cl – Perrier</td>
+                        <td class="text-center">960</td>
+                        <td class="text-right">0,14</td>
+                        <td class="text-center">01/02/2026</td>
+                        <td class="text-right">132,13</td>
+                    </tr>
+                    <tr>
+                        <td>3057640102012</td>
+                        <td>Eau Citron 50 cl – Volvic</td>
+                        <td class="text-center">1 152</td>
+                        <td class="text-right">0,14</td>
+                        <td class="text-center">01/04/2026</td>
+                        <td class="text-right">165,76</td>
+                    </tr>
+                    <tr>
+                        <td>3033710062452</td>
+                        <td>Jus d'Orange 1 L – Joker</td>
+                        <td class="text-center">600</td>
+                        <td class="text-right">0,54</td>
+                        <td class="text-center">01/05/2026</td>
+                        <td class="text-right">324,04</td>
+                    </tr>
+                    <tr>
+                        <td>3560070478025</td>
+                        <td>Jus de Pomme 1 L – Carrefour Extra</td>
+                        <td class="text-center">600</td>
+                        <td class="text-right">0,25</td>
+                        <td class="text-center">01/03/2026</td>
+                        <td class="text-right">148,89</td>
+                    </tr>
+                    <tr>
+                        <td>3033710062339</td>
+                        <td>Jus d'Ananas 1 L – Joker</td>
+                        <td class="text-center">600</td>
+                        <td class="text-right">0,52</td>
+                        <td class="text-center">01/04/2026</td>
+                        <td class="text-right">311,55</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right"><strong>Frais de livraison</strong></td>
+                        <td class="text-right">359,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="totals-section">
+            <table class="totals-table">
+                <tr>
+                    <td>Montant total HT (€)</td>
+                    <td class="text-right">15 918,59</td>
+                </tr>
+                <tr>
+                    <td>Montant TVA (5.5%)</td>
+                    <td class="text-right">875,52</td>
+                </tr>
+                <tr>
+                    <td>Montant TVA (20%)</td>
+                    <td class="text-right">150,89</td>
+                </tr>
+                <tr>
+                    <td>Montant total TTC (€)</td>
+                    <td class="text-right">16 945,00</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>ACOMPTE 50% À PAYER (€)</strong></td>
+                    <td class="text-right"><strong>8 472,50</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="payment-info">
+            <h3><i class="fas fa-credit-card"></i> INFORMATIONS DE PAIEMENT</h3>
+            <div class="payment-details">
+                <div class="payment-item">
+                    <h4><i class="fas fa-calendar-alt"></i> DÉLAIS DE PAIEMENT</h4>
+                    <p><strong>Condition:</strong> <span class="highlight">50% AVEC PROFORMA</span></p>
+                    <p><strong>Montant dû:</strong> <span class="highlight">8 472,50 €</span></p>
+                    <p><strong>Mode de paiement:</strong> Virement bancaire</p>
+                    <p><strong>Échéance:</strong> 15 jours</p>
                 </div>
-            </div>
-            
-            <div class="delivery-info">
-                <h3><i class="fas fa-truck"></i> INFORMATIONS DE LIVRAISON</h3>
-                <p><strong>Adresse de livraison:</strong> 180 chemin des Mourier, 83490 Le Muy</p>
-                <p><strong>Délai de livraison:</strong> 5 à 7 jours ouvrés après confirmation</p>
-                <p><strong>Disponibilité:</strong> En stock</p>
-                <p><strong>Conditions:</strong> Livraison à quai - Déchargement par le client</p>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">DÉTAILS DE LA COMMANDE</h2>
                 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Référence</th>
-                            <th>Désignation</th>
-                            <th>Quantité</th>
-                            <th>Prix unitaire TTC (€)</th>
-                            <th>Montant TTC (€)</th>
-                            <th>TVA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CHAMP-MC-PAL</td>
-                            <td>
-                                <div class="champagne-badge">PRODUIT PREMIUM</div>
-                                <strong>Champagne Moët & Chandon</strong>
-                                <div class="product-details">
-                                    Palette complète - Brut Impérial<br>
-                                    Bouteilles 75cl - Millésime sélectionné
-                                </div>
-                            </td>
-                            <td>1 palette</td>
-                            <td>4 100,00 €</td>
-                            <td>4 100,00 €</td>
-                            <td>Incluse (20%)</td>
-                        </tr>
-                        <tr>
-                            <td>TRSP-83490</td>
-                            <td>
-                                <strong>Frais de transport</strong>
-                                <div class="product-details">
-                                    Livraison à Le Muy (83490)<br>
-                                    Livraison à quai - Déchargement par le client
-                                </div>
-                            </td>
-                            <td>1 livraison</td>
-                            <td>89,00 €</td>
-                            <td>89,00 €</td>
-                            <td>Incluse (20%)</td>
-                        </tr>
-                        <tr class="total-row">
-                            <td colspan="4" style="text-align: right;"><strong>SOUS-TOTAL HT</strong></td>
-                            <td colspan="2"><strong>3 490,83 €</strong></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align: right;">TVA 20% (Champagne)</td>
-                            <td colspan="2">683,33 €</td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align: right;">TVA 20% (Transport)</td>
-                            <td colspan="2">14,83 €</td>
-                        </tr>
-                        <tr class="grand-total">
-                            <td colspan="4" style="text-align: right;"><strong>TOTAL À FACTURER TTC</strong></td>
-                            <td colspan="2"><strong>4 189,00 €</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="price-breakdown">
-                    <p><strong>Récapitulatif de la commande :</strong></p>
-                    <p>Champagne Moët & Chandon : <span style="float: right;">1 palette = 4 100,00 € TTC</span></p>
-                    <p>Frais de transport : <span style="float: right;">89,00 € TTC</span></p>
-                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général TTC : <span style="float: right;">4 189,00 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 20% (champagne) : <span style="float: right;">683,33 €</span></p>
-                    <p style="color: #e74c3c; font-size: 13px;">Dont TVA 20% (transport) : <span style="float: right;">14,83 €</span></p>
-                </div>
-            </div>
-            
-            <div class="bank-info">
-                <h3><i class="fas fa-university"></i> INFORMATIONS BANCAIRES</h3>
-                <p><strong>Bénéficiaire:</strong> ES SEDDYQY RAYANE</p>
-                <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
-                <p><strong>BIC:</strong> FNOMFRP2</p>
-                <p><strong>Référence:</strong> PF-2024-CHAMP-056</p>
-                <p><strong>Montant à régler:</strong> 4 189,00 € TTC</p>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">CONDITIONS COMMERCIALES</h2>
-                <div class="terms">
-                    <h3>Modalités de paiement</h3>
-                    <ul>
-                        <li><strong>Virement bancaire</strong> à réception de cette facture proforma</li>
-                        <li>La commande sera confirmée après réception du paiement</li>
-                    </ul>
-                
-                    <h3>Validité et conditions générales</h3>
-                    <ul>
-                        <li>Cette facture proforma est valable 30 jours à compter de sa date d'émission</li>
-                        <li>Les prix sont fermes et non révisables pendant la durée de validité</li>
-                        <li>Produit garanti : Champagne Moët & Chandon authentique</li>
-                        <li>Conditions de stockage : À conserver à l'abri de la lumière et à température constante</li>
-                        <li>Réserves à formuler dans les 24h suivant la livraison</li>
-                        <li>Transport: Livraison à quai, déchargement par le client</li>
-                        <li>Emballages non repris, non consignés</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="signature-area">
-                <div class="signature-box">
-                    <p>Bon pour accord du client</p>
-                    <div style="height: 100px; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
-                        <div style="border-bottom: 1px solid #2c3e50; width: 200px;"></div>
+                <div class="payment-item">
+                    <h4><i class="fas fa-university"></i> INFORMATIONS BANCAIRES</h4>
+                    <p><strong>Bénéficiaire:</strong> ES SEDDYQY RAYANE</p>
+                    <div class="bank-info">
+                        <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
+                        <p><strong>BIC:</strong> FNOMFRP2</p>
                     </div>
-                    <div class="signature-line">Date et signature</div>
-                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
-                        SOCIÉTÉ RS DESTOCK<br>
-                        Représenté par ARNAUD<br>
-                        Tél: 07 64 41 10 72
-                    </div>
+                    <p><strong>Référence:</strong> PF-2024-COCA-024-ACOMPTE</p>
                 </div>
             </div>
-            
-            <div class="section">
-                <div class="terms">
-                    <h3>Mentions légales et réglementaires</h3>
-                    <ul>
-                        <li>Cette facture proforma n'a pas de valeur comptable et ne peut être considérée comme une facture définitive</li>
-                        <li>La facture définitive sera établie après réception du paiement et portera le même numéro sans le préfixe "PF"</li>
-                        <li>Conformément à la réglementation en vigueur, la TVA est applicable au taux de 20% pour les champagnes et les prestations de transport</li>
-                        <li>La vente d'alcool est interdite aux mineurs. L'abus d'alcool est dangereux pour la santé, à consommer avec modération</li>
-                        <li>En cas de litige, le Tribunal de Commerce de Libourne sera seul compétent</li>
-                    </ul>
-                </div>
+        </div>
+        
+        <div class="comments-section">
+            <h3><i class="fas fa-comments"></i> COMMENTAIRES OU INSTRUCTIONS SPÉCIFIQUES</h3>
+            <div class="comments-content">
+                <p><strong>Conditions de paiement :</strong> 50% à payer avant livraison (acompte) et 50% à la livraison (solde).</p>
+                <p>Cette facture proforma pour acompte de 50% est valable 30 jours à compter de la date d'émission.</p>
+                <p>Le solde de 50% sera facturé après livraison et acceptation des marchandises.</p>
+                <p>Les prix sont donnés à titre indicatif et peuvent être ajustés en fonction des fluctuations du marché.</p>
+                <p>Toute commande passée sur la base de cette facture proforma est soumise à l'acceptation et à la disponibilité des produits.</p>
+            </div>
+        </div>
+        
+        <div class="signature-section">
+            <div class="client-signature">
+                <div class="signature-box">Signature du client</div>
+                <p>Nom: Klimentii Beliankov</p>
+                <p>Date: ___________________</p>
             </div>
         </div>
         
         <div class="footer">
-            <p>Destockage Alimentaire Store - SAS au capital de 50 000,00 € - RCS Libourne 900 573 601</p>
-            <p>87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France - contact@destockagealimentaire.fr - 0644694515</p>
+            <p><i class="fas fa-envelope"></i> contact@destockagealimentaire.fr | <i class="fas fa-phone"></i> 0644694515</p>
+            <p>DESTOCKAGE ALIMENTAIRE STORE - Votre partenaire de confiance en destockage alimentaire</p>
+            <p>SIRET: 90057360100011 | TVA Intracom: FR88900573601</p>
         </div>
     </div>
     
-    <button class="print-btn" onclick="window.print()">
-        <i class="fas fa-print"></i> Imprimer cette facture proforma
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Imprimer cette facture
     </button>
 
     <script>
-        // Ajout automatique de la date du jour
         document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-            const dateString = today.toLocaleDateString('fr-FR', options);
-            
-            // Mettre à jour la date dans le document
-            document.getElementById('current-date').textContent = dateString;
+            console.log('Facture acompte 50% avec produits détaillés chargée avec succès');
         });
     </script>
 </body>
