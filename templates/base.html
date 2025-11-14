@@ -1909,17 +1909,50 @@
                 {% else %}
                     <!-- Utilisateur non connecté -->
                     <div class="auth-buttons-premium">
-                        <a href="/connexion" class="auth-btn-premium login">
+                        <a href="/connexion" class="auth-btn-premium login" onclick="smoothScrollToAuth()">
                             <i class="fas fa-sign-in-alt"></i>
                             <span>Connexion</span>
                         </a>
-                        <a href="/inscription" class="auth-btn-premium register">
+                        <a href="/inscription" class="auth-btn-premium register" onclick="smoothScrollToAuth()">
                             <i class="fas fa-user-plus"></i>
                             <span>Inscription</span>
                         </a>
                     </div>
                 {% endif %}
             </div>
+            
+            <script>
+            // Fonction pour un scroll fluide vers les sections d'authentification
+            function smoothScrollToAuth(event) {
+                // Empêcher le comportement par défaut temporairement
+                if (event) event.preventDefault();
+                
+                // Fermer tous les menus ouverts qui pourraient bloquer le scroll
+                const searchResults = document.getElementById('search-results');
+                if (searchResults) searchResults.style.display = 'none';
+                
+                const userMenu = document.querySelector('.user-menu-premium');
+                if (userMenu) userMenu.style.opacity = '0';
+                
+                // Attendre un peu que les menus se ferment
+                setTimeout(() => {
+                    const targetUrl = event ? event.currentTarget.getAttribute('href') : null;
+                    
+                    // Si c'est une page d'authentification, laisser la navigation normale
+                    if (targetUrl && (targetUrl.includes('/connexion') || targetUrl.includes('/inscription'))) {
+                        window.location.href = targetUrl;
+                    }
+                }, 100);
+            }
+            
+            // S'assurer que tous les liens d'auth utilisent cette fonction
+            document.addEventListener('DOMContentLoaded', function() {
+                const authLinks = document.querySelectorAll('.auth-btn-premium');
+                authLinks.forEach(link => {
+                    link.addEventListener('click', smoothScrollToAuth);
+                });
+            });
+            </script>
                 <!-- Panier avec indicateur -->
                 <div class="cart-widget-premium" id="cart-icon">
                     <button class="cart-btn-premium">
