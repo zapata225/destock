@@ -5763,6 +5763,35 @@ def sitemap():
         '/blog/dom-perignon-14-novembre-2025',
         '/blog/destockage-alimentaire-belgique-14-novembre-2025',
         '/blog/destockage-espagnol-2025',
+        '/blog/astuces-achats-produits-destockes',
+        '/grossiste-alimentaire-bruxellees',
+        '/trouver-magasins-pres-de-chez-vous',
+        '/avantages-hard-discount',
+        '/groothandel-horeca',
+        '/horarios-supermercados',
+        '/article-belgique-2',
+        '/article-espagne',
+        '/article-france-2',
+        '/article-france',
+        '/article-belgique',
+        '/beneficios-aceite-oliva25',
+        '/distributeur-automatique-alimentaire25',
+        '/explorando-bebidas-alcoholicas',
+        '/choosing-the-right-ecommerce-supplier',
+        '/trafficbelge',
+        '/role-grossiste-alimentaire',
+        '/grossiste-paris',
+        '/blog/destockage-alimentaire-paris',   ← attention : version non datée
+        '/blog/boissons-suisses',
+        '/blog/prix-red-bull-meilleures-offres',
+        '/destockage-alimentaire-lille',        ← version non datée
+        '/blog/destockage-alimentaire-lille',   ← version blog non datée
+        '/blog/destockage-alimentaire-belgique',← version non datée
+        '/blog/achat-champagne-gros',           ← version non datée de ton slug existant
+        '/blog/comment-choisir-produit-entretien-efficace', ← version non datée
+        '/blog/supermarches-discount-france',   ← version non datée
+        '/blog/amaretto-disaronno',             ← doublon possible mais non dans liste brute
+        '/blog/vodka-de-luxe',                  ← version sans -2025
         '/blog/destockage-alimentaire-paris-14-novembre-2025',
         '/blog/grossiste-alimentaire-belgique_15_novembre_2025',
         '/blog/destockage-alimentaire-gros-novembre-2025',
