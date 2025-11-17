@@ -1,0 +1,672 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire Paris 18 Novembre 2025 : Économies Exceptionnelles | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire Paris 18 novembre 2025 : Économies jusqu'à -70% sur vos courses ! Produits frais, surgelés, épicerie. Ne manquez pas cette vente exceptionnelle.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire Paris 18 Novembre 2025 : Économies Exceptionnelles">
+<meta property="og:description" content="VENTE EXCEPTIONNELLE Paris 18 novembre 2025 : Déstockage alimentaire jusqu'à -70% sur tous les produits. Économisez massivement sur vos courses !">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-18-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-paris-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire Paris 18 Novembre 2025 : Économies Exceptionnelles">
+<meta name="twitter:description" content="VENTE FLASH Paris 18/11/2025 : Déstockage alimentaire jusqu'à -70%. Économies massives garanties !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-paris-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-18-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Déstockage Alimentaire Paris - Vente Exceptionnelle 18 Novembre 2025",
+  "startDate": "2025-11-18T08:00:00+01:00",
+  "endDate": "2025-11-18T20:00:00+01:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Paris - Centre de Déstockage Alimentaire",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Multiple locations à Paris",
+      "addressLocality": "Paris",
+      "postalCode": "75000",
+      "addressCountry": "FR"
+    }
+  },
+  "description": "VENTE EXCEPTIONNELLE de déstockage alimentaire à Paris le 18 novembre 2025. Économies jusqu'à 70% sur produits frais, surgelés, épicerie.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-18T08:00:00+01:00"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Déstockage Paris 18/11/2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Déstockage Alimentaire Paris 18 Novembre 2025 : Économies Exceptionnelles Jusqu'à -70%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 10 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-paris-2025.jpg') }}" 
+                     alt="Déstockage alimentaire Paris 18 novembre 2025 - économies jusqu'à 70% produits frais surgelés épicerie" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">VENTE EXCEPTIONNELLE : Économisez massivement le 18 novembre 2025 à Paris</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- Section URGENCE avec timer -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h2>🚨 VENTE FLASH EXCEPTIONNELLE 🚨</h2>
+                    <p><strong>Déstockage alimentaire massif à Paris - 18 novembre 2025 uniquement</strong></p>
+                    <div class="countdown-timer">
+                        <div class="timer-item">
+                            <span class="timer-number" id="days">00</span>
+                            <span class="timer-label">Jours</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="hours">00</span>
+                            <span class="timer-label">Heures</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="minutes">00</span>
+                            <span class="timer-label">Minutes</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="seconds">00</span>
+                            <span class="timer-label">Secondes</span>
+                        </div>
+                    </div>
+                    <div class="urgency-cta">
+                        <a href="{{ url_for('product_list') }}" class="urgency-button">ACCÉDER AUX OFFRES MAINTENANT ➔</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="attention-grabber">
+                <h2>📅 MARQUEZ VOS AGENDAS : 18 NOVEMBRE 2025</h2>
+                <p><strong>Déstockage alimentaire exceptionnel à Paris</strong> - Une opportunité unique pour faire des économies massives sur vos courses. <strong>Économies garanties jusqu'à 70%</strong> sur une sélection incroyable de produits alimentaires.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔥 CE QUI VOUS ATTEND LE 18 NOVEMBRE 2025</h2>
+            
+            <div class="products-highlight">
+                <div class="product-category">
+                    <h3>🥩 PRODUITS FRAIS - JUSQU'À -60%</h3>
+                    <ul>
+                        <li><strong>Viandes et volailles</strong> : -50% à -60%</li>
+                        <li><strong>Poissons et fruits de mer</strong> : -40% à -55%</li>
+                        <li><strong>Fromages et laitages</strong> : -45% à -60%</li>
+                        <li><strong>Fruits et légumes</strong> : -50% à -65%</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>❄️ SURGELÉS - JUSQU'À -70%</h3>
+                    <ul>
+                        <li><strong>Plats préparés</strong> : -60% à -70%</li>
+                        <li><strong>Légumes surgelés</strong> : -50% à -65%</li>
+                        <li><strong>Viandes et poissons</strong> : -55% à -70%</li>
+                        <li><strong>Glaces et desserts</strong> : -50% à -65%</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🥫 ÉPICERIE - JUSQU'À -65%</h3>
+                    <ul>
+                        <li><strong>Conserves</strong> : -50% à -65%</li>
+                        <li><strong>Pâtes, riz, céréales</strong> : -45% à -60%</li>
+                        <li><strong>Boissons</strong> : -40% à -55%</li>
+                        <li><strong>Biscuits et snacks</strong> : -50% à -65%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📍 LIEUX DU DÉSTOCKAGE À PARIS</h2>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3>🏙️ Paris Centre</h3>
+                    <p><strong>Horaires :</strong> 8h00 - 20h00</p>
+                    <p><strong>Adresse :</strong> Centre de déstockage Paris 1er</p>
+                    <div class="location-highlight">⭐ MEILLEURES OFFRES</div>
+                </div>
+                
+                <div class="location-card">
+                    <h3>🏘️ Paris Nord</h3>
+                    <p><strong>Horaires :</strong> 9h00 - 19h00</p>
+                    <p><strong>Adresse :</strong> Entrepôt Paris 18ème</p>
+                    <div class="location-highlight">📦 GRANDS FORMATS</div>
+                </div>
+                
+                <div class="location-card">
+                    <h3>🏡 Paris Sud</h3>
+                    <p><strong>Horaires :</strong> 8h30 - 19h30</p>
+                    <p><strong>Adresse :</strong> Zone commerciale Paris 13ème</p>
+                    <div class="location-highlight">🆓 PARKING GRATUIT</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-section">
+            <div class="conversion-banner">
+                <h2>💥 NE MANQUEZ PAS CETTE OPPORTUNITÉ UNIQUE !</h2>
+                <p><strong>Déstockage alimentaire Paris 18 novembre 2025</strong> - Des économies massives qui ne se reproduiront pas avant longtemps.</p>
+                
+                <div class="conversion-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <span class="feature-text">Économies jusqu'à 70%</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text">Stocks limités</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text">Une journée seulement</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🚚</span>
+                        <span class="feature-text">Retrait immédiat</span>
+                    </div>
+                </div>
+                
+                <div class="main-cta">
+                    <a href="{{ url_for('product_list') }}" class="main-cta-button">
+                        <span class="cta-main">VOIR TOUTES LES OFFRES</span>
+                        <span class="cta-sub">Économisez massivement dès maintenant</span>
+                    </a>
+                </div>
+                
+                <div class="urgency-note">
+                    <p>⚠️ <strong>ATTENTION :</strong> Les stocks sont limités et les prix promotionnels sont valables uniquement le <strong>18 novembre 2025</strong>. Premier arrivé, premier servi !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ ultra-conversion -->
+        <section class="faq-conversion">
+            <h2>❓ QUESTIONS FRÉQUENTES</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Quels sont les horaires exacts ?</h3>
+                    <p>Le déstockage se déroule le <strong>18 novembre 2025 de 8h00 à 20h00</strong> selon les points de vente. Nous recommandons de venir tôt pour profiter des meilleures offres.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Les produits sont-ils de qualité ?</h3>
+                    <p><strong>ABSOLUMENT !</strong> Tous les produits sont de première qualité, avec des DLC courtes mais parfaitement consommables. C'est l'occasion parfaite pour faire des économies sur des produits premium.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Puis-je réserver en avance ?</h3>
+                    <p><strong>NON</strong> - Toutes les ventes se font en direct le jour J. Pas de réservation possible pour garantir l'équité entre tous les clients.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Y a-t-il des limites d'achat ?</h3>
+                    <p>Des limites peuvent s'appliquer sur certains produits très demandés pour permettre au plus grand nombre de profiter des offres.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dernier CTA de conversion -->
+        <section class="final-cta-section">
+            <div class="final-cta">
+                <h2>🎯 NE REPORTEZ PAS À DEMAIN CE QUE VOUS POUVEZ ÉCONOMISER AUJOURD'HUI</h2>
+                <p>Le <strong>déstockage alimentaire Paris 18 novembre 2025</strong> est l'événement à ne pas manquer pour tous ceux qui veulent faire des économies substantielles sur leur budget courses.</p>
+                
+                <div class="final-cta-buttons">
+                    <a href="{{ url_for('product_list') }}" class="final-cta-button primary">
+                        <strong>ACCÉDER AU CATALOGUE COMPLET</strong>
+                        <small>Économies jusqu'à 70% garanties</small>
+                    </a>
+                </div>
+                
+                <div class="social-proof">
+                    <div class="proof-item">
+                        <span class="proof-number">2,500+</span>
+                        <span class="proof-text">Clients satisfaits en 2024</span>
+                    </div>
+                    <div class="proof-item">
+                        <span class="proof-number">70%</span>
+                        <span class="proof-text">D'économie moyenne</span>
+                    </div>
+                    <div class="proof-item">
+                        <span class="proof-number">95%</span>
+                        <span class="proof-text">De produits écoulés</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA CONVERSION */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);
+}
+
+.urgency-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.timer-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.timer-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.urgency-button {
+    display: inline-block;
+    background: #ffc107;
+    color: #000;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255,193,7,0.4);
+}
+
+.urgency-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,193,7,0.6);
+    background: #ffca2c;
+}
+
+.attention-grabber {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border-left: 6px solid #ffc107;
+    text-align: center;
+}
+
+.attention-grabber h2 {
+    color: #856404;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.products-highlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.product-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #28a745;
+}
+
+.product-category h3 {
+    color: #28a745;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.product-category ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.product-category li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.location-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.location-card:hover {
+    border-color: #007bff;
+    transform: translateY(-5px);
+}
+
+.location-highlight {
+    background: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.conversion-section {
+    margin: 3rem 0;
+}
+
+.conversion-banner {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(40, 167, 69, 0.3);
+}
+
+.conversion-banner h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.conversion-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+.main-cta {
+    margin: 2rem 0;
+}
+
+.main-cta-button {
+    display: inline-block;
+    background: #ffc107;
+    color: #000;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255,193,7,0.4);
+    text-align: center;
+}
+
+.main-cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255,193,7,0.6);
+    background: #ffca2c;
+    color: #000;
+    text-decoration: none;
+}
+
+.urgency-note {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.faq-conversion {
+    margin: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #6f42c1;
+}
+
+.faq-item h3 {
+    color: #6f42c1;
+    margin-bottom: 1rem;
+}
+
+.final-cta-section {
+    margin: 4rem 0;
+}
+
+.final-cta {
+    background: linear-gradient(135deg, #6f42c1, #e83e8c);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(111, 66, 193, 0.3);
+}
+
+.final-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.final-cta-buttons {
+    margin: 2rem 0;
+}
+
+.final-cta-button {
+    display: inline-block;
+    background: #ffc107;
+    color: #000;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255,193,7,0.4);
+    text-align: center;
+    min-width: 300px;
+}
+
+.final-cta-button small {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.final-cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255,193,7,0.6);
+    background: #ffca2c;
+    color: #000;
+    text-decoration: none;
+}
+
+.social-proof {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.proof-item {
+    text-align: center;
+}
+
+.proof-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.proof-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    
+    .timer-item {
+        min-width: 60px;
+        padding: 0.8rem;
+    }
+    
+    .timer-number {
+        font-size: 1.8rem;
+    }
+    
+    .products-highlight,
+    .locations-grid,
+    .conversion-features,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-proof {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .urgency-content h2,
+    .conversion-banner h2,
+    .final-cta h2 {
+        font-size: 1.5rem;
+    }
+    
+    .main-cta-button,
+    .final-cta-button {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        min-width: auto;
+    }
+}
+</style>
+
+<script>
+// Compte à rebours pour le 18 novembre 2025
+function updateCountdown() {
+    const eventDate = new Date('2025-11-18T08:00:00+01:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.querySelector('.countdown-timer').innerHTML = '<div style="font-size: 1.5rem; font-weight: bold;">ÉVÉNEMENT EN COURS !</div>';
+    }
+}
+
+const countdownTimer = setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+{% endblock %}

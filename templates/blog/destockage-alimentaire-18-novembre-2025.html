@@ -1,0 +1,660 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire pour Particulier 18 Novembre 2025 : Économies jusqu'à -70% | Stock Limité{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire exceptionnel le 18 novembre 2025 ! Produits alimentaires jusqu'à -70% pour les particuliers. Stocks limités, livraison rapide. Ne manquez pas cette offre unique !{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire pour Particulier 18 Novembre 2025 : Économies jusqu'à -70%">
+<meta property="og:description" content="Offre exceptionnelle de déstockage alimentaire le 18/11/2025. Économisez jusqu'à 70% sur vos courses. Stocks limités, livraison offerte dès 50€">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-particulier-18-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-exceptionnel-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire 18 Nov 2025 : Économies jusqu'à -70%">
+<meta name="twitter:description" content="Offre unique de déstockage alimentaire pour particuliers le 18 novembre 2025. Stocks limités, prix cassés !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-exceptionnel-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-particulier-18-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-particulier-18-novembre-2025"
+  },
+  "headline": "Déstockage Alimentaire pour Particulier 18 Novembre 2025 : Économies jusqu'à -70%",
+  "description": "Offre exceptionnelle de déstockage alimentaire le 18 novembre 2025. Produits jusqu'à -70% pour les particuliers. Stocks limités.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-exceptionnel-2025.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2025-11-15",
+  "dateModified": "2025-11-15",
+  "keywords": "destockage alimentaire particulier 18 novembre 2025, produits alimentaires pas cher, promotion exceptionnelle, économies courses, offre limitée"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Déstockage 18 Novembre 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Déstockage Alimentaire pour Particulier 18 Novembre 2025 : Économies Exceptionnelles jusqu'à -70%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-exceptionnel-2025.jpg') }}" 
+                     alt="Déstockage alimentaire particulier 18 novembre 2025 - économies jusqu'à 70% produits alimentaires" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">OFFRE EXCEPTIONNELLE : 18 Novembre 2025 uniquement</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- Section Urgence avec compte à rebours -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="countdown-timer">
+                    <h3>⏰ OFFRE LIMITÉE - DERNIERS JOURS</h3>
+                    <div class="timer-grid">
+                        <div class="timer-item">
+                            <span class="timer-number" id="days">03</span>
+                            <span class="timer-label">JOURS</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="hours">12</span>
+                            <span class="timer-label">HEURES</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="minutes">45</span>
+                            <span class="timer-label">MIN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="urgency-cta">
+                    <p><strong>⚠️ Stocks très limités</strong> - Ne tardez pas !</p>
+                    <a href="{{ url_for('product_list') }}" class="urgency-button">ACCÉDER AUX OFFRES MAINTENANT 🚀</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="attention-grabber">
+                <h2>🚨 DÉSTOCKAGE EXCEPTIONNEL LE 18 NOVEMBRE 2025</h2>
+                <p><strong>Économisez massivement</strong> sur vos courses alimentaires ! Notre <strong>déstockage alimentaire pour particulier</strong> du <strong>18 novembre 2025</strong> vous offre des réductions incroyables allant jusqu'à <strong>-70%</strong> sur des centaines de produits. Cette <strong>offre unique</strong> est spécialement conçue pour les <strong>particuliers</strong> souhaitant faire des <strong>économies substantielles</strong> sur leur budget alimentaire.</p>
+            </div>
+        </section>
+
+        <!-- Section Produits Phares -->
+        <section class="featured-products">
+            <h2>🎯 PRODUITS STARS DU DÉSTOCKAGE</h2>
+            <div class="products-grid">
+                <div class="product-highlight">
+                    <h3>🥫 Produits Épicerie</h3>
+                    <ul>
+                        <li><strong>Pâtes et riz</strong> : -60% sur les marques premium</li>
+                        <li><strong>Conserves</strong> : Jusqu'à -70% sur les légumes et poissons</li>
+                        <li><strong>Café et thé</strong> : -50% sur les grandes marques</li>
+                        <li><strong>Biscuits et snacks</strong> : -55% sur les paquets familiaux</li>
+                    </ul>
+                </div>
+                
+                <div class="product-highlight">
+                    <h3>🥤 Boissons</h3>
+                    <ul>
+                        <li><strong>Eaux minérales</strong> : -65% sur les packs</li>
+                        <li><strong>Sodas et jus</strong> : Jusqu'à -60%</li>
+                        <li><strong>Vins et champagnes</strong> : -40% à -70%</li>
+                        <li><strong>Boissons énergisantes</strong> : -55%</li>
+                    </ul>
+                </div>
+                
+                <div class="product-highlight">
+                    <h3>🧊 Surgelés</h3>
+                    <ul>
+                        <li><strong>Légumes surgelés</strong> : -70%</li>
+                        <li><strong>Plats préparés</strong> : -60%</li>
+                        <li><strong>Glaces et sorbets</strong> : -65%</li>
+                        <li><strong>Pizzas et pâtes</strong> : -55%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Avantages -->
+        <section class="benefits-section">
+            <h2>💡 POURQUOI PROFITER DE CE DÉSTOCKAGE ?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>💰 ÉCONOMIES MAXIMALES</h3>
+                    <p>Jusqu'à <strong>70% de réduction</strong> sur des produits de qualité. Réalisez des <strong>économies record</strong> sur votre budget courses mensuel.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🚚 LIVRAISON RAPIDE</h3>
+                    <p><strong>Livraison express</strong> sous 48h. Commandez aujourd'hui, recevez demain ! <strong>Frais de port offerts</strong> dès 50€ d'achat.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>⭐ QUALITÉ GARANTIE</h3>
+                    <p>Produits <strong>parfaitement consommables</strong>, dates de péremption contrôlées. Même qualité que le neuf, prix de déstockage !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section class="testimonials-section">
+            <h2>👥 CE QUE DISENT NOS CLIENTS</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"J'ai économisé <strong>250€ sur mes courses du mois</strong> grâce au déstockage ! Qualité impeccable, je recommande !"</p>
+                    <cite>- Marie D., Paris</cite>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"<strong>Livraison ultra-rapide</strong> et produits parfaits. J'ai fait le plein pour 3 mois à prix cassés !"</p>
+                    <cite>- Pierre L., Lyon</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Principale -->
+        <section class="main-cta-section">
+            <div class="cta-banner">
+                <h2>🎁 OFFRE SPÉCIALE : CADEAU OFFERT</h2>
+                <p>Pour toute commande passée le <strong>18 novembre 2025</strong>, recevez un <strong>cadeau surprise</strong> d'une valeur de 15€ !</p>
+                
+                <div class="cta-features">
+                    <div class="feature">✅ Économies jusqu'à -70%</div>
+                    <div class="feature">✅ Livraison offerte dès 50€</div>
+                    <div class="feature">✅ Cadeau surprise inclus</div>
+                    <div class="feature">✅ Satisfait ou remboursé</div>
+                </div>
+                
+                <a href="{{ url_for('product_list') }}" class="main-cta-button">
+                    🛒 ACCÉDER AUX OFFRES EXCLUSIVES -70% 
+                    <span class="cta-subtext">Stocks limités - Ne manquez pas cette opportunité !</span>
+                </a>
+                
+                <div class="security-badges">
+                    <div class="badge">🔒 Paiement sécurisé</div>
+                    <div class="badge">📦 Livraison garantie</div>
+                    <div class="badge">💯 Satisfait ou remboursé</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ Ultra-Optimisée -->
+        <section class="faq-section">
+            <h2>❓ QUESTIONS FRÉQUENTES</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>📅 L'offre est-elle valable uniquement le 18 novembre ?</h3>
+                    <p><strong>OUI !</strong> Cette offre exceptionnelle de <strong>déstockage alimentaire pour particulier</strong> est strictement limitée au <strong>18 novembre 2025</strong>. Les prix remontent le lendemain.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🚚 La livraison est-elle vraiment gratuite ?</h3>
+                    <p><strong>ABSOLUMENT !</strong> Livraison express <strong>offerte dès 50€ d'achat</strong>. Commandez en confiance, nous livrons partout en France.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>⏰ Les stocks sont-ils limités ?</h3>
+                    <p><strong>OUI, stocks très limités !</strong> Les produits partent très vite. Nous recommandons de <strong>commander rapidement</strong> pour être sûr de profiter des meilleures affaires.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dernier CTA -->
+        <section class="final-cta-section">
+            <div class="final-banner">
+                <h2>🚀 NE LAISSEZ PAS PASSER CETTE OPPORTUNITÉ !</h2>
+                <p><strong>Des centaines de clients</strong> ont déjà économisé des milliers d'euros grâce à nos opérations de déstockage. <strong>Rejoignez-les maintenant !</strong></p>
+                
+                <div class="final-stats">
+                    <div class="stat">
+                        <strong>1 247</strong>
+                        <span>clients satisfaits</span>
+                    </div>
+                    <div class="stat">
+                        <strong>287 500€</strong>
+                        <span>d'économies réalisées</span>
+                    </div>
+                    <div class="stat">
+                        <strong>98%</strong>
+                        <span>de satisfaction</span>
+                    </div>
+                </div>
+                
+                <a href="{{ url_for('product_list') }}" class="final-cta-button">
+                    🎯 JE VEUX ÉCONOMISER MAINTENANT -70%
+                    <span class="final-subtext">Dernière chance - Offre immanquable !</span>
+                </a>
+                
+                <p class="guarantee-text"><strong>Garantie 30 jours satisfait ou remboursé</strong> - Aucun risque !</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA-OPTIMISÉS pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d63384;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #fd7e14;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.3rem;
+}
+
+/* Section Urgence */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+}
+
+.countdown-timer {
+    margin-bottom: 1.5rem;
+}
+
+.timer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.timer-item {
+    text-align: center;
+}
+
+.timer-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.urgency-button {
+    display: inline-block;
+    background: #ffc107;
+    color: #000;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+}
+
+.urgency-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+}
+
+/* Section Produits */
+.featured-products {
+    margin: 3rem 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.product-highlight {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #28a745;
+}
+
+.product-highlight ul {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+}
+
+.product-highlight li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.product-highlight li:before {
+    content: "✅";
+    margin-right: 0.5rem;
+}
+
+/* Section Avantages */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: #e7f3ff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #007bff;
+}
+
+/* Témoignages */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: #fff3cd;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ffc107;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* CTA Principal */
+.main-cta-section {
+    margin: 3rem 0;
+}
+
+.cta-banner {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+.cta-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.feature {
+    background: rgba(255,255,255,0.2);
+    padding: 0.8rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.main-cta-button {
+    display: block;
+    background: #ffc107;
+    color: #000;
+    padding: 20px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    max-width: 500px;
+    text-align: center;
+}
+
+.main-cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6);
+}
+
+.cta-subtext {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #6f42c1;
+}
+
+/* Final CTA */
+.final-cta-section {
+    margin: 3rem 0;
+}
+
+.final-banner {
+    background: linear-gradient(135deg, #6f42c1, #e83e8c);
+    color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(111, 66, 193, 0.3);
+}
+
+.final-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat strong {
+    font-size: 2rem;
+    display: block;
+}
+
+.stat span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.final-cta-button {
+    display: block;
+    background: #ffc107;
+    color: #000;
+    padding: 25px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+    max-width: 600px;
+    text-align: center;
+}
+
+.final-cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(255, 193, 7, 0.6);
+}
+
+.final-subtext {
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.guarantee-text {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.attention-grabber {
+    background: #fff3cd;
+    border-left: 6px solid #ffc107;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .products-grid,
+    .benefits-grid,
+    .testimonials-grid,
+    .faq-grid,
+    .final-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .timer-grid {
+        gap: 1rem;
+    }
+    
+    .timer-number {
+        font-size: 2rem;
+    }
+    
+    .main-cta-button,
+    .final-cta-button {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+    }
+    
+    .cta-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .security-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animation du compte à rebours */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.timer-number {
+    animation: pulse 2s infinite;
+}
+</style>
+
+<script>
+// Compte à rebours pour le 18 novembre 2025
+function updateCountdown() {
+    const targetDate = new Date('2025-11-18T23:59:59').getTime();
+    const now = new Date().getTime();
+    const timeLeft = targetDate - now;
+    
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+}
+
+// Mettre à jour toutes les secondes
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+{% endblock %}

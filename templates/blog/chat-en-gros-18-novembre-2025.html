@@ -1,0 +1,617 @@
+{% extends "base.html" %}
+
+{% block page_title %}Chat en Gros 18 Novembre 2025 : Événement Exclusif de Vente en Gros | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Ne manquez pas le chat en gros du 18 novembre 2025 ! Vente exceptionnelle de produits en gros avec des promotions jusqu'à -70%. Inscrivez-vous dès maintenant.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Chat en Gros 18 Novembre 2025 : Événement Exclusif de Vente en Gros">
+<meta property="og:description" content="Événement unique le 18 novembre 2025 : chat en gros avec des offres exceptionnelles jusqu'à -70% sur tous les produits. Limited time offer!">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/chat-en-gros-18-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/chat-en-gros-2025.jpg') }}">
+<meta property="og:type" content="event">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chat en Gros 18 Novembre 2025 : Événement Exclusif">
+<meta name="twitter:description" content="Événement unique le 18/11/2025 : chat en gros avec promotions jusqu'à -70%. Ne manquez pas cette occasion!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/chat-en-gros-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/chat-en-gros-18-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Chat en Gros 18 Novembre 2025 - Vente Exceptionnelle",
+  "startDate": "2025-11-18T10:00:00+01:00",
+  "endDate": "2025-11-18T22:00:00+01:00",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "https://www.destockagealimentairestore.com/products"
+  },
+  "description": "Événement unique de chat en gros le 18 novembre 2025 avec des promotions exclusives jusqu'à 70% de réduction sur tous les produits en gros.",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/products",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-18T00:00:00+01:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Chat en Gros 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">Chat en Gros 18 Novembre 2025 : Événement Exceptionnel de Vente en Gros</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 18 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/chat-en-gros-2025.jpg') }}" 
+                     alt="Chat en gros 18 novembre 2025 - événement vente gros promotions exclusives" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Événement unique le 18/11/2025 : Promotions jusqu'à -70% sur le chat en gros !</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <h2>🚨 ÉVÉNEMENT EXCLUSIF : CHAT EN GROS 18 NOVEMBRE 2025</h2>
+                <p>Ne manquez <strong>sous aucun prétexte</strong> le <strong>chat en gros historique</strong> du <strong>18 novembre 2025</strong> ! Une occasion <strong>unique dans l'année</strong> de faire des affaires exceptionnelles avec des <strong>promotions massives jusqu'à -70%</strong>.</p>
+            </div>
+        </section>
+
+        <section class="countdown-section">
+            <h2>⏰ COMPTE À REBOURS ÉVÉNEMENT CHAT EN GROS</h2>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">JOURS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">HEURES</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">MINUTES</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">SECONDES</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎯 POURQUOI CE CHAT EN GROS DU 18 NOVEMBRE 2025 EST UNIQUE ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item urgent">
+                    <h3>💥 PROMOTIONS EXCEPTIONNELLES</h3>
+                    <p>Des <strong>réductions massives jusqu'à 70%</strong> sur l'ensemble de notre catalogue. Des prix de <strong>gros imbattables</strong> qui ne se reproduiront pas avant 2026 !</p>
+                    <div class="discount-badge">-70%</div>
+                </div>
+                
+                <div class="benefit-item urgent">
+                    <h3>⚡ LIVRAISON ULTRA-RAPIDE</h3>
+                    <p>Commandez pendant le <strong>chat en gros du 18 novembre 2025</strong> et bénéficiez d'une <strong>livraison express gratuite</strong> sous 48h !</p>
+                    <div class="shipping-badge">🚚 GRATUIT</div>
+                </div>
+                
+                <div class="benefit-item urgent">
+                    <h3>🎁 CADEAUX EXCLUSIFS</h3>
+                    <p>Toute commande passée pendant l'événement <strong>chat en gros 18/11/2025</strong> recevra un <strong>cadeau surprise</strong> d'une valeur de 50€ !</p>
+                    <div class="gift-badge">🎁 +50€</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-preview">
+            <h2>🔥 PRODUITS PHARES DU CHAT EN GROS 18 NOVEMBRE 2025</h2>
+            
+            <div class="products-grid">
+                <div class="product-card mega-deal">
+                    <h3>CHAMPAGNES PRESTIGE</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">120€</span>
+                        <span class="new-price">36€</span>
+                    </div>
+                    <p>Champagnes de grandes marques à <strong>-70%</strong> pendant le chat en gros</p>
+                    <div class="stock-alert">⚠️ Stock limité</div>
+                </div>
+                
+                <div class="product-card mega-deal">
+                    <h3>VINS RARES</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">85€</span>
+                        <span class="new-price">25€</span>
+                    </div>
+                    <p>Cuvées exclusives disponibles uniquement le <strong>18 novembre 2025</strong></p>
+                    <div class="stock-alert">⚡ Vente flash</div>
+                </div>
+                
+                <div class="product-card mega-deal">
+                    <h3>SPIRITUEUX PREMIUM</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">65€</span>
+                        <span class="new-price">19€</span>
+                    </div>
+                    <p>Whisky, gin et vodka de qualité à des prix <strong>incroyables</strong></p>
+                    <div class="stock-alert">🎯 Offre unique</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-details">
+            <h2>📅 PROGRAMME DU CHAT EN GROS 18 NOVEMBRE 2025</h2>
+            
+            <div class="schedule-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">🕙 10h00</div>
+                    <div class="timeline-content">
+                        <h3>OUVERTURE OFFICIELLE</h3>
+                        <p>Début du <strong>chat en gros</strong> avec les premières <strong>promotions flash</strong></p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">🕛 12h00</div>
+                    <div class="timeline-content">
+                        <h3>HEURE DE POINTE - OFFRES SPÉCIALES</h3>
+                        <p><strong>Promotions exclusives</strong> disponibles uniquement de 12h à 14h</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">🕔 17h00</div>
+                    <div class="timeline-content">
+                        <h3>DEUXIÈME VAGUE DE PROMOTIONS</h3>
+                        <p>Nouvelles <strong>offres choc</strong> pour la soirée du <strong>18 novembre 2025</strong></p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item urgent">
+                    <div class="timeline-time">🕘 21h00</div>
+                    <div class="timeline-content">
+                        <h3>DERNIÈRES HEURES - ULTIMES PROMOTIONS</h3>
+                        <p><strong>Dernière chance</strong> pour profiter des <strong>prix de gros exceptionnels</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-cta">
+            <div class="mega-cta">
+                <h2>🚀 ACCÉDEZ MAINTENANT AU CHAT EN GROS !</h2>
+                <p class="cta-subtitle">Ne ratez pas cette occasion <strong>unique du 18 novembre 2025</strong> de faire des économies massives</p>
+                
+                <div class="cta-benefits">
+                    <div class="benefit-tag">✅ Promotions jusqu'à -70%</div>
+                    <div class="benefit-tag">✅ Livraison express gratuite</div>
+                    <div class="benefit-tag">✅ Cadeaux exclusifs</div>
+                    <div class="benefit-tag">✅ Support prioritaire</div>
+                </div>
+                
+                <a href="{{ url_for('product_list') }}" class="mega-cta-button">
+                    🎯 ACCÉDER AU CHAT EN GROS MAINTENANT !
+                </a>
+                
+                <p class="urgency-note">⏳ <strong>Attention :</strong> Les stocks sont limités et les promotions prennent fin le 18 novembre 2025 à minuit !</p>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>❓ FAQ - CHAT EN GROS 18 NOVEMBRE 2025</h2>
+            
+            <div class="faq-item">
+                <h3>Qu'est-ce que le chat en gros du 18 novembre 2025 ?</h3>
+                <p>Il s'agit d'un <strong>événement exceptionnel de vente en gros</strong> le <strong>18/11/2025</strong> avec des <strong>promotions uniques jusqu'à -70%</strong> sur tous nos produits.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Comment participer au chat en gros ?</h3>
+                <p>Rendez-vous simplement sur notre site le <strong>18 novembre 2025</strong> et accédez à tous les produits en <strong>promotion exclusive</strong>.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Les promotions sont-elles limitées dans le temps ?</h3>
+                <p>OUI ! Toutes les <strong>offres spéciales du chat en gros</strong> sont valables uniquement le <strong>18 novembre 2025</strong> jusqu'à minuit.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Y a-t-il un minimum de commande ?</h3>
+                <p>Non, pendant le <strong>chat en gros 2025</strong>, aucune quantité minimum n'est requise pour bénéficier des <strong>prix exceptionnels</strong>.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA OPTIMISÉS pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d63384;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.urgent-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+    border: 3px solid #ffd700;
+}
+
+.urgent-banner h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.countdown-section {
+    background: #1a1a1a;
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.countdown-item {
+    background: #d63384;
+    padding: 1.5rem;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    border: 2px solid #dee2e6;
+}
+
+.benefit-item.urgent {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border: 3px solid #ffc107;
+    transform: scale(1.02);
+}
+
+.discount-badge, .shipping-badge, .gift-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.products-preview {
+    margin: 3rem 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.product-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #dee2e6;
+    position: relative;
+}
+
+.product-card.mega-deal {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: 3px solid #2196f3;
+    transform: scale(1.05);
+}
+
+.price-comparison {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.new-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.stock-alert {
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.event-details {
+    margin: 3rem 0;
+}
+
+.schedule-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+.timeline-item.highlight {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border: 2px solid #ffc107;
+}
+
+.timeline-item.urgent {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border: 2px solid #f44336;
+}
+
+.timeline-time {
+    background: #d63384;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: center;
+    margin-right: 2rem;
+}
+
+.timeline-content h3 {
+    color: #d63384;
+    margin-bottom: 0.5rem;
+}
+
+.conversion-cta {
+    margin: 4rem 0;
+}
+
+.mega-cta {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 4px solid #ffd700;
+}
+
+.mega-cta h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-benefits {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.benefit-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.mega-cta-button {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+    border: 3px solid white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.mega-cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    background: #ffed4a;
+}
+
+.urgency-note {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.faq-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.faq-item h3 {
+    color: #d63384;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid, .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .timeline-time {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .mega-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .mega-cta h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-benefits {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+<script>
+// Compte à rebours pour le 18 novembre 2025
+function updateCountdown() {
+    const eventDate = new Date('2025-11-18T00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById('countdown').innerHTML = "<div style='color: #dc3545; font-size: 2rem; font-weight: bold;'>ÉVÉNEMENT TERMINÉ</div>";
+    }
+}
+
+const countdownTimer = setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+{% endblock %}

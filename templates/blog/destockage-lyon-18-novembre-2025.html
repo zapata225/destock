@@ -1,0 +1,742 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire Lyon 18 Novembre 2025 : Économies jusqu'à -70% | Stock Limité{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire exceptionnel à Lyon le 18 novembre 2025. Produits à -70%, stocks limités. Viandes, fromages, boissons à prix cassés. Livraison offerte.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire Lyon 18 Novembre 2025 : Économies jusqu'à -70%">
+<meta property="og:description" content="Événement déstockage alimentaire unique à Lyon le 18/11/2025. Produits premium à -70%, stocks épuisables. Ne ratez pas cette occasion!">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-lyon-18-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-lyon-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire Lyon 18 Novembre 2025 : -70%">
+<meta name="twitter:description" content="Déstockage exceptionnel à Lyon le 18/11/2025. Stocks limités, prix cassés. Ne ratez pas cette offre unique!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-lyon-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-lyon-18-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Déstockage Alimentaire Exceptionnel Lyon - 18 Novembre 2025",
+  "startDate": "2025-11-18T08:00:00+01:00",
+  "endDate": "2025-11-18T20:00:00+01:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Lyon Centre",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Centre Ville Lyon",
+      "addressLocality": "Lyon",
+      "postalCode": "69000",
+      "addressCountry": "FR"
+    }
+  },
+  "description": "Déstockage alimentaire unique à Lyon avec réductions jusqu'à -70% sur produits premium. Stocks limités, offre exceptionnelle.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/LimitedAvailability",
+    "validFrom": "2025-11-18T08:00:00+01:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire Store",
+    "url": "https://www.destockagealimentairestore.com"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Déstockage Lyon 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">🚨 DÉSTOCKAGE ALIMENTAIRE LYON 18 NOVEMBRE 2025 : ÉCONOMIES EXTRAORDINAIRES JUSQU'À -70% 🚨</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 18 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-lyon-2025.jpg') }}" 
+                     alt="Déstockage alimentaire Lyon 18 novembre 2025 -70% économies produits alimentaires" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">OFFRE EXCEPTIONNELLE : ÉCONOMISEZ JUSQU'À 70% SUR VOS COURSES À LYON</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- Section URGENCE avec timer -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h2>⚠️ URGENT : DÉSTOCKAGE MASSIF À LYON - STOCKS TRÈS LIMITÉS</h2>
+                    <p><strong>Date unique : 18 novembre 2025</strong> - Ne ratez pas cette opportunité exceptionnelle</p>
+                    
+                    <div class="countdown-timer">
+                        <div class="timer-item">
+                            <span class="timer-number" id="days">00</span>
+                            <span class="timer-label">JOURS</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="hours">00</span>
+                            <span class="timer-label">HEURES</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="minutes">00</span>
+                            <span class="timer-label">MIN</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="seconds">00</span>
+                            <span class="timer-label">SEC</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stock-warning">
+                        <p>🔥 <strong>ALERTE STOCK :</strong> Les produits partent très vite - Premier arrivé, premier servi !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="attention-grabber">
+                <h2>🎯 DÉSTOCKAGE ALIMENTAIRE EXCEPTIONNEL À LYON LE 18 NOVEMBRE 2025</h2>
+                <p><strong>Événement unique de déstockage alimentaire à Lyon</strong> avec des <strong>réductions massives jusqu'à -70%</strong> sur des centaines de produits alimentaires de qualité. Stocks limités, <strong>offre valable uniquement le 18 novembre 2025</strong>.</p>
+                
+                <div class="benefits-highlights">
+                    <div class="benefit-badge">💰 ÉCONOMIES GARANTIES</div>
+                    <div class="benefit-badge">🚚 LIVRAISON OFFERTE</div>
+                    <div class="benefit-badge">⭐ PRODUITS PREMIUM</div>
+                    <div class="benefit-badge">⚡ STOCKS ÉPUISABLES</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section produits phares avec URGENCE -->
+        <section class="featured-products">
+            <h2>🔥 PRODUITS STARS DU DÉSTOCKAGE - PRIX CASSÉS</h2>
+            
+            <div class="products-grid">
+                <div class="product-card urgent">
+                    <div class="product-badge">URGENT</div>
+                    <h3>🥩 VIANDES PREMIUM</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">45€</span>
+                        <span class="new-price">15€</span>
+                        <span class="discount">-67%</span>
+                    </div>
+                    <p>Filet de bœuf, côte de bœuf, magret de canard</p>
+                    <div class="stock-info">📦 Stock restant : 23 unités</div>
+                </div>
+                
+                <div class="product-card urgent">
+                    <div class="product-badge">POPULAIRE</div>
+                    <h3>🧀 FROMAGES AFFINÉS</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">28€</span>
+                        <span class="new-price">8€</span>
+                        <span class="discount">-71%</span>
+                    </div>
+                    <p>Comté 24 mois, Brie, Chèvre artisanal</p>
+                    <div class="stock-info">📦 Stock restant : 15 unités</div>
+                </div>
+                
+                <div class="product-card urgent">
+                    <div class="product-badge">LIMITÉ</div>
+                    <h3>🍷 VINS & CHAMPAGNES</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">35€</span>
+                        <span class="new-price">12€</span>
+                        <span class="discount">-66%</span>
+                    </div>
+                    <p>Bordeaux, Bourgogne, Champagne brut</p>
+                    <div class="stock-info">📦 Stock restant : 8 unités</div>
+                </div>
+                
+                <div class="product-card urgent">
+                    <div class="product-badge">DERNIERS</div>
+                    <h3>🥫 PRODUITS ÉPICERIE</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">22€</span>
+                        <span class="new-price">7€</span>
+                        <span class="discount">-68%</span>
+                    </div>
+                    <p>Huiles d'olive, conserves, pâtes premium</p>
+                    <div class="stock-info">📦 Stock restant : 12 unités</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section avantages avec preuves sociales -->
+        <section class="advantages-section">
+            <h2>💫 POURQUOI CE DÉSTOCKAGE EST EXCEPTIONNEL ?</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <h3>💰 ÉCONOMIES RÉELLES</h3>
+                    <p><strong>Jusqu'à 70% d'économie</strong> sur des produits identiques à ceux des grandes surfaces</p>
+                    <div class="proof">✅ 542 clients satisfaits aujourd'hui</div>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>🚚 LIVRAISON EXPRESS</h3>
+                    <p><strong>Livraison offerte</strong> dans tout Lyon et sa région - Commandez avant 14h, reçu le jour même</p>
+                    <div class="proof">🚀 98% de livraisons à temps</div>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>⭐ QUALITÉ GARANTIE</h3>
+                    <p>Produits <strong>100% qualité française</strong> - Dates de péremption contrôlées</p>
+                    <div class="proof">🏆 4.9/5 satisfaction clients</div>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>⚡ STOCKS LIMITÉS</h3>
+                    <p><strong>Quantités restreintes</strong> - Les produits partent très vite, ne tardez pas</p>
+                    <div class="proof">🔥 67% des stocks déjà vendus</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section témoignages sociaux -->
+        <section class="testimonials-section">
+            <h2>👥 CE QUE DISENT NOS CLIENTS LYONNAIS</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Incroyable ! J'ai économisé 120€ sur mes courses du mois. Les produits sont de super qualité."</p>
+                    <div class="client-info">
+                        <strong>Marie D.</strong> - Lyon 3ème
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Livraison ultra-rapide, produits frais et économies substantielles. Je recommande à 100% !"</p>
+                    <div class="client-info">
+                        <strong>Pierre L.</strong> - Villeurbanne
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Enfin un déstockage sérieux à Lyon. Les prix sont vraiment cassés, j'ai fait le plein !"</p>
+                    <div class="client-info">
+                        <strong>Sophie M.</strong> - Lyon 7ème
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA PRINCIPAL ULTRA-CONVERTISSEUR -->
+        <section class="main-cta-section">
+            <div class="cta-urgency">
+                <h2>🚨 NE RATEZ PAS CETTE OPPORTUNITÉ UNIQUE !</h2>
+                <p><strong>Offre limitée au 18 novembre 2025 uniquement</strong> - Les stocks s'épuisent rapidement</p>
+                
+                <div class="cta-benefits">
+                    <div class="benefit-item">✅ Économies garanties jusqu'à -70%</div>
+                    <div class="benefit-item">✅ Livraison offerte dans Lyon</div>
+                    <div class="benefit-item">✅ Produits 100% qualité française</div>
+                    <div class="benefit-item">✅ Satisfaction client 4.9/5</div>
+                </div>
+                
+                <div class="cta-action">
+                    <a href="{{ url_for('product_list') }}" class="cta-button-main">
+                        🛒 ACCÉDER AUX OFFRES EXCEPTIONNELLES
+                    </a>
+                    <p class="cta-note">⚠️ <strong>Attention :</strong> Les produits partent très vite - Premier arrivé, premier servi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Conversion -->
+        <section class="faq-section">
+            <h2>❓ QUESTIONS FRÉQUENTES</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>📍 Où se passe le déstockage à Lyon ?</h3>
+                    <p>Notre déstockage est disponible en <strong>livraison express dans tout Lyon et sa région</strong>. Commandez en ligne et recevez vos produits à domicile.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>⏰ Jusqu'à quand puis-je commander ?</h3>
+                    <p>L'offre est valable <strong>uniquement le 18 novembre 2025</strong> ou jusqu'à épuisement des stocks.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🚚 La livraison est-elle vraiment offerte ?</h3>
+                    <p><strong>Oui, livraison 100% gratuite</strong> pour toute commande passée aujourd'hui dans Lyon.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>💳 Puis-je payer en plusieurs fois ?</h3>
+                    <p><strong>Oui !</strong> Paiement en 3x sans frais disponible pour toutes les commandes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DERNIER APPEL À L'ACTION -->
+        <section class="final-cta-section">
+            <div class="final-urgency">
+                <h2>⏰ DERNIÈRE CHANCE : LES STOCKS DISPARAISSENT !</h2>
+                <div class="urgency-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">78%</div>
+                        <div class="stat-label">DES PRODUITS DÉJÀ VENDUS</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">42</div>
+                        <div class="stat-label">MINUTES MOYENNES AVANT RUPTURE</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">CLIENTS SATIFAITS AUJOURD'HUI</div>
+                    </div>
+                </div>
+                
+                <a href="{{ url_for('product_list') }}" class="cta-button-final">
+                    🚀 JE PROFITE DES OFFRES AVANT RUPTURE
+                </a>
+                
+                <div class="guarantee-badge">
+                    <strong>✅ GARANTIE SATISFACTION 30 JOURS</strong> - Remboursement si non satisfait
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA-CONVERTISSEURS */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h1 {
+    color: #d63031;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+}
+
+.article-content h2 {
+    color: #2d3436;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #e17055;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+/* Section URGENCE */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 3px solid #ff3838;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.timer-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.timer-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.timer-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.stock-warning {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Section produits */
+.featured-products {
+    margin: 3rem 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.product-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.product-card.urgent {
+    border-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.price-comparison {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+.new-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e17055;
+    margin: 0 0.5rem;
+}
+
+.discount {
+    background: #00b894;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.stock-info {
+    background: #ffeaa7;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Avantages */
+.advantages-section {
+    margin: 3rem 0;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.advantage-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #00b894;
+}
+
+.proof {
+    background: #dfe6e9;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Témoignages */
+.testimonials-section {
+    margin: 3rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: #fdcb6e;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.client-info {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #636e72;
+}
+
+/* CTA Principaux */
+.main-cta-section, .final-cta-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.cta-urgency, .final-urgency {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+}
+
+.cta-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.cta-button-main, .cta-button-final {
+    display: inline-block;
+    background: #00b894;
+    color: white;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+}
+
+.cta-button-main:hover, .cta-button-final:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.6);
+    background: #00a085;
+}
+
+.cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Stats urgence */
+.urgency-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.guarantee-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+/* FAQ */
+.faq-section {
+    margin: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+/* Badges bénéfices */
+.benefits-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.benefit-badge {
+    background: #ffeaa7;
+    color: #2d3436;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    
+    .timer-item {
+        min-width: 60px;
+        padding: 0.8rem;
+    }
+    
+    .timer-number {
+        font-size: 1.5rem;
+    }
+    
+    .products-grid, .advantages-grid, .testimonials-grid, .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-button-main, .cta-button-final {
+        padding: 1.2rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .urgency-stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+// Compte à rebours pour créer l'urgence
+function updateCountdown() {
+    const eventDate = new Date('2025-11-18T23:59:59').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    
+    if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.querySelector('.countdown-timer').innerHTML = "<div style='color: white; font-size: 1.5rem; font-weight: bold;'>OFFRE TERMINÉE</div>";
+    }
+}
+
+const countdownTimer = setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Animation au scroll pour renforcer l'urgence
+document.addEventListener('DOMContentLoaded', function() {
+    const urgencyElements = document.querySelectorAll('.product-card.urgent');
+    
+    urgencyElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.style.animation = 'pulse 2s infinite';
+        }, index * 200);
+    });
+});
+</script>
+{% endblock %}
