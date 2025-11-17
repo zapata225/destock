@@ -5742,7 +5742,7 @@ def destockage_paris_2025_18_novembre_2025():
 
 
 @app.route('/blog/destockage-alimentaire-lille-18-novembre-2025')
-def destockage_lille_2025():
+def destockage_lille_11_2025():
     seo = {
         "title": "Déstockage Alimentaire Lille 18 Novembre 2025 | Prix Cassés",
         "description": "Déstockage alimentaire Lille : produits discount, fins de séries et lots.",
@@ -5754,7 +5754,7 @@ def destockage_lille_2025():
 
 
 @app.route('/blog/destockage-lyon-18-novembre-2025')
-def destockage_lyon_2025():
+def destockage_lyon__18_11_2025():
     seo = {
         "title": "Déstockage Alimentaire Lyon 18 Novembre 2025 | Fins de Séries",
         "description": "Déstockage alimentaire Lyon : produits pas chers, lots, épicerie et boissons.",
