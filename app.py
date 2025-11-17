@@ -5781,17 +5781,17 @@ def sitemap():
         '/trafficbelge',
         '/role-grossiste-alimentaire',
         '/grossiste-paris',
-        '/blog/destockage-alimentaire-paris',   ← attention : version non datée
+        '/blog/destockage-alimentaire-paris',   
         '/blog/boissons-suisses',
         '/blog/prix-red-bull-meilleures-offres',
-        '/destockage-alimentaire-lille',        ← version non datée
-        '/blog/destockage-alimentaire-lille',   ← version blog non datée
-        '/blog/destockage-alimentaire-belgique',← version non datée
-        '/blog/achat-champagne-gros',           ← version non datée de ton slug existant
-        '/blog/comment-choisir-produit-entretien-efficace', ← version non datée
-        '/blog/supermarches-discount-france',   ← version non datée
-        '/blog/amaretto-disaronno',             ← doublon possible mais non dans liste brute
-        '/blog/vodka-de-luxe',                  ← version sans -2025
+        '/destockage-alimentaire-lille',       
+        '/blog/destockage-alimentaire-lille',   
+        '/blog/destockage-alimentaire-belgique',
+        '/blog/achat-champagne-gros',           
+        '/blog/comment-choisir-produit-entretien-efficace',
+        '/blog/supermarches-discount-france',   
+        '/blog/amaretto-disaronno',             
+        '/blog/vodka-de-luxe',                  
         '/blog/destockage-alimentaire-paris-14-novembre-2025',
         '/blog/grossiste-alimentaire-belgique_15_novembre_2025',
         '/blog/destockage-alimentaire-gros-novembre-2025',
