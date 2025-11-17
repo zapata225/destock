@@ -5669,6 +5669,126 @@ def grossiste_alimentaire_belgique_15_novembre_2025():
     return render_template('blog/grossiste-alimentaire-belgique_15_novembre_2025.html', seo=seo)
 
 
+@app.route('/blog/destockage-alimentaire-en-ligne-particulier')
+def destockage_alimentaire_en_ligne_particulier():
+    seo = {
+        "title": "Déstockage Alimentaire en Ligne Particulier 2025 | Prix Cassés -70%",
+        "description": "Profitez du déstockage alimentaire en ligne pour particulier : produits moins chers, fins de séries, livraison France & Belgique.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-particulier.webp",
+        "keywords": "destockage alimentaire particulier, destockage en ligne, produits pas chers, promo alimentaire"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-particulier.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-en-ligne-professionnel')
+def destockage_alimentaire_en_ligne_professionnel():
+    seo = {
+        "title": "Déstockage Alimentaire Professionnel en Ligne | Prix PRO -70%",
+        "description": "Déstockage alimentaire pour professionnels : palettes, lots, gros volumes et prix ultra basses.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-pro.webp",
+        "keywords": "destockage alimentaire professionnel, grossiste alimentaire, palette alimentaire, destockage pro"
+    }
+    return render_template('blog/destockage-alimentaire-en-ligne-professionnel.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-belgique-17-novembre-2025')
+def destockage_alimentaire_belgique_17_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Belgique - 17 Novembre 2025 | Jusqu’à -70%",
+        "description": "Offres exceptionnelles en Belgique : produits alimentaires en déstockage, gros volumes et livraison rapide.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-17-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-belgique.webp",
+        "keywords": "destockage Belgique, destockage alimentaire Belgique, promotion alimentaire Belgique"
+    }
+    return render_template('blog/destockage-alimentaire-belgique-17-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-pro-18-novembre-2025')
+def destockage_pro_18_novembre_2025():
+    seo = {
+        "title": "Déstockage Pro 18 Novembre 2025 | Gros Volumes & Prix Exceptionnels",
+        "description": "Déstockage pour professionnels : lots alimentaires, palettes, prix cassés et disponibilité immédiate.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-pro-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-pro-18.webp",
+        "keywords": "destockage pro, produit pro pas cher, palette alimentaire, lot alimentaire"
+    }
+    return render_template('blog/destockage-pro-18-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-particulier-18-novembre-2025')
+def destockage_alimentaire_18_novembre_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Particulier 18 Novembre 2025 | Prix Cassés",
+        "description": "Produits alimentaires en déstockage pour particulier : épicerie, boissons, snacks et plus.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-particulier-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-particulier-18.webp",
+        "keywords": "destockage particulier, déstockage alimentaire novembre, produits pas chers"
+    }
+    return render_template('blog/destockage-alimentaire-particulier-18-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-paris-18-novembre-2025')
+def destockage_paris_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Paris 18 Novembre 2025 | Gros Bons Plans",
+        "description": "Déstockage alimentaire Paris : promotions jusqu’à -70%, épicerie, boissons et lots.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-paris.webp",
+        "keywords": "destockage paris, destockage alimentaire paris, promo paris"
+    }
+    return render_template('blog/destockage-alimentaire-paris-18-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-alimentaire-lille-18-novembre-2025')
+def destockage_lille_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Lille 18 Novembre 2025 | Prix Cassés",
+        "description": "Déstockage alimentaire Lille : produits discount, fins de séries et lots.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-lille-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-lille.webp",
+        "keywords": "destockage lille, destockage alimentaire lille, promotion lille"
+    }
+    return render_template('blog/destockage-alimentaire-lille-18-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/destockage-lyon-18-novembre-2025')
+def destockage_lyon_2025():
+    seo = {
+        "title": "Déstockage Alimentaire Lyon 18 Novembre 2025 | Fins de Séries",
+        "description": "Déstockage alimentaire Lyon : produits pas chers, lots, épicerie et boissons.",
+        "url": "https://www.destockagealimentairestore.com/blog/destockage-lyon-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/destockage-lyon.webp",
+        "keywords": "destockage lyon, destockage alimentaire lyon, prix cassés lyon"
+    }
+    return render_template('blog/destockage-lyon-18-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-lyon-18-novembre-2025')
+def grossiste_alimentaire_lyon_18_novembre_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Lyon 18 Novembre 2025 | Achat en Gros",
+        "description": "Grossiste alimentaire à Lyon : lots, palettes, prix professionnels.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-lyon-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-lyon.webp",
+        "keywords": "grossiste lyon, grossiste alimentaire lyon, fournisseur lyon"
+    }
+    return render_template('blog/grossiste-alimentaire-lyon-18-novembre-2025.html', seo=seo)
+
+
+@app.route('/blog/grossiste-alimentaire-paris-18-novembre-2025')
+def grossiste_alimentaire_paris_18_novembre_2025():
+    seo = {
+        "title": "Grossiste Alimentaire Paris 18 Novembre 2025 | Prix Professionnels",
+        "description": "Achat en gros Paris : grossiste alimentaire, lots, déstockage.",
+        "url": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-paris-18-novembre-2025",
+        "image": "https://www.destockagealimentairestore.com/static/img/blog/grossiste-paris.webp",
+        "keywords": "grossiste paris, grossiste alimentaire paris, fournisseur paris"
+    }
+    return render_template('blog/grossiste-alimentaire-paris-18-novembre-2025.html', seo=seo)
+
+
 @app.route('/blog/destockage-alimentaire-gros-novembre-2025')
 def destockage_alimentaire_gros_novembre_2025():
     seo = {
@@ -5754,6 +5874,25 @@ def sitemap():
         '/blog/destockage-alimentaire-autour-de-moi-novembre2025',
         '/blog/ruinart-blanc-de-blancs-novembre2025',
         '/blog/boissons-gros-pas-cher-25',
+        '/blog/destockage-alimentaire-en-ligne-particulier',
+        '/blog/destockage-alimentaire-en-ligne-professionnel',
+        '/blog/destockage-alimentaire-belgique-17-novembre-2025',
+        '/blog/destockage-pro-18-novembre-2025',
+        '/blog/destockage-alimentaire-particulier-18-novembre-2025',
+        '/blog/destockage-alimentaire-paris-18-novembre-2025',
+        '/blog/destockage-alimentaire-lille-18-novembre-2025',
+        '/blog/destockage-lyon-18-novembre-2025',
+        '/blog/grossiste-alimentaire-lyon-18-novembre-2025',
+        '/blog/grossiste-alimentaire-paris-18-novembre-2025',
+        '/blog/grossiste-alimentaire-lille-18-novembre-2025',
+        '/blog/grossiste-alimentaire-belgique-18-novembre-2025',
+        '/blog/grossiste-alimentaire-bruxelles-18-novembre-2025',
+        '/blog/grossiste-alimentaire-particulier',
+        '/blog/grossiste-alimentaire-professionnel-18-novembre-2025',
+        '/blog/chat-en-gros-18-novembre-2025',
+        '/blog/promo-ruinart-18-novembre-2025',
+        '/blog/promo-champagne-18-novembre-2025',
+        '/blog/champagne-pas-cher-18-novembre-2025',
         '/blog/destockage-alimentaire-01decembre-2025',
         '/blog/destockage-alimentaire-en-ligne-professionnel-2025',
         '/blog/promo-ruinart-14-novembre-2025',
