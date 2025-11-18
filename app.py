@@ -5729,7 +5729,7 @@ def destockage_alimentaire_18_novembre_2025():
 
 
 @app.route('/blog/destockage-alimentaire-paris-18-novembre-2025')
-def destockage_paris_2025():
+def destockage_paris_11_2025():
     seo = {
         "title": "Déstockage Alimentaire Paris - 18 Novembre 2025 | Offres Exclusives",
         "description": "Déstockage alimentaire sur Paris : grandes réductions, lots, épicerie, boissons.",
