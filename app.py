@@ -5753,7 +5753,7 @@ def destockage_lille_2025():
 
 
 @app.route('/blog/destockage-lyon-18-novembre-2025')
-def destockage_lyon_2025():
+def destockage_lyon_11_2025():
     seo = {
         "title": "Déstockage Alimentaire Lyon - 18 Novembre 2025 | Prix Cassés",
         "description": "Déstockage alimentaire à Lyon : lots, épicerie, boissons et invendus.",
