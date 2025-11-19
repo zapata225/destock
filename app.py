@@ -5833,7 +5833,7 @@ def grossiste_alimentaire_professionnel_18_novembre_2025():
         "image": "/static/img/blog/grossiste-pro.webp",
         "keywords": "grossiste professionnel, fournisseur pro alimentaire"
     }
-    return render_template('blog/grossiste-alimentaire-professionnel-18-novembre-2025.html', seo=seo)
+    return render_template('blog/grossiste-alimentaire-professionnel.html', seo=seo)
 
 
 @app.route('/blog/chat-en-gros-18-novembre-2025')
