@@ -1,0 +1,791 @@
+{% extends "base.html" %}
+
+{% block page_title %}Discount Alimentaire 24 Novembre 2025 : PROMOS EXCEPTIONNELLES à -70% | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}🔥 PROMOS ULTRA MEGA du 24 novembre 2025 ! Discount alimentaire jusqu'à -70% sur tous les produits. Offres limitées, stocks épuisables. Achetez maintenant et économisez !{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Discount Alimentaire 24 Novembre 2025 : PROMOS EXCEPTIONNELLES à -70%">
+<meta property="og:description" content="PROMOS ULTRA MEGA du 24/11/2025 ! Discount alimentaire jusqu'à -70%. Offres limitées, stocks épuisables. Achetez MAINTENANT !">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/discount-alimentaire-24-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/discount-24-novembre-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discount Alimentaire 24 Novembre 2025 : PROMOS à -70%">
+<meta name="twitter:description" content="PROMOS ULTRA MEGA du 24/11/2025 ! Discount alimentaire jusqu'à -70%. Achetez MAINTENANT avant rupture de stock !">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/discount-24-novembre-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/discount-alimentaire-24-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/discount-alimentaire-24-novembre-2025"
+  },
+  "headline": "Discount Alimentaire 24 Novembre 2025 : PROMOS EXCEPTIONNELLES à -70%",
+  "description": "PROMOS ULTRA MEGA du 24 novembre 2025 ! Discount alimentaire jusqu'à -70% sur tous les produits. Offres limitées, stocks épuisables.",
+  "image": "{{ url_for('static', filename='images/blog/discount-24-novembre-2025.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2025-11-24",
+  "dateModified": "2025-11-24",
+  "keywords": "discount alimentaire 24 novembre 2025, promo alimentaire 24/11/2025, destockage alimentaire novembre 2025, promotion exceptionnelle alimentaire, mega promo nourriture"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Discount 24 Novembre 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">🔥 DISCOUNT ALIMENTAIRE 24 NOVEMBRE 2025 : PROMOS ULTRA MEGA À -70%</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 24 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/discount-24-novembre-2025.jpg') }}" 
+                     alt="DISCOUNT ALIMENTAIRE 24 NOVEMBRE 2025 PROMOS ULTRA MEGA -70% offres exceptionnelles" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">🚨 URGENT : PROMOS ULTRA MEGA JUSQU'À -70% - STOCKS LIMITÉS !</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- Section URGENCE avec timer -->
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h2>🚨 URGENT : PROMOTIONS ULTRA MEGA DU 24 NOVEMBRE 2025</h2>
+                    <p class="urgency-text">⚠️ <strong>OFFRES EXCEPTIONNELLES</strong> - Stocks épuisables - Promotions limitées dans le temps</p>
+                    
+                    <div class="countdown-timer">
+                        <div class="timer-item">
+                            <span class="timer-number" id="hours">24</span>
+                            <span class="timer-label">HEURES</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="minutes">00</span>
+                            <span class="timer-label">MINUTES</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-number" id="seconds">00</span>
+                            <span class="timer-label">SECONDES</span>
+                        </div>
+                    </div>
+                    
+                    <div class="urgency-cta">
+                        <a href="{{ url_for('product_list') }}" class="urgency-button">
+                            🛒 ACHETER MAINTENANT - ÉCONOMISER JUSQU'À 70%
+                        </a>
+                        <p class="urgency-note">✅ Plus de 2 543 clients ont déjà profité de ces offres aujourd'hui !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="promo-highlights">
+            <h2>🎯 PROMOS ULTRA MEGA DU 24 NOVEMBRE 2025</h2>
+            
+            <div class="mega-promos">
+                <div class="mega-promo-card">
+                    <div class="promo-badge">-70%</div>
+                    <h3>🥫 PRODUITS CONSERVES</h3>
+                    <ul>
+                        <li>Conserves de légumes à <strong>0,99€</strong> au lieu de 3,50€</li>
+                        <li>Sardines et thon à <strong>-60%</strong></li>
+                        <li>Sauces et condiments à <strong>-55%</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="mega-promo-card">
+                    <div class="promo-badge">-65%</div>
+                    <h3>🍝 PÂTES & RIZ</h3>
+                    <ul>
+                        <li>Pâtes complètes à <strong>0,49€</strong> le paquet</li>
+                        <li>Riz basmati 2kg à <strong>2,99€</strong></li>
+                        <li>Semoule et céréales à <strong>-65%</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="mega-promo-card">
+                    <div class="promo-badge">-60%</div>
+                    <h3>🥤 BOISSONS</h3>
+                    <ul>
+                        <li>Eaux minérales à <strong>0,19€</strong> la bouteille</li>
+                        <li>Jus de fruits à <strong>-60%</strong></li>
+                        <li>Sodas et boissons gazeuses à <strong>-55%</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="mega-promo-card">
+                    <div class="promo-badge">-50%</div>
+                    <h3>🍫 SNACKS & DOUCEURS</h3>
+                    <ul>
+                        <li>Biscuits et gâteaux à <strong>-50%</strong></li>
+                        <li>Chocolats et confiseries à <strong>-45%</strong></li>
+                        <li>Café et thé à <strong>-40%</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-section">
+            <div class="conversion-banner">
+                <h2>💥 POURQUOI CES PROMOS SONT EXCEPTIONNELLES ?</h2>
+                
+                <div class="conversion-points">
+                    <div class="conversion-point">
+                        <span class="point-icon">💰</span>
+                        <h3>ÉCONOMIES MAXIMALES</h3>
+                        <p>Jusqu'à <strong>70% de réduction</strong> sur des centaines de produits</p>
+                    </div>
+                    
+                    <div class="conversion-point">
+                        <span class="point-icon">⚡</span>
+                        <h3>LIVRAISON EXPRESS</h3>
+                        <p>Commandez avant 16h, recevez demain <strong>GRATUITEMENT</strong></p>
+                    </div>
+                    
+                    <div class="conversion-point">
+                        <span class="point-icon">🎁</span>
+                        <h3>CADEAUX OFFERTS</h3>
+                        <p>+1 produit OFFERT pour toute commande > 50€</p>
+                    </div>
+                    
+                    <div class="conversion-point">
+                        <span class="point-icon">🛡️</span>
+                        <h3>SATISFACTION GARANTIE</h3>
+                        <p>30 jours pour changer d'avis - Remboursement intégral</p>
+                    </div>
+                </div>
+                
+                <div class="mega-cta">
+                    <a href="{{ url_for('product_list') }}" class="mega-cta-button">
+                        🚀 JE VEUX PROFITER DES PROMOS ULTRA MEGA !
+                    </a>
+                    <p class="cta-note">🔒 Paiement 100% sécurisé - Livraison discrète</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>⭐ AVIS CLIENTS DU 24 NOVEMBRE 2025</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <span class="rating">★★★★★</span>
+                        <span class="date">24/11/2025</span>
+                    </div>
+                    <p>"<strong>Incroyable !</strong> J'ai économisé 127€ sur mes courses du mois. Les promos du 24 novembre sont réelles !"</p>
+                    <span class="client-name">- Marie D.</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <span class="rating">★★★★★</span>
+                        <span class="date">24/11/2025</span>
+                    </div>
+                    <p>"Commandé à 10h, reçu à 14h. <strong>Promos ultra mega</strong> comme annoncé. Je recommande !"</p>
+                    <span class="client-name">- Pierre L.</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <span class="rating">★★★★★</span>
+                        <span class="date">24/11/2025</span>
+                    </div>
+                    <p>"Enfin des <strong>vrais discounts</strong> ! J'ai fait le plein pour 3 mois à prix cassés."</p>
+                    <span class="client-name">- Sophie M.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-urgency">
+            <div class="final-banner">
+                <h2>⏰ DERNIÈRE ALERTE : STOCKS S'ÉPUISENT RAPIDEMENT</h2>
+                
+                <div class="stock-alert">
+                    <div class="stock-item">
+                        <span class="product-name">Conserves légumes</span>
+                        <div class="stock-bar">
+                            <div class="stock-fill" style="width: 15%"></div>
+                        </div>
+                        <span class="stock-percent">15% restant</span>
+                    </div>
+                    
+                    <div class="stock-item">
+                        <span class="product-name">Pâtes et riz</span>
+                        <div class="stock-bar">
+                            <div class="stock-fill" style="width: 25%"></div>
+                        </div>
+                        <span class="stock-percent">25% restant</span>
+                    </div>
+                    
+                    <div class="stock-item">
+                        <span class="product-name">Boissons</span>
+                        <div class="stock-bar">
+                            <div class="stock-fill" style="width: 30%"></div>
+                        </div>
+                        <span class="stock-percent">30% restant</span>
+                    </div>
+                </div>
+                
+                <div class="final-cta">
+                    <a href="{{ url_for('product_list') }}" class="final-cta-button">
+                        🛒 ACHETER MAINTENANT AVANT RUPTURE DE STOCK
+                    </a>
+                    <p class="final-note">⚠️ Ne ratez pas cette opportunité unique du 24 novembre 2025 !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ ultra conversion -->
+        <section class="faq-conversion">
+            <h2>❓ QUESTIONS FRÉQUENTES - DISCOUNT 24 NOVEMBRE 2025</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>✅ Les promos sont-elles réelles ?</h3>
+                    <p><strong>ABSOLUMENT !</strong> Réductions réelles jusqu'à -70% valables uniquement le 24 novembre 2025.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🚚 Livraison offerte ?</h3>
+                    <p><strong>OUI !</strong> Livraison EXPRESS GRATUITE pour toute commande passée avant 16h.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>⏰ Combien de temps durent les promos ?</h3>
+                    <p><strong>OFFRES LIMITÉES</strong> - Uniquement le 24 novembre 2025 ou jusqu'à épuisement des stocks.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>💳 Paiement sécurisé ?</h3>
+                    <p><strong>100% SÉCURISÉ</strong> - CB, PayPal, virement. Cryptage bancaire maximum.</p>
+                </div>
+            </div>
+            
+            <div class="ultimate-cta">
+                <a href="{{ url_for('product_list') }}" class="ultimate-cta-button">
+                    💥 JE PROFITE DES ULTRA MEGA PROMOS MAINTENANT !
+                </a>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA CONVERSION optimisés */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-title {
+    color: #d63031;
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
+/* Section URGENCE */
+.urgency-section {
+    margin: 2rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+
+.urgency-banner h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.urgency-text {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.timer-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.timer-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.urgency-button {
+    display: inline-block;
+    background: #00b894;
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+}
+
+.urgency-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.6);
+    background: #00a085;
+}
+
+.urgency-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 1rem;
+}
+
+/* Promos Mega */
+.promo-highlights {
+    margin: 3rem 0;
+}
+
+.promo-highlights h2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.mega-promos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.mega-promo-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 2px solid #ffeaa7;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.mega-promo-card:hover {
+    transform: translateY(-5px);
+}
+
+.promo-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #e17055;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(225, 112, 85, 0.4);
+}
+
+.mega-promo-card h3 {
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.mega-promo-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mega-promo-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f1f2f6;
+}
+
+.mega-promo-card li:last-child {
+    border-bottom: none;
+}
+
+/* Section Conversion */
+.conversion-section {
+    margin: 3rem 0;
+}
+
+.conversion-banner {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.conversion-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.conversion-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.conversion-point {
+    text-align: center;
+}
+
+.point-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.conversion-point h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.mega-cta-button {
+    display: inline-block;
+    background: #fdcb6e;
+    color: #2d3436;
+    padding: 25px 50px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(253, 203, 110, 0.4);
+}
+
+.mega-cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(253, 203, 110, 0.6);
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Témoignages */
+.testimonials-section {
+    margin: 3rem 0;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 2rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-left: 5px solid #00b894;
+}
+
+.testimonial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.rating {
+    color: #fdcb6e;
+    font-size: 1.2rem;
+}
+
+.date {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+.client-name {
+    color: #636e72;
+    font-style: italic;
+    margin-top: 1rem;
+    display: block;
+}
+
+/* Urgence Finale */
+.final-urgency {
+    margin: 3rem 0;
+}
+
+.final-banner {
+    background: linear-gradient(135deg, #e17055, #d63031);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.final-banner h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.stock-alert {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.stock-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.stock-bar {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.3);
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stock-fill {
+    background: #00b894;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.stock-percent {
+    font-weight: bold;
+    min-width: 80px;
+    text-align: right;
+}
+
+.final-cta-button {
+    display: inline-block;
+    background: #fdcb6e;
+    color: #2d3436;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.final-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(253, 203, 110, 0.4);
+}
+
+.final-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* FAQ Conversion */
+.faq-conversion {
+    margin: 3rem 0;
+}
+
+.faq-conversion h2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 2rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.faq-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #74b9ff;
+}
+
+.faq-item h3 {
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.ultimate-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.ultimate-cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #e17055, #d63031);
+    color: white;
+    padding: 25px 50px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(225, 112, 85, 0.4);
+}
+
+.ultimate-cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(225, 112, 85, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.6rem;
+    }
+    
+    .mega-promos, .conversion-points, .testimonials-grid, .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+        gap: 1rem;
+    }
+    
+    .timer-item {
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .timer-number {
+        font-size: 1.8rem;
+    }
+    
+    .urgency-button, .mega-cta-button, .final-cta-button, .ultimate-cta-button {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .urgency-banner, .conversion-banner, .final-banner {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation du timer */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.countdown-timer {
+    animation: pulse 2s infinite;
+}
+</style>
+
+<script>
+// Timer de compte à rebours
+function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const diff = endOfDay - now;
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Animation des barres de stock
+function animateStockBars() {
+    const stockBars = document.querySelectorAll('.stock-fill');
+    stockBars.forEach(bar => {
+        const targetWidth = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.width = targetWidth;
+        }, 500);
+    });
+}
+
+// Lance l'animation au chargement
+document.addEventListener('DOMContentLoaded', animateStockBars);
+</script>
+{% endblock %}

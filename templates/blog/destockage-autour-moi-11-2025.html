@@ -1,0 +1,452 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Autour de Moi 24 Novembre 2025 : Produits à -70% | Livraison Gratuite{% endblock %}
+
+{% block meta_description %}Destockage alimentaire autour de moi le 24 novembre 2025. Produits alimentaires à -70%, promotions immédiates, livraison gratuite. Trouvez les meilleures offres près de chez vous dès maintenant!{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Autour de Moi 24 Novembre 2025 : Produits à -70%">
+<meta property="og:description" content="Découvrez le destockage alimentaire autour de vous le 24/11/2025. Produits jusqu'à -70%, stocks limités, livraison offerte. Commandez maintenant!">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/destockage-autour-de-moi-24-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/destockage-autour-moi-2025.jpg') }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Destockage Alimentaire">
+<meta property="og:locale" content="fr_FR">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Autour de Moi 24 Novembre 2025 : -70%">
+<meta name="twitter:description" content="Destockage alimentaire près de chez vous le 24/11/2025. Produits à prix cassés, livraison gratuite. Dépêchez-vous, stocks limités!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/destockage-autour-moi-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/destockage-autour-de-moi-24-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Destockage Alimentaire Autour de Moi 24 Novembre 2025",
+  "description": "Destockage alimentaire autour de moi le 24 novembre 2025. Produits alimentaires jusqu'à -70%, livraison gratuite, promotions immédiates.",
+  "url": "https://www.destockagealimentairestore.com/destockage-autour-de-moi-24-novembre-2025",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ url_for('static', filename='images/destockage-autour-moi-2025.jpg') }}"
+  },
+  "datePublished": "2025-11-24",
+  "dateModified": "2025-11-24",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://www.destockagealimentairestore.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Destockage Autour de Moi",
+        "item": "https://www.destockagealimentairestore.com/destockage-autour-de-moi-24-novembre-2025"
+      }
+    ]
+  },
+  "mainEntity": {
+    "@type": "Offer",
+    "name": "Destockage Alimentaire 24 Novembre 2025",
+    "description": "Promotions exceptionnelles sur les produits alimentaires autour de vous",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-24",
+    "validThrough": "2025-11-30"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="landing-page" itemscope itemtype="https://schema.org/WebPage">
+    <!-- Hero Section Ultra-Convertisseuse -->
+    <section class="hero-section" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <meta itemprop="datePublished" content="2025-11-24">
+            <meta itemprop="dateModified" content="2025-11-24">
+            
+            <h1 class="hero-title" itemprop="headline" style="font-size: 3rem; margin-bottom: 1rem; font-weight: 900;">
+                🔥 DESTOCKAGE ALIMENTAIRE AUTOUR DE MOI<br>
+                <span style="font-size: 1.5rem; opacity: 0.9;">24 NOVEMBRE 2025 - PROMOTIONS EXCEPTIONNELLES</span>
+            </h1>
+            
+            <div class="hero-badges" style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+                <div class="badge" style="background: #fff; color: #e74c3c; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: bold; font-size: 1.1rem;">
+                    🚀 JUSQU'À -70%
+                </div>
+                <div class="badge" style="background: #fff; color: #e74c3c; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: bold; font-size: 1.1rem;">
+                    ⚡ LIVRAISON GRATUITE
+                </div>
+                <div class="badge" style="background: #fff; color: #e74c3c; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: bold; font-size: 1.1rem;">
+                    🎯 STOCKS LIMITÉS
+                </div>
+            </div>
+
+            <div class="hero-countdown" style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px; margin: 2rem auto; max-width: 500px;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">⏰ OFFRE EXCEPTIONNELLE SE TERMINE DANS :</h3>
+                <div id="countdown" style="font-size: 2rem; font-weight: bold; font-family: monospace;">
+                    23:59:59
+                </div>
+            </div>
+
+            <div class="hero-cta" style="margin-top: 2rem;">
+                <a href="{{ url_for('product_list') }}" 
+                   class="cta-button" 
+                   style="display: inline-block; background: #fff; color: #e74c3c; padding: 1.2rem 3rem; font-size: 1.3rem; font-weight: 900; text-decoration: none; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;"
+                   onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.4)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)';">
+                    🛒 VOIR TOUTES LES PROMOS MAINTENANT
+                </a>
+                <p style="margin-top: 1rem; font-size: 1.1rem; opacity: 0.9;">
+                    ✅ +5 000 clients satisfaits aujourd'hui • 🚚 Livraison en 24h
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Localisation Ultra-Ciblée -->
+    <section class="localisation-section" style="padding: 3rem 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 2rem; font-size: 2.2rem;">
+                📍 DÉSTOCKAGE ALIMENTAIRE <span style="color: #e74c3c;">AUTOUR DE MOI</span> - 24/11/2025
+            </h2>
+            
+            <div class="location-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="location-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: #e74c3c; margin-bottom: 1rem;">🏪 Paris et Île-de-France</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✅ Paris Centre : -60% sur épicerie</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✅ Hauts-de-Seine : -55% boissons</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✅ Seine-Saint-Denis : -70% surgelés</li>
+                        <li style="padding: 0.5rem 0;">✅ Val-de-Marne : -65% produits frais</li>
+                    </ul>
+                </div>
+                
+                <div class="location-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: #e74c3c; margin-bottom: 1rem;">🏠 Province - Toutes Régions</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✅ Lyon : -50% produits bio</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✅ Marseille : -60% conserves</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✅ Toulouse : -55% biscuits</li>
+                        <li style="padding: 0.5rem 0;">✅ Lille : -65% café/thé</li>
+                    </ul>
+                </div>
+                
+                <div class="location-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: #e74c3c; margin-bottom: 1rem;">🌍 Livraison Partout en France</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">🚚 Livraison OFFERTE dès 49€</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">⏱️ Livraison express 24h</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">📦 Emballage sécurisé</li>
+                        <li style="padding: 0.5rem 0;">💰 Satisfait ou remboursé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produits Phares -->
+    <section class="featured-products" style="padding: 4rem 0; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 3rem; font-size: 2.5rem;">
+                🎯 PRODUITS EN DESTOCKAGE <span style="color: #e74c3c;">AUTOUR DE VOUS</span>
+            </h2>
+            
+            <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="product-card" style="background: linear-gradient(135deg, #fff, #f8f9fa); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; border: 2px solid #ffeaa7;">
+                    <div class="product-badge" style="background: #e74c3c; color: white; padding: 0.5rem 1rem; border-radius: 25px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">
+                        -70%
+                    </div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">🥫 Produits Épicerie</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem;">Pâtes, riz, conserves, biscuits</p>
+                    <div class="price" style="font-size: 1.5rem; font-weight: bold; color: #e74c3c;">
+                        À partir de 0.99€
+                    </div>
+                </div>
+                
+                <div class="product-card" style="background: linear-gradient(135deg, #fff, #f8f9fa); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; border: 2px solid #74b9ff;">
+                    <div class="product-badge" style="background: #e74c3c; color: white; padding: 0.5rem 1rem; border-radius: 25px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">
+                        -65%
+                    </div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">🥤 Boissons</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem;">Sodas, jus, eaux, cafés</p>
+                    <div class="price" style="font-size: 1.5rem; font-weight: bold; color: #e74c3c;">
+                        À partir de 0.49€
+                    </div>
+                </div>
+                
+                <div class="product-card" style="background: linear-gradient(135deg, #fff, #f8f9fa); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; border: 2px solid #55efc4;">
+                    <div class="product-badge" style="background: #e74c3c; color: white; padding: 0.5rem 1rem; border-radius: 25px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">
+                        -60%
+                    </div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">🥶 Surgelés</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem;">Pizzas, légumes, plats préparés</p>
+                    <div class="price" style="font-size: 1.5rem; font-weight: bold; color: #e74c3c;">
+                        À partir de 1.99€
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Principal -->
+            <div class="main-cta" style="text-align: center; margin-top: 3rem;">
+                <a href="{{ url_for('product_list') }}" 
+                   class="main-cta-button" 
+                   style="display: inline-block; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 1.5rem 4rem; font-size: 1.5rem; font-weight: 900; text-decoration: none; border-radius: 50px; box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4); transition: all 0.3s ease;"
+                   onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 20px 45px rgba(231, 76, 60, 0.6)';"
+                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px rgba(231, 76, 60, 0.4)';">
+                    🚀 ACCÉDER AU DESTOCKAGE COMPLET
+                </a>
+                <p style="margin-top: 1rem; color: #7f8c8d; font-size: 1.1rem;">
+                    ⚡ <strong>2 347 produits</strong> en promotion • 🎁 <strong>Cadeau offert</strong> dès 75€ d'achat
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Urgence -->
+    <section class="urgency-section" style="padding: 3rem 0; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white;">
+        <div class="container">
+            <div class="urgency-content" style="text-align: center;">
+                <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;">⚠️ ATTENTION : STOCKS TRÈS LIMITÉS</h2>
+                <div class="stock-indicator" style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px; margin: 2rem auto; max-width: 600px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Stock disponible :</span>
+                        <span style="font-weight: bold;">23%</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.3); height: 20px; border-radius: 10px; overflow: hidden;">
+                        <div style="background: #fff; height: 100%; width: 23%; border-radius: 10px;"></div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">
+                        🔥 <strong>1 234 produits</strong> déjà vendus aujourd'hui
+                    </p>
+                </div>
+                
+                <div class="urgency-cta">
+                    <a href="{{ url_for('product_list') }}" 
+                       class="urgency-button" 
+                       style="display: inline-block; background: #fff; color: #e74c3c; padding: 1.2rem 3rem; font-size: 1.3rem; font-weight: 900; text-decoration: none; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;"
+                       onmouseover="this.style.transform='translateY(-3px)';"
+                       onmouseout="this.style.transform='translateY(0)';">
+                        🛒 COMMANDER AVANT RUPTURE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="testimonials" style="padding: 4rem 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 3rem; font-size: 2.2rem;">
+                💬 CE QUE DISENT NOS CLIENTS <span style="color: #e74c3c;">AUTOUR DE VOUS</span>
+            </h2>
+            
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div class="stars" style="color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem;">★★★★★</div>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"Incroyable ! J'ai économisé 120€ sur mes courses grâce au destockage alimentaire autour de chez moi. Livraison ultra-rapide !"</p>
+                    <div class="client" style="font-weight: bold; color: #2c3e50;">Marie L. - Paris 15ème</div>
+                </div>
+                
+                <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div class="stars" style="color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem;">★★★★★</div>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"Enfin un vrai destockage alimentaire sérieux. Produits de qualité à -70%, je recommande à tous mes voisins !"</p>
+                    <div class="client" style="font-weight: bold; color: #2c3e50;">Pierre D. - Lyon</div>
+                </div>
+                
+                <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div class="stars" style="color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem;">★★★★★</div>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"Commande passée à 14h, reçue le lendemain matin. Des économies énormes sur tous mes produits habituels."</p>
+                    <div class="client" style="font-weight: bold; color: #2c3e50;">Sophie M. - Marseille</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Ultra-Convertisseur -->
+    <section class="final-cta" style="padding: 4rem 0; background: linear-gradient(135deg, #2c3e50, #34495e); color: white;">
+        <div class="container">
+            <div class="final-content" style="text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
+                    🎁 <span style="color: #e74c3c;">DERNIÈRE CHANCE</span> - 24 NOVEMBRE 2025
+                </h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9;">
+                    Ne ratez pas cette opportunité exceptionnelle de destockage alimentaire autour de chez vous
+                </p>
+                
+                <div class="benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0;">
+                    <div class="benefit" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
+                        <div style="font-weight: bold;">Jusqu'à -70%</div>
+                    </div>
+                    <div class="benefit" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚚</div>
+                        <div style="font-weight: bold;">Livraison Gratuite</div>
+                    </div>
+                    <div class="benefit" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+                        <div style="font-weight: bold;">24h Chrono</div>
+                    </div>
+                    <div class="benefit" style="text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎯</div>
+                        <div style="font-weight: bold;">Partout en France</div>
+                    </div>
+                </div>
+
+                <a href="{{ url_for('product_list') }}" 
+                   class="final-cta-button" 
+                   style="display: inline-block; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 1.5rem 5rem; font-size: 1.6rem; font-weight: 900; text-decoration: none; border-radius: 50px; box-shadow: 0 20px 40px rgba(231, 76, 60, 0.5); transition: all 0.3s ease; margin: 2rem 0;"
+                   onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(231, 76, 60, 0.7)';"
+                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 20px 40px rgba(231, 76, 60, 0.5)';">
+                    🚀 JE PROFITE DU DESTOCKAGE MAINTENANT
+                </a>
+                
+                <div class="guarantees" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">✅</span>
+                        <span>Paiement sécurisé</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">✅</span>
+                        <span>14 jours pour changer d'avis</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">✅</span>
+                        <span>Service client 7j/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+<script>
+// Compte à rebours urgent
+function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const diff = endOfDay - now;
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('countdown').textContent = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (diff <= 0) {
+        document.getElementById('countdown').textContent = "00:00:00";
+        document.querySelector('.hero-title').innerHTML = "🔥 DESTOCKAGE TERMINÉ - <span style='color: #ffd700;'>NOUVELLES PROMOS BIENTÔT</span>";
+    }
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Animation de scroll doux pour les CTA
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Tracking des clics sur les CTA
+document.querySelectorAll('.cta-button, .main-cta-button, .urgency-button, .final-cta-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Ici vous pouvez ajouter Google Analytics ou autre tracking
+        console.log('CTA cliqué - Redirection vers product_list');
+    });
+});
+</script>
+
+<style>
+/* Styles optimisés pour la conversion */
+.landing-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Animations subtiles */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem !important;
+    }
+    
+    .hero-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .location-grid,
+    .products-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-button,
+    .main-cta-button,
+    .urgency-button,
+    .final-cta-button {
+        padding: 1rem 2rem !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Optimisation du chargement */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Amélioration de la lisibilité */
+h1, h2, h3 {
+    line-height: 1.3;
+}
+
+/* Effets de hover améliorés */
+.product-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+</style>
+{% endblock %}
