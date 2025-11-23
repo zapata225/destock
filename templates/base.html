@@ -5134,605 +5134,559 @@ document.getElementById('close-notification').addEventListener('click', function
         animation: pulse 1.5s infinite;
     }
 </style>
-    
-    <!-- POPUP BLACK FRIDAY ULTRA MÉGA COMMERCIAL -->
-    <div class="black-friday-popup" id="black-friday-popup">
-        <div class="popup-overlay"></div>
-        <div class="popup-container">
-            <!-- Bouton fermeture -->
-            <button class="close-popup" id="close-blackfriday-popup">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-            
-            <!-- En-tête avec effet néon -->
-            <div class="popup-header">
-                <div class="blackfriday-badge">
-                    <span>⚡ BLACK FRIDAY EXCLUSIF</span>
-                </div>
-                <h1>TOUT PART À <span class="discount-text">-70%</span></h1>
-                <p class="exclusive-tag">Offre <strong>LIMITÉE</strong> • Stocks épuisables</p>
+    <!-- POPUP BLACK FRIDAY - VERSION MOBILE OPTIMISÉE -->
+<div class="black-friday-popup-mobile" id="black-friday-popup-mobile">
+    <div class="popup-overlay-mobile"></div>
+    <div class="popup-container-mobile">
+        <!-- Bouton fermeture mobile -->
+        <button class="close-popup-mobile" id="close-blackfriday-popup-mobile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <!-- En-tête compact -->
+        <div class="popup-header-mobile">
+            <div class="blackfriday-badge-mobile">
+                <span>🎯 BLACK FRIDAY</span>
             </div>
-            
-            <!-- Compte à rebours dramatique -->
-            <div class="countdown-container">
-                <div class="countdown-title">L'OFFRE EXPIRE DANS :</div>
-                <div class="countdown" id="blackfriday-countdown">
-                    <div class="countdown-item">
-                        <span id="bf-hours">72</span>
-                        <span>HEURES</span>
-                    </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <span id="bf-minutes">00</span>
-                        <span>MINUTES</span>
-                    </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <span id="bf-seconds">00</span>
-                        <span>SECONDES</span>
-                    </div>
+            <h1>JUSQU'À <span class="discount-text-mobile">-80%</span></h1>
+            <p class="exclusive-tag-mobile">Offre limitée dans le temps</p>
+        </div>
+        
+        <!-- Compte à rebours compact -->
+        <div class="countdown-container-mobile">
+            <div class="countdown-title-mobile">Fin dans :</div>
+            <div class="countdown-mobile" id="blackfriday-countdown-mobile">
+                <div class="countdown-item-mobile">
+                    <span id="bf-hours-mobile">24</span>
+                    <span>H</span>
                 </div>
-            </div>
-            
-            <!-- Avantages percutants -->
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">🚚</div>
-                    <p>Livraison <strong>GRATUITE</strong> 24/48h</p>
+                <div class="countdown-separator-mobile">:</div>
+                <div class="countdown-item-mobile">
+                    <span id="bf-minutes-mobile">00</span>
+                    <span>M</span>
                 </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">💰</div>
-                    <p>Économies jusqu'à <strong>80%</strong></p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🔄</div>
-                    <p>Retour <strong>SANS CONDITIONS</strong></p>
-                </div>
-            </div>
-            
-            <!-- CTA ULTRA PERSUASIF -->
-            <div class="popup-cta">
-                <a href="/produits" class="blackfriday-button" id="blackfriday-cta">
-                    <span class="button-text">🚨 PROFITER DE L'OFFRE MAINTENANT 🚨</span>
-                    <span class="button-subtext">Économisez des centaines d'euros</span>
-                    <span class="button-effect"></span>
-                </a>
-                <p class="stock-alert">
-                    ⚠️ <strong>ALERTE STOCK</strong> : 87% des produits déjà vendus !
-                </p>
-            </div>
-            
-            <!-- Témoignages clients -->
-            <div class="testimonials">
-                <div class="testimonial-item">
-                    <div class="testimonial-avatar">⭐</div>
-                    <div class="testimonial-text">
-                        "<strong>J'ai économisé 540€</strong> sur ma commande ! Incroyable !"
-                    </div>
+                <div class="countdown-separator-mobile">:</div>
+                <div class="countdown-item-mobile">
+                    <span id="bf-seconds-mobile">00</span>
+                    <span>S</span>
                 </div>
             </div>
         </div>
+        
+        <!-- Avantages en ligne -->
+        <div class="benefits-row-mobile">
+            <div class="benefit-item-mobile">
+                <span class="benefit-icon-mobile">🚚</span>
+                <span>Livraison offerte</span>
+            </div>
+            <div class="benefit-item-mobile">
+                <span class="benefit-icon-mobile">💰</span>
+                <span>-80% max</span>
+            </div>
+            <div class="benefit-item-mobile">
+                <span class="benefit-icon-mobile">✅</span>
+                <span>30j satisfait</span>
+            </div>
+        </div>
+        
+        <!-- CTA principal mobile -->
+        <div class="popup-cta-mobile">
+            <a href="/produits" class="blackfriday-button-mobile" id="blackfriday-cta-mobile">
+                <span class="button-text-mobile">Voir les offres</span>
+                <span class="button-subtext-mobile">Meilleurs prix garantis</span>
+            </a>
+        </div>
+        
+        <!-- Sécurité discrète -->
+        <div class="security-mobile">
+            <span>🔒 Paiement sécurisé</span>
+        </div>
     </div>
-    
-    <style>
-        /* DESIGN BLACK FRIDAY ULTRA MÉGA COMMERCIAL */
-        .black-friday-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 99999;
-            display: none;
-            font-family: 'Inter', system-ui, sans-serif;
+</div>
+
+<style>
+    /* DESIGN MOBILE ULTRA OPTIMISÉ */
+    .black-friday-popup-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        display: none;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    .black-friday-popup-mobile.active {
+        display: block;
+        animation: fadeInMobile 0.3s ease-out;
+    }
+
+    .black-friday-popup-mobile.closing {
+        animation: fadeOutMobile 0.3s ease-out forwards;
+    }
+
+    .popup-overlay-mobile {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+    }
+
+    .popup-container-mobile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%;
+        max-width: 320px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 
+            0 15px 35px rgba(0, 0, 0, 0.2),
+            0 3px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        animation: slideUpMobile 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid #E5E7EB;
+    }
+
+    .close-popup-mobile {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #F9FAFB;
+        border: 1px solid #E5E7EB;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s;
+        padding: 5px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+    }
+
+    .close-popup-mobile:hover {
+        background: #EF4444;
+        border-color: #EF4444;
+    }
+
+    .close-popup-mobile:hover svg path {
+        stroke: white;
+    }
+
+    /* En-tête compact */
+    .popup-header-mobile {
+        padding: 24px 20px 16px;
+        text-align: center;
+        background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+        border-bottom: 1px solid #F1F5F9;
+    }
+
+    .blackfriday-badge-mobile {
+        display: inline-block;
+        background: linear-gradient(135deg, #1E40AF, #3B82F6);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+    }
+
+    .popup-header-mobile h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1F2937;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+    }
+
+    .discount-text-mobile {
+        color: #EF4444;
+        font-weight: 800;
+    }
+
+    .exclusive-tag-mobile {
+        font-size: 12px;
+        color: #6B7280;
+        margin-top: 6px;
+        font-weight: 500;
+    }
+
+    /* Compte à rebours compact */
+    .countdown-container-mobile {
+        padding: 16px 20px;
+        background: #F8FAFC;
+        margin: 0;
+        border-bottom: 1px solid #F1F5F9;
+    }
+
+    .countdown-title-mobile {
+        font-size: 12px;
+        color: #6B7280;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    .countdown-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .countdown-item-mobile {
+        background: white;
+        color: #1F2937;
+        padding: 10px 6px;
+        border-radius: 8px;
+        min-width: 50px;
+        text-align: center;
+        font-weight: 700;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid #E5E7EB;
+    }
+
+    .countdown-item-mobile span:first-child {
+        font-size: 16px;
+        display: block;
+        line-height: 1;
+        margin-bottom: 2px;
+        color: #1E40AF;
+    }
+
+    .countdown-item-mobile span:last-child {
+        font-size: 9px;
+        color: #6B7280;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        font-weight: 600;
+    }
+
+    .countdown-separator-mobile {
+        font-size: 14px;
+        font-weight: 700;
+        color: #9CA3AF;
+        margin-top: -4px;
+    }
+
+    /* Avantages en ligne */
+    .benefits-row-mobile {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 20px;
+        background: white;
+        gap: 8px;
+    }
+
+    .benefit-item-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .benefit-icon-mobile {
+        font-size: 16px;
+    }
+
+    .benefit-item-mobile span:last-child {
+        font-size: 10px;
+        color: #4B5563;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    /* CTA principal mobile */
+    .popup-cta-mobile {
+        padding: 0 20px 16px;
+    }
+
+    .blackfriday-button-mobile {
+        display: block;
+        padding: 14px 16px;
+        background: linear-gradient(135deg, #EF4444, #DC2626);
+        color: white;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        box-shadow: 0 3px 8px rgba(239, 68, 68, 0.2);
+        transition: all 0.2s ease;
+        border: none;
+        width: 100%;
+    }
+
+    .button-text-mobile {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+
+    .button-subtext-mobile {
+        display: block;
+        font-size: 11px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    .blackfriday-button-mobile:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 4px rgba(239, 68, 68, 0.2);
+    }
+
+    /* Sécurité discrète */
+    .security-mobile {
+        padding: 12px 20px;
+        background: #F8FAFC;
+        border-top: 1px solid #F1F5F9;
+        text-align: center;
+    }
+
+    .security-mobile span {
+        font-size: 10px;
+        color: #6B7280;
+        font-weight: 500;
+    }
+
+    /* ANIMATIONS MOBILE OPTIMISÉES */
+    @keyframes fadeInMobile {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeOutMobile {
+        to { opacity: 0; }
+    }
+
+    @keyframes slideUpMobile {
+        0% { 
+            transform: translate(-50%, -45%); 
+            opacity: 0; 
+            scale: 0.95;
         }
-    
-        .black-friday-popup.active {
-            display: block;
-            animation: fadeInBlackFriday 0.5s ease-out;
+        100% { 
+            transform: translate(-50%, -50%); 
+            opacity: 1; 
+            scale: 1;
         }
-    
-        .black-friday-popup.closing {
-            animation: fadeOutBlackFriday 0.5s ease-out forwards;
+    }
+
+    /* OPTIMISATIONS SPÉCIFIQUES MOBILE */
+    @media (max-width: 480px) {
+        .popup-container-mobile {
+            width: 82%;
+            max-width: 280px;
         }
-    
-        .popup-overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+
+        .popup-header-mobile {
+            padding: 20px 16px 14px;
         }
-    
-        .popup-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 95%;
-            max-width: 500px;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            border-radius: 20px;
-            box-shadow: 
-                0 0 50px rgba(255, 65, 108, 0.3),
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            animation: floatInBlackFriday 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            border: 1px solid rgba(255, 65, 108, 0.3);
-        }
-    
-        .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
-            padding: 8px;
-            border-radius: 50%;
-            backdrop-filter: blur(10px);
-        }
-    
-        .close-popup:hover {
-            transform: rotate(90deg);
-            background: rgba(255, 65, 108, 0.3);
-        }
-    
-        /* En-tête avec effet néon */
-        .popup-header {
-            padding: 30px 25px 15px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(255, 65, 108, 0.1) 0%, transparent 100%);
-        }
-    
-        .blackfriday-badge {
-            display: inline-block;
-            background: linear-gradient(90deg, #FF4141, #FF6B6B, #FF4141);
-            background-size: 200% 100%;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            animation: gradientShift 3s ease infinite, pulse 2s infinite;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
-        }
-    
-        .popup-header h1 {
-            margin: 0;
-            font-size: clamp(24px, 6vw, 32px);
-            font-weight: 900;
-            color: white;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(255, 65, 108, 0.5);
-            line-height: 1.2;
-        }
-    
-        .discount-text {
-            background: linear-gradient(45deg, #FF4141, #FFD700);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: textGlow 2s ease-in-out infinite alternate;
-        }
-    
-        .exclusive-tag {
-            font-size: 14px;
-            color: #FFD700;
-            margin-top: 8px;
-            font-weight: 600;
-        }
-    
-        /* Compte à rebours dramatique */
-        .countdown-container {
-            padding: 20px;
-            background: rgba(255, 65, 108, 0.1);
-            margin: 15px 25px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 65, 108, 0.2);
-            backdrop-filter: blur(10px);
-        }
-    
-        .countdown-title {
-            font-size: 14px;
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    
-        .countdown {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-    
-        .countdown-item {
-            background: linear-gradient(135deg, #FF4141, #FF6B6B);
-            color: white;
-            padding: 12px 8px;
-            border-radius: 12px;
-            min-width: 70px;
-            text-align: center;
-            font-weight: 800;
-            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-    
-        .countdown-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-    
-        .countdown-item:hover::before {
-            left: 100%;
-        }
-    
-        .countdown-item span:first-child {
-            font-size: clamp(20px, 5vw, 28px);
-            display: block;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-    
-        .countdown-item span:last-child {
+
+        .blackfriday-badge-mobile {
             font-size: 10px;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            padding: 3px 10px;
         }
-    
-        .countdown-separator {
-            font-size: clamp(18px, 4vw, 24px);
-            font-weight: 800;
-            color: #FFD700;
-            margin-top: -8px;
-            animation: blink 1s infinite;
+
+        .popup-header-mobile h1 {
+            font-size: 18px;
         }
-    
-        /* Avantages percutants */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 0 25px;
-            margin: 20px 0;
+
+        .countdown-container-mobile {
+            padding: 14px 16px;
         }
-    
-        .benefit-item {
-            text-align: center;
-            padding: 15px 8px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .countdown-item-mobile {
+            min-width: 45px;
+            padding: 8px 4px;
         }
-    
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 65, 108, 0.1);
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.2);
+
+        .countdown-item-mobile span:first-child {
+            font-size: 14px;
         }
-    
-        .benefit-icon {
-            font-size: clamp(22px, 5vw, 28px);
-            margin-bottom: 8px;
-            filter: drop-shadow(0 2px 4px rgba(255, 65, 108, 0.3));
+
+        .benefits-row-mobile {
+            padding: 14px 16px;
         }
-    
-        .benefit-item p {
-            margin: 0;
-            font-size: 11px;
-            color: white;
-            font-weight: 500;
-            line-height: 1.3;
+
+        .benefit-item-mobile span:last-child {
+            font-size: 9px;
         }
-    
-        .benefit-item strong {
-            color: #FFD700;
+
+        .popup-cta-mobile {
+            padding: 0 16px 14px;
         }
-    
-        /* CTA ULTRA PERSUASIF */
-        .popup-cta {
-            padding: 0 25px 25px;
-            text-align: center;
+
+        .blackfriday-button-mobile {
+            padding: 12px 14px;
         }
-    
-        .blackfriday-button {
-            display: block;
-            position: relative;
-            padding: 20px;
-            background: linear-gradient(135deg, #FF4141, #FF6B6B, #FF4141);
-            background-size: 200% 100%;
-            color: white;
-            border-radius: 15px;
-            font-weight: 800;
-            text-decoration: none;
-            overflow: hidden;
-            box-shadow: 
-                0 0 20px rgba(255, 65, 108, 0.5),
-                0 10px 30px rgba(255, 65, 108, 0.3);
-            transition: all 0.4s;
-            margin-bottom: 15px;
-            animation: gradientShift 3s ease infinite;
+
+        .security-mobile {
+            padding: 10px 16px;
         }
-    
-        .button-text {
-            display: block;
-            font-size: clamp(16px, 4vw, 18px);
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 2;
+    }
+
+    /* POUR LES TRÈS PETITS ÉCRANS */
+    @media (max-width: 360px) {
+        .popup-container-mobile {
+            width: 80%;
+            max-width: 260px;
         }
-    
-        .button-subtext {
-            display: block;
-            font-size: 12px;
-            opacity: 0.9;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
+
+        .popup-header-mobile {
+            padding: 18px 14px 12px;
         }
-    
-        .button-effect {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.6s;
+
+        .popup-header-mobile h1 {
+            font-size: 16px;
         }
-    
-        .blackfriday-button:hover .button-effect {
-            left: 100%;
+
+        .countdown-container-mobile {
+            padding: 12px 14px;
         }
-    
-        .blackfriday-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 
-                0 0 30px rgba(255, 65, 108, 0.7),
-                0 15px 40px rgba(255, 65, 108, 0.4);
+
+        .countdown-item-mobile {
+            min-width: 40px;
+            padding: 6px 3px;
         }
-    
-        .stock-alert {
-            font-size: 12px;
-            color: #FFD700;
-            margin-top: 10px;
-            font-weight: 700;
-            animation: blink 1.5s infinite;
+
+        .countdown-item-mobile span:first-child {
+            font-size: 13px;
         }
-    
-        /* Témoignages clients */
-        .testimonials {
-            padding: 15px 25px 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        .countdown-item-mobile span:last-child {
+            font-size: 8px;
         }
-    
-        .testimonial-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .benefits-row-mobile {
+            padding: 12px 14px;
+            gap: 6px;
         }
-    
-        .testimonial-avatar {
-            font-size: 20px;
-            flex-shrink: 0;
+
+        .benefit-icon-mobile {
+            font-size: 14px;
         }
-    
-        .testimonial-text {
-            font-size: 12px;
-            color: white;
-            font-style: italic;
-            line-height: 1.4;
+
+        .popup-cta-mobile {
+            padding: 0 14px 12px;
         }
-    
-        .testimonial-text strong {
-            color: #FFD700;
+
+        .blackfriday-button-mobile {
+            padding: 10px 12px;
         }
-    
-        /* ANIMATIONS SPÉCIALES BLACK FRIDAY */
-        @keyframes fadeInBlackFriday {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .button-text-mobile {
+            font-size: 13px;
         }
-    
-        @keyframes fadeOutBlackFriday {
-            to { opacity: 0; }
+
+        .security-mobile {
+            padding: 8px 14px;
         }
-    
-        @keyframes floatInBlackFriday {
-            0% { transform: translate(-50%, -40%) scale(0.9); opacity: 0; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        }
-    
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4); }
-        }
-    
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0.5; }
-        }
-    
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    
-        @keyframes textGlow {
-            from { text-shadow: 0 0 5px rgba(255, 65, 108, 0.5); }
-            to { text-shadow: 0 0 15px rgba(255, 65, 108, 0.8), 0 0 25px rgba(255, 65, 108, 0.6); }
-        }
-    
-        /* VERSION MOBILE OPTIMISÉE */
-        @media (max-width: 480px) {
-            .popup-container {
-                width: 92%;
-                max-width: none;
-                border-radius: 15px;
-            }
-    
-            .popup-header {
-                padding: 25px 20px 12px;
-            }
-    
-            .blackfriday-badge {
-                padding: 6px 12px;
-                font-size: 10px;
-            }
-    
-            .countdown-container {
-                padding: 15px;
-                margin: 12px 20px;
-            }
-    
-            .countdown-item {
-                padding: 10px 6px;
-                min-width: 60px;
-            }
-    
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                padding: 0 20px;
-            }
-    
-            .benefit-item {
-                padding: 12px 8px;
-            }
-    
-            .popup-cta {
-                padding: 0 20px 20px;
-            }
-    
-            .blackfriday-button {
-                padding: 18px 15px;
-            }
-    
-            .testimonials {
-                padding: 12px 20px 20px;
-            }
-        }
-    
-        /* Support pour les très petits écrans */
-        @media (max-width: 360px) {
-            .countdown {
-                gap: 5px;
-            }
-            
-            .countdown-item {
-                min-width: 55px;
-                padding: 8px 4px;
-            }
-            
-            .countdown-item span:first-child {
-                font-size: 16px;
-            }
-            
-            .countdown-item span:last-child {
-                font-size: 9px;
-            }
-        }
-    </style>
-    
-    <script>
-        // Afficher le popup Black Friday après 3 secondes
-        setTimeout(() => {
-            if (!localStorage.getItem('blackfridayClosed')) {
-                document.getElementById('black-friday-popup').classList.add('active');
-            }
-        }, 3000);
-    
-        // Fonction de fermeture
-        function closeBlackFridayPopup() {
-            const popup = document.getElementById('black-friday-popup');
-            popup.classList.add('closing');
-            setTimeout(() => {
-                popup.classList.remove('active', 'closing');
-                localStorage.setItem('blackfridayClosed', 'true');
-            }, 500);
-        }
-    
-        // Fermer au clic sur le CTA
-        document.getElementById('blackfriday-cta').addEventListener('click', function(e) {
-            e.preventDefault();
-            closeBlackFridayPopup();
-            // Redirection après l'animation
-            setTimeout(() => {
-                window.location.href = "/produits";
-            }, 500);
-        });
-    
-        // Fermer avec le bouton X
-        document.getElementById('close-blackfriday-popup').addEventListener('click', closeBlackFridayPopup);
-    
-        // Fermer en cliquant sur l'overlay
-        document.querySelector('.popup-overlay').addEventListener('click', closeBlackFridayPopup);
-    
-        // Compte à rebours de 24h
-        function startBlackFridayCountdown() {
-            const endTime = new Date();
-            endTime.setHours(endTime.getHours() + 24);
-    
-            const timer = setInterval(() => {
-                const now = new Date();
-                const diff = endTime - now;
-                
-                const hours = Math.floor(diff / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                document.getElementById('bf-hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('bf-minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('bf-seconds').textContent = String(seconds).padStart(2, '0');
-                
-                if (diff <= 0) {
-                    clearInterval(timer);
-                    document.getElementById('blackfriday-countdown').innerHTML = 
-                        '<div style="font-weight:800;color:#FFD700;font-size:16px;">OFFRE TERMINÉE</div>';
-                }
-            }, 1000);
-        }
-    
-        startBlackFridayCountdown();
-    
-        // Effet sonore optionnel (décommenter si souhaité)
-        /*
-        function playClickSound() {
-            const audio = new Audio('click-sound.mp3');
-            audio.volume = 0.3;
-            audio.play().catch(e => console.log('Audio play failed:', e));
+    }
+
+    /* ORIENTATION PAYSAGE */
+    @media (max-height: 500px) and (orientation: landscape) {
+        .popup-container-mobile {
+            max-height: 90vh;
+            overflow-y: auto;
         }
         
-        document.getElementById('blackfriday-cta').addEventListener('click', playClickSound);
-        */
-    </script>
+        .popup-header-mobile {
+            padding: 16px 20px 12px;
+        }
+        
+        .countdown-container-mobile {
+            padding: 12px 20px;
+        }
+        
+        .benefits-row-mobile {
+            padding: 12px 20px;
+        }
+    }
+</style>
+
+<script>
+    // Afficher le popup après 1.5 secondes sur mobile
+    setTimeout(() => {
+        if (!localStorage.getItem('blackfridayMobileClosed')) {
+            document.getElementById('black-friday-popup-mobile').classList.add('active');
+        }
+    }, 1500);
+
+    // Fonction de fermeture optimisée mobile
+    function closeBlackFridayPopupMobile() {
+        const popup = document.getElementById('black-friday-popup-mobile');
+        popup.classList.add('closing');
+        setTimeout(() => {
+            popup.classList.remove('active', 'closing');
+            localStorage.setItem('blackfridayMobileClosed', 'true');
+        }, 300);
+    }
+
+    // Fermer au clic sur le CTA
+    document.getElementById('blackfriday-cta-mobile').addEventListener('click', function(e) {
+        e.preventDefault();
+        closeBlackFridayPopupMobile();
+        // Redirection rapide pour mobile
+        setTimeout(() => {
+            window.location.href = "/produits";
+        }, 300);
+    });
+
+    // Fermer avec le bouton X
+    document.getElementById('close-blackfriday-popup-mobile').addEventListener('click', closeBlackFridayPopupMobile);
+
+    // Fermer en cliquant sur l'overlay
+    document.querySelector('.popup-overlay-mobile').addEventListener('click', closeBlackFridayPopupMobile);
+
+    // Empêcher la fermeture en cliquant dans le popup
+    document.querySelector('.popup-container-mobile').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Compte à rebours de 24h
+    function startBlackFridayCountdownMobile() {
+        const endTime = new Date();
+        endTime.setHours(endTime.getHours() + 24);
+
+        const timer = setInterval(() => {
+            const now = new Date();
+            const diff = endTime - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('bf-hours-mobile').textContent = String(hours).padStart(2, '0');
+            document.getElementById('bf-minutes-mobile').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('bf-seconds-mobile').textContent = String(seconds).padStart(2, '0');
+            
+            if (diff <= 0) {
+                clearInterval(timer);
+                document.getElementById('blackfriday-countdown-mobile').innerHTML = 
+                    '<div style="font-weight:600;color:#EF4444;font-size:12px;padding:8px 0">Offre terminée</div>';
+            }
+        }, 1000);
+    }
+
+    startBlackFridayCountdownMobile();
+
+    // Optimisation tactile pour mobile
+    document.addEventListener('touchstart', function() {}, { passive: true });
+</script>
 <!-- Cookie Consent Popup -->
 <div class="cookie-consent" id="cookie-consent">
     <div class="cookie-container">
