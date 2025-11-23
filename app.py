@@ -3990,6 +3990,96 @@ def grossiste_alimentaire_belgique_102025():
     return render_template('blog/grossiste-alimentaire-belgique-102025.html', seo=seo)
 
 
+@app.route('/blog/achat-gros-black-friday')
+def achat_gros_black_friday():
+    return render_template(
+        'blog/achat-gros-black-friday.html',
+        title="Achat en Gros Black Friday | Promotions et Destockage",
+        description="Profitez des meilleures offres d'achat en gros pour le Black Friday : remises massives, promos alimentaires et destockage."
+    )
+
+
+@app.route('/blog/discount-alimentaire-black-friday')
+def discount_alimentaire_black_friday():
+    return render_template(
+        'blog/discount-alimentaire-black-friday.html',
+        title="Discount Alimentaire Black Friday | Bons Plans & Promotions",
+        description="Découvrez les réductions alimentaires du Black Friday : promotions, discount, achats malin et économies massives."
+    )
+
+
+@app.route('/blog/discount-alimentaire-24-novembre-2025')
+def discount_alimentaire_24_novembre_2025():
+    return render_template(
+        'blog/discount-alimentaire-24-novembre-2025.html',
+        title="Discount Alimentaire 24 Novembre 2025 | Réductions & Destockage",
+        description="Toutes les promos alimentaires du 24 novembre 2025 : discount, destockage, bons plans et économies locales."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-belgique-24-novembre-2025')
+def destockage_alimentaire_belgique_24_novembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-belgique-24-novembre-2025.html',
+        title="Déstockage Alimentaire Belgique | Promotions du 24 Novembre 2025",
+        description="Déstockage alimentaire en Belgique le 24 novembre 2025 : grossistes, promos, discount et bonnes affaires locales."
+    )
+
+
+@app.route('/destockage-autour-de-moi-24-novembre-2025')
+def destockage_autour_moi_11_2025():
+    return render_template(
+        'destockage-autour-moi-11-2025.html',
+        title="Déstockage Alimentaire Autour de Moi | Bons Plans 24 Novembre 2025",
+        description="Trouvez le destockage alimentaire près de chez vous : adresses locales, promotions, fins de séries et réductions massives."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-paris-24-novembre-2025')
+def destockage_paris_alimentaire_11_2025():
+    return render_template(
+        'blog/destockage-alimentaire-paris-24-novembre-2025.html',
+        title="Déstockage Alimentaire Paris | Offres du 24 Novembre 2025",
+        description="Les meilleurs déstockages alimentaires à Paris pour le 24 novembre 2025 : promos, discount et ventes en gros."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-lille-24-novembre-2025')
+def destockage_lille_24_novembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-lille-24-novembre-2025.html',
+        title="Déstockage Alimentaire Lille | Promotions 24 Novembre 2025",
+        description="Découvrez les offres de destockage alimentaire à Lille : ventes flash, promos et réduction du 24 novembre 2025."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-lyon-11-2025')
+def destockage_lyon_24_11_2025():
+    return render_template(
+        'blog/destockage-alimentaire-lyon-11-2025.html',
+        title="Déstockage Alimentaire Lyon | Bons Plans Novembre 2025",
+        description="Déstockage alimentaire à Lyon en novembre 2025 : promotions, discount et opportunités pour acheter moins cher."
+    )
+
+
+@app.route('/blog/grossiste-alimentaire-lyon-24-novembre-2025')
+def grossiste_alimentaire_lyon_24_novembre_2025():
+    return render_template(
+        'blog/grossiste-alimentaire-lyon-24-novembre-2025.html',
+        title="Grossiste Alimentaire Lyon | Offres du 24 Novembre 2025",
+        description="Achetez auprès de grossistes alimentaires à Lyon : offres du 24 novembre 2025, destockage, promotions et achats en gros."
+    )
+
+
+@app.route('/blog/grossiste-alimentaire-paris-24-novembre-2025')
+def grossiste_alimentaire_paris_24_novembre_2025():
+    return render_template(
+        'blog/grossiste-alimentaire-paris-24-novembre-2025.html',
+        title="Grossiste Alimentaire Paris | Réductions 24 Novembre 2025",
+        description="Les meilleures adresses de grossistes alimentaires à Paris : déstockage, achats en gros et réductions exceptionnelles."
+    )
+
+
 # --- 2. GROSSISTE ALIMENTAIRE PARIS 2025 ---
 @app.route('/blog/grossiste-alimentaire-paris-2025')
 def grossiste_alimentaire_paris_2025():
@@ -5948,6 +6038,16 @@ def sitemap():
         '/blog/france-degockage-alimentaire', '/destockage-en-gros',
         '/blog/magasins-alcool-france', '/blog/destockage-alimentaire-pro-novembre-2025',
         '/blog/destockage-alimentaire-en-ligne-novembre-2025',
+        '/blog/achat-gros-black-friday',
+        '/blog/discount-alimentaire-black-friday',
+        '/blog/discount-alimentaire-24-novembre-2025',
+        '/blog/destockage-alimentaire-belgique-24-novembre-2025',
+        '/destockage-autour-de-moi-24-novembre-2025',
+        '/blog/destockage-alimentaire-paris-24-novembre-2025',
+        '/blog/destockage-alimentaire-lille-24-novembre-2025',
+        '/blog/destockage-alimentaire-lyon-11-2025',
+        '/blog/grossiste-alimentaire-lyon-24-novembre-2025',
+        '/blog/grossiste-alimentaire-paris-24-novembre-2025',
         '/blog/alcool-pas-cher-espagne-en-ligne', '/blog/discount-alimentaire-novembre2025',
         '/blog/destockage-alimentaire-lyon-novembre-2025',
         '/blog/grossiste-alimentaire-paris-novembre2025',
