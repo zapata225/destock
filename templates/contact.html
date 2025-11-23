@@ -1,1821 +1,1879 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destockage Alimentaire - Plateforme Professionnelle</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables modernes premium */
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #059669;
+            --secondary-dark: #047857;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --dark: #111827;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --lighter: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #9ca3af;
+            --border-radius: 20px;
+            --border-radius-lg: 30px;
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+            --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        /* Reset et base ultra moderne */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--lighter);
+            overflow-x: hidden;
+            font-weight: 400;
+        }
 
-{% block extra_css %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    /* Variables modernes premium */
-    :root {
-        --primary: #1e40af;
-        --primary-dark: #1e3a8a;
-        --primary-light: #3b82f6;
-        --secondary: #059669;
-        --secondary-dark: #047857;
-        --accent: #f59e0b;
-        --accent-dark: #d97706;
-        --dark: #111827;
-        --darker: #0f172a;
-        --light: #f8fafc;
-        --lighter: #ffffff;
-        --gray: #6b7280;
-        --gray-light: #9ca3af;
-        --border-radius: 20px;
-        --border-radius-lg: 30px;
-        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        --shadow-hover: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
-        --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
-        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-fast: all 0.2s ease;
-    }
-
-    /* Reset et base ultra moderne */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-        line-height: 1.7;
-        color: var(--dark);
-        background: var(--lighter);
-        overflow-x: hidden;
-        font-weight: 400;
-    }
-
-    .container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    /* Hero section premium */
-    .hero-section {
-        position: relative;
-        height: 100vh;
-        min-height: 800px;
-        overflow: hidden;
-        background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-
-    .hero-background::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, 
-            rgba(30, 58, 138, 0.9) 0%, 
-            rgba(15, 23, 42, 0.95) 100%);
-        z-index: 2;
-    }
-
-    .hero-background video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.4) contrast(1.1);
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 3;
-        text-align: center;
-        color: white;
-        max-width: 900px;
-        padding: 0 2rem;
-    }
-
-    .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        margin-bottom: 3rem;
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
-
-    .hero-badge i {
-        color: var(--accent);
-    }
-
-    .hero-title {
-        font-size: clamp(3rem, 6vw, 5rem);
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 2rem;
-        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-subtitle {
-        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-        color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 4rem;
-        font-weight: 400;
-        line-height: 1.6;
-    }
-
-    .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin-top: 4rem;
-    }
-
-    .stat-item {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .stat-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
-        opacity: 0;
-        transition: var(--transition);
-    }
-
-    .stat-item:hover {
-        transform: translateY(-10px);
-        border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .stat-item:hover::before {
-        opacity: 1;
-    }
-
-    .stat-number {
-        font-size: 3rem;
-        font-weight: 800;
-        color: white;
-        margin-bottom: 0.5rem;
-        position: relative;
-        z-index: 2;
-    }
-
-    .stat-label {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.8);
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-weight: 600;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* Mission section premium */
-    .about-section {
-        padding: 8rem 0;
-        background: var(--lighter);
-        position: relative;
-    }
-
-    .about-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent 0%, var(--primary-light) 50%, transparent 100%);
-    }
-
-    .section-header {
-        text-align: center;
-        margin-bottom: 6rem;
-    }
-
-    .section-title {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 800;
-        color: var(--dark);
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .section-subtitle {
-        font-size: 1.3rem;
-        color: var(--gray);
-        max-width: 600px;
-        margin: 0 auto;
-        line-height: 1.6;
-    }
-
-    .mission-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
-    }
-
-    .mission-card {
-        background: var(--lighter);
-        padding: 3rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-soft);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .mission-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-        background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    }
-
-    .mission-card:hover {
-        transform: translateY(-15px);
-        box-shadow: var(--shadow-hover);
-    }
-
-    .mission-icon {
-        font-size: 3.5rem;
-        margin-bottom: 2rem;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: inline-block;
-    }
-
-    .mission-card h3 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 1.5rem;
-        line-height: 1.3;
-    }
-
-    .mission-card p {
-        color: var(--gray);
-        line-height: 1.8;
-        font-size: 1.1rem;
-    }
-
-    /* Values section premium */
-    .values-section {
-        padding: 8rem 0;
-        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        position: relative;
-    }
-
-    .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2.5rem;
-        margin-top: 4rem;
-    }
-
-    .value-card {
-        background: var(--lighter);
-        padding: 3rem 2rem;
-        border-radius: var(--border-radius);
-        text-align: center;
-        box-shadow: var(--shadow-soft);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .value-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-
-    .value-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow);
-    }
-
-    .value-icon {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 2rem;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        color: white;
-        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
-        transition: var(--transition);
-    }
-
-    .value-card:hover .value-icon {
-        transform: scale(1.1) rotate(5deg);
-    }
-
-    .value-card h4 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 1rem;
-    }
-
-    .value-card p {
-        color: var(--gray);
-        line-height: 1.7;
-        font-size: 1.05rem;
-    }
-
-    /* Testimonials premium */
-    .testimonials-section {
-        padding: 8rem 0;
-        background: var(--lighter);
-    }
-
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
-    }
-
-    .testimonial-card {
-        background: var(--lighter);
-        padding: 3rem;
-        border-radius: var(--border-radius);
-        position: relative;
-        box-shadow: var(--shadow-soft);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: var(--transition);
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow);
-    }
-
-    .testimonial-card::before {
-        content: '"';
-        position: absolute;
-        top: 1.5rem;
-        left: 2rem;
-        font-size: 5rem;
-        color: var(--primary-light);
-        opacity: 0.1;
-        font-family: serif;
-        line-height: 1;
-    }
-
-    .testimonial-text {
-        font-size: 1.2rem;
-        color: var(--dark);
-        line-height: 1.7;
-        margin-bottom: 2.5rem;
-        position: relative;
-        z-index: 2;
-        font-style: italic;
-    }
-
-    .testimonial-author {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .author-avatar {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 700;
-        font-size: 1.5rem;
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-    }
-
-    .author-info h4 {
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-    }
-
-    .author-info p {
-        color: var(--gray);
-        font-size: 1rem;
-    }
-
-    /* Contact section premium */
-    .contact-form-section {
-        padding: 8rem 0;
-        background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
-        color: white;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .contact-form-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233b82f6' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-    }
-
-    .contact-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: start;
-        position: relative;
-        z-index: 2;
-    }
-
-    .form-container {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        padding: 4rem;
-        border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .form-container h2 {
-        color: white;
-        margin-bottom: 3rem;
-        font-size: 2.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .form-group {
-        margin-bottom: 2rem;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 0.75rem;
-        color: rgba(255, 255, 255, 0.9);
-        font-weight: 600;
-        font-size: 1.1rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        padding: 1.25rem;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 12px;
-        color: white;
-        font-size: 1.1rem;
-        transition: var(--transition-fast);
-        font-family: inherit;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-        outline: none;
-        border-color: rgba(255, 255, 255, 0.4);
-        background: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-primary {
-        background: linear-gradient(135deg, var(--secondary), var(--primary));
-        color: white;
-        border: none;
-        padding: 1.5rem 3rem;
-        border-radius: 12px;
-        font-size: 1.2rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: var(--transition);
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn-primary::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: var(--transition);
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-primary:hover::before {
-        left: 100%;
-    }
-
-    .info-container {
-        color: white;
-    }
-
-    .info-container h3 {
-        font-size: 2.2rem;
-        margin-bottom: 3rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-bottom: 3rem;
-    }
-
-    .info-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1.5rem;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: var(--transition-fast);
-    }
-
-    .info-item:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .info-item i {
-        font-size: 1.5rem;
-        color: var(--accent);
-        margin-top: 0.2rem;
-        min-width: 24px;
-    }
-
-    .info-item p {
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.6;
-        font-size: 1.1rem;
-    }
-
-    .info-item strong {
-        color: white;
-        display: block;
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-        font-weight: 700;
-    }
-
-    /* Carte moderne premium */
-    .map-container {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: var(--border-radius);
-        padding: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        margin-top: 2rem;
-    }
-
-    #modern-map {
-        height: 400px;
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: var(--shadow);
-        border: none;
-    }
-
-    .warehouse-icon {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.8rem;
-        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
-        border: 3px solid white;
-    }
-
-    /* Warehouse video section */
-    .warehouse-video-section {
-        padding: 8rem 0;
-        background: var(--darker);
-        position: relative;
-    }
-
-    .video-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        position: relative;
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        box-shadow: var(--shadow-hover);
-    }
-
-    .video-container video {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-        color: white;
-        padding: 3rem;
-    }
-
-    .video-title {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .video-subtitle {
-        font-size: 1.3rem;
-        color: rgba(255, 255, 255, 0.9);
-        max-width: 600px;
-        margin-bottom: 2rem;
-    }
-
-    .play-button {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        transition: var(--transition);
-        box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
-        border: none;
-    }
-
-    .play-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 20px 40px rgba(245, 158, 11, 0.6);
-    }
-
-    /* Classes pour le contrôle vidéo */
-    .video-auto-play {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .video-auto-play.active {
-        display: block;
-    }
-
-    .video-auto-play:not(.active) {
-        display: none;
-    }
-
-    .video-overlay.hidden {
-        display: none;
-    }
-
-    /* Responsive design premium */
-    @media (max-width: 1200px) {
         .container {
-            padding: 0 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        
-        .mission-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-    }
 
-    @media (max-width: 968px) {
-        .contact-container {
-            grid-template-columns: 1fr;
-            gap: 4rem;
-        }
-        
-        .hero-stats {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .testimonials-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .form-container,
-        .info-container {
-            padding: 3rem;
-        }
-    }
-
-    @media (max-width: 768px) {
+        /* Hero section premium */
         .hero-section {
-            height: auto;
-            min-height: 600px;
-            padding: 4rem 0;
+            position: relative;
+            height: 100vh;
+            min-height: 800px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(30, 58, 138, 0.9) 0%, 
+                rgba(15, 23, 42, 0.95) 100%);
+            z-index: 2;
+        }
+
+        .hero-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.1);
+        }
+
         .hero-content {
-            padding: 2rem 1rem;
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 2rem;
         }
-        
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .hero-badge i {
+            color: var(--accent);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
         .hero-stats {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Mission section premium */
+        .about-section {
+            padding: 8rem 0;
+            background: var(--lighter);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-light) 50%, transparent 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .mission-card {
+            background: var(--lighter);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .mission-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mission-icon {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .mission-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .mission-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Values section premium */
+        .values-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            position: relative;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            background: var(--lighter);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .value-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Testimonials premium */
+        .testimonials-section {
+            padding: 8rem 0;
+            background: var(--lighter);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--lighter);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            font-size: 5rem;
+            color: var(--primary-light);
+            opacity: 0.1;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--dark);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
             gap: 1.5rem;
         }
-        
-        .stat-item {
-            padding: 1.5rem;
-        }
-        
-        .mission-card,
-        .value-card,
-        .testimonial-card {
-            padding: 2rem;
-        }
-        
-        .values-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .form-container,
-        .info-container {
-            padding: 2rem;
-        }
-        
-        .video-overlay {
-            padding: 2rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-title {
-            font-size: 2.5rem;
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-        }
-    }
 
-    @media (max-width: 480px) {
-        .container {
-            padding: 0 1rem;
-        }
-        
-        .hero-title {
-            font-size: 2.2rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-        }
-        
-        .mission-grid,
-        .testimonials-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .form-container,
-        .info-container {
-            padding: 1.5rem;
-        }
-        
-        .hero-badge {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-        }
-        
-        .video-overlay {
-            padding: 1.5rem;
-        }
-        
-        .video-title {
-            font-size: 1.8rem;
-        }
-        
-        .video-subtitle {
-            font-size: 1.1rem;
-        }
-        
-        .play-button {
+        .author-avatar {
             width: 70px;
             height: 70px;
-            font-size: 1.7rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
         }
-    }
 
-    /* Animations premium */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(40px);
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 1rem;
         }
-    }
 
-    @keyframes fadeInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-40px);
+        /* Contact section premium */
+        .contact-form-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
-        to {
-            opacity: 1;
-            transform: translateX(0);
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233b82f6' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
-    }
 
-    @keyframes fadeInRight {
-        from {
-            opacity: 0;
-            transform: translateX(40px);
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            position: relative;
+            z-index: 2;
         }
-        to {
-            opacity: 1;
-            transform: translateX(0);
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 4rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
-    }
 
-    .animate-fade-in-up {
-        animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
+        .form-container h2 {
+            color: white;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .animate-fade-in-left {
-        animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
+        .form-group {
+            margin-bottom: 2rem;
+        }
 
-    .animate-fade-in-right {
-        animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
 
-    .delay-100 {
-        animation-delay: 0.1s;
-    }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+            font-family: inherit;
+        }
 
-    .delay-200 {
-        animation-delay: 0.2s;
-    }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
 
-    .delay-300 {
-        animation-delay: 0.3s;
-    }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
 
-    .delay-400 {
-        animation-delay: 0.4s;
-    }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .delay-500 {
-        animation-delay: 0.5s;
-    }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
 
-    /* Scroll animations */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
 
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-</style>
-{% endblock %}
+        .btn-primary:hover::before {
+            left: 100%;
+        }
 
-{% block content %}
-<!-- Hero Section avec vidéo de fond -->
-<section class="hero-section">
-    <div class="hero-background">
-        <video autoplay muted loop playsinline>
-            <source src="{{ url_for('static', filename='videos/warehouse-hero.mp4') }}" type="video/mp4">
-            <source src="{{ url_for('static', filename='videos/warehouse-hero.webm') }}" type="video/webm">
-            <!-- Image de fallback -->
-            <img src="{{ url_for('static', filename='images/warehouse-hero-fallback.jpg') }}" alt="Entrepôt de destockage alimentaire">
-        </video>
-    </div>
-    <div class="hero-content">
-        <div class="hero-badge animate-fade-in-up">
-            <i class="fas fa-award"></i>
-            <span>Leader du destockage alimentaire en France depuis 4 ans</span>
-        </div>
-        <h1 class="hero-title animate-fade-in-up delay-100">
-            L'excellence au service<br>de votre rentabilité
-        </h1>
-        <p class="hero-subtitle animate-fade-in-up delay-200">
-            <strong>PLATEFORME EXCLUSIVEMENT EN LIGNE • LIVRAISON FRANCE ENTIÈRE ET EN EUROPE</strong><br>
-            
-            Partenaire stratégique des professionnels, nous transformons les surplus 
-            en opportunités commerciales durables. Notre marketplace 100% digitale 
-            vous permet de commander 24h/24 depuis n'importe où en France.<br>
-            
-            🚚 <strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong><br>
-            💰 <strong>Économies garanties jusqu'à 60%</strong> sur vos achats<br>
-            🏪 <strong>Aucun point de vente physique</strong> - Service entièrement digital<br>
-            🔒 <strong>Plateforme sécurisée</strong> avec traçabilité complète<br>
-            
-            Optimisez votre rentabilité grâce à notre solution digitale exclusive 
-            déjà adoptée par 2 500 professionnels.
-        </p>
-        <div class="hero-stats">
-            <div class="stat-item animate-fade-in-up delay-300">
-                <div class="stat-number">{{ stats.products }}+</div>
-                <div class="stat-label">Tonnes valorisées</div>
-            </div>
-            <div class="stat-item animate-fade-in-up delay-400">
-                <div class="stat-number">{{ stats.delivery_rate }}%</div>
-                <div class="stat-label">Taux de satisfaction</div>
-            </div>
-            <div class="stat-item animate-fade-in-up delay-500">
-                <div class="stat-number">70%</div>
-                <div class="stat-label">Économies moyennes</div>
-            </div>
-        </div>
-    </div>
-</section>
+        .info-container {
+            color: white;
+        }
 
-<!-- Mission Section -->
-<section class="about-section">
-    <div class="container">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Notre Mission Stratégique</h2>
-            <p class="section-subtitle">
-                Réinventer l'économie circulaire dans la distribution alimentaire grâce à des solutions innovantes et durables
-            </p>
-        </div>
+        .info-container h3 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        <div class="mission-grid">
-            <div class="mission-card fade-in">
-                <i class="fas fa-recycle mission-icon"></i>
-                <h3>Optimisation des Surplus</h3>
-                <p>Notre plateforme intelligente analyse et valorise plus de {{ stats.products }} tonnes de produits alimentaires annuellement. Nous transformons les invendus en opportunités commerciales rentables grâce à notre réseau de distribution exclusif.</p>
-            </div>
-            
-            <div class="mission-card fade-in">
-                <i class="fas fa-chart-line mission-icon"></i>
-                <h3>Performance Économique</h3>
-                <p>Jusqu'à 70% d'économies sur les produits premium. Notre modèle économique disruptif garantit une rentabilité optimale tout en préservant les marges de nos partenaires distributeurs.</p>
-            </div>
-            
-            <div class="mission-card fade-in">
-                <i class="fas fa-network-wired mission-icon"></i>
-                <h3>Réseau Logistique Intelligent</h3>
-                <p>{{ stats.delivery_rate }}% de livraisons optimisées. Notre écosystème logistique connecté assure une traçabilité parfaite et des délais maîtrisés sur l'ensemble du territoire.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
 
-<!-- Values Section -->
-<section class="values-section">
-    <div class="container">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Notre ADN</h2>
-            <p class="section-subtitle">
-                Les principes fondamentaux qui guident chaque décision stratégique
-            </p>
-        </div>
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+        }
 
-        <div class="values-grid">
-            <div class="value-card fade-in">
-                <div class="value-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h4>Innovation Durable</h4>
-                <p>Pionniers des pratiques ESG dans la distribution alimentaire, nous intégrons l'impact environnemental dans chaque maillon de notre chaîne de valeur.</p>
-            </div>
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
 
-            <div class="value-card fade-in">
-                <div class="value-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h4>Transparence Totale</h4>
-                <p>Notre plateforme blockchain garantit une traçabilité complète et une confiance absolue avec l'ensemble de nos parties prenantes.</p>
-            </div>
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 0.2rem;
+            min-width: 24px;
+        }
 
-            <div class="value-card fade-in">
-                <div class="value-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h4>Excellence Opérationnelle</h4>
-                <p>Recherche permanente de l'optimisation grâce à l'IA et aux données pour anticiper les tendances et maximiser les performances.</p>
-            </div>
+        .info-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
 
-            <div class="value-card fade-in">
-                <div class="value-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h4>Partenariat Stratégique</h4>
-                <p>Relations gagnant-gagnant construites sur la confiance, la performance mutuelle et la création de valeur partagée à long terme.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        .info-item strong {
+            color: white;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
 
-<!-- Testimonials Section -->
-<section class="testimonials-section">
-    <div class="container">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Témoignages Stratégiques</h2>
-            <p class="section-subtitle">
-                Ils nous font confiance pour transformer leurs défis en succès
-            </p>
-        </div>
+        /* Carte moderne premium */
+        .map-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+        }
 
-        <div class="testimonials-grid">
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">
-                    "Un partenaire stratégique exceptionnel depuis 3 ans. Leur plateforme digitale a révolutionné notre gestion des invendus. Livraisons toujours optimisées et ROI mesurable dès le premier mois."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">SM</div>
-                    <div class="author-info">
-                        <h4>Sophie Monier</h4>
-                        <p>Directrice Supply Chain - Carrefour Market</p>
-                    </div>
-                </div>
-            </div>
+        #modern-map {
+            height: 400px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: none;
+        }
 
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">
-                    "L'excellence opérationnelle alliée à une vision stratégique. Leur modèle économique nous a permis d'optimiser nos marges de 22% tout en renforçant notre engagement RSE. Partenaire incontournable."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MB</div>
-                    <div class="author-info">
-                        <h4>Michel Bernard</h4>
-                        <p>Directeur Général - Metro Cash & Carry</p>
-                    </div>
-                </div>
-            </div>
+        .warehouse-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            border: 3px solid white;
+        }
 
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">
-                    "Innovation et fiabilité absolue. Leur solution a transformé notre approche du destockage. Traçabilité parfaite, reporting détaillé et accompagnement sur-mesure. La référence du secteur."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">NL</div>
-                    <div class="author-info">
-                        <h4>Nathalie Leroy</h4>
-                        <p>Directrice Achats - Intermarché</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        /* Warehouse video section */
+        .warehouse-video-section {
+            padding: 8rem 0;
+            background: var(--darker);
+            position: relative;
+        }
 
-<!-- Contact Section - Version Mobile Optimisée -->
-<section class="contact-form-section">
-    <div class="container">
-        <div class="contact-container">
-            <div class="form-container fade-in">
-                <h2>Devenons Partenaires</h2>
-                <form action="/submit-contact" method="POST">
-                    <div class="form-group">
-                        <label for="name">Votre nom complet</label>
-                        <input type="text" id="name" name="name" required placeholder="Prénom et Nom">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Société</label>
-                        <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email professionnel</label>
-                        <input type="email" id="email" name="email" required placeholder="email@entreprise.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Téléphone</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+33 1 23 45 67 89">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Nature de votre demande</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Sélectionnez...</option>
-                            <option value="partenariat">Devenir partenaire stratégique</option>
-                            <option value="demande">Demande commerciale spécifique</option>
-                            <option value="solution">Solution sur mesure</option>
-                            <option value="autre">Autre demande stratégique</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Votre projet</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Décrivez votre projet et vos objectifs..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-paper-plane"></i> Soumettre ma demande
-                    </button>
-                </form>
-            </div>
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
 
-            <div class="info-container fade-in">
-                <h3>Coordonnées Stratégiques</h3>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                       
-                    </div>
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-                    <div class="info-item">
-                        <i class="fas fa-warehouse"></i>
-                        <p>
-                            <strong>Hub Logistique Principal :</strong>
-                            4 Allée de la Tourelle<br>
-                            13127 Vitrolles, France
-                            <em>Visites stratégiques sur rendez-vous, réservées à nos clients fidèles.</em>
-                        </p>
-                    </div>
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            padding: 3rem;
+        }
 
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <p>
-                            <strong>Téléphone :</strong><br>
-                            +33 06 44 69 72 12
-                        </p>
-                    </div>
+        .video-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>
-                            <strong>Email stratégique :</strong><br>
-                            contact@destockagealimentaire.fr
-                        </p>
-                    </div>
+        .video-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
 
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <p>
-                            <strong>Horaires conseil :</strong><br>
-                            Lun - Ven : 8h - 19h<br>
-                            Sam : 9h - 12h (urgences)
-                        </p>
-                    </div>
-                </div>
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+            border: none;
+        }
 
-                <div class="map-container">
-                    <div id="modern-map"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<style>/* Contact Section - Version Mobile Optimisée */
-            .contact-form-section {
-                padding: 4rem 0;
-                background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
-                color: white;
-                position: relative;
-                overflow: hidden;
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.6);
+        }
+
+        /* Classes pour le contrôle vidéo */
+        .video-auto-play {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-auto-play.active {
+            display: block;
+        }
+
+        .video-auto-play:not(.active) {
+            display: none;
+        }
+
+        .video-overlay.hidden {
+            display: none;
+        }
+
+        /* Section Partenaires */
+        .partners-section {
+            padding: 6rem 0;
+            background: var(--lighter);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .partner-card {
+            background: var(--lighter);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .partner-logo {
+            height: 80px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .partner-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .partner-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Documents section */
+        .documents-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .document-card {
+            background: var(--lighter);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .document-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .document-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .document-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .document-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .document-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* Modal pour documents */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--lighter);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: var(--shadow-hover);
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--dark);
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-document {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary-doc {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-secondary-doc {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-document:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Responsive design premium */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 1.5rem;
             }
             
-            .contact-form-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233b82f6' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            
+        }
+
+        @media (max-width: 968px) {
             .contact-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 5rem;
-                align-items: start;
-                position: relative;
-                z-index: 2;
+                grid-template-columns: 1fr;
+                gap: 4rem;
             }
             
-            .form-container {
-                background: rgba(255, 255, 255, 0.08);
-                backdrop-filter: blur(20px);
-                padding: 4rem;
-                border-radius: var(--border-radius);
-                border: 1px solid rgba(255, 255, 255, 0.15);
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .form-container h2 {
-                color: white;
-                margin-bottom: 3rem;
-                font-size: 2.5rem;
-                font-weight: 700;
-                background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-align: center;
+            .testimonials-grid {
+                grid-template-columns: 1fr;
             }
             
-            .form-group {
+            .form-container,
+            .info-container {
+                padding: 3rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                min-height: 600px;
+                padding: 4rem 0;
+            }
+            
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                padding: 1.5rem;
+            }
+            
+            .mission-card,
+            .value-card,
+            .testimonial-card,
+            .partner-card,
+            .document-card {
+                padding: 2rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container,
+            .info-container {
+                padding: 2rem;
+            }
+            
+            .video-overlay {
+                padding: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
                 margin-bottom: 2rem;
             }
             
-            .form-group label {
-                display: block;
-                margin-bottom: 0.75rem;
-                color: rgba(255, 255, 255, 0.9);
-                font-weight: 600;
-                font-size: 1.1rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
             
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 100%;
-                padding: 1.25rem;
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 12px;
-                color: white;
-                font-size: 1.1rem;
-                transition: var(--transition-fast);
-                font-family: inherit;
-            }
-            
-            .form-group input::placeholder,
-            .form-group textarea::placeholder {
-                color: rgba(255, 255, 255, 0.6);
-            }
-            
-            .form-group input:focus,
-            .form-group select:focus,
-            .form-group textarea:focus {
-                outline: none;
-                border-color: rgba(255, 255, 255, 0.4);
-                background: rgba(255, 255, 255, 0.15);
-                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-            }
-            
-            .btn-primary {
-                background: linear-gradient(135deg, var(--secondary), var(--primary));
-                color: white;
-                border: none;
-                padding: 1.5rem 3rem;
-                border-radius: 12px;
-                font-size: 1.2rem;
-                font-weight: 700;
-                cursor: pointer;
-                transition: var(--transition);
-                width: 100%;
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .btn-primary::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-                transition: var(--transition);
-            }
-            
-            .btn-primary:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            }
-            
-            .btn-primary:hover::before {
-                left: 100%;
-            }
-            
-            .info-container {
-                color: white;
-            }
-            
-            .info-container h3 {
+            .section-title {
                 font-size: 2.2rem;
-                margin-bottom: 3rem;
-                font-weight: 700;
-                background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-align: center;
             }
-            
-            .contact-info {
-                display: flex;
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .document-actions {
                 flex-direction: column;
-                gap: 2rem;
-                margin-bottom: 3rem;
+            }
+
+            .btn-document {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
             }
             
-            .info-item {
-                display: flex;
-                align-items: flex-start;
-                gap: 1.5rem;
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .mission-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container,
+            .info-container {
                 padding: 1.5rem;
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: 12px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                transition: var(--transition-fast);
             }
             
-            .info-item:hover {
-                background: rgba(255, 255, 255, 0.08);
-                border-color: rgba(255, 255, 255, 0.2);
+            .hero-badge {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
             }
             
-            .info-item i {
-                font-size: 1.5rem;
-                color: var(--accent);
-                margin-top: 0.2rem;
-                min-width: 24px;
+            .stat-number {
+                font-size: 2.5rem;
             }
             
-            .info-item p {
-                color: rgba(255, 255, 255, 0.9);
-                line-height: 1.6;
+            .video-overlay {
+                padding: 1.5rem;
+            }
+            
+            .video-title {
+                font-size: 1.8rem;
+            }
+            
+            .video-subtitle {
                 font-size: 1.1rem;
             }
             
-            .info-item strong {
-                color: white;
-                display: block;
-                margin-bottom: 0.5rem;
-                font-size: 1.2rem;
-                font-weight: 700;
+            .play-button {
+                width: 70px;
+                height: 70px;
+                font-size: 1.7rem;
             }
-            
-            /* Carte moderne premium */
-            .map-container {
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: var(--border-radius);
-                padding: 2rem;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                margin-top: 2rem;
-            }
-            
-            #modern-map {
-                height: 400px;
-                width: 100%;
-                border-radius: 12px;
-                box-shadow: var(--shadow);
-                border: none;
-            }
-            
-            /* Responsive Design pour Mobile */
-            @media (max-width: 968px) {
-                .contact-container {
-                    grid-template-columns: 1fr;
-                    gap: 3rem;
-                }
-                
-                .form-container,
-                .info-container {
-                    padding: 2.5rem;
-                }
-                
-                .form-container h2,
-                .info-container h3 {
-                    font-size: 2rem;
-                    margin-bottom: 2rem;
-                }
-            }
-            
-            @media (max-width: 768px) {
-                .contact-form-section {
-                    padding: 3rem 0;
-                }
-                
-                .form-container,
-                .info-container {
-                    padding: 2rem;
-                    margin: 0 1rem;
-                }
-                
-                .form-container h2,
-                .info-container h3 {
-                    font-size: 1.8rem;
-                }
-                
-                .form-group {
-                    margin-bottom: 1.5rem;
-                }
-                
-                .form-group label {
-                    font-size: 1rem;
-                }
-                
-                .form-group input,
-                .form-group select,
-                .form-group textarea {
-                    padding: 1rem;
-                    font-size: 1rem;
-                }
-                
-                .btn-primary {
-                    padding: 1.25rem 2rem;
-                    font-size: 1.1rem;
-                }
-                
-                .contact-info {
-                    gap: 1.5rem;
-                    margin-bottom: 2rem;
-                }
-                
-                .info-item {
-                    padding: 1.25rem;
-                    gap: 1rem;
-                }
-                
-                .info-item i {
-                    font-size: 1.3rem;
-                }
-                
-                .info-item p {
-                    font-size: 1rem;
-                    line-height: 1.5;
-                }
-                
-                .info-item strong {
-                    font-size: 1.1rem;
-                }
-                
-                .map-container {
-                    padding: 1.5rem;
-                    margin-top: 1.5rem;
-                }
-                
-                #modern-map {
-                    height: 300px;
-                }
-            }
-            
-            @media (max-width: 480px) {
-                .contact-form-section {
-                    padding: 2rem 0;
-                }
-                
-                .form-container,
-                .info-container {
-                    padding: 1.5rem;
-                    margin: 0 0.5rem;
-                }
-                
-                .form-container h2,
-                .info-container h3 {
-                    font-size: 1.6rem;
-                    margin-bottom: 1.5rem;
-                }
-                
-                .form-group {
-                    margin-bottom: 1.25rem;
-                }
-                
-                .form-group input,
-                .form-group select,
-                .form-group textarea {
-                    padding: 0.875rem;
-                    font-size: 0.95rem;
-                }
-                
-                .btn-primary {
-                    padding: 1rem 1.5rem;
-                    font-size: 1rem;
-                }
-                
-                .contact-info {
-                    gap: 1.25rem;
-                }
-                
-                .info-item {
-                    padding: 1rem;
-                    flex-direction: column;
-                    text-align: center;
-                    gap: 0.75rem;
-                }
-                
-                .info-item i {
-                    font-size: 1.5rem;
-                    margin-top: 0;
-                }
-                
-                .info-item p {
-                    font-size: 0.95rem;
-                }
-                
-                .info-item strong {
-                    font-size: 1rem;
-                }
-                
-                .map-container {
-                    padding: 1rem;
-                }
-                
-                #modern-map {
-                    height: 250px;
-                }
-            }
-            
-            /* Améliorations spécifiques pour très petits écrans */
-            @media (max-width: 360px) {
-                .form-container,
-                .info-container {
-                    padding: 1rem;
-                }
-                
-                .form-container h2,
-                .info-container h3 {
-                    font-size: 1.4rem;
-                }
-                
-                .form-group input,
-                .form-group select,
-                .form-group textarea {
-                    padding: 0.75rem;
-                }
-                
-                .info-item {
-                    padding: 0.875rem;
-                }
-                
-                #modern-map {
-                    height: 200px;
-                }
-            }</style>
-<!-- Warehouse Video Section - Version Mobile Optimisée -->
-<section class="warehouse-video-section">
-    <div class="container">
-        <div class="video-container">
-            <!-- Vidéo pour auto-play (sans overlay) -->
-            <video id="warehouseVideoAuto" class="video-auto-play active" autoplay muted loop playsinline>
-                <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
-                <!-- Image de fallback -->
-            </video>
 
-            <!-- Vidéo avec overlay pour contrôle manuel -->
-            <video id="warehouseVideo" class="video-auto-play" muted playsinline>
-                <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
+            .modal-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations premium */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-fade-in-left {
+            animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-fade-in-right {
+            animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section avec vidéo de fond -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <video autoplay muted loop playsinline>
+                <source src="videos/warehouse-hero.mp4" type="video/mp4">
+                <source src="videos/warehouse-hero.webm" type="video/webm">
                 <!-- Image de fallback -->
+                <img src="images/warehouse-hero-fallback.jpg" alt="Entrepôt de destockage alimentaire">
             </video>
-            
-            <div class="video-overlay" id="videoOverlay">
-                <h3 class="video-title">Découvrez Notre Plateforme Logistique</h3>
-                <p class="video-subtitle">
-                    Visite exclusive de notre hub de 5 000 m² équipé des dernières technologies 
-                    pour garantir qualité et traçabilité optimale
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-in-up">
+                <i class="fas fa-award"></i>
+                <span>Leader du destockage alimentaire en France depuis 4 ans</span>
+            </div>
+            <h1 class="hero-title animate-fade-in-up delay-100">
+                L'excellence au service<br>de votre rentabilité
+            </h1>
+            <p class="hero-subtitle animate-fade-in-up delay-200">
+                <strong>PLATEFORME EXCLUSIVEMENT EN LIGNE • LIVRAISON FRANCE ENTIÈRE ET EN EUROPE</strong><br>
+                
+                Partenaire stratégique des professionnels, nous transformons les surplus 
+                en opportunités commerciales durables. Notre marketplace 100% digitale 
+                vous permet de commander 24h/24 depuis n'importe où en France.<br>
+                
+                🚚 <strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong><br>
+                💰 <strong>Économies garanties jusqu'à 60%</strong> sur vos achats<br>
+                🏪 <strong>Aucun point de vente physique</strong> - Service entièrement digital<br>
+                🔒 <strong>Plateforme sécurisée</strong> avec traçabilité complète<br>
+                
+                Optimisez votre rentabilité grâce à notre solution digitale exclusive 
+                déjà adoptée par 2 500 professionnels.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item animate-fade-in-up delay-300">
+                    <div class="stat-number">1500+</div>
+                    <div class="stat-label">Tonnes valorisées</div>
+                </div>
+                <div class="stat-item animate-fade-in-up delay-400">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Taux de satisfaction</div>
+                </div>
+                <div class="stat-item animate-fade-in-up delay-500">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Économies moyennes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Notre Mission Stratégique</h2>
+                <p class="section-subtitle">
+                    Réinventer l'économie circulaire dans la distribution alimentaire grâce à des solutions innovantes et durables
                 </p>
-                <button class="play-button" id="playButton">
-                    <i class="fas fa-play"></i>
+            </div>
+
+            <div class="mission-grid">
+                <div class="mission-card fade-in">
+                    <i class="fas fa-recycle mission-icon"></i>
+                    <h3>Optimisation des Surplus</h3>
+                    <p>Notre plateforme intelligente analyse et valorise plus de 1500 tonnes de produits alimentaires annuellement. Nous transformons les invendus en opportunités commerciales rentables grâce à notre réseau de distribution exclusif.</p>
+                </div>
+                
+                <div class="mission-card fade-in">
+                    <i class="fas fa-chart-line mission-icon"></i>
+                    <h3>Performance Économique</h3>
+                    <p>Jusqu'à 70% d'économies sur les produits premium. Notre modèle économique disruptif garantit une rentabilité optimale tout en préservant les marges de nos partenaires distributeurs.</p>
+                </div>
+                
+                <div class="mission-card fade-in">
+                    <i class="fas fa-network-wired mission-icon"></i>
+                    <h3>Réseau Logistique Intelligent</h3>
+                    <p>98% de livraisons optimisées. Notre écosystème logistique connecté assure une traçabilité parfaite et des délais maîtrisés sur l'ensemble du territoire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Notre ADN</h2>
+                <p class="section-subtitle">
+                    Les principes fondamentaux qui guident chaque décision stratégique
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Innovation Durable</h4>
+                    <p>Pionniers des pratiques ESG dans la distribution alimentaire, nous intégrons l'impact environnemental dans chaque maillon de notre chaîne de valeur.</p>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Transparence Totale</h4>
+                    <p>Notre plateforme blockchain garantit une traçabilité complète et une confiance absolue avec l'ensemble de nos parties prenantes.</p>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Excellence Opérationnelle</h4>
+                    <p>Recherche permanente de l'optimisation grâce à l'IA et aux données pour anticiper les tendances et maximiser les performances.</p>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Partenariat Stratégique</h4>
+                    <p>Relations gagnant-gagnant construites sur la confiance, la performance mutuelle et la création de valeur partagée à long terme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Témoignages Stratégiques</h2>
+                <p class="section-subtitle">
+                    Ils nous font confiance pour transformer leurs défis en succès
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "Un partenaire stratégique exceptionnel depuis 3 ans. Leur plateforme digitale a révolutionné notre gestion des invendus. Livraisons toujours optimisées et ROI mesurable dès le premier mois."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sophie Monier</h4>
+                            <p>Directrice Supply Chain - Carrefour Market</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "L'excellence opérationnelle alliée à une vision stratégique. Leur modèle économique nous a permis d'optimiser nos marges de 22% tout en renforçant notre engagement RSE. Partenaire incontournable."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MB</div>
+                        <div class="author-info">
+                            <h4>Michel Bernard</h4>
+                            <p>Directeur Général - Metro Cash & Carry</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "Innovation et fiabilité absolue. Leur solution a transformé notre approche du destockage. Traçabilité parfaite, reporting détaillé et accompagnement sur-mesure. La référence du secteur."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">NL</div>
+                        <div class="author-info">
+                            <h4>Nathalie Leroy</h4>
+                            <p>Directrice Achats - Intermarché</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Nos Partenaires Stratégiques</h2>
+                <p class="section-subtitle">
+                    Des alliances fortes avec les leaders du secteur pour une valeur partagée
+                </p>
+            </div>
+
+            <div class="partners-grid">
+                <div class="partner-card fade-in">
+                    <div class="partner-logo">
+                        <i class="fas fa-utensils" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <h4>Too Good To Go</h4>
+                    <p>Partenariat exclusif pour la valorisation des invendus alimentaires via notre plateforme digitale mutualisée.</p>
+                </div>
+
+                <div class="partner-card fade-in">
+                    <div class="partner-logo">
+                        <i class="fas fa-truck" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <h4>Logistique Premium</h4>
+                    <p>Réseau de transporteurs spécialisés pour une livraison express sur tout le territoire national.</p>
+                </div>
+
+                <div class="partner-card fade-in">
+                    <div class="partner-logo">
+                        <i class="fas fa-industry" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <h4>Producteurs Français</h4>
+                    <p>Collaboration avec plus de 200 producteurs locaux pour une offre diversifiée et de qualité.</p>
+                </div>
+
+                <div class="partner-card fade-in">
+                    <div class="partner-logo">
+                        <i class="fas fa-store" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <h4>Grande Distribution</h4>
+                    <p>Partenariats stratégiques avec les principaux acteurs de la distribution alimentaire en France.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section class="documents-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Documents Contractuels</h2>
+                <p class="section-subtitle">
+                    Accédez à nos documents partenaires et contrats en un clic
+                </p>
+            </div>
+
+            <div class="documents-grid">
+                <div class="document-card fade-in" data-document="contrat-partenaire">
+                    <i class="fas fa-file-contract document-icon"></i>
+                    <h4>Contrat Partenaire</h4>
+                    <p>Document contractuel détaillant les modalités de notre partenariat stratégique et les engagements mutuels.</p>
+                </div>
+
+                <div class="document-card fade-in" data-document="conditions-generales">
+                    <i class="fas fa-gavel document-icon"></i>
+                    <h4>Conditions Générales</h4>
+                    <p>Nos conditions générales de vente et d'utilisation de la plateforme de destockage alimentaire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Version Mobile Optimisée -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="form-container fade-in">
+                    <h2>Devenons Partenaires</h2>
+                    <form action="/submit-contact" method="POST">
+                        <div class="form-group">
+                            <label for="name">Votre nom complet</label>
+                            <input type="text" id="name" name="name" required placeholder="Prénom et Nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Société</label>
+                            <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email professionnel</label>
+                            <input type="email" id="email" name="email" required placeholder="email@entreprise.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+33 1 23 45 67 89">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Nature de votre demande</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="partenariat">Devenir partenaire stratégique</option>
+                                <option value="demande">Demande commerciale spécifique</option>
+                                <option value="solution">Solution sur mesure</option>
+                                <option value="autre">Autre demande stratégique</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre projet</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Décrivez votre projet et vos objectifs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Soumettre ma demande
+                        </button>
+                    </form>
+                </div>
+
+                <div class="info-container fade-in">
+                    <h3>Coordonnées Stratégiques</h3>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>
+                                <strong>Siège Social :</strong>
+                                123 Avenue des Entrepreneurs<br>
+                                75008 Paris, France
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-warehouse"></i>
+                            <p>
+                                <strong>Hub Logistique Principal :</strong>
+                                4 Allée de la Tourelle<br>
+                                13127 Vitrolles, France
+                                <em>Visites stratégiques sur rendez-vous, réservées à nos clients fidèles.</em>
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>
+                                <strong>Téléphone :</strong><br>
+                                +33 06 44 69 72 12
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>
+                                <strong>Email stratégique :</strong><br>
+                                contact@destockagealimentaire.fr
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <p>
+                                <strong>Horaires conseil :</strong><br>
+                                Lun - Ven : 8h - 19h<br>
+                                Sam : 9h - 12h (urgences)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <div id="modern-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warehouse Video Section - Version Mobile Optimisée -->
+    <section class="warehouse-video-section">
+        <div class="container">
+            <div class="video-container">
+                <!-- Vidéo pour auto-play (sans overlay) -->
+                <video id="warehouseVideoAuto" class="video-auto-play active" autoplay muted loop playsinline>
+                    <source src="videos/entrepot-produits.mp4" type="video/mp4">
+                    <!-- Image de fallback -->
+                </video>
+
+                <!-- Vidéo avec overlay pour contrôle manuel -->
+                <video id="warehouseVideo" class="video-auto-play" muted playsinline>
+                    <source src="videos/entrepot-produits.mp4" type="video/mp4">
+                    <!-- Image de fallback -->
+                </video>
+                
+                <div class="video-overlay" id="videoOverlay">
+                    <h3 class="video-title">Découvrez Notre Plateforme Logistique</h3>
+                    <p class="video-subtitle">
+                        Visite exclusive de notre hub de 5 000 m² équipé des dernières technologies 
+                        pour garantir qualité et traçabilité optimale
+                    </p>
+                    <button class="play-button" id="playButton">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour documents -->
+    <div class="modal" id="documentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Document Partenaire</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
                 </button>
+            </div>
+            <div id="modalContent">
+                <p>Sélectionnez l'action souhaitée pour ce document :</p>
+                <div class="document-actions">
+                    <a href="#" class="btn-document btn-primary-doc" id="viewDocument">
+                        <i class="fas fa-eye"></i> Voir le document
+                    </a>
+                    <a href="#" class="btn-document btn-secondary-doc" id="downloadDocument">
+                        <i class="fas fa-download"></i> Télécharger
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</section>
-{% endblock %}
 
-{% block extra_js %}
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialisation de la carte optimisée mobile
-        initMap();
-        
-        // Gestion de la vidéo optimisée mobile avec auto-play
-        initVideo();
-        
-        // Animations au scroll optimisées
-        initScrollAnimations();
-    });
-
-    function initMap() {
-        const warehouseCoords = [43.4412, 5.2487];
-        
-        // Carte optimisée pour mobile
-        const map = L.map('modern-map', {
-            zoomControl: true,
-            scrollWheelZoom: false,
-            dragging: true,
-            tap: false, // Évite les conflits avec les événements tactiles
-            zoomSnap: 0.5,
-            zoomDelta: 0.5
-        }).setView(warehouseCoords, 16);
-        
-        // Couche de carte légère pour mobile
-        const streetMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
-            attribution: '© OpenStreetMap contributors © CARTO',
-            subdomains: 'abcd',
-            maxZoom: 19,
-            minZoom: 10
-        }).addTo(map);
-        
-        // Marqueur personnalisé optimisé mobile
-        const warehouseIcon = L.divIcon({
-            className: 'warehouse-icon',
-            html: '<i class="fas fa-warehouse"></i>',
-            iconSize: [50, 50],
-            iconAnchor: [25, 25]
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialisation de la carte optimisée mobile
+            initMap();
+            
+            // Gestion de la vidéo optimisée mobile avec auto-play
+            initVideo();
+            
+            // Animations au scroll optimisées
+            initScrollAnimations();
+            
+            // Gestion des documents modaux
+            initDocumentModals();
         });
-        
-        // Marqueur avec popup mobile-friendly
-        const warehouseMarker = L.marker(warehouseCoords, {
-            icon: warehouseIcon
-        }).addTo(map);
-        
-        warehouseMarker.bindPopup(`
-            <div style="text-align: center; padding: 1rem; max-width: 280px;">
-                <h3 style="margin: 0 0 0.75rem; color: #1e40af; font-size: 1.1rem; font-weight: 700;">Hub Logistique Principal</h3>
-                <div style="text-align: left; color: #374151; line-height: 1.5; font-size: 0.9rem;">
-                    <p style="margin: 0.4rem 0;"><strong>📍 Adresse :</strong><br>4 Allée de la Tourelle<br>13127 Vitrolles</p>
-                    <p style="margin: 0.4rem 0;"><strong>🏭 Surface :</strong> 5 000 m²</p>
-                    <p style="margin: 0.4rem 0;"><strong>📦 Capacité :</strong> 1 500 palettes</p>
-                    <p style="margin: 0.75rem 0 0; padding: 0.5rem; background: #f0f9ff; border-radius: 6px; color: #0369a1; font-weight: 600; font-size: 0.85rem;">
-                        <i class="fas fa-clock"></i> Visite sur rendez-vous
-                    </p>
+
+        function initMap() {
+            const warehouseCoords = [43.4412, 5.2487];
+            
+            // Carte optimisée pour mobile
+            const map = L.map('modern-map', {
+                zoomControl: true,
+                scrollWheelZoom: false,
+                dragging: true,
+                tap: false, // Évite les conflits avec les événements tactiles
+                zoomSnap: 0.5,
+                zoomDelta: 0.5
+            }).setView(warehouseCoords, 16);
+            
+            // Couche de carte légère pour mobile
+            const streetMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                subdomains: 'abcd',
+                maxZoom: 19,
+                minZoom: 10
+            }).addTo(map);
+            
+            // Marqueur personnalisé optimisé mobile
+            const warehouseIcon = L.divIcon({
+                className: 'warehouse-icon',
+                html: '<i class="fas fa-warehouse"></i>',
+                iconSize: [50, 50],
+                iconAnchor: [25, 25]
+            });
+            
+            // Marqueur avec popup mobile-friendly
+            const warehouseMarker = L.marker(warehouseCoords, {
+                icon: warehouseIcon
+            }).addTo(map);
+            
+            warehouseMarker.bindPopup(`
+                <div style="text-align: center; padding: 1rem; max-width: 280px;">
+                    <h3 style="margin: 0 0 0.75rem; color: #1e40af; font-size: 1.1rem; font-weight: 700;">Hub Logistique Principal</h3>
+                    <div style="text-align: left; color: #374151; line-height: 1.5; font-size: 0.9rem;">
+                        <p style="margin: 0.4rem 0;"><strong>📍 Adresse :</strong><br>4 Allée de la Tourelle<br>13127 Vitrolles</p>
+                        <p style="margin: 0.4rem 0;"><strong>🏭 Surface :</strong> 5 000 m²</p>
+                        <p style="margin: 0.4rem 0;"><strong>📦 Capacité :</strong> 1 500 palettes</p>
+                        <p style="margin: 0.75rem 0 0; padding: 0.5rem; background: #f0f9ff; border-radius: 6px; color: #0369a1; font-weight: 600; font-size: 0.85rem;">
+                            <i class="fas fa-clock"></i> Visite sur rendez-vous
+                        </p>
+                    </div>
                 </div>
-            </div>
-        `);
-        
-        // Ajustement responsive avec délai
-        setTimeout(() => {
-            map.invalidateSize();
-        }, 300);
-        
-        // Gestion du redimensionnement
-        window.addEventListener('resize', function() {
+            `);
+            
+            // Ajustement responsive avec délai
             setTimeout(() => {
                 map.invalidateSize();
-            }, 150);
-        });
-    }
-
-    function initVideo() {
-        const videoAuto = document.getElementById('warehouseVideoAuto');
-        const videoManual = document.getElementById('warehouseVideo');
-        const overlay = document.getElementById('videoOverlay');
-        const playButton = document.getElementById('playButton');
-        
-        // Configuration pour l'auto-play
-        if (videoAuto) {
-            // Tentative de lecture automatique
-            const playPromise = videoAuto.play();
+            }, 300);
             
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Auto-play réussi
-                    console.log('Auto-play réussi');
+            // Gestion du redimensionnement
+            window.addEventListener('resize', function() {
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 150);
+            });
+        }
+
+        function initVideo() {
+            const videoAuto = document.getElementById('warehouseVideoAuto');
+            const videoManual = document.getElementById('warehouseVideo');
+            const overlay = document.getElementById('videoOverlay');
+            const playButton = document.getElementById('playButton');
+            
+            // Configuration pour l'auto-play
+            if (videoAuto) {
+                // Tentative de lecture automatique
+                const playPromise = videoAuto.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Auto-play réussi
+                        console.log('Auto-play réussi');
+                        overlay.classList.add('hidden');
+                    }).catch(error => {
+                        // Auto-play échoué, basculer vers le mode manuel
+                        console.log('Auto-play échoué, bascule vers mode manuel');
+                        videoAuto.classList.remove('active');
+                        videoManual.classList.add('active');
+                        overlay.classList.remove('hidden');
+                        
+                        // Configurer les contrôles manuels
+                        setupManualControls(videoManual, overlay, playButton);
+                    });
+                }
+            } else {
+                // Fallback vers le mode manuel
+                videoManual.classList.add('active');
+                setupManualControls(videoManual, overlay, playButton);
+            }
+            
+            function setupManualControls(video, overlay, playButton) {
+                // Lecture au clic
+                playButton.addEventListener('click', function() {
+                    video.play().catch(e => console.log('Erreur lecture vidéo:', e));
                     overlay.classList.add('hidden');
-                }).catch(error => {
-                    // Auto-play échoué, basculer vers le mode manuel
-                    console.log('Auto-play échoué, bascule vers mode manuel');
-                    videoAuto.classList.remove('active');
-                    videoManual.classList.add('active');
+                });
+                
+                // Contrôle tactile pour pause/lecture
+                video.addEventListener('click', function() {
+                    if (video.paused) {
+                        video.play();
+                        overlay.classList.add('hidden');
+                    } else {
+                        video.pause();
+                        overlay.classList.remove('hidden');
+                    }
+                });
+                
+                // Réafficher l'overlay à la fin de la vidéo
+                video.addEventListener('ended', function() {
                     overlay.classList.remove('hidden');
-                    
-                    // Configurer les contrôles manuels
-                    setupManualControls(videoManual, overlay, playButton);
                 });
             }
-        } else {
-            // Fallback vers le mode manuel
-            videoManual.classList.add('active');
-            setupManualControls(videoManual, overlay, playButton);
-        }
-        
-        function setupManualControls(video, overlay, playButton) {
-            // Lecture au clic
-            playButton.addEventListener('click', function() {
-                video.play().catch(e => console.log('Erreur lecture vidéo:', e));
-                overlay.classList.add('hidden');
-            });
             
-            // Contrôle tactile pour pause/lecture
-            video.addEventListener('click', function() {
-                if (video.paused) {
-                    video.play();
-                    overlay.classList.add('hidden');
-                } else {
-                    video.pause();
-                    overlay.classList.remove('hidden');
-                }
-            });
-            
-            // Réafficher l'overlay à la fin de la vidéo
-            video.addEventListener('ended', function() {
-                overlay.classList.remove('hidden');
-            });
-        }
-        
-        // Observer pour déclencher la vidéo quand elle devient visible
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // La vidéo est visible, tenter de la lire
-                    if (videoAuto.classList.contains('active')) {
-                        videoAuto.play().catch(e => {
-                            console.log('Auto-play échoué lors du scroll');
-                        });
+            // Observer pour déclencher la vidéo quand elle devient visible
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // La vidéo est visible, tenter de la lire
+                        if (videoAuto.classList.contains('active')) {
+                            videoAuto.play().catch(e => {
+                                console.log('Auto-play échoué lors du scroll');
+                            });
+                        }
                     }
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        videoObserver.observe(document.querySelector('.video-container'));
-    }
+                });
+            }, { threshold: 0.5 });
+            
+            videoObserver.observe(document.querySelector('.video-container'));
+        }
 
-    function initScrollAnimations() {
-        // Observer optimisé pour les performances mobiles
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -30px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        function initScrollAnimations() {
+            // Observer optimisé pour les performances mobiles
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -30px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer uniquement les éléments visibles
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function initDocumentModals() {
+            const modal = document.getElementById('documentModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const viewDocumentBtn = document.getElementById('viewDocument');
+            const downloadDocumentBtn = document.getElementById('downloadDocument');
+            const closeModalBtn = document.getElementById('closeModal');
+            
+            // Documents disponibles
+            const documents = {
+                'contrat-partenaire': {
+                    title: 'Contrat Partenaire',
+                    viewUrl: 'documents/contrat-partenaire.pdf',
+                    downloadUrl: 'documents/contrat-partenaire.pdf'
+                },
+                'conditions-generales': {
+                    title: 'Conditions Générales',
+                    viewUrl: 'documents/conditions-generales.pdf',
+                    downloadUrl: 'documents/conditions-generales.pdf'
+                }
+            };
+            
+            // Gestion des clics sur les cartes de documents
+            document.querySelectorAll('.document-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const documentType = this.getAttribute('data-document');
+                    const document = documents[documentType];
+                    
+                    if (document) {
+                        modalTitle.textContent = document.title;
+                        viewDocumentBtn.href = document.viewUrl;
+                        downloadDocumentBtn.href = document.downloadUrl;
+                        modal.classList.add('active');
+                    }
+                });
+            });
+            
+            // Fermeture du modal
+            closeModalBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+            
+            // Fermeture en cliquant en dehors du modal
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
                 }
             });
-        }, observerOptions);
-        
-        // Observer uniquement les éléments visibles
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    }
-</script>
-{% endblock %}
+            
+            // Fermeture avec la touche Échap
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
