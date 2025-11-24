@@ -84,6 +84,13 @@
         z-index: 2;
     }
 
+    .hero-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.4) contrast(1.1);
+    }
+
     .hero-content {
         position: relative;
         z-index: 3;
@@ -143,24 +150,18 @@
         gap: 1rem;
         background: rgba(255, 255, 255, 0.08);
         backdrop-filter: blur(10px);
-        padding: 1.25rem;
+        padding: 1rem 1.5rem;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.15);
-        transition: var(--transition);
     }
 
-    .feature-item:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.12);
-    }
-
-    .feature-icon {
-        font-size: 1.5rem;
+    .feature-item i {
         color: var(--accent);
+        font-size: 1.2rem;
     }
 
     .feature-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
         font-weight: 500;
     }
 
@@ -472,90 +473,6 @@
         font-size: 1rem;
     }
 
-    /* Partenaires section */
-    .partners-section {
-        padding: 8rem 0;
-        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    }
-
-    .partners-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
-    }
-
-    .partner-card {
-        background: var(--lighter);
-        padding: 3rem;
-        border-radius: var(--border-radius);
-        text-align: center;
-        box-shadow: var(--shadow-soft);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .partner-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow);
-    }
-
-    .partner-logo {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 2rem;
-        background: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        padding: 1.5rem;
-    }
-
-    .partner-logo img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-
-    .partner-card h3 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 1.5rem;
-    }
-
-    .partner-card p {
-        color: var(--gray);
-        line-height: 1.7;
-        margin-bottom: 2rem;
-        font-size: 1.1rem;
-    }
-
-    .btn-outline {
-        background: transparent;
-        color: var(--primary);
-        border: 2px solid var(--primary);
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn-outline:hover {
-        background: var(--primary);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-    }
-
     /* Contact section premium */
     .contact-form-section {
         padding: 8rem 0;
@@ -859,7 +776,94 @@
         display: none;
     }
 
-    /* Popup styles */
+    /* Section Partenariats */
+    .partnerships-section {
+        padding: 8rem 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    .partnerships-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+    }
+
+    .partnership-card {
+        background: var(--lighter);
+        padding: 3rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .partnership-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .partnership-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow);
+    }
+
+    .partnership-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: white;
+        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+    }
+
+    .partnership-card h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1.5rem;
+    }
+
+    .partnership-card p {
+        color: var(--gray);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .btn-secondary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .btn-secondary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Popup Styles */
     .popup-overlay {
         position: fixed;
         top: 0;
@@ -868,34 +872,36 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(10px);
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 10000;
+        z-index: 1000;
         opacity: 0;
+        visibility: hidden;
         transition: var(--transition);
     }
 
     .popup-overlay.active {
-        display: flex;
         opacity: 1;
+        visibility: visible;
     }
 
     .popup-content {
-        background: white;
+        background: var(--lighter);
         border-radius: var(--border-radius);
         padding: 3rem;
-        max-width: 800px;
+        max-width: 600px;
         width: 90%;
         max-height: 90vh;
         overflow-y: auto;
         position: relative;
-        transform: scale(0.9);
+        transform: translateY(30px);
         transition: var(--transition);
+        box-shadow: var(--shadow-hover);
     }
 
     .popup-overlay.active .popup-content {
-        transform: scale(1);
+        transform: translateY(0);
     }
 
     .popup-close {
@@ -917,7 +923,7 @@
     }
 
     .popup-close:hover {
-        background: var(--light);
+        background: rgba(0, 0, 0, 0.05);
         color: var(--dark);
     }
 
@@ -926,8 +932,8 @@
         text-align: center;
     }
 
-    .popup-header h2 {
-        font-size: 2.5rem;
+    .popup-header h3 {
+        font-size: 2rem;
         font-weight: 700;
         color: var(--dark);
         margin-bottom: 1rem;
@@ -938,87 +944,48 @@
 
     .popup-header p {
         color: var(--gray);
-        font-size: 1.2rem;
-    }
-
-    .popup-body {
-        margin-bottom: 2rem;
-    }
-
-    .popup-body p {
-        color: var(--gray);
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
         font-size: 1.1rem;
     }
 
-    .file-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin: 2rem 0;
+    .file-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
 
-    .file-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.5rem;
+    .file-option {
         background: var(--light);
+        border: 2px dashed var(--primary-light);
         border-radius: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: var(--transition-fast);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        transition: var(--transition);
+        cursor: pointer;
     }
 
-    .file-item:hover {
-        background: #f1f5f9;
-        transform: translateX(5px);
+    .file-option:hover {
+        background: rgba(59, 130, 246, 0.05);
+        border-color: var(--primary);
+        transform: translateY(-5px);
     }
 
     .file-icon {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
     }
 
-    .file-info {
-        flex: 1;
-    }
-
-    .file-info h4 {
+    .file-option h4 {
+        font-size: 1.2rem;
         font-weight: 600;
         color: var(--dark);
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
     }
 
-    .file-info p {
+    .file-option p {
         color: var(--gray);
         font-size: 0.9rem;
-        margin: 0;
-    }
-
-    .file-action {
-        background: var(--primary);
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition-fast);
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .file-action:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
     }
 
     /* Responsive design premium */
@@ -1052,13 +1019,8 @@
             padding: 3rem;
         }
         
-        .popup-content {
-            padding: 2rem;
-            margin: 1rem;
-        }
-        
-        .popup-header h2 {
-            font-size: 2rem;
+        .partnerships-grid {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -1089,12 +1051,11 @@
         .mission-card,
         .value-card,
         .testimonial-card,
-        .partner-card {
+        .partnership-card {
             padding: 2rem;
         }
         
-        .values-grid,
-        .partners-grid {
+        .values-grid {
             grid-template-columns: 1fr;
         }
         
@@ -1121,17 +1082,8 @@
         }
         
         .popup-content {
-            padding: 1.5rem;
-        }
-        
-        .popup-header h2 {
-            font-size: 1.8rem;
-        }
-        
-        .file-item {
-            flex-direction: column;
-            text-align: center;
-            gap: 1rem;
+            padding: 2rem;
+            margin: 1rem;
         }
     }
 
@@ -1185,12 +1137,8 @@
             font-size: 1.7rem;
         }
         
-        .popup-content {
-            padding: 1rem;
-        }
-        
-        .popup-header h2 {
-            font-size: 1.6rem;
+        .file-options {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -1278,8 +1226,12 @@
 <!-- Hero Section avec vidéo de fond -->
 <section class="hero-section">
     <div class="hero-background">
-        <!-- Remplacement de la vidéo par une image de fond pour plus de simplicité -->
-        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);"></div>
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='videos/warehouse-hero.mp4') }}" type="video/mp4">
+            <source src="{{ url_for('static', filename='videos/warehouse-hero.webm') }}" type="video/webm">
+            <!-- Image de fallback -->
+            <img src="{{ url_for('static', filename='images/warehouse-hero-fallback.jpg') }}" alt="Entrepôt de destockage alimentaire">
+        </video>
     </div>
     <div class="hero-content">
         <div class="hero-badge animate-fade-in-up">
@@ -1299,20 +1251,20 @@
         
         <div class="hero-features animate-fade-in-up delay-300">
             <div class="feature-item">
-                <i class="fas fa-shipping-fast feature-icon"></i>
-                <span class="feature-text">Livraison express 48h ou standard 3-7 jours</span>
+                <i class="fas fa-truck"></i>
+                <span class="feature-text"><strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong></span>
             </div>
             <div class="feature-item">
-                <i class="fas fa-percentage feature-icon"></i>
-                <span class="feature-text">Économies garanties jusqu'à 60% sur vos achats</span>
+                <i class="fas fa-euro-sign"></i>
+                <span class="feature-text"><strong>Économies garanties jusqu'à 60%</strong> sur vos achats</span>
             </div>
             <div class="feature-item">
-                <i class="fas fa-store-slash feature-icon"></i>
-                <span class="feature-text">Aucun point de vente physique - Service entièrement digital</span>
+                <i class="fas fa-store-slash"></i>
+                <span class="feature-text"><strong>Aucun point de vente physique</strong> - Service entièrement digital</span>
             </div>
             <div class="feature-item">
-                <i class="fas fa-shield-alt feature-icon"></i>
-                <span class="feature-text">Plateforme sécurisée avec traçabilité complète</span>
+                <i class="fas fa-shield-alt"></i>
+                <span class="feature-text"><strong>Plateforme sécurisée</strong> avec traçabilité complète</span>
             </div>
         </div>
         
@@ -1416,36 +1368,38 @@
     </div>
 </section>
 
-<!-- Partners Section -->
-<section class="partners-section">
+<!-- Partnerships Section -->
+<section class="partnerships-section">
     <div class="container">
         <div class="section-header fade-in">
-            <h2 class="section-title">Nos Partenariats Stratégiques</h2>
+            <h2 class="section-title">Nos Partenariats Exclusifs</h2>
             <p class="section-subtitle">
-                Des alliances fortes pour maximiser l'impact et la performance
+                Découvrez nos collaborations stratégiques qui renforcent notre écosystème
             </p>
         </div>
 
-        <div class="partners-grid">
-            <div class="partner-card fade-in">
-                <div class="partner-logo">
-                    <i class="fas fa-leaf" style="font-size: 3rem; color: #28a745;"></i>
+        <div class="partnerships-grid">
+            <div class="partnership-card fade-in">
+                <div class="partnership-icon">
+                    <i class="fas fa-file-contract"></i>
                 </div>
-                <h3>Too Good To Go</h3>
-                <p>Partenaire officiel dans la lutte contre le gaspillage alimentaire. Ensemble, nous sauvons des milliers de repas chaque mois et réduisons notre empreinte environnementale.</p>
-                <button class="btn-outline" onclick="openPopup('tgtg')">
-                    Voir le contrat de partenariat
+                <h3>Contrat Partenaire</h3>
+                <p>Accédez à notre modèle de partenariat exclusif. Téléchargez le contrat pour découvrir les avantages et modalités de notre collaboration stratégique.</p>
+                <button class="btn-secondary" onclick="openPopup('contrat')">
+                    <i class="fas fa-download"></i>
+                    Voir le contrat
                 </button>
             </div>
 
-            <div class="partner-card fade-in">
-                <div class="partner-logo">
-                    <i class="fas fa-recycle" style="font-size: 3rem; color: #059669;"></i>
+            <div class="partnership-card fade-in">
+                <div class="partnership-icon">
+                    <i class="fas fa-leaf"></i>
                 </div>
-                <h3>Éco-Emballages</h3>
-                <p>Collaboration pour optimiser l'emballage durable et réduire les déchets plastiques dans notre chaîne logistique.</p>
-                <button class="btn-outline" onclick="openPopup('eco')">
-                    Voir le contrat de partenariat
+                <h3>Too Good To Go</h3>
+                <p>Découvrez notre partenariat avec Too Good To Go. Téléchargez la documentation pour en savoir plus sur notre collaboration contre le gaspillage alimentaire.</p>
+                <button class="btn-secondary" onclick="openPopup('tgtg')">
+                    <i class="fas fa-download"></i>
+                    Voir le partenariat
                 </button>
             </div>
         </div>
@@ -1552,6 +1506,15 @@
                 <h3>Coordonnées Stratégiques</h3>
                 <div class="contact-info">
                     <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>
+                            <strong>Siège Social :</strong>
+                            123 Avenue de l'Innovation<br>
+                            75001 Paris, France
+                        </p>
+                    </div>
+
+                    <div class="info-item">
                         <i class="fas fa-warehouse"></i>
                         <p>
                             <strong>Hub Logistique Principal :</strong>
@@ -1599,10 +1562,17 @@
 <section class="warehouse-video-section">
     <div class="container">
         <div class="video-container">
-            <!-- Remplacement de la vidéo par une image pour plus de simplicité -->
-            <div style="width:100%;height:400px;background:linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;">
-                🏭 Vidéo de notre entrepôt
-            </div>
+            <!-- Vidéo pour auto-play (sans overlay) -->
+            <video id="warehouseVideoAuto" class="video-auto-play active" autoplay muted loop playsinline>
+                <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
+                <!-- Image de fallback -->
+            </video>
+
+            <!-- Vidéo avec overlay pour contrôle manuel -->
+            <video id="warehouseVideo" class="video-auto-play" muted playsinline>
+                <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
+                <!-- Image de fallback -->
+            </video>
             
             <div class="video-overlay" id="videoOverlay">
                 <h3 class="video-title">Découvrez Notre Plateforme Logistique</h3>
@@ -1618,24 +1588,18 @@
     </div>
 </section>
 
-<!-- Popup for contracts -->
-<div class="popup-overlay" id="popupOverlay">
+<!-- Popup pour les fichiers -->
+<div class="popup-overlay" id="filePopup">
     <div class="popup-content">
         <button class="popup-close" onclick="closePopup()">
             <i class="fas fa-times"></i>
         </button>
         <div class="popup-header">
-            <h2 id="popupTitle">Contrat de Partenariat</h2>
-            <p id="popupSubtitle">Détails de notre collaboration stratégique</p>
+            <h3 id="popupTitle">Télécharger le fichier</h3>
+            <p id="popupDescription">Sélectionnez le format souhaité pour télécharger le document</p>
         </div>
-        <div class="popup-body">
-            <p id="popupDescription">
-                Notre partenariat repose sur des valeurs communes de durabilité et d'innovation.
-            </p>
-            
-            <div class="file-list" id="fileList">
-                <!-- Files will be dynamically inserted here -->
-            </div>
+        <div class="file-options" id="fileOptions">
+            <!-- Les options de fichiers seront insérées ici dynamiquement -->
         </div>
     </div>
 </div>
@@ -1717,17 +1681,77 @@
     }
 
     function initVideo() {
-        const playButton = document.getElementById('playButton');
+        const videoAuto = document.getElementById('warehouseVideoAuto');
+        const videoManual = document.getElementById('warehouseVideo');
         const overlay = document.getElementById('videoOverlay');
+        const playButton = document.getElementById('playButton');
         
-        // Simulation de lecture vidéo
-        playButton.addEventListener('click', function() {
-            overlay.classList.add('hidden');
-            // Ici vous ajouteriez la logique pour démarrer une vraie vidéo
-            setTimeout(() => {
+        // Configuration pour l'auto-play
+        if (videoAuto) {
+            // Tentative de lecture automatique
+            const playPromise = videoAuto.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Auto-play réussi
+                    console.log('Auto-play réussi');
+                    overlay.classList.add('hidden');
+                }).catch(error => {
+                    // Auto-play échoué, basculer vers le mode manuel
+                    console.log('Auto-play échoué, bascule vers mode manuel');
+                    videoAuto.classList.remove('active');
+                    videoManual.classList.add('active');
+                    overlay.classList.remove('hidden');
+                    
+                    // Configurer les contrôles manuels
+                    setupManualControls(videoManual, overlay, playButton);
+                });
+            }
+        } else {
+            // Fallback vers le mode manuel
+            videoManual.classList.add('active');
+            setupManualControls(videoManual, overlay, playButton);
+        }
+        
+        function setupManualControls(video, overlay, playButton) {
+            // Lecture au clic
+            playButton.addEventListener('click', function() {
+                video.play().catch(e => console.log('Erreur lecture vidéo:', e));
+                overlay.classList.add('hidden');
+            });
+            
+            // Contrôle tactile pour pause/lecture
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    overlay.classList.add('hidden');
+                } else {
+                    video.pause();
+                    overlay.classList.remove('hidden');
+                }
+            });
+            
+            // Réafficher l'overlay à la fin de la vidéo
+            video.addEventListener('ended', function() {
                 overlay.classList.remove('hidden');
-            }, 5000); // Réaffiche l'overlay après 5 secondes
-        });
+            });
+        }
+        
+        // Observer pour déclencher la vidéo quand elle devient visible
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // La vidéo est visible, tenter de la lire
+                    if (videoAuto.classList.contains('active')) {
+                        videoAuto.play().catch(e => {
+                            console.log('Auto-play échoué lors du scroll');
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        videoObserver.observe(document.querySelector('.video-container'));
     }
 
     function initScrollAnimations() {
@@ -1751,109 +1775,84 @@
         });
     }
 
-    // Popup functions - CORRIGÉES POUR FONCTIONNER
-    function openPopup(partnerType) {
-        console.log('Opening popup for:', partnerType); // Debug
-        const popupOverlay = document.getElementById('popupOverlay');
-        const popupTitle = document.getElementById('popupTitle');
-        const popupSubtitle = document.getElementById('popupSubtitle');
-        const popupDescription = document.getElementById('popupDescription');
-        const fileList = document.getElementById('fileList');
+    // Gestion des popups pour les fichiers
+    function openPopup(type) {
+        const popup = document.getElementById('filePopup');
+        const title = document.getElementById('popupTitle');
+        const description = document.getElementById('popupDescription');
+        const fileOptions = document.getElementById('fileOptions');
         
-        // Clear previous files
-        fileList.innerHTML = '';
-        
-        if (partnerType === 'tgtg') {
-            popupTitle.textContent = 'Contrat Too Good To Go';
-            popupSubtitle.textContent = 'Partenariat stratégique anti-gaspillage';
-            popupDescription.textContent = 'Notre collaboration avec Too Good To Go nous permet de maximiser l\'impact de notre lutte contre le gaspillage alimentaire. Ensemble, nous sauvons des milliers de repas chaque mois et réduisons notre empreinte environnementale.';
-            
-            // Add files - UTILISATION DE FICHIERS EXISTANTS OU CRÉATION DE FICHIERS DE TEST
-            fileList.innerHTML = `
-                <div class="file-item">
+        // Configuration selon le type de fichier
+        if (type === 'contrat') {
+            title.textContent = 'Contrat Partenaire';
+            description.textContent = 'Téléchargez notre contrat de partenariat pour découvrir les modalités de collaboration';
+            fileOptions.innerHTML = `
+                <div class="file-option" onclick="downloadFile('contrat-partenariat.pdf')">
                     <div class="file-icon">
-                        <i class="fas fa-file-contract"></i>
+                        <i class="fas fa-file-pdf"></i>
                     </div>
-                    <div class="file-info">
-                        <h4>Contrat de partenariat principal</h4>
-                        <p>PDF - 2.4 MB - Signé le 15/03/2023</p>
-                    </div>
-                    <a href="#" class="file-action" onclick="createSamplePDF('tgtg-contrat')">
-                        Télécharger
-                    </a>
+                    <h4>Version PDF</h4>
+                    <p>Format standard pour consultation</p>
                 </div>
-                <div class="file-item">
+                <div class="file-option" onclick="downloadFile('contrat-partenariat.docx')">
+                    <div class="file-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h4>Version Word</h4>
+                    <p>Format modifiable pour personnalisation</p>
+                </div>
+            `;
+        } else if (type === 'tgtg') {
+            title.textContent = 'Too Good To Go - Partenariat';
+            description.textContent = 'Découvrez notre collaboration avec Too Good To Go contre le gaspillage alimentaire';
+            fileOptions.innerHTML = `
+                <div class="file-option" onclick="downloadFile('partenariat-tgtg.pdf')">
+                    <div class="file-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h4>Présentation PDF</h4>
+                    <p>Document complet sur notre partenariat</p>
+                </div>
+                <div class="file-option" onclick="downloadFile('chiffres-tgtg.pdf')">
                     <div class="file-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
-                    <div class="file-info">
-                        <h4>Rapport d'impact trimestriel</h4>
-                        <p>PDF - 1.8 MB - Mis à jour le 01/07/2023</p>
-                    </div>
-                    <a href="#" class="file-action" onclick="createSamplePDF('tgtg-rapport')">
-                        Télécharger
-                    </a>
-                </div>
-            `;
-        } else if (partnerType === 'eco') {
-            popupTitle.textContent = 'Contrat Éco-Emballages';
-            popupSubtitle.textContent = 'Collaboration pour un emballage durable';
-            popupDescription.textContent = 'Notre partenariat avec Éco-Emballages nous permet d\'optimiser notre chaîne d\'emballage et de réduire significativement notre empreinte plastique. Ensemble, nous développons des solutions d\'emballage innovantes et durables.';
-            
-            // Add files
-            fileList.innerHTML = `
-                <div class="file-item">
-                    <div class="file-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <div class="file-info">
-                        <h4>Accord de collaboration</h4>
-                        <p>PDF - 3.1 MB - Signé le 22/01/2023</p>
-                    </div>
-                    <a href="#" class="file-action" onclick="createSamplePDF('eco-accord')">
-                        Télécharger
-                    </a>
-                </div>
-                <div class="file-item">
-                    <div class="file-icon">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <div class="file-info">
-                        <h4>Plan de réduction des déchets</h4>
-                        <p>PDF - 2.2 MB - Mis à jour le 10/06/2023</p>
-                    </div>
-                    <a href="#" class="file-action" onclick="createSamplePDF('eco-plan')">
-                        Télécharger
-                    </a>
+                    <h4>Chiffres Clés</h4>
+                    <p>Résultats et impact de notre collaboration</p>
                 </div>
             `;
         }
         
-        popupOverlay.classList.add('active');
+        // Afficher le popup
+        popup.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
     function closePopup() {
-        const popupOverlay = document.getElementById('popupOverlay');
-        popupOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        const popup = document.getElementById('filePopup');
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
     }
 
-    // Fonction pour créer un PDF d'exemple (solution temporaire)
-    function createSamplePDF(type) {
-        alert('Téléchargement du document ' + type + '.pdf\n\nPour la version finale, remplacez cette fonction par des vrais fichiers PDF dans le dossier /static/documents/');
-        // En production, remplacez par:
-        // window.open('/documents/' + type + '.pdf', '_blank');
+    function downloadFile(filename) {
+        // Simulation de téléchargement
+        alert(`Téléchargement du fichier: ${filename}\n\nCette fonctionnalité serait connectée à votre système de fichiers en production.`);
+        
+        // En production, vous utiliseriez quelque chose comme:
+        // window.location.href = '/download/' + filename;
+        
+        // Fermer le popup après le téléchargement
+        closePopup();
     }
 
-    // Close popup when clicking outside content
-    document.getElementById('popupOverlay').addEventListener('click', function(e) {
+    // Fermer le popup en cliquant à l'extérieur
+    document.getElementById('filePopup').addEventListener('click', function(e) {
         if (e.target === this) {
             closePopup();
         }
     });
 
-    // Close popup with Escape key
+    // Fermer le popup avec la touche Échap
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closePopup();
