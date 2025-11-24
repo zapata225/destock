@@ -2420,321 +2420,61 @@ document.addEventListener('DOMContentLoaded', function() {
         return text.trim('-');
     }
 });
-</script><!-- NOUVEAU MENU MOBILE - VERSION VERTICALE -->
-<nav class="mobile-nav-premium">
-    <!-- Container avec barre de défilement VERTICALE -->
-    <div class="mobile-nav-scroll-container-vertical">
-        <!-- Navigation principale -->
-        <a href="/" class="mobile-nav-item active">
-            <i class="fas fa-home"></i>
-            <span>Accueil</span>
-        </a>
-        <a href="/produits" class="mobile-nav-item">
-            <i class="fas fa-pallet"></i>
-            <span>Nos Packs</span>
-        </a>
-        <a href="/produits?category=Promotions" class="mobile-nav-item hot">
-            <i class="fas fa-fire"></i>
-            <span>-70% Flash</span>
-            <span class="badge-premium">🔥</span>
-        </a>
-    
-        <a href="/recrutement" class="mobile-nav-item">
-            <i class="fas fa-user-plus"></i>
-            <span>Recrutement</span>
-        </a>
-        
-        <a href="/contact" class="mobile-nav-item">
-            <i class="fas fa-headset"></i>
-            <span>Contact</span>
-        </a>
-        
-        <div class="mobile-divider"></div>
-        
-        <!-- Section auth fixe en bas -->
-        <div class="mobile-auth-section">
-            {% if session.logged_in %}
-                <!-- Utilisateur connecté -->
-                <a href="/compte" class="mobile-nav-item auth-item">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Mon compte</span>
-                </a>
-                <a href="/deconnexion" class="mobile-nav-item auth-item logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Déconnexion</span>
-                </a>
-            {% else %}
-                <!-- Utilisateur non connecté -->
-                <a href="/connexion" class="mobile-nav-item auth-item">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Connexion</span>
-                </a>
-                <a href="/inscription" class="mobile-nav-item auth-item">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Inscription</span>
-                </a>
-            {% endif %}
-        </div>
-    </div>
-</nav>
-
-<style>
-/* STYLES POUR LA NAVIGATION MOBILE VERTICALE */
-.mobile-nav-premium {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-    padding: 0;
-    height: 60vh; /* Hauteur fixe pour le menu */
-    max-height: 80vh; /* Maximum 80% de l'écran */
-}
-
-.mobile-nav-scroll-container-vertical {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-    height: 100%;
-    padding: 1rem;
-    gap: 0.5rem;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling iOS */
-}
-
-.mobile-nav-scroll-container-vertical::-webkit-scrollbar {
-    width: 4px;
-}
-
-.mobile-nav-scroll-container-vertical::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.mobile-nav-scroll-container-vertical::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-}
-
-.mobile-nav-scroll-container-vertical::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.mobile-nav-item {
-    display: flex;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    min-height: 60px;
-    position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    gap: 1rem;
-}
-
-.mobile-nav-item i {
-    font-size: 1.3rem;
-    width: 24px;
-    text-align: center;
-}
-
-.mobile-nav-item span {
-    font-size: 1rem;
-    font-weight: 500;
-    white-space: nowrap;
-    flex: 1;
-}
-
-.mobile-nav-item.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.mobile-nav-item.hot {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    border-color: rgba(245, 158, 11, 0.3);
-}
-
-.mobile-nav-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateX(5px);
-}
-
-.badge-premium {
-    background: #ef4444;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.mobile-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 0.5rem 0;
-    flex-shrink: 0;
-}
-
-.mobile-auth-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: auto; /* Pousse vers le bas */
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.auth-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.auth-item.logout {
-    background: rgba(239, 68, 68, 0.2);
-    border-color: rgba(239, 68, 68, 0.3);
-}
-
-/* Animation d'ouverture/fermeture */
-.mobile-nav-premium {
-    transform: translateY(100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mobile-nav-premium.active {
-    transform: translateY(0);
-}
-
-/* Overlay pour fermer le menu */
-.mobile-nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.mobile-nav-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    .mobile-nav-premium {
-        height: 70vh;
-    }
-    
-    .mobile-nav-scroll-container-vertical {
-        padding: 0.75rem;
-    }
-    
-    .mobile-nav-item {
-        padding: 0.875rem 1.25rem;
-        min-height: 55px;
-    }
-    
-    .mobile-nav-item i {
-        font-size: 1.2rem;
-    }
-    
-    .mobile-nav-item span {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .mobile-nav-premium {
-        height: 75vh;
-    }
-    
-    .mobile-nav-item {
-        padding: 0.75rem 1rem;
-        min-height: 50px;
-    }
-    
-    .mobile-nav-item span {
-        font-size: 0.85rem;
-    }
-}
-
-/* Support pour les encoches et zones sûres */
-@supports(padding: max(0px)) {
-    .mobile-nav-premium {
-        padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    }
-    
-    .mobile-nav-scroll-container-vertical {
-        padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    }
-}
-</style>
-
-<script>
-// Gestion de l'ouverture/fermeture du menu mobile
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNav = document.querySelector('.mobile-nav-premium');
-    const mobileOverlay = document.createElement('div');
-    
-    // Créer l'overlay
-    mobileOverlay.className = 'mobile-nav-overlay';
-    document.body.appendChild(mobileOverlay);
-    
-    // Ouvrir le menu
-    mobileMenuBtn?.addEventListener('click', function() {
-        mobileNav.classList.add('active');
-        mobileOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-    
-    // Fermer le menu
-    function closeMobileMenu() {
-        mobileNav.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    // Fermer avec l'overlay
-    mobileOverlay.addEventListener('click', closeMobileMenu);
-    
-    // Fermer avec Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeMobileMenu();
-        }
-    });
-    
-    // Fermer en cliquant sur un lien (optionnel)
-    document.querySelectorAll('.mobile-nav-item').forEach(item => {
-        item.addEventListener('click', function() {
-            setTimeout(closeMobileMenu, 300);
-        });
-    });
-});
 </script>
+        <!-- NOUVEAU MENU MOBILE - À COLLER -->
+        <nav class="mobile-nav-premium">
+            <!-- Navigation principale -->
+            <a href="/" class="mobile-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="/produits" class="mobile-nav-item">
+                <i class="fas fa-pallet"></i>
+                <span>Nos Packs</span>
+            </a>
+            <a href="/produits?category=Promotions" class="mobile-nav-item hot">
+                <i class="fas fa-fire"></i>
+                <span>-70% Flash</span>
+                <span class="badge-premium">🔥</span>
+            </a>
+        
+            <a href="/recrutement" class="mobile-nav-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Recrutement</span>
+            </a>
+            
+            <a href="/contact" class="mobile-nav-item">
+                <i class="fas fa-headset"></i>
+                <span>Contact</span>
+            </a>
+            
+            <div class="mobile-divider"></div>
+            
+            <!-- Section auth fixe en bas -->
+            <div class="mobile-auth-section">
+                {% if session.logged_in %}
+                    <!-- Utilisateur connecté -->
+                    <a href="/compte" class="mobile-nav-item auth-item">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Mon compte</span>
+                    </a>
+                    <a href="/deconnexion" class="mobile-nav-item auth-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                {% else %}
+                    <!-- Utilisateur non connecté -->
+                    <a href="/connexion" class="mobile-nav-item auth-item">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Connexion</span>
+                    </a>
+                    <a href="/inscription" class="mobile-nav-item auth-item">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Inscription</span>
+                    </a>
+                {% endif %}
+            </div>
+        </nav>
         
     </div>
 
