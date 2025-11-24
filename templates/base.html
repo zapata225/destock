@@ -1994,44 +1994,48 @@
     </nav>
 
     <!-- Menu mobile premium - PLUS VOYANT -->
-    <div class="mobile-menu-premium" id="mobile-menu">
-        <div class="mobile-header-premium">
-            <div class="mobile-brand-premium">
-                <span class="mobile-logo-text">DÉSTOCKAGE+</span>
-                <span class="mobile-tagline">GROSSISTE ALIMENTAIRE</span>
-            </div>
-            <button class="mobile-close-premium" id="close-mobile-menu">
-                <i class="fas fa-times"></i>
-            </button>
+    <!-- Menu mobile ULTRA OPTIMISÉ -->
+<div class="mobile-menu-premium" id="mobile-menu">
+    <div class="mobile-header-premium">
+        <div class="mobile-brand-premium">
+            <span class="mobile-logo-text">DÉSTOCKAGE+</span>
+            <span class="mobile-tagline">GROSSISTE ALIMENTAIRE</span>
         </div>
-
-        <!-- Section URGENT très visible en haut du menu mobile -->
-        <div class="mobile-urgent-section">
-            <div class="mobile-urgent-alert">
-                <div class="urgent-alert-icon">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <div class="urgent-alert-content">
-                    <span class="urgent-alert-title">LIQUIDATION EN COURS ... COMMANDER MAINTENANT</span>
-                    <a href="tel:+33644697212" class="urgent-alert-phone">+33 6 44 69 72 12</a>
-                    <span class="urgent-alert-badge">24H/48H</span>
-                </div>
-            </div>
-        </div>
-
-<div class="mobile-search-premium">
-    <div class="search-box-premium">
-        <input type="text" placeholder="Rechercher un produit (ex: palette eau, surgelés...)" id="mobile-search-input" class="search-input-premium">
-        <button class="search-btn-premium" id="mobile-search-btn">
-            <i class="fas fa-search"></i>
+        <button class="mobile-close-premium" id="close-mobile-menu">
+            <i class="fas fa-times"></i>
         </button>
     </div>
-    <!-- Container pour les résultats de recherche mobile -->
-    <div class="mobile-search-results" id="mobile-search-results"></div>
-</div>
 
-<!-- Overlay pour mobile -->
-<div class="mobile-search-overlay" id="mobile-search-overlay"></div>
+    <!-- Section URGENTE ultra visible -->
+    <div class="mobile-urgent-section">
+        <div class="mobile-urgent-alert">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 50%;">
+                    <i class="fas fa-phone-alt" style="color: white; font-size: 16px;"></i>
+                </div>
+                <div>
+                    <div style="color: white; font-size: 12px; font-weight: 700;">URGENT COMMANDE</div>
+                    <a href="tel:+33644697212" style="color: white; font-size: 16px; font-weight: 800; text-decoration: none;">
+                        +33 6 44 69 72 12
+                    </a>
+                    <div style="background: rgba(255,255,255,0.2); color: white; padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-top: 4px;">
+                        LIVRAISON 24H/48H
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barre de recherche mobile -->
+    <div class="mobile-search-premium">
+        <div class="search-box-premium">
+            <input type="text" placeholder="🔍 Rechercher un produit..." id="mobile-search-input" class="search-input-premium">
+            <button class="search-btn-premium" id="mobile-search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="mobile-search-results" id="mobile-search-results"></div>
+    </div>
 
 <style>
 /* ===== BARRE DE RECHERCHE MOBILE IDENTIQUE AU PC ===== */
@@ -2236,6 +2240,209 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
 }
+/* ===== AMÉLIORATIONS MOBILE ULTRA OPTIMISÉES ===== */
+
+/* Navigation mobile améliorée */
+.mobile-menu-premium {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.mobile-nav-premium {
+    flex: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding-bottom: 120px; /* Espace pour les boutons fixes */
+}
+
+/* Section urgente mobile plus visible */
+.mobile-urgent-section {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-urgent-alert {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 15px;
+    border: 2px solid rgba(255,255,255,0.3);
+    animation: pulse 2s infinite;
+}
+
+/* Boutons d'action fixes en bas */
+.mobile-action-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 15px 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+}
+
+.mobile-action-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-action-btn.primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.mobile-action-btn.primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.mobile-action-btn.secondary {
+    background: #f8fafc;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+}
+
+.mobile-action-btn.secondary:active {
+    background: #f1f5f9;
+    transform: translateY(2px);
+}
+
+/* Items de navigation améliorés */
+.mobile-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.mobile-nav-item:active {
+    background: #f8fafc;
+}
+
+.mobile-nav-item i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.mobile-nav-item.active {
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+    border-left: 4px solid #2563eb;
+}
+
+.mobile-nav-item.active i {
+    color: #2563eb;
+}
+
+/* Support pour les encoches iPhone */
+@supports(padding: max(0px)) {
+    .mobile-action-buttons {
+        padding-bottom: max(15px, env(safe-area-inset-bottom));
+    }
+    
+    .mobile-menu-premium {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+/* Amélioration de la recherche mobile */
+.mobile-search-premium {
+    padding: 15px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.mobile-search-premium .search-box-premium {
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    background: white;
+}
+
+/* Support des gestes mobiles */
+@media (hover: none) and (pointer: coarse) {
+    .mobile-nav-item {
+        min-height: 60px;
+        padding: 18px 20px;
+    }
+    
+    .mobile-action-btn {
+        min-height: 50px;
+    }
+    
+    /* Agrandir les zones de clic */
+    .quantity-btn, 
+    .remove-item, 
+    .close-cart {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Correction du viewport pour mobile */
+@media (max-width: 768px) {
+    /* Ajustement de la hauteur de la navbar */
+    .nav-container-premium {
+        height: 70px;
+        padding: 0 15px;
+    }
+    
+    /* Logo plus compact */
+    .brand-name-premium {
+        font-size: 1.2rem;
+    }
+    
+    .brand-tagline-premium {
+        font-size: 0.6rem;
+    }
+    
+    /* Assurer que le menu mobile prend tout l'écran */
+    .mobile-menu-premium {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Animation de pulse pour les éléments urgents */
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    }
+    50% { 
+        transform: scale(1.02); 
+        box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    }
+}
 </style>
 
 <script>
@@ -2420,61 +2627,73 @@ document.addEventListener('DOMContentLoaded', function() {
         return text.trim('-');
     }
 });
-</script>
-        <!-- NOUVEAU MENU MOBILE - À COLLER -->
-        <nav class="mobile-nav-premium">
-            <!-- Navigation principale -->
-            <a href="/" class="mobile-nav-item active">
-                <i class="fas fa-home"></i>
-                <span>Accueil</span>
-            </a>
-            <a href="/produits" class="mobile-nav-item">
-                <i class="fas fa-pallet"></i>
-                <span>Nos Packs</span>
-            </a>
-            <a href="/produits?category=Promotions" class="mobile-nav-item hot">
-                <i class="fas fa-fire"></i>
-                <span>-70% Flash</span>
-                <span class="badge-premium">🔥</span>
-            </a>
+</script>on principale mobile -->
+    <nav class="mobile-nav-premium">
+        <a href="/" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
         
-            <a href="/recrutement" class="mobile-nav-item">
-                <i class="fas fa-user-plus"></i>
-                <span>Recrutement</span>
-            </a>
-            
-            <a href="/contact" class="mobile-nav-item">
-                <i class="fas fa-headset"></i>
-                <span>Contact</span>
-            </a>
-            
-            <div class="mobile-divider"></div>
-            
-            <!-- Section auth fixe en bas -->
-            <div class="mobile-auth-section">
-                {% if session.logged_in %}
-                    <!-- Utilisateur connecté -->
-                    <a href="/compte" class="mobile-nav-item auth-item">
-                        <i class="fas fa-user-circle"></i>
-                        <span>Mon compte</span>
-                    </a>
-                    <a href="/deconnexion" class="mobile-nav-item auth-item logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Déconnexion</span>
-                    </a>
-                {% else %}
-                    <!-- Utilisateur non connecté -->
-                    <a href="/connexion" class="mobile-nav-item auth-item">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Connexion</span>
-                    </a>
-                    <a href="/inscription" class="mobile-nav-item auth-item">
-                        <i class="fas fa-user-plus"></i>
-                        <span>Inscription</span>
-                    </a>
-                {% endif %}
-            </div>
-        </nav>
+        <a href="/produits" class="mobile-nav-item">
+            <i class="fas fa-pallet"></i>
+            <span>Nos Packs</span>
+        </a>
+        
+        <a href="/produits?category=Promotions" class="mobile-nav-item" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white;">
+            <i class="fas fa-fire"></i>
+            <span>-70% Flash</span>
+            <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700;">HOT</span>
+        </a>
+        
+        <a href="/recrutement" class="mobile-nav-item">
+            <i class="fas fa-user-plus"></i>
+            <span>Recrutement</span>
+        </a>
+        
+        <a href="/contact" class="mobile-nav-item">
+            <i class="fas fa-headset"></i>
+            <span>Contact & Aide</span>
+        </a>
+
+        <!-- Séparateur -->
+        <div style="height: 1px; background: #e5e7eb; margin: 15px 20px;"></div>
+
+        <!-- Section compte utilisateur -->
+        <div style="padding: 0 20px;">
+            {% if session.logged_in %}
+                <a href="/compte" class="mobile-nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Mon compte</span>
+                </a>
+                <a href="/deconnexion" class="mobile-nav-item" style="color: #dc2626;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </a>
+            {% else %}
+                <a href="/connexion" class="mobile-nav-item">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Connexion</span>
+                </a>
+                <a href="/inscription" class="mobile-nav-item">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Inscription</span>
+                </a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Boutons d'action FIXES en bas -->
+    <div class="mobile-action-buttons">
+        <a href="tel:+33644697212" class="mobile-action-btn secondary">
+            <i class="fas fa-phone"></i>
+            Appeler
+        </a>
+        <a href="/produits" class="mobile-action-btn primary">
+            <i class="fas fa-bolt"></i>
+            Acheter Maintenant
+        </a>
+    </div>
+</div>
         
     </div>
 
@@ -2483,158 +2702,147 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Gestion du menu mobile
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeMobileMenu = document.getElementById('close-mobile-menu');
+            // === GESTION MOBILE ULTRA OPTIMISÉE ===
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+    
+    // Ouvrir le menu
+    mobileMenuBtn?.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        
+        // Animation du bouton hamburger
+        this.classList.add('active');
+    });
+    
+    // Fermer le menu
+    closeMobileMenu?.addEventListener('click', function() {
+        closeMobileMenuFunc();
+    });
+    
+    function closeMobileMenuFunc() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        mobileMenuBtn?.classList.remove('active');
+    }
+    
+    // Fermer en cliquant à l'extérieur
+    document.addEventListener('click', function(e) {
+        if (mobileMenu.classList.contains('active') && 
+            !mobileMenu.contains(e.target) && 
+            !mobileMenuBtn.contains(e.target)) {
+            closeMobileMenuFunc();
+        }
+    });
+    
+    // Fermer avec la touche Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMobileMenuFunc();
+        }
+    });
+    
+    // Fermer le menu quand on clique sur un lien (sauf les boutons d'action)
+    document.addEventListener('click', function(e) {
+        if (mobileMenu.classList.contains('active') && 
+            e.target.closest('.mobile-nav-item') && 
+            !e.target.closest('.mobile-action-buttons')) {
+            setTimeout(closeMobileMenuFunc, 300);
+        }
+    });
+    
+    // Amélioration du tactile pour mobile
+    document.addEventListener('touchstart', function() {}, { passive: true });
+    
+    // Optimisation des performances sur mobile
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // Ajouter la classe mobile au body
+        document.body.classList.add('is-mobile');
+        
+        // Chargement lazy des images
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.loading = 'lazy';
+        });
+        
+        // Désactiver les animations lourdes si réduit
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const style = document.createElement('style');
+            style.textContent = `
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    // Gestion de la recherche mobile
+    const mobileSearchInput = document.getElementById('mobile-search-input');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    
+    if (mobileSearchInput && mobileSearchBtn) {
+        // Focus sur la recherche quand on ouvre le menu
+        mobileMenuBtn?.addEventListener('click', function() {
+            setTimeout(() => {
+                mobileSearchInput.focus();
+            }, 400);
+        });
+        
+        // Recherche avec le bouton
+        mobileSearchBtn.addEventListener('click', function() {
+            performMobileSearch(mobileSearchInput.value.trim());
+        });
+        
+        // Recherche avec Entrée
+        mobileSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performMobileSearch(this.value.trim());
+            }
+        });
+    }
+});
+
+// Fonction de recherche mobile
+async function performMobileSearch(query) {
+    if (!query || query.trim().length === 0) return;
+    
+    try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+        const results = await response.json();
+        
+        if (results && results.length > 0) {
+            // Fermer le menu et rediriger vers le premier résultat
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.body.style.overflow = '';
             
-            mobileMenuBtn?.addEventListener('click', function() {
-                mobileMenu.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            closeMobileMenu?.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+            const product = results[0];
+            window.location.href = `/produit/${product.id}-${slugify(product.name)}`;
+        }
+    } catch (error) {
+        console.error('Erreur recherche mobile:', error);
+    }
+}
 
-            // Fermer le menu en cliquant à l'extérieur
-            document.addEventListener('click', function(e) {
-                if (mobileMenu && mobileMenuBtn && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            // Animation du bouton mobile
-            mobileMenuBtn?.addEventListener('click', function() {
-                this.classList.toggle('active');
-            });
-
-            // FONCTIONNALITÉ DE RECHERCHE AVANCÉE
-            const mainSearchInput = document.getElementById('main-search-input');
-            const mainSearchBtn = document.getElementById('main-search-btn');
-            const mobileSearchInput = document.getElementById('mobile-search-input');
-            const mobileSearchBtn = document.getElementById('mobile-search-btn');
-            const searchResults = document.getElementById('search-results');
-            const searchOverlay = document.getElementById('search-overlay');
-
-            let searchTimeout;
-            let currentSearchQuery = '';
-
-            // Fonction pour effectuer la recherche
-            async function performSearch(query, isMobile = false) {
-                if (!query || query.trim().length === 0) {
-                    hideResults();
-                    return;
-                }
-
-                currentSearchQuery = query.trim();
-                
-                // Afficher le loading
-                showResults();
-                searchResults.innerHTML = '<div class="search-loading">🔍 Recherche en cours...</div>';
-
-                try {
-                    const response = await fetch(`/api/search?q=${encodeURIComponent(currentSearchQuery)}`);
-                    const results = await response.json();
-
-                    // Vérifier si la requête est toujours pertinente
-                    if (currentSearchQuery === query.trim()) {
-                        displayResults(results, isMobile);
-                    }
-                } catch (error) {
-                    console.error('Erreur recherche:', error);
-                    if (currentSearchQuery === query.trim()) {
-                        searchResults.innerHTML = '<div class="search-result-empty">❌ Erreur lors de la recherche</div>';
-                    }
-                }
-            }
-
-            // Fonction pour afficher les résultats
-            function displayResults(results, isMobile = false) {
-                if (!results || results.length === 0) {
-                    searchResults.innerHTML = `
-                        <div class="search-result-empty">
-                            🔍 Aucun produit trouvé pour "${currentSearchQuery}"
-                            <div style="font-size: 12px; margin-top: 8px;">Essayez d'autres termes comme "eau", "surgelés", "boissons"</div>
-                        </div>
-                    `;
-                    return;
-                }
-
-                searchResults.innerHTML = results.map(product => `
-                    <div class="search-result-item" data-product-id="${product.id}">
-                        <img src="/static/images/products/${product.images[0]}" 
-                             alt="${product.name}" 
-                             class="search-result-image"
-                             onerror="this.src='/static/images/default-product.jpg'">
-                        <div class="search-result-info">
-                            <div class="search-result-name">${product.name}</div>
-                            <div class="search-result-category">${product.category}</div>
-                            <div class="search-result-price">${product.price.toFixed(2)}€</div>
-                        </div>
-                    </div>
-                `).join('');
-
-                // Ajouter les événements de clic sur les résultats
-                const resultItems = searchResults.querySelectorAll('.search-result-item');
-                resultItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        const productId = this.getAttribute('data-product-id');
-                        const product = results.find(p => p.id == productId);
-                        if (product) {
-                            window.location.href = `/produit/${productId}-${slugify(product.name)}`;
-                        }
-                    });
-                });
-
-                // Pour mobile, rediriger directement si un seul résultat
-                if (isMobile && results.length === 1) {
-                    const product = results[0];
-                    window.location.href = `/produit/${product.id}-${slugify(product.name)}`;
-                }
-            }
-
-            // Fonction pour afficher les résultats
-            function showResults() {
-                searchResults.style.display = 'block';
-                searchOverlay.style.display = 'block';
-                positionResultsContainer();
-            }
-
-            // Fonction pour cacher les résultats
-            function hideResults() {
-                searchResults.style.display = 'none';
-                searchOverlay.style.display = 'none';
-                currentSearchQuery = '';
-            }
-
-            // Fonction pour positionner le container de résultats
-            function positionResultsContainer() {
-                const searchBox = document.querySelector('.search-container-premium .search-box-premium');
-                if (searchBox) {
-                    const rect = searchBox.getBoundingClientRect();
-                    searchResults.style.width = rect.width + 'px';
-                    searchResults.style.left = '0';
-                    searchResults.style.top = (rect.height + 8) + 'px';
-                }
-            }
-
-            // Fonction pour slugifier
-            function slugify(text) {
-                if (!text) return '';
-                text = text.toLowerCase();
-                text = text.replace(/[àâä]/g, 'a');
-                text = text.replace(/[éèêë]/g, 'e');
-                text = text.replace(/[îï]/g, 'i');
-                text = text.replace(/[ôö]/g, 'o');
-                text = text.replace(/[ùûü]/g, 'u');
-                text = text.replace(/ç/g, 'c');
-                text = text.replace(/[^a-z0-9]+/g, '-');
-                return text.trim('-');
-            }
-
+// Fonction utilitaire pour slugifier
+function slugify(text) {
+    if (!text) return '';
+    text = text.toLowerCase();
+    text = text.replace(/[àâä]/g, 'a');
+    text = text.replace(/[éèêë]/g, 'e');
+    text = text.replace(/[îï]/g, 'i');
+    text = text.replace(/[ôö]/g, 'o');
+    text = text.replace(/[ùûü]/g, 'u');
+    text = text.replace(/ç/g, 'c');
+    text = text.replace(/[^a-z0-9]+/g, '-');
+    return text.trim('-');
+}
             // Gestionnaires d'événements pour la recherche desktop
             if (mainSearchInput) {
                 // Recherche en temps réel avec debounce (dès le 1er caractère)
