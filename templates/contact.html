@@ -137,32 +137,16 @@
         line-height: 1.6;
     }
 
-    .hero-features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 3rem;
+    .hero-subtitle strong {
+        color: white;
+        font-weight: 600;
     }
 
-    .feature-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .feature-item i {
-        color: var(--accent);
-        font-size: 1.2rem;
-    }
-
-    .feature-text {
-        font-size: 0.95rem;
-        font-weight: 500;
+    .hero-subtitle em {
+        display: block;
+        margin-top: 1rem;
+        font-size: 1rem;
+        opacity: 0.9;
     }
 
     .hero-stats {
@@ -776,91 +760,105 @@
         display: none;
     }
 
-    /* Section Partenariats */
-    .partnerships-section {
+    /* Section Contrat Partenaire */
+    .partnership-section {
         padding: 8rem 0;
         background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     }
 
-    .partnerships-grid {
+    .partnership-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
-    }
-
-    .partnership-card {
-        background: var(--lighter);
-        padding: 3rem;
-        border-radius: var(--border-radius);
-        text-align: center;
-        box-shadow: var(--shadow-soft);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .partnership-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-
-    .partnership-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow);
-    }
-
-    .partnership-icon {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 2rem;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 50%;
-        display: flex;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
         align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        color: white;
-        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
     }
 
-    .partnership-card h3 {
-        font-size: 1.8rem;
-        font-weight: 700;
+    .partnership-content {
+        padding-right: 2rem;
+    }
+
+    .partnership-content h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
         color: var(--dark);
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    .partnership-card p {
+    .partnership-content p {
+        font-size: 1.2rem;
         color: var(--gray);
         line-height: 1.7;
         margin-bottom: 2rem;
-        font-size: 1.1rem;
     }
 
-    .btn-secondary {
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        color: white;
-        border: none;
+    .partnership-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .feature-item i {
+        color: var(--secondary);
+        font-size: 1.3rem;
+        margin-top: 0.2rem;
+        flex-shrink: 0;
+    }
+
+    .feature-item span {
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    .partnership-buttons {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
         padding: 1rem 2rem;
         border-radius: 12px;
         font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
         transition: var(--transition);
+        text-decoration: none;
         display: inline-flex;
         align-items: center;
         gap: 0.75rem;
     }
 
-    .btn-secondary:hover {
+    .btn-outline:hover {
+        background: var(--primary);
+        color: white;
         transform: translateY(-3px);
-        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        box-shadow: var(--shadow);
+    }
+
+    .partnership-visual {
+        position: relative;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+
+    .partnership-visual img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     /* Popup Styles */
@@ -887,21 +885,20 @@
     }
 
     .popup-content {
-        background: var(--lighter);
+        background: white;
         border-radius: var(--border-radius);
         padding: 3rem;
-        max-width: 600px;
+        max-width: 800px;
         width: 90%;
         max-height: 90vh;
         overflow-y: auto;
         position: relative;
-        transform: translateY(30px);
+        transform: scale(0.9);
         transition: var(--transition);
-        box-shadow: var(--shadow-hover);
     }
 
     .popup-overlay.active .popup-content {
-        transform: translateY(0);
+        transform: scale(1);
     }
 
     .popup-close {
@@ -914,78 +911,53 @@
         color: var(--gray);
         cursor: pointer;
         transition: var(--transition-fast);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .popup-close:hover {
-        background: rgba(0, 0, 0, 0.05);
         color: var(--dark);
     }
 
     .popup-header {
         margin-bottom: 2rem;
-        text-align: center;
     }
 
     .popup-header h3 {
         font-size: 2rem;
-        font-weight: 700;
         color: var(--dark);
         margin-bottom: 1rem;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 
     .popup-header p {
         color: var(--gray);
-        font-size: 1.1rem;
+        line-height: 1.6;
     }
 
-    .file-options {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+    .file-actions {
+        display: flex;
+        gap: 1rem;
         margin-top: 2rem;
+        flex-wrap: wrap;
     }
 
-    .file-option {
-        background: var(--light);
-        border: 2px dashed var(--primary-light);
+    .btn-download {
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
         border-radius: 12px;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        transition: var(--transition);
-        cursor: pointer;
-    }
-
-    .file-option:hover {
-        background: rgba(59, 130, 246, 0.05);
-        border-color: var(--primary);
-        transform: translateY(-5px);
-    }
-
-    .file-icon {
-        font-size: 2.5rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-    }
-
-    .file-option h4 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 600;
-        color: var(--dark);
-        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
-    .file-option p {
-        color: var(--gray);
-        font-size: 0.9rem;
+    .btn-download:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
     }
 
     /* Responsive design premium */
@@ -1019,8 +991,18 @@
             padding: 3rem;
         }
         
-        .partnerships-grid {
+        .partnership-container {
             grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        .partnership-content {
+            padding-right: 0;
+            text-align: center;
+        }
+        
+        .partnership-buttons {
+            justify-content: center;
         }
     }
 
@@ -1035,10 +1017,6 @@
             padding: 2rem 1rem;
         }
         
-        .hero-features {
-            grid-template-columns: 1fr;
-        }
-        
         .hero-stats {
             grid-template-columns: 1fr;
             gap: 1.5rem;
@@ -1050,8 +1028,7 @@
         
         .mission-card,
         .value-card,
-        .testimonial-card,
-        .partnership-card {
+        .testimonial-card {
             padding: 2rem;
         }
         
@@ -1084,6 +1061,15 @@
         .popup-content {
             padding: 2rem;
             margin: 1rem;
+        }
+        
+        .file-actions {
+            flex-direction: column;
+        }
+        
+        .btn-download {
+            width: 100%;
+            justify-content: center;
         }
     }
 
@@ -1137,8 +1123,13 @@
             font-size: 1.7rem;
         }
         
-        .file-options {
-            grid-template-columns: 1fr;
+        .partnership-buttons {
+            flex-direction: column;
+        }
+        
+        .btn-outline {
+            width: 100%;
+            justify-content: center;
         }
     }
 
@@ -1246,33 +1237,16 @@
             
             Partenaire stratégique des professionnels, nous transformons les surplus 
             en opportunités commerciales durables. Notre marketplace 100% digitale 
-            vous permet de commander 24h/24 depuis n'importe où en France.
+            vous permet de commander 24h/24 depuis n'importe où en France.<br>
+            
+            🚚 <strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong><br>
+            💰 <strong>Économies garanties jusqu'à 60%</strong> sur vos achats<br>
+            🏪 <strong>Aucun point de vente physique</strong> - Service entièrement digital<br>
+            🔒 <strong>Plateforme sécurisée</strong> avec traçabilité complète<br>
+            
+            <em>Optimisez votre rentabilité grâce à notre solution digitale exclusive 
+            déjà adoptée par 2 500 professionnels.</em>
         </p>
-        
-        <div class="hero-features animate-fade-in-up delay-300">
-            <div class="feature-item">
-                <i class="fas fa-truck"></i>
-                <span class="feature-text"><strong>Livraison express 48h</strong> ou <strong>standard 3-7 jours</strong></span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-euro-sign"></i>
-                <span class="feature-text"><strong>Économies garanties jusqu'à 60%</strong> sur vos achats</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-store-slash"></i>
-                <span class="feature-text"><strong>Aucun point de vente physique</strong> - Service entièrement digital</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-shield-alt"></i>
-                <span class="feature-text"><strong>Plateforme sécurisée</strong> avec traçabilité complète</span>
-            </div>
-        </div>
-        
-        <p class="hero-subtitle animate-fade-in-up delay-400">
-            Optimisez votre rentabilité grâce à notre solution digitale exclusive 
-            déjà adoptée par 2 500 professionnels.
-        </p>
-        
         <div class="hero-stats">
             <div class="stat-item animate-fade-in-up delay-300">
                 <div class="stat-number">1500+</div>
@@ -1368,44 +1342,6 @@
     </div>
 </section>
 
-<!-- Partnerships Section -->
-<section class="partnerships-section">
-    <div class="container">
-        <div class="section-header fade-in">
-            <h2 class="section-title">Nos Partenariats Exclusifs</h2>
-            <p class="section-subtitle">
-                Découvrez nos collaborations stratégiques qui renforcent notre écosystème
-            </p>
-        </div>
-
-        <div class="partnerships-grid">
-            <div class="partnership-card fade-in">
-                <div class="partnership-icon">
-                    <i class="fas fa-file-contract"></i>
-                </div>
-                <h3>Contrat Partenaire</h3>
-                <p>Accédez à notre modèle de partenariat exclusif. Téléchargez le contrat pour découvrir les avantages et modalités de notre collaboration stratégique.</p>
-                <button class="btn-secondary" onclick="openPopup('contrat')">
-                    <i class="fas fa-download"></i>
-                    Voir le contrat
-                </button>
-            </div>
-
-            <div class="partnership-card fade-in">
-                <div class="partnership-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3>Too Good To Go</h3>
-                <p>Découvrez notre partenariat avec Too Good To Go. Téléchargez la documentation pour en savoir plus sur notre collaboration contre le gaspillage alimentaire.</p>
-                <button class="btn-secondary" onclick="openPopup('tgtg')">
-                    <i class="fas fa-download"></i>
-                    Voir le partenariat
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Testimonials Section -->
 <section class="testimonials-section">
     <div class="container">
@@ -1459,7 +1395,58 @@
     </div>
 </section>
 
-<!-- Contact Section - Version Mobile Optimisée -->
+<!-- Partnership Section -->
+<section class="partnership-section">
+    <div class="container">
+        <div class="partnership-container">
+            <div class="partnership-content fade-in">
+                <h2>Partenariat Too Good To Go</h2>
+                <p>
+                    Nous sommes fiers d'être partenaire officiel de <strong>Too Good To Go</strong>, 
+                    l'application leader dans la lutte contre le gaspillage alimentaire. 
+                    Ensemble, nous donnons une seconde vie à des milliers de produits 
+                    chaque mois et contribuons activement à une économie plus circulaire.
+                </p>
+                
+                <div class="partnership-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Réduction du gaspillage alimentaire de plus de 40%</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Plus de 5000 paniers sauvés chaque mois</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Impact environnemental mesuré et certifié</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Communauté engagée de plus de 10 000 utilisateurs</span>
+                    </div>
+                </div>
+                
+                <div class="partnership-buttons">
+                    <button class="btn-outline" onclick="openPopup('contrat-popup')">
+                        <i class="fas fa-file-contract"></i>
+                        Voir le contrat
+                    </button>
+                    <button class="btn-outline" onclick="openPopup('details-popup')">
+                        <i class="fas fa-info-circle"></i>
+                        Détails du partenariat
+                    </button>
+                </div>
+            </div>
+            
+            <div class="partnership-visual fade-in">
+                <img src="{{ url_for('static', filename='images/tgtg-partnership.jpg') }}" alt="Partenariat Too Good To Go">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
 <section class="contact-form-section">
     <div class="container">
         <div class="contact-container">
@@ -1506,15 +1493,6 @@
                 <h3>Coordonnées Stratégiques</h3>
                 <div class="contact-info">
                     <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>
-                            <strong>Siège Social :</strong>
-                            123 Avenue de l'Innovation<br>
-                            75001 Paris, France
-                        </p>
-                    </div>
-
-                    <div class="info-item">
                         <i class="fas fa-warehouse"></i>
                         <p>
                             <strong>Hub Logistique Principal :</strong>
@@ -1558,7 +1536,7 @@
     </div>
 </section>
 
-<!-- Warehouse Video Section - Version Mobile Optimisée -->
+<!-- Warehouse Video Section -->
 <section class="warehouse-video-section">
     <div class="container">
         <div class="video-container">
@@ -1588,18 +1566,73 @@
     </div>
 </section>
 
-<!-- Popup pour les fichiers -->
-<div class="popup-overlay" id="filePopup">
+<!-- Popup Contrat Partenaire -->
+<div class="popup-overlay" id="contrat-popup">
     <div class="popup-content">
-        <button class="popup-close" onclick="closePopup()">
+        <button class="popup-close" onclick="closePopup('contrat-popup')">
             <i class="fas fa-times"></i>
         </button>
         <div class="popup-header">
-            <h3 id="popupTitle">Télécharger le fichier</h3>
-            <p id="popupDescription">Sélectionnez le format souhaité pour télécharger le document</p>
+            <h3>Contrat de Partenariat Too Good To Go</h3>
+            <p>Document officiel de notre partenariat stratégique avec Too Good To Go</p>
         </div>
-        <div class="file-options" id="fileOptions">
-            <!-- Les options de fichiers seront insérées ici dynamiquement -->
+        <div class="popup-body">
+            <p>Ce contrat officialise notre collaboration avec Too Good To Go dans le cadre de la lutte contre le gaspillage alimentaire.</p>
+            
+            <h4>Principales clauses :</h4>
+            <ul>
+                <li>Engagement mutuel pour la réduction du gaspillage alimentaire</li>
+                <li>Processus de collecte et redistribution des invendus</li>
+                <li>Obligations de qualité et de traçabilité</li>
+                <li>Modalités de communication et de reporting</li>
+                <li>Durée et conditions de renouvellement</li>
+            </ul>
+            
+            <div class="file-actions">
+                <a href="{{ url_for('static', filename='documents/contrat-tgtg.pdf') }}" class="btn-download" download>
+                    <i class="fas fa-download"></i>
+                    Télécharger le PDF
+                </a>
+                <a href="{{ url_for('static', filename='documents/contrat-tgtg.docx') }}" class="btn-download" download>
+                    <i class="fas fa-download"></i>
+                    Version Word
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popup Détails Partenariat -->
+<div class="popup-overlay" id="details-popup">
+    <div class="popup-content">
+        <button class="popup-close" onclick="closePopup('details-popup')">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="popup-header">
+            <h3>Détails du Partenariat Too Good To Go</h3>
+            <p>Informations complètes sur notre collaboration</p>
+        </div>
+        <div class="popup-body">
+            <h4>Notre engagement commun :</h4>
+            <p>Depuis 2022, nous travaillons main dans la main avec Too Good To Go pour donner une seconde vie aux produits alimentaires invendus.</p>
+            
+            <h4>Chiffres clés :</h4>
+            <ul>
+                <li>Plus de 15 tonnes de produits sauvés chaque mois</li>
+                <li>Réduction de 45% du gaspillage alimentaire</li>
+                <li>5000+ paniers Too Good To Go distribués</li>
+                <li>Économie de 120 tonnes de CO₂ par an</li>
+            </ul>
+            
+            <h4>Processus de collaboration :</h4>
+            <p>Notre système intégré permet une collecte optimale des invendus et leur redistribution via l'application Too Good To Go en moins de 24h.</p>
+            
+            <div class="file-actions">
+                <a href="{{ url_for('static', filename='documents/details-partenariat.pdf') }}" class="btn-download" download>
+                    <i class="fas fa-download"></i>
+                    Télécharger les détails
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -1775,87 +1808,38 @@
         });
     }
 
-    // Gestion des popups pour les fichiers
-    function openPopup(type) {
-        const popup = document.getElementById('filePopup');
-        const title = document.getElementById('popupTitle');
-        const description = document.getElementById('popupDescription');
-        const fileOptions = document.getElementById('fileOptions');
-        
-        // Configuration selon le type de fichier
-        if (type === 'contrat') {
-            title.textContent = 'Contrat Partenaire';
-            description.textContent = 'Téléchargez notre contrat de partenariat pour découvrir les modalités de collaboration';
-            fileOptions.innerHTML = `
-                <div class="file-option" onclick="downloadFile('contrat-partenariat.pdf')">
-                    <div class="file-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <h4>Version PDF</h4>
-                    <p>Format standard pour consultation</p>
-                </div>
-                <div class="file-option" onclick="downloadFile('contrat-partenariat.docx')">
-                    <div class="file-icon">
-                        <i class="fas fa-file-word"></i>
-                    </div>
-                    <h4>Version Word</h4>
-                    <p>Format modifiable pour personnalisation</p>
-                </div>
-            `;
-        } else if (type === 'tgtg') {
-            title.textContent = 'Too Good To Go - Partenariat';
-            description.textContent = 'Découvrez notre collaboration avec Too Good To Go contre le gaspillage alimentaire';
-            fileOptions.innerHTML = `
-                <div class="file-option" onclick="downloadFile('partenariat-tgtg.pdf')">
-                    <div class="file-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <h4>Présentation PDF</h4>
-                    <p>Document complet sur notre partenariat</p>
-                </div>
-                <div class="file-option" onclick="downloadFile('chiffres-tgtg.pdf')">
-                    <div class="file-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h4>Chiffres Clés</h4>
-                    <p>Résultats et impact de notre collaboration</p>
-                </div>
-            `;
+    // Fonctions pour gérer les popups
+    function openPopup(popupId) {
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Empêche le scroll
         }
-        
-        // Afficher le popup
-        popup.classList.add('active');
-        document.body.style.overflow = 'hidden';
     }
 
-    function closePopup() {
-        const popup = document.getElementById('filePopup');
-        popup.classList.remove('active');
-        document.body.style.overflow = '';
+    function closePopup(popupId) {
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.classList.remove('active');
+            document.body.style.overflow = ''; // Rétablit le scroll
+        }
     }
 
-    function downloadFile(filename) {
-        // Simulation de téléchargement
-        alert(`Téléchargement du fichier: ${filename}\n\nCette fonctionnalité serait connectée à votre système de fichiers en production.`);
-        
-        // En production, vous utiliseriez quelque chose comme:
-        // window.location.href = '/download/' + filename;
-        
-        // Fermer le popup après le téléchargement
-        closePopup();
-    }
-
-    // Fermer le popup en cliquant à l'extérieur
-    document.getElementById('filePopup').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePopup();
+    // Fermer les popups en cliquant à l'extérieur
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('popup-overlay')) {
+            e.target.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 
-    // Fermer le popup avec la touche Échap
+    // Fermer les popups avec la touche Échap
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            closePopup();
+            document.querySelectorAll('.popup-overlay').forEach(popup => {
+                popup.classList.remove('active');
+            });
+            document.body.style.overflow = '';
         }
     });
 </script>
