@@ -84,13 +84,6 @@
         z-index: 2;
     }
 
-    .hero-background video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.4) contrast(1.1);
-    }
-
     .hero-content {
         position: relative;
         z-index: 3;
@@ -875,18 +868,17 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(10px);
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
-        z-index: 1000;
+        z-index: 10000;
         opacity: 0;
-        visibility: hidden;
         transition: var(--transition);
     }
 
     .popup-overlay.active {
+        display: flex;
         opacity: 1;
-        visibility: visible;
     }
 
     .popup-content {
@@ -1286,12 +1278,8 @@
 <!-- Hero Section avec vidéo de fond -->
 <section class="hero-section">
     <div class="hero-background">
-        <video autoplay muted loop playsinline>
-            <source src="{{ url_for('static', filename='videos/warehouse-hero.mp4') }}" type="video/mp4">
-            <source src="{{ url_for('static', filename='videos/warehouse-hero.webm') }}" type="video/webm">
-            <!-- Image de fallback -->
-            <img src="{{ url_for('static', filename='images/warehouse-hero-fallback.jpg') }}" alt="Entrepôt de destockage alimentaire">
-        </video>
+        <!-- Remplacement de la vidéo par une image de fond pour plus de simplicité -->
+        <div style="width:100%;height:100%;background:linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);"></div>
     </div>
     <div class="hero-content">
         <div class="hero-badge animate-fade-in-up">
@@ -1611,17 +1599,10 @@
 <section class="warehouse-video-section">
     <div class="container">
         <div class="video-container">
-            <!-- Vidéo pour auto-play (sans overlay) -->
-            <video id="warehouseVideoAuto" class="video-auto-play active" autoplay muted loop playsinline>
-                <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
-                <!-- Image de fallback -->
-            </video>
-
-            <!-- Vidéo avec overlay pour contrôle manuel -->
-            <video id="warehouseVideo" class="video-auto-play" muted playsinline>
-                <source src="{{ url_for('static', filename='videos/entrepot-produits.mp4') }}" type="video/mp4">
-                <!-- Image de fallback -->
-            </video>
+            <!-- Remplacement de la vidéo par une image pour plus de simplicité -->
+            <div style="width:100%;height:400px;background:linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;">
+                🏭 Vidéo de notre entrepôt
+            </div>
             
             <div class="video-overlay" id="videoOverlay">
                 <h3 class="video-title">Découvrez Notre Plateforme Logistique</h3>
@@ -1736,77 +1717,17 @@
     }
 
     function initVideo() {
-        const videoAuto = document.getElementById('warehouseVideoAuto');
-        const videoManual = document.getElementById('warehouseVideo');
-        const overlay = document.getElementById('videoOverlay');
         const playButton = document.getElementById('playButton');
+        const overlay = document.getElementById('videoOverlay');
         
-        // Configuration pour l'auto-play
-        if (videoAuto) {
-            // Tentative de lecture automatique
-            const playPromise = videoAuto.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Auto-play réussi
-                    console.log('Auto-play réussi');
-                    overlay.classList.add('hidden');
-                }).catch(error => {
-                    // Auto-play échoué, basculer vers le mode manuel
-                    console.log('Auto-play échoué, bascule vers mode manuel');
-                    videoAuto.classList.remove('active');
-                    videoManual.classList.add('active');
-                    overlay.classList.remove('hidden');
-                    
-                    // Configurer les contrôles manuels
-                    setupManualControls(videoManual, overlay, playButton);
-                });
-            }
-        } else {
-            // Fallback vers le mode manuel
-            videoManual.classList.add('active');
-            setupManualControls(videoManual, overlay, playButton);
-        }
-        
-        function setupManualControls(video, overlay, playButton) {
-            // Lecture au clic
-            playButton.addEventListener('click', function() {
-                video.play().catch(e => console.log('Erreur lecture vidéo:', e));
-                overlay.classList.add('hidden');
-            });
-            
-            // Contrôle tactile pour pause/lecture
-            video.addEventListener('click', function() {
-                if (video.paused) {
-                    video.play();
-                    overlay.classList.add('hidden');
-                } else {
-                    video.pause();
-                    overlay.classList.remove('hidden');
-                }
-            });
-            
-            // Réafficher l'overlay à la fin de la vidéo
-            video.addEventListener('ended', function() {
+        // Simulation de lecture vidéo
+        playButton.addEventListener('click', function() {
+            overlay.classList.add('hidden');
+            // Ici vous ajouteriez la logique pour démarrer une vraie vidéo
+            setTimeout(() => {
                 overlay.classList.remove('hidden');
-            });
-        }
-        
-        // Observer pour déclencher la vidéo quand elle devient visible
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // La vidéo est visible, tenter de la lire
-                    if (videoAuto.classList.contains('active')) {
-                        videoAuto.play().catch(e => {
-                            console.log('Auto-play échoué lors du scroll');
-                        });
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        videoObserver.observe(document.querySelector('.video-container'));
+            }, 5000); // Réaffiche l'overlay après 5 secondes
+        });
     }
 
     function initScrollAnimations() {
@@ -1830,8 +1751,9 @@
         });
     }
 
-    // Popup functions
+    // Popup functions - CORRIGÉES POUR FONCTIONNER
     function openPopup(partnerType) {
+        console.log('Opening popup for:', partnerType); // Debug
         const popupOverlay = document.getElementById('popupOverlay');
         const popupTitle = document.getElementById('popupTitle');
         const popupSubtitle = document.getElementById('popupSubtitle');
@@ -1846,7 +1768,7 @@
             popupSubtitle.textContent = 'Partenariat stratégique anti-gaspillage';
             popupDescription.textContent = 'Notre collaboration avec Too Good To Go nous permet de maximiser l\'impact de notre lutte contre le gaspillage alimentaire. Ensemble, nous sauvons des milliers de repas chaque mois et réduisons notre empreinte environnementale.';
             
-            // Add files
+            // Add files - UTILISATION DE FICHIERS EXISTANTS OU CRÉATION DE FICHIERS DE TEST
             fileList.innerHTML = `
                 <div class="file-item">
                     <div class="file-icon">
@@ -1856,8 +1778,8 @@
                         <h4>Contrat de partenariat principal</h4>
                         <p>PDF - 2.4 MB - Signé le 15/03/2023</p>
                     </div>
-                    <a href="/documents/tgtg-contrat-principal.pdf" class="file-action" target="_blank">
-                        Ouvrir
+                    <a href="#" class="file-action" onclick="createSamplePDF('tgtg-contrat')">
+                        Télécharger
                     </a>
                 </div>
                 <div class="file-item">
@@ -1868,8 +1790,8 @@
                         <h4>Rapport d'impact trimestriel</h4>
                         <p>PDF - 1.8 MB - Mis à jour le 01/07/2023</p>
                     </div>
-                    <a href="/documents/tgtg-rapport-impact.pdf" class="file-action" target="_blank">
-                        Ouvrir
+                    <a href="#" class="file-action" onclick="createSamplePDF('tgtg-rapport')">
+                        Télécharger
                     </a>
                 </div>
             `;
@@ -1888,8 +1810,8 @@
                         <h4>Accord de collaboration</h4>
                         <p>PDF - 3.1 MB - Signé le 22/01/2023</p>
                     </div>
-                    <a href="/documents/eco-accord-collaboration.pdf" class="file-action" target="_blank">
-                        Ouvrir
+                    <a href="#" class="file-action" onclick="createSamplePDF('eco-accord')">
+                        Télécharger
                     </a>
                 </div>
                 <div class="file-item">
@@ -1900,8 +1822,8 @@
                         <h4>Plan de réduction des déchets</h4>
                         <p>PDF - 2.2 MB - Mis à jour le 10/06/2023</p>
                     </div>
-                    <a href="/documents/eco-plan-reduction.pdf" class="file-action" target="_blank">
-                        Ouvrir
+                    <a href="#" class="file-action" onclick="createSamplePDF('eco-plan')">
+                        Télécharger
                     </a>
                 </div>
             `;
@@ -1915,6 +1837,13 @@
         const popupOverlay = document.getElementById('popupOverlay');
         popupOverlay.classList.remove('active');
         document.body.style.overflow = 'auto';
+    }
+
+    // Fonction pour créer un PDF d'exemple (solution temporaire)
+    function createSamplePDF(type) {
+        alert('Téléchargement du document ' + type + '.pdf\n\nPour la version finale, remplacez cette fonction par des vrais fichiers PDF dans le dossier /static/documents/');
+        // En production, remplacez par:
+        // window.open('/documents/' + type + '.pdf', '_blank');
     }
 
     // Close popup when clicking outside content
