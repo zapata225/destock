@@ -2421,222 +2421,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-       <!-- NOUVEAU MENU MOBILE - À COLLER -->
-<nav class="mobile-nav-premium">
-    <!-- Container avec barre de défilement -->
-    <div class="mobile-nav-scroll-container">
-        <!-- Navigation principale -->
-        <a href="/" class="mobile-nav-item active">
-            <i class="fas fa-home"></i>
-            <span>Accueil</span>
-        </a>
-        <a href="/produits" class="mobile-nav-item">
-            <i class="fas fa-pallet"></i>
-            <span>Nos Packs</span>
-        </a>
-        <a href="/produits?category=Promotions" class="mobile-nav-item hot">
-            <i class="fas fa-fire"></i>
-            <span>-70% Flash</span>
-            <span class="badge-premium">🔥</span>
-        </a>
-    
-        <a href="/recrutement" class="mobile-nav-item">
-            <i class="fas fa-user-plus"></i>
-            <span>Recrutement</span>
-        </a>
+        <!-- NOUVEAU MENU MOBILE - À COLLER -->
+        <nav class="mobile-nav-premium">
+            <!-- Navigation principale -->
+            <a href="/" class="mobile-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="/produits" class="mobile-nav-item">
+                <i class="fas fa-pallet"></i>
+                <span>Nos Packs</span>
+            </a>
+            <a href="/produits?category=Promotions" class="mobile-nav-item hot">
+                <i class="fas fa-fire"></i>
+                <span>-70% Flash</span>
+                <span class="badge-premium">🔥</span>
+            </a>
         
-        <a href="/contact" class="mobile-nav-item">
-            <i class="fas fa-headset"></i>
-            <span>Contact</span>
-        </a>
-        
-        <div class="mobile-divider"></div>
-        
-        <!-- Section auth fixe en bas -->
-        <div class="mobile-auth-section">
-            {% if session.logged_in %}
-                <!-- Utilisateur connecté -->
-                <a href="/compte" class="mobile-nav-item auth-item">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Mon compte</span>
-                </a>
-                <a href="/deconnexion" class="mobile-nav-item auth-item logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Déconnexion</span>
-                </a>
-            {% else %}
-                <!-- Utilisateur non connecté -->
-                <a href="/connexion" class="mobile-nav-item auth-item">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Connexion</span>
-                </a>
-                <a href="/inscription" class="mobile-nav-item auth-item">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Inscription</span>
-                </a>
-            {% endif %}
-        </div>
-    </div>
-</nav>
-
-<style>
-.mobile-nav-premium {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-    padding: 0.5rem 0;
-}
-
-.mobile-nav-scroll-container {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-    padding: 0 1rem;
-    gap: 0.5rem;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling iOS */
-}
-
-.mobile-nav-scroll-container::-webkit-scrollbar {
-    height: 4px;
-}
-
-.mobile-nav-scroll-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.mobile-nav-scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-}
-
-.mobile-nav-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.mobile-nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    min-width: 70px;
-    flex-shrink: 0;
-    position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-nav-item i {
-    font-size: 1.2rem;
-    margin-bottom: 0.25rem;
-}
-
-.mobile-nav-item span {
-    font-size: 0.75rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.mobile-nav-item.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.mobile-nav-item.hot {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    border-color: rgba(245, 158, 11, 0.3);
-}
-
-.mobile-nav-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.badge-premium {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: #ef4444;
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.mobile-divider {
-    width: 1px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 0.5rem 0.25rem;
-    flex-shrink: 0;
-}
-
-.mobile-auth-section {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.auth-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.auth-item.logout {
-    background: rgba(239, 68, 68, 0.2);
-    border-color: rgba(239, 68, 68, 0.3);
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    .mobile-nav-scroll-container {
-        padding: 0 0.5rem;
-        gap: 0.25rem;
-    }
-    
-    .mobile-nav-item {
-        padding: 0.6rem 0.8rem;
-        min-width: 65px;
-    }
-    
-    .mobile-nav-item i {
-        font-size: 1.1rem;
-    }
-    
-    .mobile-nav-item span {
-        font-size: 0.7rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .mobile-nav-item {
-        padding: 0.5rem 0.6rem;
-        min-width: 60px;
-    }
-    
-    .mobile-nav-item span {
-        font-size: 0.65rem;
-    }
-}
-</style>
+            <a href="/recrutement" class="mobile-nav-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Recrutement</span>
+            </a>
+            
+            <a href="/contact" class="mobile-nav-item">
+                <i class="fas fa-headset"></i>
+                <span>Contact</span>
+            </a>
+            
+            <div class="mobile-divider"></div>
+            
+            <!-- Section auth fixe en bas -->
+            <div class="mobile-auth-section">
+                {% if session.logged_in %}
+                    <!-- Utilisateur connecté -->
+                    <a href="/compte" class="mobile-nav-item auth-item">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Mon compte</span>
+                    </a>
+                    <a href="/deconnexion" class="mobile-nav-item auth-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                {% else %}
+                    <!-- Utilisateur non connecté -->
+                    <a href="/connexion" class="mobile-nav-item auth-item">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Connexion</span>
+                    </a>
+                    <a href="/inscription" class="mobile-nav-item auth-item">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Inscription</span>
+                    </a>
+                {% endif %}
+            </div>
+        </nav>
         
     </div>
 
