@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis - Production 23</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 30px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 80px;
+            color: rgba(0, 0, 0, 0.03);
+            font-weight: 800;
+            z-index: 0;
+            white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .header {
+            background: #1a2a3a;
+            color: white;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .logo-section {
+            flex: 1;
+        }
+        
+        .company-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+        
+        .company-tagline {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+        
+        .company-details {
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+        
+        .document-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .document-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .document-number {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .client-info, .company-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .info-block {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+        
+        .info-block h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .info-block p {
+            margin-bottom: 6px;
+            padding-left: 16px;
+            font-size: 14px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 14px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        .total-row {
+            font-weight: 700;
+            background-color: #f8f9fa;
+        }
+        
+        .total-row td {
+            border-top: 2px solid #e0e0e0;
+            border-bottom: none;
+        }
+        
+        .grand-total {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .grand-total td {
+            border: none;
+            font-size: 16px;
+        }
+        
+        .price-breakdown {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        .price-breakdown p {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .terms {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 14px;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .terms h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        .terms ul {
+            padding-left: 20px;
+        }
+        
+        .terms li {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #f8f9fa;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .signature-area {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .signature-box {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #2c3e50;
+            margin-top: 70px;
+            padding-top: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .bank-info {
+            background: #e8f4ff;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .bank-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 25px auto;
+            padding: 14px 30px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .print-btn:hover {
+            background: #1a2a3a;
+        }
+        
+        .product-details {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .vat-mention {
+            font-size: 12px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .devis-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .delivery-info {
+            background: #f0f8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .delivery-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .international-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 4px solid #fdcb6e;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        .validity {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .print-btn {
+                display: none;
+            }
+            
+            .watermark {
+                opacity: 0.1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="watermark">DEVIS</div>
+        
+        <div class="header">
+            <div class="devis-badge">DEVIS N° D-2025-P23-156</div>
+            
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="company-name">DESTOCKAGE ALIMENTAIRE STORE</div>
+                    <div class="company-tagline">Votre partenaire de confiance en destockage alimentaire</div>
+                    <div class="company-details">
+                        <i class="fas fa-map-marker-alt"></i> 87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France<br>
+                        <i class="fas fa-warehouse"></i> Entrepôt logistique : 4 Allée de la Tourelle 13127 Vitrolles, France<br>
+                        <i class="fas fa-phone"></i> Tél: 0644694515 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr<br>
+                        <i class="fas fa-id-card"></i> SIRET: 90057360100011 | TVA Intracom: FR88900573601
+                    </div>
+                </div>
+                
+                <div class="document-info">
+                    <div class="document-title">DEVIS PROFESSIONNEL</div>
+                    <div class="document-number">N° D-2025-P23-156</div>
+                    <div style="margin-top: 10px;">Date: <span id="current-date"></span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">INFORMATIONS CLIENT</h2>
+                <div class="client-info">
+                    <div class="info-block">
+                        <h3>Client (Facturation)</h3>
+                        <p><strong>PRODUCTION 23</strong></p>
+                        <p>3 rue de Wingen</p>
+                        <p>67510 Lembach</p>
+                        <p>France</p>
+                        <p><i class="fas fa-phone"></i> Tél: +33781235611</p>
+                        <p><i class="fas fa-id-card"></i> SIRET: 81107123200029</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>Adresse de Livraison</h3>
+                        <p><strong>LIVRAISON INTERNATIONALE</strong></p>
+                        <p>Zurich</p>
+                        <p>Suisse</p>
+                        <p><i class="fas fa-globe-europe"></i> Destination: Export Suisse</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="validity">
+                <h3><i class="fas fa-calendar-alt"></i> VALIDITÉ DU DEVIS</h3>
+                <p><strong>Date d'émission:</strong> <span id="current-date2"></span></p>
+                <p><strong>Validité:</strong> 30 jours à compter de la date d'émission</p>
+                <p><strong>DLC des produits:</strong> Juillet à Août 2026</p>
+            </div>
+            
+            <div class="delivery-info">
+                <h3><i class="fas fa-truck"></i> INFORMATIONS DE LIVRAISON</h3>
+                <p><strong>Date de livraison prévue:</strong> Sous 15 jours ouvrés après confirmation</p>
+                <p><strong>Mode de livraison:</strong> 4 camions complets (3 Red Bull + 1 Coca-Cola)</p>
+                <p><strong>Volume total:</strong> 66 palettes - 171 072 canettes</p>
+                <p><strong>Poids total estimé:</strong> ~28 tonnes</p>
+            </div>
+            
+            <div class="international-note">
+                <h3><i class="fas fa-info-circle"></i> NOTE IMPORTANTE - EXPORT SUISSE</h3>
+                <p>Ce devis concerne une exportation vers la Suisse. Les prix sont indiqués hors taxes conformément 
+                à la réglementation sur l'exportation. La TVA suisse (8%) et les droits de douane éventuels 
+                sont à la charge du destinataire.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">DÉTAILS DE LA COMMANDE</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Désignation</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire HT (€)</th>
+                            <th>Montant HT (€)</th>
+                            <th>EAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RB-250ML-90162809</td>
+                            <td>
+                                <strong>Red Bull Energy Drink 250ml - Palette</strong>
+                                <div class="product-details">
+                                    54 cartons × 24 canettes = 1 296 canettes/palette<br>
+                                    DLC: Juillet 2026 - Boisson énergisante originale
+                                </div>
+                            </td>
+                            <td>54 palettes<br>(69 984 canettes)</td>
+                            <td>1 432,80 €</td>
+                            <td>77 371,20 €</td>
+                            <td>90162809</td>
+                        </tr>
+                        <tr>
+                            <td>CC-33CL-5449000000996</td>
+                            <td>
+                                <strong>Coca-Cola Original 33cl - Palette</strong>
+                                <div class="product-details">
+                                    54 cartons × 24 canettes = 1 296 canettes/palette<br>
+                                    DLC: Août 2026 - Soda original
+                                </div>
+                            </td>
+                            <td>12 palettes<br>(15 552 canettes)</td>
+                            <td>1 396,00 €</td>
+                            <td>16 752,00 €</td>
+                            <td>5449000000996</td>
+                        </tr>
+                        <tr>
+                            <td>TRSP-CH-ZRH</td>
+                            <td>
+                                <strong>Transport international Zurich (4 camions)</strong>
+                                <div class="product-details">
+                                    Camion frigorifique 33 palettes × 2 = 66 palettes<br>
+                                    Formalités douanières incluses - Livraison à quai
+                                </div>
+                            </td>
+                            <td>4 camions</td>
+                            <td>950,00 €</td>
+                            <td>3 800,00 €</td>
+                            <td>-</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="4" style="text-align: right;"><strong>SOUS-TOTAL HT</strong></td>
+                            <td colspan="2"><strong>97 923,20 €</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right;">Exonération TVA (Export Suisse)</td>
+                            <td colspan="2">0,00 €</td>
+                        </tr>
+                        <tr class="grand-total">
+                            <td colspan="4" style="text-align: right;"><strong>TOTAL À FACTURER HT</strong></td>
+                            <td colspan="2"><strong>97 923,20 €</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right; font-size: 12px; color: #666;">
+                                Estimation TVA suisse (8%) à la charge du client
+                            </td>
+                            <td colspan="2" style="font-size: 12px; color: #666;">~7 833,86 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="price-breakdown">
+                    <p><strong>Récapitulatif détaillé :</strong></p>
+                    <p>Red Bull 250ml (54 palettes) : <span style="float: right;">69 984 canettes = 77 371,20 € HT</span></p>
+                    <p>Coca-Cola 33cl (12 palettes) : <span style="float: right;">15 552 canettes = 16 752,00 € HT</span></p>
+                    <p>Transport international (4 camions) : <span style="float: right;">3 800,00 € HT</span></p>
+                    <p style="font-weight: 600; border-top: 1px solid #ddd; padding-top: 8px;">Total général HT : <span style="float: right;">97 923,20 €</span></p>
+                    <p style="color: #27ae60; font-size: 13px;">Exonération TVA française (export) : <span style="float: right;">0,00 €</span></p>
+                    <p style="color: #e74c3c; font-size: 13px;">TVA suisse estimée (8%) : <span style="float: right;">~7 833,86 € (à votre charge)</span></p>
+                    <p style="font-weight: 600; color: #2c3e50; border-top: 1px solid #ddd; padding-top: 8px;">
+                        Montant total à régler : <span style="float: right;">97 923,20 € HT</span>
+                    </p>
+                </div>
+                
+                <div class="international-note">
+                    <p><strong>Calcul des volumes:</strong> 
+                    • 1 palette Red Bull/Coca = 1 296 canettes<br>
+                    • 1 camion = 33 palettes<br>
+                    • 3 camions Red Bull = 99 palettes (réduits à 54 pour correspondre au stock)<br>
+                    • 1 camion Coca-Cola = 33 palettes (réduit à 12 pour correspondre au stock)<br>
+                    • Total: 66 palettes = 171 072 canettes</p>
+                </div>
+            </div>
+            
+            <div class="bank-info">
+                <h3><i class="fas fa-university"></i> INFORMATIONS BANCAIRES</h3>
+                <p><strong>Bénéficiaire:</strong> DESTOCKAGE ALIMENTAIRE STORE</p>
+                <p><strong>IBAN:</strong> FR76 3000 4000 0100 0000 0000 123</p>
+                <p><strong>BIC:</strong> BNPAFRPPXXX</p>
+                <p><strong>Référence:</strong> D-2025-P23-156</p>
+                <p><strong>Devise:</strong> EUR (Euros)</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">CONDITIONS COMMERCIALES</h2>
+                <div class="terms">
+                    <h3>Modalités de paiement</h3>
+                    <ul>
+                        <li>Paiement par virement bancaire</li>
+                        <li>30% à la commande</li>
+                        <li>70% à la livraison sous 30 jours fin de mois</li>
+                    </ul>
+                
+                    <h3>Caractéristiques des produits</h3>
+                    <ul>
+                        <li><strong>Red Bull 250ml:</strong> DLC Juillet 2026 - 54 palettes disponibles</li>
+                        <li><strong>Coca-Cola 33cl:</strong> DLC Août 2026 - 12 palettes disponibles</li>
+                        <li>Produits destinés à la revente en Suisse</li>
+                        <li>Conditionnement professionnel palette entière</li>
+                    </ul>
+
+                    <h3>Conditions de livraison</h3>
+                    <ul>
+                        <li>Livraison à quai à Zurich, déchargement par le client</li>
+                        <li>Délai de livraison: 15 jours ouvrés après confirmation</li>
+                        <li>Transport frigorifique inclus</li>
+                        <li>Formalités douanières d'exportation incluses</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="signature-area">
+                <div class="signature-box">
+                    <p>Bon pour accord du client</p>
+                    <div style="height: 100px; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="border-bottom: 1px solid #2c3e50; width: 200px;"></div>
+                    </div>
+                    <div class="signature-line">Date et signature</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                        PRODUCTION 23<br>
+                        Représenté par le responsable
+                    </div>
+                </div>
+                <div class="signature-box">
+                    <p>Pour accord du fournisseur</p>
+                    <div style="height: 100px; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="border-bottom: 1px solid #2c3e50; width: 200px;"></div>
+                    </div>
+                    <div class="signature-line">Date et signature</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                        DESTOCKAGE ALIMENTAIRE STORE<br>
+                        Représenté par le gérant
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="terms">
+                    <h3>Mentions légales et réglementaires</h3>
+                    <ul>
+                        <li>Ce devis est établi à titre prévisionnel et n'a pas de valeur contractuelle</li>
+                        <li>La commande ferme fera l'objet d'un bon de commande séparé</li>
+                        <li>Conformément à la réglementation sur l'exportation, la TVA française n'est pas applicable</li>
+                        <li>Les produits sont destinés exclusivement à la revente en Suisse</li>
+                        <li>En cas de litige, le Tribunal de Commerce de Libourne sera seul compétent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Destockage Alimentaire Store - SAS au capital de 50 000,00 € - RCS Libourne 900 573 601</p>
+            <p>87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France - contact@destockagealimentaire.fr - 0644694515</p>
+        </div>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> Imprimer ce devis
+    </button>
+
+    <script>
+        // Ajout automatique de la date du jour
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const dateString = today.toLocaleDateString('fr-FR', options);
+            
+            // Mettre à jour les dates dans le document
+            document.getElementById('current-date').textContent = dateString;
+            document.getElementById('current-date2').textContent = dateString;
+        });
+    </script>
+</body>
+</html>
