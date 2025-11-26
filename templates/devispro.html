@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture Proforma Solde - DESTOCKAGE ALIMENTAIRE STORE</title>
+    <title>Facture Proforma - DESTOCKAGE ALIMENTAIRE STORE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2e7d32;
             --primary-dark: #1b5e20;
-            --secondary: #2196f3;
+            --secondary: #ff9800;
             --dark: #263238;
             --light: #f8f9fa;
             --gray: #607d8b;
             --success: #4caf50;
             --border: #e0e0e0;
-            --payment-bg: #e8f5e9;
-            --payment-border: #4caf50;
+            --payment-bg: #fff8e1;
+            --payment-border: #ffd54f;
+            --paid-color: #4caf50;
+            --remaining-color: #ff5722;
         }
         
         * {
@@ -30,22 +32,21 @@
             background: white;
             color: var(--dark);
             line-height: 1.4;
-            padding: 20px;
+            padding: 15px;
             font-size: 12px;
         }
         
         .invoice-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: white;
             border: 1px solid #ddd;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .invoice-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 20px 25px;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -54,7 +55,7 @@
         .company-info h1 {
             font-size: 22px;
             font-weight: 800;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         
         .company-tagline {
@@ -85,7 +86,7 @@
         
         .invoice-number {
             font-size: 16px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             background: rgba(255, 255, 255, 0.15);
             padding: 5px 12px;
             border-radius: 50px;
@@ -97,28 +98,17 @@
             font-weight: 600;
         }
         
-        .solde-badge {
-            background: #2196f3;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 8px;
-            display: inline-block;
-        }
-        
         .address-section {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            padding: 20px 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 25px 30px;
             background-color: var(--light);
         }
         
         .address-box {
             background: white;
-            padding: 15px;
+            padding: 18px;
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
             border-left: 3px solid var(--primary);
@@ -126,8 +116,8 @@
         
         .address-box h3 {
             color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 14px;
+            margin-bottom: 12px;
+            font-size: 15px;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -135,18 +125,122 @@
         }
         
         .address-box h3 i {
-            font-size: 14px;
+            font-size: 16px;
         }
         
         .address-details p {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             display: flex;
             font-size: 11px;
         }
         
         .address-details strong {
-            min-width: 100px;
+            min-width: 110px;
             color: var(--gray);
+        }
+        
+        .payment-info {
+            background: var(--payment-bg);
+            padding: 20px 30px;
+            border-top: 2px solid var(--payment-border);
+            border-bottom: 2px solid var(--payment-border);
+            margin: 0;
+        }
+        
+        .payment-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .payment-info h3 i {
+            color: var(--secondary);
+        }
+        
+        .payment-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .payment-item {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--payment-border);
+        }
+        
+        .payment-item h4 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--payment-border);
+        }
+        
+        .payment-item h4 i {
+            color: var(--secondary);
+        }
+        
+        .payment-item p {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        
+        .payment-item strong {
+            color: var(--primary-dark);
+            min-width: 120px;
+            display: inline-block;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, var(--secondary), #ffb300);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 11px;
+        }
+        
+        .paid-highlight {
+            background: linear-gradient(135deg, var(--paid-color), #66bb6a);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 11px;
+        }
+        
+        .remaining-highlight {
+            background: linear-gradient(135deg, var(--remaining-color), #ff8a65);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 11px;
+        }
+        
+        .bank-info {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 8px;
+            border-left: 3px solid var(--primary);
         }
         
         .products-section {
@@ -186,97 +280,15 @@
             text-align: center;
         }
         
-        .payment-info {
-            background: var(--payment-bg);
-            padding: 20px 25px;
-            border-top: 2px solid var(--payment-border);
-            border-bottom: 2px solid var(--payment-border);
-            margin: 0;
-        }
-        
-        .payment-info h3 {
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .payment-info h3 i {
-            color: var(--secondary);
-        }
-        
-        .payment-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .payment-item {
-            background: white;
-            padding: 18px;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--payment-border);
-        }
-        
-        .payment-item h4 {
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            font-size: 14px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--payment-border);
-        }
-        
-        .payment-item h4 i {
-            color: var(--secondary);
-        }
-        
-        .payment-item p {
-            margin-bottom: 8px;
-            font-size: 11px;
-        }
-        
-        .payment-item strong {
-            color: var(--primary-dark);
-            min-width: 110px;
-            display: inline-block;
-        }
-        
-        .highlight {
-            background: linear-gradient(135deg, var(--secondary), #1976d2);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 3px;
-            font-size: 11px;
-        }
-        
-        .bank-info {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            padding: 10px;
-            border-radius: 6px;
-            margin-top: 8px;
-            border-left: 3px solid var(--primary);
-        }
-        
         .totals-section {
-            padding: 20px 25px;
+            padding: 20px 30px;
             background-color: var(--light);
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
         }
         
         .totals-table {
-            width: 350px;
+            width: 280px;
             border-collapse: collapse;
             background: white;
             border-radius: 8px;
@@ -302,15 +314,81 @@
             background-color: #f8f9ff;
         }
         
+        .payment-status {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--payment-border);
+        }
+        
+        .payment-status h4 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--payment-border);
+        }
+        
+        .payment-status h4 i {
+            color: var(--secondary);
+        }
+        
+        .payment-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .payment-amount {
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .paid-amount {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 1px solid var(--paid-color);
+        }
+        
+        .remaining-amount {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border: 1px solid var(--remaining-color);
+        }
+        
+        .payment-amount h5 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .payment-amount .amount {
+            font-size: 18px;
+            font-weight: 800;
+        }
+        
+        .paid-amount .amount {
+            color: var(--paid-color);
+        }
+        
+        .remaining-amount .amount {
+            color: var(--remaining-color);
+        }
+        
         .comments-section {
-            padding: 20px 25px;
+            padding: 20px 30px;
             border-top: 1px solid var(--border);
         }
         
         .comments-section h3 {
             color: var(--primary);
             margin-bottom: 12px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -326,29 +404,32 @@
         }
         
         .signature-section {
-            padding: 20px 25px;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: flex-start;
             border-top: 1px solid var(--border);
         }
         
         .client-signature {
             text-align: center;
+            width: 300px;
         }
         
         .signature-box {
-            height: 70px;
+            height: 80px;
             border-bottom: 2px dashed var(--gray);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            padding-bottom: 6px;
+            padding-bottom: 8px;
             color: var(--gray);
             font-style: italic;
             font-size: 11px;
         }
         
         .footer {
-            padding: 15px 25px;
+            padding: 15px 30px;
             background: var(--dark);
             color: white;
             text-align: center;
@@ -361,7 +442,7 @@
         
         .print-button {
             display: block;
-            width: 200px;
+            width: 180px;
             margin: 20px auto;
             padding: 10px;
             background: linear-gradient(to right, var(--primary), var(--primary-dark));
@@ -394,7 +475,14 @@
             .invoice-container {
                 border: none;
                 box-shadow: none;
-                margin: 0;
+            }
+            
+            .invoice-header {
+                padding: 15px 25px;
+            }
+            
+            .address-section {
+                padding: 15px 25px;
             }
             
             .products-table {
@@ -404,6 +492,53 @@
             .products-table th, 
             .products-table td {
                 padding: 6px 5px;
+            }
+            
+            .payment-info {
+                padding: 15px 25px;
+            }
+            
+            .totals-section {
+                padding: 15px 25px;
+            }
+            
+            .comments-section {
+                padding: 15px 25px;
+            }
+            
+            .signature-section {
+                padding: 15px 25px;
+            }
+            
+            .footer {
+                padding: 10px 25px;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .address-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-breakdown {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .invoice-header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .invoice-details {
+                text-align: left;
             }
         }
     </style>
@@ -417,12 +552,12 @@
                 <p><i class="fas fa-map-marker-alt"></i> 87 RUE DES 3 FRERES BEJARD, 33500 LIBOURNE France</p>
                 <p><i class="fas fa-warehouse"></i> Entrepôt logistique : 4 Allée de la Tourelle 13127 Vitrolles, France</p>
                 <p><i class="fas fa-phone"></i> Tél: 0644694515 | <i class="fas fa-envelope"></i> Email: contact@destockagealimentaire.fr</p>
+                <p><i class="fas fa-receipt"></i> SIRET: 90057360100011 | TVA Intracom: FR88900573601</p>
             </div>
             <div class="invoice-details">
                 <div class="invoice-title">FACTURE PROFORMA</div>
-                <div class="invoice-number">PF-2024-SOLDE-50S</div>
+                <div class="invoice-number">PO1150</div>
                 <div class="invoice-date">Date: 04/11/2025</div>
-                <div class="solde-badge">SOLDE 50%</div>
             </div>
         </div>
         
@@ -435,6 +570,7 @@
                     <p><strong>Adresse:</strong> 12 rue Duhesme, 75018 Paris</p>
                     <p><strong>Numéro de TVA:</strong> FR65820731115</p>
                     <p><strong>SIREN:</strong> 820731115</p>
+                    <p><strong>Email facturation:</strong> invoice@toogoodtogo.com</p>
                 </div>
             </div>
             
@@ -445,16 +581,6 @@
                     <p><strong>Adresse:</strong> 32 Rue d'Anjou - 38070 Saint-Quentin-Fallavier</p>
                     <p><strong>Contact logistique:</strong> logistics.fr@toogoodtogo.com</p>
                     <p><strong>Rendez-vous obligatoire:</strong> 48h à l'avance par email</p>
-                </div>
-            </div>
-            
-            <div class="address-box">
-                <h3><i class="fas fa-file-invoice"></i> RÉFÉRENCES</h3>
-                <div class="address-details">
-                    <p><strong>Référence client:</strong> PO1150</p>
-                    <p><strong>Date de validité:</strong> 04/12/2025</p>
-                    <p><strong>Type:</strong> Solde 50%</p>
-                    <p><strong>Condition:</strong> Paiement à la livraison</p>
                 </div>
             </div>
         </div>
@@ -619,18 +745,48 @@
         <div class="totals-section">
             <table class="totals-table">
                 <tr>
-                    <td>Montant total TTC (€)</td>
-                    <td class="text-right">16 945,00</td>
+                    <td>Montant total HT (€)</td>
+                    <td class="text-right">15 918,59</td>
                 </tr>
                 <tr>
-                    <td>Acompte déjà payé (€)</td>
-                    <td class="text-right">8 472,50</td>
+                    <td>Montant TVA (5.5%)</td>
+                    <td class="text-right">875,52</td>
+                </tr>
+                <tr>
+                    <td>Montant TVA (20%)</td>
+                    <td class="text-right">150,89</td>
                 </tr>
                 <tr class="total-row">
-                    <td><strong>SOLDE 50% À PAYER (€)</strong></td>
-                    <td class="text-right"><strong>8 472,50</strong></td>
+                    <td><strong>Montant total TTC (€)</strong></td>
+                    <td class="text-right"><strong>16 945,00</strong></td>
                 </tr>
             </table>
+        </div>
+        
+        <div class="payment-status">
+            <h4><i class="fas fa-money-bill-wave"></i> ÉTAT DU PAIEMENT</h4>
+            <div class="payment-breakdown">
+                <div class="payment-amount paid-amount">
+                    <h5>Montant déjà payé (50%)</h5>
+                    <div class="amount">8 472,50 €</div>
+                    <div class="paid-highlight">PAYÉ</div>
+                </div>
+                <div class="payment-amount remaining-amount">
+                    <h5>Solde restant à payer (50%)</h5>
+                    <div class="amount">8 472,50 €</div>
+                    <div class="remaining-highlight">À RÉGLER</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comments-section">
+            <h3><i class="fas fa-comments"></i> COMMENTAIRES OU INSTRUCTIONS SPÉCIFIQUES</h3>
+            <div class="comments-content">
+                <p>Cette facture proforma est valable 30 jours à compter de la date d'émission.</p>
+                <p>Les prix sont donnés à titre indicatif et peuvent être ajustés en fonction des fluctuations du marché.</p>
+                <p>Toute commande passée sur la base de cette facture proforma est soumise à l'acceptation et à la disponibilité des produits.</p>
+                <p><strong>Note :</strong> 50% du montant total a déjà été payé. Le solde restant de 8 472,50 € est à régler selon les conditions convenues.</p>
+            </div>
         </div>
         
         <div class="payment-info">
@@ -638,10 +794,9 @@
             <div class="payment-details">
                 <div class="payment-item">
                     <h4><i class="fas fa-calendar-alt"></i> DÉLAIS DE PAIEMENT</h4>
-                    <p><strong>Condition:</strong> <span class="highlight">50% À LA LIVRAISON</span></p>
-                    <p><strong>Montant dû:</strong> <span class="highlight">8 472,50 €</span></p>
+                    <p><strong>Condition:</strong> <span class="paid-highlight">50% DÉJÀ PAYÉ AVEC PROFORMA</span></p>
+                    <p><strong>Solde à payer:</strong> <span class="remaining-highlight">50% RESTANT</span></p>
                     <p><strong>Mode de paiement:</strong> Virement bancaire</p>
-                    <p><strong>Échéance:</strong> 30 jours après livraison</p>
                 </div>
                 
                 <div class="payment-item">
@@ -651,19 +806,8 @@
                         <p><strong>IBAN:</strong> FR76 3083 3830 0006 5209 6968 120</p>
                         <p><strong>BIC:</strong> FNOMFRP2</p>
                     </div>
-                    <p><strong>Référence:</strong> PF-2024-COCA-024-SOLDE</p>
+                    <p><strong>Référence:</strong> PF-2024-COCA-024</p>
                 </div>
-            </div>
-        </div>
-        
-        <div class="comments-section">
-            <h3><i class="fas fa-comments"></i> COMMENTAIRES OU INSTRUCTIONS SPÉCIFIQUES</h3>
-            <div class="comments-content">
-                <p><strong>Conditions de paiement :</strong> 50% payé avant livraison (acompte) et 50% à régler à la livraison (solde).</p>
-                <p>Cette facture proforma pour solde de 50% est valable 30 jours à compter de la date d'émission.</p>
-                <p>Le solde de 50% est à régler après livraison et acceptation des marchandises.</p>
-                <p>Les prix sont donnés à titre indicatif et peuvent être ajustés en fonction des fluctuations du marché.</p>
-                <p>Toute commande passée sur la base de cette facture proforma est soumise à l'acceptation et à la disponibilité des produits.</p>
             </div>
         </div>
         
@@ -683,12 +827,31 @@
     </div>
     
     <button class="print-button" onclick="window.print()">
-        <i class="fas fa-print"></i> Imprimer cette facture
+        <i class="fas fa-print"></i> Imprimer la facture
     </button>
 
     <script>
+        // Optimisation pour l'impression
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Facture solde 50% avec produits détaillés chargée avec succès');
+            // Réduire les espacements pour l'impression
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @media print {
+                    * {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    body {
+                        font-size: 9px;
+                        line-height: 1.2;
+                    }
+                    .invoice-container {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
