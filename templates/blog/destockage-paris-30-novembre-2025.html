@@ -1,0 +1,715 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Paris 30 Novembre 2025 : Événement Exceptionnel | Économies Garanties{% endblock %}
+
+{% block meta_description %}Ne manquez pas le grand destockage alimentaire à Paris le 30 novembre 2025. Produits jusqu'à -70%, grandes marques, stocks limités. Inscrivez-vous maintenant pour l'événement exclusif!{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Paris 30 Novembre 2025 : Événement Exceptionnel">
+<meta property="og:description" content="Événement unique de destockage alimentaire à Paris le 30/11/2025. Jusqu'à -70% sur tous les produits. Inscription obligatoire.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-30-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-paris-2025.jpg') }}">
+<meta property="og:type" content="event">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Paris 30 Novembre 2025 : Événement Exceptionnel">
+<meta name="twitter:description" content="Grand destockage alimentaire Paris 30/11/2025. Jusqu'à -70% sur tous les produits. Stocks limités!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-paris-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-30-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Destockage Alimentaire Paris - Événement Exceptionnel 30 Novembre 2025",
+  "description": "Grand événement de destockage alimentaire à Paris avec des réductions jusqu'à 70% sur tous les produits alimentaires",
+  "startDate": "2025-11-30T08:00:00+01:00",
+  "endDate": "2025-11-30T20:00:00+01:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Paris - Lieu dévoilé après inscription",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Paris",
+      "postalCode": "75000",
+      "addressCountry": "FR"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/products",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2024-01-15"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Événement Paris 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">Destockage Alimentaire Paris 30 Novembre 2025 : Événement Exceptionnel</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 30 Novembre 2025</span>
+                <span class="event-location">📍 Paris - Lieu exclusif</span>
+                <span class="author">🎯 Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-paris-2025.jpg') }}" 
+                     alt="Destockage alimentaire Paris 30 novembre 2025 - événement exceptionnel économies jusqu'à 70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Événement Unique : Jusqu'à -70% sur tous les produits le 30/11/2025</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <h2>🚨 ÉVÉNEMENT EXCEPTIONNEL À NE PAS MANQUER !</h2>
+                <p>Le <strong>destockage alimentaire de l'année</strong> arrive à <strong>Paris le 30 novembre 2025</strong>. Un événement unique avec des <strong>promotions exclusives jusqu'à -70%</strong> sur des milliers de produits. <strong>Stocks limités</strong> - Inscription obligatoire.</p>
+            </div>
+        </section>
+
+        <section class="event-highlights">
+            <h2>✨ Pourquoi Cet Événement Est Exceptionnel</h2>
+            
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <div class="highlight-icon">💰</div>
+                    <h3>Économies Massives</h3>
+                    <p><strong>Jusqu'à 70% de réduction</strong> sur l'ensemble des produits alimentaires. Des prix imbattables que vous ne retrouverez nulle part ailleurs.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏷️</div>
+                    <h3>Grandes Marques</h3>
+                    <p><strong>Nestlé, Danone, Coca-Cola, Unilever</strong> et toutes les grandes marques à des prix de destockage exceptionnels.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">📦</div>
+                    <h3>Stocks Enormes</h3>
+                    <p>Plus de <strong>50,000 produits</strong> en stock. De quoi faire des réserves pour plusieurs mois à prix cassés.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">🎁</div>
+                    <h3>Produits Diversifiés</h3>
+                    <p>Alimentation générale, produits frais, boissons, surgelés, épicerie fine. Tout y sera à prix discount.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown-section">
+            <h2>⏰ Compte à Rebours Officiel</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">000</span>
+                    <span class="countdown-label">Jours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Heures</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Secondes</span>
+                </div>
+            </div>
+            <p class="countdown-note">L'événement commence dans exactement :</p>
+        </section>
+
+        <section class="products-preview">
+            <h2>🛒 Exemples de Produits en Destockage</h2>
+            
+            <div class="products-grid">
+                <div class="product-category">
+                    <h3>🥤 Boissons</h3>
+                    <ul>
+                        <li><strong>Coca-Cola</strong> : Pack 24 canettes à 8€ (-60%)</li>
+                        <li><strong>Eaux minérales</strong> : Pack 6x2L à 3€ (-70%)</li>
+                        <li><strong>Jus de fruits</strong> : 1L à 1.50€ (-65%)</li>
+                        <li><strong>Vins et Champagnes</strong> : Jusqu'à -50%</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🍽️ Produits Frais</h3>
+                    <ul>
+                        <li><strong>Yaourts</strong> : Pack 12 à 2€ (-70%)</li>
+                        <li><strong>Fromages</strong> : Jusqu'à -60%</li>
+                        <li><strong>Charcuterie</strong> : -50% sur toute la gamme</li>
+                        <li><strong>Fruits et Légumes</strong> : Prix au kilo cassés</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>📦 Épicerie</h3>
+                    <ul>
+                        <li><strong>Pâtes et Riz</strong> : -70% sur les gros conditionnements</li>
+                        <li><strong>Conserves</strong> : À partir de 0.50€ (-75%)</li>
+                        <li><strong>Biscuits et Snacks</strong> : Jusqu'à -65%</li>
+                        <li><strong>Café et Thé</strong> : -60% sur les marques premium</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="location-info">
+            <h2>📍 Informations Pratiques</h2>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>📅 Date et Horaire</h3>
+                    <p><strong>Dimanche 30 Novembre 2025</strong><br>
+                    De <strong>8h00 à 20h00</strong> sans interruption</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🎯 Lieu Exact</h3>
+                    <p><strong>Paris - Halle Exclusive</strong><br>
+                    <em>L'adresse précise sera communiquée après inscription pour des raisons de sécurité et d'organisation</em></p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🚗 Accès et Stationnement</h3>
+                    <p>• Accès Métro à 5 minutes<br>
+                    • Parking gratuit de 500 places<br>
+                    • Accès PMR facilité</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>💳 Modalités de Paiement</h3>
+                    <p>• Espèces acceptées<br>
+                    • Cartes bancaires<br>
+                    • Chèques<br>
+                    • Paiement en plusieurs fois possible</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="registration-section">
+            <h2>📝 Inscription Obligatoire</h2>
+            <div class="registration-info">
+                <p>En raison du <strong>succès exceptionnel anticipé</strong> et pour garantir une expérience d'achat optimale à tous, <strong>l'inscription est obligatoire</strong> pour participer à cet événement.</p>
+                
+                <div class="benefits-list">
+                    <h3>🎁 Avantages Exclusifs des Inscrits :</h3>
+                    <ul>
+                        <li>✅ <strong>Accès prioritaire</strong> dès 7h30 (30 minutes d'avance)</li>
+                        <li>✅ <strong>Cadeau de bienvenue</strong> offert à chaque inscrit</li>
+                        <li>✅ <strong>Alertes exclusives</strong> sur les meilleures promotions</li>
+                        <li>✅ <strong>Guides d'achat personnalisés</strong></li>
+                        <li>✅ <strong>Service de réservation</strong> des produits les plus demandés</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>⭐ Témoignages des Éditions Précédentes</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <div class="testimonial-text">
+                        "Incroyable ! J'ai économisé 450€ sur mes courses annuelles. La qualité des produits était excellente malgré les prix cassés."
+                    </div>
+                    <div class="testimonial-author">- Marie D., Paris 15ème</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-text">
+                        "Événement parfaitement organisé. J'ai pu acheter toutes les grandes marques à des prix que je ne croyais plus possibles."
+                    </div>
+                    <div class="testimonial-author">- Pierre L., Montreuil</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-text">
+                        "En tant que restaurateur, cet événement m'a permis de faire 60% d'économie sur mes achats professionnels. Exceptionnel !"
+                    </div>
+                    <div class="testimonial-author">- Chef Antoine, Paris 11ème</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <h2>🚨 ATTENTION : STOCKS TRÈS LIMITÉS</h2>
+                <p>Avec des <strong>promotions allant jusqu'à -70%</strong>, les produits partent extrêmement vite. Lors de l'édition précédente, <strong>80% des stocks étaient épuisés avant midi</strong>.</p>
+                
+                <div class="urgency-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Personnes attendues</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50,000</div>
+                        <div class="stat-label">Produits disponibles</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4h</div>
+                        <div class="stat-label">Temps moyen d'épuisement</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="cta-container">
+                <h2>🎯 Ne Ratez Pas Cette Opportunité Exceptionnelle !</h2>
+                <p>Le <strong>destockage alimentaire de Paris du 30 novembre 2025</strong> est l'événement à ne surtout pas manquer pour faire des économies substantielles sur votre budget courses.</p>
+                
+                <div class="cta-benefits">
+                    <div class="benefit-item">✅ Jusqu'à <strong>70% d'économie</strong></div>
+                    <div class="benefit-item">✅ <strong>Grandes marques</strong> garanties</div>
+                    <div class="benefit-item">✅ <strong>Qualité premium</strong> à prix discount</div>
+                    <div class="benefit-item">✅ <strong>Service client</strong> dédié</div>
+                </div>
+                
+                <div class="main-cta">
+                    <h3>📋 Inscrivez-vous Maintenant pour Garantir Votre Participation</h3>
+                    <p>L'inscription est <strong>gratuite mais obligatoire</strong>. Les places sont limitées pour garantir le confort de tous.</p>
+                    <a href="{{ url_for('product_list') }}" class="cta-button-large">S'INSCRIRE MAINTENANT →</a>
+                    <p class="cta-note"><small>⚠️ <strong>Attention :</strong> Seules les personnes inscrites pourront accéder à l'événement</small></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>❓ Questions Fréquentes</h2>
+            
+            <div class="faq-item">
+                <h3>Quand aura lieu exactement le destockage alimentaire à Paris ?</h3>
+                <p>L'événement se déroulera le <strong>dimanche 30 novembre 2025 de 8h00 à 20h00</strong> à Paris. L'adresse exacte sera communiquée aux inscrits.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>L'inscription est-elle vraiment obligatoire ?</h3>
+                <p>Oui, <strong>l'inscription est obligatoire</strong> pour des raisons d'organisation et de sécurité. Cela nous permet de garantir une expérience d'achat optimale pour tous les participants.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quels types de produits seront en destockage ?</h3>
+                <p>Tous les types de produits alimentaires : <strong>boissons, produits frais, épicerie, surgelés, produits diététiques</strong>. Toutes les grandes marques seront représentées.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Y aura-t-il des quantités limitées par personne ?</h3>
+                <p>Pour certains produits très demandés, des <strong>quantités pourront être limitées</strong> afin de permettre au plus grand nombre de profiter des promotions.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d63384;
+    margin: 2.5rem 0 1.5rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #fd7e14;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.4rem;
+}
+
+.urgent-banner {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+    border: 3px solid #ffc107;
+}
+
+.urgent-banner h2 {
+    color: white;
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.highlight-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid #e9ecef;
+    transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.countdown-section {
+    background: linear-gradient(135deg, #198754, #20c997);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.countdown-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-width: 100px;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.product-category {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #198754;
+}
+
+.product-category ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.product-category li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.registration-section {
+    background: linear-gradient(135deg, #0d6efd, #6f42c1);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.benefits-list ul {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+}
+
+.benefits-list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.testimonial-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #fd7e14;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.urgency-section {
+    margin: 3rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #e83e8c);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 3px solid #ffc107;
+}
+
+.urgency-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.final-cta {
+    background: linear-gradient(135deg, #198754, #20c997);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 25px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.cta-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.main-cta {
+    background: white;
+    color: #198754;
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.cta-button-large {
+    display: inline-block;
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    color: white;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.cta-button-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.6);
+    color: white;
+}
+
+.cta-note {
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.faq-section {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.event-location {
+    background: #0d6efd;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .highlights-grid, .products-grid, .info-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-container {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .urgency-stats {
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .cta-benefits {
+        gap: 1rem;
+    }
+    
+    .benefit-item {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .cta-button-large {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation du compte à rebours */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.countdown-number {
+    animation: pulse 2s infinite;
+}
+</style>
+
+<script>
+// Compte à rebours pour le 30 novembre 2025
+function updateCountdown() {
+    const eventDate = new Date('2025-11-30T08:00:00+01:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days.toString().padStart(3, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.querySelector('.countdown-container').innerHTML = '<div class="event-started">Événement en cours !</div>';
+    }
+}
+
+const countdownTimer = setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+{% endblock %}

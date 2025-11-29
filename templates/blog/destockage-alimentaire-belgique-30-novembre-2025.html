@@ -1,0 +1,658 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Belgique 30 Novembre 2025 : Mega Promotions Exceptionnelles | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Mega destockage alimentaire en Belgique le 30 novembre 2025. Économies jusqu'à 70% sur produits alimentaires, boissons et vins. Livraison rapide partout en Belgique.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Belgique 30 Novembre 2025 : Mega Promotions Exceptionnelles">
+<meta property="og:description" content="Ne ratez pas le mega destockage alimentaire en Belgique le 30/11/2025. Jusqu'à 70% de réduction sur tous les produits alimentaires et boissons.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-30-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Belgique 30 Novembre 2025 : Mega Promotions">
+<meta name="twitter:description" content="Mega destockage alimentaire Belgique 30/11/2025 - Économies jusqu'à 70% sur produits alimentaires et boissons.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-30-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Mega Destockage Alimentaire Belgique 30 Novembre 2025",
+  "startDate": "2025-11-30T00:00",
+  "endDate": "2025-11-30T23:59",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "https://www.destockagealimentairestore.com"
+  },
+  "image": "{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}",
+  "description": "Mega événement de destockage alimentaire en Belgique le 30 novembre 2025. Économies exceptionnelles jusqu'à 70% sur tous les produits alimentaires.",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-30T00:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Belgique 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">Destockage Alimentaire Belgique 30 Novembre 2025 : Mega Événement Exceptionnel</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 30 novembre 2025</span>
+                <span class="reading-time">⏱️ 3 min de lecture</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="countdown-banner">
+                <div class="countdown-text">
+                    <h2>🚨 MEGA DESTOCKAGE EXCEPTIONNEL</h2>
+                    <p>Économies jusqu'à <strong>70%</strong> sur toute la boutique</p>
+                </div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}" 
+                     alt="Destockage alimentaire Belgique 30 novembre 2025 - mega promotions jusqu'à 70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Mega destockage alimentaire Belgique - 30 novembre 2025 seulement</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="intro-section">
+            <div class="urgent-alert">
+                <h2>⚠️ ATTENTION : ÉVÉNEMENT UNIQUE EN BELGIQUE</h2>
+                <p>Ne ratez pas le <strong>mega destockage alimentaire en Belgique</strong> prévu exclusivement le <strong>30 novembre 2025</strong>. Cet événement exceptionnel vous offre des <strong>économies massives jusqu'à 70%</strong> sur tous nos produits alimentaires, boissons et vins.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pourquoi ce Destockage Exceptionnel en Belgique ?</h2>
+            <p>Notre <strong>destockage alimentaire Belgique 2025</strong> est un événement unique qui répond à plusieurs objectifs stratégiques :</p>
+            
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <h3>📦 Renouvellement des Stocks 2025</h3>
+                    <p>Nous devons libérer nos entrepôts pour accueillir les nouvelles collections 2026. Cela signifie des <strong>prix cassés</strong> sur les produits actuels.</p>
+                </div>
+                
+                <div class="reason-item">
+                    <h3>🎄 Préparation des Fêtes de Fin d'Année</h3>
+                    <p>Ce <strong>destockage Belgique</strong> vous permet de faire le plein de provisions pour les fêtes à des <strong>prix imbattables</strong>.</p>
+                </div>
+                
+                <div class="reason-item">
+                    <h3>💰 Crise Économique 2025</h3>
+                    <p>Face aux difficultés économiques, nous souhaitons soutenir les ménages belges avec des <strong>prix ultra-compétitifs</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Les Catégories en Mega Promotion le 30/11/2025</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>🍷 Vins et Champagnes</h3>
+                    <div class="discount-badge">-70%</div>
+                    <ul>
+                        <li>Champagnes grandes marques</li>
+                        <li>Vins de Bordeaux et Bourgogne</li>
+                        <li>Crus exceptionnels</li>
+                        <li>Vins biologiques</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🥤 Boissons et Soft Drinks</h3>
+                    <div class="discount-badge">-60%</div>
+                    <ul>
+                        <li>Sodas et boissons gazeuses</li>
+                        <li>Jus de fruits premium</li>
+                        <li>Eaux minérales</li>
+                        <li>Boissons énergisantes</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🍫 Produits Alimentaires</h3>
+                    <div class="discount-badge">-50%</div>
+                    <ul>
+                        <li>Chocolats belges</li>
+                        <li>Biscuits et pâtisseries</li>
+                        <li>Conserves et épicerie fine</li>
+                        <li>Produits du monde</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🧀 Produits Frais et Spécialités</h3>
+                    <div class="discount-badge">-40%</div>
+                    <ul>
+                        <li>Fromages affinés</li>
+                        <li>Charcuteries premium</li>
+                        <li>Spécialités belges</li>
+                        <li>Produits laitiers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mega-deals">
+            <h2>🔥 Les Mega Bonnes Affaires du 30 Novembre 2025</h2>
+            
+            <div class="deals-grid">
+                <div class="deal-card">
+                    <h3>Champagne Veuve Clicquot</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">65€</span>
+                        <span class="new-price">19€</span>
+                    </div>
+                    <div class="savings">Économie : 46€ (71%)</div>
+                </div>
+                
+                <div class="deal-card">
+                    <h3>Pack Bières Belges Craft</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">45€</span>
+                        <span class="new-price">13€</span>
+                    </div>
+                    <div class="savings">Économie : 32€ (71%)</div>
+                </div>
+                
+                <div class="deal-card">
+                    <h3>Chocolats Neuhaus 500g</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">28€</span>
+                        <span class="new-price">8€</span>
+                    </div>
+                    <div class="savings">Économie : 20€ (71%)</div>
+                </div>
+                
+                <div class="deal-card">
+                    <h3>Vin Bordeaux Grand Cru</h3>
+                    <div class="price-comparison">
+                        <span class="old-price">85€</span>
+                        <span class="new-price">25€</span>
+                    </div>
+                    <div class="savings">Économie : 60€ (71%)</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Zones de Livraison en Belgique</h2>
+            <p>Notre <strong>destockage alimentaire</strong> couvre toute la Belgique avec une livraison express :</p>
+            
+            <div class="delivery-zones">
+                <div class="zone-group">
+                    <h3>🏙️ Région Bruxelles-Capitale</h3>
+                    <ul>
+                        <li>Bruxelles-ville</li>
+                        <li>Anderlecht</li>
+                        <li>Schaerbeek</li>
+                        <li>Ixelles</li>
+                        <li>Uccle</li>
+                    </ul>
+                </div>
+                
+                <div class="zone-group">
+                    <h3>🏛️ Région Wallonne</h3>
+                    <ul>
+                        <li>Liège</li>
+                        <li>Charleroi</li>
+                        <li>Namur</li>
+                        <li>Mons</li>
+                        <li>Tournai</li>
+                    </ul>
+                </div>
+                
+                <div class="zone-group">
+                    <h3>🌷 Région Flamande</h3>
+                    <ul>
+                        <li>Anvers</li>
+                        <li>Gand</li>
+                        <li>Bruges</li>
+                        <li>Louvain</li>
+                        <li>Malines</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="delivery-info">
+                <h3>🚚 Livraison Express Offerte</h3>
+                <p>Livraison <strong>GRATUITE</strong> partout en Belgique pour toute commandre passée lors du <strong>destockage du 30 novembre 2025</strong>. Délai de livraison : 24-48h.</p>
+            </div>
+        </section>
+
+        <section class="action-plan">
+            <h2>📋 Plan d'Action pour le Jour J</h2>
+            
+            <div class="plan-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Marquez la Date</h3>
+                    <p><strong>30 novembre 2025</strong> dans votre agenda. L'événement commence à <strong>00h01</strong> et se termine à <strong>23h59</strong>.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Préparez Votre Liste</h3>
+                    <p>Faites l'inventaire de vos besoins et préparez votre liste d'achats à l'avance.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Connectez-vous Tôt</h3>
+                    <p>Les stocks sont limités. Connectez-vous dès l'ouverture pour avoir le meilleur choix.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Commandez Rapidement</h3>
+                    <p>Ne réfléchissez pas trop longtemps, les produits partent très vite lors de ce <strong>mega destockage</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgency-section">
+            <div class="urgency-banner">
+                <h2>⏰ URGENT : Stocks Très Limités</h2>
+                <p>Ce <strong>destockage exceptionnel en Belgique</strong> concerne des quantités limitées. Les premiers arrivés seront les premiers servis.</p>
+                <div class="stock-warning">
+                    <strong>⚠️ ATTENTION :</strong> Pas de réapprovisionnement possible après épuisement des stocks
+                </div>
+            </div>
+        </section>
+
+        <section class="conclusion">
+            <h2>Ne Ratez Pas Cette Opportunité Unique en Belgique</h2>
+            <p>Le <strong>30 novembre 2025</strong> restera dans les annales comme le jour du <strong>plus grand destockage alimentaire jamais organisé en Belgique</strong>. Avec des <strong>économies allant jusqu'à 70%</strong> et une <strong>livraison gratuite</strong> dans toute la Belgique, c'est l'occasion rêvée de faire le plein de provisions à prix cassés.</p>
+            
+            <div class="final-cta">
+                <h3>🚀 ACCÈS DIRECT AUX PROMOTIONS</h3>
+                <p>Cliquez sur le bouton ci-dessous pour accéder immédiatement à toutes nos offres de <strong>destockage alimentaire Belgique 2025</strong>.</p>
+                <a href="{{ url_for('product_list') }}" class="mega-cta-button">
+                    🛒 ACCÉDER AU MEGA DESTOCKAGE BELGIQUE
+                </a>
+                <p class="cta-note">⏱️ Offres valables uniquement le <strong>30 novembre 2025</strong></p>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>FAQ : Destockage Alimentaire Belgique 30 Novembre 2025</h2>
+            
+            <div class="faq-item">
+                <h3>Quand exactement a lieu le destockage ?</h3>
+                <p>Le <strong>destockage alimentaire Belgique</strong> se déroule exclusivement le <strong>30 novembre 2025</strong> de 00h01 à 23h59.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>La livraison est-elle vraiment gratuite ?</h3>
+                <p>Oui, <strong>livraison offerte</strong> dans toute la Belgique pour toutes les commandes passées pendant l'événement.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Les stocks sont-ils limités ?</h3>
+                <p>Absolument, tous les produits sont en <strong>quantités limitées</strong>. Premier arrivé, premier servi.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Puis-je commander pour une autre date ?</h3>
+                <p>Non, les <strong>prix destockage</strong> sont valables uniquement le <strong>30/11/2025</strong>.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d63384;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #dc3545;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+.countdown-banner {
+    background: linear-gradient(135deg, #dc3545, #d63384);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.countdown-text h2 {
+    color: white;
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.countdown-item {
+    text-align: center;
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.urgent-alert {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.urgent-alert h2 {
+    color: #856404;
+    margin-top: 0;
+}
+
+.reasons-grid, .categories-grid, .deals-grid, .delivery-zones, .plan-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.reason-item, .category-card, .deal-card, .zone-group, .step {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #dc3545;
+    position: relative;
+}
+
+.discount-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.category-card ul, .zone-group ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.category-card li, .zone-group li {
+    margin-bottom: 0.3rem;
+}
+
+.mega-deals {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.price-comparison {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.new-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.savings {
+    background: #28a745;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.delivery-info {
+    background: #d1ecf1;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #0dcaf0;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    background: #dc3545;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    font-weight: bold;
+}
+
+.urgency-section {
+    margin: 3rem 0;
+}
+
+.urgency-banner {
+    background: #dc3545;
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stock-warning {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.final-cta {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.mega-cta-button {
+    display: inline-block;
+    background: white;
+    color: #28a745;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.mega-cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    color: #28a745;
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.faq-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .reasons-grid, .categories-grid, .deals-grid, .delivery-zones, .plan-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+        gap: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+        min-width: 60px;
+        padding: 0.8rem;
+    }
+    
+    .mega-cta-button {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<script>
+// Compte à rebours pour le 30 novembre 2025
+function updateCountdown() {
+    const eventDate = new Date('2025-11-30T00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+        document.getElementById('countdown').innerHTML = "<div style='text-align:center; font-size:1.5rem; font-weight:bold;'>ÉVÉNEMENT TERMINÉ</div>";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerText = days.toString().padStart(2, '0');
+    document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+}
+
+// Mettre à jour toutes les secondes
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+{% endblock %}

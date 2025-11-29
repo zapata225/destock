@@ -1,0 +1,572 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Bruxelles 30 Novembre 2025 : Événement Exceptionnel | Économies jusqu'à -70%{% endblock %}
+
+{% block meta_description %}Destockage alimentaire géant à Bruxelles le 30 novembre 2025. Produits jusqu'à -70%, grandes marques, surgelés, boissons. Ne manquez pas cet événement unique!{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Bruxelles 30 Novembre 2025 : Événement Exceptionnel">
+<meta property="og:description" content="Événement de déstockage alimentaire unique à Bruxelles le 30/11/2025. Économies jusqu'à -70% sur toutes les catégories. Inscrivez-vous maintenant!">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-bruxelles-30-novembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-bruxelles-2025.jpg') }}">
+<meta property="og:type" content="event">
+<meta property="og:site_name" content="Destockage Alimentaire">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Bruxelles 30 Novembre 2025 : Événement Exceptionnel">
+<meta name="twitter:description" content="Destockage alimentaire géant à Bruxelles le 30/11/2025. Économies jusqu'à -70%. Inscription gratuite!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-bruxelles-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-bruxelles-30-novembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Destockage Alimentaire Bruxelles 30 Novembre 2025",
+  "description": "Événement exceptionnel de déstockage alimentaire à Bruxelles avec des réductions allant jusqu'à -70% sur tous les produits",
+  "startDate": "2025-11-30T08:00:00+01:00",
+  "endDate": "2025-11-30T20:00:00+01:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Centre de Destockage Bruxelles",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "À confirmer lors de l'inscription",
+      "addressLocality": "Bruxelles",
+      "postalCode": "1000",
+      "addressCountry": "BE"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2024-01-15"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Bruxelles 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">Destockage Alimentaire Bruxelles 30 Novembre 2025 : Événement Exceptionnel</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 30 novembre 2025</span>
+                <span class="event-location">📍 Bruxelles, Belgique</span>
+                <span class="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-bruxelles-2025.jpg') }}" 
+                     alt="Destockage alimentaire Bruxelles 30 novembre 2025 - événement exceptionnel économies jusqu'à 70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Économisez jusqu'à 70% sur vos courses alimentaires!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="intro-section">
+            <div class="urgent-banner">
+                <h2>🚨 ÉVÉNEMENT UNIQUE À BRUXELLES LE 30 NOVEMBRE 2025 🚨</h2>
+                <p>Ne manquez pas le <strong>destockage alimentaire de l'année à Bruxelles</strong> ! Le <strong>30 novembre 2025</strong>, venez profiter de réductions exceptionnelles allant jusqu'à <strong>-70%</strong> sur des milliers de produits alimentaires.</p>
+            </div>
+        </section>
+
+        <section class="event-highlights">
+            <h2>Pourquoi cet événement est exceptionnel ?</h2>
+            
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <h3>💰 Économies Records</h3>
+                    <p>Des réductions allant de <strong>-30% à -70%</strong> sur l'ensemble des produits. Le plus grand <strong>destockage alimentaire de Bruxelles en 2025</strong>.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h3>📦 Stocks Gigantesques</h3>
+                    <p>Plus de <strong>10,000 produits</strong> en destockage : surgelés, conserves, boissons, produits frais, épicerie fine.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h3>⭐ Grandes Marques</h3>
+                    <p>Nestlé, Danone, Coca-Cola, Heineken, Lustucru, Bonduelle et bien d'autres à prix cassés.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h3>🎁 Lots Exceptionnels</h3>
+                    <p>Packs familiaux, cartons entiers, palettes complètes à des prix imbattables pour le <strong>30 novembre 2025 à Bruxelles</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-categories">
+            <h2>Catégories en Destockage le 30 Novembre 2025</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>🥫 Produits d'Épicerie</h3>
+                    <ul>
+                        <li>Conserves : -40% à -60%</li>
+                        <li>Pâtes et riz : -50%</li>
+                        <li>Biscuits et snacks : -45%</li>
+                        <li>Café et thé : -35%</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🧊 Surgelés</h3>
+                    <ul>
+                        <li>Légumes surgelés : -55%</li>
+                        <li>Plats préparés : -50%</li>
+                        <li>Viandes et poissons : -60%</li>
+                        <li>Glaces et desserts : -40%</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🥤 Boissons</h3>
+                    <ul>
+                        <li>Sodas et eaux : -40%</li>
+                        <li>Jus de fruits : -45%</li>
+                        <li>Vins et bières : -35%</li>
+                        <li>Boissons énergisantes : -50%</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🧴 Produits Frais</h3>
+                    <ul>
+                        <li>Produits laitiers : -40%</li>
+                        <li>Charcuterie : -45%</li>
+                        <li>Fromages : -35%</li>
+                        <li>Pâtisseries : -50%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-details">
+            <h2>Informations Pratiques - Destockage Bruxelles 2025</h2>
+            
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>📅 Date et Horaires</h3>
+                    <p><strong>30 novembre 2025</strong><br>
+                    Ouverture : 8h00 - 20h00<br>
+                    <em>Accès prioritaire dès 7h30 pour les inscrits</em></p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>📍 Lieu Exact</h3>
+                    <p><strong>Centre de Destockage Bruxelles</strong><br>
+                    Adresse communiquée après inscription<br>
+                    Accès métro et parking gratuit</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>🎯 Public Concerné</h3>
+                    <p>Particuliers • Restaurateurs • Associations<br>
+                    Commerces de proximité • Collectivités</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>💳 Modalités de Paiement</h3>
+                    <p>Espèces • Cartes bancaires • Virements<br>
+                    Pas de chèques • Facturation possible</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="brands-section">
+            <h2>Grandes Marques Présentes le 30 Novembre 2025</h2>
+            
+            <div class="brands-grid">
+                <div class="brand-group">
+                    <h3>🥫 Épicerie</h3>
+                    <div class="brand-logos">
+                        <span class="brand-logo">Nestlé</span>
+                        <span class="brand-logo">Unilever</span>
+                        <span class="brand-logo">Kraft</span>
+                        <span class="brand-logo">Mars</span>
+                    </div>
+                </div>
+                
+                <div class="brand-group">
+                    <h3>🥤 Boissons</h3>
+                    <div class="brand-logos">
+                        <span class="brand-logo">Coca-Cola</span>
+                        <span class="brand-logo">Pepsi</span>
+                        <span class="brand-logo">Heineken</span>
+                        <span class="brand-logo">Evian</span>
+                    </div>
+                </div>
+                
+                <div class="brand-group">
+                    <h3>🧊 Surgelés</h3>
+                    <div class="brand-logos">
+                        <span class="brand-logo">Picard</span>
+                        <span class="brand-logo">Findus</span>
+                        <span class="brand-logo">Iglo</span>
+                        <span class="brand-logo">McCain</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="registration-cta">
+            <div class="cta-container">
+                <h2>🚀 Accès Prioritaire au Destockage Bruxelles 2025</h2>
+                <p>Inscrivez-vous maintenant pour bénéficier d'un accès prioritaire et recevoir l'adresse exacte du <strong>destockage alimentaire à Bruxelles le 30 novembre 2025</strong>.</p>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">✅ Accès 30 minutes avant l'ouverture</div>
+                    <div class="benefit-item">✅ Adresse exacte communiquée</div>
+                    <div class="benefit-item">✅ Alertes promotions exclusives</div>
+                    <div class="benefit-item">✅ Guide des meilleures affaires</div>
+                </div>
+                
+                <div class="registration-form">
+                    <h3>📝 Inscription Gratuite</h3>
+                    <p>Pour participer au <strong>destockage alimentaire Bruxelles 30 novembre 2025</strong>, inscrivez-vous via le formulaire ci-dessous :</p>
+                    
+                    <div class="form-actions">
+                        <a href="{{ url_for('product_list') }}" class="cta-button-large">
+                            🛒 S'INSCRIRE MAINTENANT AU DESTOCKAGE
+                        </a>
+                        <p class="form-note">Redirection vers notre plateforme d'inscription</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>FAQ - Destockage Alimentaire Bruxelles 30 Novembre 2025</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>❓ Quel est l'adresse exacte de l'événement ?</h3>
+                    <p>L'adresse complète du <strong>destockage alimentaire à Bruxelles</strong> sera communiquée uniquement aux personnes inscrites pour des raisons de sécurité et d'organisation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>❓ Dois-je payer pour m'inscrire ?</h3>
+                    <p>L'inscription au <strong>destockage du 30 novembre 2025</strong> est totalement gratuite. Seuls les produits achetés seront facturés.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>❓ Puis-je venir en tant que professionnel ?</h3>
+                    <p>Absolument ! Le <strong>destockage alimentaire Bruxelles 2025</strong> est ouvert aux particuliers et aux professionnels (restaurateurs, commerçants, associations).</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>❓ Y a-t-il du stationnement sur place ?</h3>
+                    <p>Oui, un parking gratuit sera mis à disposition pour tous les participants au <strong>destockage du 30 novembre 2025 à Bruxelles</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="final-cta-container">
+                <h2>⏰ Ne manquez pas cette opportunité unique !</h2>
+                <p>Le <strong>destockage alimentaire de Bruxelles le 30 novembre 2025</strong> est l'événement à ne pas manquer pour faire des économies substantielles sur vos courses.</p>
+                
+                <div class="urgency-elements">
+                    <div class="urgency-item">
+                        <h3>📊 Stocks Limités</h3>
+                        <p>Premiers arrivés, premiers servis ! Les meilleurs produits partent rapidement.</p>
+                    </div>
+                    
+                    <div class="urgency-item">
+                        <h3>🎯 Événement Unique</h3>
+                        <p>Un seul <strong>destockage alimentaire de cette ampleur à Bruxelles en 2025</strong>.</p>
+                    </div>
+                    
+                    <div class="urgency-item">
+                        <h3>💰 Économies Garanties</h3>
+                        <p>Jusqu'à <strong>70% d'économie</strong> sur vos dépenses alimentaires.</p>
+                    </div>
+                </div>
+                
+                <div class="final-action">
+                    <a href="{{ url_for('product_list') }}" class="final-cta-button">
+                        🚀 JE M'INSCRIS AU DESTOCKAGE BRUXELLES 2025
+                    </a>
+                    <p class="action-note">Inscription gratuite • Accès prioritaire • Adresse exacte communiquée</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion */
+.article-content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #2c5530;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.article-content h3 {
+    color: #4a7c59;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+/* Bannière urgente */
+.urgent-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 2rem 0;
+    border: 3px solid #ffc107;
+}
+
+.urgent-banner h2 {
+    color: white;
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+}
+
+/* Grilles */
+.highlights-grid, .categories-grid, .details-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.highlight-item, .category-card, .detail-item, .faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a7c59;
+}
+
+/* Section marques */
+.brands-section {
+    background: #e8f5e8;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.brand-group h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.brand-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.brand-logo {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* CTA principal */
+.registration-cta {
+    background: linear-gradient(135deg, #4a7c59, #2c5530);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.cta-container h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.registration-form {
+    background: white;
+    color: #333;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.cta-button-large {
+    display: inline-block;
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    transition: transform 0.3s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.cta-button-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.form-note {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* CTA final */
+.final-cta {
+    background: #fff3cd;
+    border: 3px solid #ffc107;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.urgency-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.urgency-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.final-cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    transition: transform 0.3s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.final-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.action-note {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .highlights-grid, .categories-grid, .details-grid, .faq-grid,
+    .brands-grid, .benefits-list, .urgency-elements {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+    
+    .registration-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .cta-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-button-large, .final-cta-button {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.cta-button-large, .final-cta-button {
+    animation: pulse 2s infinite;
+}
+
+.urgent-banner {
+    animation: pulse 3s infinite;
+}
+</style>
+{% endblock %}
