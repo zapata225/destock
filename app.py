@@ -3293,6 +3293,160 @@ def surplus_en():
 def blog_belgique():
     return render_template('blog_belgique.html')
 
+
+@app.route('/blog/discount-alimentaire-30-decembre-2025')
+def discount_alimentaire_30_decembre_2025():
+    return render_template(
+        'blog/discount-alimentaire-30-decembre-2025.html',
+        title="Discount Alimentaire 30 Décembre 2025 | Promotions & Destockage",
+        description="Découvrez les meilleurs discounts alimentaires du 30 décembre 2025 : promotions, déstockage et bons plans pour économiser."
+    )
+
+
+@app.route('/blog/champagne-ruinart-blanc-de-blancs-30-decembre-2025')
+def champagne_ruinart_blanc_de_blancs_30_decembre_2025():
+    return render_template(
+        'blog/champagne-ruinart-blanc-de-blancs-30-decembre-2025.html',
+        title="Champagne Ruinart Blanc de Blancs | Promo du 30 Décembre 2025",
+        description="Infos, promotions et bons plans sur le champagne Ruinart Blanc de Blancs pour le 30 décembre 2025."
+    )
+
+
+@app.route('/blog/promo-ruinart-30-novembre-2025')
+def promo_ruinart_30_novembre_2025():
+    return render_template(
+        'blog/promo-ruinart-30-novembre-2025.html',
+        title="Promo Ruinart 30 Novembre 2025 | Bons Plans Champagne",
+        description="Toutes les promotions Ruinart du 30 novembre 2025 : champagne pas cher, réductions et ventes flash."
+    )
+
+
+@app.route('/blog/champagne-pas-cher-30-novembre-2025')
+def champagne_pas_cher_30_novembre_2025():
+    return render_template(
+        'blog/champagne-pas-cher-30-novembre-2025.html',
+        title="Champagne Pas Cher 30 Novembre 2025 | Offres & Réductions",
+        description="Les meilleures offres de champagne pas cher pour le 30 novembre 2025 : promotions, bons plans et déstockage."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-paris-30-novembre-2025')
+def destockage_paris_30_novembre_2025():
+    return render_template(
+        'blog/destockage-paris-30-novembre-2025.html',
+        title="Déstockage Alimentaire Paris | 30 Novembre 2025",
+        description="Déstockage alimentaire à Paris le 30 novembre 2025 : bonnes affaires, réductions massives et ventes en gros."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-belgique-30-novembre-2025')
+def destockage_alimentaire_belgique_30_novembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-belgique-30-novembre-2025.html',
+        title="Déstockage Alimentaire Belgique | 30 Novembre 2025",
+        description="Promotions et déstockage alimentaire en Belgique pour le 30 novembre 2025 : achats en gros, discount et ventes flash."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-bruxelles-30-novembre-2025')
+def destockage_bruxelles_30_novembre_2025():
+    return render_template(
+        'blog/destockage-bruxelles-30-novembre2025.html',
+        title="Déstockage Alimentaire Bruxelles | 30 Novembre 2025",
+        description="Déstockage alimentaire à Bruxelles le 30 novembre 2025 : fins de séries, promos et prix cassés."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-espagne-30-novembre-2025')
+def destockage_espagne_espagne_30_novembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-espagne-30-novembre-2025.html',
+        title="Déstockage Alimentaire Espagne | 30 Novembre 2025",
+        description="Déstockage alimentaire en Espagne le 30 novembre 2025 : promotions, discount et ventes en gros."
+    )
+
+
+@app.route('/blog/destockage-autour-de-moi-30-novembre-2025')
+def destockage_autour_de_moi_30_novembre_2025():
+    return render_template(
+        'blog/destockage-autour-de-moi-30-novembre-2025.html',
+        title="Déstockage Autour de Moi | Offres du 30 Novembre 2025",
+        description="Trouvez les meilleurs déstockages alimentaires autour de vous : adresses locales et bons plans du 30 novembre 2025."
+    )
+
+
+@app.route('/blog/destockage-alimentaire-lyon-30-novembre-2025')
+def destockage_lyon_30_novembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-lyon-30-novembre-2025.html',
+        title="Déstockage Alimentaire Lyon | 30 Novembre 2025",
+        description="Déstockage alimentaire à Lyon pour le 30 novembre 2025 : promotions massives, ventes flash et discount."
+    )
+
+
+@app.route('/blog/grossiste-alimentaire-bruxelles-30-novembre-2025')
+def grossiste_alimentaire_bruxelles_30_novembre_2025():
+    return render_template(
+        'blog/grossiste-alimentaire-bruxelles-30-novembre-2025.html',
+        title="Grossiste Alimentaire Bruxelles | 30 Novembre 2025",
+        description="Découvrez les grossistes alimentaires à Bruxelles : déstockage, achetés en gros et promotions du 30 novembre 2025."
+    )
+
+
+@app.route('/blog/grossiste-alimentaire-paris-30-novembre-2025')
+def grossiste_alimentaire_paris_30_novembre_2025():
+    return render_template(
+        'blog/grossiste-alimentaire-paris-30-novembre-2025.html',
+        title="Grossiste Alimentaire Paris | Offres du 30 Novembre 2025",
+        description="Grossistes alimentaires à Paris : réductions, déstockage et achats en gros le 30 novembre 2025."
+    )
+
+
+@app.route('/blog/grossiste-alimentaire-lyon-30-novembre-2025')
+def grossiste_alimentaire_lyon_30_novembre_2025():
+    return render_template(
+        'blog/grossiste-alimentaire-lyon-30-novembre-2025.html',
+        title="Grossiste Alimentaire Lyon | Promotions du 30 Novembre 2025",
+        description="Grossistes alimentaires à Lyon : promotions, déstockage et opportunités d'achat en gros pour le 30 novembre 2025."
+    )
+
+
+@app.route('/blog/grossiste-boisson-30-novembre-2025')
+def grossiste_boisson_30_novembre_2025():
+    return render_template(
+        'blog/grossiste-boisson-30-novembre-2025.html',
+        title="Grossiste Boisson | Offres du 30 Novembre 2025",
+        description="Grossistes de boissons : déstockage, prix en gros et promotions du 30 novembre 2025."
+    )
+
+
+@app.route('/blog/grossiste-nutella-30-novembre-2025')
+def grossiste_nutella_30_novembre_2025():
+    return render_template(
+        'blog/grossiste-nutella-30-novembre-2025.html',
+        title="Grossiste Nutella | 30 Novembre 2025",
+        description="Nutella en achat grossiste : déstockage, palettes, promotions et offres du 30 novembre 2025."
+    )
+
+
+@app.route('/blog/grossiste-champagne-30-novembre-2025')
+def grossiste_champagne_30_novembre_2025():
+    return render_template(
+        'blog/grossiste-champagne-30-novembre-2025.html',
+        title="Grossiste Champagne | Offres du 30 Novembre 2025",
+        description="Champagne en achat grossiste : déstockage, palettes et réductions du 30 novembre 2025."
+    )
+
+
+@app.route('/blog/achat-pas-cher-30-novembre-2025')
+def achat_pas_cher_30_novembre_2025():
+    return render_template(
+        'blog/achat-pas-cher-30-novembre-2025.html',
+        title="Achat Pas Cher | Bons Plans du 30 Novembre 2025",
+        description="Tous les bons plans et réductions pour acheter moins cher le 30 novembre 2025 : promos, destockage et discounts."
+    )
+
+
 @app.route('/blog/suisse-pas-cher-nourriture')
 def blog_suisse():
     return render_template('blog_suisse.html')
@@ -6036,6 +6190,23 @@ def sitemap():
         '/destockage-tf1-france24-actualites', '/blog/achat-champagne-gros', '/article-ultra',
         '/fr/destockage-espagne', '/emeutes-agricoles-prix-alimentaires',
         '/blog/france-degockage-alimentaire', '/destockage-en-gros',
+        '/blog/discount-alimentaire-30-decembre-2025',
+        '/blog/champagne-ruinart-blanc-de-blancs-30-decembre-2025',
+        '/blog/promo-ruinart-30-novembre-2025',
+        '/blog/champagne-pas-cher-30-novembre-2025',
+        '/blog/destockage-alimentaire-paris-30-novembre-2025',
+        '/blog/destockage-alimentaire-belgique-30-novembre-2025',
+        '/blog/destockage-alimentaire-bruxelles-30-novembre-2025',
+        '/blog/destockage-alimentaire-espagne-30-novembre-2025',
+        '/blog/destockage-autour-de-moi-30-novembre-2025',
+        '/blog/destockage-alimentaire-lyon-30-novembre-2025',
+        '/blog/grossiste-alimentaire-bruxelles-30-novembre-2025',
+        '/blog/grossiste-alimentaire-paris-30-novembre-2025',
+        '/blog/grossiste-alimentaire-lyon-30-novembre-2025',
+        '/blog/grossiste-boisson-30-novembre-2025',
+        '/blog/grossiste-nutella-30-novembre-2025',
+        '/blog/grossiste-champagne-30-novembre-2025',
+        '/blog/achat-pas-cher-30-novembre-2025',
         '/blog/magasins-alcool-france', '/blog/destockage-alimentaire-pro-novembre-2025',
         '/blog/destockage-alimentaire-en-ligne-novembre-2025',
         '/blog/achat-gros-black-friday',
