@@ -29,26 +29,40 @@
 {
   "@context": "https://schema.org",
   "@type": "Event",
-  "name": "Destockage Alimentaire Belgique 24 Novembre 2025",
-  "startDate": "2025-11-24T00:00",
-  "endDate": "2025-11-24T23:59",
-  "eventStatus": "https://schema.org/EventScheduled",
+  "name": "Destockage Alimentaire Belgique {{ event_date|date('d MMMM yyyy') }}",
+  "startDate": "{{ event_date|date('Y-m-d') }}T00:00:00",
+  "endDate": "{{ event_date|date('Y-m-d') }}T23:59:00",
+  "eventStatus": "EventScheduled",
   "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Toute la Belgique",
+    "name": "Destockage Alimentaire Belgique",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "87 Rue des 3 Frères Béjard",
+      "addressLocality": "Libourne",
+      "postalCode": "33500",
       "addressCountry": "BE"
     }
   },
-  "description": "Grand déstockage alimentaire en Belgique le 24 novembre 2025. Économies jusqu'à 70% sur tous les produits alimentaires.",
+  "description": "Grand déstockage alimentaire en Belgique le {{ event_date|date('d MMMM yyyy') }}. Économies jusqu'à 70% sur tous les produits alimentaires.",
+  "image": [
+    "{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}"
+  ],
   "offers": {
     "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
     "price": "0",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/InStock",
-    "validFrom": "2025-11-24"
+    "validFrom": "{{ event_date|date('Y-m-d') }}T00:00:00",
+    "priceValidUntil": "{{ event_date|date('Y-m-d') }}T23:59:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com",
+    "logo": "{{ url_for('static', filename='images/logo.png') }}"
   }
 }
 </script>
