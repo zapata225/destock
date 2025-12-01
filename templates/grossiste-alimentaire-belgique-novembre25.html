@@ -28,31 +28,45 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.destockagealimentairestore.com/blog/grossiste-alimentaire-belgique"
-  },
-  "headline": "Grossiste Alimentaire Belgique 2025 : Meilleurs Prix & Livraison Rapide",
-  "description": "Grossiste alimentaire Belgique avec les meilleurs prix de gros 2025. Livraison rapide dans toute la Belgique.",
-  "image": "{{ url_for('static', filename='images/blog/grossiste-alimentaire-belgique.jpg') }}",
-  "author": {
-    "@type": "Organization",
-    "name": "Équipe Destockage Alimentaire"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Destockage Alimentaire",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+  "@type": "Event",
+  "name": "Destockage Alimentaire Belgique {{ event_date|date('d MMMM yyyy') }}",
+  "startDate": "{{ event_date|date('Y-m-d') }}T00:00:00",
+  "endDate": "{{ event_date|date('Y-m-d') }}T23:59:00",
+  "eventStatus": "EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Destockage Alimentaire Belgique",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "87 Rue des 3 Frères Béjard",
+      "addressLocality": "Libourne",
+      "postalCode": "33500",
+      "addressCountry": "BE"
     }
   },
-  "datePublished": "2025-11-15",
-  "dateModified": "2025-11-15",
-  "keywords": "grossiste alimentaire belgique, grossiste belgique, alimentation gros belgique, fournisseur alimentaire belgique, prix gros belgique 2025"
+  "description": "Grand déstockage alimentaire en Belgique le {{ event_date|date('d MMMM yyyy') }}. Économies jusqu'à 70% sur tous les produits alimentaires.",
+  "image": [
+    "{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "{{ event_date|date('Y-m-d') }}T00:00:00",
+    "priceValidUntil": "{{ event_date|date('Y-m-d') }}T23:59:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com",
+    "logo": "{{ url_for('static', filename='images/logo.png') }}"
+  }
 }
 </script>
+
 {% endblock %}
 
 {% block content %}
