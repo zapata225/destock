@@ -4205,6 +4205,69 @@ def destockage_lille_24_novembre_2025():
         title="Déstockage Alimentaire Lille | Promotions 24 Novembre 2025",
         description="Découvrez les offres de destockage alimentaire à Lille : ventes flash, promos et réduction du 24 novembre 2025."
     )
+@app.route('/blog/destockage-decembre-2025')
+def destockage_decembre_2025():
+    return render_template(
+        'blog/destockage-decembre-2025.html',
+        title="Déstockage Alimentaire Décembre 2025 | Promotions & Bons Plans",
+        description="Découvrez toutes les offres de déstockage alimentaire pour décembre 2025 : réductions, promotions et ventes en gros."
+    )
+
+@app.route('/blog/destockage-alimentaire-belgique-02-decembre-2025')
+def destockage_alimentaire_belgique_02_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-belgique-02-decembre-2025.html',
+        title="Déstockage Alimentaire Belgique | 2 Décembre 2025",
+        description="Toutes les promotions alimentaires et déstockages en Belgique pour le 2 décembre 2025 : bons plans et réductions locales."
+    )
+
+@app.route('/blog/destockage-alimentaire-autour-de-moi-03-decembre-2025')
+def destockage_alimentaire_autour_de_moi_03_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-autour-de-moi-03-decembre-2025.html',
+        title="Déstockage Autour de Moi | Offres du 3 Décembre 2025",
+        description="Trouvez les meilleurs déstockages alimentaires autour de vous pour le 3 décembre 2025 : promotions locales et prix réduits."
+    )
+
+@app.route('/blog/destockage-alimentaire-espagne-03-decembre-2025')
+def destockage_alimentaire_espagne_03_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-espagne-03-decembre-2025.html',
+        title="Déstockage Alimentaire Espagne | 3 Décembre 2025",
+        description="Déstockage alimentaire en Espagne pour le 3 décembre 2025 : promos, réductions et ventes en gros."
+    )
+
+@app.route('/blog/champagne-ruinart-blanc-de-blancs-03-decembre-2025')
+def champagne_ruinart_blanc_de_blancs_03_12_2025():
+    return render_template(
+        'blog/champagne-ruinart-blanc-de-blancs-03-decembre-2025.html',
+        title="Champagne Ruinart Blanc de Blancs | Promo 3 Décembre 2025",
+        description="Offres et promotions sur le Champagne Ruinart Blanc de Blancs pour le 3 décembre 2025 : réductions et ventes flash."
+    )
+
+@app.route('/promo-ruinart-blanc-de-blancs-03-12-2025')
+def promo_ruinart_blanc_de_blancs_03_12_2025():
+    return render_template(
+        'blog/promo_ruinart_blanc_de_blancs_03_12_2025.html',
+        title="Promo Ruinart Blanc de Blancs | 3 Décembre 2025",
+        description="Découvrez toutes les promotions sur le Champagne Ruinart Blanc de Blancs pour le 3 décembre 2025 : prix réduits et bons plans."
+    )
+
+@app.route('/blog/champagne-pas-cher-03-decembre-2025')
+def champagne_pas_cher_03_decembre_2025():
+    return render_template(
+        'blog/champagne-pas-cher-03-decembre-2025.html',
+        title="Champagne Pas Cher | Offres du 3 Décembre 2025",
+        description="Les meilleures offres de champagne pas cher pour le 3 décembre 2025 : réductions, bons plans et promotions."
+    )
+
+@app.route('/blog/destockage-alimentaire-paris-03-decembre-2025')
+def destockage_paris_03_decembre_2025():
+    return render_template(
+        'blog/destockage-paris-03-12-2025.html',
+        title="Déstockage Alimentaire Paris | 3 Décembre 2025",
+        description="Les meilleures offres de déstockage alimentaire à Paris pour le 3 décembre 2025 : promotions, bons plans et réductions locales."
+    )
 
 
 @app.route('/blog/destockage-alimentaire-lyon-11-2025')
@@ -6193,6 +6256,15 @@ def sitemap():
         '/blog/discount-alimentaire-30-decembre-2025',
         '/blog/champagne-ruinart-blanc-de-blancs-30-decembre-2025',
         '/blog/promo-ruinart-30-novembre-2025',
+        '/blog/destockage-decembre-2025',
+        '/blog/destockage-alimentaire-belgique-02-decembre-2025',
+        '/blog/destockage-alimentaire-autour-de-moi-03-decembre-2025',
+        '/blog/destockage-alimentaire-espagne-03-decembre-2025',
+        '/blog/champagne-ruinart-blanc-de-blancs-03-decembre-2025',
+        '/promo-ruinart-blanc-de-blancs-03-12-2025',
+        '/blog/champagne-pas-cher-03-decembre-2025',
+        '/blog/destockage-alimentaire-paris-03-decembre-2025',
+
         '/blog/champagne-pas-cher-30-novembre-2025',
         '/blog/destockage-alimentaire-paris-30-novembre-2025',
         '/blog/destockage-alimentaire-belgique-30-novembre-2025',
