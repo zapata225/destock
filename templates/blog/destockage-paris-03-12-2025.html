@@ -1,0 +1,720 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Paris 03 Décembre 2025 : Événement Exceptionnel | Destockage Alimentaire Store{% endblock %}
+
+{% block meta_description %}Destockage alimentaire Paris 03 décembre 2025 : Événement unique de produits alimentaires à prix cassés. Économies jusqu'à -70% sur épicerie, boissons et produits frais. Inscrivez-vous maintenant!{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Paris 03 Décembre 2025 : Événement Exceptionnel">
+<meta property="og:description" content="Événement unique de destockage alimentaire à Paris le 03 décembre 2025. Produits à -70%, épicerie fine, boissons et produits frais à prix cassés.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-03-decembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-paris-03-12-2025.jpg') }}">
+<meta property="og:type" content="event">
+<meta property="og:site_name" content="Destockage Alimentaire Store">
+<meta property="event:start_time" content="2025-12-03T09:00:00+01:00">
+<meta property="event:end_time" content="2025-12-03T20:00:00+01:00">
+<meta property="event:location" content="Paris, France">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Paris 03 Décembre 2025 : Événement Exceptionnel">
+<meta name="twitter:description" content="Événement unique le 03/12/2025 à Paris : destockage alimentaire avec produits à -70%. Épicerie, boissons, produits frais.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-paris-03-12-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-paris-03-decembre-2025" />
+{% endblock %}
+
+{% block geo_tags %}
+<meta name="geo.region" content="FR-75" />
+<meta name="geo.placename" content="Paris" />
+<meta name="geo.position" content="48.856614;2.3522219" />
+<meta name="ICBM" content="48.856614, 2.3522219" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Destockage Alimentaire Paris 03 Décembre 2025",
+  "description": "Événement exceptionnel de destockage alimentaire à Paris le 03 décembre 2025. Produits alimentaires à prix cassés jusqu'à -70%.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-paris-03-12-2025.jpg') }}",
+  "startDate": "2025-12-03T09:00:00+01:00",
+  "endDate": "2025-12-03T20:00:00+01:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Centre de Destockage Paris",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "À confirmer",
+      "addressLocality": "Paris",
+      "postalCode": "75000",
+      "addressCountry": "FR"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/products",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-01-15"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire Store",
+    "url": "https://www.destockagealimentairestore.com"
+  },
+  "country": "France",
+  "keywords": "destockage alimentaire paris, destockage paris 2025, alimentation pas cher paris, épicerie discount paris"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Paris 03/12/2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="name">Destockage Alimentaire Paris 03 Décembre 2025 : Événement Exceptionnel</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 Date : 03 Décembre 2025</span>
+                <span class="event-location" itemprop="location">📍 Lieu : Paris (adresse exacte communiquée sur inscription)</span>
+                <span class="reading-time">⏱️ Horaires : 9h00 - 20h00</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-paris-03-12-2025.jpg') }}" 
+                     alt="Destockage alimentaire Paris 03 décembre 2025 - événement exceptionnel produits alimentaires à prix cassés" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Économisez jusqu'à 70% sur vos courses alimentaires !</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="intro-section">
+            <div class="event-countdown">
+                <h2>⏳ Événement unique le 03 Décembre 2025 à Paris</h2>
+                <div class="countdown-timer" id="countdown-03-12-2025">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Ne manquez pas l'<strong>événement de destockage alimentaire le plus attendu de l'année 2025 à Paris</strong> ! Le <strong>03 décembre 2025</strong>, nous organisons un <strong>destockage exceptionnel de produits alimentaires</strong> avec des réductions allant jusqu'à <strong>-70%</strong>. Cet événement unique à <strong>Paris</strong> vous permettra de faire des économies substantielles sur vos courses tout en découvrant des produits de qualité.</p>
+        </section>
+
+        <section>
+            <h2>🎯 Pourquoi participer à cet événement ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>💰 Économies Massives</h3>
+                    <p>Profitez de réductions exceptionnelles jusqu'à <strong>70%</strong> sur une large gamme de produits alimentaires. Des prix cassés que vous ne trouverez nulle part ailleurs à <strong>Paris</strong>.</p>
+                    <div class="savings-highlight">
+                        <strong>Jusqu'à 70% d'économies</strong> sur l'ensemble des produits
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>📦 Large Sélection de Produits</h3>
+                    <p>Notre <strong>destockage alimentaire à Paris</strong> comprend : épicerie fine, conserves, boissons, produits frais, surgelés et bien plus encore. Des centaines de références disponibles.</p>
+                    <ul>
+                        <li>Épicerie fine et produits du monde</li>
+                        <li>Boissons (vins, champagnes, soft drinks)</li>
+                        <li>Produits frais et surgelés</li>
+                        <li>Conserves et produits de base</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>⭐ Produits de Qualité</h3>
+                    <p>Tous nos produits proviennent de stocks excédentaires, fins de série ou réorientations commerciales. Ils sont parfaitement consommables et de première qualité.</p>
+                    <div class="quality-badge">
+                        ✅ Tous les produits vérifiés et garantis
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-highlights">
+            <h2>🛒 Produits en Destockage le 03/12/2025</h2>
+            
+            <div class="products-grid">
+                <div class="product-category">
+                    <h3>🍷 Boissons & Vins</h3>
+                    <ul>
+                        <li><strong>Champagnes et vins</strong> : -50% à -60%</li>
+                        <li><strong>Boissons gazeuses</strong> : -40% à -50%</li>
+                        <li><strong>Jus de fruits premium</strong> : -45% à -55%</li>
+                        <li><strong>Eaux minérales</strong> : -35% à -45%</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🥫 Épicerie Fine</h3>
+                    <ul>
+                        <li><strong>Conserves haut de gamme</strong> : -55% à -65%</li>
+                        <li><strong>Pâtes et riz spéciaux</strong> : -40% à -50%</li>
+                        <li><strong>Huiles d'olive premium</strong> : -50% à -60%</li>
+                        <li><strong>Chocolats et confiseries</strong> : -45% à -55%</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🧀 Produits Frais & Surgelés</h3>
+                    <ul>
+                        <li><strong>Fromages affinés</strong> : -40% à -50%</li>
+                        <li><strong>Charcuteries sélection</strong> : -45% à -55%</li>
+                        <li><strong>Fruits et légumes</strong> : -35% à -45%</li>
+                        <li><strong>Plats cuisinés premium</strong> : -50% à -60%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📍 Informations Pratiques</h2>
+            
+            <div class="practical-info">
+                <div class="info-card">
+                    <h3>📅 Date et Horaires</h3>
+                    <div class="info-details">
+                        <p><strong>Date :</strong> Mercredi 03 Décembre 2025</p>
+                        <p><strong>Horaires :</strong> 9h00 - 20h00 (non stop)</p>
+                        <p><strong>Accès prioritaire :</strong> 8h30 pour les inscrits</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🏙️ Lieu de l'Événement</h3>
+                    <div class="info-details">
+                        <p><strong>Ville :</strong> Paris (adresse exacte communiquée après inscription)</p>
+                        <p><strong>Arrondissement :</strong> Centre de Paris</p>
+                        <p><strong>Accès :</strong> Métro, RER, bus et parking à proximité</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🎫 Modalités d'Accès</h3>
+                    <div class="info-details">
+                        <p><strong>Entrée :</strong> Gratuite sur inscription</p>
+                        <p><strong>Inscription obligatoire :</strong> Pour garantir votre accès</p>
+                        <p><strong>Paiement :</strong> CB, espèces, chèque</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚀 Comment Profiter au Maximum de l'Événement ?</h2>
+            
+            <div class="tips-section">
+                <div class="tip-item">
+                    <h3>📝 Inscrivez-vous Maintenant</h3>
+                    <p>L'inscription est gratuite mais obligatoire. Les inscrits bénéficient d'un <strong>accès prioritaire à partir de 8h30</strong> et reçoivent les meilleures offres en avant-première.</p>
+                </div>
+                
+                <div class="tip-item">
+                    <h3>🛒 Préparez Votre Liste</h3>
+                    <p>Pour optimiser votre temps sur place, préparez une liste des produits dont vous avez besoin. Consultez notre catalogue en ligne pour pré-sélectionner.</p>
+                </div>
+                
+                <div class="tip-item">
+                    <h3>🎒 Équipez-vous</h3>
+                    <p>Prévoyez des sacs de courses réutilisables ou un chariot. Les produits sont souvent vendus en lots ou en quantités avantageuses.</p>
+                </div>
+                
+                <div class="tip-item">
+                    <h3>⏰ Venez Tôt</h3>
+                    <p>Les meilleures affaires partent rapidement. L'accès prioritaire à 8h30 garantit l'accès aux produits les plus recherchés.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="urgent-section">
+            <h2>🔥 Offres Spéciales Événement 03/12/2025</h2>
+            
+            <div class="urgent-offers">
+                <div class="urgent-offer">
+                    <h3>⚡ Offre Flash 9h-11h</h3>
+                    <p><strong>Champagnes et vins</strong> : Réduction supplémentaire de -10% pendant les 2 premières heures</p>
+                </div>
+                
+                <div class="urgent-offer">
+                    <h3>🎁 Lot du Jour</h3>
+                    <p><strong>Panier garni premium</strong> : 15 produits sélectionnés à -75% (quantités limitées)</p>
+                </div>
+                
+                <div class="urgent-offer">
+                    <h3>👥 Offre Groupe</h3>
+                    <p>Venez à 4 personnes et bénéficiez d'une <strong>réduction supplémentaire de -5%</strong> sur l'ensemble de vos achats</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-section">
+            <h2>📞 Inscription Rapide pour le 03/12/2025</h2>
+            
+            <div class="conversion-box">
+                <div class="conversion-content">
+                    <h3>✨ Ne manquez pas cette opportunité unique !</h3>
+                    <p>Le <strong>destockage alimentaire de Paris le 03 décembre 2025</strong> est l'événement de l'année pour faire des économies sur vos courses. Des centaines de produits à prix cassés, une qualité garantie et une ambiance conviviale.</p>
+                    
+                    <div class="conversion-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Produits différents</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">70%</span>
+                            <span class="stat-label">Réduction max</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">11h</span>
+                            <span class="stat-label">Durée de l'événement</span>
+                        </div>
+                    </div>
+                    
+                    <div class="conversion-cta">
+                        <h4>🚀 Accédez dès maintenant à tous nos produits !</h4>
+                        <p>Même si vous ne pouvez pas venir à Paris le 03/12/2025, découvrez notre sélection permanente de produits en destockage avec des réductions exceptionnelles toute l'année.</p>
+                        
+                        <!-- REDIRECTION UNIQUEMENT SUR product_list -->
+                        <div class="conversion-buttons">
+                            <a href="{{ url_for('product_list') }}" class="primary-cta">
+                                🛒 Voir tous les produits en destockage
+                            </a>
+                            <a href="{{ url_for('product_list', category='promotions') }}" class="secondary-cta">
+                                🔥 Voir les offres spéciales
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO -->
+        <section class="faq-section">
+            <h2>❓ FAQ : Destockage Paris 03/12/2025</h2>
+            
+            <div class="faq-item">
+                <h3>Quand aura lieu le prochain destockage alimentaire à Paris ?</h3>
+                <p>Notre prochain grand événement de <strong>destockage alimentaire à Paris</strong> se tiendra le <strong>03 décembre 2025</strong>. C'est un événement annuel unique avec les meilleures offres de l'année.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Où se déroule exactement l'événement du 03/12/2025 ?</h3>
+                <p>L'adresse exacte du <strong>destockage alimentaire à Paris le 03 décembre 2025</strong> est communiquée uniquement aux personnes inscrites pour des raisons d'organisation et de sécurité.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Faut-il payer pour s'inscrire à l'événement ?</h3>
+                <p>Non, l'inscription au <strong>destockage du 03 décembre 2025 à Paris</strong> est totalement gratuite. Elle est simplement nécessaire pour gérer les flux de visiteurs.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Que faire si je ne peux pas venir le 03/12/2025 ?</h3>
+                <p>Nous proposons une sélection permanente de produits en destockage sur notre site. <a href="{{ url_for('product_list') }}">Découvrez nos offres en ligne</a> avec des réductions toute l'année.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ultra-optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #d32f2f;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 0.5rem;
+}
+
+.event-countdown {
+    background: linear-gradient(135deg, #d32f2f, #ff9800);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.benefits-grid, .tips-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item, .tip-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-top: 4px solid #d32f2f;
+}
+
+.savings-highlight, .quality-badge {
+    background: #ff9800;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.product-highlights {
+    background: #fff8e1;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #ff9800;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.product-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.product-category ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.product-category li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.practical-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-card {
+    background: #e3f2fd;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #2196f3;
+}
+
+.info-details {
+    margin-top: 1rem;
+}
+
+.info-details p {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.info-details p:before {
+    content: "✓";
+    color: #2196f3;
+    position: absolute;
+    left: 0;
+}
+
+.urgent-section {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.urgent-offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.urgent-offer {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.conversion-section {
+    margin: 3rem 0;
+}
+
+.conversion-box {
+    background: linear-gradient(135deg, #1a237e, #0d47a1);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.conversion-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    color: #ff9800;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.conversion-cta {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.conversion-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.primary-cta {
+    background: #ff9800;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.primary-cta:hover {
+    background: #f57c00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+}
+
+.secondary-cta {
+    background: transparent;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #ff9800;
+    transition: all 0.3s ease;
+}
+
+.secondary-cta:hover {
+    background: rgba(255, 152, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.faq-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.attention-grabber {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.event-location {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid, .tips-section, .products-grid, .practical-info, .urgent-offers {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+    }
+    
+    .conversion-buttons {
+        flex-direction: column;
+    }
+    
+    .conversion-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+}
+
+/* Animation pour le compteur */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.countdown-number {
+    animation: pulse 2s infinite;
+}
+</style>
+
+<script>
+// Compteur pour l'événement du 03/12/2025
+function updateCountdown() {
+    const eventDate = new Date('December 3, 2025 09:00:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
+    
+    if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        document.getElementById('countdown-03-12-2025').innerHTML = '<div class="event-ended">⚠️ Événement terminé - Découvrez nos prochains destockages !</div>';
+    }
+}
+
+// Mettre à jour le compteur chaque seconde
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Tracking Google Analytics pour les conversions
+document.querySelectorAll('.primary-cta, .secondary-cta').forEach(button => {
+    button.addEventListener('click', function() {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'event_category': 'Destockage Paris 03/12/2025',
+                'event_label': this.textContent.trim(),
+                'value': 1
+            });
+        }
+    });
+});
+
+// Optimisation pour mobile
+if (window.innerWidth <= 768) {
+    document.querySelectorAll('.conversion-cta').forEach(el => {
+        el.style.padding = '1rem';
+    });
+}
+</script>
+{% endblock %}
