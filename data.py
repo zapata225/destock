@@ -3860,20 +3860,20 @@ products = [
   },
   {
     "id": 703,
-    "name": "Palette Frites Surgelées Premium Coupe Cavalière 120x2,5kg",
-    "description": "Palette complète de 120 sacs de 2,5kg de frites coupe cavalière 100% premium. Calibre 10x10mm. Frites épaisses, croustillantes à l'extérieur et fondantes à l'intérieur. Idéales pour restaurants gastronomiques et brasseries. Surgélation rapide pour une qualité optimale.",
-    "price": 1440.00,
+    "name": "Palette coca colas Surgelées Premium Coupe Cavalière 820 sac/2,5kg",
+    "description": "Palette complète de 820 sacs de 2,5kg de cocas coupe cavalière 100% premium. Calibre 10x10mm. cocas épaisses, croustillantes à l'extérieur et fondantes à l'intérieur. Idéales pour restaurants gastronomiques et brasseries. Surgélation rapide pour une qualité optimale.",
+    "price": 1100.00,
     "priceCurrency": "EUR",
     "category": "Surgelés",
     "stock": 5,
     "featured": True,
     "published": True,
     "images": [
-      "palette-frites-cavaliere-1.jpg","palette-frites-cavaliere-2.jpg"
+      "palette-cocas-cavaliere-1.jpg","palette-cocas-cavaliere-2.jpg"
     ],
     "details": {
       "origine": "Nord-Pas-de-Calais, France",
-      "type": "Frites surgelées premium",
+      "type": "cocas surgelées premium",
       "variete_pomme_de_terre": "Bintje",
       "poids_net": "300 kg",
       "ingredients": "Pommes de terre (95%), huile de tournesol, dextrose.",
@@ -3897,7 +3897,7 @@ products = [
       "url": "/produits/703",
       "unit_price": "4,80€/kg"
     },
-    "seo_description": "🍟 PALETTE PROFESSIONNELLE : 300kg de frites coupe cavalière Label Rouge. Prix dégressif à 4,80€/kg (1 440€ la palette). Produit de qualité française pour restaurateurs exigeants."
+    "seo_description": "🍟 PALETTE PROFESSIONNELLE : 300kg de cocas coupe cavalière Label Rouge. Prix dégressif à 4,80€/kg (1 440€ la palette). Produit de qualité française pour restaurateurs exigeants."
   },
   {
     "id": 704,
