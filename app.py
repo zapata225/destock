@@ -6319,6 +6319,13 @@ def sitemap():
         '/promo-ruinart-blanc-de-blancs-03-12-2025',
         '/blog/champagne-pas-cher-03-decembre-2025',
         '/blog/destockage-alimentaire-paris-03-decembre-2025',
+        '/blog/destockage-alimentaire-paris-08-decembre-2025',
+        '/blog/destockage-alimentaire-belgique-08-decembre-2025',
+        '/blog/destockage-alimentaire-lille-8-decembre-2025',
+        '/blog/destockage-alimentaire-bruxelles-08-decembre-2025',
+        '/blog/grossiste-alimentaire-paris-08-decembre-2025',
+        '/blog/grossiste-alimentaire-lille-08-12-2025',
+        '/blog/champagne-pas-cher-lille-08-decembre-2025',
 
         '/blog/champagne-pas-cher-30-novembre-2025',
         '/blog/destockage-alimentaire-paris-30-novembre-2025',
