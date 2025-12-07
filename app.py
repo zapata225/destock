@@ -3142,6 +3142,61 @@ def dom_perignon():
         title="Champagne Dom Pérignon | Guide Complet",
         description="Tout savoir sur le champagne Dom Pérignon : histoire, prix, cuvées et où l’acheter au meilleur tarif."
     )
+@app.route('/blog/destockage-alimentaire-paris-08-decembre-2025')
+def destockage_paris_08_decembre_2025():
+    return render_template(
+        'blog/destockage-paris-08-decembre-2025.html',
+        title="Déstockage Alimentaire Paris | 8 Décembre 2025",
+        description="Toutes les offres de déstockage alimentaire à Paris pour le 8 décembre 2025 : promotions, bons plans et réductions."
+    )
+
+@app.route('/blog/destockage-alimentaire-belgique-08-decembre-2025')
+def destockage_belgique_08_12_2025():
+    return render_template(
+        'blog/destockage-alimentaire-belgique-08-decembre-2025.html',
+        title="Déstockage Alimentaire Belgique | 8 Décembre 2025",
+        description="Découvrez les offres de déstockage alimentaire en Belgique pour le 8 décembre 2025 : promotions et bons plans."
+    )
+
+@app.route('/blog/destockage-alimentaire-lille-8-decembre-2025')
+def destockage_alimentaire_lille_8_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-lille-8-decembre-2025.html',
+        title="Déstockage Alimentaire Lille | 8 Décembre 2025",
+        description="Déstockage alimentaire à Lille le 8 décembre 2025 : promotions, prix réduits et bons plans."
+    )
+
+@app.route('/blog/destockage-alimentaire-bruxelles-08-decembre-2025')
+def destockage_bruxelles_08_12_2025():
+    return render_template(
+        'blog/destockage-bruxelles-08-12-2025.html',
+        title="Déstockage Alimentaire Bruxelles | 8 Décembre 2025",
+        description="Offres de déstockage alimentaire à Bruxelles pour le 8 décembre 2025 : bonnes affaires et réductions."
+    )
+
+@app.route('/blog/grossiste-alimentaire-paris-08-decembre-2025')
+def grossiste_alimentaire_paris08_25():
+    return render_template(
+        'blog/grossiste-alimentaire-paris-08-12-25.html',
+        title="Grossiste Alimentaire Paris | 8 Décembre 2025",
+        description="Trouver des grossistes alimentaires à Paris le 8 décembre 2025 : prix en gros et offres spéciales."
+    )
+
+@app.route('/blog/grossiste-alimentaire-lille-08-12-2025')
+def grossiste_alimentaire_lille_08_12():
+    return render_template(
+        'blog/grossiste-alimentaire-lille-08-12-2025.html',
+        title="Grossiste Alimentaire Lille | 8 Décembre 2025",
+        description="Sélection de grossistes alimentaires à Lille pour le 8 décembre 2025 : prix professionnels et promotions."
+    )
+
+@app.route('/blog/champagne-pas-cher-lille-08-decembre-2025')
+def champagne_pas_cher_lille_08_decembre_2025():
+    return render_template(
+        'blog/champagne-pas-cher-lille-08-decembre-2025.html',
+        title="Champagne Pas Cher Lille | 8 Décembre 2025",
+        description="Promotions et bons plans champagne pas cher à Lille pour le 8 décembre 2025."
+    )
 
 @app.route('/blog/grossistes-boissons-2023')
 def grossistes_boissons_2023():
