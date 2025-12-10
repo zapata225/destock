@@ -3153,7 +3153,7 @@ def destockage_paris_08_decembre_2025():
 @app.route('/blog/destockage-alimentaire-belgique-08-decembre-2025')
 def destockage_belgique_08_12_2025():
     return render_template(
-        'blog/destockage-alimentaire-belgique-08-decembre-2025.html',
+        'blog/destockage-alimentaire-belgique-12-decembre-2025.html',
         title="Déstockage Alimentaire Belgique | 8 Décembre 2025",
         description="Découvrez les offres de déstockage alimentaire en Belgique pour le 8 décembre 2025 : promotions et bons plans."
     )
