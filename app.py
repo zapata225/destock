@@ -5326,6 +5326,46 @@ def le_prix_ruinart_brut():
     }
     return render_template('blog/prix-ruinart-brut.html', seo=seo)
 
+@app.route('/blog/destockage-alimentaire-particulier-08-decembre-2025')
+def destockage_alimentaire_particulier_08_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-particulier-08-decembre-2025.html',
+        title="Déstockage Alimentaire Particulier | 8 Décembre 2025",
+        description="Découvrez les meilleures offres de déstockage alimentaire pour particuliers le 8 décembre 2025 : réductions, promos et bons plans."
+    )
+
+@app.route('/blog/destockage-alimentaire-professionnel-08-decembre-2025')
+def destockage_professionnel_08_decembre_2025():
+    return render_template(
+        'blog/destockage-professionnel-08-decembre-2025.html',
+        title="Déstockage Alimentaire Professionnel | 8 Décembre 2025",
+        description="Offres de déstockage alimentaire pour professionnels le 8 décembre 2025 : ventes en gros, prix de déstockage et promotions."
+    )
+
+@app.route('/blog/destockage-alimentaire-espagne-08-decembre-2025')
+def destockage_alimentaire_espagne_12_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-espagne-08-decembre-2025.html',
+        title="Déstockage Alimentaire Espagne | 8 Décembre 2025",
+        description="Déstockage alimentaire en Espagne le 8 décembre 2025 : promos, ventes flash et réductions exceptionnelles."
+    )
+
+@app.route('/blog/destockage-alimentaire-belgique-08-decembre-2025')
+def destockage_alimentaire_belgique_10_12_2025():
+    return render_template(
+        'blog/destockage-alimentaire-belgique-08-decembre-2025.html',
+        title="Déstockage Alimentaire Belgique | 8 Décembre 2025",
+        description="Offres de déstockage alimentaire en Belgique pour le 8 décembre 2025 : prix cassés, bons plans et réductions."
+    )
+
+@app.route('/blog/achat-ruinart-blanc-de-blancs-decembre-2025')
+def achat_ruinart_blanc_de_blancs_10_decembre_2025():
+    return render_template(
+        'blog/achat-ruinart-blanc-de-blancs-12-decembre-2025.html',
+        title="Achat Champagne Ruinart Blanc de Blancs | Décembre 2025",
+        description="Achetez le Champagne Ruinart Blanc de Blancs en promotion en décembre 2025 : offres spéciales, prix réduits et bons plans."
+    )
+
 
 # --- ARTICLE 2 ---
 @app.route('/blog/le-ruinart-blanc-de-blanc-prix')
@@ -6312,6 +6352,11 @@ def sitemap():
         '/blog/champagne-ruinart-blanc-de-blancs-30-decembre-2025',
         '/blog/promo-ruinart-30-novembre-2025',
         '/blog/destockage-decembre-2025',
+        '/blog/destockage-alimentaire-particulier-08-decembre-2025',
+        '/blog/destockage-alimentaire-professionnel-08-decembre-2025',
+        '/blog/destockage-alimentaire-espagne-08-decembre-2025',
+        '/blog/destockage-alimentaire-belgique-08-decembre-2025',
+        '/blog/achat-ruinart-blanc-de-blancs-decembre-2025',
         '/blog/destockage-alimentaire-belgique-02-decembre-2025',
         '/blog/destockage-alimentaire-autour-de-moi-03-decembre-2025',
         '/blog/destockage-alimentaire-espagne-03-decembre-2025',
