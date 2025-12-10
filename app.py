@@ -3150,7 +3150,7 @@ def destockage_paris_08_decembre_2025():
         description="Toutes les offres de déstockage alimentaire à Paris pour le 8 décembre 2025 : promotions, bons plans et réductions."
     )
 
-@app.route('/blog/destockage-alimentaire-belgique-08-decembre-2025')
+@app.route('/blog/destockage-alimentaire-belgique-12-decembre-2025')
 def destockage_belgique_08_12_2025():
     return render_template(
         'blog/destockage-alimentaire-belgique-12-decembre-2025.html',
