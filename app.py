@@ -5241,6 +5241,62 @@ def register():
 
     return render_template('register.html')
 
+@app.route('/blog/destockage-alimentaire-en-ligne-particulier-15-decembre-2025')
+def destockage_alimentaire_en_ligne_particulier_15_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-en-ligne-particulier-15-decembre-2025.html',
+        title="Déstockage Alimentaire en Ligne Particulier | 15 Décembre 2025",
+        description="Déstockage alimentaire en ligne pour particuliers le 15 décembre 2025 : promotions, prix cassés et bons plans."
+    )
+
+@app.route('/blog/destockage-alimentaire-en-ligne-pour-professionnel-15-12-25')
+def destockage_alimentaire_en_ligne_pour_professionnel_15_12_25():
+    return render_template(
+        'blog/destockage-alimentaire-en-ligne-pour-professionnel-15-12-25.html',
+        title="Déstockage Alimentaire en Ligne Professionnel | 15 Décembre 2025",
+        description="Offres de déstockage alimentaire en ligne pour professionnels le 15 décembre 2025 : ventes en gros et tarifs pros."
+    )
+
+@app.route('/blog/destockage-alimentaire-paris-15-decembre-2025')
+def destockage_alimentaire_paris_15_decembre_2025():
+    return render_template(
+        'blog/destockage-alimentaire-paris-15-decembre-2025.html',
+        title="Déstockage Alimentaire Paris | 15 Décembre 2025",
+        description="Les meilleurs déstockages alimentaires à Paris le 15 décembre 2025 : promotions, ventes flash et réductions."
+    )
+
+@app.route('/blog/destockage-alimentaire-lille-15-decembre-2025')
+def destockage_lille_15_12_2025():
+    return render_template(
+        'blog/destockage-lille-15-12-2025.html',
+        title="Déstockage Alimentaire Lille | 15 Décembre 2025",
+        description="Déstockage alimentaire à Lille le 15 décembre 2025 : bons plans, promotions et prix réduits."
+    )
+
+@app.route('/blog/grossiste-alimentaire-lille-15-decembre-2025')
+def grossiste_alimentaire_lille_12_12_25():
+    return render_template(
+        'blog/grossiste-alimentaire-lille-15-12-25.html',
+        title="Grossiste Alimentaire Lille | 15 Décembre 2025",
+        description="Grossiste alimentaire à Lille : déstockage, achats en gros et offres spéciales du 15 décembre 2025."
+    )
+
+@app.route('/blog/grossiste-alimentaire-paris-15-decembre-2025')
+def grossiste_alimentaire_paris_15_decembre_2025():
+    return render_template(
+        'blog/grossiste-alimentaire-paris-15-decembre-2025.html',
+        title="Grossiste Alimentaire Paris | 15 Décembre 2025",
+        description="Grossistes alimentaires à Paris le 15 décembre 2025 : promotions, déstockage et ventes en gros."
+    )
+
+@app.route('/blog/champagne-ruinart-blanc-de-blancs-15-decembre-2025')
+def ruinart_blanc_de_blancs__15_12_2025():
+    return render_template(
+        'blog/ruinart-blanc-de-blancs-15-12-2025.html',
+        title="Champagne Ruinart Blanc de Blancs | 15 Décembre 2025",
+        description="Champagne Ruinart Blanc de Blancs en promotion le 15 décembre 2025 : offres spéciales et prix réduits."
+    )
+
 
 @app.route('/blog/livraison-champagne')
 def livraison_champagne():
