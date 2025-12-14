@@ -1,0 +1,838 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Lille 15 Décembre 2025 : Événement Ultra Mega Conversion | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}MEGA ÉVÉNEMENT : Destockage alimentaire exceptionnel à Lille le 15 décembre 2025. Économisez jusqu'à 70% sur vos courses. Produits frais, boissons, conserves à prix cassés.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Lille 15 Décembre 2025 : Événement Ultra Mega Conversion">
+<meta property="og:description" content="Événement exceptionnel de destockage alimentaire à Lille le 15/12/2025. Économies jusqu'à 70% sur produits frais, boissons, conserves.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-lille-15-decembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}">
+<meta property="og:type" content="event">
+<meta property="og:site_name" content="Destockage Alimentaire">
+<meta property="og:locale" content="fr_FR">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Lille 15 Décembre 2025 : Événement Ultra Mega Conversion">
+<meta name="twitter:description" content="Événement exceptionnel à Lille le 15/12/2025. Économies jusqu'à 70% sur produits alimentaires!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-lille-15-decembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Destockage Alimentaire Lille 15 Décembre 2025 : Événement Ultra Mega Conversion",
+  "description": "Événement exceptionnel de destockage alimentaire à Lille avec réductions jusqu'à 70% sur produits frais, boissons, conserves et produits secs.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}",
+  "startDate": "2025-12-15T08:00:00+01:00",
+  "endDate": "2025-12-15T20:00:00+01:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Lille Grand Palais",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1 Boulevard des Cités Unies",
+      "addressLocality": "Lille",
+      "postalCode": "59000",
+      "addressCountry": "FR"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.destockagealimentairestore.com/product_list",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-12-15T08:00:00+01:00"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  },
+  "country": "France",
+  "keywords": "destockage alimentaire lille, destockage lille 2025, événement destockage lille, promotion alimentaire lille, produits discount lille"
+}
+</script>
+{% endblock %}
+
+{% block extra_head %}
+<meta name="geo.region" content="FR-HDF" />
+<meta name="geo.placename" content="Lille" />
+<meta name="geo.position" content="50.62925;3.057256" />
+<meta name="ICBM" content="50.62925, 3.057256" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/Event">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Lille 2025</span>
+            </nav>
+            
+            <div class="event-badge">
+                <span class="badge">🔥 ÉVÉNEMENT ULTRA MEGA CONVERSION</span>
+            </div>
+            
+            <h1 class="article-title" itemprop="name">
+                <span class="highlight-title">DESTOCKAGE ALIMENTAIRE LILLE</span><br>
+                <span class="highlight-date">15 DÉCEMBRE 2025</span>
+            </h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="startDate">📅 15 décembre 2025</span>
+                <span class="event-time">⏰ 8h00 - 20h00</span>
+                <span class="author" itemprop="organizer">📍 Lille Grand Palais</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-lille-2025.jpg') }}" 
+                     alt="Destockage alimentaire Lille 15 décembre 2025 événement ultra mega conversion économies 70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">ÉCONOMISEZ JUSQU'À 70% SUR VOS COURSES</p>
+                </div>
+            </div>
+            
+            <div class="countdown-timer" id="countdown">
+                <h3>🚀 L'ÉVÉNEMENT COMMENCE DANS :</h3>
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span id="days">00</span>
+                        <small>JOURS</small>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="hours">00</span>
+                        <small>HEURES</small>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="minutes">00</span>
+                        <small>MINUTES</small>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="seconds">00</span>
+                        <small>SECONDES</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="description">
+        <section class="intro-section">
+            <div class="urgency-banner">
+                <h2>⚠️ ÉVÉNEMENT EXCEPTIONNEL À NE PAS MANQUER !</h2>
+                <p>Le plus grand <strong>destockage alimentaire de Lille</strong> de l'année 2025 aura lieu le <strong>15 décembre 2025</strong>. Cet événement <strong>ULTRA MEGA CONVERSION</strong> vous offre l'opportunité unique de réaliser des économies phénoménales sur tous vos produits alimentaires.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎯 POURQUOI CET ÉVÉNEMENT EST UNIQUE ?</h2>
+            
+            <div class="unique-features">
+                <div class="feature-item mega-feature">
+                    <h3>💰 ÉCONOMIES ULTRA MEGA</h3>
+                    <p>Jusqu'à <strong>70% de réduction</strong> sur des milliers de produits. Des prix cassés jamais vus à Lille !</p>
+                </div>
+                
+                <div class="feature-item mega-feature">
+                    <h3>📦 STOCK GIGANTESQUE</h3>
+                    <p>Plus de <strong>10,000 produits</strong> en destockage : frais, surgelés, conserves, boissons, épicerie fine.</p>
+                </div>
+                
+                <div class="feature-item mega-feature">
+                    <h3>🚚 LIVRAISON GRATUITE</h3>
+                    <p>Pour toute commande supérieure à <strong>50€</strong> dans un rayon de 30km autour de Lille.</p>
+                </div>
+                
+                <div class="feature-item mega-feature">
+                    <h3>🎁 CADEAUX EXCLUSIFS</h3>
+                    <p>Les 500 premiers visiteurs reçoivent un <strong>panier cadeau</strong> d'une valeur de 30€.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📍 INFOS PRATIQUES DE L'ÉVÉNEMENT</h2>
+            
+            <div class="event-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> LIEU</h3>
+                    <p><strong>Lille Grand Palais</strong><br>
+                    1 Boulevard des Cités Unies<br>
+                    59000 Lille, France<br>
+                    <span class="highlight">Parking gratuit de 1000 places</span></p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-clock"></i> HORAIRES</h3>
+                    <p><strong>8h00 - 20h00</strong><br>
+                    Ouverture spéciale à 7h30 pour les <strong>100 premiers clients</strong><br>
+                    <span class="highlight">Pas de fermeture à midi</span></p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-euro-sign"></i> MODALITÉS</h3>
+                    <p><strong>Entrée gratuite</strong><br>
+                    Paiement : Espèces, CB, Chèques<br>
+                    <span class="highlight">Retrait immédiat sur place</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🛒 PRODUITS EN DESTOCKAGE EXCEPTIONNEL</h2>
+            
+            <div class="products-grid">
+                <div class="product-category">
+                    <h3>🥩 PRODUITS FRAIS</h3>
+                    <ul>
+                        <li><strong>Viandes</strong> : -60% (Bœuf, Porc, Volaille)</li>
+                        <li><strong>Poissons</strong> : -55% (Saumon, Cabillaud, Crevettes)</li>
+                        <li><strong>Fromages</strong> : -50% (AOP, Fromages affinés)</li>
+                        <li><strong>Fruits & Légumes</strong> : -45% (Bio et conventionnels)</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🥫 CONSERVES & ÉPICERIE</h3>
+                    <ul>
+                        <li><strong>Conserves</strong> : -70% (Légumes, Poissons, Plats préparés)</li>
+                        <li><strong>Pâtes & Riz</strong> : -65% (Marques premium)</li>
+                        <li><strong>Huiles & Vinaigres</strong> : -60% (Olive, Tournesol, Spécialités)</li>
+                        <li><strong>Épices & Condiments</strong> : -55% (Exotiques et régionaux)</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🍷 BOISSONS & ALCOOLS</h3>
+                    <ul>
+                        <li><strong>Vins & Champagnes</strong> : -50% (Grands crus et vins du monde)</li>
+                        <li><strong>Bières & Cidres</strong> : -45% (Artisanales et grandes marques)</li>
+                        <li><strong>Eaux & Sodas</strong> : -70% (Packs familiaux)</li>
+                        <li><strong>Jus & Smoothies</strong> : -60% (Pressés et biologiques)</li>
+                    </ul>
+                </div>
+                
+                <div class="product-category">
+                    <h3>❄️ SURGELÉS & PRÉPARÉS</h3>
+                    <ul>
+                        <li><strong>Plats préparés</strong> : -65% (Gastronomiques et diététiques)</li>
+                        <li><strong>Légumes surgelés</strong> : -60% (Bio et mélanges)</li>
+                        <li><strong>Glaces & Desserts</strong> : -55% (Grandes marques)</li>
+                        <li><strong>Pains & Viennoiseries</strong> : -50% (Artisanaux et surgelés)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📋 PROGRAMME DE LA JOURNÉE</h2>
+            
+            <div class="program-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">7h30</div>
+                    <div class="timeline-content">
+                        <h3>🎪 OUVERTURE SPÉCIALE</h3>
+                        <p>Accès réservé aux <strong>100 premiers clients</strong> avec cadeau de bienvenue</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">8h00</div>
+                    <div class="timeline-content">
+                        <h3>🚪 OUVERTURE AU PUBLIC</h3>
+                        <p>Début des ventes grand public avec <strong>remises flash toutes les heures</strong></p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">12h00</div>
+                    <div class="timeline-content">
+                        <h3>🎁 TIRAGE AU SORT MEGA</h3>
+                        <p>Tirage au sort avec <strong>10 paniers garnis</strong> d'une valeur de 200€ à gagner</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15h00</div>
+                    <div class="timeline-content">
+                        <h3>🔥 HEURE ULTRA PROMO</h3>
+                        <p><strong>Réductions supplémentaires de 20%</strong> sur tous les produits pendant 1 heure</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">18h00</div>
+                    <div class="timeline-content">
+                        <h3>🎉 DERNIÈRE CHANCE</h3>
+                        <p>Dernières promotions avec <strong>remises allant jusqu'à 80%</strong> sur les invendus</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🗺️ COMMENT NOUS TROUVER À LILLE ?</h2>
+            
+            <div class="location-info">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <h3><i class="fas fa-map"></i> PLAN D'ACCÈS</h3>
+                        <p><strong>En voiture :</strong> A1/E17, sortie Lille Centre<br>
+                        <strong>En métro :</strong> Ligne 1, station Lille Grand Palais<br>
+                        <strong>En bus :</strong> Lignes 18, 51, 58<br>
+                        <strong>En train :</strong> Gare Lille Flandres (10 min à pied)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-section">
+            <div class="conversion-banner">
+                <h2>🚨 ULTIME CHANCE : COMMANDEZ EN LIGNE DÈS MAINTENANT !</h2>
+                <p>Vous ne pouvez pas vous déplacer à Lille le 15 décembre 2025 ? <strong>Profitez des mêmes promotions en ligne</strong> avec livraison à domicile !</p>
+                
+                <div class="conversion-highlights">
+                    <div class="highlight">
+                        <i class="fas fa-bolt"></i>
+                        <span>Mêmes prix cassés que sur place</span>
+                    </div>
+                    <div class="highlight">
+                        <i class="fas fa-truck"></i>
+                        <span>Livraison offerte dès 50€</span>
+                    </div>
+                    <div class="highlight">
+                        <i class="fas fa-gift"></i>
+                        <span>Cadeau surprise pour chaque commande</span>
+                    </div>
+                </div>
+                
+                <div class="mega-cta">
+                    <h3>🎯 ACTION IMMÉDIATE REQUISE :</h3>
+                    <p>Les stocks sont limités et les promotions expirent le 15 décembre 2025 à minuit.</p>
+                    
+                    <div class="urgency-indicators">
+                        <div class="indicator">
+                            <i class="fas fa-fire"></i>
+                            <span>🔥 87% DES PRODUITS DÉJÀ RÉSERVÉS</span>
+                        </div>
+                        <div class="indicator">
+                            <i class="fas fa-clock"></i>
+                            <span>⏰ TEMPS LIMITÉ : OFFRE VALABLE 24H</span>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ url_for('product_list') }}" class="mega-conversion-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        COMMANDER MAINTENANT AVANT RUPTURE DE STOCK
+                    </a>
+                    
+                    <div class="trust-signals">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Paiement 100% sécurisé</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-smile"></i>
+                            <span>Satisfaction garantie</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Service client 7j/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>❓ FAQ : QUESTIONS FRÉQUENTES</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Les prix sont-ils vraiment garantis jusqu'à -70% ?</h3>
+                    <p><strong>OUI ABSOLUMENT !</strong> Tous les prix affichés lors de l'événement destockage alimentaire Lille 15 décembre 2025 incluent des réductions réelles allant jusqu'à 70% par rapport aux prix habituels.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Faut-il réserver pour participer à l'événement ?</h3>
+                    <p><strong>NON</strong>, l'entrée est libre et gratuite. Cependant, nous recommandons d'arriver tôt car les produits les plus populaires partent rapidement.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Peut-on payer par carte bancaire ?</h3>
+                    <p><strong>OUI</strong>, nous acceptons toutes les cartes bancaires, ainsi que les espèces et les chèques. Des terminaux de paiement mobiles sont disponibles sur place.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Y a-t-il des produits périmés ?</h3>
+                    <p><strong>NON</strong>, tous les produits proposés sont parfaitement consommables. Certains ont des dates de péremption courtes (DLUO), mais sont vendus à des prix extrêmement bas.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ULTRA MEGA CONVERSION */
+.article-content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-badge {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.badge {
+    background: linear-gradient(135deg, #ff0000, #ff9900);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.article-title {
+    text-align: center;
+    margin: 2rem 0;
+    color: #2c5530;
+}
+
+.highlight-title {
+    font-size: 2.5rem;
+    display: block;
+    color: #d32f2f;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.highlight-date {
+    font-size: 2rem;
+    display: block;
+    color: #4a7c59;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+.countdown-timer {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.countdown-box span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-box small {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff0000, #ff6b6b);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.article-content h2 {
+    color: #2c5530;
+    margin: 2.5rem 0 1.5rem 0;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.article-content h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #2c5530, #4a7c59);
+}
+
+.unique-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 5px solid #4a7c59;
+}
+
+.mega-feature {
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+    border-top: 5px solid #ff9900;
+}
+
+.event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.detail-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a7c59;
+}
+
+.detail-card h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.product-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 2px solid #e8f5e8;
+}
+
+.product-category h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #4a7c59;
+}
+
+.product-category ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.product-category li {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.product-category li:before {
+    content: "✓";
+    color: #4a7c59;
+    font-weight: bold;
+    position: absolute;
+    left: -1.2rem;
+}
+
+.program-timeline {
+    position: relative;
+    margin: 3rem 0;
+    padding-left: 30px;
+}
+
+.program-timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #4a7c59, #2c5530);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 30px;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: #d32f2f;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #4a7c59;
+}
+
+.timeline-time {
+    background: #2c5530;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.conversion-section {
+    margin: 4rem 0;
+}
+
+.conversion-banner {
+    background: linear-gradient(135deg, #2c5530, #1e3a28);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.conversion-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.highlight i {
+    color: #ffeb3b;
+    font-size: 1.5rem;
+}
+
+.mega-cta {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.urgency-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 0, 0, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+}
+
+.mega-conversion-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff0000, #ff9900);
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+}
+
+.mega-conversion-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+}
+
+.trust-signals {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.trust-item i {
+    color: #4caf50;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.faq-item h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .highlight-title {
+        font-size: 1.8rem;
+    }
+    
+    .highlight-date {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-box {
+        min-width: 80px;
+        padding: 1rem;
+    }
+    
+    .countdown-box span {
+        font-size: 2rem;
+    }
+    
+    .mega-conversion-button {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .conversion-highlights,
+    .urgency-indicators,
+    .trust-signals {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+</style>
+
+<script>
+// Compte à rebours ultra mega conversion
+function updateCountdown() {
+    const eventDate = new Date('December 15, 2025 08:00:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
+    
+    if (timeLeft < 0) {
+        document.getElementById('countdown').innerHTML = "<h3>🚀 L'ÉVÉNEMENT EST COMMENCÉ !</h3>";
+        return;
+    }
+    
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+    
+    // Animation ultra conversion
+    if (days === 0 && hours < 24) {
+        document.getElementById('countdown').style.background = 'linear-gradient(135deg, #ff0000, #ff9900)';
+        document.querySelector('.badge').style.animationDuration = '1s';
+    }
+}
+
+// Mise à jour toutes les secondes
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Tracking de conversion
+document.querySelector('.mega-conversion-button').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Track GA4 event
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'event_category': 'Ultra Mega Conversion',
+            'event_label': 'Destockage Lille 2025',
+            'value': 1
+        });
+    }
+    
+    // Redirection après tracking
+    setTimeout(function() {
+        window.location.href = "{{ url_for('product_list') }}";
+    }, 300);
+});
+</script>
+{% endblock %}

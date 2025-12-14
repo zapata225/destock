@@ -1,0 +1,916 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70% | 15 Décembre 2025{% endblock %}
+
+{% block meta_description %}Découvrez les meilleures offres de déstockage alimentaire en ligne pour particulier en décembre 2025. Économisez jusqu'à 70% sur vos courses alimentaires avec nos promotions exclusives.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70% | 15 Décembre 2025">
+<meta property="og:description" content="Promotions exclusives de déstockage alimentaire en ligne pour particulier en décembre 2025. Commandez maintenant et économisez jusqu'à 70% sur votre panier!">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne-particulier.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+<meta property="og:locale" content="fr_FR">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70% | 15 Décembre 2025">
+<meta name="twitter:description" content="Offres spéciales de déstockage alimentaire en ligne pour particulier - Économies immédiates jusqu'à 70%!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne-particulier.jpg') }}">
+<meta name="twitter:site" content="@destockagealim">
+<meta name="twitter:creator" content="@destockagealim">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025" />
+{% endblock %}
+
+{% block alternate %}
+<link rel="alternate" hreflang="fr" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025" />
+<link rel="alternate" hreflang="fr-FR" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025" />
+<link rel="alternate" hreflang="fr-BE" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025" />
+<link rel="alternate" hreflang="fr-CH" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025" />
+<link rel="alternate" hreflang="x-default" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025"
+  },
+  "headline": "Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70% | 15 Décembre 2025",
+  "description": "Promotions exclusives de déstockage alimentaire en ligne pour particulier en décembre 2025. Économies immédiates et livraison rapide partout en France.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne-particulier.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire",
+    "url": "https://www.destockagealimentairestore.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire Store",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "keywords": "destockage alimentaire en ligne pour particulier, déstockage alimentaire, promotions alimentaires décembre 2025, économies courses en ligne, destockage alimentaire france",
+  "inLanguage": "fr-FR",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Consumers"
+  },
+  "locationCreated": {
+    "@type": "Country",
+    "name": "France"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "2.99",
+    "highPrice": "49.99",
+    "priceCurrency": "EUR",
+    "offerCount": "150"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Destockage Alimentaire en Ligne pour Particulier - Décembre 2025",
+  "description": "Meilleures offres de déstockage alimentaire en ligne pour particulier avec économies jusqu'à 70%. Livraison France entière.",
+  "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://www.destockagealimentairestore.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://www.destockagealimentairestore.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Destockage Alimentaire en Ligne Décembre 2025",
+        "item": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-particulier-decembre-2025"
+      }
+    ]
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Alimentaire Décembre 2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Destockage Alimentaire en Ligne pour Particulier : Économies jusqu'à -70% | 15 Décembre 2025</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 15 décembre 2025</span>
+                <span class="reading-time">⏱️ 4 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+                <span class="expiration-date">⏰ Offres valables jusqu'au 31/12/2025</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-alimentaire-en-ligne-particulier.jpg') }}" 
+                     alt="Destockage alimentaire en ligne pour particulier - économies jusqu'à 70% décembre 2025" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">🔥 PROMOTIONS EXCLUSIVES : Économisez jusqu'à 70% sur vos courses alimentaires!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="urgent-alert">
+                <h2>🚨 OFFRE LIMITÉE : DESTOCKAGE ALIMENTAIRE EN LIGNE POUR PARTICULIER</h2>
+                <p><strong>ATTENTION :</strong> Ces offres de <strong>destockage alimentaire en ligne pour particulier</strong> sont exceptionnelles et valables uniquement jusqu'au 31 décembre 2025. Profitez de réductions allant jusqu'à <strong>70%</strong> sur une large sélection de produits alimentaires. Commande en ligne simple, livraison rapide partout en France.</p>
+            </div>
+            
+            <div class="conversion-banner">
+                <div class="banner-content">
+                    <h3>🎯 POURQUOI CHOISIR NOTRE DESTOCKAGE ALIMENTAIRE EN LIGNE ?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <span class="icon">💰</span>
+                            <strong>Économies jusqu'à 70%</strong>
+                            <p>Prix cassés sur produits de qualité</p>
+                        </div>
+                        <div class="benefit">
+                            <span class="icon">🚚</span>
+                            <strong>Livraison 24-48h</strong>
+                            <p>Partout en France métropolitaine</p>
+                        </div>
+                        <div class="benefit">
+                            <span class="icon">🛡️</span>
+                            <strong>Garantie satisfaction</strong>
+                            <p>30 jours pour changer d'avis</p>
+                        </div>
+                        <div class="benefit">
+                            <span class="icon">🎁</span>
+                            <strong>Frais de port offerts</strong>
+                            <p>Dès 50€ d'achat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📦 Nos Meilleures Offres de Déstockage Alimentaire</h2>
+            <p>Découvrez notre sélection exclusive de <strong>destockage alimentaire en ligne pour particulier</strong>. Ces produits sont disponibles en quantités limitées et à des prix défiant toute concurrence.</p>
+            
+            <div class="products-highlight">
+                <div class="product-category">
+                    <h3>🥫 Conserves et Produits Secs</h3>
+                    <div class="product-list">
+                        <div class="product-item">
+                            <h4>Conserve de thon au naturel</h4>
+                            <div class="price-info">
+                                <span class="old-price">3.50€</span>
+                                <span class="new-price">1.99€</span>
+                                <span class="discount">-43%</span>
+                            </div>
+                            <p>Lot de 6 conserves - Date limite optimale : 06/2026</p>
+                        </div>
+                        <div class="product-item">
+                            <h4>Pâtes spaghetti premium</h4>
+                            <div class="price-info">
+                                <span class="old-price">2.20€</span>
+                                <span class="new-price">0.99€</span>
+                                <span class="discount">-55%</span>
+                            </div>
+                            <p>Pack de 5kg - Origine Italie</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🥤 Boissons et Jus</h3>
+                    <div class="product-list">
+                        <div class="product-item">
+                            <h4>Jus d'orange 100% pur jus</h4>
+                            <div class="price-info">
+                                <span class="old-price">4.50€</span>
+                                <span class="new-price">2.49€</span>
+                                <span class="discount">-45%</span>
+                            </div>
+                            <p>Brique 1L - Sans additifs</p>
+                        </div>
+                        <div class="product-item">
+                            <h4>Eau minérale gazeuse</h4>
+                            <div class="price-info">
+                                <span class="old-price">8.90€</span>
+                                <span class="new-price">4.99€</span>
+                                <span class="discount">-44%</span>
+                            </div>
+                            <p>Pack de 12 bouteilles 1.5L</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-category">
+                    <h3>🍪 Snacks et Biscuits</h3>
+                    <div class="product-list">
+                        <div class="product-item">
+                            <h4>Biscuits chocolat noisette</h4>
+                            <div class="price-info">
+                                <span class="old-price">3.20€</span>
+                                <span class="new-price">1.49€</span>
+                                <span class="discount">-53%</span>
+                            </div>
+                            <p>Paquet de 400g - Fabrication française</p>
+                        </div>
+                        <div class="product-item">
+                            <h4>Chips nature qualité restaurant</h4>
+                            <div class="price-info">
+                                <span class="old-price">4.80€</span>
+                                <span class="new-price">2.29€</span>
+                                <span class="discount">-52%</span>
+                            </div>
+                            <p>Sachet de 500g - Sans conservateurs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎄 Offres Spéciales Fêtes de Fin d'Année</h2>
+            <p>Profitez de nos offres spéciales <strong>destockage alimentaire en ligne pour particulier</strong> pour les fêtes de fin d'année 2025.</p>
+            
+            <div class="special-offers">
+                <div class="offer-card">
+                    <div class="offer-badge">EXCLUSIF</div>
+                    <h3>Panier Fêtes -70%</h3>
+                    <div class="price-comparison">
+                        <span class="original">Valeur 85€</span>
+                        <span class="final">25.50€ seulement!</span>
+                    </div>
+                    <ul>
+                        <li>✅ Chocolats de Noël (500g)</li>
+                        <li>✅ Foie gras mi-cuit (180g)</li>
+                        <li>✅ Saumon fumé (200g)</li>
+                        <li>✅ Champagne brut (bouteille)</li>
+                        <li>✅ Bûche glacée (6 parts)</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">POPULAIRE</div>
+                    <h3>Pack Apéritif -65%</h3>
+                    <div class="price-comparison">
+                        <span class="original">Valeur 45€</span>
+                        <span class="final">15.75€ seulement!</span>
+                    </div>
+                    <ul>
+                        <li>✅ Olives variées (500g)</li>
+                        <li>✅ Chips artisanales (3x150g)</li>
+                        <li>✅ Biscuits apéritif (400g)</li>
+                        <li>✅ Cacahuètes grillées (500g)</li>
+                        <li>✅ Sauces dips (3 variétés)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📱 Comment Commander en Ligne ?</h2>
+            
+            <div class="order-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Inscription rapide</h3>
+                    <p>Créez votre compte en 2 minutes. Spécial <strong>particulier</strong>, pas besoin de numéro SIRET.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Parcourez les offres</h3>
+                    <p>Explorez nos <strong>promotions de déstockage alimentaire</strong> triées par catégorie.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Ajoutez au panier</h3>
+                    <p>Sélectionnez les produits qui vous intéressent. Quantités limitées!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Livraison express</h3>
+                    <p>Recevez votre commande en 24-48h partout en <strong>France métropolitaine</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>⭐ Témoignages de nos Clients</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <p>"J'ai économisé 120€ sur mes courses du mois grâce au <strong>destockage alimentaire en ligne</strong>. Les produits sont de qualité et la livraison ultra rapide!"</p>
+                    <div class="client-info">
+                        <strong>Marie L., Paris</strong>
+                        <span>Client depuis 2024</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <p>"En tant que <strong>particulier</strong>, je trouve des produits premium à prix cassés. Le panier fêtes à -70% était une aubaine!"</p>
+                    <div class="client-info">
+                        <strong>Thomas R., Lyon</strong>
+                        <span>Client depuis 2025</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <p>"Service impeccable pour le <strong>destockage alimentaire en ligne</strong>. Les économies sont réelles et les produits toujours frais."</p>
+                    <div class="client-info">
+                        <strong>Sophie B., Marseille</strong>
+                        <span>Client depuis 2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-cta">
+            <div class="countdown-timer">
+                <h3>⏰ OFFRE LIMITÉE DANS LE TEMPS</h3>
+                <p>Ces promotions de <strong>destockage alimentaire en ligne pour particulier</strong> expirent le 31 décembre 2025 à minuit.</p>
+                <div class="timer-display">
+                    <div class="time-unit">
+                        <span class="number">16</span>
+                        <span class="label">Jours</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="number">23</span>
+                        <span class="label">Heures</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="number">45</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="urgency-message">
+                <h2>🚀 NE MANQUEZ PAS CETTE OPPORTUNITÉ !</h2>
+                <p>Plus de <strong>2,500 particuliers</strong> ont déjà profité de nos offres de <strong>destockage alimentaire en ligne</strong> ce mois-ci. Les stocks sont limités et s'épuisent rapidement.</p>
+                
+                <div class="guarantee-badges">
+                    <div class="badge">
+                        <span>🛡️</span>
+                        <div>
+                            <strong>Garantie 30 jours</strong>
+                            <small>Satisfait ou remboursé</small>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <span>🚚</span>
+                        <div>
+                            <strong>Livraison offerte</strong>
+                            <small>Dès 50€ d'achat</small>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <span>🔒</span>
+                        <div>
+                            <strong>Paiement sécurisé</strong>
+                            <small>CB, PayPal, virement</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-cta">
+                <h3>🎁 COMMANDEZ MAINTENANT ET ÉCONOMISEZ JUSQU'À 70%</h3>
+                <p>Accédez immédiatement à toutes nos offres de <strong>destockage alimentaire en ligne pour particulier</strong>.</p>
+                <a href="{{ url_for('product_list') }}" class="cta-button">
+                    <span class="cta-text">🔥 ACCÉDER AUX OFFRES EXCLUSIVES</span>
+                    <span class="cta-subtext">Économies immédiates garanties!</span>
+                </a>
+                <div class="security-notice">
+                    <span>🔒 Paiement 100% sécurisé • </span>
+                    <span>📞 Service client 7j/7 • </span>
+                    <span>🚚 Livraison partout en France</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ pour le SEO et conversion -->
+        <section class="faq-section">
+            <h2>❓ Questions Fréquentes sur le Destockage Alimentaire en Ligne</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Qui peut bénéficier du déstockage alimentaire en ligne ?</h3>
+                    <p>Notre service de <strong>destockage alimentaire en ligne pour particulier</strong> est accessible à tous les consommateurs résidant en France. Pas besoin de statut professionnel, notre plateforme est spécialement conçue pour les <strong>particuliers</strong> souhaitant faire des économies.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quelle est la qualité des produits en déstockage ?</h3>
+                    <p>Tous nos produits sont de première qualité. Le <strong>destockage alimentaire</strong> concerne des surplus de production, fins de série ou produits avec des dates de péremption optimales éloignées. Nous garantissons la fraîcheur et la qualité de chaque article.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Comment se fait la livraison ?</h3>
+                    <p>Nous livrons partout en <strong>France métropolitaine</strong> en 24-48h ouvrés. Les frais de port sont offerts dès 50€ d'achat. Vous recevrez un suivi en temps réel de votre colis.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Peut-on commander en petite quantité ?</h3>
+                    <p>Absolument ! Notre <strong>destockage alimentaire en ligne pour particulier</strong> permet d'acheter à l'unité ou en petites quantités, contrairement aux grossistes traditionnels. Parfait pour tester de nouveaux produits.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles ultra-optimisés pour la conversion */
+.article-content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.article-content h2 {
+    color: #d32f2f;
+    margin: 2.5rem 0 1.5rem 0;
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 3px solid #ff5722;
+    padding-bottom: 0.5rem;
+}
+
+.article-content h3 {
+    color: #ff5722;
+    margin: 1.8rem 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.urgent-alert {
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+    border: 3px solid #ffccbc;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+.urgent-alert h2 {
+    color: white;
+    border: none;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.conversion-banner {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    border-radius: 10px;
+    margin: 2rem 0;
+    padding: 2rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.benefit {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.benefit .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.products-highlight {
+    margin: 2rem 0;
+}
+
+.product-category {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #4caf50;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.product-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.price-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.new-price {
+    color: #d32f2f;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.discount {
+    background: #ff5722;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.special-offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.offer-card {
+    background: linear-gradient(135deg, #2196f3, #0d47a1);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.offer-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #ffeb3b;
+    color: #333;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.price-comparison {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.original {
+    text-decoration: line-through;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.final {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.order-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step {
+    text-align: center;
+    padding: 1.5rem;
+    background: #e3f2fd;
+    border-radius: 10px;
+    border: 2px solid #2196f3;
+}
+
+.step-number {
+    background: #2196f3;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.client-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.conversion-cta {
+    background: linear-gradient(135deg, #673ab7, #512da8);
+    color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.countdown-timer {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.timer-display {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.time-unit {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+.time-unit .number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.time-unit .label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.guarantee-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+.badge span {
+    font-size: 2rem;
+}
+
+.main-cta {
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: block;
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: white;
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(255, 152, 0, 0.6);
+}
+
+.cta-text {
+    display: block;
+    font-size: 1.4rem;
+}
+
+.cta-subtext {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.security-notice {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    flex-wrap: wrap;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+}
+
+.expiration-date {
+    background: #ff5722;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .article-content {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
+    
+    .article-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .benefits-grid,
+    .product-list,
+    .special-offers,
+    .order-steps,
+    .testimonial-grid,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .conversion-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .timer-display {
+        gap: 1rem;
+    }
+    
+    .time-unit {
+        min-width: 60px;
+    }
+    
+    .guarantee-badges {
+        gap: 1rem;
+    }
+    
+    .badge {
+        min-width: 100%;
+    }
+    
+    .security-notice {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>
+
+<!-- Script pour le compte à rebours dynamique -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Date d'expiration : 31 décembre 2025 à 23:59:59
+    const endDate = new Date('December 31, 2025 23:59:59').getTime();
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const timeLeft = endDate - now;
+        
+        if (timeLeft < 0) {
+            document.querySelector('.countdown-timer').innerHTML = '<h3>⏰ OFFRE TERMINÉE</h3><p>Ces promotions sont maintenant terminées. Revenez bientôt pour de nouvelles offres!</p>';
+            return;
+        }
+        
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        
+        // Mise à jour de l'affichage
+        document.querySelector('.timer-display .time-unit:nth-child(1) .number').textContent = days.toString().padStart(2, '0');
+        document.querySelector('.timer-display .time-unit:nth-child(2) .number').textContent = hours.toString().padStart(2, '0');
+        document.querySelector('.timer-display .time-unit:nth-child(3) .number').textContent = minutes.toString().padStart(2, '0');
+    }
+    
+    // Mise à jour initiale
+    updateCountdown();
+    
+    // Mise à jour toutes les minutes
+    setInterval(updateCountdown, 60000);
+    
+    // Tracking des clics sur le CTA
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function() {
+            // Envoyer un événement à Google Analytics (si configuré)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'Conversion',
+                    'event_label': 'CTA Destockage Alimentaire',
+                    'value': 1
+                });
+            }
+            
+            // Envoyer un événement à Facebook Pixel (si configuré)
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+        });
+    }
+});
+</script>
+{% endblock %}
