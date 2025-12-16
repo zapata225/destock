@@ -1,0 +1,857 @@
+{% extends "base.html" %}
+
+{% block page_title %}Déstockage Alimentaire en Ligne pour Professionnel | Grossiste France 2025{% endblock %}
+
+{% block meta_description %}Déstockage alimentaire en ligne professionnel 2025. Commandez en gros à prix cassés pour restaurants, hôtels, traiteurs. Livraison France entière.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Déstockage Alimentaire en Ligne pour Professionnel | France 2025">
+<meta property="og:description" content="Plateforme déstockage alimentaire professionnel. Produits alimentaires à prix grossiste pour restaurateurs, hôteliers, collectivités. France métropolitaine.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-professionnel-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:country-name" content="France">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Déstockage Alimentaire en Ligne pour Professionnel | France 2025">
+<meta name="twitter:description" content="Déstockage alimentaire professionnel en ligne 2025. Prix grossiste pour restaurateurs, traiteurs, hôtels. Livraison France.">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-professionnel-2025.jpg') }}">
+<meta name="twitter:site" content="@DestockageAlim">
+<meta name="twitter:creator" content="@DestockageAlim">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel" />
+{% endblock %}
+
+{% block geo_tags %}
+<meta name="geo.region" content="FR" />
+<meta name="geo.placename" content="France" />
+<meta name="geo.position" content="46.603354;1.888334" />
+<meta name="ICBM" content="46.603354, 1.888334" />
+{% endblock %}
+
+{% block hreflang %}
+<link rel="alternate" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel" hreflang="fr-fr" />
+<link rel="alternate" href="https://www.destockagealimentairestore.com/fr/blog/destockage-alimentaire-en-ligne-professionnel" hreflang="fr" />
+<link rel="alternate" href="https://www.destockagealimentairestore.com/en/blog/food-wholesale-professional" hreflang="en" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel"
+  },
+  "headline": "Déstockage Alimentaire en Ligne pour Professionnel | France 2025",
+  "description": "Plateforme de déstockage alimentaire professionnel en ligne pour restaurateurs, hôteliers, traiteurs et collectivités en France.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-professionnel-2025.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "FR",
+      "addressRegion": "France"
+    },
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2025-12-17",
+  "dateModified": "2025-12-17",
+  "keywords": "destockage alimentaire en ligne professionnel, grossiste alimentaire professionnel France, déstockage restaurant, prix grossiste alimentaire, commande en ligne professionnel",
+  "articleSection": "Professionnel",
+  "contentLocation": {
+    "@type": "Place",
+    "name": "France"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Restaurateurs, Hôteliers, Traiteurs, Collectivités"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Déstockage Alimentaire en Ligne pour Professionnel",
+  "description": "Plateforme de déstockage alimentaire professionnel France 2025",
+  "url": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-en-ligne-professionnel",
+  "inLanguage": "fr-FR",
+  "about": {
+    "@type": "Thing",
+    "name": "destockage alimentaire professionnel"
+  },
+  "mainEntity": {
+    "@type": "Service",
+    "serviceType": "Déstockage alimentaire professionnel",
+    "provider": {
+      "@type": "Organization",
+      "name": "Destockage Alimentaire"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "France"
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "name": "Professionnels de la restauration"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Destockage Alimentaire",
+  "image": "https://www.destockagealimentairestore.com/static/images/logo.png",
+  "@id": "https://www.destockagealimentairestore.com",
+  "url": "https://www.destockagealimentairestore.com",
+  "telephone": "+33123456789",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Avenue des Professionnels",
+    "addressLocality": "Paris",
+    "postalCode": "75001",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.856614,
+    "longitude": 2.3522219
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/destockagealimentaire",
+    "https://twitter.com/DestockageAlim",
+    "https://www.linkedin.com/company/destockage-alimentaire"
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Professionnel</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline"><span class="country-flag">🇫🇷</span> Déstockage Alimentaire en Ligne pour Professionnel 2025</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 17 décembre 2025</span>
+                <span class="reading-time">⏱️ 8 min de lecture</span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+                <span class="geo-tag">📍 France Métropolitaine</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-professionnel-2025.jpg') }}" 
+                     alt="Déstockage alimentaire en ligne professionnel France 2025 - plateforme grossiste restaurateurs hôteliers" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">Jusqu'à 60% d'économies sur vos achats professionnels - Livraison France entière</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <section class="intro-section">
+            <div class="geo-badge">
+                <span class="geo-icon">🌍</span>
+                <span class="geo-text">Service disponible en <strong>France métropolitaine</strong></span>
+            </div>
+            
+            <div class="professional-badge">
+                <span class="pro-icon">🏢</span>
+                <span class="pro-text">Réservé aux <strong>professionnels</strong> : restaurateurs, hôteliers, traiteurs, collectivités</span>
+            </div>
+            
+            <div class="attention-grabber">
+                <h2>La Révolution du Déstockage Alimentaire en Ligne pour Professionnels en France</h2>
+                <p>En cette fin d'année 2025, le <strong>déstockage alimentaire en ligne pour professionnel</strong> connaît une croissance exponentielle en France. Les professionnels de la restauration, de l'hôtellerie et de la grande distribution cherchent désormais à optimiser leurs coûts d'approvisionnement grâce aux plateformes de <strong>déstockage alimentaire professionnel</strong>. Découvrez comment transformer votre gestion des stocks et réaliser des économies substantielles.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pourquoi Choisir le Déstockage Alimentaire en Ligne en 2025 ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>💰 Économies Jusqu'à 60%</h3>
+                    <p>Le <strong>déstockage alimentaire professionnel</strong> permet de réaliser des économies massives. En achetant des produits en <strong>surstock</strong>, <strong>fins de série</strong> ou <strong>proches de la DLC</strong>, les professionnels français peuvent réduire leur budget achats de manière significative.</p>
+                    <div class="savings-highlight">
+                        <strong>Exemple concret :</strong> 100kg de pâtes alimentaires à 0.85€/kg au lieu de 2.10€/kg
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>🚚 Livraison Rapide France Entière</h3>
+                    <p>Grâce à notre réseau logistique couvrant toute la <strong>France métropolitaine</strong>, nous garantissons une livraison sous 48-72h pour la plupart des régions. Paris, Lyon, Marseille, Toulouse, Bordeaux - partout en France.</p>
+                    <div class="delivery-highlight">
+                        <strong>Zones de livraison :</strong> Île-de-France, Auvergne-Rhône-Alpes, Provence-Alpes-Côte d'Azur, Occitanie, Nouvelle-Aquitaine
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>📦 Gamme Complète Produits</h3>
+                    <p>Notre plateforme de <strong>déstockage alimentaire professionnel</strong> propose plus de 5 000 références : produits frais, surgelés, épicerie, boissons, conserverie. Tous les produits nécessaires pour les professionnels de l'alimentation en France.</p>
+                    <div class="product-highlight">
+                        <strong>Catégories phares :</strong> Viandes et volailles, fruits et légumes, produits laitiers, boulangerie
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="professional-section">
+            <h2>Notre Plateforme Exclusivement Réservée aux Professionnels Français</h2>
+            
+            <div class="professional-categories">
+                <div class="category-card">
+                    <h3>🍽️ Restaurateurs & Traiteurs</h3>
+                    <div class="category-icon">👨‍🍳</div>
+                    <p>Approvisionnez votre restaurant, brasserie, snack ou traiteur à <strong>prix grossiste</strong>. Produits adaptés aux normes HACCP et traçabilité garantie.</p>
+                    <ul>
+                        <li>Matériel cuisine professionnelle</li>
+                        <li>Produits portionnables</li>
+                        <li>Conditionnements adaptés</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🏨 Hôtels & Résidences</h3>
+                    <div class="category-icon">🛎️</div>
+                    <p>Services de petit-déjeuner, minibar, room-service. Commandez en gros pour optimiser vos coûts sur toute la <strong>France</strong>.</p>
+                    <ul>
+                        <li>Produits petit-déjeuner</li>
+                        <li>Snacks et boissons</li>
+                        <li>Conditionnements individuels</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🏫 Collectivités & Cantines</h3>
+                    <div class="category-icon">🏛️</div>
+                    <p>Écoles, hôpitaux, entreprises, maisons de retraite. Commandes en volume avec <strong>livraison France entière</strong>.</p>
+                    <ul>
+                        <li>Produits en gros conditionnement</li>
+                        <li>Respect normes sanitaires</li>
+                        <li>Facturation administrative</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <h3>🛒 Commerces Alimentaires</h3>
+                    <div class="category-icon">🛒</div>
+                    <p>Épiceries, supérettes, magasins de proximité. Revendez avec marge sur des produits de qualité à <strong>prix déstockage</strong>.</p>
+                    <ul>
+                        <li>Produits à rotation rapide</li>
+                        <li>Marques connues</li>
+                        <li>Conditionnements vente au détail</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Notre Couverture Géographique en France</h2>
+            
+            <div class="coverage-section">
+                <div class="coverage-map">
+                    <h3>🗺️ Zones de Livraison Prioritaire</h3>
+                    <div class="france-regions">
+                        <div class="region-item">
+                            <span class="region-dot paris"></span>
+                            <strong>Île-de-France</strong> : Livraison 24h
+                        </div>
+                        <div class="region-item">
+                            <span class="region-dot lyon"></span>
+                            <strong>Auvergne-Rhône-Alpes</strong> : 48h
+                        </div>
+                        <div class="region-item">
+                            <span class="region-dot marseille"></span>
+                            <strong>Provence-Alpes-Côte d'Azur</strong> : 48-72h
+                        </div>
+                        <div class="region-item">
+                            <span class="region-dot bordeaux"></span>
+                            <strong>Nouvelle-Aquitaine</strong> : 48-72h
+                        </div>
+                        <div class="region-item">
+                            <span class="region-dot lille"></span>
+                            <strong>Hauts-de-France</strong> : 48h
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="logistics-info">
+                    <h3>🚛 Service Logistique</h3>
+                    <ul>
+                        <li><strong>Plateformes logistiques</strong> : Paris, Lyon, Lille, Bordeaux, Marseille</li>
+                        <li><strong>Transporteurs partenaires</strong> : Chronopost, DHL, Geodis, FM Logistic</li>
+                        <li><strong>Livraison gratuite</strong> à partir de 1 500€ HT en France métropolitaine</li>
+                        <li><strong>Suivi en temps réel</strong> de votre commande</li>
+                        <li><strong>Réception</strong> 6j/7 pour les professionnels</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Comment Fonctionne Notre Plateforme Professionnelle ?</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Inscription Professionnelle</h3>
+                    <p>Créez votre compte <strong>professionnel</strong> avec votre numéro SIRET et justificatif d'activité. Vérification sous 24h.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Parcourir le Catalogue</h3>
+                    <p>Accédez à plus de 5 000 produits en <strong>déstockage</strong> avec filtres par catégorie, prix, et localisation en France.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Commander en Ligne</h3>
+                    <p>Sélectionnez les produits, quantités et choisissez votre créneau de livraison dans toute la <strong>France</strong>.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Livraison & Facturation</h3>
+                    <p>Livraison à votre établissement en France avec facture <strong>professionnelle</strong> et TVA déductible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>Témoignages de Professionnels Français</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">👨‍🍳</div>
+                        <div class="testimonial-info">
+                            <strong>Pierre L.</strong>
+                            <span>Restaurateur à Paris 11e</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Grâce au <strong>déstockage alimentaire professionnel</strong>, j'ai réduit mon budget matières premières de 35%. Livraison rapide à Paris."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">🏨</div>
+                        <div class="testimonial-info">
+                            <strong>Marie D.</strong>
+                            <span>Gérante hôtel 4* à Lyon</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Service impeccable pour notre hôtel à Lyon. Produits de qualité à prix défiant toute concurrence en France."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">🏫</div>
+                        <div class="testimonial-info">
+                            <strong>Thomas R.</strong>
+                            <span>Responsable cantine scolaire, Marseille</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Commande facile pour notre collectivité à Marseille. Facturation adaptée et produits conformes aux normes."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="conversion-section">
+            <div class="urgency-banner">
+                <div class="urgency-icon">⚡</div>
+                <div class="urgency-content">
+                    <h3>OFFRES DE DÉSTOCKAGE DISPONIBLES MAINTENANT</h3>
+                    <p>Quantités limitées - Réservé aux professionnels en France - Commandez avant rupture</p>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5 000+</div>
+                    <div class="stat-label">Produits disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Économie moyenne</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">48h</div>
+                    <div class="stat-label">Livraison France</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3 000+</div>
+                    <div class="stat-label">Professionnels satisfaits</div>
+                </div>
+            </div>
+            
+            <div class="conversion-cta">
+                <h2>🚀 Accédez à Notre Plateforme Professionnelle</h2>
+                <p>Rejoignez les milliers de professionnels français qui optimisent déjà leurs achats grâce à notre plateforme de <strong>déstockage alimentaire en ligne</strong>.</p>
+                
+                <div class="cta-benefits">
+                    <div class="benefit-check">✅ Compte professionnel gratuit</div>
+                    <div class="benefit-check">✅ Accès immédiat aux offres</div>
+                    <div class="benefit-check">✅ Livraison France métropolitaine</div>
+                    <div class="benefit-check">✅ Facturation professionnelle TVA</div>
+                    <div class="benefit-check">✅ Support dédié aux professionnels</div>
+                </div>
+                
+                <!-- REDIRECTION EXCLUSIVE VERS PRODUCT_LIST -->
+                <div class="main-conversion-cta">
+                    <a href="{{ url_for('product_list') }}" class="conversion-button" onclick="trackConversion('professional_signup')">
+                        <span class="cta-icon">🏢</span>
+                        <span class="cta-text">
+                            <strong>ACCÉDER AU CATALOGUE PROFESSIONNEL</strong><br>
+                            <small>Réservé aux professionnels en France - Inscription obligatoire</small>
+                        </span>
+                        <span class="cta-arrow">→</span>
+                    </a>
+                    <p class="cta-note">Vous serez redirigé vers notre plateforme professionnelle après vérification de votre statut.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>FAQ : Déstockage Alimentaire Professionnel France</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Qui peut acheter sur votre plateforme ?</h3>
+                    <p>Exclusivement les <strong>professionnels</strong> basés en France : restaurateurs, hôteliers, traiteurs, collectivités, commerces alimentaires avec numéro SIRET valide.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Livrez-vous dans toute la France ?</h3>
+                    <p>Oui, <strong>France métropolitaine</strong> entière. Délais variables selon les régions : 24h pour Paris, 48-72h pour les autres régions.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quels types de facturation ?</h3>
+                    <p>Factures <strong>professionnelles</strong> avec TVA déductible, devis sur demande, règlement par virement, carte pro ou mandat administratif.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Minimum de commande ?</h3>
+                    <p>Pas de minimum pour les commandes, mais livraison gratuite à partir de <strong>1 500€ HT</strong> en France métropolitaine.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<style>
+/* Styles optimisés pour la conversion et le référencement */
+.article-content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.article-content h2 {
+    color: #2c5530;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #4a7c59;
+    padding-bottom: 0.5rem;
+}
+
+.article-content h3 {
+    color: #4a7c59;
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.4rem;
+}
+
+/* Badges géographiques et professionnels */
+.geo-badge, .professional-badge {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border-left: 4px solid #4a7c59;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.geo-icon, .pro-icon {
+    font-size: 1.5rem;
+}
+
+.country-flag {
+    margin-right: 10px;
+}
+
+.geo-tag {
+    background: #4a7c59;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+/* Grilles et cartes */
+.benefits-grid, .professional-categories, .coverage-section, .process-steps, .testimonials-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item, .category-card, .testimonial-card, .faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover, .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.savings-highlight, .delivery-highlight, .product-highlight {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border-left: 4px solid #ffc107;
+}
+
+/* Section professionnelle */
+.professional-section {
+    background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.category-icon {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Carte de la France */
+.coverage-map {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.france-regions {
+    margin: 1rem 0;
+}
+
+.region-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.region-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.region-dot.paris { background: #dc3545; }
+.region-dot.lyon { background: #0d6efd; }
+.region-dot.marseille { background: #198754; }
+.region-dot.bordeaux { background: #6f42c1; }
+.region-dot.lille { background: #fd7e14; }
+
+/* Étapes du processus */
+.process-steps {
+    counter-reset: step-counter;
+}
+
+.step {
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #4a7c59;
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Section conversion */
+.conversion-section {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 3rem 0;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+.urgency-icon {
+    font-size: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.cta-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.benefit-check {
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* CTA PRINCIPAL - ULTRA MEGA CONVERSION */
+.main-conversion-cta {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.conversion-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #ffeb3b, #ffc107);
+    color: #2c5530;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin: 1rem auto;
+    max-width: 600px;
+}
+
+.conversion-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+}
+
+.cta-icon {
+    font-size: 2rem;
+}
+
+.cta-text {
+    flex-grow: 1;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.cta-text strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.cta-text small {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.cta-arrow {
+    font-size: 1.5rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+.cta-note {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+/* Témoignages */
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-avatar {
+    font-size: 1.5rem;
+    background: #e9ecef;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-info span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .benefits-grid, .professional-categories, .coverage-section, 
+    .process-steps, .testimonials-grid, .faq-grid, .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+    
+    .conversion-button {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .cta-text {
+        padding: 0;
+    }
+    
+    .urgency-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Suivi conversion */
+<script>
+function trackConversion(action) {
+    // Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-123456789/AbC-D_EFgHiJkLmNoPqRs',
+            'value': 1.0,
+            'currency': 'EUR',
+            'transaction_id': 'PROF_' + Date.now()
+        });
+    }
+    
+    // Facebook Pixel
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: 'Professional Signup',
+            content_category: 'Food Wholesale',
+            content_ids: ['PROF_FR_2025'],
+            value: 1.00,
+            currency: 'EUR'
+        });
+    }
+    
+    // Log interne
+    localStorage.setItem('conversion_tracked', new Date().toISOString());
+}
+</script>
+</style>
+{% endblock %}

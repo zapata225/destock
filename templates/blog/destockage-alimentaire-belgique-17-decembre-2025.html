@@ -1,0 +1,935 @@
+{% extends "base.html" %}
+
+{% block page_title %}Destockage Alimentaire Belgique 17 Décembre 2025 : Meilleures Offres et Promotions | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez les meilleures offres de destockage alimentaire en Belgique pour le 17 décembre 2025. Promotions exceptionnelles, produits à prix cassés et économies garanties dans toute la Belgique.{% endblock %}
+
+{% block og_tags %}
+<meta property="og:title" content="Destockage Alimentaire Belgique 17 Décembre 2025 : Meilleures Offres et Promotions">
+<meta property="og:description" content="Offres exclusives de destockage alimentaire en Belgique pour le 17/12/2025. Produits à -70%, promotions limitées et économies immédiates.">
+<meta property="og:url" content="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-17-decembre-2025">
+<meta property="og:image" content="{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Destockage Alimentaire">
+<meta property="og:locale" content="fr_BE">
+{% endblock %}
+
+{% block twitter_tags %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Destockage Alimentaire Belgique 17 Décembre 2025 : Meilleures Offres">
+<meta name="twitter:description" content="Promotions destockage alimentaire Belgique 17/12/2025 : -70% sur produits alimentaires, stocks limités!">
+<meta name="twitter:image" content="{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-17-decembre-2025" />
+{% endblock %}
+
+{% block hreflang %}
+<link rel="alternate" hreflang="fr-be" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-17-decembre-2025" />
+<link rel="alternate" hreflang="fr" href="https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-17-decembre-2025" />
+<link rel="alternate" hreflang="nl-be" href="https://www.destockagealimentairestore.com/nl/blog/voedingsdestockage-belgie-17-december-2025" />
+{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.destockagealimentairestore.com/blog/destockage-alimentaire-belgique-17-decembre-2025"
+  },
+  "headline": "Destockage Alimentaire Belgique 17 Décembre 2025 : Meilleures Offres et Promotions",
+  "description": "Promotions exclusives de destockage alimentaire en Belgique pour le 17 décembre 2025. Produits à prix cassés, économies garanties.",
+  "image": "{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Équipe Destockage Alimentaire"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.destockagealimentairestore.com/static/images/logo.png"
+    }
+  },
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-16",
+  "dateValid": "2025-12-17",
+  "countryOfOrigin": "BE",
+  "inLanguage": "fr-BE",
+  "keywords": "destockage alimentaire belgique, destockage alimentaire 17 décembre 2025, promotions belgique, prix cassés belgique, offre limitée belgique"
+}
+</script>
+
+<!-- Schema LocalBusiness pour la Belgique -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Destockage Alimentaire Belgique",
+  "image": "{{ url_for('static', filename='images/logo.png') }}",
+  "@id": "https://www.destockagealimentairestore.com",
+  "url": "https://www.destockagealimentairestore.com",
+  "telephone": "+32 2 123 45 67",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rue du Commerce 123",
+    "addressLocality": "Bruxelles",
+    "postalCode": "1000",
+    "addressCountry": "BE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.8503,
+    "longitude": 4.3517
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "09:00",
+    "closes": "19:00"
+  },
+  "priceRange": "€€",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "1250"
+  }
+}
+</script>
+
+<!-- Schema Offer pour les promotions -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "name": "Promotion Destockage Alimentaire Belgique 17 Décembre 2025",
+  "description": "Offres exclusives de destockage alimentaire valables uniquement le 17 décembre 2025 en Belgique",
+  "price": "9.99",
+  "priceCurrency": "EUR",
+  "availability": "https://schema.org/InStock",
+  "validFrom": "2025-12-17T00:00",
+  "validThrough": "2025-12-17T23:59",
+  "eligibleRegion": {
+    "@type": "Country",
+    "name": "Belgique"
+  },
+  "seller": {
+    "@type": "Organization",
+    "name": "Destockage Alimentaire"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="blog-article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="article-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="{{ url_for('index') }}">Accueil</a> > 
+                <a href="{{ url_for('blog') }}">Blog</a> > 
+                <span>Destockage Belgique 17/12/2025</span>
+            </nav>
+            
+            <h1 class="article-title" itemprop="headline">Destockage Alimentaire Belgique 17 Décembre 2025 : Offres Exclusives 🔥</h1>
+            
+            <div class="article-meta">
+                <span class="publish-date" itemprop="datePublished">📅 Publié le 15 décembre 2025</span>
+                <span class="valid-date">🎯 Valable uniquement le <strong>17 décembre 2025</strong></span>
+                <span class="location">📍 Promotion exclusive pour la <strong>Belgique</strong></span>
+                <span class="author" itemprop="author">✍️ Équipe Destockage Alimentaire</span>
+            </div>
+            
+            <div class="article-hero">
+                <img src="{{ url_for('static', filename='images/blog/destockage-belgique-2025.jpg') }}" 
+                     alt="Destockage alimentaire Belgique 17 décembre 2025 - promotions exclusives prix cassés -70%" 
+                     class="hero-image" itemprop="image">
+                <div class="hero-overlay">
+                    <p class="hero-text">🎄 PROMOTION EXCEPTIONNELLE : -70% sur tous nos produits alimentaires en Belgique - <strong>Uniquement le 17/12/2025</strong> 🎄</p>
+                </div>
+            </div>
+            
+            <!-- Urgency Banner -->
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <span class="urgency-icon">⏰</span>
+                    <span class="urgency-text"><strong>OFFRE LIMITÉE :</strong> Ces promotions sont valables UNIQUEMENT le 17 décembre 2025 pour la Belgique. Stocks limités !</span>
+                    <span class="countdown" id="promo-countdown"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content container" itemprop="articleBody">
+        <!-- Introduction avec CTA immédiat -->
+        <section class="intro-section">
+            <div class="urgent-cta">
+                <h2>🚨 PROMOTION ULTIME : Destockage Alimentaire Belgique 17 Décembre 2025</h2>
+                <p>Ne manquez pas les <strong>offres de destockage alimentaire les plus avantageuses de l'année en Belgique</strong> ! Pour le <strong>17 décembre 2025 uniquement</strong>, nous vous proposons des réductions exceptionnelles allant jusqu'à <strong>-70%</strong> sur notre gamme complète de produits alimentaires.</p>
+                
+                <div class="main-cta">
+                    <h3>🎯 ACCÉDEZ IMMÉDIATEMENT À NOS PROMOTIONS</h3>
+                    <p>Ces offres sont exclusivement réservées à nos clients en <strong>Belgique</strong> et ne seront disponibles que pendant 24 heures.</p>
+                    <a href="{{ url_for('product_list') }}" class="cta-button-primary" onclick="trackConversion('belgium_promo_click')">
+                        🛒 VOIR TOUTES LES PROMOTIONS BELGIQUE -70%
+                    </a>
+                    <p class="cta-note">⚠️ <strong>Attention :</strong> Ces stocks sont très limités. Premiers arrivés, premiers servis !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Promotions en vedette -->
+        <section class="featured-promotions">
+            <h2>🔥 PROMOTIONS PHARES - Destockage Alimentaire Belgique</h2>
+            <p>Découvrez nos <strong>meilleures offres de destockage alimentaire en Belgique</strong> pour le 17 décembre 2025 :</p>
+            
+            <div class="promo-grid">
+                <div class="promo-card featured">
+                    <div class="promo-badge">TOP VENTE</div>
+                    <h3>🍗 Volailles et Viandes</h3>
+                    <div class="promo-price">
+                        <span class="old-price">€49.99</span>
+                        <span class="new-price">€14.99</span>
+                        <span class="discount">-70%</span>
+                    </div>
+                    <p>Poulets, dindes, viandes bovines - <strong>Qualité premium à prix cassé</strong></p>
+                    <a href="{{ url_for('product_list', category='viandes') }}" class="promo-cta" onclick="trackConversion('belgium_meat_promo')">
+                        🎯 J'EN PROFITE MAINTENANT
+                    </a>
+                </div>
+                
+                <div class="promo-card featured">
+                    <div class="promo-badge">EXCLUSIF</div>
+                    <h3>🥦 Fruits et Légumes Frais</h3>
+                    <div class="promo-price">
+                        <span class="old-price">€34.99</span>
+                        <span class="new-price">€10.49</span>
+                        <span class="discount">-70%</span>
+                    </div>
+                    <p>Produits frais de saison - <strong>Livraison rapide en Belgique</strong></p>
+                    <a href="{{ url_for('product_list', category='fruits-legumes') }}" class="promo-cta" onclick="trackConversion('belgium_produce_promo')">
+                        🎯 COMMANDER EN BELGIQUE
+                    </a>
+                </div>
+                
+                <div class="promo-card featured">
+                    <div class="promo-badge">LIMITÉ</div>
+                    <h3>🥫 Conserves et Epicerie</h3>
+                    <div class="promo-price">
+                        <span class="old-price">€24.99</span>
+                        <span class="new-price">€7.49</span>
+                        <span class="discount">-70%</span>
+                    </div>
+                    <p>Packs familiaux - <strong>Idéal pour les fêtes en Belgique</strong></p>
+                    <a href="{{ url_for('product_list', category='epicerie') }}" class="promo-cta" onclick="trackConversion('belgium_grocery_promo')">
+                        🎯 PROFITER DE L'OFFRE
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Avantages -->
+        <section class="benefits-section">
+            <h2>✅ POURQUOI PROFITER DE CE DESTOCKAGE EN BELGIQUE ?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>ÉCONOMIES GARANTIES</h3>
+                    <p>Jusqu'à <strong>70% de réduction</strong> sur tous nos produits alimentaires en Belgique</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>LIVRAISON RAPIDE</h3>
+                    <p>Expédition sous <strong>24-48h dans toute la Belgique</strong> - Frais de port offerts dès 50€</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⭐</div>
+                    <h3>QUALITÉ PREMIUM</h3>
+                    <p>Produits de <strong>première qualité</strong> - Garantie satisfaction 100%</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎁</div>
+                    <h3>CADEAU OFFERT</h3>
+                    <p>Pour toute commande > 75€ en Belgique : <strong>un panier gourmand offert</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Zones de livraison Belgique -->
+        <section class="delivery-section">
+            <h2>📍 ZONES DE LIVRAISON EN BELGIQUE</h2>
+            <p>Nos promotions de <strong>destockage alimentaire du 17 décembre 2025</strong> sont disponibles dans toute la Belgique :</p>
+            
+            <div class="delivery-map">
+                <div class="region-list">
+                    <div class="region">
+                        <h4>🏙️ Bruxelles-Capitale</h4>
+                        <ul>
+                            <li>Bruxelles-ville</li>
+                            <li>Schaerbeek</li>
+                            <li>Anderlecht</li>
+                            <li>Saint-Gilles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="region">
+                        <h4>🇫🇷 Région Wallonne</h4>
+                        <ul>
+                            <li>Liège</li>
+                            <li>Charleroi</li>
+                            <li>Namur</li>
+                            <li>Mons</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="region">
+                        <h4>🇳🇱 Région Flamande</h4>
+                        <ul>
+                            <li>Anvers</li>
+                            <li>Gand</li>
+                            <li>Bruges</li>
+                            <li>Louvain</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="delivery-cta">
+                    <p><strong>Vérifiez la livraison dans votre ville :</strong></p>
+                    <a href="{{ url_for('product_list') }}" class="cta-button-secondary" onclick="trackConversion('belgium_delivery_check')">
+                        ✅ VÉRIFIER LA DISPONIBILITÉ EN BELGIQUE
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section class="testimonials-section">
+            <h2>🌟 AVIS CLIENTS BELGES</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"<strong>Meilleur destockage alimentaire en Belgique !</strong> J'ai économisé 150€ sur mes courses de Noël. Livraison ultra-rapide à Liège."</p>
+                    <div class="testimonial-author">
+                        <strong>Marie L.</strong> - Liège, Belgique
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"Qualité exceptionnelle pour des prix incroyables. <strong>Je recommande à tous mes amis en Belgique</strong>. Service client parfait !"</p>
+                    <div class="testimonial-author">
+                        <strong>Jean P.</strong> - Bruxelles, Belgique
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"Promotion du siècle ! <strong>70% de réduction sur des produits premium</strong>. Commandé à Gand, reçu en 24h."</p>
+                    <div class="testimonial-author">
+                        <strong>Sophie V.</strong> - Gand, Belgique
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ Conversion -->
+        <section class="faq-section">
+            <h2>❓ QUESTIONS FRÉQUENTES - Destockage Belgique</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>🇧🇪 Cette promotion est-elle valable uniquement en Belgique ?</h3>
+                    <p><strong>OUI !</strong> Cette offre de destockage alimentaire à -70% est exclusivement réservée à nos clients en <strong>Belgique</strong> et n'est valable que le <strong>17 décembre 2025</strong>.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>⏰ Combien de temps dure cette promotion ?</h3>
+                    <p>Seulement <strong>24 heures</strong> ! Du 17 décembre 2025 à 00h00 au 17 décembre 2025 à 23h59. Les stocks sont limités.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🚚 Livrez-vous dans toute la Belgique ?</h3>
+                    <p><strong>Absolument !</strong> Nous livrons dans toutes les régions de Belgique : Bruxelles, Wallonie et Flandre. Livraison sous 24-48h.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>💳 Puis-je payer en euros belges ?</h3>
+                    <p><strong>Bien sûr !</strong> Tous nos prix sont en euros et nous acceptons toutes les cartes bancaires belges ainsi que les virements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Final Ultra Conversion -->
+        <section class="final-cta-section">
+            <div class="final-cta-container">
+                <h2>🚨 DERNIÈRE CHANCE : PROMOTION DESTOCKAGE BELGIQUE 17/12/2025</h2>
+                
+                <div class="urgency-box">
+                    <div class="urgency-item">
+                        <span class="urgency-icon">🔥</span>
+                        <span class="urgency-text">OFFRE EXCLUSIVE BELGIQUE</span>
+                    </div>
+                    <div class="urgency-item">
+                        <span class="urgency-icon">⏰</span>
+                        <span class="urgency-text">VALABLE 24H SEULEMENT</span>
+                    </div>
+                    <div class="urgency-item">
+                        <span class="urgency-icon">📦</span>
+                        <span class="urgency-text">STOCKS TRÈS LIMITÉS</span>
+                    </div>
+                </div>
+                
+                <div class="final-promo">
+                    <h3>🎄 ÉCONOMISEZ JUSQU'À 70% SUR VOS COURSES DE NOËL EN BELGIQUE 🎄</h3>
+                    
+                    <div class="cta-stack">
+                        <a href="{{ url_for('product_list') }}" class="cta-mega" onclick="trackConversion('belgium_final_mega_click')">
+                            🛒 ACCÉDER AUX PROMOTIONS -70% EN BELGIQUE
+                        </a>
+                        
+                        <div class="guarantee-badge">
+                            <span>✅</span>
+                            <span><strong>GARANTIE 100% SATISFACTION</strong> - Livraison Belgique - Paiement sécurisé</span>
+                        </div>
+                        
+                        <div class="security-badges">
+                            <span>🔒 Paiement sécurisé</span>
+                            <span>🚚 Livraison Belgique</span>
+                            <span>📞 Support client BE</span>
+                            <span>💶 Prix en euros</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<!-- Tracking Script pour Conversions -->
+<script>
+// Compte à rebours pour la promotion
+function updateCountdown() {
+    const promoDate = new Date('2025-12-17T23:59:59').getTime();
+    const now = new Date().getTime();
+    const distance = promoDate - now;
+    
+    if (distance < 0) {
+        document.getElementById('promo-countdown').innerHTML = "PROMOTION TERMINÉE";
+        return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('promo-countdown').innerHTML = 
+        `⏳ ${days}j ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// Mise à jour toutes les secondes
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Tracking des conversions
+function trackConversion(action) {
+    // Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXXXX/YYYYYYYYYYYY',
+            'value': 1.0,
+            'currency': 'EUR',
+            'transaction_id': '',
+            'country': 'BE'
+        });
+    }
+    
+    // Facebook Pixel
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: action,
+            content_category: 'belgium_promo',
+            currency: 'EUR',
+            value: 1.0
+        });
+    }
+    
+    // Données vers votre backend
+    fetch('/api/track-conversion', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            action: action,
+            country: 'BE',
+            date: new Date().toISOString(),
+            page: 'destockage-belgique-17-decembre-2025'
+        })
+    });
+    
+    // Stockage local pour suivi
+    localStorage.setItem('last_conversion_action', action);
+    localStorage.setItem('last_conversion_time', new Date().toISOString());
+}
+
+// Scroll tracking pour engagement
+let maxScroll = 0;
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > maxScroll) {
+        maxScroll = currentScroll;
+        
+        // Envoyer des événements de scroll à 25%, 50%, 75%, 100%
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+        const scrollPercent = (maxScroll / (docHeight - winHeight)) * 100;
+        
+        if (scrollPercent >= 25 && scrollPercent < 26) {
+            trackConversion('scroll_25_percent');
+        }
+        if (scrollPercent >= 50 && scrollPercent < 51) {
+            trackConversion('scroll_50_percent');
+        }
+        if (scrollPercent >= 75 && scrollPercent < 76) {
+            trackConversion('scroll_75_percent');
+        }
+        if (scrollPercent >= 95) {
+            trackConversion('scroll_95_percent');
+        }
+    }
+});
+
+// Time on page tracking
+let pageStartTime = new Date();
+window.addEventListener('beforeunload', function() {
+    const timeSpent = (new Date() - pageStartTime) / 1000; // en secondes
+    
+    if (timeSpent > 30) {
+        trackConversion('time_on_page_30s');
+    }
+    if (timeSpent > 60) {
+        trackConversion('time_on_page_60s');
+    }
+    if (timeSpent > 120) {
+        trackConversion('time_on_page_120s');
+    }
+});
+</script>
+
+<style>
+/* Styles ultra-optimisés pour conversion */
+.article-header {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    padding-bottom: 0;
+}
+
+.article-title {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.article-meta {
+    background: rgba(255,255,255,0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: #333;
+}
+
+.valid-date {
+    color: #ff4757;
+    font-weight: bold;
+    background: #ffeaa7;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.location {
+    color: #2d3436;
+    font-weight: bold;
+    background: #74b9ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.urgency-banner {
+    background: #ff3838;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.urgency-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.countdown {
+    background: #2d3436;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* CTA Principaux */
+.urgent-cta {
+    background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border: 3px solid #ff7675;
+}
+
+.main-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-button-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff3838, #ff6b6b);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    margin: 1rem 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.cta-button-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    color: #d63031;
+    margin-top: 0.5rem;
+}
+
+/* Promotions en vedette */
+.featured-promotions {
+    margin: 3rem 0;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.promo-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    border: 2px solid #ffeaa7;
+    transition: transform 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.promo-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #ff3838;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.promo-price {
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+.new-price {
+    color: #ff3838;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0.5rem;
+}
+
+.discount {
+    background: #ff3838;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.promo-cta {
+    display: block;
+    background: #00b894;
+    color: white;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.promo-cta:hover {
+    background: #00a085;
+}
+
+/* Avantages */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-top: 4px solid #74b9ff;
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Livraison */
+.delivery-section {
+    background: #dfe6e9;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.region-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.region h4 {
+    color: #2d3436;
+    margin-bottom: 1rem;
+}
+
+.region ul {
+    list-style: none;
+    padding: 0;
+}
+
+.region li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #b2bec3;
+}
+
+.cta-button-secondary {
+    display: inline-block;
+    background: #0984e3;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Témoignages */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #00b894;
+}
+
+.testimonial-rating {
+    color: #fdcb6e;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    margin-top: 1rem;
+    color: #636e72;
+    font-style: italic;
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.faq-item h3 {
+    color: #2d3436;
+    margin-bottom: 1rem;
+}
+
+/* CTA Final */
+.final-cta-section {
+    background: linear-gradient(135deg, #2d3436, #0984e3);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.urgency-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.urgency-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+}
+
+.cta-mega {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff3838, #ff6b6b);
+    color: white;
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    margin: 2rem 0;
+    border: 3px solid white;
+    animation: pulse 1.5s infinite;
+}
+
+.guarantee-badge {
+    background: rgba(255,255,255,0.9);
+    color: #2d3436;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem auto;
+    max-width: 500px;
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    color: #dfe6e9;
+}
+
+.security-badges span {
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.8rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .cta-button-primary, .cta-mega {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .promo-grid, .benefits-grid, .testimonials-grid, .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .urgency-box {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+{% endblock %}
